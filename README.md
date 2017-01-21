@@ -1,2 +1,2 @@
 # bbgo
-total bbs service made by django
+Total bbs system made by django
