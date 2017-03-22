@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Log in{% endblock %}
+{% block extra_head_content %}
+{{ block.super }}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+a:link {color:#417690; text-decoration:none;}
+a:visited {color:#417690; text-decoration:none;}
+a:hover {color:#be131c; text-decoration:none;}
+</style>
+{% endblock %}
+
+{% block content %}
+
+{% if form.errors %}
+<p><font color="red">login failed</font></p>
+{% endif %}
+
+{% if user.is_authenticated %}
+<p style="margin-top:40px"></p>
+<div align="center">
+<table width="300px" bgcolor="#EEEEEE">
+<tr>
+    <td align="center" height="30px" bgcolor="#417690" colspan="3"><font color="#F4F382">Hello! {{user}}</font></td>
+</tr>
+<tr>
+    <td align="center" height="30px"><font size="2"></font></td>
+</tr>
+<tr>
+    <td align="center" height="30px"><font size="2"></font></td>
+</tr>
+<tr>
+    <td align="center" height="10px">-------------------------------</td>
+</tr>
+<tr>
+    <td align="center" valign="top" height="40px">
+    <input type="button" value="Change password" onclick="window.location='{% url 'passwordchange' %}';"/> &nbsp;
+    <input type="button" value="Log out" onclick="window.location='{% url 'logout' %}';"/>
+    <input type="hidden" name="next" value="{{ next }}" />
+    </td>
+</tr>
+</table>
+</div>
+{% else %}
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<p style="margin-top:40px"></p>
+<div align="center">
+<table width="300px" bgcolor="#EEEEEE">
+<tr>
+    <td align="center" height="30px" bgcolor="#417690" colspan="3"><font color="#F4F382">Log in</font></td>
+</tr>
+<tr>
+    <td width="60px" rowspan="6"></td>
+    <td width="180px">&nbsp;</td>
+    <td width="60px" rowspan="6"></td>
+</tr>
+<tr>
+    <td><font size="2">{{ form.username.label_tag }}</font></td>
+</tr>
+<tr>
+    <td height="30px">{{ form.username }}</td>
+</tr>
+<tr>
+    <td><font size="2">{{ form.password.label_tag }}</font></td>
+</tr>
+<tr>
+    <td height="30px">{{ form.password }}</td>
+</tr>
+<tr>
+    <td align="center" valign="top" height="40px"><input type="submit" value="Log in" /><input type="hidden" name="next" value="{{ next }}" /></td>
+</tr>
+</table>
+</form>
+{% endif %}
+
+{% endblock %}

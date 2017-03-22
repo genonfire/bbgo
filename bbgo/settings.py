@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 """
 Django settings for bbgo project.
 
@@ -40,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'board',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -66,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'bbgo.context_processors.global_settings',
             ],
             'debug': DEBUG,
         },
@@ -95,7 +98,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
@@ -114,3 +117,18 @@ STATICFILES_DIRS = (
 
 MEDIA_URL = '/upload/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')
+
+LOGIN_REDIRECT_URL = 'login'
+
+##############################################################
+# Settings
+##############################################################
+
+# Setting for BOARD
+BOARD_TABLES = {
+# ('게시판 아이디', '게시판 제목')
+    ('0', 'default'),
+    ('1', 'test'),
+}
+# 한 페이지에 표시될 게시물 수
+BOARD_LIST_COUNT = 4

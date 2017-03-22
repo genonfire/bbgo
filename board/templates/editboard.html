@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}bbgo{% endblock %}
+{% block extra_head_content %}
+{{ block.super }}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock %}
+{% block content %}
+<form
+    method="POST"
+    enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.errors }}
+    {{ form.non_field_errors }}
+
+    {{form.as_p}}
+    <p><input type = "submit"></p>
+</form>
+{% endblock %}

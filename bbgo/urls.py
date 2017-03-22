@@ -14,7 +14,18 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-]
+    url(r'^accounts/login/', 'django.contrib.auth.views.login', name='login', kwargs={'template_name': 'login.html'}),
+    url(r'^accounts/logout/', 'django.contrib.auth.views.logout', name='logout', kwargs={'next_page': 'login'}),
+    url(r'^accounts/passwordchange/', 'django.contrib.auth.views.password_change', {'post_change_redirect': 'login'}, name='passwordchange'),
+    url(r'^$', 'board.views.show_list', name='board show list'),
+    # Board
+    url(r'^board/$', 'board.views.show_list', name='board show'),
+    url(r'^board/(?P<table>\d+)/$', 'board.views.show_list', name='board show list'),
+    url(r'^board/(?P<table>\d+)/(?P<page>\d+)/$', 'board.views.show_list', name='board show page'),
+    url(r'^board/(?P<table>\d+)/new/$', 'board.views.new_article', name='board new'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
