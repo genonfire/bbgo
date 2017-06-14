@@ -1,6 +1,7 @@
 #-*- coding: utf-8 -*-
-from board.models import Board
 from django import forms
+
+from .models import Board
 
 class BoardEditForm(forms.ModelForm):
     class Meta:

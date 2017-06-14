@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}bbgo{% endblock %}
+{% block extra_head_content %}
+{{ block.super }}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock %}
+{% block content %}
+
+id: {{article.id}}<br>
+table: {{article.table}}<br>
+category: {{article.category}}<br>
+user: {{article.user}}<br>
+subject: {{article.subject}}<br>
+content: {{article.content}}<br>
+viewcount: {{article.viewcount}}<br>
+likecount: {{article.likecount}}<br>
+likeusers: {{article.likeusers}}<br>
+
+{% endblock %}

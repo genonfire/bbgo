@@ -1,23 +1,23 @@
-#-*- coding: utf-8 -*-
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.shortcuts import render, redirect, get_object_or_404
+# -*- coding: utf-8 -*-
+from math import ceil
+import sys
+
+from bbgo.utils import get_ipaddress
+
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 
 from models import Board
-from board.forms import BoardEditForm
 
-from bbgo.utils import *
-from django.conf import settings
-
-from math import ceil
-
-import sys
+from .forms import BoardEditForm
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+
 def show_list(request, table=0, page=0):
+    """Show list"""
     if int(page) < 1:
         return redirect('board show page', table=table, page=1)
 
@@ -38,20 +38,34 @@ def show_list(request, table=0, page=0):
         request,
         "showboardlist.html",
         {
-            'lists' : lists,
-            'total' : total,
-            'today' : now.date,
-            'page' : current_page + 1,
-            'index_begin' : index_begin,
-            'index_end' : index_end + 1,
-            'index_total' : index_total,
-            'prev_index' : index_begin - 1,
-            'next_index' : index_end + 1,
+            'lists': lists,
+            'total': total,
+            'today': now.date,
+            'page': current_page + 1,
+            'index_begin': index_begin,
+            'index_end': index_end + 1,
+            'index_total': index_total,
+            'prev_index': index_begin - 1,
+            'next_index': index_end + 1,
         }
     )
 
+
+def show_article(request, id):
+    """Show article"""
+    article = get_object_or_404(Board, pk=id)
+    return render(
+        request,
+        "showboardarticle.html",
+        {
+            'article': article,
+        }
+    )
+
+
 @login_required
 def new_article(request, table=0,):
+    """New article"""
     if request.method == "POST":
         editform = BoardEditForm(request.POST, request.FILES)
         if editform.is_valid():
@@ -73,4 +87,3 @@ def new_article(request, table=0,):
             'editType': 'new',
         }
     )
-

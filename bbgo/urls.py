@@ -27,5 +27,6 @@ urlpatterns = [
     url(r'^board/$', 'board.views.show_list', name='board show'),
     url(r'^board/(?P<table>\d+)/$', 'board.views.show_list', name='board show list'),
     url(r'^board/(?P<table>\d+)/(?P<page>\d+)/$', 'board.views.show_list', name='board show page'),
+    url(r'^board/article/(?P<id>\d+)/$', 'board.views.show_article', name='board show article'),
     url(r'^board/(?P<table>\d+)/new/$', 'board.views.new_article', name='board new'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

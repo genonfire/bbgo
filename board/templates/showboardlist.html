@@ -25,7 +25,7 @@
 <tr>
     <td>{{article.id}}</td>
     <td>{{article.table}}</td>
-    <td>{{article.subject}}</td>
+    <td><a href="{% url 'board show article' id=article.id %}">{{article.subject}}</a></td>
     <td>{{article.user}}</td>
     <td>{{article.likecount}}</td>
     <td>{{article.viewcount}}</td>
@@ -48,7 +48,6 @@
 {% if index_end <= index_total %}
 <a href="../{{index_end}}">></a>
 {% endif %}
-<br>total = {{total}}, index[{{index_begin}}, {{index_end}}], page = {{page}}, index_total = {{index_total}}<br>
-
+<br>total = {{total}} page = {{index_total}}<br>
 
 {% endblock %}
