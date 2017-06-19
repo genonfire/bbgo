@@ -2,7 +2,7 @@
 from math import ceil
 import sys
 
-from bbgo.utils import get_ipaddress
+from core.utils import get_ipaddress
 
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
@@ -19,7 +19,7 @@ sys.setdefaultencoding('utf-8')
 def show_list(request, table=0, page=0):
     """Show list"""
     if int(page) < 1:
-        return redirect('board show page', table=table, page=1)
+        return redirect('boards:show_list', table=table, page=1)
 
     current_page = int(page) - 1
     start_at = current_page * int(settings.BOARD_LIST_COUNT)
@@ -36,7 +36,7 @@ def show_list(request, table=0, page=0):
 
     return render(
         request,
-        "showboardlist.html",
+        "boards/show_list.html",
         {
             'lists': lists,
             'total': total,
@@ -56,7 +56,7 @@ def show_article(request, id):
     article = get_object_or_404(Board, pk=id)
     return render(
         request,
-        "showboardarticle.html",
+        "boards/show_article.html",
         {
             'article': article,
         }
@@ -81,7 +81,7 @@ def new_article(request, table=0,):
 
     return render(
         request,
-        'editboard.html',
+        'boards/edit_article.html',
         {
             'form': editform,
             'editType': 'new',

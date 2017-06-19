@@ -1,9 +1,13 @@
 {% extends "base.html" %}
-{% block title %}Log in{% endblock %}
+{% load staticfiles %}
+{% block title %}로그인{% endblock %}
 {% block extra_head_content %}
 {{ block.super }}
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
+img.signup {
+    margin-right: 4px; margin-bottom: 4px;
+    vertical-align: top;
+}
 a:link {color:#417690; text-decoration:none;}
 a:visited {color:#417690; text-decoration:none;}
 a:hover {color:#be131c; text-decoration:none;}
@@ -13,7 +17,7 @@ a:hover {color:#be131c; text-decoration:none;}
 {% block content %}
 
 {% if form.errors %}
-<p><font color="red">login failed</font></p>
+<p><font color="red">로그인 실패</font></p>
 {% endif %}
 
 {% if user.is_authenticated %}
@@ -21,21 +25,21 @@ a:hover {color:#be131c; text-decoration:none;}
 <div align="center">
 <table width="300px" bgcolor="#EEEEEE">
 <tr>
-    <td align="center" height="30px" bgcolor="#417690" colspan="3"><font color="#F4F382">Hello! {{user}}</font></td>
+    <td align="center" height="30px" bgcolor="#417690" colspan="3"><font color="#F4F382">반갑습니다! {{user}}</font></td>
 </tr>
 <tr>
-    <td align="center" height="30px"><font size="2"></font></td>
+    <td align="center" height="30px"><font size="2"> <a href="{% url 'show news' %}"><b>노룩뉴스</b></a></font></td>
 </tr>
 <tr>
-    <td align="center" height="30px"><font size="2"></font></td>
+    <td align="center" height="30px"><font size="2"> <a href="{% url 'show issues' %}"><b>베스트</b></a></font></td>
 </tr>
 <tr>
     <td align="center" height="10px">-------------------------------</td>
 </tr>
 <tr>
     <td align="center" valign="top" height="40px">
-    <input type="button" value="Change password" onclick="window.location='{% url 'passwordchange' %}';"/> &nbsp;
-    <input type="button" value="Log out" onclick="window.location='{% url 'logout' %}';"/>
+    <input type="button" value="비밀번호 변경" onclick="window.location='{% url 'passwordchange' %}';"/> &nbsp;
+    <input type="button" value="로그아웃" onclick="window.location='{% url 'logout' %}';"/>
     <input type="hidden" name="next" value="{{ next }}" />
     </td>
 </tr>
@@ -48,11 +52,11 @@ a:hover {color:#be131c; text-decoration:none;}
 <div align="center">
 <table width="300px" bgcolor="#EEEEEE">
 <tr>
-    <td align="center" height="30px" bgcolor="#417690" colspan="3"><font color="#F4F382">Log in</font></td>
+    <td align="center" height="30px" bgcolor="#417690" colspan="3"><font color="#F4F382">로그인</font></td>
 </tr>
 <tr>
     <td width="60px" rowspan="6"></td>
-    <td width="180px">&nbsp;</td>
+    <td width="180px" align="center"><img src="{% static 'icons/unidentity24.png' %}" class="signup"><a href="{% url 'signup' %}">회원가입</a></td>
     <td width="60px" rowspan="6"></td>
 </tr>
 <tr>
@@ -68,10 +72,11 @@ a:hover {color:#be131c; text-decoration:none;}
     <td height="30px">{{ form.password }}</td>
 </tr>
 <tr>
-    <td align="center" valign="top" height="40px"><input type="submit" value="Log in" /><input type="hidden" name="next" value="{{ next }}" /></td>
+    <td align="center" valign="top" height="40px"><input type="submit" value="로그인" /><input type="hidden" name="next" value="{{ next }}" /></td>
 </tr>
 </table>
 </form>
+</div>
 {% endif %}
 
 {% endblock %}

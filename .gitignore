@@ -1,2 +1,5 @@
 upload/
 *.pyc
+secrets.json
+analytics.js
+backup.sh

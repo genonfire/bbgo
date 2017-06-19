@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 Django settings for bbgo project.
 
@@ -12,37 +12,47 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from collections import namedtuple
+import json
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Theme
+THEME = 'haru'
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+THEME_DIR = os.path.join(BASE_DIR, 'templates', THEME)
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'k8n13h0y@$=v$uxg*^brlv9$#hm8w7nye6km!shc*&bkgkcd*p'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-if (os.environ.has_key('DJANGO_DEBUG')):
-    if (os.environ['DJANGO_DEBUG'] == 'Debug'):
+if 'DJANGO_DEBUG' in os.environ:
+    if os.environ['DJANGO_DEBUG'] == 'Debug':
         DEBUG = True
 
-ALLOWED_HOSTS = ['gencode.me', 'localhost',]
+ALLOWED_HOSTS = ['gencode.me', 'localhost']
 
 
 # Application definition
 
-INSTALLED_APPS = (
+DJANGO_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'board',
 )
+THIRD_PARTY_APPS = (
+)
+LOCAL_APPS = (
+    'core',
+    'boards',
+)
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -60,35 +70,71 @@ ROOT_URLCONF = 'bbgo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
-        'APP_DIRS': True,
+        'DIRS': [
+            os.path.join(THEME_DIR),
+            os.path.join(TEMPLATES_DIR),
+        ],
         'OPTIONS': {
+            'debug': DEBUG,
+            'loaders': [
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+            ],
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'bbgo.context_processors.global_settings',
             ],
-            'debug': DEBUG,
+            # 'string_if_invalid': 'INVALID_EXPRESSION: %s',
         },
     },
 ]
 
 WSGI_APPLICATION = 'bbgo.wsgi.application'
 
+# Secrets
+# Load sensitive data from secrets.json
+try:
+    with open(os.path.join(BASE_DIR, "secrets.json")) as f:
+        data = json.loads(f.read())
+    SecretsNamedTuple = \
+        namedtuple('SecretsNamedTuple', data.keys(), verbose=False)
+    secrets = SecretsNamedTuple(*[data[x] for x in data.keys()])
+    SECRET_KEY = getattr(secrets, "SECRET_KEY")
+    DB_NAME = getattr(secrets, "DB_NAME")
+    DB_USER = getattr(secrets, "DB_USER")
+    DB_PASSWORD = getattr(secrets, "DB_PASSWORD")
+    EMAIL_HOST = getattr(secrets, "EMAIL_HOST")
+    EMAIL_HOST_USER = getattr(secrets, "EMAIL_HOST_USER")
+    EMAIL_HOST_PASSWORD = getattr(secrets, "EMAIL_HOST_PASSWORD")
+    DEFAUL_FROM_EMAIL = getattr(secrets, "DEFAUL_FROM_EMAIL")
+    SERVER_EMAIL = getattr(secrets, "SERVER_EMAIL")
+except IOError:
+    SECRET_KEY = 'k8n13h0y@$=v$uxg*^brlv9$#hm8w7nye6km!shc*&bkgkcd*p'
+    DB_NAME = ''
+    DB_USER = ''
+    DB_PASSWORD = ''
+    EMAIL_HOST_USER = ''
+    EMAIL_HOST_PASSWORD = ''
+    DEFAUL_FROM_EMAIL = ''
+    SERVER_EMAIL = ''
+
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
     'default': {
-         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-         'NAME': 'genonfire',
-         'USER': 'genonfire',
-         'PASSWORD': '1234',
-         'HOST': 'localhost',
-         'PORT': '',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': DB_NAME,
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSWORD,
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -110,7 +156,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/assets/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
@@ -120,13 +166,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')
 
 LOGIN_REDIRECT_URL = 'login'
 
-##############################################################
-# Settings
-##############################################################
 
 # Setting for BOARD
 BOARD_TABLES = {
-# ('게시판 아이디', '게시판 제목')
+    # ('게시판 아이디', '게시판 제목')
     ('0', 'default'),
     ('1', 'test'),
 }

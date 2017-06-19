@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}회원가입{% endblock %}
+{% block extra_head_content %}
+{{ block.super }}
+<style>
+td.label {
+    padding: 5px; padding-left:10px;
+    font-size: 80%;
+}
+a:link {color:#417690; text-decoration:none;}
+a:visited {color:#417690; text-decoration:none;}
+a:hover {color:#be131c; text-decoration:none;}
+</style>
+<script src="{% static 'js/jquery-3.1.1.min.js' %}" /></script>
+{% endblock %}
+
+{% block content %}
+{% if form.errors %}
+<p><font color="red">실패</font></p>
+{% endif %}
+{% if user.is_authenticated %}
+Hello! {{user}}
+{% else %}
+<form id="signup_form" method="post" action="{% url 'signup' %}">
+{% csrf_token %}
+<p style="margin-top:40px"></p>
+<div align="center">
+<table width="400px" bgcolor="#EEEEEE">
+<tr>
+    <td align="center" height="30px" bgcolor="#417690" colspan="3"><font color="#F4F382">회원가입</font></td>
+</tr>
+<tr>
+    <td width="100px">&nbsp;</td>
+    <td width="270px">&nbsp;</td>
+    <td width="30px" rowspan="7">&nbsp;</td>
+</tr>
+<tr>
+    <td class="label">아이디</td>
+    <td><font size="2">{{ userform.username }}</font>
+    <input type="button" value="중복체크" onClick="checkDuplication()">
+    </td>
+</tr>
+<tr>
+    <td class="label">이메일</td>
+    <td height="30px">{{ userform.email }}
+    <input type="button" value="인증" onClick="checkEmail()">
+    </td>
+</tr>
+<tr>
+    <td class="label"><b>인증코드</b></td>
+    <td height="30px">{{ userform.code }}
+    </td>
+</tr>
+<tr>
+    <td class="label">비밀번호</td>
+    <td><font size="2">{{ userform.password1 }}</font></td>
+</tr>
+<tr>
+    <td class="label">비밀번호확인</td>
+    <td height="30px">{{ userform.password2 }}</td>
+</tr>
+<tr>
+    <td></td>
+    <td align="right" valign="center" height="40px" class="label"><input type="submit" id="signup"></td>
+</tr>
+</table>
+</div>
+</form>
+<script>
+    function checkDuplication() {
+        id_username = $('#id_username').val();
+        if (!id_username) {
+            alert("아이디를 입력하세요.");
+            return;
+        }
+        $.ajaxSetup({
+            crossDomain: false,
+            beforeSend: function(xhr, settings) {
+                xhr.setRequestHeader("X-CSRFToken", $("input[name=csrfmiddlewaretoken]").val());
+            }
+        });
+        $.ajax({
+            type: "POST",
+            url: "{% url 'check duplication' %}",
+            data: {
+                username: id_username
+            },
+            success: function(data) {
+                alert(data.msg);
+            },
+            error: function(request, status, error) {
+                alert("error: " + status);
+            }
+        });
+    }
+
+    $('#signup_form').submit(function(e) {
+        id_username = $('#id_username').val();
+        id_email = $('#id_email').val();
+        id_code = $('#id_code').val();
+        id_password1 = $('#id_password1').val();
+        id_password2 = $('#id_password2').val();
+        if (!id_username || !id_email || !id_password1 || !id_password2 || !id_code) {
+            e.preventDefault();
+            alert("비어있는 항목을 입력하세요.");
+            return;
+        }
+        if (id_password1 != id_password2) {
+            e.preventDefault();
+            alert("비밀번호가 서로 다릅니다.");
+            return;
+        }
+    });
+
+    function checkEmail() {
+        id_email = $('#id_email').val();
+        if (!id_email) {
+            alert("이메일 주소를 입력하세요.");
+            return;
+        }
+        else if (id_email.indexOf('@') < 1) {
+            alert("올바른 이메일 주소를 입력하세요.")
+            return;
+        }
+        $.ajaxSetup({
+            crossDomain: false,
+            beforeSend: function(xhr, settings) {
+                xhr.setRequestHeader("X-CSRFToken", $("input[name=csrfmiddlewaretoken]").val());
+            }
+        });
+        $.ajax({
+            type: "POST",
+            url: "{% url 'check email' %}",
+            data: {
+                email: id_email
+            },
+            success: function(data) {
+                alert("인증코드를 이메일로 발송했습니다.");
+            },
+            error: function(request, status, error) {
+                alert("이메일 발송에 실패했습니다. 나중에 다시 시도하세요.");
+            }
+        });
+    }
+</script>
+{% endif %}
+{% endblock %}
