@@ -1,2 +1,4 @@
 Django==1.8.17
+olefile==0.44
+Pillow==4.1.1
 psycopg2==2.7.1
