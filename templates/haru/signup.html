@@ -3,70 +3,107 @@
 {% block title %}회원가입{% endblock %}
 {% block extra_head_content %}
 {{ block.super }}
-<style>
-td.label {
-    padding: 5px; padding-left:10px;
-    font-size: 80%;
-}
-a:link {color:#417690; text-decoration:none;}
-a:visited {color:#417690; text-decoration:none;}
-a:hover {color:#be131c; text-decoration:none;}
-</style>
 <script src="{% static 'js/jquery-3.1.1.min.js' %}" /></script>
 {% endblock %}
-
 {% block content %}
+
 {% if form.errors %}
 <p><font color="red">실패</font></p>
 {% endif %}
-{% if user.is_authenticated %}
-Hello! {{user}}
-{% else %}
-<form id="signup_form" method="post" action="{% url 'signup' %}">
-{% csrf_token %}
-<p style="margin-top:40px"></p>
-<div align="center">
-<table width="400px" bgcolor="#EEEEEE">
-<tr>
-    <td align="center" height="30px" bgcolor="#417690" colspan="3"><font color="#F4F382">회원가입</font></td>
-</tr>
-<tr>
-    <td width="100px">&nbsp;</td>
-    <td width="270px">&nbsp;</td>
-    <td width="30px" rowspan="7">&nbsp;</td>
-</tr>
-<tr>
-    <td class="label">아이디</td>
-    <td><font size="2">{{ userform.username }}</font>
-    <input type="button" value="중복체크" onClick="checkDuplication()">
-    </td>
-</tr>
-<tr>
-    <td class="label">이메일</td>
-    <td height="30px">{{ userform.email }}
-    <input type="button" value="인증" onClick="checkEmail()">
-    </td>
-</tr>
-<tr>
-    <td class="label"><b>인증코드</b></td>
-    <td height="30px">{{ userform.code }}
-    </td>
-</tr>
-<tr>
-    <td class="label">비밀번호</td>
-    <td><font size="2">{{ userform.password1 }}</font></td>
-</tr>
-<tr>
-    <td class="label">비밀번호확인</td>
-    <td height="30px">{{ userform.password2 }}</td>
-</tr>
-<tr>
-    <td></td>
-    <td align="right" valign="center" height="40px" class="label"><input type="submit" id="signup"></td>
-</tr>
-</table>
+
+<div id="wrap">
+    <div id="contents">
+    <h1>회원가입</h1>
+    {% if user.is_authenticated %}
+    <div class="annotation">
+    {{user}}님 반갑습니다.
+    </div>
+    {% else %}
+    <div class="annotation">
+    회원가입을 하시면 기자정보 및 뉴스 추가, 수정 등이 가능합니다.
+    </div>
+        <form id="signup_form" method="post" action="{% url 'signup' %}">
+        {% csrf_token %}
+        <p style="margin-top:40px"></p>
+        <div align="center">
+        <table class="member">
+        <tr>
+            <td align="center" height="30px" bgcolor="#417690" colspan="3"><font color="#F4F382">필수 입력 항목</font></td>
+        </tr>
+        <tr>
+            <td width="100px">&nbsp;</td>
+            <td width="270px">&nbsp;</td>
+            <td width="30px" rowspan="7">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="label">아이디</td>
+            <td><font size="2">{{ userform.username }}</font>
+            <input type="button" value="중복체크" onClick="checkDuplication()">
+            </td>
+        </tr>
+        <tr>
+            <td class="label">이메일</td>
+            <td height="30px">{{ userform.email }}
+            <input type="button" value="인증" onClick="checkEmail()">
+            </td>
+        </tr>
+        <tr>
+            <td class="label"><b>인증코드</b></td>
+            <td height="30px">{{ userform.code }}
+            </td>
+        </tr>
+        <tr>
+            <td class="label">비밀번호</td>
+            <td><font size="2">{{ userform.password1 }}</font></td>
+        </tr>
+        <tr>
+            <td class="label">비밀번호확인</td>
+            <td height="30px">{{ userform.password2 }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td align="right" valign="center" height="40px" class="label"><input type="submit" id="signup"></td>
+        </tr>
+        </table>
+        </div>
+        </form>
+
+        <table width="100%">
+        <tr>
+            <td align="center">
+            <input type="checkbox" id="concent"> 개인정보 취급방침에 동의합니다.
+            </td>
+        </tr>
+        <tr>
+            <td><textarea rows="14" style="width:100%; padding:10px" readonly>
+노룩뉴스 개인정보 취급방침
+정보통신망 이용촉진 등에 관한 법률 등 관련 법률에 의한 개인정보 보호규정 및 정보통신부가 제정한 개인정보지침을 준수하고 있습니다.
+
+1. 개인정보의 수집 및 이용 목적
+- 아이디, 비밀번호, 이메일 주소 : 서비스 이용에 따른 사용자 확인, 중복가입 확인 및 부정이용 방지를 위한 목적으로 사용합니다.
+- 이용자의 IP Address: 중복 투표 방지 및 통계학적 분석을 위해 사용합니다.
+
+2. 개인정보의 수집 항목
+- 필수항목: 아이디, 비밀번호, 이메일 주소
+- 자동수집항목: IP Address, 접속 기록, 쿠키 등
+
+3. 개인정보의 보유 및 이용기간
+- 아이디, 비밀번호, 이메일 등 가입 회원정보는 탈퇴 시 파기됩니다.
+- 게시물 등록 및 투표시 IP Address는 사이트 폐쇄 시까지 보관합니다.</textarea>
+            </td>
+        </tr>
+        </table>
+    {% endif %}
+    </div>
+    <div id="footer">
+    <div class="footerMenu">
+        <ul>
+            <li>문의, 의견 보내기 : <a href="mailto:gencode.me@gmail.com">gencode.me@gmail.com</a></li>
+            <li><a href="https://twitter.com/nolooknews"><img src="{% static 'icons/twitter24.png' %}" target="_blank"></a></li>
+        </ul>
+    </div>
 </div>
-</form>
+</div>
 <script>
     function checkDuplication() {
         id_username = $('#id_username').val();
@@ -101,6 +138,12 @@ Hello! {{user}}
         id_code = $('#id_code').val();
         id_password1 = $('#id_password1').val();
         id_password2 = $('#id_password2').val();
+        concent = $('#concent').is(':checked')
+        if (!concent) {
+            e.preventDefault();
+            alert("개인정보 취급방침에 동의해주세요.");
+            return;
+        }
         if (!id_username || !id_email || !id_password1 || !id_password2 || !id_code) {
             e.preventDefault();
             alert("비어있는 항목을 입력하세요.");
@@ -144,5 +187,4 @@ Hello! {{user}}
         });
     }
 </script>
-{% endif %}
 {% endblock %}

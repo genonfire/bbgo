@@ -85,6 +85,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'core.context_processors.global_settings',
             ],
             # 'string_if_invalid': 'INVALID_EXPRESSION: %s',
         },
@@ -167,6 +168,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')
 LOGIN_REDIRECT_URL = 'login'
 
 
+# Admin information
+ADMIN_EMAIL = 'gencode.me@gmail.com'
+ADMIN_TWITTER = 'http://twitter.com/'
+
+
 # Setting for BOARD
 BOARD_TABLES = {
     # ('게시판 아이디', '게시판 제목')
@@ -175,3 +181,8 @@ BOARD_TABLES = {
 }
 # 한 페이지에 표시될 게시물 수
 BOARD_LIST_COUNT = 4
+
+FOOTER_TAGS = '<li>문의, 의견 보내기</li>\
+<li><a href="mailto:%s"><img src="/static/icons/email24.png"></a></li>\
+<li><a href="%s"><img src="/static/icons/twitter24.png" target="_blank"></a></li>'\
+% (ADMIN_EMAIL, ADMIN_TWITTER)

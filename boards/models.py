@@ -7,12 +7,13 @@ from django.db import models
 class Board(models.Model):
     """Board of boards"""
 
-    table = models.CharField(max_length="31", choices=settings.BOARD_TABLES, default='0')
+    table = models.CharField(
+        max_length=31, choices=settings.BOARD_TABLES, default='0')
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(blank=True)
     ip = models.GenericIPAddressField()
-    category = models.CharField(max_length=20, blank=True)
+    category = models.CharField(max_length=31, blank=True)
     subject = models.CharField(max_length=100)
     content = models.TextField()
     view_count = models.IntegerField(default=0)

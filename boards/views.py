@@ -2,7 +2,7 @@
 from math import ceil
 import sys
 
-from core.utils import get_ipaddress
+from core.utils import get_ipaddress, get_template
 
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
@@ -36,11 +36,12 @@ def show_list(request, table=0, page=0):
 
     return render(
         request,
-        "boards/show_list.html",
+        get_template(request, "boards/m-show_list.html"),
         {
             'lists': lists,
             'total': total,
             'today': now.date,
+            'table': table,
             'page': current_page + 1,
             'index_begin': index_begin,
             'index_end': index_end + 1,

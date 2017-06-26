@@ -22,32 +22,60 @@
 </thead>
 <tbody>
 {% for article in lists %}
-<tr>
-    <td>{{article.id}}</td>
-    <td>{{article.table}}</td>
-    <td><a href="{% url 'board show article' id=article.id %}">{{article.subject}}</a></td>
-    <td>{{article.user}}</td>
-    <td>{{article.likecount}}</td>
-    <td>{{article.viewcount}}</td>
-    <td>{% if today == article.datetime.date %}
-    {{article.datetime|time:"H:i"}}{% else %}{{article.datetime|date:"Y.m.d"}}
-    {% endif %}</td>
-</tr>
+    <tr>
+        <td>
+            {{ article.id }}
+        </td>
+        <td>
+            {{ article.table }}
+        </td>
+        <td>
+            <a href="{% url 'board show article' id=article.id %}">
+            {{ article.subject }}
+            </a>
+        </td>
+        <td>
+            {{ article.user }}
+        </td>
+        <td>
+            {{ article.likecount }}
+        </td>
+        <td>
+            {{ article.viewcount }}
+        </td>
+        <td>
+            {% if today == article.datetime.date %}
+                {{ article.datetime|time:"H:i" }}
+            {% else %}
+                {{ article.datetime|date:"Y.m.d" }}
+            {% endif %}
+        </td>
+    </tr>
 {% endfor %}
 </tbody>
 </table>
 {% if index_begin != 1 %}
-<a href="../{{prev_index}}"><</a>
+    <a href="../{{ prev_index }}">
+    <
+    </a>
 {% endif %}
 {% for index in index_begin|range:index_end %}
-{% if index == page %}<b>{{index}}</b>
-{% else %}
-<a href="../{{index}}">{{index}}</a>
-{% endif %}
+    {% if index == page %}
+        <b>{{ index }}</b>
+    {% else %}
+        <a href="../{{index}}">
+        {{ index }}
+        </a>
+    {% endif %}
 {% endfor %}
 {% if index_end <= index_total %}
-<a href="../{{index_end}}">></a>
+    <a href="../{{ index_end }}">
+    >
+    </a>
 {% endif %}
-<br>total = {{total}} page = {{index_total}}<br>
+<br>total = {{ total }} page = {{ index_total }}<br>
+<a href="{% url 'boards:new_article' table=table %}">
+write
+</a>
 
 {% endblock %}

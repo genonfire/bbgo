@@ -2,6 +2,7 @@ from django import template
 
 register = template.Library()
 
+
 @register.filter(name='range')
 def _range(_min, args=None):
     _max, _step = None, None

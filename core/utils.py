@@ -19,3 +19,11 @@ def is_mobile(request):
         return True
     else:
         return False
+
+
+def get_template(request, template):
+    """Return template name according to UA"""
+    if is_mobile(request):
+        return template.replace('m-', '')
+    else:
+        return template.replace('m-', '')

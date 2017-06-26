@@ -1,6 +1,8 @@
 from django.conf import settings
 
+
 def global_settings(request):
+    """Setting for templates"""
     return {
-        'BOARD_LIST_COUNT': settings.BOARD_LIST_COUNT,
+        'FOOTER_TAGS': settings.FOOTER_TAGS,
     }

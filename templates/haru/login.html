@@ -3,80 +3,89 @@
 {% block title %}로그인{% endblock %}
 {% block extra_head_content %}
 {{ block.super }}
-<style>
-img.signup {
-    margin-right: 4px; margin-bottom: 4px;
-    vertical-align: top;
-}
-a:link {color:#417690; text-decoration:none;}
-a:visited {color:#417690; text-decoration:none;}
-a:hover {color:#be131c; text-decoration:none;}
-</style>
 {% endblock %}
-
 {% block content %}
 
 {% if form.errors %}
 <p><font color="red">로그인 실패</font></p>
 {% endif %}
 
-{% if user.is_authenticated %}
-<p style="margin-top:40px"></p>
-<div align="center">
-<table width="300px" bgcolor="#EEEEEE">
-<tr>
-    <td align="center" height="30px" bgcolor="#417690" colspan="3"><font color="#F4F382">반갑습니다! {{user}}</font></td>
-</tr>
-<tr>
-    <td align="center" height="30px"><font size="2"> <a href="{% url 'show news' %}"><b>노룩뉴스</b></a></font></td>
-</tr>
-<tr>
-    <td align="center" height="30px"><font size="2"> <a href="{% url 'show issues' %}"><b>베스트</b></a></font></td>
-</tr>
-<tr>
-    <td align="center" height="10px">-------------------------------</td>
-</tr>
-<tr>
-    <td align="center" valign="top" height="40px">
-    <input type="button" value="비밀번호 변경" onclick="window.location='{% url 'passwordchange' %}';"/> &nbsp;
-    <input type="button" value="로그아웃" onclick="window.location='{% url 'logout' %}';"/>
-    <input type="hidden" name="next" value="{{ next }}" />
-    </td>
-</tr>
-</table>
-</div>
-{% else %}
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-<p style="margin-top:40px"></p>
-<div align="center">
-<table width="300px" bgcolor="#EEEEEE">
-<tr>
-    <td align="center" height="30px" bgcolor="#417690" colspan="3"><font color="#F4F382">로그인</font></td>
-</tr>
-<tr>
-    <td width="60px" rowspan="6"></td>
-    <td width="180px" align="center"><img src="{% static 'icons/unidentity24.png' %}" class="signup"><a href="{% url 'signup' %}">회원가입</a></td>
-    <td width="60px" rowspan="6"></td>
-</tr>
-<tr>
-    <td><font size="2">{{ form.username.label_tag }}</font></td>
-</tr>
-<tr>
-    <td height="30px">{{ form.username }}</td>
-</tr>
-<tr>
-    <td><font size="2">{{ form.password.label_tag }}</font></td>
-</tr>
-<tr>
-    <td height="30px">{{ form.password }}</td>
-</tr>
-<tr>
-    <td align="center" valign="top" height="40px"><input type="submit" value="로그인" /><input type="hidden" name="next" value="{{ next }}" /></td>
-</tr>
-</table>
-</form>
-</div>
-{% endif %}
-
+<div id="wrap">
+    <div id="contents">
+        <h1>로그인</h1>
+        <div class="annotation">
+            {% if user.is_authenticated %}
+                회원정보관련 문의나 요청은 이메일로 부탁드립니다.
+            {% else %}
+                회원가입을 하시려면 회원가입 버튼을 눌러주세요. <span><a href="#">회원가입</a></span>
+            {% endif %}
+        </div>
+        {% if user.is_authenticated %}
+            <p style="margin-top:40px"></p>
+            <div align="center">
+                <table class="member" width="300px">
+                <tr>
+                    <td align="center" height="30px" bgcolor="#417690" colspan="3"><font color="#F4F382">{{user}} 님 반갑습니다.</font></td>
+                </tr>
+                <tr>
+                    <td align="center" height="30px"><font size="2"> <a href="{% url 'boards:show' %}"><b>boards</b></a></font></td>
+                </tr>
+                <tr>
+                    <td align="center" height="10px">-------------------------------</td>
+                </tr>
+                <tr>
+                    <td align="center" valign="top" height="40px">
+                    <div class="dbSearch">
+                    <span><a href="{% url 'passwordchange' %}">비밀번호 변경</a></span>
+                    <span><a href="{% url 'logout' %}">로그아웃</a></span>
+                    </div>
+                    <input type="hidden" name="next" value="{{ next }}" />
+                    </td>
+                </tr>
+                </table>
+            </div>
+        {% else %}
+            <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <p style="margin-top:40px"></p>
+            <div align="center">
+                <table class="member">
+                <tr>
+                    <td align="center" height="30px" bgcolor="#417690" colspan="3"><font color="#F4F382">로그인</font></td>
+                </tr>
+                <tr>
+                    <td width="60px" rowspan="6"></td>
+                    <td width="180px" align="center">
+                    <td width="60px" rowspan="6"></td>
+                </tr>
+                <tr>
+                    <td><font size="2">아이디</font></td>
+                </tr>
+                <tr>
+                    <td height="30px">{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td><font size="2">비밀번호</font></td>
+                </tr>
+                <tr>
+                    <td height="30px">{{ form.password }}</td>
+                </tr>
+                <tr>
+                    <td align="center" valign="top" height="40px"><input type="submit" value="로그인" /><input type="hidden" name="next" value="{{ next }}" /></td>
+                </tr>
+                </table>
+            </div>
+            </form>
+        {% endif %}
+    </div> <!-- contents -->
+    <div id="footer">
+        <div class="footerMenu">
+            <ul>
+            {% autoescape off %}
+                {{ FOOTER_TAGS }}
+            {% endautoescape %}
+            </ul>
+        </div>
+    </div>
+</div> <!-- wrap -->
 {% endblock %}
