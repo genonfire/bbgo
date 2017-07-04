@@ -1,81 +1,95 @@
 {% extends 'base.html' %}
-{% block title %}bbgo{% endblock %}
+{% load staticfiles %}
+{% block title %}toc{% endblock %}
 {% block extra_head_content %}
 {{ block.super }}
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% endblock %}
+{% load range %}
 {% block content %}
 
-{% load range %}
+<div id="wrap">
+    <div id="header">
+        <div class="gnb">
+            <ul>
+                <li><a href="{% url 'boards:show' %}">List</a></li>
+                <li><a href="{% url 'boards:new_article' table=table %}">New</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="contents">
+        <h1>게시판</h1>
+        <div class="annotation">
+        우앙
+        </div>
 
-<table border=1>
-<thead>
-<tr>
-    <th>No</th>
-    <th>Table</th>
-    <th>Subject</th>
-    <th>User</th>
-    <th>Like</th>
-    <th>View</th>
-    <th>Date</th>
-</tr>
-</thead>
-<tbody>
-{% for article in lists %}
-    <tr>
-        <td>
-            {{ article.id }}
-        </td>
-        <td>
-            {{ article.table }}
-        </td>
-        <td>
-            <a href="{% url 'board show article' id=article.id %}">
-            {{ article.subject }}
+        <table border=1>
+        <thead>
+        <tr>
+            <th>No</th>
+            <th>Table</th>
+            <th>Subject</th>
+            <th>User</th>
+            <th>Like</th>
+            <th>View</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for article in lists %}
+            <tr>
+                <td>
+                    {{ article.id }}
+                </td>
+                <td>
+                    {{ article.table }}
+                </td>
+                <td>
+                    <a href="{% url 'board show article' id=article.id %}">
+                    {{ article.subject }}
+                    </a>
+                </td>
+                <td>
+                    {{ article.user }}
+                </td>
+                <td>
+                    {{ article.likecount }}
+                </td>
+                <td>
+                    {{ article.viewcount }}
+                </td>
+                <td>
+                    {% if today == article.datetime.date %}
+                        {{ article.datetime|time:"H:i" }}
+                    {% else %}
+                        {{ article.datetime|date:"Y.m.d" }}
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+        {% if index_begin != 1 %}
+            <a href="../{{ prev_index }}">
+            <
             </a>
-        </td>
-        <td>
-            {{ article.user }}
-        </td>
-        <td>
-            {{ article.likecount }}
-        </td>
-        <td>
-            {{ article.viewcount }}
-        </td>
-        <td>
-            {% if today == article.datetime.date %}
-                {{ article.datetime|time:"H:i" }}
+        {% endif %}
+        {% for index in index_begin|range:index_end %}
+            {% if index == page %}
+                <b>{{ index }}</b>
             {% else %}
-                {{ article.datetime|date:"Y.m.d" }}
+                <a href="../{{index}}">
+                {{ index }}
+                </a>
             {% endif %}
-        </td>
-    </tr>
-{% endfor %}
-</tbody>
-</table>
-{% if index_begin != 1 %}
-    <a href="../{{ prev_index }}">
-    <
-    </a>
-{% endif %}
-{% for index in index_begin|range:index_end %}
-    {% if index == page %}
-        <b>{{ index }}</b>
-    {% else %}
-        <a href="../{{index}}">
-        {{ index }}
-        </a>
-    {% endif %}
-{% endfor %}
-{% if index_end <= index_total %}
-    <a href="../{{ index_end }}">
-    >
-    </a>
-{% endif %}
-<br>total = {{ total }} page = {{ index_total }}<br>
-<a href="{% url 'boards:new_article' table=table %}">
-write
-</a>
+        {% endfor %}
+        {% if index_end <= index_total %}
+            <a href="../{{ index_end }}">
+            >
+            </a>
+        {% endif %}
+        <br>total = {{ total }} page = {{ index_total }}<br>
+
+    </div> <!--//contents-->
+</div> <!--//wrap-->
 
 {% endblock %}
