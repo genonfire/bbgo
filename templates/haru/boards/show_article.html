@@ -7,11 +7,13 @@
 {% block content %}
 
 id: {{article.id}}<br>
-table: {{article.table}}<br>
 category: {{article.category}}<br>
 user: {{article.user}}<br>
+created_at: {{article.created_at}}<br>
+modified_at: {{article.modified_at}}<br>
 subject: {{article.subject}}<br>
-content: {{article.content}}<br>
+content: {{article.content|safe}}<br>
+reference: {{article.reference}}<br>
 viewcount: {{article.viewcount}}<br>
 likecount: {{article.likecount}}<br>
 likeusers: {{article.likeusers}}<br>

@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-{% block title %}toc{% endblock %}
+{% block title %}{{ SITE_NAME }} - {{ table_name }}{% endblock %}
 {% block extra_head_content %}
 {{ block.super }}
 {% endblock %}
@@ -10,86 +10,112 @@
 <div id="wrap">
     <div id="header">
         <div class="gnb">
-            <ul>
-                <li><a href="{% url 'boards:show' %}">List</a></li>
-                <li><a href="{% url 'boards:new_article' table=table %}">New</a></li>
-            </ul>
         </div>
     </div>
     <div id="contents">
-        <h1>게시판</h1>
+        <h1>{{ table_name }}</h1>
         <div class="annotation">
-        우앙
+        {% if board_desc %}
+            {{ board_desc }}
+        {% endif %}
         </div>
 
-        <table border=1>
+        <div class="sense_horizontal_bar">
+        </div>
+
+        <table class="board">
         <thead>
         <tr>
-            <th>No</th>
-            <th>Table</th>
-            <th>Subject</th>
-            <th>User</th>
-            <th>Like</th>
-            <th>View</th>
-            <th>Date</th>
+            <th class="category">구분</th>
+            <th class="subject">제목</th>
+            <th class="name">이름</th>
+            <th class="view_count">조회</th>
+            <th class="like_count">추천</th>
+            <th class="datetime">날짜</th>
         </tr>
         </thead>
         <tbody>
         {% for article in lists %}
             <tr>
-                <td>
-                    {{ article.id }}
+                <td class="category">
+                    {{ article.category }}
                 </td>
-                <td>
-                    {{ article.table }}
-                </td>
-                <td>
-                    <a href="{% url 'board show article' id=article.id %}">
+                <td class="subject" align="left">
+                    <a href="{% url 'boards:show_article' id=article.id %}">
                     {{ article.subject }}
                     </a>
                 </td>
-                <td>
+                <td class="name">
                     {{ article.user }}
                 </td>
-                <td>
-                    {{ article.likecount }}
+                <td class="view_count font-0.8">
+                    {{ article.view_count }}
                 </td>
-                <td>
-                    {{ article.viewcount }}
+                <td class="like_count font-0.8">
+                    {{ article.like_count }}
                 </td>
-                <td>
-                    {% if today == article.datetime.date %}
-                        {{ article.datetime|time:"H:i" }}
+                <td class="datetime">
+                    {% if today == article.created_at.date %}
+                        {{ article.created_at|time:"H:i" }}
                     {% else %}
-                        {{ article.datetime|date:"Y.m.d" }}
+                        {{ article.created_at|date:"m-d" }}
                     {% endif %}
                 </td>
             </tr>
         {% endfor %}
         </tbody>
         </table>
-        {% if index_begin != 1 %}
-            <a href="../{{ prev_index }}">
-            <
-            </a>
-        {% endif %}
-        {% for index in index_begin|range:index_end %}
-            {% if index == page %}
-                <b>{{ index }}</b>
-            {% else %}
-                <a href="../{{index}}">
-                {{ index }}
-                </a>
+        <div class="sense_horizontal_bar">
+        </div>
+        <div class="navigator">
+            <div class="float-left">
+            </div>
+            {% if index_begin != 1 %}
+                <span>
+                    <a href="../1" class="jump" title="첫 페이지로"><<</a>
+                    <a href="../{{ prev_index }}" class="jump" title="이전 페이지로"><</a>
+                </span>
             {% endif %}
-        {% endfor %}
-        {% if index_end <= index_total %}
-            <a href="../{{ index_end }}">
-            >
-            </a>
+            {% for index in index_begin|range:index_end %}
+                <span>
+                    {% if index == page %}
+                        <a href="../{{index}}" class="current_page">
+                    {% else %}
+                        <a href="../{{index}}">
+                    {% endif %}
+                    {{ index }}</a>
+                </span>
+            {% endfor %}
+            {% if index_end <= index_total %}
+                <span>
+                    <a href="../{{ index_end }}" class="jump" title="다음 페이지로">></a>
+                </span>
+            {% endif %}
+        {% if check_write == True %}
+            <div class="float-right">
+                <span>
+                    <a href="{% url 'boards:new_article' table=table %}" class="current_page">글쓰기</a>
+                </span>
+            </div>
         {% endif %}
-        <br>total = {{ total }} page = {{ index_total }}<br>
+        </div>
+        <div class="db-search">
+            <select id="searchType">
+                <option value="subject">제목</option>
+                <option value="subject+name" selected>제목+내용</option>
+                <option value="user">글쓴이</option>
+            </select>
+            <input type="text" id="searchWord" class="searchWord" onkeypress="onKeyPress(event)">
+            <input type="button" id="searchButton" value="검색" class="searchButton" onClick="search()">
+        </div>
 
     </div> <!--//contents-->
+    <div id="footer">
+        <div class="footerMenu">
+            {{ FOOTER_TAGS|safe }}
+        </div>
+    </div><!--//footer-->
 </div> <!--//wrap-->
 
+<script src="{% static 'js/boards.js' %}" /></script>
 {% endblock %}

@@ -48,11 +48,14 @@ DJANGO_APPS = (
 )
 THIRD_PARTY_APPS = (
 )
+EDITOR_APPS = (
+    'django_summernote',
+)
 LOCAL_APPS = (
     'core',
     'boards',
 )
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + EDITOR_APPS + LOCAL_APPS
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -168,19 +171,48 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')
 LOGIN_REDIRECT_URL = 'login'
 
 
+# Summernote customization
+SUMMERNOTE_CONFIG = {
+    'lang': 'ko-KR',
+    'width': '100%',
+    'toolbar': [
+        ['style', ['style']],
+        ['font', ['bold', 'italic', 'underline', 'strikethrough']],
+        ['super', ['superscript', 'subscript']],
+        ['fontname', ['fontname', 'fontsize', 'color', 'clear']],
+        ['para', ['height', 'paragraph']],
+        ['format', ['ul', 'ol', 'hr', 'table']],
+        ['insert', ['link', 'picture', 'video']],
+        ['misc', ['codeview']],
+    ],
+    'attachment_filesize_limit': 2 * 1024 * 1024,
+    'external_css': (
+        '//http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css',
+    ),
+    'external_js': (
+        '//https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js',
+        '//http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js',
+    ),
+}
+
+
 # Admin information
 ADMIN_EMAIL = 'gencode.me@gmail.com'
-ADMIN_TWITTER = 'http://twitter.com/'
+ADMIN_TWITTER = 'https://twitter.com/'
 
+# Site information
+SITE_NAME = 'bbgo'
 
 # Setting for BOARD
-BOARD_TABLES = {
-    # ('게시판 아이디', '게시판 제목')
-    ('0', 'default'),
-    ('1', 'test'),
+BOARD_STATUS = {
+    (u'1normal', u'정상'),
+    (u'2temp', u'임시저장'),
+    (u'3notice', u'공지'),
+    (u'4warning', u'신고접수'),
+    (u'5hidden', u'숨김'),
+    (u'6deleted', u'삭제됨'),
 }
-# 한 페이지에 표시될 게시물 수
-BOARD_LIST_COUNT = 4
+# boards/table.py for more settings
 
 FOOTER_TAGS = '<li>문의, 의견 보내기</li>\
 <li><a href="mailto:%s"><img src="/static/icons/email24.png"></a></li>\

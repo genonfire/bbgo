@@ -1,18 +1,78 @@
 {% extends 'base.html' %}
-{% block title %}bbgo{% endblock %}
+{% load staticfiles %}
+{% block title %}{{ SITE_NAME }} - {{ table_name }}{% endblock %}
 {% block extra_head_content %}
 {{ block.super }}
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% endblock %}
 {% block content %}
-<form
-    method="POST"
-    enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.errors }}
-    {{ form.non_field_errors }}
+<div id="wrap">
+    <div id="header">
+        <div class="gnb">
+        </div>
+    </div>
+    <div id="contents">
+        <h1>{{ table_name }}</h1>
+        <div class="annotation">
+        {% if board_desc %}
+            {{ board_desc }}
+        {% endif %}
+        </div>
 
-    {{form.as_p}}
-    <p><input type = "submit"></p>
-</form>
+        <form
+            id="edit_article_form"
+            method="POST"
+            enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.errors }}
+            {{ form.non_field_errors }}
+
+            <div class="input_subject">
+                {{ form.subject }}
+            </div>
+            <div class="input_content">
+                {{ form.content }}
+            </div>
+            {% if msg %}
+            <div class="input_msg">
+                {{ msg }}
+            </div>
+            {% endif %}
+            <div class="input_reference">
+                {{ form.reference }}
+            </div>
+            {% if category_choices %}
+                <div class="input_category">
+                    <b>구분</b>
+                    <select id="id_category" maxlength="23" name="category">
+                    {% for choice in category_choices %}
+                        <option value="{{ choice }}">{{ choice }}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+            {% endif %}
+            {% if is_staff %}
+                <div class="input_status">
+                    <b>상태</b> {{ form.status }}
+                </div>
+            {% endif %}
+            <div class="input_submit">
+                <input type="submit" value="등록">
+                <input type="button" value="취소" onClick="cacnel()">
+            </div>
+        </form>
+
+    </div> <!--//contents-->
+    <div id="footer">
+        <div class="footerMenu">
+            {{ FOOTER_TAGS|safe }}
+        </div>
+    </div><!--//footer-->
+</div> <!--//wrap-->
+
+<script src="{% static 'js/boards.js' %}" async></script>
+<script>
+$(window).bind('beforeunload', function(){
+    return '글 작성을 취소하고 나가시겠습니까?';
+});
+</script>
 {% endblock %}

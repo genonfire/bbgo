@@ -7,14 +7,14 @@ from django.db import models
 class Board(models.Model):
     """Board of boards"""
 
-    table = models.CharField(
-        max_length=31, choices=settings.BOARD_TABLES, default='0')
+    table = models.IntegerField(default=0)
+    status = models.CharField(max_length=10, choices=settings.BOARD_STATUS, default='1normal')
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     created_at = models.DateTimeField(auto_now_add=True)
-    modified_at = models.DateTimeField(blank=True)
+    modified_at = models.DateTimeField(auto_now=True)
     ip = models.GenericIPAddressField()
-    category = models.CharField(max_length=31, blank=True)
-    subject = models.CharField(max_length=100)
+    category = models.CharField(max_length=23, blank=True)
+    subject = models.CharField(max_length=41)
     content = models.TextField()
     view_count = models.IntegerField(default=0)
     like_count = models.IntegerField(default=0)
@@ -23,7 +23,8 @@ class Board(models.Model):
     like_users = models.TextField(default='', blank=True)
     dislike_users = models.TextField(default='', blank=True)
     replies = models.TextField(default='', blank=True)
+    reference = models.CharField(max_length=1855, default='', blank=True)
 
     def get_absolute_url(self):
         """Back to list"""
-        return reverse_lazy('board show list', args=[self.table])
+        return reverse_lazy('boards:show_list_0', args=[self.table])

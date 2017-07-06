@@ -42,5 +42,6 @@ urlpatterns = [
     #     ,
     #     name='signup'
     # ),
+    url(r'^summernote/', include('django_summernote.urls')),
     url(r'^boards/', include('boards.urls', namespace='boards')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

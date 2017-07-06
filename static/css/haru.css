@@ -1,7 +1,7 @@
 @charset "utf-8";
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
 /* reset */
-body, html {width:100%;margin:0;padding:0;/*background:#26292e;*/font-size:1.0em;}
+body, html {width:100%;margin:0;padding:0;background:#EDEDED;font-size:1.0em;}
 body {font-family:Noto Sans KR,'맑은 고딕',Malgun Gothic,Apple Gothic,'돋움',Dotum,sans-serif;}
 div,p,h1,h2,h3,h4,h5,h6,section, article, aside, footer, figure, figcaption, nav,ul,ol,li,dl,dt,dd,table,tr,thead,tbody,tfoot,td,th,a,span,strong,em,i,img,address,form,fieldset,legend,input,textarea,select,label,button,pre,
 iframe {margin:0;padding:0;}
@@ -15,7 +15,8 @@ dd, dl, ol, ul, form {margin:0;padding:0;}
 li {list-style-type:none;}
 form {margin:0;padding:0;}
 input, button, select, textarea,pre {box-sizing:border-box;font-size:1.0em;}
-input[type="button"], input[type="submit"] {cursor:pointer}
+input[type="button"], input[type="submit"] {cursor:pointer;display:inline-block;height:2.1em;margin-left:.5em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.2em;}
+input[type="submit"] {background:#11223d;color:#fff;}
 a {vertical-align:middle;box-sizing:border-box;color:#333;text-decoration:none;}
 a:hover {color:yellow; color:#000;text-decoration:underline;}
 
@@ -34,13 +35,6 @@ a:hover {color:yellow; color:#000;text-decoration:underline;}
 .util {position:absolute;top:50%;right:.625em;margin-top:-15px;}
 .util a {height:30px;background:#11223d;line-height:0;text-align:center;}
 .util a:hover {background:#283850;}
-.utilSolo a {display:block;width:30px;}
-.utilSolo a img {margin-top:3px;}
-.utilDuo {width:60px;}
-.utilDuo a img {margin-bottom:3px;}
-.m-util {position:absolute;top:15%;right:.625em;margin-top:-15px;}
-.m-util a {height:30px;background:#11223d;line-height:0;text-align:center;}
-.m-util a:hover {background:#283850;}
 
 /* Footer */
 #footer {padding:20px 10px;text-align:right;}
@@ -50,31 +44,72 @@ a:hover {color:yellow; color:#000;text-decoration:underline;}
 .footerMenu li {float:left;margin: 0 3px;font-size:.8em;vertical-align:top;}
 .footerMenu li + li:before {content:'| ';margin:0 5px;color:#ddd;}
 .footerMenu li , .footerMenu li a {vertical-align:top;}
-.footerMenu li a {}
 
 /* Contents */
-#contents {padding:1.0em;padding-bottom:1.6em;background:#e7e9ef;}
+#contents {width:800px;padding:1.0em;padding-bottom:1.6em;background:#fff;}
 #contents:after {content:'';display:block;clear:both;}
 
-.annotation {min-height:3.0em;margin:0 0 1.5em 0;padding:.6em 0;border-bottom:1px solid #11223d;font-size:.8em;color:#666;}
-.annotation span a {display:inline-block;height:2.8em;margin-left:.5em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.7em;}
+.annotation {min-height:0.1em;margin:0 0 1.5em 0;padding:.9em 0;border-bottom:1px solid #11223d;font-size:.8em;color:#666;}
+.annotation span a {display:inline-block;height:2.8em;margin-left:.5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.7em;}
 .annotation span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
 
+/* board */
+table.board {width:100%;text-align:center;}
+table.board thead {background:#F9F9F9;}
+table.board tr {border:1px solid #ABB2AC;}
+table.board tr:hover {background-color:#F9F9F9;}
+table.board td {padding:.2em;font-size:.95em;}
+table.board td a {color:#11223d;}
+table.board td a:visited {color:gray;}
+table.board td a:hover {text-decoration:underline;color:#E54F44;}
+table.board th.category {width:50px;}
+table.board th.subject {width:450px;}
+table.board th.name {width:100px;}
+table.board th.like_count {width:50px;}
+table.board th.view_count {width:50px;}
+table.board th.datetime {width:60px;}
+table.board td.category {width:50px;}
+table.board td.subject {width:450px;}
+table.board td.name {width:100px;}
+table.board td.like_count {width:50px;font-size:.8em;}
+table.board td.view_count {width:50px;font-size:.8em;}
+table.board td.datetime {width:60px;font-size:.8em;}
+
+.navigator {width:100%;margin:.5em;padding:0;text-align:center;font-size:.9em;}
+.navigator span a {display:inline-block;height:2.1em;margin-left:.1em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.2em;}
+.navigator span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
+.navigator span a.current_page {background:#11223d;color:#fff;}
+.navigator span a.jump {margin:.0em;background:#fff;border-color:#fff;}
+.navigator span a.jump:hover {background:#fff;border-color:#11223d;}
+
+.float-left {float:left;}
+.float-right {float:right;margin-right:8px;}
+
 /* search */
-.dbSearch {margin:1.5em 0;padding:0;font-size:.8em;}
-.dbSearch select {width:6.5em;max-width:100px;height:2.8em;border:1px solid #999;line-height:2.7em;vertical-align:middle;}
-.dbSearch input.searchWord {width:13em;height:2.8em;margin-left:2px;padding:0 5px;border:1px solid #999;background:#fff;vertical-align:middle;}
-.dbSearch input.searchButton {width:3.5em;height:2.8em;margin-left:2px;border:1px solid #11223d;background:#11223d;color:#fff;line-height:2.7em;vertical-align:middle;}
-.dbSearch input.searchButton:hover {background-color:#283850;cursor:pointer;}
-.dbSearch span a {display:inline-block;height:2.8em;margin-left:.5em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.7em;}
-.dbSearch span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
+.db-search {margin:1.5em 0;padding:0;text-align:center;font-size:.8em;}
+.db-search select {width:6.5em;max-width:100px;height:2.2em;border:1px solid #999;line-height:2.2em;vertical-align:middle;}
+.db-search input.searchWord {width:18em;height:2.2em;margin-left:2px;padding:0 5px;border:1px solid #999;background:#fff;vertical-align:middle;}
+.db-search input.searchButton {width:3.5em;height:2.2em;margin-left:2px;border:1px solid #11223d;background:#11223d;color:#fff;line-height:2.2em;vertical-align:middle;}
+.db-search input.searchButton:hover {background-color:#283850;cursor:pointer;}
+.db-search span a {display:inline-block;height:2.1em;margin-left:.5em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.2em;}
+.db-search span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
 
-div.input_required {padding:4px;padding-left:10px;border:1px solid #8298a6;background-color:#8298a6;color:white;font-weight:bold;}
-div.input_optional {padding:4px;padding-left:10px;border:1px dotted #8298a6;}
-div.delete {padding:4px;border:2px solid red;}
+div.sense_horizontal_bar {height:100px;background:#EDEDED;padding-top:10px;margin-top:5px;margin-bottom:5px;}
 
-div.sense {padding-top:15px;}
-div.senseSmall {height:50px;}
+div.input_subject {margin-bottom:0.5em;}
+div.input_subject input {width:100%;padding:.3em;height:2.2em;line-height:2.2em;}
+div.input_msg {margin-bottom:1em;margin-left:1em;color:#283850;font-size:.8em;}
+div.input_reference {margin-bottom:1.0em;}
+div.input_reference input {width:100%;padding:.3em;height:2.2em;line-height:2.2em;}
+div.input_category {margin-bottom:1.0em;padding-left:1.0em;}
+div.input_category select {width:8.5em;max-width:200px;height:2.0em;margin-left:2em;border:1px solid #999;line-height:2.1em;vertical-align:middle;}
+div.input_status {margin-bottom:1.0em;padding-left:1.0em;color:red;}
+div.input_status select {width:8.5em;max-width:200px;height:2.0em;margin-left:2em;border:2px dashed #7395CC;line-height:2.1em;vertical-align:middle;}
+
+div.input_submit {text-align:center;}
+
+
+
 p.edit {padding:2px;padding-top:10px;padding-bottom:10px;}
 div.hof {margin-bottom:10px;width:160px;text-align:center;background-color:#283850;color:#D8D8D8;box-shadow:0 0 5px 5px #888;}
 div.hof a {color:white;}
@@ -121,6 +156,7 @@ table td.editIssue a.editIcon img {vertical-align:baseline;}
 @media all and (min-width:361px) and (max-width:540px) {
 	body {font-size:.9em;}
 	#wrap {padding:0;}
+	#contents {width:360px;}
 	.gnb li {margin-left:.4em;}
 	.gnb li a {padding-left:.2em;padding-right:.2em;font-size:1.4em;}
 	table td.issuePhoto {width:6.6em;}
@@ -133,9 +169,10 @@ table td.editIssue a.editIcon img {vertical-align:baseline;}
 @media all and (min-width:320px) and (max-width:360px) {
 	body {font-size:.8em;}
 	#wrap {padding:0;}
+	#contents {width:290px;}
 	.gnb li {margin-left:.4em;}
 	.gnb li a {padding-left:.2em;padding-right:.2em;font-size:1.3em;}
-	.dbSearch span a {line-height:2.5em;}
+	.db-search span a {line-height:2.5em;}
 	table td.issuePhoto {width:6.6em;}
 	table td.issuePhoto img {width:6.6em;height:auto;}
 	table td.issueRank {width:2.0em;}
