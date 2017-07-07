@@ -1,21 +1,63 @@
 {% extends 'base.html' %}
-{% block title %}bbgo{% endblock %}
+{% load staticfiles %}
+{% block title %}{{ SITE_NAME }} - {{ table_name }}{% endblock %}
 {% block extra_head_content %}
 {{ block.super }}
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
 {% endblock %}
+{% load censor %}
 {% block content %}
+<div id="wrap">
+    <div id="header">
+        <div class="gnb">
+        </div>
+    </div>
+    <div id="contents">
+        <h1>{{ table_name }}</h1>
+        <div class="annotation">
+        {% if table_desc %}
+            {{ table_desc }}
+        {% endif %}
+        </div>
 
-id: {{article.status}}<br>
-category: {{article.category}}<br>
-user: {{article.user}}<br>
-created_at: {{article.created_at}}<br>
-modified_at: {{article.modified_at}}<br>
-subject: {{article.subject}}<br>
-content: {{article.content|safe}}<br>
-reference: {{article.reference}}<br>
-viewcount: {{article.viewcount}}<br>
-likecount: {{article.likecount}}<br>
-likeusers: {{article.likeusers}}<br>
+        <div class="article_subject">
+            {{ article.subject }}
+        </div>
+        <div class="article_user">
+            {{ article.user }}
+            <div class="article_view_count">
+                <img src="{% static 'icons/eye18.png' %}">
+                <span>{{ article.view_count }}</span>
+                <span><a href="#" title="이 글을 추천한 분들">{{ article.like_count }}</a></span>
+            </div>
+        </div>
+        <div class="article_view_misc">
+            <img src="{% static 'icons/watch18.png' %}">
+            {{ article.created_at|date:" Y-m-d H:i:s" }}
+            <div class="article_view_ip">
+                {{ article.ip|censor_ip }}
+            </div>
+        </div>
+        <div class="article_view_content">
+            {{ article.content|safe}}
+        </div>
+        <div class="article_view_buttons">
+            <span>
+                <a href="#">추천</a>
+            </span>
+            <span>
+                <a href="#">비추</a>
+            </span>
+        </div>
 
+    </div> <!--//contents-->
+    <div id="footer">
+        <div class="footerMenu">
+            {{ FOOTER_TAGS|safe }}
+        </div>
+    </div><!--//footer-->
+</div> <!--//wrap-->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="{% static 'js/boards.js' %}" async></script>
 {% endblock %}

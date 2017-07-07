@@ -31,7 +31,7 @@ def show_list(request, table=0, page=0):
     if int(page) < 1:
         return redirect('boards:show_list', table=table, page=1)
 
-    board_desc = board_table.get_table_desc(table)
+    table_desc = board_table.get_table_desc(table)
     list_count = board_table.get_list_count()
 
     current_page = int(page) - 1
@@ -70,7 +70,7 @@ def show_list(request, table=0, page=0):
             'today': now.date,
             'table': table,
             'table_name': table_name,
-            'board_desc': board_desc,
+            'table_desc': table_desc,
             'page': current_page + 1,
             'index_begin': index_begin,
             'index_end': index_end + 1,
@@ -89,11 +89,18 @@ def show_article(request, id):
     article.view_count += 1
     article.save()
 
+    table = article.table
+    board_table = BoardTable()
+    table_name = board_table.get_table_name(table)
+    table_desc = board_table.get_table_desc(table)
+
     return render(
         request,
         "boards/show_article.html",
         {
             'article': article,
+            'table_name': table_name,
+            'table_desc': table_desc,
         }
     )
 
@@ -123,7 +130,7 @@ def new_article(request, table=0):
         if table_name == '':
             return HttpResponse(u"잘못된 접근입니다.")
 
-        board_desc = board_table.get_table_desc(table)
+        table_desc = board_table.get_table_desc(table)
         category_choices = board_table.get_category(table)
 
         editform = BoardEditForm()
@@ -135,7 +142,7 @@ def new_article(request, table=0):
                 'form': editform,
                 'editType': 'new',
                 'table_name': table_name,
-                'board_desc': board_desc,
+                'table_desc': table_desc,
                 'category_choices': category_choices,
                 'is_staff': request.user.is_staff,
             }

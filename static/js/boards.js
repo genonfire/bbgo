@@ -49,3 +49,9 @@ $('#edit_article_form').submit(function(e) {
 
     $(window).unbind('beforeunload');
 });
+
+$(document).ready(function() {
+  $('pre').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+});

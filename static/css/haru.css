@@ -14,6 +14,7 @@ table th, table td {word-break:break-all;}
 dd, dl, ol, ul, form {margin:0;padding:0;}
 li {list-style-type:none;}
 form {margin:0;padding:0;}
+pre {background:#EFF0F1;}
 input, button, select, textarea,pre {box-sizing:border-box;font-size:1.0em;}
 input[type="button"], input[type="submit"] {cursor:pointer;display:inline-block;height:2.1em;margin-left:.5em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.2em;}
 input[type="submit"] {background:#11223d;color:#fff;}
@@ -31,10 +32,6 @@ a:hover {color:yellow; color:#000;text-decoration:underline;}
 .gnb li:first-child {margin-left:0 !important}
 .gnb li a {display:block;padding:.6em .6em;color:#11223d;font-size:1.5em;}
 .gnb li a:hover {color:#ee2d31;text-decoration:none;}
-/*.gnb li.current a {color:#ee2d31;}*/
-.util {position:absolute;top:50%;right:.625em;margin-top:-15px;}
-.util a {height:30px;background:#11223d;line-height:0;text-align:center;}
-.util a:hover {background:#283850;}
 
 /* Footer */
 #footer {padding:20px 10px;text-align:right;}
@@ -76,7 +73,7 @@ table.board td.view_count {width:50px;font-size:.8em;}
 table.board td.datetime {width:60px;font-size:.8em;}
 
 .navigator {width:100%;margin:.5em;padding:0;text-align:center;font-size:.9em;}
-.navigator span a {display:inline-block;height:2.1em;margin-left:.1em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.2em;}
+.navigator span a {display:inline-block;height:2.2em;margin-left:.1em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.1em;}
 .navigator span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
 .navigator span a.current_page {background:#11223d;color:#fff;}
 .navigator span a.jump {margin:.0em;background:#fff;border-color:#fff;}
@@ -91,7 +88,7 @@ table.board td.datetime {width:60px;font-size:.8em;}
 .db-search input.searchWord {width:18em;height:2.2em;margin-left:2px;padding:0 5px;border:1px solid #999;background:#fff;vertical-align:middle;}
 .db-search input.searchButton {width:3.5em;height:2.2em;margin-left:2px;border:1px solid #11223d;background:#11223d;color:#fff;line-height:2.2em;vertical-align:middle;}
 .db-search input.searchButton:hover {background-color:#283850;cursor:pointer;}
-.db-search span a {display:inline-block;height:2.1em;margin-left:.5em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.2em;}
+.db-search span a {display:inline-block;height:2.2em;margin-left:.5em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.1em;}
 .db-search span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
 
 div.sense_horizontal_bar {height:100px;background:#EDEDED;padding-top:10px;margin-top:5px;margin-bottom:5px;}
@@ -105,9 +102,20 @@ div.input_category {margin-bottom:1.0em;padding-left:1.0em;}
 div.input_category select {width:8.5em;max-width:200px;height:2.0em;margin-left:2em;border:1px solid #999;line-height:2.1em;vertical-align:middle;}
 div.input_status {margin-bottom:1.0em;padding-left:1.0em;color:red;}
 div.input_status select {width:8.5em;max-width:200px;height:2.0em;margin-left:2em;border:2px dashed #7395CC;line-height:2.1em;vertical-align:middle;}
-
 div.input_submit {text-align:center;}
 
+div.article_subject {width:100%;color:#000;font-size:1.5em;}
+div.article_user {margin-top:0.5em;padding:0.5em;width:100%;height:2.0em;line-height:2.0em;vertical-align:middle;background:#f6f6f6;}
+div.article_view_count {float:right;margin-right:0px;vertical-align:middle;font-size:.8em;color:gray;}
+div.article_view_count span {margin:.3em;margin-right:0;}
+div.article_view_count span a {display:inline-block;width:3em;height:100%;margin-left:.1em;box-sizing:border-box;border:1px solid #a5a5a5;background:#11223d;color:#fff;text-align:center;}
+div.article_view_count span a:hover {border-color:#11223d;text-decoration:none;}
+div.article_view_misc {margin-left:.5em;font-size:.8em;color:gray;vertical-align:middle;}
+div.article_view_ip {float:right;margin-right:0;letter-spacing:.1em;}
+div.article_view_content {margin-top:1em;margin-bottom:.5em;padding-right:.1em;}
+div.article_view_buttons {text-align:center;}
+div.article_view_buttons span a {display:inline-block;height:2.2em;margin-left:.5em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.1em;}
+div.article_view_buttons span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
 
 
 p.edit {padding:2px;padding-top:10px;padding-bottom:10px;}
