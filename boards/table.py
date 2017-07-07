@@ -57,3 +57,7 @@ class BoardTable():
     def get_category(self, table):
         """Get pre-defined category for the table"""
         return self.CATEGORY[(self.BOARD_TABLES[int(table)][2])]
+
+    def get_table_list(self):
+        """Get BOARD_TABLES"""
+        return self.BOARD_TABLES

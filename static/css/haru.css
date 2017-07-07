@@ -62,14 +62,14 @@ table.board td {padding:.2em;font-size:.95em;}
 table.board td a {color:#11223d;}
 table.board td a:visited {color:gray;}
 table.board td a:hover {text-decoration:underline;color:#E54F44;}
-table.board th.category {width:50px;}
-table.board th.subject {width:450px;}
+table.board th.category {width:auto;min-width:50px;max-width:80px;}
+table.board th.subject {width:auto;min-width:420px;}
 table.board th.name {width:100px;}
 table.board th.like_count {width:50px;}
 table.board th.view_count {width:50px;}
 table.board th.datetime {width:60px;}
-table.board td.category {width:50px;}
-table.board td.subject {width:450px;}
+table.board td.category {width:auto;min-width:50px;max-width:80px;color:#9393AE;}
+table.board td.subject {width:auto;min-width:420px;}
 table.board td.name {width:100px;}
 table.board td.like_count {width:50px;font-size:.8em;}
 table.board td.view_count {width:50px;font-size:.8em;}

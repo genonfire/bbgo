@@ -5,6 +5,7 @@
 {{ block.super }}
 {% endblock %}
 {% load range %}
+{% load pick %}
 {% block content %}
 
 <div id="wrap">
@@ -38,7 +39,11 @@
         {% for article in lists %}
             <tr>
                 <td class="category">
-                    {{ article.category }}
+                    {% if table == '0' %}
+                        {{ name_list|pick_first:article.table }}
+                    {% else %}
+                        {{ article.category }}
+                    {% endif %}
                 </td>
                 <td class="subject" align="left">
                     <a href="{% url 'boards:show_article' id=article.id %}">
@@ -91,7 +96,7 @@
                     <a href="../{{ index_end }}" class="jump" title="다음 페이지로">></a>
                 </span>
             {% endif %}
-        {% if check_write == True %}
+        {% if writable == True %}
             <div class="float-right">
                 <span>
                     <a href="{% url 'boards:new_article' table=table %}" class="current_page">글쓰기</a>

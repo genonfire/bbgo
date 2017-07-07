@@ -41,9 +41,11 @@ def show_list(request, table=0, page=0):
     if int(table) == 0:
         total = Board.objects.filter().count()
         lists = Board.objects.filter().order_by('-id')[start_at:end_at]
+        name_list = board_table.get_table_list()
     else:
         total = Board.objects.filter(table=table).count()
         lists = Board.objects.filter(table=table).order_by('-id')[start_at:end_at]
+        name_list = None
     now = timezone.now()
 
     index_begin = (current_page / 10) * 10 + 1
@@ -52,9 +54,12 @@ def show_list(request, table=0, page=0):
     if index_end - index_begin >= 10:
         index_end = index_begin + 9
 
-    check_write = True
+    if request.user.is_authenticated():
+        writable = True
+    else:
+        writable = False
     if int(table) == 0 or (int(table) < 10 and not request.user.is_staff):
-        check_write = False
+        writable = False
 
     return render(
         request,
@@ -72,7 +77,8 @@ def show_list(request, table=0, page=0):
             'index_total': index_total,
             'prev_index': index_begin - 1,
             'next_index': index_end + 1,
-            'check_write': check_write,
+            'writable': writable,
+            'name_list': name_list,
         }
     )
 
