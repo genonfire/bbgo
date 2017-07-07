@@ -69,10 +69,5 @@
     </div><!--//footer-->
 </div> <!--//wrap-->
 
-<script src="{% static 'js/boards.js' %}" async></script>
-<script>
-$(window).bind('beforeunload', function(){
-    return '글 작성을 취소하고 나가시겠습니까?';
-});
-</script>
+<script src="{% static 'js/boards_edit.js' %}" async></script>
 {% endblock %}

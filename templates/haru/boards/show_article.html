@@ -3,7 +3,9 @@
 {% block title %}{{ SITE_NAME }} - {{ table_name }}{% endblock %}
 {% block extra_head_content %}
 {{ block.super }}
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+{% if ENABLE_CODE_HIGHLIGHT %}
+<link rel="stylesheet" href="{% static 'css/monokai-sublime.min.css' %}">
+{% endif %}
 {% endblock %}
 {% load censor %}
 {% block content %}
@@ -58,6 +60,8 @@
     </div><!--//footer-->
 </div> <!--//wrap-->
 
+{% if ENABLE_CODE_HIGHLIGHT %}
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="{% static 'js/boards.js' %}" async></script>
+<script src="{% static 'js/boards_highlight.js' %}" async></script>
+{% endif %}
 {% endblock %}

@@ -14,7 +14,7 @@ table th, table td {word-break:break-all;}
 dd, dl, ol, ul, form {margin:0;padding:0;}
 li {list-style-type:none;}
 form {margin:0;padding:0;}
-pre {background:#EFF0F1;}
+pre {margin:.5em;background:#EFF0F1;font-family:"Courier"}
 input, button, select, textarea,pre {box-sizing:border-box;font-size:1.0em;}
 input[type="button"], input[type="submit"] {cursor:pointer;display:inline-block;height:2.1em;margin-left:.5em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.2em;}
 input[type="submit"] {background:#11223d;color:#fff;}
