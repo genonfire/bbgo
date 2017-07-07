@@ -43,6 +43,14 @@
         <div class="article_view_content">
             {{ article.content|safe}}
         </div>
+        {% if article.reference %}
+        <div class="article_view_reference">
+            <img src="{% static 'icons/link18.png' %}" title="출처">
+            <a href="{{ article.reference }}" target="_blank">
+                {{ article.reference }}
+            </a>
+        </div>
+        {% endif %}
         <div class="article_view_buttons">
             <span>
                 <a href="#">추천</a>

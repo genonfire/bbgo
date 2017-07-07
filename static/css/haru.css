@@ -19,7 +19,7 @@ input, button, select, textarea,pre {box-sizing:border-box;font-size:1.0em;}
 input[type="button"], input[type="submit"] {cursor:pointer;display:inline-block;height:2.1em;margin-left:.5em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.2em;}
 input[type="submit"] {background:#11223d;color:#fff;}
 a {vertical-align:middle;box-sizing:border-box;color:#333;text-decoration:none;}
-a:hover {color:yellow; color:#000;text-decoration:underline;}
+a:hover {color:yellow; color:#000;text-decoration:none;}
 
 /* Layout */
 #wrap {margin:0;padding:0 10px;}
@@ -58,7 +58,7 @@ table.board tr:hover {background-color:#F9F9F9;}
 table.board td {padding:.2em;font-size:.95em;}
 table.board td a {color:#11223d;}
 table.board td a:visited {color:gray;}
-table.board td a:hover {text-decoration:underline;color:#E54F44;}
+table.board td a:hover {text-decoration:none;color:#E54F44;}
 table.board th.category {width:auto;min-width:50px;max-width:80px;}
 table.board th.subject {width:auto;min-width:420px;}
 table.board th.name {width:100px;}
@@ -110,10 +110,12 @@ div.article_view_count {float:right;margin-right:0px;vertical-align:middle;font-
 div.article_view_count span {margin:.3em;margin-right:0;}
 div.article_view_count span a {display:inline-block;width:3em;height:100%;margin-left:.1em;box-sizing:border-box;border:1px solid #a5a5a5;background:#11223d;color:#fff;text-align:center;}
 div.article_view_count span a:hover {border-color:#11223d;text-decoration:none;}
-div.article_view_misc {margin-left:.5em;font-size:.8em;color:gray;vertical-align:middle;}
+div.article_view_misc {margin-left:.5em;font-size:.8em;color:#999;vertical-align:middle;}
 div.article_view_ip {float:right;margin-right:0;letter-spacing:.1em;}
 div.article_view_content {margin-top:1em;margin-bottom:.5em;padding-right:.1em;}
-div.article_view_buttons {text-align:center;}
+div.article_view_reference {margin:1.5em;margin-right:0;height:2.0em;vertical-align:middle;background:#EDEDED;font-size:0.8em;}
+div.article_view_reference a:hover {color:#E54F44;}
+div.article_view_buttons {margin-top:1em;text-align:center;}
 div.article_view_buttons span a {display:inline-block;height:2.2em;margin-left:.5em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.1em;}
 div.article_view_buttons span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
 
