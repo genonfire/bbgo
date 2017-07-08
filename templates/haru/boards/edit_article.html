@@ -4,6 +4,7 @@
 {% block extra_head_content %}
 {{ block.super }}
 {% endblock %}
+{% load i18n %}
 {% block content %}
 <div id="wrap">
     <div id="header">
@@ -52,12 +53,12 @@
             {% endif %}
             {% if is_staff %}
                 <div class="input_status">
-                    <b>상태</b> {{ form.status }}
+                    <b>{% trans 'status' %}</b> {{ form.status }}
                 </div>
             {% endif %}
             <div class="input_submit">
-                <input type="submit" value="등록">
-                <input type="button" value="취소" onClick="cacnel()">
+                <input type="submit" value="{% trans 'submit' %}">
+                <input type="button" value="{% trans 'cancel' %}" onClick="cacnel()">
             </div>
         </form>
 

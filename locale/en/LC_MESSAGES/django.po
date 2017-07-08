@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-08 17:02+0900\n"
+"PO-Revision-Date: 2017-07-08 16:51+0900\n"
+"Last-Translator:   <>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Translated-Using: django-rosetta 0.7.13\n"
+
+#: boards/views.py:26 boards/views.py:31 boards/views.py:117
+#: boards/views.py:133 boards/views.py:138
+msgid "Wrong access"
+msgstr ""
+
+#: templates/haru/boards/edit_article.html:56
+msgid "status"
+msgstr ""
+
+#: templates/haru/boards/edit_article.html:60
+msgid "submit"
+msgstr ""
+
+#: templates/haru/boards/edit_article.html:61
+msgid "cancel"
+msgstr ""
+
+#: templates/haru/boards/show_article.html:34
+msgid "who likes"
+msgstr ""
+
+#: templates/haru/boards/show_article.html:49
+msgid "reference"
+msgstr ""
+
+#: templates/haru/boards/show_article.html:57
+#: templates/haru/boards/show_list.html:36
+msgid "like"
+msgstr ""
+
+#: templates/haru/boards/show_article.html:60
+msgid "dislike"
+msgstr ""
+
+#: templates/haru/boards/show_list.html:32
+msgid "category"
+msgstr ""
+
+#: templates/haru/boards/show_list.html:33
+#: templates/haru/boards/show_list.html:111
+msgid "subject"
+msgstr ""
+
+#: templates/haru/boards/show_list.html:34
+#: templates/haru/boards/show_list.html:113
+msgid "username"
+msgstr ""
+
+#: templates/haru/boards/show_list.html:35
+msgid "view"
+msgstr ""
+
+#: templates/haru/boards/show_list.html:37
+msgid "date"
+msgstr ""
+
+#: templates/haru/boards/show_list.html:82
+msgid "to first page"
+msgstr ""
+
+#: templates/haru/boards/show_list.html:83
+msgid "to prev page"
+msgstr ""
+
+#: templates/haru/boards/show_list.html:98
+msgid "to next page"
+msgstr ""
+
+#: templates/haru/boards/show_list.html:104
+msgid "write"
+msgstr ""
+
+#: templates/haru/boards/show_list.html:112
+msgid "subject+content"
+msgstr ""
+
+#: templates/haru/boards/show_list.html:116
+msgid "search"
+msgstr ""

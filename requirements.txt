@@ -1,5 +1,17 @@
+certifi==2017.4.17
+chardet==3.0.4
 Django==1.8.17
+django-rosetta==0.7.13
 django-summernote==0.8.7
+idna==2.5
+microsofttranslator==0.8
 olefile==0.44
 Pillow==4.1.1
+pluggy==0.4.0
+polib==1.0.8
 psycopg2==2.7.1
+py==1.4.34
+requests==2.18.1
+six==1.10.0
+urllib3==1.21.1
+virtualenv==15.1.0

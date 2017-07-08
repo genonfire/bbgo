@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
+from django.utils.translation import ugettext as _
 
 from models import Board
 
@@ -22,11 +23,13 @@ def show_list(request, table=0, page=0):
     """Show list"""
     board_table = BoardTable()
     if int(table) >= board_table.get_table_len():
-        return HttpResponse(u"잘못된 접근입니다.")
+        msg = _('Wrong access')
+        return HttpResponse(msg)
 
     table_name = board_table.get_table_name(table)
     if table_name == '':
-        return HttpResponse(u"잘못된 접근입니다.")
+        msg = _('Wrong access')
+        return HttpResponse(msg)
 
     if int(page) < 1:
         return redirect('boards:show_list', table=table, page=1)
@@ -111,7 +114,8 @@ def show_article(request, id):
 def new_article(request, table=0):
     """New article"""
     if int(table) == 0 or (int(table) < 10 and not request.user.is_staff):
-        return HttpResponse(u"잘못된 접근입니다.")
+        msg = _('Wrong access')
+        return HttpResponse(msg)
 
     if request.method == "POST":
         editform = BoardEditForm(request.POST, request.FILES)
@@ -126,11 +130,13 @@ def new_article(request, table=0):
     elif request.method == "GET":
         board_table = BoardTable()
         if int(table) >= board_table.get_table_len():
-            return HttpResponse(u"잘못된 접근입니다.")
+            msg = _('Wrong access')
+            return HttpResponse(msg)
 
         table_name = board_table.get_table_name(table)
         if table_name == '':
-            return HttpResponse(u"잘못된 접근입니다.")
+            msg = _('Wrong access')
+            return HttpResponse(msg)
 
         table_desc = board_table.get_table_desc(table)
         category_choices = board_table.get_category(table)

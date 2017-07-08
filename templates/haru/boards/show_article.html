@@ -6,6 +6,7 @@
 {% if ENABLE_CODE_HIGHLIGHT %}
 <link rel="stylesheet" href="{% static 'css/monokai-sublime.min.css' %}">
 {% endif %}
+{% load i18n %}
 {% endblock %}
 {% load censor %}
 {% block content %}
@@ -30,7 +31,7 @@
             <div class="article_view_count">
                 <img src="{% static 'icons/eye18.png' %}">
                 <span>{{ article.view_count }}</span>
-                <span><a href="#" title="이 글을 추천한 분들">{{ article.like_count }}</a></span>
+                <span><a href="#" title="{% trans 'who likes' %}">{{ article.like_count }}</a></span>
             </div>
         </div>
         <div class="article_view_misc">
@@ -45,7 +46,7 @@
         </div>
         {% if article.reference %}
         <div class="article_view_reference">
-            <img src="{% static 'icons/link18.png' %}" title="출처">
+            <img src="{% static 'icons/link18.png' %}" title="{% trans 'reference' %}">
             <a href="{{ article.reference }}" target="_blank">
                 {{ article.reference }}
             </a>
@@ -53,10 +54,10 @@
         {% endif %}
         <div class="article_view_buttons">
             <span>
-                <a href="#">추천</a>
+                <a href="#">{% trans 'like' %}</a>
             </span>
             <span>
-                <a href="#">비추</a>
+                <a href="#">{% trans 'dislike' %}</a>
             </span>
         </div>
 

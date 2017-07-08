@@ -23,6 +23,11 @@ THEME = 'haru'
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 THEME_DIR = os.path.join(BASE_DIR, 'templates', THEME)
 
+# Localization
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -47,6 +52,7 @@ DJANGO_APPS = (
     'django.contrib.staticfiles',
 )
 THIRD_PARTY_APPS = (
+    'rosetta',
 )
 EDITOR_APPS = (
     'django_summernote',
@@ -89,6 +95,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'core.context_processors.global_settings',
+                'django.core.context_processors.i18n',
             ],
             # 'string_if_invalid': 'INVALID_EXPRESSION: %s',
         },
@@ -146,7 +153,8 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ko-KR'
 
 TIME_ZONE = 'Asia/Seoul'
 
