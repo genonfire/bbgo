@@ -215,7 +215,7 @@ BOARD_STATUS = {
 # boards/table.py for more settings
 
 # highlight with coding style for <pre> using highlight.js
-ENABLE_CODE_HIGHLIGHT = True
+ENABLE_CODE_HIGHLIGHT = False
 
 FOOTER_TAGS = '<li>문의, 의견 보내기</li>\
 <li><a href="mailto:%s"><img src="/static/icons/email24.png"></a></li>\

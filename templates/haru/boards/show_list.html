@@ -4,6 +4,7 @@
 {% block extra_head_content %}
 {{ block.super }}
 {% endblock %}
+{% load tz datetime %}
 {% load range %}
 {% load pick %}
 {% block content %}
@@ -60,7 +61,7 @@
                     {{ article.like_count }}
                 </td>
                 <td class="datetime">
-                    {% if today == article.created_at.date %}
+                    {% if article.created_at|localtime|is_today %}
                         {{ article.created_at|time:"H:i" }}
                     {% else %}
                         {{ article.created_at|date:"m-d" }}

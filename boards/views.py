@@ -56,9 +56,11 @@ def show_list(request, table=0, page=0):
 
     if request.user.is_authenticated():
         writable = True
+        if int(table) == 0:
+            writable = False
+        elif int(table) < 10 and not request.user.is_staff:
+            writable = False
     else:
-        writable = False
-    if int(table) == 0 or (int(table) < 10 and not request.user.is_staff):
         writable = False
 
     return render(

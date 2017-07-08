@@ -104,8 +104,8 @@ div.input_status {margin-bottom:1.0em;padding-left:1.0em;color:red;}
 div.input_status select {width:8.5em;max-width:200px;height:2.0em;margin-left:2em;border:2px dashed #7395CC;line-height:2.1em;vertical-align:middle;}
 div.input_submit {text-align:center;}
 
-div.article_subject {width:100%;color:#000;font-size:1.5em;}
-div.article_user {margin-top:0.5em;padding:0.5em;width:100%;height:2.0em;line-height:2.0em;vertical-align:middle;background:#f6f6f6;}
+div.article_subject {width:100%;color:#000;font-size:1.3em;}
+div.article_user {margin-top:0.5em;padding:0.5em;width:100%;height:2.0em;line-height:1.9em;vertical-align:middle;background:#f6f6f6;}
 div.article_view_count {float:right;margin-right:0px;vertical-align:middle;font-size:.8em;color:gray;}
 div.article_view_count span {margin:.3em;margin-right:0;}
 div.article_view_count span a {display:inline-block;width:3em;height:100%;margin-left:.1em;box-sizing:border-box;border:1px solid #a5a5a5;background:#11223d;color:#fff;text-align:center;}
