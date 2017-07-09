@@ -15,6 +15,7 @@ from models import Board
 
 from .forms import BoardEditForm
 from .table import BoardTable
+
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -23,12 +24,12 @@ def show_list(request, table=0, page=0):
     """Show list"""
     board_table = BoardTable()
     if int(table) >= board_table.get_table_len():
-        msg = _('Wrong access')
+        msg = _("Wrong access")
         return HttpResponse(msg)
 
     table_name = board_table.get_table_name(table)
     if table_name == '':
-        msg = _('Wrong access')
+        msg = _("Wrong access")
         return HttpResponse(msg)
 
     if int(page) < 1:
@@ -114,7 +115,7 @@ def show_article(request, id):
 def new_article(request, table=0):
     """New article"""
     if int(table) == 0 or (int(table) < 10 and not request.user.is_staff):
-        msg = _('Wrong access')
+        msg = _("Wrong access")
         return HttpResponse(msg)
 
     if request.method == "POST":
@@ -130,12 +131,12 @@ def new_article(request, table=0):
     elif request.method == "GET":
         board_table = BoardTable()
         if int(table) >= board_table.get_table_len():
-            msg = _('Wrong access')
+            msg = _("Wrong access")
             return HttpResponse(msg)
 
         table_name = board_table.get_table_name(table)
         if table_name == '':
-            msg = _('Wrong access')
+            msg = _("Wrong access")
             return HttpResponse(msg)
 
         table_desc = board_table.get_table_desc(table)

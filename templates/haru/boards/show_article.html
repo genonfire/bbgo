@@ -31,7 +31,9 @@
             <div class="article_view_count">
                 <img src="{% static 'icons/eye18.png' %}">
                 <span>{{ article.view_count }}</span>
-                <span><a href="#" title="{% trans 'who likes' %}">{{ article.like_count }}</a></span>
+                <a href="#" title="{% trans 'who likes' %}">
+                <span id="article_view_like_count">{{ article.like_count }}</span>
+                </a>
             </div>
         </div>
         <div class="article_view_misc">
@@ -52,14 +54,18 @@
             </a>
         </div>
         {% endif %}
+        <div class="article_view_msg">
+            <span id="article_view_text"></span>
+        </div>
         <div class="article_view_buttons">
-            <span>
-                <a href="#">{% trans 'like' %}</a>
+            <span class="like">
+                <a href="#" onClick="javascript:like_article({{article.id}});return false;">{% trans 'like' %}</a>
             </span>
             <span>
-                <a href="#">{% trans 'dislike' %}</a>
+                <a href="#" onClick="javascript:dislike_article({{article.id}});return false;">{% trans 'dislike' %}</a>
             </span>
         </div>
+        <form>{% csrf_token %}</form>
 
     </div> <!--//contents-->
     <div id="footer">
@@ -73,4 +79,5 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 <script src="{% static 'js/boards_highlight.js' %}" async></script>
 {% endif %}
+<script src="{% static 'js/boards_article.js' %}" async></script>
 {% endblock %}
