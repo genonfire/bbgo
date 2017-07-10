@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-10 12:25+0900\n"
+"POT-Creation-Date: 2017-07-10 17:00+0900\n"
 "PO-Revision-Date: 2017-07-08 16:51+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,11 +19,11 @@ msgstr ""
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
 #: boards/views.py:27 boards/views.py:32 boards/views.py:118
-#: boards/views.py:134 boards/views.py:139 core/api.py:58
+#: boards/views.py:134 boards/views.py:139 core/api.py:62 core/api.py:86
 msgid "Wrong access"
 msgstr ""
 
-#: core/api.py:17
+#: core/api.py:17 core/api.py:69
 msgid "require login"
 msgstr ""
 
@@ -31,19 +31,19 @@ msgstr ""
 msgid "You like your own post?"
 msgstr ""
 
-#: core/api.py:38
+#: core/api.py:40
 msgid "You've liked this article"
 msgstr ""
 
-#: core/api.py:46
+#: core/api.py:50
 msgid "You've disliked this article"
 msgstr ""
 
-#: core/api.py:53
+#: core/api.py:57
 msgid "You've already liked"
 msgstr ""
 
-#: core/api.py:55
+#: core/api.py:59
 msgid "You've already disliked"
 msgstr ""
 
@@ -59,21 +59,25 @@ msgstr ""
 msgid "cancel"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:34
+#: templates/haru/boards/show_article.html:36
 msgid "who likes"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:51
+#: templates/haru/boards/show_article.html:56
 msgid "reference"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:62
+#: templates/haru/boards/show_article.html:67
 #: templates/haru/boards/show_list.html:36
 msgid "like"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:65
+#: templates/haru/boards/show_article.html:70
 msgid "dislike"
+msgstr ""
+
+#: templates/haru/boards/show_article.html:74
+msgid "share"
 msgstr ""
 
 #: templates/haru/boards/show_list.html:32

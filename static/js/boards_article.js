@@ -43,14 +43,28 @@ function dislike_article(id) {
     });
 }
 
-function like_users(e, id, msg) {
-    var marginX = 10;
-    var marginY = 20;
-    var width = 250;
+function show_popup(e, data, width, marginX, marginY) {
     var top = e.clientY + $(document).scrollTop() + marginY;
     var left = e.clientX - (width - 10) + $(document).scrollLeft();
     if (e.clientX - (width - 10) < marginX)
         left = marginX + $(document).scrollLeft();
+
+    $('<div/>', {
+        id: 'popup_frame',
+        class: 'popup_frame',
+        html: data,
+        style: "width:" + width + "px;position:absolute;top:" + top + "px;left:" + left + "px;"
+    }).appendTo('body');
+    $('#popup_frame').on('mousedown', function(e) {
+        e.stopPropagation();
+    })
+    $('body').on('mousedown', function(e) {
+        $('#popup_frame').remove();
+        $('body').off('mousedown');
+    })
+}
+
+function like_users(e, id, msg) {
 
     $.ajaxSetup({
         beforeSend: function(xhr, settings) {
@@ -69,22 +83,27 @@ function like_users(e, id, msg) {
             for (user in userlist) {
                 data += "<span>" + userlist[user] + "</span> ";
             }
-            $('<div/>', {
-                id: 'popup_frame',
-                class: 'popup_frame',
-                html: data,
-                style: "width:" + width + "px;position:absolute;top:" + top + "px;left:" + left + "px;"
-            }).appendTo('body');
-            $('#popup_frame').on('mousedown', function(e) {
-                e.stopPropagation();
-            })
-            $('body').on('mousedown', function(e) {
-                $('#popup_frame').remove();
-                $('body').off('mousedown');
-            })
+            show_popup(e, data, 250, 10, 20);
+
         },
         error: function(data) {
             $('#article_view_text').html('error');
         }
     });
 }
+
+function share_via(e, text) {
+    var url = window.location.href;
+    var facebook_url = "http://www.facebook.com/share.php?u=" + url;
+    var twitter_url = "https://twitter.com/intent/tweet?text=" + text + "&url=" + url
+    var data = '<table width="100%"><tr><td><a href="' + facebook_url + '" target=_blank><img src="/static/icons/facebook16.png">Facebook</td></tr><tr><td><a href="' + twitter_url + '" target="_blank"><img src="/static/icons/twitter16.png">Twitter</a></td></tr></table>';
+
+    show_popup(e, data, 80, 20, 20);
+}
+
+$(window).bind("blur", function() {
+    if ($('#popup_frame').length > 0) {
+        $('#popup_frame').remove();
+        $('body').off('mousedown');
+    }
+});

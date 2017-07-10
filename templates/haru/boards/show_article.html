@@ -69,6 +69,11 @@
             <span>
                 <a href="#" onClick="javascript:dislike_article({{article.id}});return false;">{% trans 'dislike' %}</a>
             </span>
+            <span>
+                <a href="#" onClick="javascript:share_via(event, '{{article.subject}}');return false;">
+                {% trans 'share' %}
+                </a>
+            </span>
         </div>
         <form>{% csrf_token %}</form>
 

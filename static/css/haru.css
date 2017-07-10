@@ -121,8 +121,11 @@ table.board td.datetime {width:60px;font-size:.8em;}
 .article_view_buttons span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
 .article_view_buttons span.like a {background:#11223d;color:#fff;}
 .article_view_buttons span.like a:hover {background:#11223d;color:#fff;}
-.popup_frame {height:auto;min-height:2em;padding:.5em;background-color:#fff;font-size:.8em;display:block;z-index:99997;color:#000;box-shadow:0 0 2px 2px #999;}
+.popup_frame {height:auto;min-height:2em;padding:.5em;background-color:#fff;font-size:.8em;display:block;z-index:99997;color:#000;box-shadow:0 0 3px 3px #999;}
 .popup_frame span {margin:.1em;display:inline-block;height:1.8em;padding:0 .15em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:1.9em;vertical-align:center;}
+.popup_frame span a:hover {background:gray;}
+.popup_frame table tr:hover {background-color:#f6f6f6;}
+.popup_frame table td a:hover {text-decoration:none;color:#E54F44;}
 
 p.edit {padding:2px;padding-top:10px;padding-bottom:10px;}
 div.hof {margin-bottom:10px;width:160px;text-align:center;background-color:#283850;color:#D8D8D8;box-shadow:0 0 5px 5px #888;}
