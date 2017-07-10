@@ -31,9 +31,14 @@
             <div class="article_view_count">
                 <img src="{% static 'icons/eye18.png' %}">
                 <span>{{ article.view_count }}</span>
-                <a href="#" title="{% trans 'who likes' %}">
-                <span id="article_view_like_count">{{ article.like_count }}</span>
-                </a>
+                <span>
+                {% if article.like_count > 0 %}
+                    <a href="#" onClick="javascript:like_users(event, {{article.id}}, '{% trans 'who likes' %}');return false;" title="{% trans 'who likes' %}">
+                {% else %}
+                    <a href="#">
+                {% endif %}
+                    {{ article.like_count }}
+                    </a>
             </div>
         </div>
         <div class="article_view_misc">

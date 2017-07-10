@@ -12,7 +12,7 @@ sys.setdefaultencoding('utf-8')
 
 
 def like_article(request, liketype):
-    """Like article"""
+    """API like article"""
     if not request.user.is_authenticated():
         msg = _("require login")
         return JsonResponse([0, msg], safe=False, status=201)
@@ -31,7 +31,9 @@ def like_article(request, liketype):
 
         if user not in like_users and user not in dislike_users:
             if liketype == 'like':
-                article.like_users += "," + user
+                if article.like_users != '':
+                    article.like_users += ","
+                article.like_users += user
                 article.like_count += 1
                 article.save()
 
@@ -39,7 +41,9 @@ def like_article(request, liketype):
                 return JsonResponse(
                     [article.like_count, msg], safe=False, status=201)
             elif liketype == 'dislike':
-                article.dislike_users += "," + user
+                if article.dislike_users != '':
+                    article.dislike_users += ","
+                article.dislike_users += user
                 article.dislike_count += 1
                 article.save()
 
@@ -54,6 +58,30 @@ def like_article(request, liketype):
             else:
                 msg = _("You've already disliked")
             return JsonResponse([0, msg], safe=False, status=201)
+    else:
+        msg = _("Wrong access")
+        return HttpResponse(msg)
+
+
+def like_users(request, liketype):
+    """API like users"""
+    if not request.user.is_authenticated():
+        msg = _("require login")
+        return JsonResponse([0, msg], safe=False, status=201)
+
+    if request.method == 'POST':
+        id = request.POST['id']
+        article = get_object_or_404(Board, pk=id)
+
+        if liketype == 'like':
+            user_list = article.like_users
+        elif liketype == 'dislike':
+            user_list = article.dislike_users
+        else:
+            return JsonResponse({'status': 'false'}, status=400)
+
+        return JsonResponse([user_list], safe=False, status=201)
+
     else:
         msg = _("Wrong access")
         return HttpResponse(msg)

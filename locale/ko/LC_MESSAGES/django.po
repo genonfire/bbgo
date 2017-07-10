@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-07-10 12:25+0900\n"
-"PO-Revision-Date: 2017-07-10 12:27+0900\n"
+"PO-Revision-Date: 2017-07-10 15:54+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -62,7 +62,7 @@ msgstr "취소"
 
 #: templates/haru/boards/show_article.html:34
 msgid "who likes"
-msgstr "이 글을 추천하신 분들"
+msgstr "이 글을 추천해 주신 분들"
 
 #: templates/haru/boards/show_article.html:51
 msgid "reference"
