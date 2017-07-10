@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-09 21:49+0900\n"
+"POT-Creation-Date: 2017-07-10 12:25+0900\n"
 "PO-Revision-Date: 2017-07-08 16:51+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
 #: boards/views.py:27 boards/views.py:32 boards/views.py:118
-#: boards/views.py:134 boards/views.py:139 core/api.py:55
+#: boards/views.py:134 boards/views.py:139 core/api.py:58
 msgid "Wrong access"
 msgstr ""
 
@@ -27,19 +27,23 @@ msgstr ""
 msgid "require login"
 msgstr ""
 
-#: core/api.py:32
-msgid "You've liked this article"
+#: core/api.py:26
+msgid "You like your own post?"
 msgstr ""
 
-#: core/api.py:36
-msgid "You've already liked"
+#: core/api.py:38
+msgid "You've liked this article"
 msgstr ""
 
 #: core/api.py:46
 msgid "You've disliked this article"
 msgstr ""
 
-#: core/api.py:50
+#: core/api.py:53
+msgid "You've already liked"
+msgstr ""
+
+#: core/api.py:55
 msgid "You've already disliked"
 msgstr ""
 

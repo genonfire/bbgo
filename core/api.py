@@ -21,6 +21,11 @@ def like_article(request, liketype):
         id = request.POST['id']
         user = request.user.username
         article = get_object_or_404(Board, pk=id)
+
+        if article.user.username == user:
+            msg = _("You like your own post?")
+            return JsonResponse([0, msg], safe=False, status=201)
+
         like_users = article.like_users.split(',')
         dislike_users = article.dislike_users.split(',')
 

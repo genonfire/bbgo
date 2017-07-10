@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-09 21:49+0900\n"
-"PO-Revision-Date: 2017-07-09 21:50+0900\n"
+"POT-Creation-Date: 2017-07-10 12:25+0900\n"
+"PO-Revision-Date: 2017-07-10 12:27+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
 #: boards/views.py:27 boards/views.py:32 boards/views.py:118
-#: boards/views.py:134 boards/views.py:139 core/api.py:55
+#: boards/views.py:134 boards/views.py:139 core/api.py:58
 msgid "Wrong access"
 msgstr "잘못된 접근입니다."
 
@@ -28,21 +28,23 @@ msgstr "잘못된 접근입니다."
 msgid "require login"
 msgstr "회원만 가능합니다."
 
-#: core/api.py:32
+#: core/api.py:26
+msgid "You like your own post?"
+msgstr "자신의 글입니다."
+
+#: core/api.py:38
 msgid "You've liked this article"
 msgstr "추천했습니다."
 
-#: core/api.py:36
-msgid "You've already liked"
-msgstr "이미 추천하셨습니다."
-
 #: core/api.py:46
-#| msgid "You've liked this article"
 msgid "You've disliked this article"
 msgstr "비추했습니다."
 
-#: core/api.py:50
-#| msgid "You've already liked"
+#: core/api.py:53
+msgid "You've already liked"
+msgstr "이미 추천하셨습니다."
+
+#: core/api.py:55
 msgid "You've already disliked"
 msgstr "이미 비추하셨습니다."
 
