@@ -8,6 +8,7 @@
 {% endif %}
 {% load i18n %}
 {% endblock %}
+{% load datetime %}
 {% load censor %}
 {% block content %}
 <div id="wrap">
@@ -20,6 +21,11 @@
         <div class="annotation">
         {% if table_desc %}
             {{ table_desc }}
+            <span>
+                <a href="{% url 'boards:show_list_0' table=article.table %}">
+                {% trans 'to_list' %}
+                </a>
+            </span>
         {% endif %}
         </div>
 
@@ -27,7 +33,7 @@
             {{ article.subject }}
         </div>
         <div class="article_user">
-            {{ article.user }}
+            {{ article.user }} <span class="nim">님</span>
             <div class="article_view_count">
                 <img src="{% static 'icons/eye18.png' %}">
                 <span>{{ article.view_count }}</span>
@@ -42,8 +48,16 @@
             </div>
         </div>
         <div class="article_view_misc">
-            <img src="{% static 'icons/watch18.png' %}">
-            {{ article.created_at|date:" Y-m-d H:i:s" }}
+            <div>
+                <img src="{% static 'icons/watch18.png' %}">
+                {{ article.created_at|date:" Y-m-d H:i:s" }}
+            </div>
+            {% if not article.created_at|is_same_date:article.modified_at %}
+                <div>
+                    <img src="{% static 'icons/niun18.png' %}">
+                    {{ article.modified_at|date:" Y-m-d H:i:s" }}
+                </div>
+            {% endif %}
             <div class="article_view_ip">
                 {{ article.ip|censor_ip }}
             </div>
@@ -74,6 +88,20 @@
                 {% trans 'share' %}
                 </a>
             </span>
+            {% if user.is_staff or article.user == user %}
+            <span>
+                <a href="{% url 'boards:edit_article' id=article.id %}">
+                {% trans 'edit' %}
+                </a>
+            </span>
+            <span class="delete">
+                <a href="#" onClick=delete_article("{% url 'boards:delete_article' id=article.id %}")>
+                {% trans 'delete' %}
+                </a>
+            </span>
+            {% endif %}
+        </div>
+        <div class="sense_horizontal_bar">
         </div>
         <form>{% csrf_token %}</form>
 

@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('table', models.IntegerField(default=0)),
                 ('status', models.CharField(default=b'1normal', max_length=10, choices=[('1normal', '\uc815\uc0c1'), ('2temp', '\uc784\uc2dc\uc800\uc7a5'), ('6deleted', '\uc0ad\uc81c\ub428'), ('3notice', '\uacf5\uc9c0'), ('5hidden', '\uc228\uae40'), ('4warning', '\uc2e0\uace0\uc811\uc218')])),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('modified_at', models.DateTimeField(auto_now=True)),
+                ('modified_at', models.DateTimeField(auto_now_add=True)),
                 ('ip', models.GenericIPAddressField()),
                 ('category', models.CharField(max_length=23, blank=True)),
                 ('subject', models.CharField(max_length=41)),

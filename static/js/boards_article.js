@@ -65,7 +65,6 @@ function show_popup(e, data, width, marginX, marginY) {
 }
 
 function like_users(e, id, msg) {
-
     $.ajaxSetup({
         beforeSend: function(xhr, settings) {
             xhr.setRequestHeader("X-CSRFToken", $("input[name=csrfmiddlewaretoken]").val());
@@ -101,6 +100,12 @@ function share_via(e, text) {
     var data = '<table width="100%"><tr><td><a href="' + facebook_url + '" target=_blank><img src="/static/icons/facebook16.png">Facebook</td></tr><tr><td><a href="' + twitter_url + '" target="_blank"><img src="/static/icons/twitter16.png">Twitter</a></td></tr></table>';
 
     show_popup(e, data, 80, 20, 20);
+}
+
+function delete_article(url) {
+    if (confirm(gettext('Are you sure to delete this article?'))) {
+        location.href = url;
+    }
 }
 
 $(window).bind("blur", function() {

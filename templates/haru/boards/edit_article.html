@@ -51,14 +51,14 @@
                     </select>
                 </div>
             {% endif %}
-            {% if is_staff %}
+            {% if user.is_staff %}
                 <div class="input_status">
                     <b>{% trans 'status' %}</b> {{ form.status }}
                 </div>
             {% endif %}
             <div class="input_submit">
                 <input type="submit" value="{% trans 'submit' %}">
-                <input type="button" value="{% trans 'cancel' %}" onClick="cacnel()">
+                <input type="button" value="{% trans 'cancel' %}" onClick="javascript:history.back(1);">
             </div>
         </form>
 

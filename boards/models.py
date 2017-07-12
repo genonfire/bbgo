@@ -11,7 +11,7 @@ class Board(models.Model):
     status = models.CharField(max_length=10, choices=settings.BOARD_STATUS, default='1normal')
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     created_at = models.DateTimeField(auto_now_add=True)
-    modified_at = models.DateTimeField(auto_now=True)
+    modified_at = models.DateTimeField(auto_now_add=True)
     ip = models.GenericIPAddressField()
     category = models.CharField(max_length=23, blank=True)
     subject = models.CharField(max_length=41)
@@ -28,3 +28,7 @@ class Board(models.Model):
     def get_absolute_url(self):
         """Back to list"""
         return reverse_lazy('boards:show_list_0', args=[self.table])
+
+    def get_article_url(self):
+        """Back to article"""
+        return reverse_lazy('boards:show_article', args=[self.id])

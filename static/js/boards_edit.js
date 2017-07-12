@@ -1,7 +1,5 @@
 function cacnel() {
-    if (confirm("글 작성을 취소하고 나가시겠습니까?")) {
-        history.back(1);
-    }
+    history.back(1);
 }
 
 $('#edit_article_form').submit(function(e) {
@@ -17,12 +15,12 @@ $('#edit_article_form').submit(function(e) {
 
     if (!subject) {
         e.preventDefault();
-        alert("제목을 입력해 주세요.");
+        alert(gettext('Please fill the subject.'));
         return;
     }
     if (!content || content == "<p><br></p>") {
         e.preventDefault();
-        alert("내용을 입력해 주세요.");
+        alert(gettext('Please fill the contents.'));
         return;
     }
 
@@ -30,5 +28,5 @@ $('#edit_article_form').submit(function(e) {
 });
 
 $(window).bind('beforeunload', function(){
-    return '글 작성을 취소하고 나가시겠습니까?';
+    return gettext('Are you sure to quit editing?');
 });

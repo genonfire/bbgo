@@ -153,6 +153,56 @@ def new_article(request, table=0):
                 'table_name': table_name,
                 'table_desc': table_desc,
                 'category_choices': category_choices,
-                'is_staff': request.user.is_staff,
             }
         )
+
+
+@login_required
+def edit_article(request, id):
+    """Edit article"""
+    article = get_object_or_404(Board, pk=id)
+
+    if request.method == "POST":
+        editform = BoardEditForm(request.POST, request.FILES, instance=article)
+        if editform.is_valid():
+            article = editform.save(commit=False)
+            article.modified_at = timezone.now()
+            article.save()
+
+            return redirect(article.get_article_url())
+    elif request.method == "GET":
+        board_table = BoardTable()
+        if article.table >= board_table.get_table_len():
+            msg = _("Wrong access")
+            return HttpResponse(msg)
+
+        table_name = board_table.get_table_name(article.table)
+        if table_name == '':
+            msg = _("Wrong access")
+            return HttpResponse(msg)
+
+        table_desc = board_table.get_table_desc(article.table)
+        category_choices = board_table.get_category(article.table)
+
+        editform = BoardEditForm(instance=article)
+
+    return render(
+        request,
+        'boards/edit_article.html',
+        {
+            'form': editform,
+            'editType': 'edit',
+            'table_name': table_name,
+            'table_desc': table_desc,
+            'category_choices': category_choices,
+        }
+    )
+
+
+@login_required
+def delete_article(request, id):
+    """Delete article"""
+    article = get_object_or_404(Board, pk=id)
+    article.delete()
+
+    return redirect(article.get_absolute_url())

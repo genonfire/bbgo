@@ -30,4 +30,14 @@ urlpatterns = [
         views.new_article,
         name='new_article'
     ),
+    url(
+        r'^(?P<id>\d+)/edit/$',
+        views.edit_article,
+        name='edit_article'
+    ),
+    url(
+        r'^(?P<id>\d+)/delete/$',
+        views.delete_article,
+        name='delete_article'
+    ),
 ]

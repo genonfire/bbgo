@@ -47,7 +47,7 @@ a:hover {color:yellow; color:#000;text-decoration:none;}
 #contents:after {content:'';display:block;clear:both;}
 
 .annotation {min-height:0.1em;margin:0 0 1.5em 0;padding:.9em 0;border-bottom:1px solid #11223d;font-size:.8em;color:#666;}
-.annotation span a {display:inline-block;height:2.8em;margin-left:.5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.7em;}
+.annotation span a {display:inline-block;height:2.2em;margin-left:.5em;padding:0 .3em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.1em;}
 .annotation span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
 
 /* board */
@@ -106,6 +106,7 @@ table.board td.datetime {width:60px;font-size:.8em;}
 
 .article_subject {width:100%;color:#000;font-size:1.3em;}
 .article_user {margin-top:0.5em;padding:0.5em;width:100%;height:2.0em;line-height:1.9em;vertical-align:middle;background:#f6f6f6;}
+span.nim {font-size:.8em;color:#666;}
 .article_view_count {float:right;margin-right:0px;vertical-align:middle;font-size:.8em;color:#888;}
 .article_view_count span {margin-left:.3em;margin-right:0;vertical-align:center;}
 .article_view_count span a {display:inline-block;width:3em;height:100%;margin-left:.2em;box-sizing:border-box;border:1px solid #a5a5a5;background:#11223d;color:#fff;text-align:center;}
@@ -116,11 +117,14 @@ table.board td.datetime {width:60px;font-size:.8em;}
 .article_view_reference a:hover {color:#E54F44;}
 .article_view_msg {height:1.5em;text-align:center;vertical-align:middle;}
 .article_view_msg span {font-size:.8em;color:#888;}
-.article_view_buttons {margin-top:.5em;text-align:center;}
-.article_view_buttons span a {display:inline-block;height:2.2em;margin-left:.0em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.1em;}
+.article_view_buttons {margin:.5em;text-align:center;}
+.article_view_buttons span a {display:inline-block;height:2.2em;margin-left:.0em;padding:0 .3em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.1em;}
 .article_view_buttons span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
 .article_view_buttons span.like a {background:#11223d;color:#fff;}
-.article_view_buttons span.like a:hover {background:#11223d;color:#fff;}
+.article_view_buttons span.like a:hover {background:#283850;color:#fff;}
+.article_view_buttons span.delete a {background:#E54F44;color:#fff;}
+.article_view_buttons span.delete a:hover {background:#FF574F;color:#fff;}
+
 .popup_frame {height:auto;min-height:2em;padding:.5em;background-color:#fff;font-size:.8em;display:block;z-index:99997;color:#000;box-shadow:0 0 3px 3px #999;}
 .popup_frame span {margin:.1em;display:inline-block;height:1.8em;padding:0 .15em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:1.9em;vertical-align:center;}
 .popup_frame span a:hover {background:gray;}
@@ -163,7 +167,7 @@ table td.editIssue a.editIcon img {vertical-align:baseline;}
 .member td.label {padding: 5px; padding-left:15px;font-size:.9em;}
 .member input {height:26px;vertical-align:middle;}
 .member input[type="button"] {padding:0 10px;font-size:.8em;}
-.member input[type="submit"] {display:inline-block;width:100px;height:30px;margin-top:10px;margin-bottom:10px;vertical-align:middle;}
+.member input[type="submit"] {display:inline-block;width:100px;height:2.5em;margin-top:10px;margin-bottom:10px;vertical-align:middle;}
 .member a:link {color:#417690; text-decoration:none;}
 .member a:visited {color:#417690; text-decoration:none;}
 .member a:hover {color:#be131c; text-decoration:none;}
