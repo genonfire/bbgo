@@ -65,10 +65,6 @@ def like_article(request, liketype):
 
 def like_users(request, liketype):
     """API like users"""
-    if not request.user.is_authenticated():
-        msg = _("require login")
-        return JsonResponse([0, msg], safe=False, status=201)
-
     if request.method == 'POST':
         id = request.POST['id']
         article = get_object_or_404(Board, pk=id)

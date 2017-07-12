@@ -79,9 +79,11 @@ function like_users(e, id, msg) {
         },
         success: function(datain) {
             data = "<div style=background:#EDEDED;color:#000;text-align:center;margin-bottom:.5em;padding:.1em>" + msg + "</div>";
-            userlist = datain[0].split(',');
-            for (user in userlist) {
-                data += "<span>" + userlist[user] + "</span> ";
+            if (datain[0] != '0') {
+                userlist = datain[0].split(',');
+                for (user in userlist) {
+                    data += "<span>" + userlist[user] + "</span> ";
+                }
             }
             show_popup(e, data, 250, 10, 20);
 
