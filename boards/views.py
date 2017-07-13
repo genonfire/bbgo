@@ -2,10 +2,11 @@
 from math import ceil
 import sys
 
-from core.utils import get_ipaddress, get_template
+from core.utils import get_ipaddress
 
-from django.conf import settings
+# from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
@@ -42,15 +43,23 @@ def show_list(request, table=0, page=0):
     start_at = current_page * list_count
     end_at = start_at + list_count
 
+    q = Q(status__iexact='1normal') | Q(status__iexact='4warning')
+
     if int(table) == 0:
-        total = Board.objects.filter().count()
-        lists = Board.objects.filter().order_by('-id')[start_at:end_at]
+        top_notice = Board.objects.filter(table=1).filter(status__iexact='3notice').order_by('-id')
+        notice_list = None
+        total = Board.objects.filter(q).count()
+        lists = Board.objects.filter(q).order_by('-id')[start_at:end_at]
         name_list = board_table.get_table_list()
     else:
-        total = Board.objects.filter(table=table).count()
-        lists = Board.objects.filter(table=table).order_by('-id')[start_at:end_at]
+        top_notice = Board.objects.filter(table=1).filter(status__iexact='3notice').order_by('-id')
+        if int(table) == 1:
+            notice_list = None
+        else:
+            notice_list = Board.objects.filter(table=table).filter(status__iexact='3notice').order_by('-id')
+        total = Board.objects.filter(table=table).filter(q).count()
+        lists = Board.objects.filter(table=table).filter(q).order_by('-id')[start_at:end_at]
         name_list = None
-    now = timezone.now()
 
     index_begin = (current_page / 10) * 10 + 1
     index_total = int(ceil(float(total) / list_count))
@@ -69,11 +78,12 @@ def show_list(request, table=0, page=0):
 
     return render(
         request,
-        get_template(request, "boards/m-show_list.html"),
+        "boards/show_list.html",
         {
+            'top_notice': top_notice,
+            'notice_list': notice_list,
             'lists': lists,
             'total': total,
-            'today': now.date,
             'table': table,
             'table_name': table_name,
             'table_desc': table_desc,
@@ -100,6 +110,11 @@ def show_article(request, id):
     table_name = board_table.get_table_name(table)
     table_desc = board_table.get_table_desc(table)
 
+    if article.status != '1normal':
+        status_text = article.get_status_text()
+    else:
+        status_text = ''
+
     return render(
         request,
         "boards/show_article.html",
@@ -107,6 +122,7 @@ def show_article(request, id):
             'article': article,
             'table_name': table_name,
             'table_desc': table_desc,
+            'status_text': status_text,
         }
     )
 
@@ -122,6 +138,10 @@ def new_article(request, table=0):
         editform = BoardEditForm(request.POST, request.FILES)
         if editform.is_valid():
             article = editform.save(commit=False)
+            if article.status != '1normal' and article.status != '2temp':
+                if not request.user.is_staff:
+                    msg = _("Wrong status from user.")
+                    return HttpResponse(msg)
             article.user = request.user
             article.ip = get_ipaddress(request)
             article.table = table
@@ -149,7 +169,7 @@ def new_article(request, table=0):
             'boards/edit_article.html',
             {
                 'form': editform,
-                'editType': 'new',
+                'edit_type': 'new',
                 'table_name': table_name,
                 'table_desc': table_desc,
                 'category_choices': category_choices,
@@ -191,7 +211,7 @@ def edit_article(request, id):
         'boards/edit_article.html',
         {
             'form': editform,
-            'editType': 'edit',
+            'edit_type': 'edit',
             'table_name': table_name,
             'table_desc': table_desc,
             'category_choices': category_choices,
@@ -203,6 +223,11 @@ def edit_article(request, id):
 def delete_article(request, id):
     """Delete article"""
     article = get_object_or_404(Board, pk=id)
-    article.delete()
+
+    if request.user != article.user and not request.user.is_staff:
+        return HttpResponse(_('Wrong access'))
+
+    article.status = '6deleted'
+    article.save()
 
     return redirect(article.get_absolute_url())

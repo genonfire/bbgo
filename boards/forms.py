@@ -16,7 +16,7 @@ class BoardEditForm(forms.ModelForm):
         )
         model = Board
         exclude = (
-            'table', 'status', 'user', 'created_at', 'modified_at', 'ip',
+            'table', 'user', 'created_at', 'modified_at', 'ip',
             'view_count', 'like_count', 'dislike_count', 'reply_count',
             'like_users', 'dislike_users', 'replies',
         )

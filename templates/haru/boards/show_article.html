@@ -21,15 +21,18 @@
         <div class="annotation">
         {% if table_desc %}
             {{ table_desc }}
-            <span>
-                <a href="{% url 'boards:show_list_0' table=article.table %}">
-                {% trans 'to_list' %}
-                </a>
-            </span>
         {% endif %}
+        <span>
+            <a href="{% url 'boards:show_list_0' table=article.table %}">
+            {% trans 'to_list' %}
+            </a>
+        </span>
         </div>
 
         <div class="article_subject">
+            {% if article.status != '1normal' %}
+                <span>[{{ status_text }}]</span>
+            {% endif %}
             {{ article.subject }}
         </div>
         <div class="article_user">
@@ -37,13 +40,14 @@
             <div class="article_view_count">
                 <img src="{% static 'icons/eye18.png' %}">
                 <span>{{ article.view_count }}</span>
-                <span>
                 {% if article.like_count > 0 %}
-                    <a href="#" onClick="javascript:like_users(event, {{article.id}}, '{% trans 'who likes' %}');return false;" title="{% trans 'who likes' %}">
+                    <a href="javascript:void(0)" onClick="javascript:like_users(event, {{article.id}}, '{% trans 'who likes' %}');return false;" title="{% trans 'who likes' %}">
                 {% else %}
-                    <a href="#">
+                    <a href="javascript:void(0)">
                 {% endif %}
-                    {{ article.like_count }}
+                    <span id="article_view_like_count">
+                        {{ article.like_count }}
+                    </span>
                     </a>
             </div>
         </div>
@@ -78,13 +82,13 @@
         </div>
         <div class="article_view_buttons">
             <span class="like">
-                <a href="#" onClick="javascript:like_article({{article.id}});return false;">{% trans 'like' %}</a>
+                <a href="javascript:void(0)" onClick="javascript:like_article({{article.id}});return false;">{% trans 'like' %}</a>
             </span>
             <span>
-                <a href="#" onClick="javascript:dislike_article({{article.id}});return false;">{% trans 'dislike' %}</a>
+                <a href="javascript:void(0)" onClick="javascript:dislike_article({{article.id}});return false;">{% trans 'dislike' %}</a>
             </span>
             <span>
-                <a href="#" onClick="javascript:share_via(event, '{{article.subject}}');return false;">
+                <a href="javascript:void(0)" onClick="javascript:share_via(event, '{{article.subject}}');return false;">
                 {% trans 'share' %}
                 </a>
             </span>
@@ -95,7 +99,7 @@
                 </a>
             </span>
             <span class="delete">
-                <a href="#" onClick=delete_article("{% url 'boards:delete_article' id=article.id %}")>
+                <a href="javascript:void(0);" onClick=delete_article("{% url 'boards:delete_article' id=article.id %}")>
                 {% trans 'delete' %}
                 </a>
             </span>

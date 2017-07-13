@@ -38,6 +38,62 @@
         </tr>
         </thead>
         <tbody>
+        {% for article in top_notice %} <!--//Top Notice-->
+            <tr>
+                <td class="category">
+                    {% trans 'status_notice' %}
+                </td>
+                <td class="subject notice">
+                    <a href="{% url 'boards:show_article' id=article.id %}">
+                    {{ article.subject }}
+                    </a>
+                </td>
+                <td class="name">
+                    {{ article.user }}
+                </td>
+                <td class="view_count">
+                    {{ article.view_count }}
+                </td>
+                <td class="like_count">
+                    {{ article.like_count }}
+                </td>
+                <td class="datetime">
+                    {% if article.created_at|localtime|is_today %}
+                        {{ article.created_at|time:"H:i" }}
+                    {% else %}
+                        {{ article.created_at|date:"m-d" }}
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        {% for article in notice_list %} <!--//Notice of each board-->
+            <tr>
+                <td class="category">
+                    {% trans 'status_notice' %}
+                </td>
+                <td class="subject notice">
+                    <a href="{% url 'boards:show_article' id=article.id %}">
+                    {{ article.subject }}
+                    </a>
+                </td>
+                <td class="name">
+                    {{ article.user }}
+                </td>
+                <td class="view_count">
+                    {{ article.view_count }}
+                </td>
+                <td class="like_count">
+                    {{ article.like_count }}
+                </td>
+                <td class="datetime">
+                    {% if article.created_at|localtime|is_today %}
+                        {{ article.created_at|time:"H:i" }}
+                    {% else %}
+                        {{ article.created_at|date:"m-d" }}
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
         {% for article in lists %}
             <tr>
                 <td class="category">

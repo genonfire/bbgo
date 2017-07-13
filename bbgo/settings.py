@@ -28,7 +28,6 @@ LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
 ]
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -212,14 +211,6 @@ ADMIN_TWITTER = 'https://twitter.com/'
 SITE_NAME = 'bbgo'
 
 # Setting for BOARD
-BOARD_STATUS = {
-    (u'1normal', u'정상'),
-    (u'2temp', u'임시저장'),
-    (u'3notice', u'공지'),
-    (u'4warning', u'신고접수'),
-    (u'5hidden', u'숨김'),
-    (u'6deleted', u'삭제됨'),
-}
 # boards/table.py for more settings
 
 # highlight with coding style for <pre> using highlight.js

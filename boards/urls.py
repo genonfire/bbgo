@@ -21,22 +21,22 @@ urlpatterns = [
         name='show_list'
     ),
     url(
-        r'^article/(?P<id>\d+)/$',
-        views.show_article,
-        name='show_article'
-    ),
-    url(
         r'^(?P<table>\d+)/new/$',
         views.new_article,
         name='new_article'
     ),
     url(
-        r'^(?P<id>\d+)/edit/$',
+        r'^article/(?P<id>\d+)/$',
+        views.show_article,
+        name='show_article'
+    ),
+    url(
+        r'^article/(?P<id>\d+)/edit/$',
         views.edit_article,
         name='edit_article'
     ),
     url(
-        r'^(?P<id>\d+)/delete/$',
+        r'^article/(?P<id>\d+)/delete/$',
         views.delete_article,
         name='delete_article'
     ),

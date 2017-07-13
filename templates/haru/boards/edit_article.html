@@ -51,13 +51,19 @@
                     </select>
                 </div>
             {% endif %}
-            {% if user.is_staff %}
+            {% if user.is_authenticated %}
                 <div class="input_status">
+            {% else %}
+                <div class="input_status" style="display:none">
+            {% endif %}
                     <b>{% trans 'status' %}</b> {{ form.status }}
                 </div>
-            {% endif %}
             <div class="input_submit">
-                <input type="submit" value="{% trans 'submit' %}">
+                {% if edit_type == 'new' %}
+                    <input type="submit" value="{% trans 'submit' %}">
+                {% else %}
+                    <input type="submit" value="{% trans 'save' %}">
+                {% endif %}
                 <input type="button" value="{% trans 'cancel' %}" onClick="javascript:history.back(1);">
             </div>
         </form>

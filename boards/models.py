@@ -2,13 +2,23 @@
 from django.conf import settings
 from django.core.urlresolvers import reverse_lazy
 from django.db import models
+from django.utils.translation import ugettext as _
 
 
 class Board(models.Model):
     """Board of boards"""
 
+    BOARD_STATUS = {
+        ('1normal', _('status_normal')),
+        ('2temp', _('status_temp')),
+        ('3notice', _('status_notice')),
+        ('4warning', _('status_warning')),
+        ('5hidden', _('status_hidden')),
+        ('6deleted', _('status_deleted')),
+    }
+
     table = models.IntegerField(default=0)
-    status = models.CharField(max_length=10, choices=settings.BOARD_STATUS, default='1normal')
+    status = models.CharField(max_length=10, choices=BOARD_STATUS, default='1normal')
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now_add=True)
@@ -32,3 +42,18 @@ class Board(models.Model):
     def get_article_url(self):
         """Back to article"""
         return reverse_lazy('boards:show_article', args=[self.id])
+
+    def get_status_text(self):
+        """Get status text"""
+        if self.status == '1normal':
+            return _('status_normal')
+        elif self.status == '2temp':
+            return _('status_temp')
+        elif self.status == '3notice':
+            return _('status_notice')
+        elif self.status == '4warning':
+            return _('status_warning')
+        elif self.status == '5hidden':
+            return _('status_hidden')
+        elif self.status == '6deleted':
+            return _('status_deleted')

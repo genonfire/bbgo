@@ -17,7 +17,7 @@
             {% if user.is_authenticated %}
                 회원정보관련 문의나 요청은 이메일로 부탁드립니다.
             {% else %}
-                회원가입을 하시려면 회원가입 버튼을 눌러주세요. <span><a href="#">회원가입</a></span>
+                회원가입을 하시려면 회원가입 버튼을 눌러주세요. <span><a href="javascript:void(0)">회원가입</a></span>
             {% endif %}
         </div>
         {% if user.is_authenticated %}
