@@ -24,6 +24,7 @@ js_info_dict = {
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^', include('django.contrib.auth.urls')),
     url(
         r'^accounts/login/',
         'django.contrib.auth.views.login',
@@ -41,6 +42,11 @@ urlpatterns = [
         'django.contrib.auth.views.password_change',
         {'post_change_redirect': 'login'},
         name='passwordchange'
+    ),
+    url(
+        r'^accounts/passwordreset/$',
+        'django.contrib.auth.views.password_reset',
+        name='passwordreset'
     ),
     # url(
     #     r'^accounts/signup/',

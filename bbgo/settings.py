@@ -57,6 +57,7 @@ EDITOR_APPS = (
     'django_summernote',
 )
 LOCAL_APPS = (
+    'accounts',
     'core',
     'boards',
 )
