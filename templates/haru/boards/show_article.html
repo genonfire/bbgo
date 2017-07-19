@@ -11,115 +11,104 @@
 {% load datetime %}
 {% load censor %}
 {% block content %}
-<div id="wrap">
-    <div id="header">
-        <div class="gnb">
-        </div>
+
+<h1>{{ table_name }}</h1>
+<div class="annotation">
+{% if table_desc %}
+    {{ table_desc }}
+{% endif %}
+<span>
+    <a href="{% url 'boards:show_list_0' table=article.table %}">
+    {% trans 'to_list' %}
+    </a>
+</span>
+</div>
+
+<div class="article_subject">
+    {% if article.status != '1normal' %}
+        <span>[{{ status_text }}]</span>
+    {% endif %}
+    {{ article.subject }}
+</div>
+<div class="article_user">
+    {{ article.user }} <span class="nim">님</span>
+    <div class="article_view_count">
+        <img src="{% static 'icons/eye18.png' %}">
+        <span>{{ article.view_count }}</span>
+        {% if article.like_count > 0 %}
+            <a href="javascript:void(0)" onClick="javascript:like_users(event, {{article.id}}, '{% trans 'who likes' %}');return false;" title="{% trans 'who likes' %}">
+        {% else %}
+            <a href="javascript:void(0)">
+        {% endif %}
+            <span id="article_view_like_count">
+                {{ article.like_count }}
+            </span>
+            </a>
     </div>
-    <div id="contents">
-        <h1>{{ table_name }}</h1>
-        <div class="annotation">
-        {% if table_desc %}
-            {{ table_desc }}
-        {% endif %}
-        <span>
-            <a href="{% url 'boards:show_list_0' table=article.table %}">
-            {% trans 'to_list' %}
-            </a>
-        </span>
+</div>
+<div class="article_view_misc">
+    <div>
+        <img src="{% static 'icons/watch18.png' %}">
+        {{ article.created_at|date:" Y-m-d H:i:s" }}
+    </div>
+    {% if not article.created_at|is_same_date:article.modified_at %}
+        <div>
+            <img src="{% static 'icons/niun18.png' %}">
+            {{ article.modified_at|date:" Y-m-d H:i:s" }}
         </div>
+    {% endif %}
+    <div class="article_view_ip">
+        {{ article.ip|censor_ip }}
+    </div>
+</div>
+<div class="article_view_content">
+    {{ article.content|safe}}
+</div>
+{% if article.reference %}
+<div class="article_view_reference">
+    <img src="{% static 'icons/link18.png' %}" title="{% trans 'reference' %}">
+    <a href="{{ article.reference }}" target="_blank">
+        {{ article.reference }}
+    </a>
+</div>
+{% endif %}
+<div class="article_view_msg">
+    <span id="article_view_text"></span>
+</div>
+<div class="article_view_buttons">
+    <span class="like">
+        <a href="javascript:void(0)" onClick="javascript:like_article({{article.id}});return false;">{% trans 'like' %}</a>
+    </span>
+    <span>
+        <a href="javascript:void(0)" onClick="javascript:dislike_article({{article.id}});return false;">{% trans 'dislike' %}</a>
+    </span>
+    <span>
+        <a href="javascript:void(0)" onClick="javascript:share_via(event, '{{article.subject}}');return false;">
+        {% trans 'share' %}
+        </a>
+    </span>
+    {% if user.is_staff or article.user == user %}
+    <span>
+        <a href="{% url 'boards:edit_article' id=article.id %}">
+        {% trans 'edit' %}
+        </a>
+    </span>
+    <span class="delete">
+        <a href="javascript:void(0);" onClick=delete_article("{% url 'boards:delete_article' id=article.id %}")>
+        {% trans 'delete' %}
+        </a>
+    </span>
+    {% endif %}
+</div>
+<div class="sense_horizontal_bar">
+</div>
+<form>{% csrf_token %}</form>
+{% endblock %}
 
-        <div class="article_subject">
-            {% if article.status != '1normal' %}
-                <span>[{{ status_text }}]</span>
-            {% endif %}
-            {{ article.subject }}
-        </div>
-        <div class="article_user">
-            {{ article.user }} <span class="nim">님</span>
-            <div class="article_view_count">
-                <img src="{% static 'icons/eye18.png' %}">
-                <span>{{ article.view_count }}</span>
-                {% if article.like_count > 0 %}
-                    <a href="javascript:void(0)" onClick="javascript:like_users(event, {{article.id}}, '{% trans 'who likes' %}');return false;" title="{% trans 'who likes' %}">
-                {% else %}
-                    <a href="javascript:void(0)">
-                {% endif %}
-                    <span id="article_view_like_count">
-                        {{ article.like_count }}
-                    </span>
-                    </a>
-            </div>
-        </div>
-        <div class="article_view_misc">
-            <div>
-                <img src="{% static 'icons/watch18.png' %}">
-                {{ article.created_at|date:" Y-m-d H:i:s" }}
-            </div>
-            {% if not article.created_at|is_same_date:article.modified_at %}
-                <div>
-                    <img src="{% static 'icons/niun18.png' %}">
-                    {{ article.modified_at|date:" Y-m-d H:i:s" }}
-                </div>
-            {% endif %}
-            <div class="article_view_ip">
-                {{ article.ip|censor_ip }}
-            </div>
-        </div>
-        <div class="article_view_content">
-            {{ article.content|safe}}
-        </div>
-        {% if article.reference %}
-        <div class="article_view_reference">
-            <img src="{% static 'icons/link18.png' %}" title="{% trans 'reference' %}">
-            <a href="{{ article.reference }}" target="_blank">
-                {{ article.reference }}
-            </a>
-        </div>
-        {% endif %}
-        <div class="article_view_msg">
-            <span id="article_view_text"></span>
-        </div>
-        <div class="article_view_buttons">
-            <span class="like">
-                <a href="javascript:void(0)" onClick="javascript:like_article({{article.id}});return false;">{% trans 'like' %}</a>
-            </span>
-            <span>
-                <a href="javascript:void(0)" onClick="javascript:dislike_article({{article.id}});return false;">{% trans 'dislike' %}</a>
-            </span>
-            <span>
-                <a href="javascript:void(0)" onClick="javascript:share_via(event, '{{article.subject}}');return false;">
-                {% trans 'share' %}
-                </a>
-            </span>
-            {% if user.is_staff or article.user == user %}
-            <span>
-                <a href="{% url 'boards:edit_article' id=article.id %}">
-                {% trans 'edit' %}
-                </a>
-            </span>
-            <span class="delete">
-                <a href="javascript:void(0);" onClick=delete_article("{% url 'boards:delete_article' id=article.id %}")>
-                {% trans 'delete' %}
-                </a>
-            </span>
-            {% endif %}
-        </div>
-        <div class="sense_horizontal_bar">
-        </div>
-        <form>{% csrf_token %}</form>
-
-    </div> <!--//contents-->
-    <div id="footer">
-        <div class="footerMenu">
-            {{ FOOTER_TAGS|safe }}
-        </div>
-    </div><!--//footer-->
-</div> <!--//wrap-->
-
+{% block bodyscript %}
 {% if ENABLE_CODE_HIGHLIGHT %}
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="{% static 'js/boards_highlight.js' %}" async></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="{% static 'js/boards_highlight.js' %}" async></script>
 {% endif %}
 <script src="{% static 'js/boards_article.js' %}" async></script>
 {% endblock %}

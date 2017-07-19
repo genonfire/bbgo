@@ -11,21 +11,19 @@
 <p><font color="red">실패</font></p>
 {% endif %}
 
-<div id="wrap">
-    <div id="contents">
-    <h1>회원가입</h1>
-    {% if user.is_authenticated %}
+<h1>회원가입</h1>
+{% if user.is_authenticated %}
     <div class="annotation">
     {{user}}님 반갑습니다.
     </div>
-    {% else %}
+{% else %}
     <div class="annotation">
     회원가입을 하시면 기자정보 및 뉴스 추가, 수정 등이 가능합니다.
     </div>
-        <form id="signup_form" method="post" action="{% url 'signup' %}">
-        {% csrf_token %}
-        <p style="margin-top:40px"></p>
-        <div align="center">
+    <form id="signup_form" method="post" action="{% url 'signup' %}">
+    {% csrf_token %}
+    <p style="margin-top:40px"></p>
+    <div align="center">
         <table class="member">
         <tr>
             <td align="center" height="30px" bgcolor="#417690" colspan="3"><font color="#F4F382">필수 입력 항목</font></td>
@@ -65,17 +63,17 @@
             <td align="right" valign="center" height="40px" class="label"><input type="submit" id="signup"></td>
         </tr>
         </table>
-        </div>
-        </form>
+    </div>
+    </form>
 
-        <table width="100%">
-        <tr>
-            <td align="center">
-            <input type="checkbox" id="concent"> 개인정보 취급방침에 동의합니다.
-            </td>
-        </tr>
-        <tr>
-            <td><textarea rows="14" style="width:100%; padding:10px" readonly>
+    <table width="100%">
+    <tr>
+        <td align="center">
+        <input type="checkbox" id="concent"> 개인정보 취급방침에 동의합니다.
+        </td>
+    </tr>
+    <tr>
+        <td><textarea rows="14" style="width:100%; padding:10px" readonly>
 노룩뉴스 개인정보 취급방침
 정보통신망 이용촉진 등에 관한 법률 등 관련 법률에 의한 개인정보 보호규정 및 정보통신부가 제정한 개인정보지침을 준수하고 있습니다.
 
@@ -90,20 +88,13 @@
 3. 개인정보의 보유 및 이용기간
 - 아이디, 비밀번호, 이메일 등 가입 회원정보는 탈퇴 시 파기됩니다.
 - 게시물 등록 및 투표시 IP Address는 사이트 폐쇄 시까지 보관합니다.</textarea>
-            </td>
-        </tr>
-        </table>
-    {% endif %}
-    </div>
-    <div id="footer">
-    <div class="footerMenu">
-        <ul>
-            <li>문의, 의견 보내기 : <a href="mailto:gencode.me@gmail.com">gencode.me@gmail.com</a></li>
-            <li><a href="https://twitter.com/nolooknews"><img src="{% static 'icons/twitter24.png' %}" target="_blank"></a></li>
-        </ul>
-    </div>
-</div>
-</div>
+        </td>
+    </tr>
+    </table>
+{% endif %}
+{% endblock %}
+
+{% block bodyscript %}
 <script>
     function checkDuplication() {
         id_username = $('#id_username').val();

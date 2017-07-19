@@ -176,7 +176,7 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/upload/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')
 
-LOGIN_REDIRECT_URL = 'login'
+# LOGIN_REDIRECT_URL = 'login'
 
 
 # Summernote customization
@@ -204,20 +204,15 @@ SUMMERNOTE_CONFIG = {
 }
 
 
+# Site information
+SITE_NAME = 'bbgo'
+
 # Admin information
 ADMIN_EMAIL = 'gencode.me@gmail.com'
 ADMIN_TWITTER = 'https://twitter.com/'
-
-# Site information
-SITE_NAME = 'bbgo'
 
 # Setting for BOARD
 # boards/table.py for more settings
 
 # highlight with coding style for <pre> using highlight.js
 ENABLE_CODE_HIGHLIGHT = False
-
-FOOTER_TAGS = '<li>문의, 의견 보내기</li>\
-<li><a href="mailto:%s"><img src="/static/icons/email24.png"></a></li>\
-<li><a href="%s"><img src="/static/icons/twitter24.png" target="_blank"></a></li>'\
-% (ADMIN_EMAIL, ADMIN_TWITTER)

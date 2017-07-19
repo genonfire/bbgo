@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -20,6 +21,80 @@
 </head>
 
 <body>
+<div id="wrap">
+    <div id="header">
+        <div class="gnb">
+        </div>
+    </div>
+    <div id="contents">
     {% block content %}{% endblock %}
+    </div>
+    <div class="sidebar">
+        {% if user.is_authenticated %}
+            <div class="sidebar_container">
+                <div>
+                    {{user}}
+                </div>
+                <div>
+                    <span>
+                        <a href="{% url 'passwordchange' %}">비밀번호 변경</a>
+                    </span>
+                    <span>
+                        <a href="{% url 'logout' %}">로그아웃</a>
+                    </span>
+                </div>
+            </div>
+        {% else %}
+            <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <p style="margin-top:40px"></p>
+            <div align="center">
+                <table class="member">
+                <tr>
+                    <td align="center" height="30px" bgcolor="#417690" colspan="3"><font color="#F4F382">로그인</font></td>
+                </tr>
+                <tr>
+                    <td width="60px" rowspan="6"></td>
+                    <td width="180px" align="center">
+                    <td width="60px" rowspan="6"></td>
+                </tr>
+                <tr>
+                    <td><font size="2">아이디</font></td>
+                </tr>
+                <tr>
+                    <td height="30px"><input id="id_username" type="text" name="username" maxlength="30" /></td>
+                </tr>
+                <tr>
+                    <td><font size="2">비밀번호</font></td>
+                </tr>
+                <tr>
+                    <td height="30px"><input type="password" name="password" id="id_password" /></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" valign="top" height="40px"><input type="submit" value="로그인" /><input type="hidden" name="next" value="{{ next }}" /></td>
+                </tr>
+                </table>
+            </div>
+            </form>
+        {% endif %}
+    </div>
+    <div id="footer">
+        <div class="footerMenu">
+            <li>{% trans 'Send feedback' %}</li>
+            <li>
+                <a href="mailto:{{ADMIN_EMAIL}}">
+                    <img src="/static/icons/email24.png">
+                </a>
+            </li>
+            <li>
+                <a href="{{ADMIN_TWITTER}}">
+                    <img src="/static/icons/twitter24.png" target="_blank">
+                </a>
+            </li>
+        </div>
+    </div>
+</div>
+{% block bodyscript %}{% endblock %}
 </body>
 </html>

@@ -3,6 +3,7 @@
 {% block title %}{{ SITE_NAME }} - {{ table_name }}{% endblock %}
 {% block extra_head_content %}
 {{ block.super }}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 {% endblock %}
 {% load i18n %}
 {% load tz datetime %}
@@ -10,175 +11,169 @@
 {% load pick %}
 {% block content %}
 
-<div id="wrap">
-    <div id="header">
-        <div class="gnb">
-        </div>
+<h1>{{ table_name }}</h1>
+<div class="annotation">
+{% if table_desc %}
+    {{ table_desc }}
+{% endif %}
+</div>
+
+<div class="sense_horizontal_bar">
+</div>
+
+<table class="board">
+<thead>
+<tr>
+    <th class="category">{% trans 'category' %}</th>
+    <th class="subject">{% trans 'subject' %}</th>
+    <th class="name">{% trans 'username' %}</th>
+    <th class="view_count">{% trans 'view' %}</th>
+    <th class="like_count">{% trans 'like' %}</th>
+    <th class="datetime">{% trans 'date' %}</th>
+</tr>
+</thead>
+<tbody>
+{% for article in top_notice %} <!--//Top Notice-->
+    <tr>
+        <td class="category">
+            {% trans 'status_notice' %}
+        </td>
+        <td class="subject notice">
+            <a href="{% url 'boards:show_article' id=article.id %}">
+            {{ article.subject }}
+            </a>
+        </td>
+        <td class="name">
+            {{ article.user }}
+        </td>
+        <td class="view_count">
+            {{ article.view_count }}
+        </td>
+        <td class="like_count">
+            {{ article.like_count }}
+        </td>
+        <td class="datetime">
+            {% if article.created_at|localtime|is_today %}
+                {{ article.created_at|time:"H:i" }}
+            {% else %}
+                {{ article.created_at|date:"m-d" }}
+            {% endif %}
+        </td>
+    </tr>
+{% endfor %}
+{% for article in notice_list %} <!--//Notice of each board-->
+    <tr>
+        <td class="category">
+            {% trans 'status_notice' %}
+        </td>
+        <td class="subject notice">
+            <a href="{% url 'boards:show_article' id=article.id %}">
+            {{ article.subject }}
+            </a>
+        </td>
+        <td class="name">
+            {{ article.user }}
+        </td>
+        <td class="view_count">
+            {{ article.view_count }}
+        </td>
+        <td class="like_count">
+            {{ article.like_count }}
+        </td>
+        <td class="datetime">
+            {% if article.created_at|localtime|is_today %}
+                {{ article.created_at|time:"H:i" }}
+            {% else %}
+                {{ article.created_at|date:"m-d" }}
+            {% endif %}
+        </td>
+    </tr>
+{% endfor %}
+{% for article in lists %} <!--//Articles-->
+    <tr>
+        <td class="category">
+            {% if table == '0' %}
+                {{ name_list|pick_first:article.table }}
+            {% else %}
+                {{ article.category }}
+            {% endif %}
+        </td>
+        <td class="subject" align="left">
+            <a href="{% url 'boards:show_article' id=article.id %}">
+            {{ article.subject }}
+            </a>
+        </td>
+        <td class="name">
+            {{ article.user }}
+        </td>
+        <td class="view_count font-0.8">
+            {{ article.view_count }}
+        </td>
+        <td class="like_count font-0.8">
+            {{ article.like_count }}
+        </td>
+        <td class="datetime">
+            {% if article.created_at|localtime|is_today %}
+                {{ article.created_at|time:"H:i" }}
+            {% else %}
+                {{ article.created_at|date:"m-d" }}
+            {% endif %}
+        </td>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+<div class="sense_horizontal_bar">
+</div>
+<div class="navigator">
+    <div class="float-left">
     </div>
-    <div id="contents">
-        <h1>{{ table_name }}</h1>
-        <div class="annotation">
-        {% if table_desc %}
-            {{ table_desc }}
-        {% endif %}
-        </div>
-
-        <div class="sense_horizontal_bar">
-        </div>
-
-        <table class="board">
-        <thead>
-        <tr>
-            <th class="category">{% trans 'category' %}</th>
-            <th class="subject">{% trans 'subject' %}</th>
-            <th class="name">{% trans 'username' %}</th>
-            <th class="view_count">{% trans 'view' %}</th>
-            <th class="like_count">{% trans 'like' %}</th>
-            <th class="datetime">{% trans 'date' %}</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for article in top_notice %} <!--//Top Notice-->
-            <tr>
-                <td class="category">
-                    {% trans 'status_notice' %}
-                </td>
-                <td class="subject notice">
-                    <a href="{% url 'boards:show_article' id=article.id %}">
-                    {{ article.subject }}
-                    </a>
-                </td>
-                <td class="name">
-                    {{ article.user }}
-                </td>
-                <td class="view_count">
-                    {{ article.view_count }}
-                </td>
-                <td class="like_count">
-                    {{ article.like_count }}
-                </td>
-                <td class="datetime">
-                    {% if article.created_at|localtime|is_today %}
-                        {{ article.created_at|time:"H:i" }}
-                    {% else %}
-                        {{ article.created_at|date:"m-d" }}
-                    {% endif %}
-                </td>
-            </tr>
-        {% endfor %}
-        {% for article in notice_list %} <!--//Notice of each board-->
-            <tr>
-                <td class="category">
-                    {% trans 'status_notice' %}
-                </td>
-                <td class="subject notice">
-                    <a href="{% url 'boards:show_article' id=article.id %}">
-                    {{ article.subject }}
-                    </a>
-                </td>
-                <td class="name">
-                    {{ article.user }}
-                </td>
-                <td class="view_count">
-                    {{ article.view_count }}
-                </td>
-                <td class="like_count">
-                    {{ article.like_count }}
-                </td>
-                <td class="datetime">
-                    {% if article.created_at|localtime|is_today %}
-                        {{ article.created_at|time:"H:i" }}
-                    {% else %}
-                        {{ article.created_at|date:"m-d" }}
-                    {% endif %}
-                </td>
-            </tr>
-        {% endfor %}
-        {% for article in lists %}
-            <tr>
-                <td class="category">
-                    {% if table == '0' %}
-                        {{ name_list|pick_first:article.table }}
-                    {% else %}
-                        {{ article.category }}
-                    {% endif %}
-                </td>
-                <td class="subject" align="left">
-                    <a href="{% url 'boards:show_article' id=article.id %}">
-                    {{ article.subject }}
-                    </a>
-                </td>
-                <td class="name">
-                    {{ article.user }}
-                </td>
-                <td class="view_count font-0.8">
-                    {{ article.view_count }}
-                </td>
-                <td class="like_count font-0.8">
-                    {{ article.like_count }}
-                </td>
-                <td class="datetime">
-                    {% if article.created_at|localtime|is_today %}
-                        {{ article.created_at|time:"H:i" }}
-                    {% else %}
-                        {{ article.created_at|date:"m-d" }}
-                    {% endif %}
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-        </table>
-        <div class="sense_horizontal_bar">
-        </div>
-        <div class="navigator">
-            <div class="float-left">
-            </div>
-            {% if index_begin != 1 %}
-                <span>
-                    <a href="../1" class="jump" title="{% trans 'to first page' %}"><<</a>
-                    <a href="../{{ prev_index }}" class="jump" title="{% trans 'to prev page' %}"><</a>
-                </span>
+    {% if index_begin != 1 %}
+        <span>
+            <a href="../1" class="jump" title="{% trans 'to first page' %}"><<</a>
+            <a href="../{{ prev_index }}" class="jump" title="{% trans 'to prev page' %}"><</a>
+        </span>
+    {% endif %}
+    {% for index in index_begin|range:index_end %}
+        <span>
+            {% if index == page %}
+                <a href="../{{index}}" class="current_page">
+            {% else %}
+                <a href="../{{index}}">
             {% endif %}
-            {% for index in index_begin|range:index_end %}
-                <span>
-                    {% if index == page %}
-                        <a href="../{{index}}" class="current_page">
-                    {% else %}
-                        <a href="../{{index}}">
-                    {% endif %}
-                    {{ index }}</a>
-                </span>
-            {% endfor %}
-            {% if index_end <= index_total %}
-                <span>
-                    <a href="../{{ index_end }}" class="jump" title="{% trans 'to next page' %}">></a>
-                </span>
-            {% endif %}
-        {% if writable == True %}
-            <div class="float-right">
-                <span>
-                    <a href="{% url 'boards:new_article' table=table %}" class="current_page">{% trans 'write' %}</a>
-                </span>
-            </div>
-        {% endif %}
-        </div>
-        <div class="db-search">
-            <select id="searchType">
-                <option value="subject">{% trans 'subject' %}</option>
-                <option value="subject+name" selected>{% trans 'subject+content' %}</option>
-                <option value="user">{% trans 'username' %}</option>
-            </select>
-            <input type="text" id="searchWord" class="searchWord" onkeypress="onKeyPress(event)">
-            <input type="button" id="searchButton" value="{% trans 'search' %}" class="searchButton" onClick="search()">
-        </div>
+            {{ index }}</a>
+        </span>
+    {% endfor %}
+    {% if index_end <= index_total %}
+        <span>
+            <a href="../{{ index_end }}" class="jump" title="{% trans 'to next page' %}">></a>
+        </span>
+    {% endif %}
+{% if writable == True %}
+    <div class="float-right">
+        <span>
+            <a href="{% url 'boards:new_article' table=table %}" class="current_page">{% trans 'write' %}</a>
+        </span>
+    </div>
+{% endif %}
+</div>
+<div class="dbsearch">
+    <select id="search_type">
+        <option value="subject">
+            {% trans 'subject' %}
+        </option>
+        <option value="subject+name" selected>
+            {% trans 'subject+content' %}
+        </option>
+        <option value="user">
+            {% trans 'username' %}
+        </option>
+    </select>
+    <input type="text" id="search_word" class="search_word" onkeypress="onKeyPress(event)">
+    <input type="button" id="search_button" class="search_button" value="{% trans 'search' %}" onClick="search()">
+</div>
+{% endblock %}
 
-    </div> <!--//contents-->
-    <div id="footer">
-        <div class="footerMenu">
-            {{ FOOTER_TAGS|safe }}
-        </div>
-    </div><!--//footer-->
-</div> <!--//wrap-->
-
+{% block bodyscript %}
 <script src="{% static 'js/boards_show.js' %}" async></script>
 {% endblock %}

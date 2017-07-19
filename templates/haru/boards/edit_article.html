@@ -6,75 +6,64 @@
 {% endblock %}
 {% load i18n %}
 {% block content %}
-<div id="wrap">
-    <div id="header">
-        <div class="gnb">
-        </div>
+
+<h1>{{ table_name }}</h1>
+<div class="annotation">
+{% if table_desc %}
+    {{ table_desc }}
+{% endif %}
+</div>
+
+<form
+    id="edit_article_form"
+    method="POST"
+    enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.errors }}
+    {{ form.non_field_errors }}
+
+    <div class="input_subject">
+        {{ form.subject }}
     </div>
-    <div id="contents">
-        <h1>{{ table_name }}</h1>
-        <div class="annotation">
-        {% if table_desc %}
-            {{ table_desc }}
+    <div class="input_content">
+        {{ form.content }}
+    </div>
+    {% if msg %}
+    <div class="input_msg">
+        {{ msg }}
+    </div>
+    {% endif %}
+    <div class="input_reference">
+        {{ form.reference }}
+    </div>
+    {% if category_choices %}
+        <div class="input_category">
+            <b>구분</b>
+            <select id="id_category" maxlength="23" name="category">
+            {% for choice in category_choices %}
+                <option value="{{ choice }}">{{ choice }}</option>
+            {% endfor %}
+            </select>
+        </div>
+    {% endif %}
+    {% if user.is_authenticated %}
+        <div class="input_status">
+    {% else %}
+        <div class="input_status" style="display:none">
+    {% endif %}
+            <b>{% trans 'status' %}</b> {{ form.status }}
+        </div>
+    <div class="input_submit">
+        {% if edit_type == 'new' %}
+            <input type="submit" value="{% trans 'submit' %}">
+        {% else %}
+            <input type="submit" value="{% trans 'save' %}">
         {% endif %}
-        </div>
+        <input type="button" value="{% trans 'cancel' %}" onClick="javascript:history.back(1);">
+    </div>
+</form>
+{% endblock %}
 
-        <form
-            id="edit_article_form"
-            method="POST"
-            enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.errors }}
-            {{ form.non_field_errors }}
-
-            <div class="input_subject">
-                {{ form.subject }}
-            </div>
-            <div class="input_content">
-                {{ form.content }}
-            </div>
-            {% if msg %}
-            <div class="input_msg">
-                {{ msg }}
-            </div>
-            {% endif %}
-            <div class="input_reference">
-                {{ form.reference }}
-            </div>
-            {% if category_choices %}
-                <div class="input_category">
-                    <b>구분</b>
-                    <select id="id_category" maxlength="23" name="category">
-                    {% for choice in category_choices %}
-                        <option value="{{ choice }}">{{ choice }}</option>
-                    {% endfor %}
-                    </select>
-                </div>
-            {% endif %}
-            {% if user.is_authenticated %}
-                <div class="input_status">
-            {% else %}
-                <div class="input_status" style="display:none">
-            {% endif %}
-                    <b>{% trans 'status' %}</b> {{ form.status }}
-                </div>
-            <div class="input_submit">
-                {% if edit_type == 'new' %}
-                    <input type="submit" value="{% trans 'submit' %}">
-                {% else %}
-                    <input type="submit" value="{% trans 'save' %}">
-                {% endif %}
-                <input type="button" value="{% trans 'cancel' %}" onClick="javascript:history.back(1);">
-            </div>
-        </form>
-
-    </div> <!--//contents-->
-    <div id="footer">
-        <div class="footerMenu">
-            {{ FOOTER_TAGS|safe }}
-        </div>
-    </div><!--//footer-->
-</div> <!--//wrap-->
-
+{% block bodyscript %}
 <script src="{% static 'js/boards_edit.js' %}" async></script>
 {% endblock %}

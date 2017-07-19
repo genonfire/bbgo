@@ -35,7 +35,7 @@ urlpatterns = [
         r'^accounts/logout/',
         'django.contrib.auth.views.logout',
         name='logout',
-        kwargs={'next_page': 'login'}
+        # kwargs={'next_page': 'login'}
     ),
     url(
         r'^accounts/passwordchange/',

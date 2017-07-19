@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-13 16:33+0900\n"
+"POT-Creation-Date: 2017-07-18 19:52+0900\n"
 "PO-Revision-Date: 2017-07-13 14:03+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,8 +27,8 @@ msgid "status_temp"
 msgstr "Temporary Saved"
 
 #: boards/models.py:14 boards/models.py:53
-#: templates/haru/boards/show_list.html:44
-#: templates/haru/boards/show_list.html:72
+#: templates/haru/boards/show_list.html:39
+#: templates/haru/boards/show_list.html:67
 msgid "status_notice"
 msgstr "Notice"
 
@@ -46,7 +46,7 @@ msgstr "Deleted"
 
 #: boards/views.py:28 boards/views.py:33 boards/views.py:134
 #: boards/views.py:154 boards/views.py:159 boards/views.py:196
-#: boards/views.py:201 core/api.py:62 core/api.py:82
+#: boards/views.py:201 boards/views.py:228 core/api.py:62 core/api.py:82
 msgid "Wrong access"
 msgstr ""
 
@@ -78,27 +78,31 @@ msgstr ""
 msgid "You've already disliked"
 msgstr ""
 
-#: templates/haru/boards/edit_article.html:59
+#: templates/haru/base.html:83
+msgid "Send feedback"
+msgstr ""
+
+#: templates/haru/boards/edit_article.html:58
 msgid "status"
 msgstr ""
 
-#: templates/haru/boards/edit_article.html:63
+#: templates/haru/boards/edit_article.html:62
 msgid "submit"
 msgstr ""
 
-#: templates/haru/boards/edit_article.html:65
+#: templates/haru/boards/edit_article.html:64
 msgid "save"
 msgstr ""
 
-#: templates/haru/boards/edit_article.html:67
+#: templates/haru/boards/edit_article.html:66
 msgid "cancel"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:27
+#: templates/haru/boards/show_article.html:26
 msgid "to_list"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:45
+#: templates/haru/boards/show_article.html:43
 msgid "who likes"
 msgstr ""
 
@@ -107,7 +111,7 @@ msgid "reference"
 msgstr ""
 
 #: templates/haru/boards/show_article.html:84
-#: templates/haru/boards/show_list.html:36
+#: templates/haru/boards/show_list.html:31
 msgid "like"
 msgstr ""
 
@@ -127,48 +131,48 @@ msgstr ""
 msgid "delete"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:32
+#: templates/haru/boards/show_list.html:27
 msgid "category"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:33
-#: templates/haru/boards/show_list.html:167
+#: templates/haru/boards/show_list.html:28
+#: templates/haru/boards/show_list.html:162
 msgid "subject"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:34
-#: templates/haru/boards/show_list.html:169
+#: templates/haru/boards/show_list.html:29
+#: templates/haru/boards/show_list.html:164
 msgid "username"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:35
+#: templates/haru/boards/show_list.html:30
 msgid "view"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:37
+#: templates/haru/boards/show_list.html:32
 msgid "date"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:138
+#: templates/haru/boards/show_list.html:133
 msgid "to first page"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:139
+#: templates/haru/boards/show_list.html:134
 msgid "to prev page"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:154
+#: templates/haru/boards/show_list.html:149
 msgid "to next page"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:160
+#: templates/haru/boards/show_list.html:155
 msgid "write"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:168
+#: templates/haru/boards/show_list.html:163
 msgid "subject+content"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:172
+#: templates/haru/boards/show_list.html:167
 msgid "search"
 msgstr ""
