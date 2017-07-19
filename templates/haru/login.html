@@ -36,8 +36,8 @@
                 <tr>
                     <td align="center" valign="top" height="40px">
                     <div class="dbSearch">
-                    <span><a href="{% url 'passwordchange' %}">비밀번호 변경</a></span>
-                    <span><a href="{% url 'logout' %}">로그아웃</a></span>
+                    <span><a href="{% url 'accounts:password_change' %}">비밀번호 변경</a></span>
+                    <span><a href="{% url 'accounts:logout' %}">로그아웃</a></span>
                     </div>
                     <input type="hidden" name="next" value="{{ next }}" />
                     </td>
@@ -45,7 +45,7 @@
                 </table>
             </div>
         {% else %}
-            <form method="post" action="{% url 'login' %}">
+            <form method="post" action="{% url 'accounts:login' %}">
             {% csrf_token %}
             <p style="margin-top:40px"></p>
             <div align="center">

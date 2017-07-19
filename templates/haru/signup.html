@@ -20,7 +20,7 @@
     <div class="annotation">
     회원가입을 하시면 기자정보 및 뉴스 추가, 수정 등이 가능합니다.
     </div>
-    <form id="signup_form" method="post" action="{% url 'signup' %}">
+    <form id="signup_form" method="post" action="{% url 'accounts:signup' %}">
     {% csrf_token %}
     <p style="margin-top:40px"></p>
     <div align="center">

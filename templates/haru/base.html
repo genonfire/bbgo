@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load i18n %}
+{% load context %}
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -32,7 +33,7 @@
     <div class="sidebar">
         {% if user.is_authenticated %}
             <div class="sidebar_container">
-                <form method="post" action="{% url 'logout' %}">
+                <form method="post" action="{% url 'accounts:logout' %}">
                     {% csrf_token %}
                     <div class="sidebar_username">
                         <span>
@@ -68,17 +69,18 @@
                             <input type="submit" value="{% trans 'logout' %}" />
                         </span>
                     </div>
+                    <input type="hidden" name="next" value="{% request_path %}">
                 </form>
             </div>
         {% else %}
             <div class="sidebar_container">
-                <form method="post" action="{% url 'login' %}">
+                <form method="post" action="{% url 'accounts:login' %}">
                     {% csrf_token %}
                     <div class="sidebar_login">
-                        <input id="id_username" type="text" name="username" maxlength="30" placeholder="{% trans '아이디' %}" />
+                        <input id="id_username" type="text" name="username" maxlength="30" placeholder="{% trans 'id' %}" />
                     </div>
                     <div class="sidebar_login">
-                        <input type="password" name="password" id="id_password" placeholder="{% trans '비밀번호' %}"/>
+                        <input type="password" name="password" id="id_password" placeholder="{% trans 'password' %}"/>
                     </div>
                     <div class="sidebar_buttons align-right margin-right-6">
                         <span>
@@ -87,16 +89,17 @@
                     </div>
                     <div class="sidebar_buttons">
                         <span>
-                            <a href="#">
+                            <a href="{% url 'accounts:password_reset' %}">
                                 {% trans 'Reset password' %}
                             </a>
                         </span>
                         <span class="float-right margin-right-6">
-                            <a href="#">
+                            <a href="{% url 'accounts:signup' %}">
                                 {% trans 'Sign up' %}
                             </a>
                         </span>
                     </div>
+                    <input type="hidden" name="next" value="{% request_path %}">
                 </form>
             </div>
         {% endif %}

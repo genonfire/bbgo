@@ -54,7 +54,7 @@ a:hover {color:yellow; color:#000;text-decoration:none;}
 .sidebar_message_no {color:#ee2d31;font-weight:bold;}
 .sidebar_buttons {font-size:.8em;}
 .sidebar_buttons input[type="submit"] {height:2.2em;margin-bottom:.5em;padding-left:1em;padding-right:1em;padding-bottom:.1em;}
-.sidebar_buttons span a {display:inline-block;height:2em;margin-left:.5em;padding:0 .3em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;font-size:.9em;}
+.sidebar_buttons span a {display:inline-block;height:2em;margin-left:.5em;padding:0 .3em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;font-size:.9em;line-height:1.9em;}
 .sidebar_login {text-align:right;height:2em;margin:.3em;font-size:.9em;}
 .sidebar_login input {height:2em;font-size:.9em;margin:.2em;padding:.5em;}
 

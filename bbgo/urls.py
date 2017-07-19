@@ -24,41 +24,13 @@ js_info_dict = {
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include('django.contrib.auth.urls')),
-    url(
-        r'^accounts/login/',
-        'django.contrib.auth.views.login',
-        name='login',
-        kwargs={'template_name': 'login.html'}
-    ),
-    url(
-        r'^accounts/logout/',
-        'django.contrib.auth.views.logout',
-        name='logout',
-        # kwargs={'next_page': 'login'}
-    ),
-    url(
-        r'^accounts/passwordchange/',
-        'django.contrib.auth.views.password_change',
-        {'post_change_redirect': 'login'},
-        name='passwordchange'
-    ),
-    url(
-        r'^accounts/passwordreset/$',
-        'django.contrib.auth.views.password_reset',
-        name='passwordreset'
-    ),
-    # url(
-    #     r'^accounts/signup/',
-    #     ,
-    #     name='signup'
-    # ),
     url(
         r'^jsi18n/$',
         javascript_catalog,
         js_info_dict,
         name='javascript-catalog'
     ),
+    url(r'^accounts/', include('accounts.urls', namespace='accounts')),
     url(r'^boards/', include('boards.urls', namespace='boards')),
     url(r'^api/', include('core.apiurls', namespace='api')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
