@@ -32,52 +32,76 @@
     <div class="sidebar">
         {% if user.is_authenticated %}
             <div class="sidebar_container">
-                <div>
-                    {{user}}
-                </div>
-                <div>
-                    <span>
-                        <a href="{% url 'passwordchange' %}">비밀번호 변경</a>
-                    </span>
-                    <span>
-                        <a href="{% url 'logout' %}">로그아웃</a>
-                    </span>
-                </div>
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <div class="sidebar_username">
+                        <span>
+                            {{user}}
+                        </span>
+                        <span class="float-right">
+                            <img src="{% static 'icons/edit24.png' %}">
+                        </span>
+                    </div>
+                    <div class="sidebar_notice">
+                        <span>
+                            {% if False %}
+                                <img src="{% static 'icons/alert24.gif' %}">
+                            {% else %}
+                                <img src="{% static 'icons/alert24.png' %}">
+                            {% endif %}
+                        </span>
+                        <span class="sidebar_message float-right">
+                            <a href="#">
+                                <span>
+                                    {% trans 'Message' %}
+                                </span>
+                                <span class="sidebar_message_no">
+                                    {% if False %}
+                                        0
+                                    {% endif %}
+                                </span>
+                            </a>
+                        </span>
+                    </div>
+                    <div class="sidebar_buttons align-right margin-right-6">
+                        <span>
+                            <input type="submit" value="{% trans 'logout' %}" />
+                        </span>
+                    </div>
+                </form>
             </div>
         {% else %}
-            <form method="post" action="{% url 'login' %}">
-            {% csrf_token %}
-            <p style="margin-top:40px"></p>
-            <div align="center">
-                <table class="member">
-                <tr>
-                    <td align="center" height="30px" bgcolor="#417690" colspan="3"><font color="#F4F382">로그인</font></td>
-                </tr>
-                <tr>
-                    <td width="60px" rowspan="6"></td>
-                    <td width="180px" align="center">
-                    <td width="60px" rowspan="6"></td>
-                </tr>
-                <tr>
-                    <td><font size="2">아이디</font></td>
-                </tr>
-                <tr>
-                    <td height="30px"><input id="id_username" type="text" name="username" maxlength="30" /></td>
-                </tr>
-                <tr>
-                    <td><font size="2">비밀번호</font></td>
-                </tr>
-                <tr>
-                    <td height="30px"><input type="password" name="password" id="id_password" /></p>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" valign="top" height="40px"><input type="submit" value="로그인" /><input type="hidden" name="next" value="{{ next }}" /></td>
-                </tr>
-                </table>
+            <div class="sidebar_container">
+                <form method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <div class="sidebar_login">
+                        <input id="id_username" type="text" name="username" maxlength="30" placeholder="{% trans '아이디' %}" />
+                    </div>
+                    <div class="sidebar_login">
+                        <input type="password" name="password" id="id_password" placeholder="{% trans '비밀번호' %}"/>
+                    </div>
+                    <div class="sidebar_buttons align-right margin-right-6">
+                        <span>
+                            <input type="submit" value="{% trans 'login' %}" />
+                        </span>
+                    </div>
+                    <div class="sidebar_buttons">
+                        <span>
+                            <a href="#">
+                                {% trans 'Reset password' %}
+                            </a>
+                        </span>
+                        <span class="float-right margin-right-6">
+                            <a href="#">
+                                {% trans 'Sign up' %}
+                            </a>
+                        </span>
+                    </div>
+                </form>
             </div>
-            </form>
         {% endif %}
+        <div class="sense_sidebar">
+        </div>
     </div>
     <div id="footer">
         <div class="footerMenu">

@@ -3,7 +3,6 @@
 {% block title %}{{ SITE_NAME }} - {{ table_name }}{% endblock %}
 {% block extra_head_content %}
 {{ block.super }}
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 {% endblock %}
 {% load i18n %}
 {% load tz datetime %}
@@ -150,7 +149,7 @@
         </span>
     {% endif %}
 {% if writable == True %}
-    <div class="float-right">
+    <div class="float-right margin-right-5">
         <span>
             <a href="{% url 'boards:new_article' table=table %}" class="current_page">{% trans 'write' %}</a>
         </span>
