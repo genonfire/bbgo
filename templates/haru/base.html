@@ -23,102 +23,107 @@
 
 <body>
 <div id="wrap">
-    <div id="header">
-        <div class="gnb">
-        </div>
-    </div>
-    <div id="contents">
-    {% block content %}{% endblock %}
-    </div>
-    <div class="sidebar">
-        {% if user.is_authenticated %}
-            <div class="sidebar_container">
-                <form method="post" action="{% url 'accounts:logout' %}">
-                    {% csrf_token %}
-                    <div class="sidebar_username">
-                        <span>
-                            {{user}}
-                        </span>
-                        <span class="float-right">
-                            <img src="{% static 'icons/edit24.png' %}">
-                        </span>
-                    </div>
-                    <div class="sidebar_notice">
-                        <span>
-                            {% if False %}
-                                <img src="{% static 'icons/alert24.gif' %}">
-                            {% else %}
-                                <img src="{% static 'icons/alert24.png' %}">
-                            {% endif %}
-                        </span>
-                        <span class="sidebar_message float-right">
-                            <a href="#">
-                                <span>
-                                    {% trans 'Message' %}
-                                </span>
-                                <span class="sidebar_message_no">
-                                    {% if False %}
-                                        0
-                                    {% endif %}
-                                </span>
-                            </a>
-                        </span>
-                    </div>
-                    <div class="sidebar_buttons align-right margin-right-6">
-                        <span>
-                            <input type="submit" value="{% trans 'logout' %}" />
-                        </span>
-                    </div>
-                    <input type="hidden" name="next" value="{% request_path %}">
-                </form>
+    <div id="container">
+        <div id="header">
+            <div class="gnb">
             </div>
-        {% else %}
-            <div class="sidebar_container">
-                <form method="post" action="{% url 'accounts:login' %}">
-                    {% csrf_token %}
-                    <div class="sidebar_login">
-                        <input id="id_username" type="text" name="username" maxlength="30" placeholder="{% trans 'id' %}" />
-                    </div>
-                    <div class="sidebar_login">
-                        <input type="password" name="password" id="id_password" placeholder="{% trans 'password' %}"/>
-                    </div>
-                    <div class="sidebar_buttons align-right margin-right-6">
-                        <span>
-                            <input type="submit" value="{% trans 'login' %}" />
-                        </span>
-                    </div>
-                    <div class="sidebar_buttons">
-                        <span>
-                            <a href="{% url 'accounts:password_reset' %}">
-                                {% trans 'Reset password' %}
-                            </a>
-                        </span>
-                        <span class="float-right margin-right-6">
-                            <a href="{% url 'accounts:signup' %}">
-                                {% trans 'Sign up' %}
-                            </a>
-                        </span>
-                    </div>
-                    <input type="hidden" name="next" value="{% request_path %}">
-                </form>
-            </div>
-        {% endif %}
-        <div class="sense_sidebar">
         </div>
-    </div>
-    <div id="footer">
-        <div class="footerMenu">
-            <li>{% trans 'Send feedback' %}</li>
-            <li>
-                <a href="mailto:{{ADMIN_EMAIL}}">
-                    <img src="/static/icons/email24.png">
-                </a>
-            </li>
-            <li>
-                <a href="{{ADMIN_TWITTER}}">
-                    <img src="/static/icons/twitter24.png" target="_blank">
-                </a>
-            </li>
+
+        <div class="sidebar">
+            {% if user.is_authenticated %}
+                <div class="sidebar_container">
+                    <form method="post" action="{% url 'accounts:logout' %}">
+                        {% csrf_token %}
+                        <div class="sidebar_username">
+                            <span>
+                                {{user}}
+                            </span>
+                            <span class="float-right">
+                                <img src="{% static 'icons/edit24.png' %}">
+                            </span>
+                        </div>
+                        <div class="sidebar_notice">
+                            <span>
+                                {% if False %}
+                                    <img src="{% static 'icons/alert24.gif' %}">
+                                {% else %}
+                                    <img src="{% static 'icons/alert24.png' %}">
+                                {% endif %}
+                            </span>
+                            <span class="sidebar_message float-right">
+                                <a href="#">
+                                    <span>
+                                        {% trans 'Message' %}
+                                    </span>
+                                    <span class="sidebar_message_no">
+                                        {% if False %}
+                                            0
+                                        {% endif %}
+                                    </span>
+                                </a>
+                            </span>
+                        </div>
+                        <div class="sidebar_buttons align-right margin-right-6">
+                            <span>
+                                <input type="submit" value="{% trans 'logout' %}" />
+                            </span>
+                        </div>
+                        <input type="hidden" name="next" value="{% request_path %}">
+                    </form>
+                </div>
+            {% else %}
+                <div class="sidebar_container">
+                    <form method="post" action="{% url 'accounts:login' %}">
+                        {% csrf_token %}
+                        <div class="sidebar_login">
+                            <input id="id_username" type="text" name="username" maxlength="30" placeholder="{% trans 'id' %}" />
+                        </div>
+                        <div class="sidebar_login">
+                            <input type="password" name="password" id="id_password" placeholder="{% trans 'password' %}"/>
+                        </div>
+                        <div class="sidebar_buttons align-right margin-right-6">
+                            <span>
+                                <input type="submit" value="{% trans 'login' %}" />
+                            </span>
+                        </div>
+                        <div class="sidebar_buttons">
+                            <span>
+                                <a href="{% url 'accounts:password_reset' %}">
+                                    {% trans 'Reset password' %}
+                                </a>
+                            </span>
+                            <span class="float-right margin-right-6">
+                                <a href="{% url 'accounts:signup' %}">
+                                    {% trans 'Sign up' %}
+                                </a>
+                            </span>
+                        </div>
+                        <input type="hidden" name="next" value="{% request_path %}">
+                    </form>
+                </div>
+            {% endif %}
+            <div class="sense_sidebar">
+            </div>
+        </div>
+
+        <div id="contents">
+            {% block content %}{% endblock %}
+        </div>
+
+        <div id="footer">
+            <div class="footerMenu">
+                <li>{% trans 'Send feedback' %}</li>
+                <li>
+                    <a href="mailto:{{ADMIN_EMAIL}}">
+                        <img src="/static/icons/email24.png">
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ADMIN_TWITTER}}">
+                        <img src="/static/icons/twitter24.png" target="_blank">
+                    </a>
+                </li>
+            </div>
         </div>
     </div>
 </div>
