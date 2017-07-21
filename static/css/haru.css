@@ -96,6 +96,8 @@ table.board td.datetime {width:60px;font-size:.8em;}
 .navigator span a.jump {margin:.0em;background:#fff;border-color:#fff;}
 .navigator span a.jump:hover {background:#fff;border-color:#11223d;}
 
+.align-center {text-align:center;}
+.align-right {text-align:right;}
 .float-left {float:left;}
 .float-right {float:right;}
 .align-right {text-align:right;}
@@ -109,9 +111,6 @@ table.board td.datetime {width:60px;font-size:.8em;}
 .dbsearch input.search_button:hover {background-color:#283850;cursor:pointer;}
 .dbsearch span a {display:inline-block;height:2.2em;margin-left:.5em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.1em;}
 .dbsearch span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
-
-.sense_horizontal_bar {height:100px;background:#EDEDED;padding-top:10px;margin-top:5px;margin-bottom:5px;}
-.sense_sidebar {width:150px;background:#EDEDED;padding-top:10px;margin-top:5px;margin-bottom:5px;}
 
 /* edit article */
 .input_subject {margin-bottom:0.5em;}
@@ -154,35 +153,10 @@ span.nim {font-size:.8em;color:#666;}
 .popup_frame table tr:hover {background-color:#f6f6f6;}
 .popup_frame table td a:hover {text-decoration:none;color:#E54F44;}
 
-p.edit {padding:2px;padding-top:10px;padding-bottom:10px;}
-div.hof {margin-bottom:10px;width:160px;text-align:center;background-color:#283850;color:#D8D8D8;box-shadow:0 0 5px 5px #888;}
-div.hof a {color:white;}
-div.hof a:hover {color:yellow;}
-.padding-top-10 {padding-top:10px;}
-.align-center {text-align:center;}
-.align-right {text-align:right;}
-
-div.about {display:inline-block;}
-.about img {max-width:100%;max-height:100%;}
-
-/* data table td style */
-div.issue hr {margin-bottom:1.0em;}
-table.issue {width:100%;background:#fff;}
-table.issue td {padding:.6em;}
-table.issue td a {color:#11223d;}
-
-table td.issuePhoto {width:2.3em;padding-left:1;padding-right:1;font-family:tahoma,arial,sans-serif;color:#e02d31;font-size:1.5em;letter-spacing:-0.05em}
-table td.issueRank {width:2.3em;padding-left:0;padding-right:0;font-family:tahoma,arial,sans-serif;color:#e02d31;font-size:1.5em;letter-spacing:-0.05em}
-table td.issueRank a {color:#e02d31;}
-table td.issueSubject {padding-top:1.0em;padding-left:0.3em;font-family:Noto Sans KR,'맑은 고딕',Malgun Gothic,Apple Gothic,sans-serif;font-size:1.3em;line-height:1.2;}
-table td.issueSubject a.archive {display:inline-block;width:22px;height:22px;margin-left:5px;background:#1e88e5;background:#aaa;text-align:center;}
-table td.issueSubject a.archive:hover {background:#1e88e5;}
-table td.issueSubject a.archive img {vertical-align:baseline;}
-table td.issueDown {padding-top:0;padding-bottom:1.0em;font-size:.8em;color:#666;vertical-align:top;}
-table td.issueDown > a {color:#1e88e5;vertical-align:2px;}
-table td.editIssue a.editIcon {display:inline-block;width:24px;height:24px;margin-left:5px;background:#1e88e5;background:#aaa;text-align:center;}
-table td.editIssue a.editIcon:hover {background:#1e88e5;}
-table td.editIssue a.editIcon img {vertical-align:baseline;}
+/* reply */
+.input_reply {}
+.input_reply_text textarea {width:100%;height:6em;line-height:1.2em;}
+.input_reply_buttons input[type="button"] {background:#11223d;color:#fff;}
 
 /* join */
 .member {margin:1.25em auto 1.6em;background:#fff;}
@@ -197,8 +171,12 @@ table td.editIssue a.editIcon img {vertical-align:baseline;}
 .member span a {display:inline-block;height:2.8em;margin-left:.5em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.7em;}
 .member span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
 
+/* ads */
+.sense_horizontal_bar {height:100px;background:#EDEDED;padding-top:10px;margin-top:5px;margin-bottom:5px;}
+.sense_sidebar {width:150px;background:#EDEDED;padding-top:10px;margin-top:5px;margin-bottom:5px;}
+
 @media all and (min-width:1080px) {
-	#container {margin:auto;}
+    #container {margin:auto;}
 }
 @media all and (min-width:361px) and (max-width:540px) {
     body {font-size:.9em;}

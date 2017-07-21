@@ -10,8 +10,6 @@
 <p><font color="red">로그인 실패</font></p>
 {% endif %}
 
-<div id="wrap">
-    <div id="contents">
         <h1>로그인</h1>
         <div class="annotation">
             {% if user.is_authenticated %}
@@ -77,15 +75,4 @@
             </div>
             </form>
         {% endif %}
-    </div> <!-- contents -->
-    <div id="footer">
-        <div class="footerMenu">
-            <ul>
-            {% autoescape off %}
-                {{ FOOTER_TAGS }}
-            {% endautoescape %}
-            </ul>
-        </div>
-    </div>
-</div> <!-- wrap -->
 {% endblock %}

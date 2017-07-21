@@ -103,12 +103,40 @@
 <div class="sense_horizontal_bar">
 </div>
 <form>{% csrf_token %}</form>
+
+<div class="replies">
+</div>
+
+<div class="input_reply">
+    <form id="form_reply" method="post" enctype="multipart/form-data">
+        <div class="input_reply_text">
+            <textarea id="reply_text" maxlength="{{ REPLY_TEXT_MAX }}" placeholder="{% trans 'Please show some respect.' %}"></textarea>
+        </div>
+        <div class="input_reply_buttons">
+            {% if REPLY_IMAGE_AVAILABLE %}
+                <span>
+                    <input id="reply_image" type="file" accept="image/*">
+                </span>
+            {% endif %}
+            <span class="float-right">
+                <input type="button" value="{% trans 'submit' %}" onClick=write_reply({{ article.id }})>
+            </span>
+        </div>
+    </form>
+</div>
+
 {% endblock %}
 
 {% block bodyscript %}
 {% if ENABLE_CODE_HIGHLIGHT %}
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script src="{% static 'js/boards_highlight.js' %}" async></script>
+    <script src="{% static 'js/boards/boards_highlight.js' %}" async></script>
 {% endif %}
-<script src="{% static 'js/boards_article.js' %}" async></script>
+<script src="{% static 'js/boards/boards_article.js' %}" async></script>
+{% if REPLY_IMAGE_AVAILABLE %}
+<script>
+    var reply_image_limit = {{ REPLY_IMAGE_SIZE_LIMIT }};
+</script>
+{% endif %}
+<script src="{% static 'js/boards/boards_reply.js' %}" async></script>
 {% endblock %}

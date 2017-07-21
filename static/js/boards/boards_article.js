@@ -104,7 +104,7 @@ function share_via(e, text) {
 }
 
 function delete_article(url) {
-    if (confirm(gettext('Are you sure to delete this article?'))) {
+    if (confirm(gettext("Are you sure to delete this article?"))) {
         location.href = url;
     }
 }

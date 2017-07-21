@@ -8,4 +8,7 @@ def global_settings(request):
         'ADMIN_EMAIL': settings.ADMIN_EMAIL,
         'ADMIN_TWITTER': settings.ADMIN_TWITTER,
         'ENABLE_CODE_HIGHLIGHT': settings.ENABLE_CODE_HIGHLIGHT,
+        'REPLY_TEXT_MAX': settings.REPLY_TEXT_MAX,
+        'REPLY_IMAGE_AVAILABLE': settings.REPLY_IMAGE_AVAILABLE,
+        'REPLY_IMAGE_SIZE_LIMIT': settings.REPLY_IMAGE_SIZE_LIMIT,
     }

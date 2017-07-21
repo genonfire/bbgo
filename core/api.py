@@ -7,12 +7,14 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404
 from django.utils.translation import ugettext as _
 
+from forms import ReplyEditForm
+
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
 
 def like_article(request, liketype):
-    """API like article"""
+    """API like_article"""
     if not request.user.is_authenticated():
         msg = _("require login")
         return JsonResponse([0, msg], safe=False, status=201)
@@ -64,7 +66,7 @@ def like_article(request, liketype):
 
 
 def like_users(request, liketype):
-    """API like users"""
+    """API like_users"""
     if request.method == 'POST':
         id = request.POST['id']
         article = get_object_or_404(Board, pk=id)
@@ -78,6 +80,21 @@ def like_users(request, liketype):
 
         return JsonResponse([user_list], safe=False, status=201)
 
+    else:
+        msg = _("Wrong access")
+        return HttpResponse(msg)
+
+
+def write_reply(request):
+    """API write_reply"""
+    if request.method == 'POST':
+        # id = request.POST['id']
+        # text = request.POST['text']
+        form = ReplyEditForm(data=request.POST, files=request.FILES)
+        # print request.POST['reply_text']
+        # print request.FILES['reply_image']
+
+        return JsonResponse({'status': 'false'}, status=400)
     else:
         msg = _("Wrong access")
         return HttpResponse(msg)

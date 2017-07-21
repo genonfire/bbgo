@@ -29,4 +29,9 @@ urlpatterns = [
         name='dislike_users',
         kwargs={'liketype': 'dislike'}
     ),
+    url(
+        r'^write_reply/$',
+        api.write_reply,
+        name='write_reply',
+    ),
 ]

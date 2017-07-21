@@ -212,5 +212,10 @@ ADMIN_TWITTER = 'https://twitter.com/'
 # Setting for BOARD
 # boards/table.py for more settings
 
+# Setting for Reply
+REPLY_TEXT_MAX = 3000
+REPLY_IMAGE_AVAILABLE = True
+REPLY_IMAGE_SIZE_LIMIT = 1 * 1024 * 1024
+
 # highlight with coding style for <pre> using highlight.js
 ENABLE_CODE_HIGHLIGHT = False

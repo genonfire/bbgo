@@ -32,7 +32,7 @@ class Board(models.Model):
     reply_count = models.IntegerField(default=0)
     like_users = models.TextField(default='', blank=True)
     dislike_users = models.TextField(default='', blank=True)
-    replies = models.TextField(default='', blank=True)
+    # replies = models.TextField(default='', blank=True)
     reference = models.CharField(max_length=1855, default='', blank=True)
 
     def get_absolute_url(self):
@@ -57,3 +57,27 @@ class Board(models.Model):
             return _('status_hidden')
         elif self.status == '6deleted':
             return _('status_deleted')
+
+
+class Reply(models.Model):
+    """Reply of boards"""
+
+    REPLY_STATUS = {
+        ('1normal', _('status_normal')),
+        ('5hidden', _('status_hidden')),
+        ('6deleted', _('status_deleted')),
+    }
+
+    article_id = models.IntegerField(default=0)
+    reply_id = models.IntegerField(default=0)
+    status = models.CharField(max_length=10, choices=REPLY_STATUS, default='1normal')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    created_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now_add=True)
+    ip = models.GenericIPAddressField()
+    content = models.TextField(max_length=settings.REPLY_TEXT_MAX)
+    image = models.ImageField(upload_to="reply-images/%Y-%m-%d/", blank=True)
+    like_count = models.IntegerField(default=0)
+    dislike_count = models.IntegerField(default=0)
+    like_users = models.TextField(default='', blank=True)
+    dislike_users = models.TextField(default='', blank=True)
