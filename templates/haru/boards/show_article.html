@@ -10,6 +10,7 @@
 {% endblock %}
 {% load datetime %}
 {% load censor %}
+{% load reply %}
 {% block content %}
 
 <h1>{{ table_name }}</h1>
@@ -29,9 +30,6 @@
         <span>[{{ status_text }}]</span>
     {% endif %}
     {{ article.subject }}
-    {% if article.reply_count > 0 %}
-        <span class="reply_count">[<span id="reply_count_no" class="reply_count">{{ article.reply_count }}</span>]</span>
-    {% endif %}
 </div>
 <div class="article_user">
     {{ article.user }}
@@ -107,9 +105,17 @@
 </div>
 <form>{% csrf_token %}</form>
 
-<div class="replies">
+<div id="replies" class="replies">
+    {% show_reply article.id %}
 </div>
-
+<hr>
+<div class="reload_reply buttons">
+    <span>
+        <a href="javascript:reload_reply({{ article.id }})">
+            {% trans 'Reload replies' %}
+        </a>
+    </span>
+</div>
 <div class="input_reply">
     <form id="form_reply" method="post" enctype="multipart/form-data">
         <div class="input_reply_text">

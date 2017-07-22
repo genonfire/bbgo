@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 from boards.forms import ReplyEditForm
-from boards.models import Board
+from boards.models import Board, Reply
 from core.utils import get_ipaddress
 
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render_to_response
 from django.utils import timezone
 from django.utils.translation import ugettext as _
 
@@ -84,8 +84,7 @@ def like_users(request, liketype):
 def write_reply(request):
     """API write_reply"""
     if not request.user.is_authenticated():
-        msg = _("Require login")
-        return JsonResponse([0, msg], safe=False, status=201)
+        return JsonResponse({'status': 'false'}, status=400)
 
     if request.method == 'POST':
         id = request.POST['article_id']
@@ -114,9 +113,35 @@ def write_reply(request):
             request.user.profile.last_reply_at = timezone.now()
             request.user.profile.save()
 
-            return JsonResponse([article.reply_count], safe=False, status=201)
+            replies = Reply.objects.filter(article_id=id)
+
+            return render_to_response(
+                'boards/show_reply.html',
+                {
+                    'replies': replies,
+                    'count': replies.count()
+                }
+            )
 
         return JsonResponse({'status': 'false'}, status=400)
+    else:
+        msg = _("Wrong access")
+        return HttpResponse(msg)
+
+
+def reload_reply(request):
+    """API reload_reply"""
+    if request.method == 'POST':
+        id = request.POST['id']
+        replies = Reply.objects.filter(article_id=id)
+
+        return render_to_response(
+            'boards/show_reply.html',
+            {
+                'replies': replies,
+                'count': replies.count()
+            }
+        )
     else:
         msg = _("Wrong access")
         return HttpResponse(msg)

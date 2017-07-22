@@ -1,0 +1,31 @@
+{% load i18n %}
+<div class="reply_header">
+    {% trans 'reply' %}
+    <span>
+        [
+        <span id="reply_count_no">
+            {{ count }}
+        </span>
+        ]
+    </span>
+    <div class="buttons float-right">
+        <span>
+            <a href="#reply_text">
+                {% trans 'Write reply' %}
+            </a>
+        </span>
+    </div>
+</div>
+{% for reply in replies %}
+    <div class="reply_title">
+        {{ reply.user.username }}
+    </div>
+    {% if reply.image %}
+    <div class="reply_image">
+        <img src="{{ reply.image.url }}">
+    </div>
+    {% endif %}
+    <div class="reply_content">
+        {{ reply.content|linebreaksbr }}
+    </div>
+{% endfor %}

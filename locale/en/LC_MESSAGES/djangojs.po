@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-19 16:55+0900\n"
+"POT-Creation-Date: 2017-07-22 18:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,18 +17,30 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: static/js/boards_article.js:107
+#: static/js/boards/boards_article.js:107
 msgid "Are you sure to delete this article?"
 msgstr ""
 
-#: static/js/boards_edit.js:18
+#: static/js/boards/boards_edit.js:18
 msgid "Please fill the subject."
 msgstr ""
 
-#: static/js/boards_edit.js:23
+#: static/js/boards/boards_edit.js:23
 msgid "Please fill the contents."
 msgstr ""
 
-#: static/js/boards_edit.js:31
+#: static/js/boards/boards_edit.js:31
 msgid "Are you sure to quit editing?"
+msgstr ""
+
+#: static/js/boards/boards_reply.js:4
+msgid "Please input 2 or more characters."
+msgstr ""
+
+#: static/js/boards/boards_reply.js:32 static/js/boards/boards_reply.js:53
+msgid "Error!"
+msgstr ""
+
+#: static/js/boards/boards_reply.js:62
+msgid "Selected image is too big. size limit: "
 msgstr ""

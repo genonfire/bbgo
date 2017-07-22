@@ -24,15 +24,30 @@ function write_reply(id) {
         contentType: false,
         processData: false,
         success: function(data) {
-            if (data[0] == 0) {
-                alert(data[1]);
-                return;
-            }
             $('#reply_text').val('');
             $("#reply_image").replaceWith($("#reply_image").val('').clone(true));
-            if (data[0] > 0) {
-                $('#reply_count_no').html(data[0]);
-            }
+            $('#replies').html(data);
+        },
+        error: function(data) {
+            alert(gettext('Error!'));
+        }
+    });
+}
+
+function reload_reply(id) {
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            xhr.setRequestHeader("X-CSRFToken", $("input[name=csrfmiddlewaretoken]").val());
+        }
+    });
+    $.ajax({
+        type: "POST",
+        url: "/api/reload_reply/",
+        data: {
+            id: id
+        },
+        success: function(data) {
+            $('#replies').html(data);
         },
         error: function(data) {
             alert(gettext('Error!'));

@@ -34,4 +34,9 @@ urlpatterns = [
         api.write_reply,
         name='write_reply',
     ),
+    url(
+        r'^reload_reply/$',
+        api.reload_reply,
+        name='reload_reply',
+    ),
 ]
