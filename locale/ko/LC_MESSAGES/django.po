@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-22 18:18+0900\n"
-"PO-Revision-Date: 2017-07-22 18:20+0900\n"
+"POT-Creation-Date: 2017-07-22 22:22+0900\n"
+"PO-Revision-Date: 2017-07-22 22:15+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -168,7 +168,7 @@ msgstr "댓글 새로고침"
 
 #: templates/haru/boards/show_article.html:122
 msgid "Please show some respect."
-msgstr "서로에 대한 배려와 존중을 지켜주세요."
+msgstr "서로에 대한 배려와 존중을 보여주세요."
 
 #: templates/haru/boards/show_list.html:26
 msgid "category"

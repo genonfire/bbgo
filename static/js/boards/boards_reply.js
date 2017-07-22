@@ -1,7 +1,7 @@
 function write_reply(id) {
     content = $('#reply_text').val();
     if (content.length < 2) {
-        alert(gettext('Please input 2 or more characters.'));
+        alert(gettext("Please input 2 or more characters."));
         return;
     }
 
@@ -29,7 +29,7 @@ function write_reply(id) {
             $('#replies').html(data);
         },
         error: function(data) {
-            alert(gettext('Error!'));
+            alert(gettext("Error!"));
         }
     });
 }
@@ -59,7 +59,7 @@ $('#reply_image').on('change', function() {
     var file = this.files[0];
     if (file.size > reply_image_limit) {
         var sizelimit = reply_image_limit / 1024 / 1024 + 'MB';
-        msg = gettext("Selected image is too big. size limit: " + sizelimit);
+        msg = gettext("Selected image is too big. size limit: ") + sizelimit;
         $("#reply_image").replaceWith($("#reply_image").val('').clone(true));
         alert(msg);
     }
