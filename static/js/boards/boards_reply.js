@@ -1,10 +1,15 @@
 function write_reply(id) {
-    // text = $('#reply_text').val();
-    // var formData = new FormData();
-    // formData.append('file', $('#reply_image').files[0]);
-    // var formData = new FormData(document.getElementById("form_reply"));
-    // formData.append("label", "file");
-    var data = new FormData($('#form_reply').get(0));
+    content = $('#reply_text').val();
+    if (content.length < 2) {
+        alert(gettext('Please input 2 or more characters.'));
+        return;
+    }
+
+    var form_data = new FormData();
+    form_data.append("article_id", id);
+    form_data.append("reply_id", 0);
+    form_data.append("content", content);
+    form_data.append("image", $("input[id=reply_image]")[0].files[0]);
 
     $.ajaxSetup({
         beforeSend: function(xhr, settings) {
@@ -14,15 +19,23 @@ function write_reply(id) {
     $.ajax({
         type: "POST",
         url: "/api/write_reply/",
-        data: data,
+        data: form_data,
         cache: false,
         contentType: false,
         processData: false,
         success: function(data) {
-            $('#reply_text').val = '';
+            if (data[0] == 0) {
+                alert(data[1]);
+                return;
+            }
+            $('#reply_text').val('');
+            $("#reply_image").replaceWith($("#reply_image").val('').clone(true));
+            if (data[0] > 0) {
+                $('#reply_count_no').html(data[0]);
+            }
         },
         error: function(data) {
-            alert(data);
+            alert(gettext('Error!'));
         }
     });
 }

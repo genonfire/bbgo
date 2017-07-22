@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from math import ceil
-import sys
 
 from core.utils import get_ipaddress
 
@@ -16,9 +15,6 @@ from models import Board
 
 from .forms import BoardEditForm
 from .table import BoardTable
-
-reload(sys)
-sys.setdefaultencoding('utf-8')
 
 
 def show_list(request, table=0, page=0):
@@ -147,6 +143,9 @@ def new_article(request, table=0):
             article.table = table
             article.save()
 
+            request.user.profile.last_article_at = timezone.now()
+            request.user.profile.save()
+
             return redirect(article.get_absolute_url())
     elif request.method == "GET":
         board_table = BoardTable()
@@ -188,6 +187,9 @@ def edit_article(request, id):
             article = editform.save(commit=False)
             article.modified_at = timezone.now()
             article.save()
+
+            request.user.profile.last_article_at = timezone.now()
+            request.user.profile.save()
 
             return redirect(article.get_article_url())
     elif request.method == "GET":

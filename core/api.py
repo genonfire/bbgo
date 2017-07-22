@@ -1,22 +1,18 @@
 # -*- coding: utf-8 -*-
-import sys
-
+from boards.forms import ReplyEditForm
 from boards.models import Board
+from core.utils import get_ipaddress
 
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404
+from django.utils import timezone
 from django.utils.translation import ugettext as _
-
-from forms import ReplyEditForm
-
-reload(sys)
-sys.setdefaultencoding('utf-8')
 
 
 def like_article(request, liketype):
     """API like_article"""
     if not request.user.is_authenticated():
-        msg = _("require login")
+        msg = _("Require login")
         return JsonResponse([0, msg], safe=False, status=201)
 
     if request.method == 'POST':
@@ -87,12 +83,29 @@ def like_users(request, liketype):
 
 def write_reply(request):
     """API write_reply"""
+    if not request.user.is_authenticated():
+        msg = _("Require login")
+        return JsonResponse([0, msg], safe=False, status=201)
+
     if request.method == 'POST':
-        # id = request.POST['id']
-        # text = request.POST['text']
-        form = ReplyEditForm(data=request.POST, files=request.FILES)
-        # print request.POST['reply_text']
-        # print request.FILES['reply_image']
+        id = request.POST['article_id']
+
+        form = ReplyEditForm(request.POST, request.FILES)
+        if form.is_valid():
+            reply = form.save(commit=False)
+            reply.status = '1normal'
+            reply.user = request.user
+            reply.ip = get_ipaddress(request)
+            reply.save()
+
+            article = get_object_or_404(Board, pk=id)
+            article.reply_count += 1
+            article.save()
+
+            request.user.profile.last_reply_at = timezone.now()
+            request.user.profile.save()
+
+            return JsonResponse([article.reply_count], safe=False, status=201)
 
         return JsonResponse({'status': 'false'}, status=400)
     else:

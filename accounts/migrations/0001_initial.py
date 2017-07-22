@@ -17,6 +17,9 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('point', models.IntegerField(default=1)),
+                ('last_article_at', models.DateTimeField(auto_now_add=True)),
+                ('last_reply_at', models.DateTimeField(auto_now_add=True)),
+                ('scrap', models.TextField(default=b'', blank=True)),
                 ('user', models.OneToOneField(to=settings.AUTH_USER_MODEL)),
             ],
         ),

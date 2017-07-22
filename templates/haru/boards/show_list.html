@@ -41,6 +41,9 @@
             <a href="{% url 'boards:show_article' id=article.id %}">
             {{ article.subject }}
             </a>
+            {% if article.reply_count > 0 %}
+                <span>[{{ article.reply_count }}]</span>
+            {% endif %}
         </td>
         <td class="name">
             {{ article.user }}
@@ -69,6 +72,9 @@
             <a href="{% url 'boards:show_article' id=article.id %}">
             {{ article.subject }}
             </a>
+            {% if article.reply_count > 0 %}
+                <span>[{{ article.reply_count }}]</span>
+            {% endif %}
         </td>
         <td class="name">
             {{ article.user }}
@@ -101,6 +107,9 @@
             <a href="{% url 'boards:show_article' id=article.id %}">
             {{ article.subject }}
             </a>
+            {% if article.reply_count > 0 %}
+                <span>[{{ article.reply_count }}]</span>
+            {% endif %}
         </td>
         <td class="name">
             {{ article.user }}

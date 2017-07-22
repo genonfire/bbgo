@@ -1,13 +1,8 @@
 # -*- coding: utf-8 -*-
-import sys
-
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-
-reload(sys)
-sys.setdefaultencoding('utf-8')
 
 
 class Profile(models.Model):
@@ -15,6 +10,9 @@ class Profile(models.Model):
 
     user = models.OneToOneField(User)
     point = models.IntegerField(default=1)
+    last_article_at = models.DateTimeField(auto_now_add=True)
+    last_reply_at = models.DateTimeField(auto_now_add=True)
+    scrap = models.TextField(default='', blank=True)
 
 
 @receiver(post_save, sender=User)

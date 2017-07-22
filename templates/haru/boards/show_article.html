@@ -19,7 +19,7 @@
 {% endif %}
 <span>
     <a href="{% url 'boards:show_list_0' table=article.table %}">
-    {% trans 'to_list' %}
+        {% trans 'to_list' %}
     </a>
 </span>
 </div>
@@ -29,9 +29,12 @@
         <span>[{{ status_text }}]</span>
     {% endif %}
     {{ article.subject }}
+    {% if article.reply_count > 0 %}
+        <span class="reply_count">[<span id="reply_count_no" class="reply_count">{{ article.reply_count }}</span>]</span>
+    {% endif %}
 </div>
 <div class="article_user">
-    {{ article.user }} <span class="nim">님</span>
+    {{ article.user }}
     <div class="article_view_count">
         <img src="{% static 'icons/eye18.png' %}">
         <span>{{ article.view_count }}</span>
@@ -40,9 +43,9 @@
         {% else %}
             <a href="javascript:void(0)">
         {% endif %}
-            <span id="article_view_like_count">
-                {{ article.like_count }}
-            </span>
+                <span id="article_view_like_count">
+                    {{ article.like_count }}
+                </span>
             </a>
     </div>
 </div>

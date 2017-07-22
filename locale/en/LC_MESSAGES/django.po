@@ -55,7 +55,7 @@ msgid "Wrong status from user."
 msgstr ""
 
 #: core/api.py:17
-msgid "require login"
+msgid "Require login"
 msgstr ""
 
 #: core/api.py:26
