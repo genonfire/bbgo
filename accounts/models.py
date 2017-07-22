@@ -13,6 +13,8 @@ class Profile(models.Model):
     last_article_at = models.DateTimeField(auto_now_add=True)
     last_reply_at = models.DateTimeField(auto_now_add=True)
     scrap = models.TextField(default='', blank=True)
+    alarm = models.BooleanField(default=False)
+    alarm_list = models.TextField(default='', blank=True)
 
 
 @receiver(post_save, sender=User)

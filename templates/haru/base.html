@@ -48,7 +48,7 @@
                         </div>
                         <div class="sidebar_notice">
                             <span>
-                                {% if False %}
+                                {% if user.profile.alarm %}
                                     <img src="{% static 'icons/alert24.gif' %}">
                                 {% else %}
                                     <img src="{% static 'icons/alert24.png' %}">

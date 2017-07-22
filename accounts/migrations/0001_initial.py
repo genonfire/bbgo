@@ -20,6 +20,8 @@ class Migration(migrations.Migration):
                 ('last_article_at', models.DateTimeField(auto_now_add=True)),
                 ('last_reply_at', models.DateTimeField(auto_now_add=True)),
                 ('scrap', models.TextField(default=b'', blank=True)),
+                ('alarm', models.BooleanField(default=False)),
+                ('alarm_list', models.TextField(default=b'', blank=True)),
                 ('user', models.OneToOneField(to=settings.AUTH_USER_MODEL)),
             ],
         ),

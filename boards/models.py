@@ -32,7 +32,6 @@ class Board(models.Model):
     reply_count = models.IntegerField(default=0)
     like_users = models.TextField(default='', blank=True)
     dislike_users = models.TextField(default='', blank=True)
-    # replies = models.TextField(default='', blank=True)
     reference = models.CharField(max_length=1855, default='', blank=True)
 
     def get_absolute_url(self):

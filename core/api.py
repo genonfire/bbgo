@@ -100,6 +100,15 @@ def write_reply(request):
 
             article = get_object_or_404(Board, pk=id)
             article.reply_count += 1
+            if article.user != request.user:
+                if article.user.profile.alarm_list != '':
+                    article.user.profile.alarm_list += ','
+                alarm_text = 'a.%d' % article.id
+                article.user.profile.alarm_list += alarm_text
+
+                if not article.user.profile.alarm:
+                    article.user.profile.alarm = True
+                article.user.profile.save()
             article.save()
 
             request.user.profile.last_reply_at = timezone.now()
