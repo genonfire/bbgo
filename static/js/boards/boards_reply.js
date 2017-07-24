@@ -8,7 +8,6 @@ function write_reply(id) {
     var form_data = new FormData();
     form_data.append("article_id", id);
     form_data.append("reply_id", 0);
-    form_data.append("reply_to", '');
     form_data.append("content", content);
     form_data.append("image", $("input[id=reply_image]")[0].files[0]);
 
@@ -41,12 +40,10 @@ function write_rereply(id, reply_id) {
         alert(gettext("Please input 2 or more characters."));
         return;
     }
-    reply_to = $('#reply_username' + reply_id ).html();
 
     var form_data = new FormData();
     form_data.append("article_id", id);
     form_data.append("reply_id", reply_id);
-    form_data.append("reply_to", reply_to);
     form_data.append("content", content);
     form_data.append("image", $("input[id=rereply_image]")[0].files[0]);
 
@@ -165,7 +162,7 @@ function like_reply(id) {
             $(tagname).html(data[0]);
         },
         error: function(data) {
-            console.log("error");
+            alert(gettext('Error!'));
         }
     });
 }
@@ -191,9 +188,32 @@ function dislike_reply(id) {
             $(tagname).html(data[0]);
         },
         error: function(data) {
-            console.log("error");
+            alert(gettext('Error!'));
         }
     });
+}
+
+function delete_reply(id) {
+    if (confirm(gettext("Are you sure to delete this article?"))) {
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                xhr.setRequestHeader("X-CSRFToken", $("input[name=csrfmiddlewaretoken]").val());
+            }
+        });
+        $.ajax({
+            type: "POST",
+            url: "/api/delete_reply/",
+            data: {
+                id: id
+            },
+            success: function(data) {
+                $('#replies').html(data);
+            },
+            error: function(data) {
+                alert(gettext('Error!'));
+            }
+        });
+    }
 }
 
 $('#reply_image').on('change', function() {

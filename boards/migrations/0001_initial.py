@@ -40,6 +40,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('article_id', models.IntegerField(default=0)),
                 ('reply_id', models.IntegerField(default=0)),
+                ('reply_to', models.CharField(default=b'', max_length=150, blank=True)),
                 ('status', models.CharField(default=b'1normal', max_length=10, choices=[(b'6deleted', '\uc0ad\uc81c\ub428'), (b'1normal', '\uc815\uc0c1'), (b'5hidden', '\uc228\uae40')])),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('modified_at', models.DateTimeField(auto_now_add=True)),

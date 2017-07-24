@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-22 22:22+0900\n"
-"PO-Revision-Date: 2017-07-22 22:15+0900\n"
+"POT-Creation-Date: 2017-07-24 23:16+0900\n"
+"PO-Revision-Date: 2017-07-24 23:17+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -47,8 +47,8 @@ msgstr "삭제됨"
 
 #: boards/views.py:24 boards/views.py:29 boards/views.py:130
 #: boards/views.py:153 boards/views.py:158 boards/views.py:198
-#: boards/views.py:203 boards/views.py:230 core/api.py:60 core/api.py:80
-#: core/api.py:128 core/api.py:146
+#: boards/views.py:203 boards/views.py:230 core/api.py:62 core/api.py:82
+#: core/api.py:133 core/api.py:215 core/api.py:240 core/api.py:272
 msgid "Wrong access"
 msgstr "잘못된 접근입니다."
 
@@ -56,59 +56,59 @@ msgstr "잘못된 접근입니다."
 msgid "Wrong status from user."
 msgstr "상태정보가 잘못 입력되었습니다."
 
-#: core/api.py:15
+#: core/api.py:18 core/api.py:90
 msgid "Require login"
 msgstr "회원만 가능합니다."
 
-#: core/api.py:24
+#: core/api.py:26 core/api.py:98
 msgid "You like your own post?"
 msgstr "자신의 글입니다."
 
-#: core/api.py:38
+#: core/api.py:40
 msgid "You've liked this article"
 msgstr "추천했습니다."
 
-#: core/api.py:48
+#: core/api.py:50
 msgid "You've disliked this article"
 msgstr "비추했습니다."
 
-#: core/api.py:55
+#: core/api.py:57 core/api.py:126
 msgid "You've already liked"
 msgstr "이미 추천하셨습니다."
 
-#: core/api.py:57
+#: core/api.py:59 core/api.py:128
 msgid "You've already disliked"
 msgstr "이미 비추하셨습니다."
 
-#: templates/haru/base.html:60
+#: templates/haru/base.html:62
 msgid "Message"
 msgstr "쪽지"
 
-#: templates/haru/base.html:72
+#: templates/haru/base.html:74
 msgid "logout"
 msgstr "로그아웃"
 
-#: templates/haru/base.html:83
+#: templates/haru/base.html:85
 msgid "id"
 msgstr "아이디"
 
-#: templates/haru/base.html:86
+#: templates/haru/base.html:88
 msgid "password"
 msgstr "비밀번호"
 
-#: templates/haru/base.html:90
+#: templates/haru/base.html:92
 msgid "login"
 msgstr "로그인"
 
-#: templates/haru/base.html:96
+#: templates/haru/base.html:98
 msgid "Reset password"
 msgstr "비밀번호찾기"
 
-#: templates/haru/base.html:101
+#: templates/haru/base.html:103
 msgid "Sign up"
 msgstr "회원가입"
 
-#: templates/haru/base.html:119
+#: templates/haru/base.html:121
 msgid "Send feedback"
 msgstr "문의, 의견 보내기"
 
@@ -159,6 +159,7 @@ msgid "edit"
 msgstr "수정"
 
 #: templates/haru/boards/show_article.html:99
+#: templates/haru/boards/show_reply.html:48
 msgid "delete"
 msgstr "삭제"
 
@@ -216,10 +217,16 @@ msgstr "제목+내용"
 msgid "search"
 msgstr "검색"
 
-#: templates/haru/boards/show_reply.html:3
+#: templates/haru/boards/show_reply.html:5
+#: templates/haru/boards/show_reply.html:57
 msgid "reply"
 msgstr "댓글"
 
-#: templates/haru/boards/show_reply.html:14
+#: templates/haru/boards/show_reply.html:16
 msgid "Write reply"
 msgstr "댓글 달기"
+
+#: templates/haru/boards/show_reply.html:97
+#| msgid "Write reply"
+msgid "Deleted reply"
+msgstr "삭제된 댓글입니다."

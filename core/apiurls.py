@@ -51,4 +51,14 @@ urlpatterns = [
         api.reload_reply,
         name='reload_reply',
     ),
+    url(
+        r'^delete_reply/$',
+        api.delete_reply,
+        name='delete_reply',
+    ),
+    url(
+        r'^alarm_off/$',
+        api.alarm_off,
+        name='alarm_off'
+    ),
 ]

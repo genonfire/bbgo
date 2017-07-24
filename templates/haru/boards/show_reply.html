@@ -29,17 +29,30 @@
         <td class="input_rereply">
 {% endif %}
 {% if user.username == reply.user.username %}
-    <div id="reply_body{{ reply.id }}" class="reply_body reply_owner">
+    <div id="reply_body{{ reply.id }}" class="reply_body reply_body_owner">
+        <div class="reply_title reply_title_owner">
 {% else %}
     <div id="reply_body{{ reply.id }}" class="reply_body">
-{% endif %}
         <div class="reply_title">
-            <span id="reply_username{{ reply.id }}" class="reply_username">{{ reply.user.username }}</span>
-            <span class="reply_date">
-                {{ reply.created_at|date:"y.m.d H:i" }}
+{% endif %}
+            <span class="reply_username">
+                {{ reply.user.username }}
             </span>
+            <span class="reply_date">
+                {{ reply.created_at|date:"m.d H:i" }}
+            </span>
+            {% if user.username == reply.user.username or user.is_staff %}
+            {% if reply.status != '6deleted' %}
+            <span class="reply_delete">
+                <a href="javascript:delete_reply({{ reply.id }})">
+                    {% trans 'delete' %}
+                </a>
+            </span>
+            {% endif %}
+            {% endif %}
             <div class="float-right">
-                <span>
+                {% if reply.status != '6deleted' %}
+                <span class="open_reply">
                     <a href="javascript:show_input_reply({{ reply.article_id }}, {{ reply.id }})">
                         {% trans 'reply' %}
                     </a>
@@ -49,16 +62,19 @@
                         <img src="{% static 'icons/thumbup24.png' %}">
                     </a>
                 </span>
+                {% endif %}
                 <span id="thumb_up_msg{{reply.id}}" class="thumb_up_msg">
                     {% if reply.like_count > 0 %}
                         {{ reply.like_count }}
                     {% endif %}
                 </span>
+                {% if reply.status != '6deleted' %}
                 <span>
                     <a href="javascript:dislike_reply({{ reply.id }})">
                         <img src="{% static 'icons/thumbdown24.png' %}">
                     </a>
                 </span>
+                {% endif %}
                 <span id="thumb_down_msg{{reply.id}}" class="thumb_down_msg">
                     {% if reply.dislike_count %}
                         {{ reply.dislike_count }}
@@ -71,13 +87,17 @@
             <span id="reply_to">{{ reply.reply_to }}</span>
         </div>
         {% endif %}
-        {% if reply.image %}
+        {% if reply.image and reply.status == '1normal' %}
         <div class="reply_image">
             <img src="{{ reply.image.url }}">
         </div>
         {% endif %}
         <div id="reply_content{{ reply.id }}" class="reply_content">
-            {{ reply.content|linebreaksbr }}
+            {% if reply.status == '6deleted' %}
+                {% trans 'Deleted reply' %}
+            {% else %}
+                {{ reply.content|linebreaksbr }}
+            {% endif %}
         </div>
     </div>
 {% if reply.reply_id > 0 %}

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-22 22:22+0900\n"
-"PO-Revision-Date: 2017-07-22 18:19+0900\n"
+"POT-Creation-Date: 2017-07-24 23:16+0900\n"
+"PO-Revision-Date: 2017-07-24 22:37+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,7 +19,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: static/js/boards/boards_article.js:107
+#: static/js/boards/boards_article.js:81
+msgid "who likes"
+msgstr "이 글을 추천해 주신 분들"
+
+#: static/js/boards/boards_article.js:108 static/js/boards/boards_reply.js:197
 msgid "Are you sure to delete this article?"
 msgstr "정말로 삭제하시겠습니까?"
 
@@ -35,14 +39,24 @@ msgstr "내용을 입력해 주세요."
 msgid "Are you sure to quit editing?"
 msgstr "글작성을 그만두고 나가시겠습니까?"
 
-#: static/js/boards/boards_reply.js:4
+#: static/js/boards/boards_reply.js:4 static/js/boards/boards_reply.js:40
 msgid "Please input 2 or more characters."
 msgstr "두 글자 이상 입력해 주세요."
 
-#: static/js/boards/boards_reply.js:32 static/js/boards/boards_reply.js:53
+#: static/js/boards/boards_reply.js:32 static/js/boards/boards_reply.js:67
+#: static/js/boards/boards_reply.js:139 static/js/boards/boards_reply.js:165
+#: static/js/boards/boards_reply.js:191 static/js/boards/boards_reply.js:213
 msgid "Error!"
 msgstr "잘못!"
 
-#: static/js/boards/boards_reply.js:62
+#: static/js/boards/boards_reply.js:75
+msgid "Please show some respect."
+msgstr "서로에 대한 배려와 존중을 보여주세요."
+
+#: static/js/boards/boards_reply.js:76
+msgid "submit"
+msgstr "등록"
+
+#: static/js/boards/boards_reply.js:115 static/js/boards/boards_reply.js:223
 msgid "Selected image is too big. size limit: "
 msgstr "이미지가 너무 큽니다. 사이즈 제한: "

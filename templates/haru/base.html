@@ -49,7 +49,9 @@
                         <div class="sidebar_notice">
                             <span>
                                 {% if user.profile.alarm %}
-                                    <img src="{% static 'icons/alert24.gif' %}">
+                                    <a href="{% url 'api:alarm_off' %}">
+                                        <img src="{% static 'icons/alert24.gif' %}">
+                                    </a>
                                 {% else %}
                                     <img src="{% static 'icons/alert24.png' %}">
                                 {% endif %}

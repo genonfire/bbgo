@@ -160,14 +160,17 @@ table.board td.datetime {width:60px;font-size:.8em;}
 .reply_header {height:2.2em;margin-top:.5em;margin-bottom:1em;background:#F9F9F9;padding:.3em;border:1px solid #999;border-radius:.5em;font-size:.9em;line-height:2em;vertical-align:middle;}
 .reply_header span {color:#409BD1;}
 .reply_body {border-bottom:1px solid #999;}
-.reply_owner {background:#E7E9EF;}
 .reply_title {height:1.8em;background:#F7F7F7;padding:.3em;vertical-align:middle;font-size:.9em;}
 .reply_title span {margin-right:.5em;font-size:.8em;color:#11223d;}
 .reply_title span.reply_username {font-weight:bold;}
 .reply_title span.reply_date {color:#999;}
+.reply_title span.reply_delete a {color:#E54F44;}
+.reply_body_owner {background:#F4F5F9;}
+.reply_title_owner {background:#EFF0F4;}
 .reply_to {padding-left:.5em;color:#999;font-size:.8em;}
 span.thumb_up_msg {color:#1e88e5;}
 span.thumb_down_msg {color:#e02d31;}
+span.open_reply a {color:#409BD1;}
 .reply_image {display:inline-block;padding:.5em;}
 .reply_image img {max-width:100%;max-height:100%;}
 .reply_content {padding:.5em;font-size:.9em;}

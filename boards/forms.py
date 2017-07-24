@@ -45,7 +45,8 @@ class ReplyEditForm(forms.ModelForm):
 
         model = Reply
         exclude = (
-            'reply_id', 'status', 'user', 'created_at', 'modified_at', 'ip',
+            'reply_id', 'reply_to', 'status', 'user',
+            'created_at', 'modified_at', 'ip',
             'like_count', 'dislike_count', 'like_users', 'dislike_users'
         )
 
