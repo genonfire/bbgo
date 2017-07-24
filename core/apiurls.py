@@ -30,6 +30,18 @@ urlpatterns = [
         kwargs={'liketype': 'dislike'}
     ),
     url(
+        r'^like_reply/$',
+        api.like_reply,
+        name='like_reply',
+        kwargs={'liketype': 'like'}
+    ),
+    url(
+        r'^dislike_reply/$',
+        api.like_reply,
+        name='dislike_reply',
+        kwargs={'liketype': 'dislike'}
+    ),
+    url(
         r'^write_reply/$',
         api.write_reply,
         name='write_reply',

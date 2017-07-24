@@ -65,7 +65,7 @@ function show_popup(e, data, width, marginX, marginY) {
     })
 }
 
-function like_users(e, id, msg) {
+function like_users(e, id) {
     $.ajaxSetup({
         beforeSend: function(xhr, settings) {
             xhr.setRequestHeader("X-CSRFToken", $("input[name=csrfmiddlewaretoken]").val());
@@ -78,6 +78,7 @@ function like_users(e, id, msg) {
             id: id
         },
         success: function(datain) {
+            msg = gettext("who likes");
             data = "<div style=background:#EDEDED;color:#000;text-align:center;margin-bottom:.5em;padding:.1em>" + msg + "</div>";
             if (datain[0] != '0') {
                 userlist = datain[0].split(',');

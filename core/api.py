@@ -3,6 +3,7 @@ from boards.forms import ReplyEditForm
 from boards.models import Board, Reply
 from core.utils import get_ipaddress
 
+from django.db.models import Case, IntegerField, When
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, render_to_response
 from django.utils import timezone
@@ -11,11 +12,11 @@ from django.utils.translation import ugettext as _
 
 def like_article(request, liketype):
     """API like_article"""
-    if not request.user.is_authenticated():
-        msg = _("Require login")
-        return JsonResponse([0, msg], safe=False, status=201)
-
     if request.method == 'POST':
+        if not request.user.is_authenticated():
+            msg = _("Require login")
+            return JsonResponse([0, msg], safe=False, status=201)
+
         id = request.POST['id']
         user = request.user.username
         article = get_object_or_404(Board, pk=id)
@@ -81,6 +82,56 @@ def like_users(request, liketype):
         return HttpResponse(msg)
 
 
+def like_reply(request, liketype):
+    """API like_reply"""
+    if request.method == 'POST':
+        if not request.user.is_authenticated():
+            msg = _("Require login")
+            return JsonResponse([0, msg], safe=False, status=201)
+
+        id = request.POST['id']
+        user = request.user.username
+        reply = get_object_or_404(Reply, pk=id)
+
+        if reply.user.username == user:
+            msg = _("You like your own post?")
+            return JsonResponse([0, msg], safe=False, status=201)
+
+        like_users = reply.like_users.split(',')
+        dislike_users = reply.dislike_users.split(',')
+
+        if user not in like_users and user not in dislike_users:
+            if liketype == 'like':
+                if reply.like_users != '':
+                    reply.like_users += ","
+                reply.like_users += user
+                reply.like_count += 1
+                reply.save()
+
+                return JsonResponse([reply.like_count], safe=False, status=201)
+            elif liketype == 'dislike':
+                if reply.dislike_users != '':
+                    reply.dislike_users += ","
+                reply.dislike_users += user
+                reply.dislike_count += 1
+                reply.save()
+
+                return JsonResponse([reply.dislike_count], safe=False, status=201)
+            else:
+                return JsonResponse({'status': 'false'}, status=400)
+        else:
+            if user in like_users:
+                msg = _("You've already liked")
+            else:
+                msg = _("You've already disliked")
+            return JsonResponse([0, msg], safe=False, status=201)
+
+        return JsonResponse(status=201)
+    else:
+        msg = _("Wrong access")
+        return HttpResponse(msg)
+
+
 def write_reply(request):
     """API write_reply"""
     if not request.user.is_authenticated():
@@ -88,10 +139,23 @@ def write_reply(request):
 
     if request.method == 'POST':
         id = request.POST['article_id']
+        reply_id = request.POST['reply_id']
 
         form = ReplyEditForm(request.POST, request.FILES)
         if form.is_valid():
             reply = form.save(commit=False)
+
+            parent_id = int(reply_id)
+            while(parent_id != 0):
+                parent = get_object_or_404(Reply, pk=parent_id)
+                if parent:
+                    parent_id = parent.reply_id
+                    if parent_id == 0:
+                        reply_id = parent.id
+                else:
+                    return JsonResponse({'status': 'false'}, status=400)
+
+            reply.reply_id = reply_id
             reply.status = '1normal'
             reply.user = request.user
             reply.ip = get_ipaddress(request)
@@ -99,7 +163,7 @@ def write_reply(request):
 
             article = get_object_or_404(Board, pk=id)
             article.reply_count += 1
-            if article.user != request.user:
+            if article.user != request.user and int(reply_id) == 0:
                 if article.user.profile.alarm_list != '':
                     article.user.profile.alarm_list += ','
                 alarm_text = 'a.%d' % article.id
@@ -113,11 +177,18 @@ def write_reply(request):
             request.user.profile.last_reply_at = timezone.now()
             request.user.profile.save()
 
-            replies = Reply.objects.filter(article_id=id)
+            replies = Reply.objects.filter(article_id=id).annotate(
+                custom_order=Case(
+                    When(reply_id=0, then='id'),
+                    default='reply_id',
+                    output_field=IntegerField(),
+                )
+            ).order_by('custom_order', 'id')
 
             return render_to_response(
                 'boards/show_reply.html',
                 {
+                    'user': request.user,
                     'replies': replies,
                     'count': replies.count()
                 }
@@ -133,11 +204,21 @@ def reload_reply(request):
     """API reload_reply"""
     if request.method == 'POST':
         id = request.POST['id']
-        replies = Reply.objects.filter(article_id=id)
+        replies = Reply.objects.filter(article_id=id).annotate(
+            custom_order=Case(
+                When(reply_id=0, then='id'),
+                default='reply_id',
+                output_field=IntegerField(),
+            )
+        ).order_by('custom_order', 'id')
+
+        for reply in replies:
+            print reply.id, reply.reply_id, reply.content
 
         return render_to_response(
             'boards/show_reply.html',
             {
+                'user': request.user,
                 'replies': replies,
                 'count': replies.count()
             }

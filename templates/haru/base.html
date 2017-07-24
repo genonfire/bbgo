@@ -17,7 +17,7 @@
 <link rel="apple-touch-icon-precomposed" href="{% static 'icons/apple-touch-icon-precomposed.png' %}">
 <link rel="stylesheet" href="{% static 'css/haru.css' %}">
 {% if DEBUG %}
-<script src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+<script src="{% static 'js/thirdparty/jquery-1.12.4.min.js' %}"></script>
 {% else %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 {% endif %}
@@ -40,7 +40,7 @@
                         {% csrf_token %}
                         <div class="sidebar_username">
                             <span>
-                                {{user}}
+                                {{ user }}
                             </span>
                             <span class="float-right">
                                 <img src="{% static 'icons/edit24.png' %}">

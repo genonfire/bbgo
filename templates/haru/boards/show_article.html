@@ -37,7 +37,7 @@
         <img src="{% static 'icons/eye18.png' %}">
         <span>{{ article.view_count }}</span>
         {% if article.like_count > 0 %}
-            <a href="javascript:void(0)" onClick="javascript:like_users(event, {{article.id}}, '{% trans 'who likes' %}');return false;" title="{% trans 'who likes' %}">
+            <a href="javascript:void(0)" onClick="javascript:like_users(event, {{article.id}});return false;" title="{% trans 'who likes' %}">
         {% else %}
             <a href="javascript:void(0)">
         {% endif %}
@@ -144,7 +144,9 @@
 <script src="{% static 'js/boards/boards_article.js' %}" async></script>
 {% if REPLY_IMAGE_AVAILABLE %}
 <script>
+    var reply_image_available = true;
     var reply_image_limit = {{ REPLY_IMAGE_SIZE_LIMIT }};
+    var reply_text_max = {{ REPLY_TEXT_MAX }}
 </script>
 {% endif %}
 <script src="{% static 'js/boards/boards_reply.js' %}" async></script>

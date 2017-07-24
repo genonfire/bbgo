@@ -20,36 +20,67 @@
 </div>
 
 {% for reply in replies %}
-    <div class="reply_body">
+{% if reply.reply_id > 0 %}
+    <table class="dynamic_input_reply" width="100%">
+    <tr>
+        <td width="24px" valign="top">
+            <img src="{% static 'icons/niun24.png' %}">
+        </td>
+        <td class="input_rereply">
+{% endif %}
+{% if user.username == reply.user.username %}
+    <div id="reply_body{{ reply.id }}" class="reply_body reply_owner">
+{% else %}
+    <div id="reply_body{{ reply.id }}" class="reply_body">
+{% endif %}
         <div class="reply_title">
-            <span class="reply_username">
-                {{ reply.user.username }}
-            </span>
+            <span id="reply_username{{ reply.id }}" class="reply_username">{{ reply.user.username }}</span>
             <span class="reply_date">
                 {{ reply.created_at|date:"y.m.d H:i" }}
             </span>
             <div class="float-right">
                 <span>
-                    <img src="{% static 'icons/thumbup24.png' %}">
+                    <a href="javascript:show_input_reply({{ reply.article_id }}, {{ reply.id }})">
+                        {% trans 'reply' %}
+                    </a>
                 </span>
                 <span>
-                    {{ reply.like_count }}
+                    <a href="javascript:like_reply({{ reply.id }})">
+                        <img src="{% static 'icons/thumbup24.png' %}">
+                    </a>
+                </span>
+                <span id="thumb_up_msg{{reply.id}}" class="thumb_up_msg">
+                    {% if reply.like_count > 0 %}
+                        {{ reply.like_count }}
+                    {% endif %}
                 </span>
                 <span>
-                    <img src="{% static 'icons/thumbdown24.png' %}">
+                    <a href="javascript:dislike_reply({{ reply.id }})">
+                        <img src="{% static 'icons/thumbdown24.png' %}">
+                    </a>
                 </span>
-                <span>
-                    {{ reply.dislike_count }}
+                <span id="thumb_down_msg{{reply.id}}" class="thumb_down_msg">
+                    {% if reply.dislike_count %}
+                        {{ reply.dislike_count }}
+                    {% endif %}
                 </span>
             </div>
         </div>
+        {% if reply.reply_to %}
+        <div class="reply_to">
+            <span id="reply_to">{{ reply.reply_to }}</span>
+        </div>
+        {% endif %}
         {% if reply.image %}
         <div class="reply_image">
             <img src="{{ reply.image.url }}">
         </div>
         {% endif %}
-        <div class="reply_content">
+        <div id="reply_content{{ reply.id }}" class="reply_content">
             {{ reply.content|linebreaksbr }}
         </div>
     </div>
+{% if reply.reply_id > 0 %}
+    </td></tr></table>
+{% endif %}
 {% endfor %}
