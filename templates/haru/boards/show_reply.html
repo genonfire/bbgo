@@ -1,4 +1,6 @@
+{% load staticfiles %}
 {% load i18n %}
+
 <div class="reply_header">
     {% trans 'reply' %}
     <span>
@@ -16,16 +18,38 @@
         </span>
     </div>
 </div>
+
 {% for reply in replies %}
-    <div class="reply_title">
-        {{ reply.user.username }}
-    </div>
-    {% if reply.image %}
-    <div class="reply_image">
-        <img src="{{ reply.image.url }}">
-    </div>
-    {% endif %}
-    <div class="reply_content">
-        {{ reply.content|linebreaksbr }}
+    <div class="reply_body">
+        <div class="reply_title">
+            <span class="reply_username">
+                {{ reply.user.username }}
+            </span>
+            <span class="reply_date">
+                {{ reply.created_at|date:"y.m.d H:i" }}
+            </span>
+            <div class="float-right">
+                <span>
+                    <img src="{% static 'icons/thumbup24.png' %}">
+                </span>
+                <span>
+                    {{ reply.like_count }}
+                </span>
+                <span>
+                    <img src="{% static 'icons/thumbdown24.png' %}">
+                </span>
+                <span>
+                    {{ reply.dislike_count }}
+                </span>
+            </div>
+        </div>
+        {% if reply.image %}
+        <div class="reply_image">
+            <img src="{{ reply.image.url }}">
+        </div>
+        {% endif %}
+        <div class="reply_content">
+            {{ reply.content|linebreaksbr }}
+        </div>
     </div>
 {% endfor %}
