@@ -177,7 +177,7 @@ span.open_reply a {color:#409BD1;}
 .reload_reply {height:2em;margin:.5em;padding:.5em;text-align:center;vertical-align:middle;font-size:.8em;}
 .input_reply {margin-bottom:1em;}
 .input_reply_text textarea {width:100%;height:6em;line-height:1.2em;}
-.input_reply_buttons input[type="file"] {font-size:.9em;}
+.input_reply_buttons input[type="file"] {width:200px;font-size:.9em;}
 .input_reply_buttons input[type="button"] {background:#11223d;color:#fff;}
 
 table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
@@ -197,15 +197,20 @@ table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 
 /* ads */
 .sense_horizontal_bar {height:100px;background:#EDEDED;padding-top:10px;margin-top:5px;margin-bottom:5px;}
-.sense_sidebar {width:150px;background:#EDEDED;padding-top:10px;margin-top:5px;margin-bottom:5px;}
+.sense_sidebar {width:150px;min-height:150px;background:#EDEDED;padding-top:10px;margin-top:5px;margin-bottom:5px;}
 
 @media all and (min-width:1080px) {
     #container {margin:auto;}
+}
+@media all and (min-width:320px) and (max-width:540px) {
+    #container {width:auto;}
+    .sidebar {display:none;}
 }
 @media all and (min-width:361px) and (max-width:540px) {
     body {font-size:.9em;}
     #wrap {padding:0;}
     #contents {width:360px;}
+    .sidebar {display:none;}
     .gnb li {margin-left:.4em;}
     .gnb li a {padding-left:.2em;padding-right:.2em;font-size:1.4em;}
     table td.issuePhoto {width:6.6em;}
@@ -219,6 +224,7 @@ table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
     body {font-size:.8em;}
     #wrap {padding:0;}
     #contents {width:290px;}
+    .sidebar {display:none;}
     .gnb li {margin-left:.4em;}
     .gnb li a {padding-left:.2em;padding-right:.2em;font-size:1.3em;}
     table td.issuePhoto {width:6.6em;}

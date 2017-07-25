@@ -94,7 +94,7 @@
         {% endif %}
         <div id="reply_content{{ reply.id }}" class="reply_content">
             {% if reply.status == '6deleted' %}
-                {% trans 'Deleted reply' %}
+                <font color="#999">{% trans 'Deleted reply' %}</font>
             {% else %}
                 {{ reply.content|linebreaksbr }}
             {% endif %}

@@ -78,25 +78,29 @@
 </div>
 <div class="article_view_buttons">
     <span class="like">
-        <a href="javascript:void(0)" onClick="javascript:like_article({{article.id}});return false;">{% trans 'like' %}</a>
+        <a href="javascript:like_article({{article.id}})">
+            {% trans 'like' %}
+        </a>
     </span>
     <span>
-        <a href="javascript:void(0)" onClick="javascript:dislike_article({{article.id}});return false;">{% trans 'dislike' %}</a>
+        <a href="javascript:dislike_article({{article.id}})">
+            {% trans 'dislike' %}
+        </a>
     </span>
     <span>
-        <a href="javascript:void(0)" onClick="javascript:share_via(event, '{{article.subject}}');return false;">
-        {% trans 'share' %}
+        <a href="javascript:void(0)" onclick="javascript:share_via(event, '모바일 글 작성');return false;">
+            {% trans 'share' %}
         </a>
     </span>
     {% if user.is_staff or article.user == user %}
     <span>
         <a href="{% url 'boards:edit_article' id=article.id %}">
-        {% trans 'edit' %}
+            {% trans 'edit' %}
         </a>
     </span>
     <span class="delete">
-        <a href="javascript:void(0);" onClick=delete_article("{% url 'boards:delete_article' id=article.id %}")>
-        {% trans 'delete' %}
+        <a href=javascript:delete_article("{% url 'boards:delete_article' id=article.id %}")>
+            {% trans 'delete' %}
         </a>
     </span>
     {% endif %}
@@ -115,6 +119,8 @@
             {% trans 'Reload replies' %}
         </a>
     </span>
+</div>
+<div class="sense_horizontal_bar">
 </div>
 <div class="input_reply">
     <form id="form_reply" method="post" enctype="multipart/form-data">
