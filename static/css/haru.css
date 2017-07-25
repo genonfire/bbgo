@@ -203,34 +203,19 @@ table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
     #container {margin:auto;}
 }
 @media all and (min-width:320px) and (max-width:540px) {
+    #wrap {padding:0;}
     #container {width:auto;}
+    #footer {text-align:center;}
+    .footerMenu li {margin:0;font-size:.6em;}
     .sidebar {display:none;}
+    table.board thead {display:none;}
 }
 @media all and (min-width:361px) and (max-width:540px) {
     body {font-size:.9em;}
-    #wrap {padding:0;}
     #contents {width:360px;}
-    .sidebar {display:none;}
-    .gnb li {margin-left:.4em;}
-    .gnb li a {padding-left:.2em;padding-right:.2em;font-size:1.4em;}
-    table td.issuePhoto {width:6.6em;}
-    table td.issuePhoto img {width:6.6em;height:auto;}
-    #footer {text-align:center;}
-    .footerMenu li {margin:0;font-size:.6em;}
-    .member {margin:3em auto 3em;}
 }
 
 @media all and (min-width:320px) and (max-width:360px) {
     body {font-size:.8em;}
-    #wrap {padding:0;}
-    #contents {width:290px;}
-    .sidebar {display:none;}
-    .gnb li {margin-left:.4em;}
-    .gnb li a {padding-left:.2em;padding-right:.2em;font-size:1.3em;}
-    table td.issuePhoto {width:6.6em;}
-    table td.issuePhoto img {width:6.6em;height:auto;}
-    table td.issueRank {width:2.0em;}
-    #footer {text-align:center;}
-    .footerMenu li {margin:0;font-size:.6em;}
-    .member {margin:2.5em auto 2em;}
+    #contents {width:300px;}
 }

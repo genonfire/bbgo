@@ -103,7 +103,7 @@
                 {{ article.category }}
             {% endif %}
         </td>
-        <td class="subject" align="left">
+        <td class="subject">
             <a href="{% url 'boards:show_article' id=article.id %}">
             {{ article.subject }}
             </a>
@@ -114,10 +114,10 @@
         <td class="name">
             {{ article.user }}
         </td>
-        <td class="view_count font-0.8">
+        <td class="view_count">
             {{ article.view_count }}
         </td>
-        <td class="like_count font-0.8">
+        <td class="like_count">
             {{ article.like_count }}
         </td>
         <td class="datetime">
