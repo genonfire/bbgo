@@ -42,17 +42,12 @@ def show_list(request, table=0, page=0):
     q = Q(status__iexact='1normal') | Q(status__iexact='4warning')
 
     if int(table) == 0:
-        top_notice = Board.objects.filter(table=1).filter(status__iexact='3notice').order_by('-id')
-        notice_list = None
+        notice_list = Board.objects.filter(table=1).filter(status__iexact='3notice').order_by('-id')
         total = Board.objects.filter(q).count()
         lists = Board.objects.filter(q).order_by('-id')[start_at:end_at]
         name_list = board_table.get_table_list()
     else:
-        top_notice = Board.objects.filter(table=1).filter(status__iexact='3notice').order_by('-id')
-        if int(table) == 1:
-            notice_list = None
-        else:
-            notice_list = Board.objects.filter(table=table).filter(status__iexact='3notice').order_by('-id')
+        notice_list = Board.objects.filter(Q(table=1) | Q(table=table)).filter(status__iexact='3notice').order_by('table', '-id')
         total = Board.objects.filter(table=table).filter(q).count()
         lists = Board.objects.filter(table=table).filter(q).order_by('-id')[start_at:end_at]
         name_list = None
@@ -76,7 +71,6 @@ def show_list(request, table=0, page=0):
         request,
         "boards/show_list.html",
         {
-            'top_notice': top_notice,
             'notice_list': notice_list,
             'lists': lists,
             'total': total,

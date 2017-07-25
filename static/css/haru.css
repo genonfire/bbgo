@@ -62,7 +62,7 @@ a:hover {color:yellow; color:#000;text-decoration:none;}
 .sidebar_login {text-align:right;height:2em;margin:.3em;font-size:.9em;}
 .sidebar_login input {height:2em;font-size:.9em;margin:.2em;padding:.5em;}
 
-.annotation {min-height:0.1em;margin:0 0 1.5em 0;padding:.9em 0;border-bottom:1px solid #11223d;font-size:.8em;color:#666;}
+.annotation {min-height:0.1em;margin:0 0 1em 0;padding:.9em 0;border-bottom:1px solid #11223d;font-size:.8em;color:#666;}
 .annotation span a {display:inline-block;height:2.2em;margin-left:.5em;padding:0 .3em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.1em;}
 .annotation span a:hover, .sidebar_buttons span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
 
@@ -98,6 +98,8 @@ table.board tr.article_info_mobile span {padding:.1em;font-weight:300;color:#999
 .navigator span a.current_page {background:#11223d;color:#fff;}
 .navigator span a.jump {margin:.0em;background:#fff;border-color:#fff;}
 .navigator span a.jump:hover {background:#fff;border-color:#11223d;}
+.nabingator {width:100%;text-align:center;}
+.nabingator table {width:100%;height:2.5em;border-bottom:1px dotted #999;border-left:0;border-right:0;}
 
 .align-center {text-align:center;}
 .align-right {text-align:right;}
@@ -195,7 +197,7 @@ table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 .member span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
 
 /* ads */
-.sense_horizontal_bar {height:100px;background:#EDEDED;padding-top:10px;margin-top:5px;margin-bottom:5px;}
+.sense_horizontal_bar {height:100px;background:#EDEDED;padding-top:1em;margin-top:.5em;margin-bottom:.5em;}
 .sense_sidebar {width:150px;min-height:150px;background:#EDEDED;padding-top:10px;margin-top:5px;margin-bottom:5px;}
 
 @media all and (min-width:1080px) {
@@ -208,7 +210,7 @@ table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
     body {font-size:1em;}
     #wrap {padding:0;}
     #container {width:auto;}
-    #contents {width:auto;padding:.5em;}
+    #contents {width:auto;padding:1em;}
     #footer {text-align:center;}
     .footerMenu li {margin:0;font-size:.6em;}
     .sidebar {display:none;}
@@ -221,5 +223,5 @@ table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 }
 
 @media all and (max-width:320px) {
-    #contents {width:320px;}
+    #contents {width:300px;}
 }

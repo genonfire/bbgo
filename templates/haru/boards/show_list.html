@@ -34,10 +34,12 @@
 </tr>
 </thead>
 <tbody>
-{% for article in top_notice %} <!--//Top Notice-->
+{% for article in notice_list %} <!--//Notice-->
     <tr>
         <td class="subject notice">
-            {% trans 'status_notice' %}
+            <span class="category">
+                {% trans 'status_notice' %}
+            </span>
             <a href="{% url 'boards:show_article' id=article.id %}">
                 {{ article.subject }}
             </a>
@@ -45,16 +47,16 @@
                 <span>[{{ article.reply_count }}]</span>
             {% endif %}
         </td>
-        <td class="name">
+        <td class="article_info">
             {{ article.user }}
         </td>
-        <td class="view_count">
+        <td class="article_info">
             {{ article.view_count }}
         </td>
-        <td class="like_count">
+        <td class="article_info">
             {{ article.like_count }}
         </td>
-        <td class="datetime">
+        <td class="article_info">
             {% if article.created_at|localtime|is_today %}
                 {{ article.created_at|time:"H:i" }}
             {% else %}
@@ -62,33 +64,24 @@
             {% endif %}
         </td>
     </tr>
-{% endfor %}
-{% for article in notice_list %} <!--//Notice of each board-->
-    <tr>
-        <td class="subject notice">
-            {% trans 'status_notice' %}
-            <a href="{% url 'boards:show_article' id=article.id %}">
-                {{ article.subject }}
-            </a>
-            {% if article.reply_count > 0 %}
-                <span>[{{ article.reply_count }}]</span>
-            {% endif %}
-        </td>
-        <td class="name">
-            {{ article.user }}
-        </td>
-        <td class="view_count">
-            {{ article.view_count }}
-        </td>
-        <td class="like_count">
-            {{ article.like_count }}
-        </td>
-        <td class="datetime">
-            {% if article.created_at|localtime|is_today %}
-                {{ article.created_at|time:"H:i" }}
-            {% else %}
-                {{ article.created_at|date:"m-d" }}
-            {% endif %}
+    <tr class="article_info_mobile">
+        <td>
+            <span>
+                {{ article.user }} |
+            </span>
+            <span>
+                {{ article.view_count }} |
+            </span>
+            <span>
+                {{ article.like_count }} |
+            </span>
+            <span>
+                {% if article.created_at|localtime|is_today %}
+                    {{ article.created_at|time:"H:i" }}
+                {% else %}
+                    {{ article.created_at|date:"m-d" }}
+                {% endif %}
+            </span>
         </td>
     </tr>
 {% endfor %}
@@ -151,6 +144,28 @@
 </table>
 <div class="sense_horizontal_bar">
 </div>
+<div class="nabingator buttons mobile_show">
+    {% if index_end > 2 %}
+        <table>
+            <tr>
+                <td>
+                    {% if page > 1 %}
+                        <a href="../{{ page|add:'-1' }}">
+                            < {% trans 'to prev page' %}
+                        </a>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if page < index_end|add:'-1' %}
+                        <a href="../{{ page|add:'1' }}">
+                            {% trans 'to next page' %} >
+                        </a>
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+    {% endif %}
+</div>
 <div class="navigator">
     <div class="float-left">
     </div>
@@ -163,9 +178,9 @@
     {% for index in index_begin|range:index_end %}
         <span>
             {% if index == page %}
-                <a href="../{{index}}" class="current_page">
+                <a href="../{{ index }}" class="current_page">
             {% else %}
-                <a href="../{{index}}">
+                <a href="../{{ index }}">
             {% endif %}
                     {{ index }}
                 </a>

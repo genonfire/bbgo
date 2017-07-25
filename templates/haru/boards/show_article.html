@@ -78,17 +78,17 @@
 </div>
 <div class="article_view_buttons">
     <span class="like">
-        <a href="javascript:like_article({{article.id}})">
+        <a href="javascript:like_article({{ article.id }})">
             {% trans 'like' %}
         </a>
     </span>
     <span>
-        <a href="javascript:dislike_article({{article.id}})">
+        <a href="javascript:dislike_article({{ article.id }})">
             {% trans 'dislike' %}
         </a>
     </span>
     <span>
-        <a href="javascript:void(0)" onclick="javascript:share_via(event, '모바일 글 작성');return false;">
+        <a href="javascript:void(0)" onclick="javascript:share_via(event, '{{ article.subject }}');return false;">
             {% trans 'share' %}
         </a>
     </span>
