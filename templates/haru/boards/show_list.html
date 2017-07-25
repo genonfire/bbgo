@@ -15,6 +15,9 @@
 {% if table_desc %}
     {{ table_desc }}
 {% endif %}
+    <span>
+        <a href="{% url 'boards:new_article' table=table %}" class="current_page">{% trans 'write' %}</a>
+    </span>
 </div>
 
 <div class="sense_horizontal_bar">
@@ -23,7 +26,6 @@
 <table class="board">
 <thead>
 <tr>
-    <th class="category">{% trans 'category' %}</th>
     <th class="subject">{% trans 'subject' %}</th>
     <th class="name">{% trans 'username' %}</th>
     <th class="view_count">{% trans 'view' %}</th>
@@ -34,12 +36,10 @@
 <tbody>
 {% for article in top_notice %} <!--//Top Notice-->
     <tr>
-        <td class="category">
-            {% trans 'status_notice' %}
-        </td>
         <td class="subject notice">
+            {% trans 'status_notice' %}
             <a href="{% url 'boards:show_article' id=article.id %}">
-            {{ article.subject }}
+                {{ article.subject }}
             </a>
             {% if article.reply_count > 0 %}
                 <span>[{{ article.reply_count }}]</span>
@@ -65,12 +65,10 @@
 {% endfor %}
 {% for article in notice_list %} <!--//Notice of each board-->
     <tr>
-        <td class="category">
-            {% trans 'status_notice' %}
-        </td>
         <td class="subject notice">
+            {% trans 'status_notice' %}
             <a href="{% url 'boards:show_article' id=article.id %}">
-            {{ article.subject }}
+                {{ article.subject }}
             </a>
             {% if article.reply_count > 0 %}
                 <span>[{{ article.reply_count }}]</span>
@@ -96,36 +94,56 @@
 {% endfor %}
 {% for article in lists %} <!--//Articles-->
     <tr>
-        <td class="category">
-            {% if table == '0' %}
-                {{ name_list|pick_first:article.table }}
-            {% else %}
-                {{ article.category }}
-            {% endif %}
-        </td>
         <td class="subject">
+            <span class="category">
+                {% if table == '0' %}
+                    {{ name_list|pick_first:article.table }}
+                {% else %}
+                    {{ article.category }}
+                {% endif %}
+            </span>
             <a href="{% url 'boards:show_article' id=article.id %}">
-            {{ article.subject }}
+                {{ article.subject }}
             </a>
             {% if article.reply_count > 0 %}
                 <span>[{{ article.reply_count }}]</span>
             {% endif %}
         </td>
-        <td class="name">
+        <td class="article_info">
             {{ article.user }}
         </td>
-        <td class="view_count">
+        <td class="article_info">
             {{ article.view_count }}
         </td>
-        <td class="like_count">
+        <td class="article_info">
             {{ article.like_count }}
         </td>
-        <td class="datetime">
+        <td class="article_info">
             {% if article.created_at|localtime|is_today %}
                 {{ article.created_at|time:"H:i" }}
             {% else %}
                 {{ article.created_at|date:"m-d" }}
             {% endif %}
+        </td>
+    </tr>
+    <tr class="article_info_mobile">
+        <td>
+            <span>
+                {{ article.user }} |
+            </span>
+            <span>
+                {{ article.view_count }} |
+            </span>
+            <span>
+                {{ article.like_count }} |
+            </span>
+            <span>
+                {% if article.created_at|localtime|is_today %}
+                    {{ article.created_at|time:"H:i" }}
+                {% else %}
+                    {{ article.created_at|date:"m-d" }}
+                {% endif %}
+            </span>
         </td>
     </tr>
 {% endfor %}
@@ -149,7 +167,8 @@
             {% else %}
                 <a href="../{{index}}">
             {% endif %}
-            {{ index }}</a>
+                    {{ index }}
+                </a>
         </span>
     {% endfor %}
     {% if index_end <= index_total %}
@@ -158,7 +177,7 @@
         </span>
     {% endif %}
 {% if writable == True %}
-    <div class="float-right margin-right-5">
+    <div class="float-right mobile_hide">
         <span>
             <a href="{% url 'boards:new_article' table=table %}" class="current_page">{% trans 'write' %}</a>
         </span>
