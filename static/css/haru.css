@@ -83,7 +83,7 @@ table.board th.like_count {width:50px;}
 table.board th.view_count {width:50px;}
 table.board th.datetime {width:60px;}
 table.board td.subject {width:auto;text-align:left;}
-table.board td.subject span.category {margin-right:.5em;color:#9393AE;font-size:.85em;font-weight:300;border-right:1px solid #999;}
+table.board td.subject span.category {margin-right:.5em;color:#9393AE;font-size:.85em;font-weight:300;border-right:0px solid #999;}
 table.board td.subject span {font-size:.85em;font-weight:bold;color:#409BD1;}
 table.board td.notice {font-weight:bold;}
 table.board td.article_info {font-size:.8em;}
@@ -169,6 +169,7 @@ table.board tr.article_info_mobile span {padding:.1em;font-weight:300;color:#999
 .reply_title span.reply_delete a {color:#E54F44;}
 .reply_body_owner {background:#F4F5F9;}
 .reply_title_owner {background:#EFF0F4;}
+.reply_self {border:1px solid #11223D;}
 .reply_to {padding-left:.5em;color:#999;font-size:.8em;}
 span.thumb_up_msg {color:#1e88e5;}
 span.thumb_down_msg {color:#e02d31;}

@@ -1,7 +1,8 @@
-from boards.models import Reply
+from boards.models import Board, Reply
 from django import template
 
 from django.db.models import Case, IntegerField, When
+from django.shortcuts import get_object_or_404
 
 register = template.Library()
 
@@ -17,9 +18,11 @@ def show_reply(context, id):
         )
     ).order_by('custom_order', 'id')
     user = context['request'].user
+    article = get_object_or_404(Board, pk=id)
 
     return {
         'user': user,
+        'article_user': article.user,
         'replies': replies,
         'count': replies.count()
     }

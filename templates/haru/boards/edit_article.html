@@ -48,7 +48,7 @@
             </select>
         </div>
     {% endif %}
-    {% if user.is_authenticated %}
+    {% if user.is_staff %}
         <div class="input_status">
     {% else %}
         <div class="input_status" style="display:none">

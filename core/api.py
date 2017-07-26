@@ -205,6 +205,7 @@ def write_reply(request):
                 'boards/show_reply.html',
                 {
                     'user': request.user,
+                    'article_user': article.user,
                     'replies': replies,
                     'count': replies.count()
                 }
@@ -228,10 +229,13 @@ def reload_reply(request):
             )
         ).order_by('custom_order', 'id')
 
+        article = get_object_or_404(Board, pk=id)
+
         return render_to_response(
             'boards/show_reply.html',
             {
                 'user': request.user,
+                'article_user': article.user,
                 'replies': replies,
                 'count': replies.count()
             }
@@ -260,10 +264,13 @@ def delete_reply(request):
                 )
             ).order_by('custom_order', 'id')
 
+            article = get_object_or_404(Board, pk=article_id)
+
             return render_to_response(
                 'boards/show_reply.html',
                 {
                     'user': request.user,
+                    'article_user': article.user,
                     'replies': replies,
                     'count': replies.count()
                 }
