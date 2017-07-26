@@ -52,11 +52,15 @@ def show_list(request, table=0, page=0):
         lists = Board.objects.filter(table=table).filter(q).order_by('-id')[start_at:end_at]
         name_list = None
 
-    index_begin = (current_page / 10) * 10 + 1
     index_total = int(ceil(float(total) / list_count))
-    index_end = index_total
+    index_begin = (current_page / 10) * 10 + 1
+    index_end = mindex_end = index_total
     if index_end - index_begin >= 10:
         index_end = index_begin + 9
+    mindex_begin = (current_page / 5) * 5 + 1
+    if mindex_end - mindex_begin >= 5:
+        mindex_end = mindex_begin + 4
+    print index_begin, mindex_begin
 
     if request.user.is_authenticated():
         writable = True
@@ -80,9 +84,9 @@ def show_list(request, table=0, page=0):
             'page': current_page + 1,
             'index_begin': index_begin,
             'index_end': index_end + 1,
+            'mindex_begin': mindex_begin,
+            'mindex_end': mindex_end + 1,
             'index_total': index_total,
-            'prev_index': index_begin - 1,
-            'next_index': index_end + 1,
             'writable': writable,
             'name_list': name_list,
         }

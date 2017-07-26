@@ -166,13 +166,13 @@
         </table>
     {% endif %}
 </div>
-<div class="navigator">
+<div class="navigator mobile_hide">
     <div class="float-left">
     </div>
     {% if index_begin != 1 %}
         <span>
             <a href="../1" class="jump" title="{% trans 'to first page' %}"><<</a>
-            <a href="../{{ prev_index }}" class="jump" title="{% trans 'to prev page' %}"><</a>
+            <a href="../{{ index_begin|add:'-1' }}" class="jump" title="{% trans 'to prev page' %}"><</a>
         </span>
     {% endif %}
     {% for index in index_begin|range:index_end %}
@@ -192,12 +192,36 @@
         </span>
     {% endif %}
 {% if writable == True %}
-    <div class="float-right mobile_hide">
+    <div class="float-right">
         <span>
             <a href="{% url 'boards:new_article' table=table %}" class="current_page">{% trans 'write' %}</a>
         </span>
     </div>
 {% endif %}
+</div>
+<div class="navigator mobile_show">
+    {% if mindex_begin != 1 %}
+        <span>
+            <a href="../1" class="jump" title="{% trans 'to first page' %}"><<</a>
+            <a href="../{{ mindex_begin|add:'-1' }}" class="jump" title="{% trans 'to prev page' %}"><</a>
+        </span>
+    {% endif %}
+    {% for index in mindex_begin|range:mindex_end %}
+        <span>
+            {% if index == page %}
+                <a href="../{{ index }}" class="current_page">
+            {% else %}
+                <a href="../{{ index }}">
+            {% endif %}
+                    {{ index }}
+                </a>
+        </span>
+    {% endfor %}
+    {% if mindex_end <= index_total %}
+        <span>
+            <a href="../{{ mindex_end }}" class="jump" title="{% trans 'to next page' %}">></a>
+        </span>
+    {% endif %}
 </div>
 <div class="dbsearch">
     <select id="search_type">

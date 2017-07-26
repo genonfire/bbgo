@@ -93,16 +93,16 @@
         </a>
     </span>
     {% if user.is_staff or article.user == user %}
-    <span>
-        <a href="{% url 'boards:edit_article' id=article.id %}">
-            {% trans 'edit' %}
-        </a>
-    </span>
-    <span class="delete">
-        <a href=javascript:delete_article("{% url 'boards:delete_article' id=article.id %}")>
-            {% trans 'delete' %}
-        </a>
-    </span>
+        <span>
+            <a href="{% url 'boards:edit_article' id=article.id %}">
+                {% trans 'edit' %}
+            </a>
+        </span>
+        <span class="delete">
+            <a href=javascript:delete_article("{% url 'boards:delete_article' id=article.id %}")>
+                {% trans 'delete' %}
+            </a>
+        </span>
     {% endif %}
 </div>
 <div class="sense_horizontal_bar">

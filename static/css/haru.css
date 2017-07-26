@@ -93,13 +93,14 @@ table.board tr.article_info_mobile span {padding:.1em;font-weight:300;color:#999
 
 /* navigation */
 .navigator {width:99%;margin:.5em;padding:0;text-align:center;font-size:.9em;}
-.navigator span a {display:inline-block;height:2.2em;margin-left:.1em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.1em;}
+.navigator span a {display:inline-block;height:2.2em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.1em;}
 .navigator span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
 .navigator span a.current_page {background:#11223d;color:#fff;}
 .navigator span a.jump {margin:.0em;background:#fff;border-color:#fff;}
 .navigator span a.jump:hover {background:#fff;border-color:#11223d;}
 .nabingator {width:100%;text-align:center;}
 .nabingator table {width:100%;height:2.5em;border-bottom:1px dotted #999;border-left:0;border-right:0;}
+.nabingator table td {padding-bottom:.5em;}
 
 .align-center {text-align:center;}
 .align-right {text-align:right;}
