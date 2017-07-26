@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-26 15:45+0900\n"
-"PO-Revision-Date: 2017-07-26 14:47+0900\n"
+"POT-Creation-Date: 2017-07-26 17:17+0900\n"
+"PO-Revision-Date: 2017-07-26 17:17+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -79,35 +79,44 @@ msgstr "이미 추천하셨습니다."
 msgid "You've already disliked"
 msgstr "이미 비추하셨습니다."
 
-#: templates/haru/base.html:62
-msgid "Message"
-msgstr "쪽지"
+#: templates/haru/base.html:38
+msgid "menu"
+msgstr "메뉴"
 
-#: templates/haru/base.html:74
+#: templates/haru/base.html:42 templates/haru/base.html.py:95
 msgid "logout"
 msgstr "로그아웃"
 
-#: templates/haru/base.html:85
-msgid "id"
-msgstr "아이디"
+#: templates/haru/base.html:46
+#| msgid "Sign up"
+msgid "sign up"
+msgstr "회원가입"
 
-#: templates/haru/base.html:88
-msgid "password"
-msgstr "비밀번호"
-
-#: templates/haru/base.html:92
+#: templates/haru/base.html:49 templates/haru/base.html.py:113
 msgid "login"
 msgstr "로그인"
 
-#: templates/haru/base.html:98
+#: templates/haru/base.html:83
+msgid "Message"
+msgstr "쪽지"
+
+#: templates/haru/base.html:106
+msgid "id"
+msgstr "아이디"
+
+#: templates/haru/base.html:109
+msgid "password"
+msgstr "비밀번호"
+
+#: templates/haru/base.html:119
 msgid "Reset password"
 msgstr "비밀번호찾기"
 
-#: templates/haru/base.html:103
+#: templates/haru/base.html:124
 msgid "Sign up"
 msgstr "회원가입"
 
-#: templates/haru/base.html:121
+#: templates/haru/base.html:142
 msgid "Send feedback"
 msgstr "문의, 의견 보내기"
 
@@ -158,7 +167,7 @@ msgid "edit"
 msgstr "수정"
 
 #: templates/haru/boards/show_article.html:103
-#: templates/haru/boards/show_reply.html:50
+#: templates/haru/boards/show_reply.html:51
 msgid "delete"
 msgstr "삭제"
 
@@ -221,16 +230,16 @@ msgstr "글쓴이"
 msgid "search"
 msgstr "검색"
 
-#: templates/haru/boards/show_reply.html:5
-#: templates/haru/boards/show_reply.html:59
+#: templates/haru/boards/show_reply.html:6
+#: templates/haru/boards/show_reply.html:60
 msgid "reply"
 msgstr "댓글"
 
-#: templates/haru/boards/show_reply.html:16
+#: templates/haru/boards/show_reply.html:17
 msgid "Write reply"
 msgstr "댓글 달기"
 
-#: templates/haru/boards/show_reply.html:99
+#: templates/haru/boards/show_reply.html:100
 msgid "Deleted reply"
 msgstr "삭제된 댓글입니다."
 

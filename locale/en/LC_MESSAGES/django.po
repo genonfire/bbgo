@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-26 15:45+0900\n"
+"POT-Creation-Date: 2017-07-26 17:17+0900\n"
 "PO-Revision-Date: 2017-07-13 14:03+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -78,35 +78,43 @@ msgstr ""
 msgid "You've already disliked"
 msgstr ""
 
-#: templates/haru/base.html:62
-msgid "Message"
+#: templates/haru/base.html:38
+msgid "menu"
 msgstr ""
 
-#: templates/haru/base.html:74
+#: templates/haru/base.html:42 templates/haru/base.html.py:95
 msgid "logout"
 msgstr ""
 
-#: templates/haru/base.html:85
-msgid "id"
+#: templates/haru/base.html:46
+msgid "sign up"
 msgstr ""
 
-#: templates/haru/base.html:88
-msgid "password"
-msgstr ""
-
-#: templates/haru/base.html:92
+#: templates/haru/base.html:49 templates/haru/base.html.py:113
 msgid "login"
 msgstr ""
 
-#: templates/haru/base.html:98
+#: templates/haru/base.html:83
+msgid "Message"
+msgstr ""
+
+#: templates/haru/base.html:106
+msgid "id"
+msgstr ""
+
+#: templates/haru/base.html:109
+msgid "password"
+msgstr ""
+
+#: templates/haru/base.html:119
 msgid "Reset password"
 msgstr ""
 
-#: templates/haru/base.html:103
+#: templates/haru/base.html:124
 msgid "Sign up"
 msgstr ""
 
-#: templates/haru/base.html:121
+#: templates/haru/base.html:142
 msgid "Send feedback"
 msgstr ""
 
@@ -157,7 +165,7 @@ msgid "edit"
 msgstr ""
 
 #: templates/haru/boards/show_article.html:103
-#: templates/haru/boards/show_reply.html:50
+#: templates/haru/boards/show_reply.html:51
 msgid "delete"
 msgstr ""
 
@@ -220,15 +228,15 @@ msgstr ""
 msgid "search"
 msgstr ""
 
-#: templates/haru/boards/show_reply.html:5
-#: templates/haru/boards/show_reply.html:59
+#: templates/haru/boards/show_reply.html:6
+#: templates/haru/boards/show_reply.html:60
 msgid "reply"
 msgstr ""
 
-#: templates/haru/boards/show_reply.html:16
+#: templates/haru/boards/show_reply.html:17
 msgid "Write reply"
 msgstr ""
 
-#: templates/haru/boards/show_reply.html:99
+#: templates/haru/boards/show_reply.html:100
 msgid "Deleted reply"
 msgstr ""

@@ -24,17 +24,14 @@ a:hover {color:yellow; color:#000;text-decoration:none;}
 .buttons span a {display:inline-block;height:2.2em;margin-left:.5em;padding:0 .3em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.1em;}
 .buttons span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
 
-/* Layout */
-#wrap {margin:0;padding:0 10px;}
-
 /* Header */
-#header {position:relative;padding:0 .625em;}
-.gnb {padding:0;}
-.gnb:after {content:'';display:block;clear:both;}
-.gnb li {float:left;margin-left:.5em;}
-.gnb li:first-child {margin-left:0 !important}
-.gnb li a {display:block;padding:.6em .6em;color:#11223d;font-size:1.5em;}
-.gnb li a:hover {color:#ee2d31;text-decoration:none;}
+#header {width:100%;height:2.5em;float-left;position:fixed;background:#E7E9EF;z-index:999;}
+.head_container {width:800px;margin-left:10px;padding:.2em;}
+.head_container div {}
+.head_container span img {width:2.1em;height:2.1em;}
+
+/* Layout */
+#wrap {margin:0;padding-left:10px;padding-top:2em;}
 
 /* Footer */
 #footer {padding:20px 10px;text-align:right;}
@@ -50,7 +47,7 @@ a:hover {color:yellow; color:#000;text-decoration:none;}
 #contents {width:800px;padding:1.0em;background:#fff;}
 #contents:after {content:'';display:block;clear:both;}
 
-.sidebar {width:180px;float:left;position:absolute;top:0px;left:830px;padding:.5em 1em;}
+.sidebar {width:180px;float:left;position:absolute;top:0;left:830px;padding:.5em 1em;}
 .sidebar_container {width:100%;height:135px;background:#fff;border:1px solid #11223d;}
 .sidebar_username {height:2em;margin:.3em;padding:.3em;border-bottom:1px solid #11223d;vertical-align:middle;}
 .sidebar_notice {height:2em;margin:.3em;padding:.3em;vertical-align:middle;}
@@ -210,7 +207,9 @@ table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 }
 @media all and (max-width:767px) {
     body {font-size:1em;}
-    #wrap {padding:0;}
+    .head_container {width:100%;margin:0;padding:0;}
+    .head_container div {padding-right:.5em;}
+    #wrap {padding-left:0;}
     #container {width:auto;}
     #contents {width:auto;padding:1em;}
     #footer {text-align:center;}
