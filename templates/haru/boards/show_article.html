@@ -148,12 +148,14 @@
     <script src="{% static 'js/boards/boards_highlight.js' %}" async></script>
 {% endif %}
 <script src="{% static 'js/boards/boards_article.js' %}" async></script>
-{% if REPLY_IMAGE_AVAILABLE %}
 <script>
-    var reply_image_available = true;
-    var reply_image_limit = {{ REPLY_IMAGE_SIZE_LIMIT }};
     var reply_text_max = {{ REPLY_TEXT_MAX }}
+    {% if REPLY_IMAGE_AVAILABLE %}
+        var reply_image_available = true;
+        var reply_image_limit = {{ REPLY_IMAGE_SIZE_LIMIT }};
+    {% else %}
+        var reply_image_available = false;
+    {% endif %}
 </script>
-{% endif %}
 <script src="{% static 'js/boards/boards_reply.js' %}" async></script>
 {% endblock %}

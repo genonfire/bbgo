@@ -9,7 +9,9 @@ function write_reply(id) {
     form_data.append("article_id", id);
     form_data.append("reply_id", 0);
     form_data.append("content", content);
-    form_data.append("image", $("input[id=reply_image]")[0].files[0]);
+    if (reply_image_available) {
+        form_data.append("image", $("input[id=reply_image]")[0].files[0]);
+    }
 
     $.ajaxSetup({
         beforeSend: function(xhr, settings) {
@@ -45,7 +47,9 @@ function write_rereply(id, reply_id) {
     form_data.append("article_id", id);
     form_data.append("reply_id", reply_id);
     form_data.append("content", content);
-    form_data.append("image", $("input[id=rereply_image]")[0].files[0]);
+    if (reply_image_available) {
+        form_data.append("image", $("input[id=rereply_image]")[0].files[0]);
+    }
 
     $.ajaxSetup({
         beforeSend: function(xhr, settings) {

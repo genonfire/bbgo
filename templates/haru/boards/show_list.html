@@ -10,7 +10,7 @@
 {% load pick %}
 {% block content %}
 
-<h1>{{ table_name }}</h1>
+<h1><a href="{% url 'boards:show_list_0' table=table %}">{{ table_name }}</a></h1>
 <div class="annotation">
 {% if table_desc %}
     {{ table_desc }}
@@ -228,18 +228,30 @@
         <option value="subject">
             {% trans 'subject' %}
         </option>
-        <option value="subject+name" selected>
+        <option value="subjectcontent" selected>
             {% trans 'subject+content' %}
         </option>
-        <option value="user">
-            {% trans 'username' %}
+        <option value="writeuser">
+            {% trans 'write user' %}
         </option>
     </select>
     <input type="text" id="search_word" class="search_word" onkeypress="onKeyPress(event)">
-    <input type="button" id="search_button" class="search_button" value="{% trans 'search' %}" onClick="search()">
+    <input type="button" id="search_button" class="search_button" value="{% trans 'search' %}" onClick="search_article()">
 </div>
 {% endblock %}
-
 {% block bodyscript %}
-<script src="{% static 'js/boards/boards_show.js' %}" async></script>
+{% if ENABLE_MARK_KEYWORD %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.0/jquery.mark.es6.min.js" async></script>
+{% endif %}
+<script>
+    var search_type = '{{ search_type }}';
+    var search_word = '{{ search_word }}';
+    var search_article_url = "{% url 'boards:search_article' table=table search_type='type' search_word='word' %}";
+    {% if ENABLE_MARK_KEYWORD %}
+        var mark_enabled = true;
+    {% else %}
+        var mark_enabled = false;
+    {% endif %}
+</script>
+<script src="{% static 'js/boards/boards_list.js' %}" async></script>
 {% endblock %}

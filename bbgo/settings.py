@@ -219,3 +219,6 @@ REPLY_IMAGE_SIZE_LIMIT = 1 * 1024 * 1024
 
 # highlight with coding style for <pre> using highlight.js
 ENABLE_CODE_HIGHLIGHT = False
+
+# highlight keyword using mark.js
+ENABLE_MARK_KEYWORD = True

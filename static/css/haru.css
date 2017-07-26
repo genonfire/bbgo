@@ -111,9 +111,9 @@ table.board tr.article_info_mobile span {padding:.1em;font-weight:300;color:#999
 
 /* search */
 .dbsearch {margin:1.5em 0;padding:0;text-align:center;font-size:.8em;}
-.dbsearch select {width:6.5em;max-width:100px;height:2.2em;border:1px solid #999;line-height:2.2em;vertical-align:middle;}
-.dbsearch input.search_word {width:25em;height:2.2em;margin-left:2px;padding:0 5px;border:1px solid #999;background:#fff;vertical-align:middle;}
-.dbsearch input.search_button {width:3.5em;height:2.2em;margin-left:2px;border:1px solid #11223d;background:#11223d;color:#fff;line-height:2.2em;vertical-align:middle;}
+.dbsearch select {width:6.5em;max-width:100px;height:2.5em;border:1px solid #999;line-height:2.5em;vertical-align:middle;}
+.dbsearch input.search_word {width:25em;height:2.5em;margin-left:2px;padding:0 5px;border:1px solid #999;background:#fff;vertical-align:middle;}
+.dbsearch input.search_button {width:3.5em;height:2.5em;margin-left:2px;border:1px solid #11223d;background:#11223d;color:#fff;line-height:2.5em;vertical-align:middle;}
 .dbsearch input.search_button:hover {background-color:#283850;cursor:pointer;}
 .dbsearch span a {display:inline-block;height:2.2em;margin-left:.5em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.1em;}
 .dbsearch span a:hover {border-color:#11223d;color:#000;text-decoration:none;}

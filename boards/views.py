@@ -3,8 +3,8 @@ from math import ceil
 
 from core.utils import get_ipaddress
 
-# from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.core.urlresolvers import reverse_lazy
 from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
@@ -17,7 +17,7 @@ from .forms import BoardEditForm
 from .table import BoardTable
 
 
-def show_list(request, table=0, page=0):
+def show_list(request, search_type='', search_word='', table=0, page=0):
     """Show list"""
     board_table = BoardTable()
     if int(table) >= board_table.get_table_len():
@@ -39,15 +39,32 @@ def show_list(request, table=0, page=0):
     start_at = current_page * list_count
     end_at = start_at + list_count
 
-    q = Q(status__iexact='1normal') | Q(status__iexact='4warning')
+    if search_type == 'subject':
+        q = Q(status__iexact='1normal') & Q(subject__icontains=search_word)
+    elif search_type == 'subjectcontent':
+        q = Q(status__iexact='1normal') & (
+            Q(subject__icontains=search_word) |
+            Q(content__icontains=search_word))
+    elif search_type == 'writeuser':
+        q = Q(status__iexact='1normal') & (
+            Q(user__username__icontains=search_word) |
+            Q(user__first_name__icontains=search_word))
+    else:
+        q = Q(status__iexact='1normal') | Q(status__iexact='4warning')
 
     if int(table) == 0:
-        notice_list = Board.objects.filter(table=1).filter(status__iexact='3notice').order_by('-id')
+        if search_type == '':
+            notice_list = Board.objects.filter(table=1).filter(status__iexact='3notice').order_by('-id')
+        else:
+            notice_list = None
         total = Board.objects.filter(q).count()
         lists = Board.objects.filter(q).order_by('-id')[start_at:end_at]
         name_list = board_table.get_table_list()
     else:
-        notice_list = Board.objects.filter(Q(table=1) | Q(table=table)).filter(status__iexact='3notice').order_by('table', '-id')
+        if search_type == '':
+            notice_list = Board.objects.filter(Q(table=1) | Q(table=table)).filter(status__iexact='3notice').order_by('table', '-id')
+        else:
+            notice_list = None
         total = Board.objects.filter(table=table).filter(q).count()
         lists = Board.objects.filter(table=table).filter(q).order_by('-id')[start_at:end_at]
         name_list = None
@@ -60,7 +77,6 @@ def show_list(request, table=0, page=0):
     mindex_begin = (current_page / 5) * 5 + 1
     if mindex_end - mindex_begin >= 5:
         mindex_end = mindex_begin + 4
-    print index_begin, mindex_begin
 
     if request.user.is_authenticated():
         writable = True
@@ -89,6 +105,8 @@ def show_list(request, table=0, page=0):
             'index_total': index_total,
             'writable': writable,
             'name_list': name_list,
+            'search_type': search_type,
+            'search_word': search_word,
         }
     )
 
@@ -231,3 +249,9 @@ def delete_article(request, id):
     article.save()
 
     return redirect(article.get_absolute_url())
+
+
+def search_article(request, search_type, search_word, table=0):
+    """Search article"""
+    return redirect(reverse_lazy('boards:show_search_article', kwargs={
+        'search_type': search_type, 'search_word': search_word, 'table': table, 'page': 1}))

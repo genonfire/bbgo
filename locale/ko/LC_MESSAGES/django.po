@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 23:16+0900\n"
-"PO-Revision-Date: 2017-07-24 23:17+0900\n"
+"POT-Creation-Date: 2017-07-26 15:42+0900\n"
+"PO-Revision-Date: 2017-07-26 14:47+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -21,15 +21,14 @@ msgstr ""
 
 #: boards/models.py:12 boards/models.py:48 boards/models.py:65
 msgid "status_normal"
-msgstr "정상"
+msgstr "일반"
 
 #: boards/models.py:13 boards/models.py:50
 msgid "status_temp"
 msgstr "임시저장"
 
 #: boards/models.py:14 boards/models.py:52
-#: templates/haru/boards/show_list.html:38
-#: templates/haru/boards/show_list.html:69
+#: templates/haru/boards/show_list.html:41
 msgid "status_notice"
 msgstr "공지"
 
@@ -45,14 +44,14 @@ msgstr "숨김"
 msgid "status_deleted"
 msgstr "삭제됨"
 
-#: boards/views.py:24 boards/views.py:29 boards/views.py:130
-#: boards/views.py:153 boards/views.py:158 boards/views.py:198
-#: boards/views.py:203 boards/views.py:230 core/api.py:62 core/api.py:82
-#: core/api.py:133 core/api.py:215 core/api.py:240 core/api.py:272
+#: boards/views.py:24 boards/views.py:29 boards/views.py:146
+#: boards/views.py:169 boards/views.py:174 boards/views.py:214
+#: boards/views.py:219 boards/views.py:246 core/api.py:62 core/api.py:82
+#: core/api.py:133 core/api.py:216 core/api.py:244 core/api.py:279
 msgid "Wrong access"
 msgstr "잘못된 접근입니다."
 
-#: boards/views.py:139
+#: boards/views.py:155
 msgid "Wrong status from user."
 msgstr "상태정보가 잘못 입력되었습니다."
 
@@ -112,20 +111,20 @@ msgstr "회원가입"
 msgid "Send feedback"
 msgstr "문의, 의견 보내기"
 
-#: templates/haru/boards/edit_article.html:54
+#: templates/haru/boards/edit_article.html:56
 msgid "status"
 msgstr "상태"
 
-#: templates/haru/boards/edit_article.html:58
-#: templates/haru/boards/show_article.html:131
+#: templates/haru/boards/edit_article.html:60
+#: templates/haru/boards/show_article.html:137
 msgid "submit"
 msgstr "등록"
 
-#: templates/haru/boards/edit_article.html:60
+#: templates/haru/boards/edit_article.html:62
 msgid "save"
 msgstr "저장"
 
-#: templates/haru/boards/edit_article.html:62
+#: templates/haru/boards/edit_article.html:64
 msgid "cancel"
 msgstr "취소"
 
@@ -141,84 +140,89 @@ msgstr "이 글을 추천해 주신 분들"
 msgid "reference"
 msgstr "출처"
 
-#: templates/haru/boards/show_article.html:81
-#: templates/haru/boards/show_list.html:30
+#: templates/haru/boards/show_article.html:82
+#: templates/haru/boards/show_list.html:32
 msgid "like"
 msgstr "추천"
 
-#: templates/haru/boards/show_article.html:84
+#: templates/haru/boards/show_article.html:87
 msgid "dislike"
 msgstr "비추"
 
-#: templates/haru/boards/show_article.html:88
+#: templates/haru/boards/show_article.html:92
 msgid "share"
 msgstr "공유"
 
-#: templates/haru/boards/show_article.html:94
+#: templates/haru/boards/show_article.html:98
 msgid "edit"
 msgstr "수정"
 
-#: templates/haru/boards/show_article.html:99
-#: templates/haru/boards/show_reply.html:48
+#: templates/haru/boards/show_article.html:103
+#: templates/haru/boards/show_reply.html:50
 msgid "delete"
 msgstr "삭제"
 
-#: templates/haru/boards/show_article.html:115
+#: templates/haru/boards/show_article.html:119
 msgid "Reload replies"
 msgstr "댓글 새로고침"
 
-#: templates/haru/boards/show_article.html:122
+#: templates/haru/boards/show_article.html:128
 msgid "Please show some respect."
 msgstr "서로에 대한 배려와 존중을 보여주세요."
 
-#: templates/haru/boards/show_list.html:26
-msgid "category"
-msgstr "구분"
-
-#: templates/haru/boards/show_list.html:27
-#: templates/haru/boards/show_list.html:171
-msgid "subject"
-msgstr "제목"
-
-#: templates/haru/boards/show_list.html:28
-#: templates/haru/boards/show_list.html:177
-msgid "username"
-msgstr "이름"
-
-#: templates/haru/boards/show_list.html:29
-msgid "view"
-msgstr "조회"
-
-#: templates/haru/boards/show_list.html:31
-msgid "date"
-msgstr "날짜"
-
-#: templates/haru/boards/show_list.html:141
-msgid "to first page"
-msgstr "첫 페이지로"
-
-#: templates/haru/boards/show_list.html:142
-msgid "to prev page"
-msgstr "이전 페이지로"
-
-#: templates/haru/boards/show_list.html:157
-msgid "to next page"
-msgstr "다음 페이지로"
-
-#: templates/haru/boards/show_list.html:163
+#: templates/haru/boards/show_list.html:19
+#: templates/haru/boards/show_list.html:197
 msgid "write"
 msgstr "글쓰기"
 
+#: templates/haru/boards/show_list.html:29
+#: templates/haru/boards/show_list.html:229
+msgid "subject"
+msgstr "제목"
+
+#: templates/haru/boards/show_list.html:30
+msgid "username"
+msgstr "이름"
+
+#: templates/haru/boards/show_list.html:31
+msgid "view"
+msgstr "조회"
+
+#: templates/haru/boards/show_list.html:33
+msgid "date"
+msgstr "날짜"
+
+#: templates/haru/boards/show_list.html:154
+#: templates/haru/boards/show_list.html:175
+#: templates/haru/boards/show_list.html:206
+msgid "to prev page"
+msgstr "이전 페이지로"
+
+#: templates/haru/boards/show_list.html:161
+#: templates/haru/boards/show_list.html:191
+#: templates/haru/boards/show_list.html:222
+msgid "to next page"
+msgstr "다음 페이지로"
+
 #: templates/haru/boards/show_list.html:174
+#: templates/haru/boards/show_list.html:205
+msgid "to first page"
+msgstr "첫 페이지로"
+
+#: templates/haru/boards/show_list.html:232
 msgid "subject+content"
 msgstr "제목+내용"
 
-#: templates/haru/boards/show_list.html:181
+#: templates/haru/boards/show_list.html:235
+msgid "write user"
+msgstr "작성자"
+
+#: templates/haru/boards/show_list.html:239
 msgid "search"
 msgstr "검색"
 
 #: templates/haru/boards/show_reply.html:5
-#: templates/haru/boards/show_reply.html:57
+#: templates/haru/boards/show_reply.html:59
 msgid "reply"
 msgstr "댓글"
 
@@ -226,7 +230,9 @@ msgstr "댓글"
 msgid "Write reply"
 msgstr "댓글 달기"
 
-#: templates/haru/boards/show_reply.html:97
-#| msgid "Write reply"
+#: templates/haru/boards/show_reply.html:99
 msgid "Deleted reply"
 msgstr "삭제된 댓글입니다."
+
+#~ msgid "category"
+#~ msgstr "구분"
