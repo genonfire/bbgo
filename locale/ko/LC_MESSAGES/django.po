@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-26 15:42+0900\n"
+"POT-Creation-Date: 2017-07-26 15:45+0900\n"
 "PO-Revision-Date: 2017-07-26 14:47+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -215,7 +215,7 @@ msgstr "제목+내용"
 
 #: templates/haru/boards/show_list.html:235
 msgid "write user"
-msgstr "작성자"
+msgstr "글쓴이"
 
 #: templates/haru/boards/show_list.html:239
 msgid "search"

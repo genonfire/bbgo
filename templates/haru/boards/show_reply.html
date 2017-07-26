@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load i18n %}
+{% load link %}
 
 <div class="reply_header">
     {% trans 'reply' %}
@@ -98,7 +99,7 @@
             {% if reply.status == '6deleted' %}
                 <font color="#999">{% trans 'Deleted reply' %}</font>
             {% else %}
-                {{ reply.content|linebreaksbr }}
+                {{ reply.content|urlize|target_blank|linebreaksbr }}
             {% endif %}
         </div>
     </div>
