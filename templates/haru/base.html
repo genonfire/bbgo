@@ -17,9 +17,9 @@
 <link rel="apple-touch-icon-precomposed" href="{% static 'icons/apple-touch-icon-precomposed.png' %}">
 <link rel="stylesheet" href="{% static 'css/haru.css' %}">
 {% if DEBUG %}
-<script src="{% static 'js/thirdparty/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'js/thirdparty/jquery-1.12.4.min.js' %}"></script>
 {% else %}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 {% endif %}
 <script src="{% url 'javascript-catalog' %}" async></script>
 {% block extra_head_content %}{% endblock %}
@@ -27,33 +27,35 @@
 
 <body>
 <div id="header">
-    <div class="head_container">
-        <span>
-            <a href="/">
-                <img src="{{ SITE_LOGO }}">
-            </a>
-        </span>
-        <div class="float-right">
-            <span class="header_menu">
-                {% trans 'menu' %}
+    <div class="container">
+        <div class="head_container">
+            <span class="head_logo">
+                <a href="/">
+                    <img src="{{ SITE_LOGO }}">
+                </a>
             </span>
-            {% if user.is_authenticated %}
-            <span class="header_logout mobile_show">
-                {% trans 'logout' %}
-            </span>
-            {% else %}
-            <span class="header_signup mobile_show">
-                {% trans 'sign up' %}
-            </span>
-            <span class="header_login mobile_show">
-                {% trans 'login' %}
-            </span>
-            {% endif %}
+            <div class="float-right">
+                <span class="header_menu">
+                    {% trans 'menu' %}
+                </span>
+                {% if user.is_authenticated %}
+                    <span class="header_logout mobile_show">
+                        {% trans 'logout' %}
+                    </span>
+                {% else %}
+                    <span class="header_signup mobile_show">
+                        {% trans 'sign up' %}
+                    </span>
+                    <span class="header_login mobile_show">
+                        {% trans 'login' %}
+                    </span>
+                {% endif %}
+            </div>
         </div>
     </div>
 </div>
 <div id="wrap">
-    <div id="container">
+    <div class="container">
         <div class="sidebar">
             {% if user.is_authenticated %}
                 <div class="sidebar_container">
