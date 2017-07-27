@@ -121,6 +121,10 @@ try:
     EMAIL_HOST_PASSWORD = getattr(secrets, "EMAIL_HOST_PASSWORD")
     DEFAUL_FROM_EMAIL = getattr(secrets, "DEFAUL_FROM_EMAIL")
     SERVER_EMAIL = getattr(secrets, "SERVER_EMAIL")
+    SITE_NAME = getattr(secrets, "SITE_NAME")
+    SITE_LOGO = getattr(secrets, "SITE_LOGO")
+    SITE_INFO = getattr(secrets, "SITE_INFO")
+    ADMIN_EMAIL = getattr(secrets, "ADMIN_EMAIL")
 except IOError:
     SECRET_KEY = 'k8n13h0y@$=v$uxg*^brlv9$#hm8w7nye6km!shc*&bkgkcd*p'
     DB_NAME = ''
@@ -130,6 +134,10 @@ except IOError:
     EMAIL_HOST_PASSWORD = ''
     DEFAUL_FROM_EMAIL = ''
     SERVER_EMAIL = ''
+    SITE_NAME = 'bbgo'
+    SITE_LOGO = '/static/icons/apple-touch-icon.png'
+    SITE_INFO = 'Total bbs system by django'
+    ADMIN_EMAIL = ''
 
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
@@ -201,18 +209,6 @@ SUMMERNOTE_CONFIG = {
     ),
 }
 
-
-# Site information
-SITE_NAME = 'bbgo'
-SITE_LOGO = '/static/icons/apple-touch-icon.png'
-SITE_INFO = 'Total bbs system by django'
-
-# Admin information
-ADMIN_EMAIL = 'gencode.me@gmail.com'
-ADMIN_TWITTER = 'https://twitter.com/'
-
-# Setting for BOARD
-# boards/table.py for more settings
 
 # Setting for Reply
 REPLY_TEXT_MAX = 3000

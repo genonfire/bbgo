@@ -28,4 +28,7 @@ $(document).ready(function() {
             $('body').mark(search_word);
         }
     }
+    $(".tdlink").click(function() {
+        window.location = $(this).data("href");
+    });
 });

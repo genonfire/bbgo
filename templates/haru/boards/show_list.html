@@ -15,9 +15,11 @@
 {% if table_desc %}
     {{ table_desc }}
 {% endif %}
+{% if writable == True %}
     <span>
         <a href="{% url 'boards:new_article' table=table %}" class="current_page">{% trans 'write' %}</a>
     </span>
+{% endif %}
 </div>
 
 <div class="sense_horizontal_bar">
@@ -36,7 +38,7 @@
 <tbody>
 {% for article in notice_list %} <!--//Notice-->
     <tr>
-        <td class="subject notice">
+        <td class="subject notice tdlink" data-href="{% url 'boards:show_article' id=article.id %}">
             <span class="category">
                 {% trans 'status_notice' %}
             </span>
@@ -87,7 +89,7 @@
 {% endfor %}
 {% for article in lists %} <!--//Articles-->
     <tr>
-        <td class="subject">
+        <td class="subject tdlink" data-href="{% url 'boards:show_article' id=article.id %}">
             <span class="category">
                 {% if table == '0' %}
                     {{ name_list|pick_first:article.table }}
@@ -95,7 +97,7 @@
                     {{ article.category }}
                 {% endif %}
             </span>
-            <a href="{% url 'boards:show_article' id=article.id %}" class="board_link">
+            <a href="{% url 'boards:show_article' id=article.id %}">
                 {{ article.subject }}
             </a>
             {% if article.reply_count > 0 %}

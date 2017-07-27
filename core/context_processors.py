@@ -9,7 +9,6 @@ def global_settings(request):
         'SITE_LOGO': settings.SITE_LOGO,
         'SITE_INFO': settings.SITE_INFO,
         'ADMIN_EMAIL': settings.ADMIN_EMAIL,
-        'ADMIN_TWITTER': settings.ADMIN_TWITTER,
         'ENABLE_CODE_HIGHLIGHT': settings.ENABLE_CODE_HIGHLIGHT,
         'ENABLE_MARK_KEYWORD': settings.ENABLE_MARK_KEYWORD,
         'REPLY_TEXT_MAX': settings.REPLY_TEXT_MAX,

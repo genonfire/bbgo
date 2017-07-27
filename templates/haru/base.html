@@ -29,18 +29,16 @@
 <div id="header">
     <div class="container">
         <div class="head_container">
-            <div class="head_left float-left">
-                <span class="head_logo">
-                    <a href="/">
-                        <img src="{{ SITE_LOGO }}">
-                    </a>
-                </span>
-                <span class="head_info">
-                    {{ SITE_INFO }}
-                </span>
-            </div>
-            <div id="main-nav" class="head_menu float-right">
+            <div id="main-nav" class="head_menu float-left">
                 <ul>
+                    <li class="head_logo">
+                        <a href="/">
+                            <img src="{{ SITE_LOGO }}">
+                        </a>
+                    </li>
+                    <li class="head_info mobile_hide">
+                        {{ SITE_INFO }}
+                    </li>
                     <li class="head_menu">
                         <a>
                             {% trans 'menu' %}
@@ -63,18 +61,18 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="power mobile_show">
-                        {% if user.is_authenticated %}
-                            <a href="#">
-                                <img src="{% static 'icons/poweron.png' %}">
-                            </a>
-                        {% else %}
-                            <a href="#">
-                                <img src="{% static 'icons/power.png' %}">
-                            </a>
-                        {% endif %}
-                    </li>
                 </ul>
+            </div>
+            <div class="float-right mobile_show">
+                {% if user.is_authenticated %}
+                    <a href="#">
+                        <img src="{% static 'icons/poweron.png' %}">
+                    </a>
+                {% else %}
+                    <a href="#">
+                        <img src="{% static 'icons/power.png' %}">
+                    </a>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -166,15 +164,12 @@
 
         <div id="footer">
             <div class="footerMenu">
-                <li>{% trans 'Send feedback' %}</li>
                 <li>
-                    <a href="mailto:{{ADMIN_EMAIL}}">
-                        <img src="/static/icons/email24.png">
-                    </a>
+                    {% trans 'Send feedback' %}
                 </li>
                 <li>
-                    <a href="{{ADMIN_TWITTER}}">
-                        <img src="/static/icons/twitter24.png" target="_blank">
+                    <a href="mailto:{{ ADMIN_EMAIL }}">
+                        <img src="/static/icons/email24.png">
                     </a>
                 </li>
             </div>
