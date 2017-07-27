@@ -29,27 +29,52 @@
 <div id="header">
     <div class="container">
         <div class="head_container">
-            <span class="head_logo">
-                <a href="/">
-                    <img src="{{ SITE_LOGO }}">
-                </a>
-            </span>
-            <div class="float-right">
-                <span class="header_menu">
-                    {% trans 'menu' %}
+            <div class="head_left float-left">
+                <span class="head_logo">
+                    <a href="/">
+                        <img src="{{ SITE_LOGO }}">
+                    </a>
                 </span>
-                {% if user.is_authenticated %}
-                    <span class="header_logout mobile_show">
-                        {% trans 'logout' %}
-                    </span>
-                {% else %}
-                    <span class="header_signup mobile_show">
-                        {% trans 'sign up' %}
-                    </span>
-                    <span class="header_login mobile_show">
-                        {% trans 'login' %}
-                    </span>
-                {% endif %}
+                <span class="head_info">
+                    {{ SITE_INFO }}
+                </span>
+            </div>
+            <div id="main-nav" class="head_menu float-right">
+                <ul>
+                    <li class="head_menu">
+                        <a>
+                            {% trans 'menu' %}
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="{% url 'boards:show_list_0' table=0 %}">
+                                    최신 글 보기
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'boards:show_list_0' table=1 %}">
+                                    공지사항 및 긴 제목 테스트
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'boards:show_list_0' table=10 %}">
+                                    게시판
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="power mobile_show">
+                        {% if user.is_authenticated %}
+                            <a href="#">
+                                <img src="{% static 'icons/poweron.png' %}">
+                            </a>
+                        {% else %}
+                            <a href="#">
+                                <img src="{% static 'icons/power.png' %}">
+                            </a>
+                        {% endif %}
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

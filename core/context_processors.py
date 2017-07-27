@@ -7,6 +7,7 @@ def global_settings(request):
         'DEBUG': settings.DEBUG,
         'SITE_NAME': settings.SITE_NAME,
         'SITE_LOGO': settings.SITE_LOGO,
+        'SITE_INFO': settings.SITE_INFO,
         'ADMIN_EMAIL': settings.ADMIN_EMAIL,
         'ADMIN_TWITTER': settings.ADMIN_TWITTER,
         'ENABLE_CODE_HIGHLIGHT': settings.ENABLE_CODE_HIGHLIGHT,

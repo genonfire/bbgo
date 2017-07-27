@@ -205,6 +205,7 @@ SUMMERNOTE_CONFIG = {
 # Site information
 SITE_NAME = 'bbgo'
 SITE_LOGO = '/static/icons/apple-touch-icon.png'
+SITE_INFO = 'Total bbs system by django'
 
 # Admin information
 ADMIN_EMAIL = 'gencode.me@gmail.com'
