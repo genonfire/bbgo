@@ -1,6 +1,7 @@
 {% load staticfiles %}
 {% load i18n %}
 {% load context %}
+{% load menu %}
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -29,41 +30,10 @@
 <div id="header">
     <div class="container">
         <div class="head_container">
-            <div id="main-nav" class="head_menu float-left">
-                <ul>
-                    <li class="head_logo">
-                        <a href="/">
-                            <img src="{{ SITE_LOGO }}">
-                        </a>
-                    </li>
-                    <li class="head_info mobile_hide">
-                        {{ SITE_INFO }}
-                    </li>
-                    <li class="head_menu">
-                        <a>
-                            {% trans 'menu' %}
-                        </a>
-                        <ul>
-                            <li>
-                                <a href="{% url 'boards:show_list_0' table=0 %}">
-                                    최신 글 보기
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{% url 'boards:show_list_0' table=1 %}">
-                                    공지사항 및 긴 제목 테스트
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{% url 'boards:show_list_0' table=10 %}">
-                                    게시판
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+            <div id="mainnav" class="float-left">
+                {% menu_main %}
             </div>
-            <div class="float-right mobile_show">
+            <div class="float-right mobile_show power">
                 {% if user.is_authenticated %}
                     <a href="#">
                         <img src="{% static 'icons/poweron.png' %}">
@@ -76,7 +46,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> <!--//header-->
 <div id="wrap">
     <div class="container">
         <div class="sidebar">
@@ -156,6 +126,10 @@
             {% endif %}
             <div class="sense_sidebar">
             </div>
+        </div> <!--//sidebar-->
+
+        <div class="subnav head_menu">
+            {% menu_sub %}
         </div>
 
         <div id="contents">

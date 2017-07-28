@@ -29,6 +29,8 @@ $(document).ready(function() {
         }
     }
     $(".tdlink").click(function() {
-        window.location = $(this).data("href");
+        if ($(window).width() < 768) {
+            window.location = $(this).data("href");
+        }
     });
 });

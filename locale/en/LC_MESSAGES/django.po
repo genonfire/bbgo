@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-26 17:17+0900\n"
+"POT-Creation-Date: 2017-07-28 17:09+0900\n"
 "PO-Revision-Date: 2017-07-13 14:03+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,7 @@ msgid "status_temp"
 msgstr "Temporary Saved"
 
 #: boards/models.py:14 boards/models.py:52
-#: templates/haru/boards/show_list.html:41
+#: templates/haru/boards/show_list.html:43
 msgid "status_notice"
 msgstr "Notice"
 
@@ -78,39 +78,31 @@ msgstr ""
 msgid "You've already disliked"
 msgstr ""
 
-#: templates/haru/base.html:38
-msgid "menu"
-msgstr ""
-
-#: templates/haru/base.html:42 templates/haru/base.html.py:95
-msgid "logout"
-msgstr ""
-
-#: templates/haru/base.html:46
-msgid "sign up"
-msgstr ""
-
-#: templates/haru/base.html:49 templates/haru/base.html.py:113
-msgid "login"
-msgstr ""
-
-#: templates/haru/base.html:83
+#: templates/haru/base.html:78
 msgid "Message"
 msgstr ""
 
-#: templates/haru/base.html:106
+#: templates/haru/base.html:90
+msgid "logout"
+msgstr ""
+
+#: templates/haru/base.html:101
 msgid "id"
 msgstr ""
 
-#: templates/haru/base.html:109
+#: templates/haru/base.html:104
 msgid "password"
 msgstr ""
 
-#: templates/haru/base.html:119
+#: templates/haru/base.html:108
+msgid "login"
+msgstr ""
+
+#: templates/haru/base.html:114
 msgid "Reset password"
 msgstr ""
 
-#: templates/haru/base.html:124
+#: templates/haru/base.html:119
 msgid "Sign up"
 msgstr ""
 
@@ -148,7 +140,9 @@ msgid "reference"
 msgstr ""
 
 #: templates/haru/boards/show_article.html:82
-#: templates/haru/boards/show_list.html:32
+#: templates/haru/boards/show_list.html:34
+#: templates/haru/boards/show_list.html:75
+#: templates/haru/boards/show_list.html:130
 msgid "like"
 msgstr ""
 
@@ -177,54 +171,56 @@ msgstr ""
 msgid "Please show some respect."
 msgstr ""
 
-#: templates/haru/boards/show_list.html:19
-#: templates/haru/boards/show_list.html:197
+#: templates/haru/boards/show_list.html:20
+#: templates/haru/boards/show_list.html:199
 msgid "write"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:29
-#: templates/haru/boards/show_list.html:229
+#: templates/haru/boards/show_list.html:31
+#: templates/haru/boards/show_list.html:231
 msgid "subject"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:30
+#: templates/haru/boards/show_list.html:32
 msgid "username"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:31
+#: templates/haru/boards/show_list.html:33
+#: templates/haru/boards/show_list.html:78
+#: templates/haru/boards/show_list.html:133
 msgid "view"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:33
+#: templates/haru/boards/show_list.html:35
 msgid "date"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:154
-#: templates/haru/boards/show_list.html:175
-#: templates/haru/boards/show_list.html:206
+#: templates/haru/boards/show_list.html:156
+#: templates/haru/boards/show_list.html:177
+#: templates/haru/boards/show_list.html:208
 msgid "to prev page"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:161
-#: templates/haru/boards/show_list.html:191
-#: templates/haru/boards/show_list.html:222
+#: templates/haru/boards/show_list.html:163
+#: templates/haru/boards/show_list.html:193
+#: templates/haru/boards/show_list.html:224
 msgid "to next page"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:174
-#: templates/haru/boards/show_list.html:205
+#: templates/haru/boards/show_list.html:176
+#: templates/haru/boards/show_list.html:207
 msgid "to first page"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:232
+#: templates/haru/boards/show_list.html:234
 msgid "subject+content"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:235
+#: templates/haru/boards/show_list.html:237
 msgid "write user"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:239
+#: templates/haru/boards/show_list.html:241
 msgid "search"
 msgstr ""
 
@@ -239,4 +235,12 @@ msgstr ""
 
 #: templates/haru/boards/show_reply.html:100
 msgid "Deleted reply"
+msgstr ""
+
+#: templates/haru/menu_main.html:15
+msgid "menu"
+msgstr ""
+
+#: templates/haru/menu_main.html:38
+msgid "bookmark"
 msgstr ""

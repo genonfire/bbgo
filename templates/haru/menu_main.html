@@ -1,0 +1,44 @@
+{% load staticfiles %}
+{% load i18n %}
+
+<ul>
+    <li class="head_logo">
+        <a href="/">
+            <img src="{% static 'icons/apple-touch-icon.png' %}">
+        </a>
+    </li>
+    <li class="head_info mobile_hide">
+        Total bbs system by django
+    </li>
+    <li class="head_menu">
+        <a>
+            {% trans 'menu' %}
+        </a>
+        <ul>
+            <li>
+                <a href="#">
+                    Menu 1
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    Menu 2
+                </a>
+            </li>
+        </ul>
+    </li>
+    {% if user.is_authenticated %}
+        <li class="head_menu">
+            <a>
+                {% trans 'bookmark' %}
+            </a>
+            <ul>
+                <li>
+                    <a href="#">
+                        bookmark 1
+                    </a>
+                </li>
+            </ul>
+        </li>
+    {% endif %}
+</ul>

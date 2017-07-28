@@ -122,8 +122,6 @@ try:
     DEFAUL_FROM_EMAIL = getattr(secrets, "DEFAUL_FROM_EMAIL")
     SERVER_EMAIL = getattr(secrets, "SERVER_EMAIL")
     SITE_NAME = getattr(secrets, "SITE_NAME")
-    SITE_LOGO = getattr(secrets, "SITE_LOGO")
-    SITE_INFO = getattr(secrets, "SITE_INFO")
     ADMIN_EMAIL = getattr(secrets, "ADMIN_EMAIL")
 except IOError:
     SECRET_KEY = 'k8n13h0y@$=v$uxg*^brlv9$#hm8w7nye6km!shc*&bkgkcd*p'
@@ -134,9 +132,7 @@ except IOError:
     EMAIL_HOST_PASSWORD = ''
     DEFAUL_FROM_EMAIL = ''
     SERVER_EMAIL = ''
-    SITE_NAME = 'bbgo'
-    SITE_LOGO = '/static/icons/apple-touch-icon.png'
-    SITE_INFO = 'Total bbs system by django'
+    SITE_NAME = ''
     ADMIN_EMAIL = ''
 
 EMAIL_PORT = 587
