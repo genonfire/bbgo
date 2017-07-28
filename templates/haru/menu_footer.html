@@ -1,0 +1,11 @@
+{% load staticfiles %}
+{% load i18n %}
+
+<li>
+    {% trans 'Send feedback' %}
+</li>
+<li>
+    <a href="mailto:{{ ADMIN_EMAIL }}">
+        <img src="/static/icons/email24.png">
+    </a>
+</li>

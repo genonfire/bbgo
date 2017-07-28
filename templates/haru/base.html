@@ -34,15 +34,33 @@
                 {% menu_main %}
             </div>
             <div class="float-right mobile_show power">
-                {% if user.is_authenticated %}
-                    <a href="#">
-                        <img src="{% static 'icons/poweron.png' %}">
-                    </a>
-                {% else %}
-                    <a href="#">
-                        <img src="{% static 'icons/power.png' %}">
-                    </a>
-                {% endif %}
+                <span>
+                    {% if user.profile.alarm %}
+                        <a href="{% url 'api:alarm_off' %}">
+                            <img src="{% static 'icons/alert24.gif' %}">
+                        </a>
+                    {% else %}
+                        <img src="{% static 'icons/alert24.png' %}">
+                    {% endif %}
+                </span>
+                <span>
+                    {% if True %}
+                        <img src="{% static 'icons/nomessage24.png' %}">
+                    {% else %}
+                        <img src="{% static 'icons/message24.png' %}">
+                    {% endif %}
+                </span>
+                <span>
+                    {% if user.is_authenticated %}
+                        <a href="#">
+                            <img src="{% static 'icons/poweron.png' %}">
+                        </a>
+                    {% else %}
+                        <a href="#">
+                            <img src="{% static 'icons/power.png' %}">
+                        </a>
+                    {% endif %}
+                </span>
             </div>
         </div>
     </div>
@@ -138,14 +156,7 @@
 
         <div id="footer">
             <div class="footerMenu">
-                <li>
-                    {% trans 'Send feedback' %}
-                </li>
-                <li>
-                    <a href="mailto:{{ ADMIN_EMAIL }}">
-                        <img src="/static/icons/email24.png">
-                    </a>
-                </li>
+                {% menu_footer %}
             </div>
         </div>
     </div>

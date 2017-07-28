@@ -4,18 +4,18 @@
 <ul>
     <li class="head_logo">
         <a href="/">
-            <img src="{% static 'icons/apple-touch-icon.png' %}">
+            <img src="{{ SITE_LOGO }}">
         </a>
     </li>
     <li class="head_info mobile_hide">
-        Total bbs system by django
+        {{ SITE_INFO }}
     </li>
     <li class="head_menu">
         <a>
             {% trans 'menu' %}
         </a>
         <ul>
-            <li>
+            <li class="titlemenu">
                 <a href="#">
                     Menu 1
                 </a>

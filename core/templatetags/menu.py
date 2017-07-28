@@ -7,9 +7,13 @@ register = template.Library()
 def menu_main(context):
     """Main navigation menu"""
     user = context['request'].user
+    logo = context['SITE_LOGO']
+    info = context['SITE_INFO']
 
     return {
-        'user': user
+        'user': user,
+        'SITE_LOGO': logo,
+        'SITE_INFO': info,
     }
 
 
@@ -17,3 +21,12 @@ def menu_main(context):
 def menu_sub():
     """Sub navigation menu"""
     return {}
+
+
+@register.inclusion_tag('menu_footer.html', takes_context=True)
+def menu_footer(context):
+    """Footer navigation menu"""
+    admin_email = context['ADMIN_EMAIL']
+    return {
+        'ADMIN_EMAIL': admin_email,
+    }
