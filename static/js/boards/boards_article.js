@@ -101,7 +101,7 @@ function share_via(e, text) {
     var twitter_url = "https://twitter.com/intent/tweet?text=" + text + "&url=" + url
     var data = '<table width="100%"><tr><td><a href="' + facebook_url + '" target=_blank><img src="/static/icons/facebook16.png">Facebook</td></tr><tr><td><a href="' + twitter_url + '" target="_blank"><img src="/static/icons/twitter16.png">Twitter</a></td></tr></table>';
 
-    show_popup(e, data, 80, 20, 20);
+    show_popup(e, data, 90, 20, 20);
 }
 
 function delete_article(url) {

@@ -1,6 +1,7 @@
 {% load staticfiles %}
 {% load i18n %}
 {% load link %}
+{% load tz datetime %}
 
 <div class="reply_header">
     {% trans 'reply' %}
@@ -42,7 +43,11 @@
                 {{ reply.user.username }}
             </span>
             <span class="reply_date">
-                {{ reply.created_at|date:"m.d H:i" }}
+                {% if reply.created_at|localtime|is_today %}
+                    {{ reply.created_at|time:"H:i" }}
+                {% else %}
+                    {{ reply.created_at|date:"m-d" }}
+                {% endif %}
             </span>
             {% if user.username == reply.user.username or user.is_staff %}
             {% if reply.status != '6deleted' %}
@@ -60,7 +65,7 @@
                         {% trans 'reply' %}
                     </a>
                 </span>
-                <span>
+                <span class="reply_thumb">
                     <a href="javascript:like_reply({{ reply.id }})">
                         <img src="{% static 'icons/thumbup24.png' %}">
                     </a>
@@ -72,7 +77,7 @@
                     {% endif %}
                 </span>
                 {% if reply.status != '6deleted' %}
-                <span>
+                <span class="reply_thumb">
                     <a href="javascript:dislike_reply({{ reply.id }})">
                         <img src="{% static 'icons/thumbdown24.png' %}">
                     </a>
@@ -92,7 +97,9 @@
         {% endif %}
         {% if reply.image and reply.status == '1normal' %}
         <div class="reply_image">
-            <img src="{{ reply.image.url }}">
+            <a href="{{ reply.image.url }}" target="_blank">
+                <img src="{{ reply.image.url }}">
+            </a>
         </div>
         {% endif %}
         <div id="reply_content{{ reply.id }}" class="reply_content">

@@ -8,7 +8,7 @@
 {% endif %}
 {% load i18n %}
 {% endblock %}
-{% load datetime %}
+{% load tz datetime %}
 {% load censor %}
 {% load reply %}
 {% block content %}
@@ -51,6 +51,9 @@
     <div>
         <img src="{% static 'icons/watch18.png' %}">
         {{ article.created_at|date:" Y-m-d H:i:s" }}
+        <div class="article_view_ip float-right">
+            {{ article.ip|censor_ip }}
+        </div>
     </div>
     {% if not article.created_at|is_same_date:article.modified_at %}
         <div>
@@ -58,9 +61,6 @@
             {{ article.modified_at|date:" Y-m-d H:i:s" }}
         </div>
     {% endif %}
-    <div class="article_view_ip">
-        {{ article.ip|censor_ip }}
-    </div>
 </div>
 <div class="article_view_content">
     {{ article.content|safe}}
