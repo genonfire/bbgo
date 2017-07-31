@@ -85,6 +85,7 @@ table.board tr:hover {background-color:#F9F9F9;}
 table.board td {height:2em;padding:.2em;font-size:.92em;}
 table.board td a {color:#11223d;}
 table.board td a:visited {color:#33363B;}
+table.board td a:visited:hover {color:#AD3B35;}
 table.board td a:hover {text-decoration:none;color:#E54F44;}
 table.board td.notice a {color:#33363B;}
 table.board td.notice a:visited {color:#33363B;}

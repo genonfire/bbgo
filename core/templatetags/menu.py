@@ -1,3 +1,5 @@
+from boards.table import BoardTable
+
 from django import template
 
 register = template.Library()
@@ -9,11 +11,22 @@ def menu_main(context):
     user = context['request'].user
     logo = context['SITE_LOGO']
     info = context['SITE_INFO']
+    bookmarks = user.profile.bookmarks.split(',')
+    my_bookmark = []
+
+    for bm in bookmarks:
+        app, id = bm.split(':')
+        if app == 'boards':
+            app_table = BoardTable()
+        my_bookmark.append(
+            [app_table.get_table_name(id), app_table.get_table_url(id)]
+        )
 
     return {
         'user': user,
         'SITE_LOGO': logo,
         'SITE_INFO': info,
+        'my_bookmark': my_bookmark,
     }
 
 

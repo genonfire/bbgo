@@ -57,6 +57,11 @@ urlpatterns = [
         name='delete_reply',
     ),
     url(
+        r'^toggle_bookmark/$',
+        api.toggle_bookmark,
+        name='toggle_bookmark',
+    ),
+    url(
         r'^alarm_off/$',
         api.alarm_off,
         name='alarm_off'

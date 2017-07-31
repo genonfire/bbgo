@@ -13,7 +13,6 @@ function like_article(id) {
         success: function(data) {
             $('#article_view_text').html(data[1]);
             if (data[0] > 0) {
-                console.log(data[0]);
                 $('#article_view_like_count').html(data[0]);
             }
         },

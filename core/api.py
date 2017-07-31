@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
+import re
+
 from boards.forms import ReplyEditForm
 from boards.models import Board, Reply
 from core.utils import get_ipaddress
 
 from django.contrib.auth.models import User
+from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.db.models import Case, IntegerField, When
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, render_to_response
@@ -275,6 +278,32 @@ def delete_reply(request):
                     'count': replies.count()
                 }
             )
+
+    msg = _("Wrong access")
+    return HttpResponse(msg)
+
+
+def toggle_bookmark(request):
+    """API toggle_bookmark"""
+    if request.method == 'POST':
+        app = request.POST['app']
+        id = request.POST['id']
+        app_id = app + ':' + id
+        profile = request.user.profile
+        bookmarks = profile.bookmarks.split(',')
+
+        if app_id not in bookmarks:
+            if profile.bookmarks != '':
+                profile.bookmarks += ","
+            profile.bookmarks += app_id
+            data = static('icons/stared28.png')
+        else:
+            regstr = r"\b(,|)" + re.escape(app_id) + r"\b(,|)"
+            profile.bookmarks = re.sub(regstr, '', profile.bookmarks)
+            data = static('icons/star28.png')
+
+        request.user.profile.save()
+        return JsonResponse([data], safe=False, status=201)
 
     msg = _("Wrong access")
     return HttpResponse(msg)

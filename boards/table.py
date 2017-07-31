@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import sys
 
+from django.core.urlresolvers import reverse_lazy
+
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -45,6 +47,10 @@ class BoardTable():
     def get_table_name(self, table):
         """Get name of the table"""
         return self.BOARD_TABLES[int(table)][0]
+
+    def get_table_url(self, table):
+        """Get URL of the table"""
+        return reverse_lazy('boards:show_list_0', args=[table])
 
     def get_table_desc(self, table):
         """Get description of the table"""

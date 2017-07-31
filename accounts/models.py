@@ -12,6 +12,7 @@ class Profile(models.Model):
     point = models.IntegerField(default=1)
     last_article_at = models.DateTimeField(auto_now_add=True)
     last_reply_at = models.DateTimeField(auto_now_add=True)
+    bookmarks = models.TextField(default='', blank=True)
     scrap = models.TextField(default='', blank=True)
     alarm = models.BooleanField(default=False)
     alarm_list = models.TextField(default='', blank=True)

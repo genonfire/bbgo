@@ -34,9 +34,11 @@
             </a>
             <ul>
                 <li>
-                    <a href="#">
-                        bookmark 1
-                    </a>
+                    {% for mb in my_bookmark %}
+                        <a href="{{ mb.1 }}">
+                            {{ mb.0 }}
+                        </a>
+                    {% endfor %}
                 </li>
             </ul>
         </li>

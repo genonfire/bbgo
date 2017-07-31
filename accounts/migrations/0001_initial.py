@@ -19,6 +19,7 @@ class Migration(migrations.Migration):
                 ('point', models.IntegerField(default=1)),
                 ('last_article_at', models.DateTimeField(auto_now_add=True)),
                 ('last_reply_at', models.DateTimeField(auto_now_add=True)),
+                ('bookmarks', models.TextField(default=b'', blank=True)),
                 ('scrap', models.TextField(default=b'', blank=True)),
                 ('alarm', models.BooleanField(default=False)),
                 ('alarm_list', models.TextField(default=b'', blank=True)),
