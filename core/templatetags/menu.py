@@ -14,17 +14,18 @@ def menu_main(context):
     my_bookmark = []
 
     if user.is_authenticated():
-        bookmarks = user.profile.bookmarks.split(',')
+        if user.profile.bookmarks:
+            bookmarks = user.profile.bookmarks.split(',')
 
-        for bm in bookmarks:
-            app, id = bm.split(':')
-            if app == 'boards':
-                app_table = BoardTable()
-            else:
-                continue
-            my_bookmark.append(
-                [app_table.get_table_name(id), app_table.get_table_url(id)]
-            )
+            for bm in bookmarks:
+                app, id = bm.split(':')
+                if app == 'boards':
+                    app_table = BoardTable()
+                else:
+                    continue
+                my_bookmark.append(
+                    [app_table.get_table_name(id), app_table.get_table_url(id)]
+                )
 
     return {
         'user': user,

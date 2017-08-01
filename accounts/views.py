@@ -75,7 +75,7 @@ def sign_up(request):
 
     return render(
         request,
-        "accounts/signup.html",
+        "registration/signup.html",
         {
             'userform': userform,
         }

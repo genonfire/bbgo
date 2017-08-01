@@ -23,6 +23,7 @@ js_info_dict = {
 }
 
 urlpatterns = [
+    url(r'^', include('django.contrib.auth.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(
         r'^jsi18n/$',

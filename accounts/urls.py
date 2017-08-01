@@ -1,16 +1,15 @@
 """accounts URL Configuration"""
 
-from django.conf.urls import include, url
+from django.conf.urls import url
 
 from . import views
 
 urlpatterns = [
-    url(r'^', include('django.contrib.auth.urls')),
     url(
         r'^login/',
         'django.contrib.auth.views.login',
         name='login',
-        kwargs={'template_name': 'login.html'}
+        kwargs={'template_name': 'registration/login.html'}
     ),
     url(
         r'^logout/',
@@ -26,6 +25,11 @@ urlpatterns = [
         r'^password_reset/$',
         'django.contrib.auth.views.password_reset',
         name='password_reset'
+    ),
+    url(
+        r'^password_reset_done/$',
+        'django.contrib.auth.views.password_reset_done',
+        name='password_reset_done'
     ),
     url(
         r'^signup/$',

@@ -3,7 +3,6 @@
 {% block title %}회원가입{% endblock %}
 {% block extra_head_content %}
 {{ block.super }}
-<script src="{% static 'js/jquery-3.1.1.min.js' %}" /></script>
 {% endblock %}
 {% block content %}
 
@@ -110,7 +109,7 @@
         });
         $.ajax({
             type: "POST",
-            url: "{% url 'check duplication' %}",
+            url: "{% url 'accounts:check_duplication' %}",
             data: {
                 username: id_username
             },
@@ -165,7 +164,7 @@
         });
         $.ajax({
             type: "POST",
-            url: "{% url 'check email' %}",
+            url: "{% url 'accounts:check_email' %}",
             data: {
                 email: id_email
             },
