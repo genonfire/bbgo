@@ -20,6 +20,8 @@ def menu_main(context):
             app, id = bm.split(':')
             if app == 'boards':
                 app_table = BoardTable()
+            else:
+                continue
             my_bookmark.append(
                 [app_table.get_table_name(id), app_table.get_table_url(id)]
             )
