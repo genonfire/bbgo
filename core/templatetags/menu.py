@@ -11,16 +11,18 @@ def menu_main(context):
     user = context['request'].user
     logo = context['SITE_LOGO']
     info = context['SITE_INFO']
-    bookmarks = user.profile.bookmarks.split(',')
     my_bookmark = []
 
-    for bm in bookmarks:
-        app, id = bm.split(':')
-        if app == 'boards':
-            app_table = BoardTable()
-        my_bookmark.append(
-            [app_table.get_table_name(id), app_table.get_table_url(id)]
-        )
+    if user.is_authenticated():
+        bookmarks = user.profile.bookmarks.split(',')
+
+        for bm in bookmarks:
+            app, id = bm.split(':')
+            if app == 'boards':
+                app_table = BoardTable()
+            my_bookmark.append(
+                [app_table.get_table_name(id), app_table.get_table_url(id)]
+            )
 
     return {
         'user': user,
