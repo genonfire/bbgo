@@ -27,11 +27,6 @@ urlpatterns = [
         name='password_reset'
     ),
     url(
-        r'^password_reset_done/$',
-        'django.contrib.auth.views.password_reset_done',
-        name='password_reset_done'
-    ),
-    url(
         r'^signup/$',
         views.sign_up,
         name='signup'

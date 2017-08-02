@@ -3,6 +3,7 @@ from smtplib import SMTPException
 import sys
 
 from django.conf import settings
+from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.core.signing import TimestampSigner
@@ -122,3 +123,20 @@ def check_email(request):
         return JsonResponse(data, status=201)
     except SMTPException:
         return JsonResponse({'status': 'false'}, status=400)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def send_email(request):
+    """Send email to user for testing purpose"""
+    id_email = request.user.email
+    print "sending email to", id_email
+    signer = TimestampSigner()
+    value = signer.sign(id_email)
+    subject = u'Test email.'
+    body = u'keyCode: %s' % value
+
+    try:
+        send_mail(subject, body, settings.EMAIL_HOST_USER, [id_email], fail_silently=False)
+        return HttpResponse("Email sent", status=201)
+    except SMTPException:
+        return HttpResponse(status=400)

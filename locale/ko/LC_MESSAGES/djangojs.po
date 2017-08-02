@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-28 17:09+0900\n"
+"POT-Creation-Date: 2017-08-02 13:51+0900\n"
 "PO-Revision-Date: 2017-07-24 22:37+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,11 +19,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: static/js/boards/boards_article.js:81
+#: static/js/boards/boards_article.js:80
 msgid "who likes"
 msgstr "이 글을 추천해 주신 분들"
 
-#: static/js/boards/boards_article.js:108 static/js/boards/boards_reply.js:201
+#: static/js/boards/boards_article.js:107 static/js/boards/boards_reply.js:201
 msgid "Are you sure to delete this article?"
 msgstr "정말로 삭제하시겠습니까?"
 
@@ -47,6 +47,7 @@ msgstr "두 글자 이상 입력해 주세요."
 #: static/js/boards/boards_reply.js:34 static/js/boards/boards_reply.js:71
 #: static/js/boards/boards_reply.js:143 static/js/boards/boards_reply.js:169
 #: static/js/boards/boards_reply.js:195 static/js/boards/boards_reply.js:217
+#: static/js/bookmarks.js:18
 msgid "Error!"
 msgstr "잘못!"
 

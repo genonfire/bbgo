@@ -198,7 +198,7 @@ span.open_reply a {color:#409BD1;}
 
 table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 
-/* join */
+/* registrations */
 .member {margin:1.25em auto 1.6em;background:#fff;}
 .member td {padding:5px 3px;}
 .member td.label {padding: 5px; padding-left:15px;font-size:.9em;}
@@ -210,6 +210,9 @@ table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 .member a:hover {color:#be131c; text-decoration:none;}
 .member span a {display:inline-block;height:2.8em;margin-left:.5em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.7em;}
 .member span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
+.password_reset_text {margin-left:.5em;padding-top:.5em;font-size:.9em;}
+.password_reset_email {width:100%;font-size:.9em;}
+.password_reset_email input {width:95%;margin-left:.5em;margin-top:.5em;height:2.4em;vertical-align:middle;}
 
 /* Footer */
 #footer {padding:1em;text-align:center;font-size:.9em;}
