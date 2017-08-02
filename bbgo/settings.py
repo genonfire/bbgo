@@ -210,6 +210,11 @@ SUMMERNOTE_CONFIG = {
 }
 
 
+# Setting for Member
+ID_MIN_LENGTH = 4
+ID_MAX_LENGTH = 16  # Maximum 30
+ENABLE_NICKNAME = True
+
 # Setting for Reply
 REPLY_TEXT_MAX = 3000
 REPLY_IMAGE_AVAILABLE = True

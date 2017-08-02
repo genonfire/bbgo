@@ -199,11 +199,16 @@ span.open_reply a {color:#409BD1;}
 table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 
 /* registrations */
-.member {margin:1.25em auto 1.6em;background:#fff;}
-.member td {padding:5px 3px;}
-.member td.label {padding: 5px; padding-left:15px;font-size:.9em;}
-.member input {height:26px;vertical-align:middle;}
-.member input[type="button"] {padding:0 10px;font-size:.8em;}
+.signup {width:100%;}
+.signup table {width:100%;}
+.signup td {height:3em;padding:.2em;border-bottom:1px solid #9393AE;}
+.signup td.label {min-width:72px;width:auto;padding-right:.5em;border-right:1px solid #9393AE;font-size:.8em;text-align:right;}
+.signup td.required {font-weight:bold;}
+.signup td.input {padding-left:.5em;font-size:.9em;}
+.signup div.concent div {margin:.5em;text-align:center;font-size:.9em;}
+/*.member {margin:1.25em auto 1.6em;background:#fff;}*/
+.member input {height:2.2em;vertical-align:middle;}
+.member input[type="button"] {padding:0 10px;font-size:.9em;}
 .member input[type="submit"] {display:inline-block;width:100px;height:2.5em;margin-top:10px;margin-bottom:10px;vertical-align:middle;}
 .member a:link {color:#417690; text-decoration:none;}
 .member a:visited {color:#417690; text-decoration:none;}

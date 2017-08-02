@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-02 13:51+0900\n"
+"POT-Creation-Date: 2017-08-02 17:57+0900\n"
 "PO-Revision-Date: 2017-07-13 14:03+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,9 +45,9 @@ msgstr "Deleted"
 
 #: boards/views.py:24 boards/views.py:29 boards/views.py:146
 #: boards/views.py:169 boards/views.py:174 boards/views.py:214
-#: boards/views.py:219 boards/views.py:246 core/api.py:65 core/api.py:85
-#: core/api.py:136 core/api.py:219 core/api.py:247 core/api.py:282
-#: core/api.py:308
+#: boards/views.py:219 boards/views.py:246 core/api.py:153 core/api.py:173
+#: core/api.py:224 core/api.py:307 core/api.py:335 core/api.py:370
+#: core/api.py:396
 msgid "Wrong access"
 msgstr ""
 
@@ -55,27 +55,35 @@ msgstr ""
 msgid "Wrong status from user."
 msgstr ""
 
-#: core/api.py:21 core/api.py:93
+#: core/api.py:34
+msgid "Already exist."
+msgstr ""
+
+#: core/api.py:36
+msgid "Available"
+msgstr ""
+
+#: core/api.py:109 core/api.py:181
 msgid "Require login"
 msgstr ""
 
-#: core/api.py:29 core/api.py:101
+#: core/api.py:117 core/api.py:189
 msgid "You like your own post?"
 msgstr ""
 
-#: core/api.py:43
+#: core/api.py:131
 msgid "You've liked this article"
 msgstr ""
 
-#: core/api.py:53
+#: core/api.py:141
 msgid "You've disliked this article"
 msgstr ""
 
-#: core/api.py:60 core/api.py:129
+#: core/api.py:148 core/api.py:217
 msgid "You've already liked"
 msgstr ""
 
-#: core/api.py:62 core/api.py:131
+#: core/api.py:150 core/api.py:219
 msgid "You've already disliked"
 msgstr ""
 
@@ -87,11 +95,11 @@ msgstr ""
 msgid "logout"
 msgstr ""
 
-#: templates/haru/base.html:119
+#: templates/haru/base.html:119 templates/haru/registration/signup.html:35
 msgid "id"
 msgstr ""
 
-#: templates/haru/base.html:122
+#: templates/haru/base.html:122 templates/haru/registration/signup.html:84
 msgid "password"
 msgstr ""
 
@@ -104,7 +112,9 @@ msgstr ""
 msgid "Reset password"
 msgstr ""
 
-#: templates/haru/base.html:137
+#: templates/haru/base.html:137 templates/haru/registration/signup.html:4
+#: templates/haru/registration/signup.html:18
+#: templates/haru/registration/signup.html:100
 msgid "Sign up"
 msgstr ""
 
@@ -300,6 +310,7 @@ msgid "Change my password"
 msgstr ""
 
 #: templates/haru/registration/password_reset_confirm.html:41
+#: templates/haru/registration/signup.html:13
 msgid "Error!"
 msgstr ""
 
@@ -357,4 +368,55 @@ msgstr ""
 
 #: templates/haru/registration/password_reset_form.html:19
 msgid "Email address:"
+msgstr ""
+
+#: templates/haru/registration/signup.html:22
+#, python-format
+msgid "Hello %(user)s!"
+msgstr ""
+
+#: templates/haru/registration/signup.html:26
+msgid "Please fill all bold text which mean mandatory."
+msgstr ""
+
+#: templates/haru/registration/signup.html:39
+#: templates/haru/registration/signup.html:52
+msgid "Check exist"
+msgstr ""
+
+#: templates/haru/registration/signup.html:41
+#: templates/haru/registration/signup.html:54
+msgid "Length limit"
+msgstr ""
+
+#: templates/haru/registration/signup.html:48
+msgid "nickname"
+msgstr ""
+
+#: templates/haru/registration/signup.html:61
+msgid "Email address"
+msgstr ""
+
+#: templates/haru/registration/signup.html:65
+msgid "Verify"
+msgstr ""
+
+#: templates/haru/registration/signup.html:67
+msgid "After pressing verify, please wait till email sent."
+msgstr ""
+
+#: templates/haru/registration/signup.html:73
+msgid "Verification code"
+msgstr ""
+
+#: templates/haru/registration/signup.html:78
+msgid "Verification code is started by Email address"
+msgstr ""
+
+#: templates/haru/registration/signup.html:92
+msgid "password confirm"
+msgstr ""
+
+#: templates/haru/registration/signup.html:109
+msgid "Agree to Terms of Service and Privacy Policy"
 msgstr ""

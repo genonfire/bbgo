@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from boards.table import BoardTable
 
 from django import template

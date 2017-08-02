@@ -6,6 +6,21 @@ from . import api
 
 urlpatterns = [
     url(
+        r'^check_duplication/$',
+        api.check_duplication,
+        name='check_duplication'
+    ),
+    url(
+        r'^check_email/$',
+        api.check_email,
+        name='check_email',
+    ),
+    url(
+        r'^check_validation/$',
+        api.check_validation,
+        name='check_validation'
+    ),
+    url(
         r'^like_article/$',
         api.like_article,
         name='like_article',

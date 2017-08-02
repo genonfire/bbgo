@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-02 13:51+0900\n"
-"PO-Revision-Date: 2017-07-24 22:37+0900\n"
-"Last-Translator:   <>\n"
+"POT-Creation-Date: 2017-08-02 17:57+0900\n"
+"PO-Revision-Date: 2017-08-02 17:57+0900\n"
+"Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -62,3 +62,27 @@ msgstr "등록"
 #: static/js/boards/boards_reply.js:119 static/js/boards/boards_reply.js:227
 msgid "Selected image is too big. size limit: "
 msgstr "이미지가 너무 큽니다. 사이즈 제한: "
+
+#: static/js/member.js:6 static/js/member.js:13 static/js/member.js:34
+msgid "Mind the chracter length limitation."
+msgstr "글자수 제한을 지켜주세요."
+
+#: static/js/member.js:42
+msgid "Please input correct E-mail address."
+msgstr "올바른 이메일 주소를 입력해 주세요."
+
+#: static/js/member.js:59
+msgid "Verification code sent. Please check your E-mail."
+msgstr "인증코드를 발송했습니다. 이메일을 확인해 주세요."
+
+#: static/js/member.js:77
+msgid "Please consent to Terms."
+msgstr "약관에 동의해 주세요."
+
+#: static/js/member.js:82
+msgid "Please fill all bold text which mean mandatory."
+msgstr "굵은 글씨는 필수항목으로 꼭 입력해야 합니다."
+
+#: static/js/member.js:87
+msgid "Passwords are different each other."
+msgstr "비밀번호가 서로 다릅니다."

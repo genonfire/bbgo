@@ -31,19 +31,4 @@ urlpatterns = [
         views.sign_up,
         name='signup'
     ),
-    url(
-        r'^check_duplication/$',
-        views.check_duplication,
-        name='check_duplication'
-    ),
-    url(
-        r'^check_validation/$',
-        views.check_validation,
-        name='check_validation'
-    ),
-    url(
-        r'^check_email/$',
-        views.check_email,
-        name='check_email',
-    ),
 ]
