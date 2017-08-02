@@ -52,6 +52,7 @@ DJANGO_APPS = (
 )
 THIRD_PARTY_APPS = (
     'rosetta',
+    'jsi18ncache',
 )
 EDITOR_APPS = (
     'django_summernote',
@@ -138,6 +139,14 @@ except IOError:
     SITE_LOGO = ''
     SITE_INFO = ''
     ADMIN_EMAIL = ''
+f.close()
+
+try:
+    with open(os.path.join(BASE_DIR, "VERSION")) as f:
+        APP_VERSION = f.readline()
+except IOError:
+    APP_VERSION = 0.1
+f.close()
 
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True

@@ -1,5 +1,6 @@
 upload/
 *.pyc
 secrets.json
+VERSION
 analytics.js
 backup.sh

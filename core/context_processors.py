@@ -5,6 +5,7 @@ def global_settings(request):
     """Setting for templates"""
     return {
         'DEBUG': settings.DEBUG,
+        'APP_VERSION': settings.APP_VERSION,
         'SITE_NAME': settings.SITE_NAME,
         'SITE_LOGO': settings.SITE_LOGO,
         'SITE_INFO': settings.SITE_INFO,

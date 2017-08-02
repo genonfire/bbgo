@@ -207,7 +207,7 @@ table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 .signup td.input {padding-left:.5em;font-size:.9em;}
 .signup div.concent div {margin:.5em;text-align:center;font-size:.9em;}
 /*.member {margin:1.25em auto 1.6em;background:#fff;}*/
-.member input {height:2.2em;vertical-align:middle;}
+.member input {height:2.2em;padding-left:.2em;vertical-align:middle;}
 .member input[type="button"] {padding:0 10px;font-size:.9em;}
 .member input[type="submit"] {display:inline-block;width:100px;height:2.5em;margin-top:10px;margin-bottom:10px;vertical-align:middle;}
 .member a:link {color:#417690; text-decoration:none;}
