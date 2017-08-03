@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-02 17:57+0900\n"
-"PO-Revision-Date: 2017-08-02 17:58+0900\n"
-"Last-Translator:   <gencode.me@gmail.com>\n"
+"POT-Creation-Date: 2017-08-03 15:50+0900\n"
+"PO-Revision-Date: 2017-08-03 15:54+0900\n"
+"Last-Translator:   <genonfire@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
+
+#: accounts/views.py:34
+msgid "Please check username."
+msgstr "아이디를 확인해 주세요."
+
+#: accounts/views.py:44
+msgid "Please check nickname."
+msgstr "닉네임을 확인해 주세요."
+
+#: accounts/views.py:56
+#| msgid "Thanks for using our site!"
+msgid "Thank you for joining us."
+msgstr "함께해 주셔서 감사합니다."
+
+#: accounts/views.py:58 templates/haru/base.html:128
+#: templates/haru/registration/password_reset_complete.html:17
+msgid "login"
+msgstr "로그인"
+
+#: accounts/views.py:62 accounts/views.py:64
+msgid "Verification failure. Please check verification code again."
+msgstr "인증실패. 인증코드를 다시 확인해 주세요."
+
+#: accounts/views.py:66
+msgid "Sorry. Please try again later."
+msgstr "죄송합니다. 나중에 다시 시도해 주세요."
 
 #: boards/models.py:12 boards/models.py:48 boards/models.py:65
 msgid "status_normal"
@@ -46,9 +72,9 @@ msgstr "삭제됨"
 
 #: boards/views.py:24 boards/views.py:29 boards/views.py:146
 #: boards/views.py:169 boards/views.py:174 boards/views.py:214
-#: boards/views.py:219 boards/views.py:246 core/api.py:153 core/api.py:173
-#: core/api.py:224 core/api.py:307 core/api.py:335 core/api.py:370
-#: core/api.py:396
+#: boards/views.py:219 boards/views.py:246 core/api.py:151 core/api.py:171
+#: core/api.py:222 core/api.py:304 core/api.py:332 core/api.py:367
+#: core/api.py:393
 msgid "Wrong access"
 msgstr "잘못된 접근입니다."
 
@@ -56,66 +82,75 @@ msgstr "잘못된 접근입니다."
 msgid "Wrong status from user."
 msgstr "상태정보가 잘못 입력되었습니다."
 
-#: core/api.py:34
+#: core/api.py:42
 msgid "Already exist."
 msgstr "이미 존재합니다."
 
-#: core/api.py:36
+#: core/api.py:44
 msgid "Available"
 msgstr "사용 가능합니다."
 
-#: core/api.py:109 core/api.py:181
+#: core/api.py:59
+msgid "E-mail exists. Why don't you try to find your password?"
+msgstr "이메일 주소가 존재합니다. 비밀번호 찾기를 이용해 보세요."
+
+#: core/api.py:68
+#, python-format
+msgid "[%(site_name)s] Verification code for signing in"
+msgstr "[%(site_name)s] 회원가입을 위한 인증코드입니다."
+
+#: core/api.py:75
+#| msgid "Verification code is started by Email address"
+msgid "Verification code sent. Please check your E-mail."
+msgstr "인증코드를 전송했습니다. 이메일을 확인해 주세요."
+
+#: core/api.py:107 core/api.py:179
 msgid "Require login"
 msgstr "회원만 가능합니다."
 
-#: core/api.py:117 core/api.py:189
+#: core/api.py:115 core/api.py:187
 msgid "You like your own post?"
 msgstr "자신의 글입니다."
 
-#: core/api.py:131
+#: core/api.py:129
 msgid "You've liked this article"
 msgstr "추천했습니다."
 
-#: core/api.py:141
+#: core/api.py:139
 msgid "You've disliked this article"
 msgstr "비추했습니다."
 
-#: core/api.py:148 core/api.py:217
+#: core/api.py:146 core/api.py:215
 msgid "You've already liked"
 msgstr "이미 추천하셨습니다."
 
-#: core/api.py:150 core/api.py:219
+#: core/api.py:148 core/api.py:217
 msgid "You've already disliked"
 msgstr "이미 비추하셨습니다."
 
-#: templates/haru/base.html:96
+#: templates/haru/base.html:98
 msgid "Message"
 msgstr "쪽지"
 
-#: templates/haru/base.html:108
+#: templates/haru/base.html:110
 msgid "logout"
 msgstr "로그아웃"
 
-#: templates/haru/base.html:119 templates/haru/registration/signup.html:35
+#: templates/haru/base.html:121 templates/haru/registration/signup.html:35
 msgid "id"
 msgstr "아이디"
 
-#: templates/haru/base.html:122 templates/haru/registration/signup.html:84
+#: templates/haru/base.html:124 templates/haru/registration/signup.html:85
 msgid "password"
 msgstr "비밀번호"
 
-#: templates/haru/base.html:126
-#: templates/haru/registration/password_reset_complete.html:17
-msgid "login"
-msgstr "로그인"
-
-#: templates/haru/base.html:132
+#: templates/haru/base.html:134
 msgid "Reset password"
 msgstr "비밀번호찾기"
 
-#: templates/haru/base.html:137 templates/haru/registration/signup.html:4
+#: templates/haru/base.html:139 templates/haru/registration/signup.html:4
 #: templates/haru/registration/signup.html:18
-#: templates/haru/registration/signup.html:100
+#: templates/haru/registration/signup.html:101
 msgid "Sign up"
 msgstr "회원가입"
 
@@ -401,8 +436,8 @@ msgid "Email address"
 msgstr "이메일 주소"
 
 #: templates/haru/registration/signup.html:65
-msgid "Verify"
-msgstr "인증"
+msgid "Get code"
+msgstr "코드 얻기"
 
 #: templates/haru/registration/signup.html:67
 msgid "After pressing verify, please wait till email sent."
@@ -412,15 +447,19 @@ msgstr "인증 버튼을 누른 후 이메일이 전송될 때까지 잠시 기�
 msgid "Verification code"
 msgstr "인증코드"
 
-#: templates/haru/registration/signup.html:78
+#: templates/haru/registration/signup.html:77
+msgid "Verify"
+msgstr "인증"
+
+#: templates/haru/registration/signup.html:79
 msgid "Verification code is started by Email address"
 msgstr "인증코드는 이메일주소로 시작됩니다."
 
-#: templates/haru/registration/signup.html:92
+#: templates/haru/registration/signup.html:93
 msgid "password confirm"
 msgstr "비밀번호확인"
 
-#: templates/haru/registration/signup.html:109
+#: templates/haru/registration/signup.html:110
 msgid "Agree to Terms of Service and Privacy Policy"
 msgstr "약관 및 개인정보 처리방침에 동의합니다."
 

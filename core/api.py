@@ -20,7 +20,7 @@ from django.utils.translation import ugettext as _
 
 
 def check_duplication(request):
-    """Check duplication for id and nickname"""
+    """API check_duplication"""
     check_type = request.POST.get('check_type')
     username = request.POST.get('username')
 
@@ -51,26 +51,30 @@ def check_duplication(request):
     return JsonResponse(data)
 
 
-def check_email(request):
-    """Function"""
+def get_verification_code(request):
+    """API get_verification_code"""
     email = request.POST.get('email')
 
     if User.objects.filter(email__iexact=email).exists():
-        msg = u"이미 존재하는 이메일 주소입니다. 비밀번호 찾기를 이용해 보세요."
+        msg = _('E-mail exists. Why don\'t you try to find your password?')
         data = {
+            'result': False,
             'msg': msg,
         }
         return JsonResponse(data, status=201)
 
     signer = TimestampSigner()
     value = signer.sign(email)
-    subject = u'[노룩뉴스] 회원가입 인증 메일입니다.'
-    body = u'인증코드(이메일주소 포함): %s' % value
+    subject = _('[%(site_name)s] Verification code for signing in') % {
+        'site_name': settings.SITE_NAME
+    }
+    body = value
 
     try:
         send_mail(subject, body, settings.EMAIL_HOST_USER, [email], fail_silently=False)
-        msg = u"인증코드를 이메일로 발송했습니다."
+        msg = _('Verification code sent. Please check your E-mail.')
         data = {
+            'result': True,
             'msg': msg,
         }
         return JsonResponse(data, status=201)
@@ -79,35 +83,21 @@ def check_email(request):
 
 
 def check_validation(request):
-    """Function"""
-    username = request.POST.get('username')
-    idcheck = User.objects.filter(username__iexact=username).exists()
-
+    """API check_validation"""
     code = request.POST.get('code')
     email = request.POST.get('email')
     signer = TimestampSigner()
-    msg = ''
-    result = False
 
     try:
-        value = signer.unsign(code, max_age=180)
+        value = signer.unsign(code, max_age=86400)  # 24 hours
         code_check = value == email
 
-        if idcheck:
-            msg = u"이미 존재하는 아이디입니다."
-        elif not code_check:
-            msg = u"인증코드가 잘못되었습니다."
-        else:
-            result = True
+        if code_check:
+            return JsonResponse({'status': 'true'}, status=201)
     except:
-        msg = u"인증코드가 잘못되었습니다."
+        pass
 
-    data = {
-        'result': result,
-        'msg': msg,
-    }
-
-    return JsonResponse(data)
+    return JsonResponse({'status': 'false'}, status=400)
 
 
 def like_article(request, liketype):
@@ -279,7 +269,6 @@ def write_reply(request):
             elif reply_to != request.user.username and reply_id > 0:
                 user = User.objects.filter(username=reply_to)
                 if user:
-                    print user[0].username
                     if user[0].profile.alarm_list != '':
                         user[0].profile.alarm_list += ','
                     alarm_text = 'r.%d' % reply_id

@@ -36,7 +36,7 @@
                     </td>
                     <td class="input">
                         {{ userform.username }}
-                        <input type="button" value="{% trans 'Check exist' %}" onClick="checkDuplication('id')">
+                        <input type="button" value="{% trans 'Check exist' %}" onClick="check_duplication('id')">
                         <div>
                             * {% trans 'Length limit' %}: {{ ID_MIN_LENGTH }} ~ {{ ID_MAX_LENGTH }}
                         </div>
@@ -49,7 +49,7 @@
                         </td>
                         <td class="input">
                             {{ userform.first_name }}
-                            <input type="button" value="{% trans 'Check exist' %}" onClick="checkDuplication('nickname')">
+                            <input type="button" value="{% trans 'Check exist' %}" onClick="check_duplication('nickname')">
                             <div>
                                 * {% trans 'Length limit' %}: {{ NICKNAME_MIN_LENGTH }} ~ {{ NICKNAME_MAX_LENGTH }}
                             </div>
@@ -62,7 +62,7 @@
                     </td>
                     <td class="input">
                         {{ userform.email }}
-                        <input type="button" value="{% trans 'Verify' %}" onClick="checkEmail()">
+                        <input type="button" value="{% trans 'Get code' %}" onClick="get_verification_code()">
                         <div>
                             * {% trans 'After pressing verify, please wait till email sent.' %}
                         </div>
@@ -74,6 +74,7 @@
                     </td>
                     <td class="input">
                         {{ userform.code }}
+                        <input type="button" value="{% trans 'Verify' %}" onClick="check_validation()">
                         <div>
                             * {% trans 'Verification code is started by Email address' %}
                         </div>

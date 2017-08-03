@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-02 17:57+0900\n"
+"POT-Creation-Date: 2017-08-03 15:50+0900\n"
 "PO-Revision-Date: 2017-07-13 14:03+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
+
+#: accounts/views.py:34
+msgid "Please check username."
+msgstr ""
+
+#: accounts/views.py:44
+msgid "Please check nickname."
+msgstr ""
+
+#: accounts/views.py:56
+msgid "Thank you for joining us."
+msgstr ""
+
+#: accounts/views.py:58 templates/haru/base.html:128
+#: templates/haru/registration/password_reset_complete.html:17
+msgid "login"
+msgstr ""
+
+#: accounts/views.py:62 accounts/views.py:64
+msgid "Verification failure. Please check verification code again."
+msgstr ""
+
+#: accounts/views.py:66
+msgid "Sorry. Please try again later."
+msgstr ""
 
 #: boards/models.py:12 boards/models.py:48 boards/models.py:65
 msgid "status_normal"
@@ -45,9 +70,9 @@ msgstr "Deleted"
 
 #: boards/views.py:24 boards/views.py:29 boards/views.py:146
 #: boards/views.py:169 boards/views.py:174 boards/views.py:214
-#: boards/views.py:219 boards/views.py:246 core/api.py:153 core/api.py:173
-#: core/api.py:224 core/api.py:307 core/api.py:335 core/api.py:370
-#: core/api.py:396
+#: boards/views.py:219 boards/views.py:246 core/api.py:151 core/api.py:171
+#: core/api.py:222 core/api.py:304 core/api.py:332 core/api.py:367
+#: core/api.py:393
 msgid "Wrong access"
 msgstr ""
 
@@ -55,66 +80,74 @@ msgstr ""
 msgid "Wrong status from user."
 msgstr ""
 
-#: core/api.py:34
+#: core/api.py:42
 msgid "Already exist."
 msgstr ""
 
-#: core/api.py:36
+#: core/api.py:44
 msgid "Available"
 msgstr ""
 
-#: core/api.py:109 core/api.py:181
+#: core/api.py:59
+msgid "E-mail exists. Why don't you try to find your password?"
+msgstr ""
+
+#: core/api.py:68
+#, python-format
+msgid "[%(site_name)s] Verification code for signing in"
+msgstr ""
+
+#: core/api.py:75
+msgid "Verification code sent. Please check your E-mail."
+msgstr ""
+
+#: core/api.py:107 core/api.py:179
 msgid "Require login"
 msgstr ""
 
-#: core/api.py:117 core/api.py:189
+#: core/api.py:115 core/api.py:187
 msgid "You like your own post?"
 msgstr ""
 
-#: core/api.py:131
+#: core/api.py:129
 msgid "You've liked this article"
 msgstr ""
 
-#: core/api.py:141
+#: core/api.py:139
 msgid "You've disliked this article"
 msgstr ""
 
-#: core/api.py:148 core/api.py:217
+#: core/api.py:146 core/api.py:215
 msgid "You've already liked"
 msgstr ""
 
-#: core/api.py:150 core/api.py:219
+#: core/api.py:148 core/api.py:217
 msgid "You've already disliked"
 msgstr ""
 
-#: templates/haru/base.html:96
+#: templates/haru/base.html:98
 msgid "Message"
 msgstr ""
 
-#: templates/haru/base.html:108
+#: templates/haru/base.html:110
 msgid "logout"
 msgstr ""
 
-#: templates/haru/base.html:119 templates/haru/registration/signup.html:35
+#: templates/haru/base.html:121 templates/haru/registration/signup.html:35
 msgid "id"
 msgstr ""
 
-#: templates/haru/base.html:122 templates/haru/registration/signup.html:84
+#: templates/haru/base.html:124 templates/haru/registration/signup.html:85
 msgid "password"
 msgstr ""
 
-#: templates/haru/base.html:126
-#: templates/haru/registration/password_reset_complete.html:17
-msgid "login"
-msgstr ""
-
-#: templates/haru/base.html:132
+#: templates/haru/base.html:134
 msgid "Reset password"
 msgstr ""
 
-#: templates/haru/base.html:137 templates/haru/registration/signup.html:4
+#: templates/haru/base.html:139 templates/haru/registration/signup.html:4
 #: templates/haru/registration/signup.html:18
-#: templates/haru/registration/signup.html:100
+#: templates/haru/registration/signup.html:101
 msgid "Sign up"
 msgstr ""
 
@@ -398,7 +431,7 @@ msgid "Email address"
 msgstr ""
 
 #: templates/haru/registration/signup.html:65
-msgid "Verify"
+msgid "Get code"
 msgstr ""
 
 #: templates/haru/registration/signup.html:67
@@ -409,14 +442,18 @@ msgstr ""
 msgid "Verification code"
 msgstr ""
 
-#: templates/haru/registration/signup.html:78
+#: templates/haru/registration/signup.html:77
+msgid "Verify"
+msgstr ""
+
+#: templates/haru/registration/signup.html:79
 msgid "Verification code is started by Email address"
 msgstr ""
 
-#: templates/haru/registration/signup.html:92
+#: templates/haru/registration/signup.html:93
 msgid "password confirm"
 msgstr ""
 
-#: templates/haru/registration/signup.html:109
+#: templates/haru/registration/signup.html:110
 msgid "Agree to Terms of Service and Privacy Policy"
 msgstr ""

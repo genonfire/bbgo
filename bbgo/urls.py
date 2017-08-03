@@ -33,7 +33,6 @@ urlpatterns = [
         r'^.*/jsi18n/$',
         'jsi18ncache.views.javascript_catalog',
         js_info_dict,
-        # name='javascript-catalog'
     ),
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
     url(r'^boards/', include('boards.urls', namespace='boards')),

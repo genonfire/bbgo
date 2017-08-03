@@ -11,9 +11,9 @@ urlpatterns = [
         name='check_duplication'
     ),
     url(
-        r'^check_email/$',
-        api.check_email,
-        name='check_email',
+        r'^get_verification_code/$',
+        api.get_verification_code,
+        name='get_verification_code',
     ),
     url(
         r'^check_validation/$',

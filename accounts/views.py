@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.core.signing import TimestampSigner
 from django.core.urlresolvers import reverse_lazy
+from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.utils.translation import ugettext as _
@@ -19,26 +20,51 @@ sys.setdefaultencoding('utf-8')
 
 
 def sign_up(request):
-    """Function"""
+    """Sign up"""
     if request.method == "POST":
         userform = RegistrationForm(request.POST)
         if userform.is_valid():
             userform.save(commit=False)
+
+            username = userform.cleaned_data['username']
+            q = Q(username__iexact=username) | Q(first_name__iexact=username)
+            if User.objects.filter(q).exists() or \
+                len(username) < settings.ID_MIN_LENGTH or \
+                    len(username) > settings.ID_MAX_LENGTH:
+                msg = _('Please check username.')
+                return HttpResponse(msg)
+
+            if settings.ENABLE_NICKNAME:
+                nick = userform.cleaned_data['first_name']
+                if nick:
+                    q = Q(username__iexact=nick) | Q(first_name__iexact=nick)
+                    if User.objects.filter(q).exists() or \
+                        len(nick) < settings.NICKNAME_MIN_LENGTH or \
+                            len(nick) > settings.NICKNAME_MAX_LENGTH:
+                        msg = _('Please check nickname.')
+                        return HttpResponse(msg)
+
             email = userform.cleaned_data['email']
             code = userform.cleaned_data['code']
             signer = TimestampSigner()
             try:
-                value = signer.unsign(code, max_age=86400)
-                id_check = value == email
-                if (id_check):
-                    msg = u"가입성공.<br><a href=%s>로그인</a>" % reverse_lazy('accounts:login')
+                value = signer.unsign(code, max_age=86400)  # 24 hours
+                code_check = value == email
+
+                if code_check:
+                    msg = u"%s.<br><a href=%s>%s</a>" % (
+                        _('Thank you for joining us.'),
+                        reverse_lazy('accounts:login'),
+                        _('login')
+                    )
                     userform.save()
                 else:
-                    msg = u"인증코드를 확인해 주세요."
+                    msg = _('Verification failure. Please check verification code again.')
             except:
-                msg = u"인증코드를 확인해 주세요.."
+                msg = _('Verification failure. Please check verification code again.')
         else:
-            msg = u"회원가입 오류.<br>아이디를 확인해 주세요."
+            msg = _('Sorry. Please try again later.')
+
         return HttpResponse(msg)
     elif request.method == "GET":
         userform = RegistrationForm()
