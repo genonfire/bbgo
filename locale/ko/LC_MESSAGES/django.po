@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-03 15:50+0900\n"
-"PO-Revision-Date: 2017-08-03 15:54+0900\n"
+"POT-Creation-Date: 2017-08-03 16:29+0900\n"
+"PO-Revision-Date: 2017-08-03 16:31+0900\n"
 "Last-Translator:   <genonfire@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -28,11 +28,10 @@ msgid "Please check nickname."
 msgstr "닉네임을 확인해 주세요."
 
 #: accounts/views.py:56
-#| msgid "Thanks for using our site!"
 msgid "Thank you for joining us."
 msgstr "함께해 주셔서 감사합니다."
 
-#: accounts/views.py:58 templates/haru/base.html:128
+#: accounts/views.py:58 templates/haru/base.html:127
 #: templates/haru/registration/password_reset_complete.html:17
 msgid "login"
 msgstr "로그인"
@@ -100,7 +99,6 @@ msgid "[%(site_name)s] Verification code for signing in"
 msgstr "[%(site_name)s] 회원가입을 위한 인증코드입니다."
 
 #: core/api.py:75
-#| msgid "Verification code is started by Email address"
 msgid "Verification code sent. Please check your E-mail."
 msgstr "인증코드를 전송했습니다. 이메일을 확인해 주세요."
 
@@ -128,27 +126,41 @@ msgstr "이미 추천하셨습니다."
 msgid "You've already disliked"
 msgstr "이미 비추하셨습니다."
 
-#: templates/haru/base.html:98
+#: templates/404.html:4 templates/500.html:4
+msgid "Oops"
+msgstr "앗.."
+
+#: templates/404.html:7
+msgid "The page you requested is not exist. Please try something else."
+msgstr "존재하지 않는 페이지입니다. 뭔가 다른 걸 해보세요."
+
+#: templates/500.html:7
+msgid ""
+"Something wrong. Please reload the page to try again. If error continues, "
+"please contact administrator."
+msgstr "서버 에러 발생. 새로고침 후에도 문제가 계속되면 관리자에게 문의해 주세요."
+
+#: templates/haru/base.html:97
 msgid "Message"
 msgstr "쪽지"
 
-#: templates/haru/base.html:110
+#: templates/haru/base.html:109
 msgid "logout"
 msgstr "로그아웃"
 
-#: templates/haru/base.html:121 templates/haru/registration/signup.html:35
+#: templates/haru/base.html:120 templates/haru/registration/signup.html:35
 msgid "id"
 msgstr "아이디"
 
-#: templates/haru/base.html:124 templates/haru/registration/signup.html:85
+#: templates/haru/base.html:123 templates/haru/registration/signup.html:85
 msgid "password"
 msgstr "비밀번호"
 
-#: templates/haru/base.html:134
+#: templates/haru/base.html:133
 msgid "Reset password"
 msgstr "비밀번호찾기"
 
-#: templates/haru/base.html:139 templates/haru/registration/signup.html:4
+#: templates/haru/base.html:138 templates/haru/registration/signup.html:4
 #: templates/haru/registration/signup.html:18
 #: templates/haru/registration/signup.html:101
 msgid "Sign up"

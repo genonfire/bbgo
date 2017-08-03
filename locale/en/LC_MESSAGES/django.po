@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-03 15:50+0900\n"
+"POT-Creation-Date: 2017-08-03 16:29+0900\n"
 "PO-Revision-Date: 2017-07-13 14:03+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,7 @@ msgstr ""
 msgid "Thank you for joining us."
 msgstr ""
 
-#: accounts/views.py:58 templates/haru/base.html:128
+#: accounts/views.py:58 templates/haru/base.html:127
 #: templates/haru/registration/password_reset_complete.html:17
 msgid "login"
 msgstr ""
@@ -125,27 +125,41 @@ msgstr ""
 msgid "You've already disliked"
 msgstr ""
 
-#: templates/haru/base.html:98
+#: templates/404.html:4 templates/500.html:4
+msgid "Oops"
+msgstr ""
+
+#: templates/404.html:7
+msgid "The page you requested is not exist. Please try something else."
+msgstr ""
+
+#: templates/500.html:7
+msgid ""
+"Something wrong. Please reload the page to try again. If error continues, "
+"please contact administrator."
+msgstr ""
+
+#: templates/haru/base.html:97
 msgid "Message"
 msgstr ""
 
-#: templates/haru/base.html:110
+#: templates/haru/base.html:109
 msgid "logout"
 msgstr ""
 
-#: templates/haru/base.html:121 templates/haru/registration/signup.html:35
+#: templates/haru/base.html:120 templates/haru/registration/signup.html:35
 msgid "id"
 msgstr ""
 
-#: templates/haru/base.html:124 templates/haru/registration/signup.html:85
+#: templates/haru/base.html:123 templates/haru/registration/signup.html:85
 msgid "password"
 msgstr ""
 
-#: templates/haru/base.html:134
+#: templates/haru/base.html:133
 msgid "Reset password"
 msgstr ""
 
-#: templates/haru/base.html:139 templates/haru/registration/signup.html:4
+#: templates/haru/base.html:138 templates/haru/registration/signup.html:4
 #: templates/haru/registration/signup.html:18
 #: templates/haru/registration/signup.html:101
 msgid "Sign up"
