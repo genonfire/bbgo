@@ -1,8 +1,9 @@
 {% load i18n %}
-{% block title %}사과!{% endblock %}
-{% block content %}
-<h1>뭔가 잘못됐네요.</h1>
-브라우저 종료 후 재시도해도 문제가 계속되면 관리자에게 알려주세요.<br>
-<a href="mailto:{{ ADMIN_EMAIL }}}?subject=사이트 문제점 신고">관리자에게 메일</a><br><br>
-<a href="{% url 'accounts:login' %}">돌아가기</a>
-{% endblock %}
+<html>
+<head>
+<title>{% trans 'Oops' %}</title>
+</head>
+<body>
+{% trans 'Something wrong. Please reload the page to try again. If error continues, please contact administrator.' %}
+</body>
+</html>

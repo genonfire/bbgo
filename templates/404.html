@@ -1,6 +1,9 @@
 {% load i18n %}
-{% block title %}잘못!{% endblock %}
-{% block content %}
-<h1>잘못된 접근입니다.</h1>
-<a href="{% url 'show issues' %}">돌아가기</a>
-{% endblock %}
+<html>
+<head>
+<title>{% trans 'Oops' %}</title>
+</head>
+<body>
+{% trans 'The page you requested is not exist. Please try something else.' %}
+</body>
+</html>
