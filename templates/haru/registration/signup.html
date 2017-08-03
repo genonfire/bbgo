@@ -51,7 +51,7 @@
                             {{ userform.first_name }}
                             <input type="button" value="{% trans 'Check exist' %}" onClick="checkDuplication('nickname')">
                             <div>
-                                * {% trans 'Length limit' %}: {{ ID_MIN_LENGTH }} ~ {{ ID_MAX_LENGTH }}
+                                * {% trans 'Length limit' %}: {{ NICKNAME_MIN_LENGTH }} ~ {{ NICKNAME_MAX_LENGTH }}
                             </div>
                         </td>
                     </tr>
@@ -119,6 +119,7 @@
 {% block bodyscript %}
     <script>
         var id_min_length = {{ ID_MIN_LENGTH }};
+        var nickname_min_length = {{ NICKNAME_MIN_LENGTH }}
     </script>
     <script src="{% static 'js/member.js' %}" async></script>
 {% endblock %}

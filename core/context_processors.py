@@ -12,6 +12,8 @@ def global_settings(request):
         'ADMIN_EMAIL': settings.ADMIN_EMAIL,
         'ID_MIN_LENGTH': settings.ID_MIN_LENGTH,
         'ID_MAX_LENGTH': settings.ID_MAX_LENGTH,
+        'NICKNAME_MIN_LENGTH': settings.NICKNAME_MIN_LENGTH,
+        'NICKNAME_MAX_LENGTH': settings.NICKNAME_MAX_LENGTH,
         'ENABLE_NICKNAME': settings.ENABLE_NICKNAME,
         'REPLY_TEXT_MAX': settings.REPLY_TEXT_MAX,
         'REPLY_IMAGE_AVAILABLE': settings.REPLY_IMAGE_AVAILABLE,

@@ -25,10 +25,15 @@ urlpatterns = [
     url(r'^', include('django.contrib.auth.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(
+        r'^jsi18n-debug/$',
+        'django.views.i18n.javascript_catalog',
+        js_info_dict,
+    ),
+    url(
         r'^.*/jsi18n/$',
         'jsi18ncache.views.javascript_catalog',
         js_info_dict,
-        name='javascript-catalog'
+        # name='javascript-catalog'
     ),
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
     url(r'^boards/', include('boards.urls', namespace='boards')),

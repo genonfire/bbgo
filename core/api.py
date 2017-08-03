@@ -21,13 +21,21 @@ from django.utils.translation import ugettext as _
 
 def check_duplication(request):
     """Check duplication for id and nickname"""
+    check_type = request.POST.get('check_type')
     username = request.POST.get('username')
+
+    if check_type == 'id':
+        min_limit = settings.ID_MIN_LENGTH
+        max_limit = settings.ID_MAX_LENGTH
+    else:
+        min_limit = settings.NICKNAME_MIN_LENGTH
+        max_limit = settings.NICKNAME_MAX_LENGTH
 
     q = Q(username__iexact=username) | Q(first_name__iexact=username)
     idcheck = User.objects.filter(q).exists()
 
     length = len(username)
-    if length < settings.ID_MIN_LENGTH or length > settings.ID_MAX_LENGTH:
+    if length < min_limit or length > max_limit:
         return JsonResponse({'status': 'false'}, status=400)
 
     if idcheck:

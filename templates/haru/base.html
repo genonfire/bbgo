@@ -19,11 +19,12 @@
 <link rel="stylesheet" href="{% static 'css/haru.css' %}">
 {% if DEBUG %}
     <script src="{% static 'js/thirdparty/jquery-1.12.4.min.js' %}"></script>
+    <script src="/jsi18n-debug/" async></script>
 {% else %}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    {% get_current_language as LANGUAGE_CODE %}
+    <script src="/{{ APP_VERSION }}/jsi18n/?language={{ LANGUAGE_CODE }}" async></script>
 {% endif %}
-{% get_current_language as LANGUAGE_CODE %}
-<script src="/{{ APP_VERSION }}/jsi18n/?language={{LANGUAGE_CODE}}"></script>
 {% block extra_head_content %}{% endblock %}
 </head>
 

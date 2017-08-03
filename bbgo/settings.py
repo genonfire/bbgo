@@ -98,7 +98,6 @@ TEMPLATES = [
                 'core.context_processors.global_settings',
                 'django.core.context_processors.i18n',
             ],
-            # 'string_if_invalid': 'INVALID_EXPRESSION: %s',
         },
     },
 ]
@@ -222,6 +221,8 @@ SUMMERNOTE_CONFIG = {
 # Setting for Member
 ID_MIN_LENGTH = 4
 ID_MAX_LENGTH = 16  # Maximum 30
+NICKNAME_MIN_LENGTH = 2
+NICKNAME_MAX_LENGTH = 12
 ENABLE_NICKNAME = True
 
 # Setting for Reply

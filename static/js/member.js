@@ -9,7 +9,7 @@ function checkDuplication(check_type) {
     }
     else {
         username = $('#signup_form #id_first_name').val();
-        if (!username && username.length < id_min_length) {
+        if (!username && username.length < nickname_min_length) {
             alert(gettext("Mind the chracter length limitation."));
             return;
         }
@@ -25,6 +25,7 @@ function checkDuplication(check_type) {
         type: "POST",
         url: "/api/check_duplication/",
         data: {
+            check_type: check_type,
             username: username,
         },
         success: function(data) {
