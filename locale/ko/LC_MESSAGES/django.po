@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-03 16:29+0900\n"
-"PO-Revision-Date: 2017-08-03 16:31+0900\n"
+"POT-Creation-Date: 2017-08-03 20:46+0900\n"
+"PO-Revision-Date: 2017-08-03 20:47+0900\n"
 "Last-Translator:   <genonfire@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,28 +19,19 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: accounts/views.py:34
+#: accounts/views.py:33
 msgid "Please check username."
 msgstr "아이디를 확인해 주세요."
 
-#: accounts/views.py:44
+#: accounts/views.py:43
 msgid "Please check nickname."
 msgstr "닉네임을 확인해 주세요."
 
-#: accounts/views.py:56
-msgid "Thank you for joining us."
-msgstr "함께해 주셔서 감사합니다."
-
-#: accounts/views.py:58 templates/haru/base.html:127
-#: templates/haru/registration/password_reset_complete.html:17
-msgid "login"
-msgstr "로그인"
-
-#: accounts/views.py:62 accounts/views.py:64
+#: accounts/views.py:61 accounts/views.py:63
 msgid "Verification failure. Please check verification code again."
 msgstr "인증실패. 인증코드를 다시 확인해 주세요."
 
-#: accounts/views.py:66
+#: accounts/views.py:65
 msgid "Sorry. Please try again later."
 msgstr "죄송합니다. 나중에 다시 시도해 주세요."
 
@@ -130,37 +121,59 @@ msgstr "이미 비추하셨습니다."
 msgid "Oops"
 msgstr "앗.."
 
-#: templates/404.html:7
+#: templates/404.html:9
 msgid "The page you requested is not exist. Please try something else."
 msgstr "존재하지 않는 페이지입니다. 뭔가 다른 걸 해보세요."
 
-#: templates/500.html:7
+#: templates/500.html:9
 msgid ""
 "Something wrong. Please reload the page to try again. If error continues, "
 "please contact administrator."
 msgstr "서버 에러 발생. 새로고침 후에도 문제가 계속되면 관리자에게 문의해 주세요."
 
-#: templates/haru/base.html:97
+#: templates/haru/base.html:71
 msgid "Message"
 msgstr "쪽지"
 
-#: templates/haru/base.html:109
+#: templates/haru/base.html:83 templates/haru/menu_mobile.html:41
+#: templates/haru/registration/logged_out.html:4
+#: templates/haru/registration/logged_out.html:8
+#: templates/haru/registration/login.html:32
 msgid "logout"
 msgstr "로그아웃"
 
-#: templates/haru/base.html:120 templates/haru/registration/signup.html:35
+#: templates/haru/base.html:94 templates/haru/menu_mobile.html:51
+#: templates/haru/registration/login.html:40
+#: templates/haru/registration/signup.html:35
 msgid "id"
 msgstr "아이디"
 
-#: templates/haru/base.html:123 templates/haru/registration/signup.html:85
+#: templates/haru/base.html:97 templates/haru/menu_mobile.html:59
+#: templates/haru/registration/login.html:43
+#: templates/haru/registration/signup.html:85
 msgid "password"
 msgstr "비밀번호"
 
-#: templates/haru/base.html:133
+#: templates/haru/base.html:101 templates/haru/menu_mobile.html:54
+#: templates/haru/registration/join.html:17
+#: templates/haru/registration/logged_out.html:17
+#: templates/haru/registration/login.html:4
+#: templates/haru/registration/login.html:11
+#: templates/haru/registration/login.html:46
+#: templates/haru/registration/password_reset_complete.html:17
+msgid "login"
+msgstr "로그인"
+
+#: templates/haru/base.html:107 templates/haru/menu_mobile.html:66
+#: templates/haru/registration/login.html:51
 msgid "Reset password"
 msgstr "비밀번호찾기"
 
-#: templates/haru/base.html:138 templates/haru/registration/signup.html:4
+#: templates/haru/base.html:112 templates/haru/menu_mobile.html:71
+#: templates/haru/registration/join.html:4
+#: templates/haru/registration/join.html:8
+#: templates/haru/registration/login.html:56
+#: templates/haru/registration/signup.html:4
 #: templates/haru/registration/signup.html:18
 #: templates/haru/registration/signup.html:101
 msgid "Sign up"
@@ -304,6 +317,18 @@ msgstr "메뉴"
 #: templates/haru/menu_main.html:33
 msgid "bookmark"
 msgstr "즐겨찾기"
+
+#: templates/haru/registration/join.html:11
+msgid "Thank you for joining us."
+msgstr "회원가입 성공. 함께해 주셔서 감사합니다."
+
+#: templates/haru/registration/logged_out.html:11
+msgid "Thanks for spending some quality time with the Web site today."
+msgstr "이용해 주셔서 감사합니다."
+
+#: templates/haru/registration/login.html:15
+msgid "Login failure"
+msgstr "로그인 실패"
 
 #: templates/haru/registration/password_change_done.html:4
 #: templates/haru/registration/password_change_done.html:7

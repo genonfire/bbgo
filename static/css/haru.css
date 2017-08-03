@@ -22,7 +22,7 @@ input[type="submit"] {background:#11223d;color:#fff;}
 a {vertical-align:middle;box-sizing:border-box;color:#333;text-decoration:none;}
 a:hover {color:yellow; color:#000;text-decoration:none;}
 
-.buttons span a {display:inline-block;height:2.2em;margin-left:.5em;padding:0 .3em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.1em;}
+.buttons span a {display:inline-block;height:2.2em;padding:0 .3em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.1em;}
 .buttons span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
 
 /* Header */
@@ -30,7 +30,7 @@ a:hover {color:yellow; color:#000;text-decoration:none;}
 .head_container {width:800px;padding-left:7px;}
 .head_container span {height:100%;vertical-align:baseline;}
 .head_container div {height:2.5em;padding-top:.2em;}
-.head_container div.power span {margin-left:1em;}
+/*.head_container div.power span {margin-left:1em;}*/
 
 .head_logo {height:100%;margin-right:.5em;}
 .head_logo img {width:2.1em;height:2.1em;}
@@ -43,10 +43,27 @@ a:hover {color:yellow; color:#000;text-decoration:none;}
 #mainnav ul li {float:left;margin-right:.8em;}
 #mainnav ul li.head_menu {margin-left:.5em;padding-top:.3em;font-size:.9em;}
 #mainnav ul li a {display:block;position:relative;width:auto;}
-#mainnav ul li ul {display: none;}
+#mainnav ul li ul {display:none;}
 #mainnav ul li:hover ul {display:block;padding:.5em;position:absolute;background:#585A5E;}
 #mainnav ul li ul li {display:block;float:none;position:relative;padding:.2em;font-size:.9em;}
 #mainnav ul li ul li.titlemenu {border-bottom:dotted 1px #fff;}
+
+#power ul {list-style: none;}
+#power ul li {float:left;margin-left:.8em;}
+#power ul li a {display:block;position:relative;width:auto;}
+#power ul li ul {display:none;}
+#power ul li:hover ul {display:block;padding:.0em;position:absolute;top:2.5em;left:0em;width:98%;height:10em;margin:.2em;background:#fff;box-shadow:0 0 3px 3px #999;text-align:center;}
+#power ul li ul li {display:block;float:none;position:relative;padding:.2em;}
+#power div {margin:.1em;padding:.1em;}
+#power .power_container {text-align:center;margin:.5em;font-size:1.2em;}
+#power table {width:100%;}
+#power table td {height:2.5em;margin:0;padding:0;}
+#power table td.power_input {width:auto;}
+#power table td.power_login {width:5em;}
+#power input[type="text"], input[type="password"] {width:100%;height:2.5em;padding:.2em;}
+#power input[type="submit"] {display:block;width:100%;height:5em;margin:0;padding:0;}
+#power div.power_user {height:5em;vertical-align:middle;color:black;}
+#power div.power_button input[type="submit"] {height:auto;}
 
 /* Layout */
 #wrap {margin:0;padding-left:10px;padding-top:2.2em;}
@@ -73,7 +90,7 @@ a:hover {color:yellow; color:#000;text-decoration:none;}
 .sidebar_login {text-align:right;height:2em;margin:.3em;font-size:.9em;}
 .sidebar_login input {height:2em;font-size:.9em;margin:.1em;padding:.2em;}
 
-.annotation {min-height:0.1em;margin:0 0 1em 0;padding:.9em 0;border-bottom:1px solid #11223d;font-size:.8em;color:#666;}
+.annotation {min-height:0.1em;margin:0 0 1em 0;padding:.9em 0;padding-left:.2em;border-bottom:1px solid #11223d;font-size:.8em;color:#666;}
 .annotation span a {display:inline-block;height:2.2em;margin-left:.5em;padding:0 .3em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.1em;}
 .annotation span a:hover, .sidebar_buttons span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
 
@@ -218,6 +235,11 @@ table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 .password_reset_text {margin-left:.5em;padding-top:.5em;font-size:.9em;}
 .password_reset_email {width:100%;font-size:.9em;}
 .password_reset_email input {width:95%;margin-left:.5em;margin-top:.5em;height:2.4em;vertical-align:middle;}
+.full_login_container {width:100%;text-align:center;}
+.full_login {display:inline-block;width:100%;max-width:20em;text-align:center;}
+.full_login div {height:2.5em;margin:.2em;padding:.2em;}
+.full_login input[type="text"], input[type="password"] {width:100%;height:2.5em;padding:.2em;}
+.full_login input[type="submit"] {width:100%;height:2.5em;margin:0;}
 
 /* Footer */
 #footer {padding:1em;text-align:center;font-size:.9em;}

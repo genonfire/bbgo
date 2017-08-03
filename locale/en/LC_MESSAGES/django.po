@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-03 16:29+0900\n"
+"POT-Creation-Date: 2017-08-03 20:46+0900\n"
 "PO-Revision-Date: 2017-07-13 14:03+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,28 +18,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: accounts/views.py:34
+#: accounts/views.py:33
 msgid "Please check username."
 msgstr ""
 
-#: accounts/views.py:44
+#: accounts/views.py:43
 msgid "Please check nickname."
 msgstr ""
 
-#: accounts/views.py:56
-msgid "Thank you for joining us."
-msgstr ""
-
-#: accounts/views.py:58 templates/haru/base.html:127
-#: templates/haru/registration/password_reset_complete.html:17
-msgid "login"
-msgstr ""
-
-#: accounts/views.py:62 accounts/views.py:64
+#: accounts/views.py:61 accounts/views.py:63
 msgid "Verification failure. Please check verification code again."
 msgstr ""
 
-#: accounts/views.py:66
+#: accounts/views.py:65
 msgid "Sorry. Please try again later."
 msgstr ""
 
@@ -129,37 +120,59 @@ msgstr ""
 msgid "Oops"
 msgstr ""
 
-#: templates/404.html:7
+#: templates/404.html:9
 msgid "The page you requested is not exist. Please try something else."
 msgstr ""
 
-#: templates/500.html:7
+#: templates/500.html:9
 msgid ""
 "Something wrong. Please reload the page to try again. If error continues, "
 "please contact administrator."
 msgstr ""
 
-#: templates/haru/base.html:97
+#: templates/haru/base.html:71
 msgid "Message"
 msgstr ""
 
-#: templates/haru/base.html:109
+#: templates/haru/base.html:83 templates/haru/menu_mobile.html:41
+#: templates/haru/registration/logged_out.html:4
+#: templates/haru/registration/logged_out.html:8
+#: templates/haru/registration/login.html:32
 msgid "logout"
 msgstr ""
 
-#: templates/haru/base.html:120 templates/haru/registration/signup.html:35
+#: templates/haru/base.html:94 templates/haru/menu_mobile.html:51
+#: templates/haru/registration/login.html:40
+#: templates/haru/registration/signup.html:35
 msgid "id"
 msgstr ""
 
-#: templates/haru/base.html:123 templates/haru/registration/signup.html:85
+#: templates/haru/base.html:97 templates/haru/menu_mobile.html:59
+#: templates/haru/registration/login.html:43
+#: templates/haru/registration/signup.html:85
 msgid "password"
 msgstr ""
 
-#: templates/haru/base.html:133
+#: templates/haru/base.html:101 templates/haru/menu_mobile.html:54
+#: templates/haru/registration/join.html:17
+#: templates/haru/registration/logged_out.html:17
+#: templates/haru/registration/login.html:4
+#: templates/haru/registration/login.html:11
+#: templates/haru/registration/login.html:46
+#: templates/haru/registration/password_reset_complete.html:17
+msgid "login"
+msgstr ""
+
+#: templates/haru/base.html:107 templates/haru/menu_mobile.html:66
+#: templates/haru/registration/login.html:51
 msgid "Reset password"
 msgstr ""
 
-#: templates/haru/base.html:138 templates/haru/registration/signup.html:4
+#: templates/haru/base.html:112 templates/haru/menu_mobile.html:71
+#: templates/haru/registration/join.html:4
+#: templates/haru/registration/join.html:8
+#: templates/haru/registration/login.html:56
+#: templates/haru/registration/signup.html:4
 #: templates/haru/registration/signup.html:18
 #: templates/haru/registration/signup.html:101
 msgid "Sign up"
@@ -302,6 +315,18 @@ msgstr ""
 
 #: templates/haru/menu_main.html:33
 msgid "bookmark"
+msgstr ""
+
+#: templates/haru/registration/join.html:11
+msgid "Thank you for joining us."
+msgstr ""
+
+#: templates/haru/registration/logged_out.html:11
+msgid "Thanks for spending some quality time with the Web site today."
+msgstr ""
+
+#: templates/haru/registration/login.html:15
+msgid "Login failure"
 msgstr ""
 
 #: templates/haru/registration/password_change_done.html:4

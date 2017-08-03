@@ -1,78 +1,65 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% block title %}로그인{% endblock %}
+{% load i18n %}
+{% block title %}{{ SITE_NAME }} - {% trans 'login' %}{% endblock %}
 {% block extra_head_content %}
 {{ block.super }}
 {% endblock %}
 {% block content %}
 
-{% if form.errors %}
-<p><font color="red">로그인 실패</font></p>
-{% endif %}
-
-        <h1>로그인</h1>
-        <div class="annotation">
-            {% if user.is_authenticated %}
-                회원정보관련 문의나 요청은 이메일로 부탁드립니다.
-            {% else %}
-                회원가입을 하시려면 회원가입 버튼을 눌러주세요. <span><a href="javascript:void(0)">회원가입</a></span>
-            {% endif %}
-        </div>
+<h1>
+    {% trans 'login' %}
+</h1>
+<div class="annotation">
+    {% if form.errors %}
+        <font color="red">{% trans 'Login failure' %}</font>
+    {% endif %}
+</div>
+<div class="full_login_container">
+    <div class="full_login">
         {% if user.is_authenticated %}
-            <p style="margin-top:40px"></p>
-            <div align="center">
-                <table class="member" width="300px">
-                <tr>
-                    <td align="center" height="30px" bgcolor="#417690" colspan="3"><font color="#F4F382">{{user}} 님 반갑습니다.</font></td>
-                </tr>
-                <tr>
-                    <td align="center" height="30px"><font size="2"> <a href="{% url 'boards:show' %}"><b>boards</b></a></font></td>
-                </tr>
-                <tr>
-                    <td align="center" height="10px">-------------------------------</td>
-                </tr>
-                <tr>
-                    <td align="center" valign="top" height="40px">
-                    <div class="dbSearch">
-                    <span><a href="{% url 'accounts:password_change' %}">비밀번호 변경</a></span>
-                    <span><a href="{% url 'accounts:logout' %}">로그아웃</a></span>
-                    </div>
-                    <input type="hidden" name="next" value="{{ next }}" />
-                    </td>
-                </tr>
-                </table>
-            </div>
+            <form method="post" action="{% url 'accounts:logout' %}">
+                {% csrf_token %}
+                <div>
+                    <span class="float-left">
+                        {{ user }}
+                    </span>
+                    <span class="float-right">
+                        <img src="{% static 'icons/edit24.png' %}">
+                    </span>
+                </div>
+                <div>
+                    <input type="submit" value="{% trans 'logout' %}">
+                </div>
+                <input type="hidden" name="next" value="{{ next }}">
+            </form>
         {% else %}
             <form method="post" action="{% url 'accounts:login' %}">
-            {% csrf_token %}
-            <p style="margin-top:40px"></p>
-            <div align="center">
-                <table class="member">
-                <tr>
-                    <td align="center" height="30px" bgcolor="#417690" colspan="3"><font color="#F4F382">로그인</font></td>
-                </tr>
-                <tr>
-                    <td width="60px" rowspan="6"></td>
-                    <td width="180px" align="center">
-                    <td width="60px" rowspan="6"></td>
-                </tr>
-                <tr>
-                    <td><font size="2">아이디</font></td>
-                </tr>
-                <tr>
-                    <td height="30px">{{ form.username }}</td>
-                </tr>
-                <tr>
-                    <td><font size="2">비밀번호</font></td>
-                </tr>
-                <tr>
-                    <td height="30px">{{ form.password }}</td>
-                </tr>
-                <tr>
-                    <td align="center" valign="top" height="40px"><input type="submit" value="로그인" /><input type="hidden" name="next" value="{{ next }}" /></td>
-                </tr>
-                </table>
-            </div>
+                {% csrf_token %}
+                <div>
+                    <input id="id_username" type="text" name="username" maxlength="{{ ID_MAX_LENGTH }}" placeholder="{% trans 'id' %}" />
+                </div>
+                <div>
+                    <input type="password" name="password" id="id_password" placeholder="{% trans 'password' %}"/>
+                </div>
+                <div>
+                    <input type="submit" value="{% trans 'login' %}" />
+                </div>
+                <div class="buttons">
+                    <span class="float-left">
+                        <a href="{% url 'accounts:password_reset' %}">
+                            {% trans 'Reset password' %}
+                        </a>
+                    </span>
+                    <span class="float-right">
+                        <a href="{% url 'accounts:signup' %}">
+                            {% trans 'Sign up' %}
+                        </a>
+                    </span>
+                </div>
+                <input type="hidden" name="next" value="{{ next }}">
             </form>
-        {% endif %}
+    {% endif %}
+    </div>
+</div>
 {% endblock %}

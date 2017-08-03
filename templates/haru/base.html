@@ -34,34 +34,8 @@
             <div id="mainnav" class="float-left">
                 {% menu_main %}
             </div>
-            <div class="float-right mobile_show power">
-                <span>
-                    {% if user.profile.alarm %}
-                        <a href="{% url 'api:alarm_off' %}">
-                            <img src="{% static 'icons/alert24.gif' %}">
-                        </a>
-                    {% else %}
-                        <img src="{% static 'icons/alert24.png' %}">
-                    {% endif %}
-                </span>
-                <span>
-                    {% if True %}
-                        <img src="{% static 'icons/nomessage24.png' %}">
-                    {% else %}
-                        <img src="{% static 'icons/message24.png' %}">
-                    {% endif %}
-                </span>
-                <span>
-                    {% if user.is_authenticated %}
-                        <a href="#">
-                            <img src="{% static 'icons/poweron.png' %}">
-                        </a>
-                    {% else %}
-                        <a href="#">
-                            <img src="{% static 'icons/power.png' %}">
-                        </a>
-                    {% endif %}
-                </span>
+            <div id="power" class="float-right mobile_show">
+                {% menu_mobile %}
             </div>
         </div>
     </div>
@@ -117,7 +91,7 @@
                     <form method="post" action="{% url 'accounts:login' %}">
                         {% csrf_token %}
                         <div class="sidebar_login">
-                            <input id="id_username" type="text" name="username" maxlength="30" placeholder="{% trans 'id' %}" />
+                            <input id="id_username" type="text" name="username" maxlength="{{ ID_MAX_LENGTH }}" placeholder="{% trans 'id' %}" />
                         </div>
                         <div class="sidebar_login">
                             <input type="password" name="password" id="id_password" placeholder="{% trans 'password' %}"/>

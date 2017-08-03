@@ -36,6 +36,19 @@ def menu_main(context):
     }
 
 
+@register.inclusion_tag('menu_mobile.html', takes_context=True)
+def menu_mobile(context):
+    """Login menu for mobile"""
+    request = context['request']
+    id_max_length = context['ID_MAX_LENGTH']
+
+    return {
+        'user': request.user,
+        'nexturl': request.path,
+        'ID_MAX_LENGTH': id_max_length,
+    }
+
+
 @register.inclusion_tag('menu_sub.html')
 def menu_sub():
     """Sub navigation menu"""

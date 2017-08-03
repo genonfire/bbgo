@@ -7,7 +7,6 @@ from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.core.signing import TimestampSigner
-from django.core.urlresolvers import reverse_lazy
 from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -44,20 +43,20 @@ def sign_up(request):
                         msg = _('Please check nickname.')
                         return HttpResponse(msg)
 
-            email = userform.cleaned_data['email']
             code = userform.cleaned_data['code']
+            email = userform.cleaned_data['email']
             signer = TimestampSigner()
+
             try:
                 value = signer.unsign(code, max_age=86400)  # 24 hours
                 code_check = value == email
 
                 if code_check:
-                    msg = u"%s.<br><a href=%s>%s</a>" % (
-                        _('Thank you for joining us.'),
-                        reverse_lazy('accounts:login'),
-                        _('login')
-                    )
                     userform.save()
+                    return render(
+                        request,
+                        "registration/join.html",
+                    )
                 else:
                     msg = _('Verification failure. Please check verification code again.')
             except:
