@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
+import accounts.models
 from django.conf import settings
 
 
@@ -22,7 +23,13 @@ class Migration(migrations.Migration):
                 ('bookmarks', models.TextField(default=b'', blank=True)),
                 ('scrap', models.TextField(default=b'', blank=True)),
                 ('alarm', models.BooleanField(default=False)),
+                ('msg_count', models.IntegerField(default=0)),
                 ('alarm_list', models.TextField(default=b'', blank=True)),
+                ('ip_list', models.TextField(default=b'', blank=True)),
+                ('sense_client', models.CharField(max_length=30, blank=True)),
+                ('sense_slot', models.CharField(max_length=15, blank=True)),
+                ('portrait', models.ImageField(blank=True, upload_to=b'portrait/%Y-%m-%d/', validators=[accounts.models.img_validator])),
+                ('signature', models.TextField(blank=True)),
                 ('user', models.OneToOneField(to=settings.AUTH_USER_MODEL)),
             ],
         ),
