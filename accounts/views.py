@@ -9,13 +9,43 @@ from django.core.mail import send_mail
 from django.core.signing import TimestampSigner
 from django.db.models import Q
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.utils.translation import ugettext as _
 
-from .forms import RegistrationForm
+from .forms import RegistrationForm, SettingForm
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
+
+
+def setting(request):
+    """Account setting"""
+    if request.method == "POST":
+        settingform = SettingForm(request.POST)
+        if settingform.is_valid():
+            setting = settingform.save(commit=False)
+            request.user.profile.sense_client = setting.sense_client
+            request.user.profile.sense_slot = setting.sense_slot
+            request.user.profile.save()
+            msg = _('Saved successfully.')
+        else:
+            msg = _('Form validation Failure')
+
+    elif request.method == "GET":
+        if request.user.is_authenticated():
+            msg = ""
+            settingform = SettingForm(instance=request.user.profile)
+        else:
+            return redirect('/')
+
+    return render(
+        request,
+        "accounts/setting.html",
+        {
+            'settingform': settingform,
+            'msg': msg,
+        }
+    )
 
 
 def sign_up(request):
@@ -55,7 +85,7 @@ def sign_up(request):
                     userform.save()
                     return render(
                         request,
-                        "registration/join.html",
+                        "accounts/join.html",
                     )
                 else:
                     msg = _('Verification failure. Please check verification code again.')
@@ -70,7 +100,7 @@ def sign_up(request):
 
     return render(
         request,
-        "registration/signup.html",
+        "accounts/signup.html",
         {
             'userform': userform,
         }

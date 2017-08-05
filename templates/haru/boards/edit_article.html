@@ -5,6 +5,7 @@
 {{ block.super }}
 {% endblock %}
 {% load i18n %}
+{% load sense %}
 {% block content %}
 
 <h1>{{ table_name }}</h1>
@@ -14,6 +15,7 @@
 {% endif %}
 </div>
 <div class="sense_horizontal_bar">
+    {% show_up_sense %}
 </div>
 
 <form

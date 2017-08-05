@@ -125,6 +125,12 @@ try:
     SITE_LOGO = getattr(secrets, "SITE_LOGO")
     SITE_INFO = getattr(secrets, "SITE_INFO")
     ADMIN_EMAIL = getattr(secrets, "ADMIN_EMAIL")
+    SENSE_UP_CLIENT = getattr(secrets, "SENSE_UP_CLIENT")
+    SENSE_UP_SLOT = getattr(secrets, "SENSE_UP_SLOT")
+    SENSE_DOWN_CLIENT = getattr(secrets, "SENSE_DOWN_CLIENT")
+    SENSE_DOWN_SLOT = getattr(secrets, "SENSE_DOWN_SLOT")
+    SENSE_SIDE_CLIENT = getattr(secrets, "SENSE_SIDE_CLIENT")
+    SENSE_SIDE_SLOT = getattr(secrets, "SENSE_SIDE_SLOT")
 except IOError:
     SECRET_KEY = 'k8n13h0y@$=v$uxg*^brlv9$#hm8w7nye6km!shc*&bkgkcd*p'
     DB_NAME = ''
@@ -138,6 +144,12 @@ except IOError:
     SITE_LOGO = ''
     SITE_INFO = ''
     ADMIN_EMAIL = ''
+    SENSE_UP_CLIENT = ''
+    SENSE_UP_SLOT = ''
+    SENSE_DOWN_CLIENT = ''
+    SENSE_DOWN_SLOT = ''
+    SENSE_SIDE_CLIENT = ''
+    SENSE_SIDE_SLOT = ''
 f.close()
 
 try:
@@ -224,6 +236,9 @@ ID_MAX_LENGTH = 16  # Maximum 30
 NICKNAME_MIN_LENGTH = 2
 NICKNAME_MAX_LENGTH = 12
 ENABLE_NICKNAME = True
+
+# Use AdSense
+ENABLE_ADSENSE = True
 
 # Setting for Reply
 REPLY_TEXT_MAX = 3000

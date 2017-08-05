@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from accounts.models import Profile
+
 from django import forms
 from django.conf import settings
 from django.contrib.auth.forms import UserCreationForm
@@ -25,3 +27,13 @@ class RegistrationForm(UserCreationForm):
         self.fields['username'].widget.attrs['maxlength'] = settings.ID_MAX_LENGTH
         if settings.ENABLE_NICKNAME:
             self.fields['first_name'].widget.attrs['maxlength'] = settings.ID_MAX_LENGTH
+
+
+class SettingForm(forms.ModelForm):
+    """Edit form for setting"""
+
+    class Meta:
+        """Meta for SettingForm"""
+
+        model = Profile
+        fields = {"sense_client", "sense_slot"}

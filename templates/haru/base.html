@@ -3,6 +3,7 @@
 {% load context %}
 {% load user %}
 {% load menu %}
+{% load sense %}
 
 <!DOCTYPE html>
 <html>
@@ -53,7 +54,9 @@
                                 {{ user|nickname }}
                             </span>
                             <span class="float-right">
-                                <img src="{% static 'icons/edit24.png' %}">
+                                <a href="{% url 'accounts:setting' %}">
+                                    <img src="{% static 'icons/edit24.png' %}">
+                                </a>
                             </span>
                         </div>
                         <div class="sidebar_notice">
@@ -119,6 +122,7 @@
                 </div>
             {% endif %}
             <div class="sense_sidebar">
+                {% show_side_sense %}
             </div>
         </div> <!--//sidebar-->
 

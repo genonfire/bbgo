@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-03 20:46+0900\n"
+"POT-Creation-Date: 2017-08-05 16:28+0900\n"
 "PO-Revision-Date: 2017-07-13 14:03+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,19 +18,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: accounts/views.py:33
+#: accounts/views.py:30
+msgid "Saved successfully."
+msgstr ""
+
+#: accounts/views.py:32
+msgid "Form validation Failure"
+msgstr ""
+
+#: accounts/views.py:63
 msgid "Please check username."
 msgstr ""
 
-#: accounts/views.py:43
+#: accounts/views.py:73
 msgid "Please check nickname."
 msgstr ""
 
-#: accounts/views.py:61 accounts/views.py:63
+#: accounts/views.py:91 accounts/views.py:93
 msgid "Verification failure. Please check verification code again."
 msgstr ""
 
-#: accounts/views.py:65
+#: accounts/views.py:95
 msgid "Sorry. Please try again later."
 msgstr ""
 
@@ -43,7 +51,7 @@ msgid "status_temp"
 msgstr "Temporary Saved"
 
 #: boards/models.py:14 boards/models.py:52
-#: templates/haru/boards/show_list.html:60
+#: templates/haru/boards/show_list.html:63
 msgid "status_notice"
 msgstr "Notice"
 
@@ -130,178 +138,266 @@ msgid ""
 "please contact administrator."
 msgstr ""
 
-#: templates/haru/base.html:71
-msgid "Message"
+#: templates/haru/accounts/join.html:4 templates/haru/accounts/join.html:8
+#: templates/haru/accounts/login.html:57 templates/haru/accounts/signup.html:4
+#: templates/haru/accounts/signup.html:19
+#: templates/haru/accounts/signup.html:102 templates/haru/base.html:116
+#: templates/haru/menu_mobile.html:74
+msgid "Sign up"
 msgstr ""
 
-#: templates/haru/base.html:83 templates/haru/menu_mobile.html:41
-#: templates/haru/registration/logged_out.html:4
-#: templates/haru/registration/logged_out.html:8
-#: templates/haru/registration/login.html:32
-msgid "logout"
+#: templates/haru/accounts/join.html:11
+msgid "Thank you for joining us."
 msgstr ""
 
-#: templates/haru/base.html:94 templates/haru/menu_mobile.html:51
-#: templates/haru/registration/login.html:40
-#: templates/haru/registration/signup.html:35
-msgid "id"
-msgstr ""
-
-#: templates/haru/base.html:97 templates/haru/menu_mobile.html:59
-#: templates/haru/registration/login.html:43
-#: templates/haru/registration/signup.html:85
-msgid "password"
-msgstr ""
-
-#: templates/haru/base.html:101 templates/haru/menu_mobile.html:54
-#: templates/haru/registration/join.html:17
+#: templates/haru/accounts/join.html:17 templates/haru/accounts/login.html:4
+#: templates/haru/accounts/login.html:12 templates/haru/accounts/login.html:47
+#: templates/haru/base.html:105 templates/haru/menu_mobile.html:57
 #: templates/haru/registration/logged_out.html:17
-#: templates/haru/registration/login.html:4
-#: templates/haru/registration/login.html:11
-#: templates/haru/registration/login.html:46
 #: templates/haru/registration/password_reset_complete.html:17
 msgid "login"
 msgstr ""
 
-#: templates/haru/base.html:107 templates/haru/menu_mobile.html:66
-#: templates/haru/registration/login.html:51
+#: templates/haru/accounts/login.html:16
+msgid "Login failure"
+msgstr ""
+
+#: templates/haru/accounts/login.html:33 templates/haru/base.html:87
+#: templates/haru/menu_mobile.html:44
+#: templates/haru/registration/logged_out.html:4
+#: templates/haru/registration/logged_out.html:8
+msgid "logout"
+msgstr ""
+
+#: templates/haru/accounts/login.html:41
+#: templates/haru/accounts/signup.html:36 templates/haru/base.html:98
+#: templates/haru/menu_mobile.html:54
+msgid "id"
+msgstr ""
+
+#: templates/haru/accounts/login.html:44
+#: templates/haru/accounts/signup.html:86 templates/haru/base.html:101
+#: templates/haru/menu_mobile.html:62
+msgid "password"
+msgstr ""
+
+#: templates/haru/accounts/login.html:52 templates/haru/base.html:111
+#: templates/haru/menu_mobile.html:69
 msgid "Reset password"
 msgstr ""
 
-#: templates/haru/base.html:112 templates/haru/menu_mobile.html:71
-#: templates/haru/registration/join.html:4
-#: templates/haru/registration/join.html:8
-#: templates/haru/registration/login.html:56
-#: templates/haru/registration/signup.html:4
-#: templates/haru/registration/signup.html:18
-#: templates/haru/registration/signup.html:101
-msgid "Sign up"
+#: templates/haru/accounts/setting.html:4
+#: templates/haru/accounts/setting.html:8
+msgid "Setting"
 msgstr ""
 
-#: templates/haru/boards/edit_article.html:56
+#: templates/haru/accounts/setting.html:11
+msgid "Settings for each user."
+msgstr ""
+
+#: templates/haru/accounts/setting.html:19
+msgid "AdSense info"
+msgstr ""
+
+#: templates/haru/accounts/setting.html:22
+msgid ""
+"Your AdSense will be shown on information and best articles by profit "
+"sharing system. To use this feature please fill followings from your AdSense "
+"code."
+msgstr ""
+
+#: templates/haru/accounts/setting.html:47
+msgid "Save"
+msgstr ""
+
+#: templates/haru/accounts/signup.html:14
+#: templates/haru/registration/password_reset_confirm.html:41
+msgid "Error!"
+msgstr ""
+
+#: templates/haru/accounts/signup.html:23
+#, python-format
+msgid "Hello %(user)s!"
+msgstr ""
+
+#: templates/haru/accounts/signup.html:27
+msgid "Please fill all bold text which mean mandatory."
+msgstr ""
+
+#: templates/haru/accounts/signup.html:40
+#: templates/haru/accounts/signup.html:53
+msgid "Check exist"
+msgstr ""
+
+#: templates/haru/accounts/signup.html:42
+#: templates/haru/accounts/signup.html:55
+msgid "Length limit"
+msgstr ""
+
+#: templates/haru/accounts/signup.html:49
+msgid "nickname"
+msgstr ""
+
+#: templates/haru/accounts/signup.html:62
+msgid "Email address"
+msgstr ""
+
+#: templates/haru/accounts/signup.html:66
+msgid "Get code"
+msgstr ""
+
+#: templates/haru/accounts/signup.html:68
+msgid "After pressing verify, please wait till email sent."
+msgstr ""
+
+#: templates/haru/accounts/signup.html:74
+msgid "Verification code"
+msgstr ""
+
+#: templates/haru/accounts/signup.html:78
+msgid "Verify"
+msgstr ""
+
+#: templates/haru/accounts/signup.html:80
+msgid "Verification code is started by Email address"
+msgstr ""
+
+#: templates/haru/accounts/signup.html:94
+msgid "password confirm"
+msgstr ""
+
+#: templates/haru/accounts/signup.html:111
+msgid "Agree to Terms of Service and Privacy Policy"
+msgstr ""
+
+#: templates/haru/base.html:75
+msgid "Message"
+msgstr ""
+
+#: templates/haru/boards/edit_article.html:58
 msgid "status"
 msgstr ""
 
-#: templates/haru/boards/edit_article.html:60
-#: templates/haru/boards/show_article.html:137
+#: templates/haru/boards/edit_article.html:62
+#: templates/haru/boards/show_article.html:141
 msgid "submit"
 msgstr ""
 
-#: templates/haru/boards/edit_article.html:62
+#: templates/haru/boards/edit_article.html:64
 msgid "save"
 msgstr ""
 
-#: templates/haru/boards/edit_article.html:64
+#: templates/haru/boards/edit_article.html:66
 msgid "cancel"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:23
+#: templates/haru/boards/show_article.html:25
 msgid "to_list"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:40
+#: templates/haru/boards/show_article.html:42
 msgid "who likes"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:70
+#: templates/haru/boards/show_article.html:72
 msgid "reference"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:82
-#: templates/haru/boards/show_list.html:51
-#: templates/haru/boards/show_list.html:92
-#: templates/haru/boards/show_list.html:147
+#: templates/haru/boards/show_article.html:84
+#: templates/haru/boards/show_list.html:54
+#: templates/haru/boards/show_list.html:95
+#: templates/haru/boards/show_list.html:150
 msgid "like"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:87
+#: templates/haru/boards/show_article.html:89
 msgid "dislike"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:92
+#: templates/haru/boards/show_article.html:94
 msgid "share"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:98
+#: templates/haru/boards/show_article.html:100
 msgid "edit"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:103
-#: templates/haru/boards/show_reply.html:56
+#: templates/haru/boards/show_article.html:105
+#: templates/haru/boards/show_reply.html:57
 msgid "delete"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:119
+#: templates/haru/boards/show_article.html:122
 msgid "Reload replies"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:128
+#: templates/haru/boards/show_article.html:132
 msgid "Please show some respect."
 msgstr ""
 
-#: templates/haru/boards/show_list.html:37
-#: templates/haru/boards/show_list.html:216
+#: templates/haru/boards/show_list.html:39
+#: templates/haru/boards/show_list.html:220
 msgid "write"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:48
-#: templates/haru/boards/show_list.html:248
+#: templates/haru/boards/show_list.html:51
+#: templates/haru/boards/show_list.html:252
 msgid "subject"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:49
+#: templates/haru/boards/show_list.html:52
 msgid "username"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:50
-#: templates/haru/boards/show_list.html:95
-#: templates/haru/boards/show_list.html:150
+#: templates/haru/boards/show_list.html:53
+#: templates/haru/boards/show_list.html:98
+#: templates/haru/boards/show_list.html:153
 msgid "view"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:52
+#: templates/haru/boards/show_list.html:55
 msgid "date"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:173
-#: templates/haru/boards/show_list.html:194
-#: templates/haru/boards/show_list.html:225
+#: templates/haru/boards/show_list.html:177
+#: templates/haru/boards/show_list.html:198
+#: templates/haru/boards/show_list.html:229
 msgid "to prev page"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:180
-#: templates/haru/boards/show_list.html:210
-#: templates/haru/boards/show_list.html:241
+#: templates/haru/boards/show_list.html:184
+#: templates/haru/boards/show_list.html:214
+#: templates/haru/boards/show_list.html:245
 msgid "to next page"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:193
-#: templates/haru/boards/show_list.html:224
+#: templates/haru/boards/show_list.html:197
+#: templates/haru/boards/show_list.html:228
 msgid "to first page"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:251
+#: templates/haru/boards/show_list.html:255
 msgid "subject+content"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:254
+#: templates/haru/boards/show_list.html:258
 msgid "write user"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:258
+#: templates/haru/boards/show_list.html:262
 msgid "search"
 msgstr ""
 
-#: templates/haru/boards/show_reply.html:7
-#: templates/haru/boards/show_reply.html:65
+#: templates/haru/boards/show_reply.html:8
+#: templates/haru/boards/show_reply.html:66
 msgid "reply"
 msgstr ""
 
-#: templates/haru/boards/show_reply.html:18
+#: templates/haru/boards/show_reply.html:19
 msgid "Write reply"
 msgstr ""
 
-#: templates/haru/boards/show_reply.html:107
+#: templates/haru/boards/show_reply.html:108
 msgid "Deleted reply"
 msgstr ""
 
@@ -317,16 +413,8 @@ msgstr ""
 msgid "bookmark"
 msgstr ""
 
-#: templates/haru/registration/join.html:11
-msgid "Thank you for joining us."
-msgstr ""
-
 #: templates/haru/registration/logged_out.html:11
 msgid "Thanks for spending some quality time with the Web site today."
-msgstr ""
-
-#: templates/haru/registration/login.html:15
-msgid "Login failure"
 msgstr ""
 
 #: templates/haru/registration/password_change_done.html:4
@@ -379,11 +467,6 @@ msgstr ""
 
 #: templates/haru/registration/password_reset_confirm.html:35
 msgid "Change my password"
-msgstr ""
-
-#: templates/haru/registration/password_reset_confirm.html:41
-#: templates/haru/registration/signup.html:13
-msgid "Error!"
 msgstr ""
 
 #: templates/haru/registration/password_reset_confirm.html:45
@@ -440,59 +523,4 @@ msgstr ""
 
 #: templates/haru/registration/password_reset_form.html:19
 msgid "Email address:"
-msgstr ""
-
-#: templates/haru/registration/signup.html:22
-#, python-format
-msgid "Hello %(user)s!"
-msgstr ""
-
-#: templates/haru/registration/signup.html:26
-msgid "Please fill all bold text which mean mandatory."
-msgstr ""
-
-#: templates/haru/registration/signup.html:39
-#: templates/haru/registration/signup.html:52
-msgid "Check exist"
-msgstr ""
-
-#: templates/haru/registration/signup.html:41
-#: templates/haru/registration/signup.html:54
-msgid "Length limit"
-msgstr ""
-
-#: templates/haru/registration/signup.html:48
-msgid "nickname"
-msgstr ""
-
-#: templates/haru/registration/signup.html:61
-msgid "Email address"
-msgstr ""
-
-#: templates/haru/registration/signup.html:65
-msgid "Get code"
-msgstr ""
-
-#: templates/haru/registration/signup.html:67
-msgid "After pressing verify, please wait till email sent."
-msgstr ""
-
-#: templates/haru/registration/signup.html:73
-msgid "Verification code"
-msgstr ""
-
-#: templates/haru/registration/signup.html:77
-msgid "Verify"
-msgstr ""
-
-#: templates/haru/registration/signup.html:79
-msgid "Verification code is started by Email address"
-msgstr ""
-
-#: templates/haru/registration/signup.html:93
-msgid "password confirm"
-msgstr ""
-
-#: templates/haru/registration/signup.html:110
-msgid "Agree to Terms of Service and Privacy Policy"
 msgstr ""

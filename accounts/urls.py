@@ -9,7 +9,7 @@ urlpatterns = [
         r'^login/',
         'django.contrib.auth.views.login',
         name='login',
-        kwargs={'template_name': 'registration/login.html'}
+        kwargs={'template_name': 'accounts/login.html'}
     ),
     url(
         r'^logout/',
@@ -30,5 +30,10 @@ urlpatterns = [
         r'^signup/$',
         views.sign_up,
         name='signup'
+    ),
+    url(
+        r'^setting/$',
+        views.setting,
+        name='setting'
     ),
 ]

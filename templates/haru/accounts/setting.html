@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ SITE_NAME }} - {% trans 'Setting' %}{% endblock %}
+{% block content %}
+
+<h1>
+    {% trans 'Setting' %}
+</h1>
+<div class="annotation">
+    {% trans "Settings for each user." %}
+</div>
+
+<div class="signup">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div>
+            <h2>
+                {% trans 'AdSense info' %}
+            </h2>
+            <span>
+                {% trans 'Your AdSense will be shown on information and best articles by profit sharing system. To use this feature please fill followings from your AdSense code.' %}
+            </span>
+        </div>
+        <table class="member">
+            <tr>
+                <td class="label">
+                    data-ad-client
+                </td>
+                <td class="input ad-client">
+                    {{ settingform.sense_client }}
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    data-ad-slot
+                </td>
+                <td class="input">
+                    {{ settingform.sense_slot}}
+                </td>
+            </tr>
+        </table>
+        <div class="member align-right">
+            <span>
+                {{ msg }}
+            </span>
+            <input type="submit" value="{% trans 'Save' %}">
+        </div>
+    </form>
+</div>
+
+{% endblock %}

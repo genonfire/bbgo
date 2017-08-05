@@ -216,13 +216,15 @@ span.open_reply a {color:#409BD1;}
 table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 
 /* registrations */
-.signup {width:100%;}
+.signup {width:100%;margin-bottom:.5em;}
 .signup table {width:100%;}
 .signup td {height:3em;padding:.2em;border-bottom:1px solid #9393AE;}
 .signup td.label {min-width:72px;width:auto;padding-right:.5em;border-right:1px solid #9393AE;font-size:.8em;text-align:right;}
 .signup td.required {font-weight:bold;}
 .signup td.input {padding-left:.5em;font-size:.9em;}
-.signup div.concent div {margin:.5em;text-align:center;font-size:.9em;}
+.signup td.ad-client input {width:13em;}
+.signup div {margin:.5em;font-size:.9em;}
+.signup div.concent div {text-align:center;}
 /*.member {margin:1.25em auto 1.6em;background:#fff;}*/
 .member input {height:2.2em;padding-left:.2em;vertical-align:middle;}
 .member input[type="button"] {padding:0 10px;font-size:.9em;}
@@ -250,9 +252,9 @@ table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 .footerMenu li + li:before {content:'| ';margin:0 5px;color:#ddd;}
 .footerMenu li , .footerMenu li a {vertical-align:top;}
 
-/* ads */
-.sense_horizontal_bar {height:100px;background:#EDEDED;padding-top:1em;margin-top:.5em;margin-bottom:.5em;}
-.sense_sidebar {width:150px;min-height:150px;background:#EDEDED;padding-top:10px;margin-top:5px;margin-bottom:5px;}
+/* adsense */
+.sense_horizontal_bar {padding-top:.5em;margin-top:.5em;margin-bottom:.5em;}
+.sense_sidebar {width:150px;padding-left:.5em;margin-top:.5em;}
 
 @media all and (min-width:1080px) {
     .container {margin:auto;}

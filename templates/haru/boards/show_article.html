@@ -12,6 +12,7 @@
 {% load censor %}
 {% load reply %}
 {% load user %}
+{% load sense %}
 {% block content %}
 
 <h1>{{ table_name }}</h1>
@@ -107,6 +108,7 @@
     {% endif %}
 </div>
 <div class="sense_horizontal_bar">
+    {% show_up_sense %}
 </div>
 <form>{% csrf_token %}</form>
 
@@ -122,6 +124,7 @@
     </span>
 </div>
 <div class="sense_horizontal_bar">
+    {% show_down_sense %}
 </div>
 <div class="input_reply">
     <form id="form_reply" method="post" enctype="multipart/form-data">
