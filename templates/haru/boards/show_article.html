@@ -11,6 +11,7 @@
 {% load tz datetime %}
 {% load censor %}
 {% load reply %}
+{% load user %}
 {% block content %}
 
 <h1>{{ table_name }}</h1>
@@ -32,12 +33,12 @@
     {{ article.subject }}
 </div>
 <div class="article_user">
-    {{ article.user }}
+    {{ article.user|nickname }}
     <div class="article_view_count">
         <img src="{% static 'icons/eye18.png' %}">
         <span>{{ article.view_count }}</span>
         {% if article.like_count > 0 %}
-            <a href="javascript:void(0)" onClick="javascript:like_users(event, {{article.id}});return false;" title="{% trans 'who likes' %}">
+            <a href="javascript:void(0)" onClick="javascript:like_users(event, {{ article.id }});return false;" title="{% trans 'who likes' %}">
         {% else %}
             <a href="javascript:void(0)">
         {% endif %}

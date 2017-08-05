@@ -1,6 +1,7 @@
 {% load staticfiles %}
 {% load i18n %}
 {% load link %}
+{% load user %}
 {% load tz datetime %}
 
 <div class="reply_header">
@@ -40,7 +41,7 @@
         <div class="reply_title">
 {% endif %}
             <span class="reply_username">
-                {{ reply.user.username }}
+                {{ reply.user|nickname }}
             </span>
             <span class="reply_date">
                 {% if reply.created_at|localtime|is_today %}

@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load i18n %}
+{% load user %}
 
 <ul>
     <li>
@@ -31,7 +32,7 @@
                         {% csrf_token %}
                         <div class="power_user">
                             <span class="float-left">
-                                {{ user }}
+                                {{ user|nickname }}
                             </span>
                             <span class="float-right">
                                 <img src="{% static 'icons/edit24.png' %}">

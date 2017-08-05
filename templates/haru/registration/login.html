@@ -5,6 +5,7 @@
 {% block extra_head_content %}
 {{ block.super }}
 {% endblock %}
+{% load user %}
 {% block content %}
 
 <h1>
@@ -22,7 +23,7 @@
                 {% csrf_token %}
                 <div>
                     <span class="float-left">
-                        {{ user }}
+                        {{ user|nickname }}
                     </span>
                     <span class="float-right">
                         <img src="{% static 'icons/edit24.png' %}">

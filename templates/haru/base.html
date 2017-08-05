@@ -1,6 +1,7 @@
 {% load staticfiles %}
 {% load i18n %}
 {% load context %}
+{% load user %}
 {% load menu %}
 
 <!DOCTYPE html>
@@ -49,7 +50,7 @@
                         {% csrf_token %}
                         <div class="sidebar_username">
                             <span>
-                                {{ user }}
+                                {{ user|nickname }}
                             </span>
                             <span class="float-right">
                                 <img src="{% static 'icons/edit24.png' %}">

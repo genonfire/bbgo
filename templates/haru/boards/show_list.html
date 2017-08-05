@@ -8,6 +8,7 @@
 {% load tz datetime %}
 {% load range %}
 {% load pick %}
+{% load user %}
 {% load bookmark %}
 {% block content %}
 
@@ -67,7 +68,7 @@
             {% endif %}
         </td>
         <td class="article_info">
-            {{ article.user }}
+            {{ article.user|nickname }}
         </td>
         <td class="article_info">
             {{ article.view_count }}
@@ -86,7 +87,7 @@
     <tr class="article_info_mobile">
         <td>
             <span>
-                {{ article.user }} |
+                {{ article.user|nickname }} |
             </span>
             <span>
                 {% trans 'like' %} {{ article.like_count }} |
@@ -122,7 +123,7 @@
             {% endif %}
         </td>
         <td class="article_info">
-            {{ article.user }}
+            {{ article.user|nickname }}
         </td>
         <td class="article_info">
             {{ article.view_count }}
@@ -141,7 +142,7 @@
     <tr class="article_info_mobile">
         <td>
             <span>
-                {{ article.user }} |
+                {{ article.user|nickname }} |
             </span>
             <span>
                 {% trans 'like' %} {{ article.like_count }} |
