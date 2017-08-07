@@ -1,3 +1,17 @@
+function delete_profile(e, url) {
+    concent = $('#concent').is(':checked')
+    if (!concent) {
+        e.preventDefault();
+        alert(gettext("Please consent to Terms."));
+        return;
+    }
+    else {
+        if (confirm(gettext("Are you sure to delete your profile?"))) {
+            location.href = url;
+        }
+    }
+}
+
 $('#id_portrait').on('change', function() {
     var file = this.files[0];
     var type_validator = ["image/gif", "image/jpeg", "image/png"];

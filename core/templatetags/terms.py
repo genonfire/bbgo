@@ -11,3 +11,11 @@ def show_terms():
     return {
         "SITE_NAME": settings.SITE_NAME
     }
+
+
+@register.inclusion_tag('accounts/show_delete_terms.html')
+def show_delete_terms():
+    """Show Terms of delete profile"""
+    return {
+        "SITE_NAME": settings.SITE_NAME
+    }

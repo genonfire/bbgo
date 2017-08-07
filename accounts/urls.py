@@ -40,5 +40,10 @@ urlpatterns = [
         r'^user_info/$',
         views.user_info,
         name='user_info'
+    ),
+    url(
+        r'^delete_profile/$',
+        views.delete_profile,
+        name='delete_profile'
     )
 ]

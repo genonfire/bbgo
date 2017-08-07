@@ -11,6 +11,6 @@ def _nickname(user):
         name = user.first_name
 
     if user.is_staff:
-        return '<font color="blue">%s</font>' % name
+        return '<font color="#409BD1">%s</font>' % name
     else:
         return name

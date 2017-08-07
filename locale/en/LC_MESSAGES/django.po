@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-07 17:07+0900\n"
+"POT-Creation-Date: 2017-08-07 18:16+0900\n"
 "PO-Revision-Date: 2017-07-13 14:03+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,28 +18,28 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: accounts/views.py:31 accounts/views.py:95
+#: accounts/views.py:32 accounts/views.py:96
 msgid "Saved successfully."
 msgstr ""
 
-#: accounts/views.py:33 accounts/views.py:99
+#: accounts/views.py:34 accounts/views.py:100
 msgid "Form validation Failure"
 msgstr ""
 
-#: accounts/views.py:71 accounts/views.py:143
+#: accounts/views.py:72 accounts/views.py:144
 msgid "Please check nickname."
 msgstr ""
 
-#: accounts/views.py:88 accounts/views.py:91 accounts/views.py:162
-#: accounts/views.py:164
+#: accounts/views.py:89 accounts/views.py:92 accounts/views.py:163
+#: accounts/views.py:165
 msgid "Verification failure. Please check verification code again."
 msgstr ""
 
-#: accounts/views.py:133
+#: accounts/views.py:134
 msgid "Please check username."
 msgstr ""
 
-#: accounts/views.py:166
+#: accounts/views.py:167
 msgid "Sorry. Please try again later."
 msgstr ""
 
@@ -71,8 +71,8 @@ msgstr "Deleted"
 #: boards/views.py:24 boards/views.py:29 boards/views.py:146
 #: boards/views.py:169 boards/views.py:174 boards/views.py:214
 #: boards/views.py:219 boards/views.py:246 core/api.py:155 core/api.py:175
-#: core/api.py:226 core/api.py:309 core/api.py:337 core/api.py:372
-#: core/api.py:398
+#: core/api.py:226 core/api.py:308 core/api.py:336 core/api.py:371
+#: core/api.py:397
 msgid "Wrong access"
 msgstr ""
 
@@ -172,7 +172,7 @@ msgstr ""
 
 #: templates/haru/accounts/login.html:41
 #: templates/haru/accounts/signup.html:36
-#: templates/haru/accounts/user_info.html:46 templates/haru/base.html:98
+#: templates/haru/accounts/user_info.html:47 templates/haru/base.html:98
 #: templates/haru/menu_mobile.html:54
 msgid "id"
 msgstr ""
@@ -209,7 +209,7 @@ msgid ""
 msgstr ""
 
 #: templates/haru/accounts/setting.html:50
-#: templates/haru/accounts/user_info.html:111
+#: templates/haru/accounts/user_info.html:112
 msgid "Save"
 msgstr ""
 
@@ -229,23 +229,23 @@ msgstr ""
 
 #: templates/haru/accounts/signup.html:40
 #: templates/haru/accounts/signup.html:53
-#: templates/haru/accounts/user_info.html:67
+#: templates/haru/accounts/user_info.html:68
 msgid "Check exist"
 msgstr ""
 
 #: templates/haru/accounts/signup.html:42
 #: templates/haru/accounts/signup.html:55
-#: templates/haru/accounts/user_info.html:69
+#: templates/haru/accounts/user_info.html:70
 msgid "Length limit"
 msgstr ""
 
 #: templates/haru/accounts/signup.html:49
-#: templates/haru/accounts/user_info.html:63
+#: templates/haru/accounts/user_info.html:64
 msgid "nickname"
 msgstr ""
 
 #: templates/haru/accounts/signup.html:62
-#: templates/haru/accounts/user_info.html:76
+#: templates/haru/accounts/user_info.html:77
 msgid "Email address"
 msgstr ""
 
@@ -258,17 +258,17 @@ msgid "After pressing verify, please wait till email sent."
 msgstr ""
 
 #: templates/haru/accounts/signup.html:74
-#: templates/haru/accounts/user_info.html:88
+#: templates/haru/accounts/user_info.html:89
 msgid "Verification code"
 msgstr ""
 
 #: templates/haru/accounts/signup.html:78
-#: templates/haru/accounts/user_info.html:92
+#: templates/haru/accounts/user_info.html:93
 msgid "Verify"
 msgstr ""
 
 #: templates/haru/accounts/signup.html:80
-#: templates/haru/accounts/user_info.html:94
+#: templates/haru/accounts/user_info.html:95
 msgid "Verification code is started by Email address"
 msgstr ""
 
@@ -277,47 +277,57 @@ msgid "password confirm"
 msgstr ""
 
 #: templates/haru/accounts/signup.html:111
+#: templates/haru/accounts/user_info.html:126
 msgid "Agree to Terms of Service and Privacy Policy"
 msgstr ""
 
-#: templates/haru/accounts/user_info.html:5
-#: templates/haru/accounts/user_info.html:12
+#: templates/haru/accounts/user_info.html:6
+#: templates/haru/accounts/user_info.html:13
 #: templates/haru/menu_setting.html:11
 msgid "User info"
 msgstr ""
 
-#: templates/haru/accounts/user_info.html:15
+#: templates/haru/accounts/user_info.html:16
 msgid "Your private information."
 msgstr ""
 
-#: templates/haru/accounts/user_info.html:23
+#: templates/haru/accounts/user_info.html:24
 msgid "Community standards"
 msgstr ""
 
-#: templates/haru/accounts/user_info.html:26
+#: templates/haru/accounts/user_info.html:27
 msgid ""
 "disagreeable or disturbing content violate our Community Standards may be "
 "deleted without warning."
 msgstr ""
 
-#: templates/haru/accounts/user_info.html:32
+#: templates/haru/accounts/user_info.html:33
 msgid "portrait"
 msgstr ""
 
-#: templates/haru/accounts/user_info.html:54
+#: templates/haru/accounts/user_info.html:55
 msgid "Date joined"
 msgstr ""
 
-#: templates/haru/accounts/user_info.html:80
+#: templates/haru/accounts/user_info.html:81
 msgid "change"
 msgstr ""
 
-#: templates/haru/accounts/user_info.html:82
+#: templates/haru/accounts/user_info.html:83
 msgid "Changing E-mail address requires E-mail verification once again."
 msgstr ""
 
-#: templates/haru/accounts/user_info.html:100
+#: templates/haru/accounts/user_info.html:101
 msgid "point"
+msgstr ""
+
+#: templates/haru/accounts/user_info.html:118
+#: templates/haru/accounts/user_info.html:133
+msgid "Delete profile"
+msgstr ""
+
+#: templates/haru/accounts/user_info.html:121
+msgid "To delete your profile, please check following Terms."
 msgstr ""
 
 #: templates/haru/base.html:75

@@ -2,6 +2,7 @@
 {% load staticfiles %}
 {% load i18n %}
 {% load menu %}
+{% load terms %}
 {% block title %}{{ SITE_NAME }} - {% trans 'User info' %}{% endblock %}
 {% block content %}
 
@@ -111,6 +112,27 @@
             <input type="submit" value="{% trans 'Save' %}">
         </div>
     </form>
+
+    <div>
+        <h2>
+            {% trans 'Delete profile' %}
+        </h2>
+        <span>
+            {% trans 'To delete your profile, please check following Terms.' %}
+        </span>
+        <div class="concent">
+            <div>
+                <input type="checkbox" id="concent">
+                {% trans 'Agree to Terms of Service and Privacy Policy' %}
+            </div>
+            <div>
+                {% show_delete_terms %}
+            </div>
+        </div>
+        <div class="buttons align-center">
+            <input type="button" value="{% trans 'Delete profile' %}" onClick="javascript:delete_profile(event, '{% url 'accounts:delete_profile' %}')">
+        </div>
+    </div>
 </div>
 
 {% endblock %}

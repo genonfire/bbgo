@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.core.signing import TimestampSigner
+from django.core.urlresolvers import reverse_lazy
 from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
@@ -176,6 +177,17 @@ def sign_up(request):
             'userform': userform,
         }
     )
+
+
+def delete_profile(request):
+    """Delete profile"""
+    if request.user.is_authenticated():
+        request.user.is_active = False
+        if request.user.is_staff:
+            request.user.is_staff = False
+        request.user.save()
+
+    return redirect(reverse_lazy('accounts:logout'))
 
 
 @user_passes_test(lambda u: u.is_superuser)

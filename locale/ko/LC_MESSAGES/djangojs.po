@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-07 17:07+0900\n"
-"PO-Revision-Date: 2017-08-07 17:07+0900\n"
+"POT-Creation-Date: 2017-08-07 18:16+0900\n"
+"PO-Revision-Date: 2017-08-07 18:16+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -49,12 +49,20 @@ msgstr "인증 성공."
 msgid "Verification failure. Please check verification code again."
 msgstr "인증실패. 인증코드를 다시 확인해 주세요."
 
-#: static/js/accounts/setting.js:5
-#| msgid "Please input correct E-mail address."
+#: static/js/accounts/setting.js:5 static/js/accounts/signup.js:33
+msgid "Please consent to Terms."
+msgstr "약관에 동의해 주세요."
+
+#: static/js/accounts/setting.js:9
+#| msgid "Are you sure to delete this article?"
+msgid "Are you sure to delete your profile?"
+msgstr "정말로 탈퇴하시겠습니까?"
+
+#: static/js/accounts/setting.js:19
 msgid "Please select correct image."
 msgstr "올바른 이미지 파일을 선택해 주세요."
 
-#: static/js/accounts/setting.js:11 static/js/boards/boards_reply.js:119
+#: static/js/accounts/setting.js:25 static/js/boards/boards_reply.js:119
 #: static/js/boards/boards_reply.js:227
 msgid "Selected image is too big. size limit: "
 msgstr "이미지가 너무 큽니다. 사이즈 제한: "
@@ -66,10 +74,6 @@ msgstr "굵은 글씨는 필수항목으로 꼭 입력해야 합니다."
 #: static/js/accounts/signup.js:26
 msgid "Passwords are different each other."
 msgstr "비밀번호가 서로 다릅니다."
-
-#: static/js/accounts/signup.js:33
-msgid "Please consent to Terms."
-msgstr "약관에 동의해 주세요."
 
 #: static/js/boards/boards_article.js:80
 msgid "who likes"
