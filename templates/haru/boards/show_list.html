@@ -70,7 +70,7 @@
             {% endif %}
         </td>
         <td class="article_info">
-            {{ article.user|nickname }}
+            {{ article.user|nickname|safe }}
         </td>
         <td class="article_info">
             {{ article.view_count }}
@@ -89,7 +89,7 @@
     <tr class="article_info_mobile">
         <td>
             <span>
-                {{ article.user|nickname }} |
+                {{ article.user|nickname|safe }} |
             </span>
             <span>
                 {% trans 'like' %} {{ article.like_count }} |
@@ -125,7 +125,7 @@
             {% endif %}
         </td>
         <td class="article_info">
-            {{ article.user|nickname }}
+            {{ article.user|nickname|safe }}
         </td>
         <td class="article_info">
             {{ article.view_count }}
@@ -144,7 +144,7 @@
     <tr class="article_info_mobile">
         <td>
             <span>
-                {{ article.user|nickname }} |
+                {{ article.user|nickname|safe }} |
             </span>
             <span>
                 {% trans 'like' %} {{ article.like_count }} |

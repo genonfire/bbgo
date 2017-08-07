@@ -34,7 +34,7 @@
     {{ article.subject }}
 </div>
 <div class="article_user">
-    {{ article.user|nickname }}
+    {{ article.user|nickname|safe }}
     <div class="article_view_count">
         <img src="{% static 'icons/eye18.png' %}">
         <span>{{ article.view_count }}</span>

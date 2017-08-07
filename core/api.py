@@ -22,7 +22,7 @@ from django.utils.translation import ugettext as _
 def check_duplication(request):
     """API check_duplication"""
     check_type = request.POST.get('check_type')
-    username = request.POST.get('username')
+    name = request.POST.get('username')
 
     if check_type == 'id':
         min_limit = settings.ID_MIN_LENGTH
@@ -31,12 +31,16 @@ def check_duplication(request):
         min_limit = settings.NICKNAME_MIN_LENGTH
         max_limit = settings.NICKNAME_MAX_LENGTH
 
-    q = Q(username__iexact=username) | Q(first_name__iexact=username)
+    q = Q(username__iexact=name) | Q(first_name__iexact=name)
     idcheck = User.objects.filter(q).exists()
 
-    length = len(username)
+    length = len(name)
     if length < min_limit or length > max_limit:
         return JsonResponse({'status': 'false'}, status=400)
+
+    if request.user.is_authenticated() and idcheck:
+        if name == request.user.username or name == request.user.first_name:
+            idcheck = False
 
     if idcheck:
         msg = _('Already exist.')
@@ -89,7 +93,7 @@ def check_validation(request):
     signer = TimestampSigner()
 
     try:
-        value = signer.unsign(code, max_age=86400)  # 24 hours
+        value = signer.unsign(code, max_age=settings.VERIFICATION_CODE_VALID)
         code_check = value == email
 
         if code_check:

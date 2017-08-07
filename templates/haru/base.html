@@ -51,7 +51,7 @@
                         {% csrf_token %}
                         <div class="sidebar_username">
                             <span>
-                                {{ user|nickname }}
+                                {{ user|nickname|safe }}
                             </span>
                             <span class="float-right">
                                 <a href="{% url 'accounts:setting' %}">

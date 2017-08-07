@@ -69,7 +69,7 @@
                         </div>
                     </td>
                 </tr>
-                <tr>
+                <tr id="code_hide">
                     <td class="label required">
                         {% trans 'Verification code' %}
                     </td>
@@ -123,5 +123,6 @@
         var id_min_length = {{ ID_MIN_LENGTH }};
         var nickname_min_length = {{ NICKNAME_MIN_LENGTH }}
     </script>
-    <script src="{% static 'js/member.js' %}" async></script>
+    <script src="{% static 'js/accounts/member.js' %}" async></script>
+    <script src="{% static 'js/accounts/signup.js' %}" async></script>
 {% endblock %}

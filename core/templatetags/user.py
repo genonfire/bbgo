@@ -6,6 +6,11 @@ register = template.Library()
 
 @register.filter(name='nickname')
 def _nickname(user):
+    name = user
     if settings.ENABLE_NICKNAME and user.first_name:
-        return user.first_name
-    return user
+        name = user.first_name
+
+    if user.is_staff:
+        return '<font color="blue">%s</font>' % name
+    else:
+        return name

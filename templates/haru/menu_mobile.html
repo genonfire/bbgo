@@ -32,7 +32,7 @@
                         {% csrf_token %}
                         <div class="power_user">
                             <span class="float-left">
-                                {{ user|nickname }}
+                                {{ user|nickname|safe }}
                             </span>
                             <span class="float-right">
                                 <a href="{% url 'accounts:setting' %}">

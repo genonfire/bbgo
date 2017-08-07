@@ -55,6 +55,12 @@ def menu_sub():
     return {}
 
 
+@register.inclusion_tag('menu_setting.html')
+def menu_setting():
+    """Account setting menu"""
+    return {}
+
+
 @register.inclusion_tag('menu_footer.html', takes_context=True)
 def menu_footer(context):
     """Footer navigation menu"""

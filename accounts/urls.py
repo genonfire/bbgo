@@ -36,4 +36,9 @@ urlpatterns = [
         views.setting,
         name='setting'
     ),
+    url(
+        r'^user_info/$',
+        views.user_info,
+        name='user_info'
+    )
 ]

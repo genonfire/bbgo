@@ -1,0 +1,19 @@
+{% load i18n %}
+
+<ul>
+    <li>
+        <a href="{% url 'accounts:setting' %}">
+            {% trans 'Setting' %}
+        </a>
+    </li>
+    <li>
+        <a href="{% url 'accounts:user_info' %}">
+            {% trans 'User info' %}
+        </a>
+    </li>
+    <li>
+        <a href="{% url 'accounts:password_change' %}">
+            {% trans 'Change password' %}
+        </a>
+    </li>
+</ul>

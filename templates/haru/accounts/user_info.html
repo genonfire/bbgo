@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load menu %}
+{% block title %}{{ SITE_NAME }} - {% trans 'User info' %}{% endblock %}
+{% block content %}
+
+<div class="gnb">
+    {% menu_setting %}
+</div>
+<h1>
+    {% trans 'User info' %}
+</h1>
+<div class="annotation">
+    {% trans "Your private information." %}
+</div>
+
+<div class="signup">
+    <form id="signup_form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <h2>
+                {% trans 'Community standards' %}
+            </h2>
+            <span>
+                {% trans 'disagreeable or disturbing content violate our Community Standards may be deleted without warning.' %}
+            </span>
+        </div>
+        <table class="member">
+            <tr>
+                <td class="label">
+                    {% trans 'portrait' %}
+                </td>
+                <td class="input">
+                    {% if portrait %}
+                        <img src="{{ portrait.url }}"><br>
+                    {% endif %}
+                    {{ infoform.portrait }}
+                    <div>
+                        * JPG, PNG, GIF 150x150 (< {% widthratio PORTRAIT_SIZE_LIMIT 1024 1 %}KB)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    {% trans 'id' %}
+                </td>
+                <td class="input">
+                    {{ username }}
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    {% trans 'Date joined' %}
+                </td>
+                <td class="input">
+                    {{ date_joined|date:" Y-m-d H:i:s" }}
+                </td>
+            </tr>
+            {% if ENABLE_NICKNAME %}
+                <tr>
+                    <td class="label">
+                        {% trans 'nickname' %}
+                    </td>
+                    <td class="input">
+                        {{ infoform.first_name }}
+                        <input type="button" value="{% trans 'Check exist' %}" onClick="check_duplication('nickname')">
+                        <div>
+                            * {% trans 'Length limit' %}: {{ NICKNAME_MIN_LENGTH }} ~ {{ NICKNAME_MAX_LENGTH }}
+                        </div>
+                    </td>
+                </tr>
+            {% endif %}
+            <tr>
+                <td class="label">
+                    {% trans 'Email address' %}
+                </td>
+                <td class="input">
+                    {{ infoform.email }}
+                    <input type="button" value="{% trans 'change' %}" onClick="get_verification_code()">
+                    <div>
+                        * {% trans 'Changing E-mail address requires E-mail verification once again.' %}
+                    </div>
+                </td>
+            </tr>
+            <tr id="code_hide">
+                <td class="label">
+                    {% trans 'Verification code' %}
+                </td>
+                <td class="input">
+                    {{ infoform.code }}
+                    <input type="button" value="{% trans 'Verify' %}" onClick="check_validation()">
+                    <div>
+                        * {% trans 'Verification code is started by Email address' %}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    {% trans 'point' %}
+                </td>
+                <td class="input">
+                    {{ point }}
+                </td>
+            </tr>
+        </table>
+        <div class="member align-right">
+            <span>
+                {{ msg }}{{ form.error }}
+            </span>
+            <input type="submit" value="{% trans 'Save' %}">
+        </div>
+    </form>
+</div>
+
+{% endblock %}
+
+{% block bodyscript %}
+    <script>
+        var id_min_length = {{ ID_MIN_LENGTH }};
+        var nickname_min_length = {{ NICKNAME_MIN_LENGTH }};
+        var portrait_limit = {{ PORTRAIT_SIZE_LIMIT }};
+    </script>
+    <script src="{% static 'js/accounts/member.js' %}" async></script>
+    <script src="{% static 'js/accounts/setting.js' %}" async></script>
+{% endblock %}

@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 {% load i18n %}
-
+{% load menu %}
 {% block title %}{{ SITE_NAME }} - {% trans 'Setting' %}{% endblock %}
 {% block content %}
 
+<div class="gnb">
+    {% menu_setting %}
+</div>
 <h1>
     {% trans 'Setting' %}
 </h1>

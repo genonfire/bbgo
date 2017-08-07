@@ -9,10 +9,11 @@ from django.core.mail import send_mail
 from django.core.signing import TimestampSigner
 from django.db.models import Q
 from django.http import HttpResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import ugettext as _
 
-from .forms import RegistrationForm, SettingForm
+from .forms import RegistrationForm, SettingForm, UserInfoForm
+from .models import Profile
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -48,6 +49,75 @@ def setting(request):
     )
 
 
+def user_info(request):
+    """User information"""
+    id = request.user.profile.id
+    profile = get_object_or_404(Profile, pk=id)
+    if request.method == "POST":
+        infoform = UserInfoForm(request.POST, request.FILES, instance=profile)
+        if infoform.is_valid():
+            error = False
+            if settings.ENABLE_NICKNAME:
+                nick = infoform.cleaned_data['first_name']
+                if nick != request.user.first_name:
+                    if nick == '':
+                        request.user.first_name = ''
+                    else:
+                        q = Q(username__iexact=nick) \
+                            | Q(first_name__iexact=nick)
+                        if User.objects.filter(q).exists() or \
+                            len(nick) < settings.NICKNAME_MIN_LENGTH or \
+                                len(nick) > settings.NICKNAME_MAX_LENGTH:
+                                msg = _('Please check nickname.')
+                                error = True
+                        else:
+                            request.user.first_name = nick
+
+            email = infoform.cleaned_data['email']
+            if not error and email != request.user.email:
+                code = infoform.cleaned_data['code']
+                signer = TimestampSigner()
+                try:
+                    value = signer.unsign(
+                        code, max_age=settings.VERIFICATION_CODE_VALID)
+                    code_check = value == email
+
+                    if code_check:
+                        request.user.email = email
+                    else:
+                        msg = _('Verification failure. Please check verification code again.')
+                        error = True
+                except:
+                    msg = _('Verification failure. Please check verification code again.')
+                    error = True
+
+            if not error:
+                msg = _('Saved successfully.')
+                request.user.save()
+                infoform.save()
+        else:
+            msg = _('Form validation Failure')
+    elif request.method == "GET":
+        if request.user.is_authenticated():
+            msg = ""
+            infoform = UserInfoForm(instance=profile)
+        else:
+            return redirect('/')
+
+    return render(
+        request,
+        "accounts/user_info.html",
+        {
+            'infoform': infoform,
+            'username': request.user.username,
+            'date_joined': request.user.date_joined,
+            'point': profile.point,
+            'portrait': profile.portrait,
+            'msg': msg,
+        }
+    )
+
+
 def sign_up(request):
     """Sign up"""
     if request.method == "POST":
@@ -78,7 +148,8 @@ def sign_up(request):
             signer = TimestampSigner()
 
             try:
-                value = signer.unsign(code, max_age=86400)  # 24 hours
+                value = signer.unsign(
+                    code, max_age=settings.VERIFICATION_CODE_VALID)
                 code_check = value == email
 
                 if code_check:

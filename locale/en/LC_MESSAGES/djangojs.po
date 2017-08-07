@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-05 16:28+0900\n"
+"POT-Creation-Date: 2017-08-07 17:07+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,57 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: static/js/accounts/member.js:6 static/js/accounts/member.js:18
+#: static/js/accounts/member.js:40 static/js/accounts/signup.js:6
+#: static/js/accounts/signup.js:11
+msgid "Mind the chracter length limitation."
+msgstr ""
+
+#: static/js/accounts/member.js:11
+msgid "Alphabet Number _ - . are only available."
+msgstr ""
+
+#: static/js/accounts/member.js:48
+msgid "Please input correct E-mail address."
+msgstr ""
+
+#: static/js/accounts/member.js:69
+msgid "Failed to send E-mail. Please try again later."
+msgstr ""
+
+#: static/js/accounts/member.js:79
+msgid "Please input verification code correctly."
+msgstr ""
+
+#: static/js/accounts/member.js:97
+msgid "Verified successfully."
+msgstr ""
+
+#: static/js/accounts/member.js:100
+msgid "Verification failure. Please check verification code again."
+msgstr ""
+
+#: static/js/accounts/setting.js:5
+msgid "Please select correct image."
+msgstr ""
+
+#: static/js/accounts/setting.js:11 static/js/boards/boards_reply.js:119
+#: static/js/boards/boards_reply.js:227
+msgid "Selected image is too big. size limit: "
+msgstr ""
+
+#: static/js/accounts/signup.js:21
+msgid "Please fill all bold text which mean mandatory."
+msgstr ""
+
+#: static/js/accounts/signup.js:26
+msgid "Passwords are different each other."
+msgstr ""
+
+#: static/js/accounts/signup.js:33
+msgid "Please consent to Terms."
+msgstr ""
 
 #: static/js/boards/boards_article.js:80
 msgid "who likes"
@@ -55,49 +106,4 @@ msgstr ""
 
 #: static/js/boards/boards_reply.js:80
 msgid "submit"
-msgstr ""
-
-#: static/js/boards/boards_reply.js:119 static/js/boards/boards_reply.js:227
-msgid "Selected image is too big. size limit: "
-msgstr ""
-
-#: static/js/member.js:6 static/js/member.js:18 static/js/member.js:40
-#: static/js/member.js:109 static/js/member.js:114
-msgid "Mind the chracter length limitation."
-msgstr ""
-
-#: static/js/member.js:11
-msgid "Alphabet Number _ - . are only available."
-msgstr ""
-
-#: static/js/member.js:48
-msgid "Please input correct E-mail address."
-msgstr ""
-
-#: static/js/member.js:68
-msgid "Failed to send E-mail. Please try again later."
-msgstr ""
-
-#: static/js/member.js:78
-msgid "Please input verification code correctly."
-msgstr ""
-
-#: static/js/member.js:96
-msgid "Verified successfully."
-msgstr ""
-
-#: static/js/member.js:99
-msgid "Verification failure. Please check verification code again."
-msgstr ""
-
-#: static/js/member.js:124
-msgid "Please fill all bold text which mean mandatory."
-msgstr ""
-
-#: static/js/member.js:129
-msgid "Passwords are different each other."
-msgstr ""
-
-#: static/js/member.js:136
-msgid "Please consent to Terms."
 msgstr ""

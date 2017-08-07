@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-05 16:28+0900\n"
-"PO-Revision-Date: 2017-08-03 15:52+0900\n"
-"Last-Translator:   <genonfire@gmail.com>\n"
+"POT-Creation-Date: 2017-08-07 17:07+0900\n"
+"PO-Revision-Date: 2017-08-07 17:07+0900\n"
+"Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,58 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
+
+#: static/js/accounts/member.js:6 static/js/accounts/member.js:18
+#: static/js/accounts/member.js:40 static/js/accounts/signup.js:6
+#: static/js/accounts/signup.js:11
+msgid "Mind the chracter length limitation."
+msgstr "글자수 제한을 지켜주세요."
+
+#: static/js/accounts/member.js:11
+msgid "Alphabet Number _ - . are only available."
+msgstr "영문 숫자 특수문자(_ - .)만 가능합니다."
+
+#: static/js/accounts/member.js:48
+msgid "Please input correct E-mail address."
+msgstr "올바른 이메일 주소를 입력해 주세요."
+
+#: static/js/accounts/member.js:69
+msgid "Failed to send E-mail. Please try again later."
+msgstr "이메일 발송 실패. 나중에 다시 시도해 주세요."
+
+#: static/js/accounts/member.js:79
+msgid "Please input verification code correctly."
+msgstr "올바른 인증코드를 넣어주세요."
+
+#: static/js/accounts/member.js:97
+msgid "Verified successfully."
+msgstr "인증 성공."
+
+#: static/js/accounts/member.js:100
+msgid "Verification failure. Please check verification code again."
+msgstr "인증실패. 인증코드를 다시 확인해 주세요."
+
+#: static/js/accounts/setting.js:5
+#| msgid "Please input correct E-mail address."
+msgid "Please select correct image."
+msgstr "올바른 이미지 파일을 선택해 주세요."
+
+#: static/js/accounts/setting.js:11 static/js/boards/boards_reply.js:119
+#: static/js/boards/boards_reply.js:227
+msgid "Selected image is too big. size limit: "
+msgstr "이미지가 너무 큽니다. 사이즈 제한: "
+
+#: static/js/accounts/signup.js:21
+msgid "Please fill all bold text which mean mandatory."
+msgstr "굵은 글씨는 필수항목으로 꼭 입력해야 합니다."
+
+#: static/js/accounts/signup.js:26
+msgid "Passwords are different each other."
+msgstr "비밀번호가 서로 다릅니다."
+
+#: static/js/accounts/signup.js:33
+msgid "Please consent to Terms."
+msgstr "약관에 동의해 주세요."
 
 #: static/js/boards/boards_article.js:80
 msgid "who likes"
@@ -58,48 +110,3 @@ msgstr "서로에 대한 배려와 존중을 보여주세요."
 #: static/js/boards/boards_reply.js:80
 msgid "submit"
 msgstr "등록"
-
-#: static/js/boards/boards_reply.js:119 static/js/boards/boards_reply.js:227
-msgid "Selected image is too big. size limit: "
-msgstr "이미지가 너무 큽니다. 사이즈 제한: "
-
-#: static/js/member.js:6 static/js/member.js:18 static/js/member.js:40
-#: static/js/member.js:109 static/js/member.js:114
-msgid "Mind the chracter length limitation."
-msgstr "글자수 제한을 지켜주세요."
-
-#: static/js/member.js:11
-msgid "Alphabet Number _ - . are only available."
-msgstr "영문 숫자 특수문자(_ - .)만 가능합니다."
-
-#: static/js/member.js:48
-msgid "Please input correct E-mail address."
-msgstr "올바른 이메일 주소를 입력해 주세요."
-
-#: static/js/member.js:68
-msgid "Failed to send E-mail. Please try again later."
-msgstr "이메일 발송 실패. 나중에 다시 시도해 주세요."
-
-#: static/js/member.js:78
-msgid "Please input verification code correctly."
-msgstr "올바른 인증코드를 넣어주세요."
-
-#: static/js/member.js:96
-msgid "Verified successfully."
-msgstr "인증 성공."
-
-#: static/js/member.js:99
-msgid "Verification failure. Please check verification code again."
-msgstr "인증실패. 인증코드를 다시 확인해 주세요."
-
-#: static/js/member.js:124
-msgid "Please fill all bold text which mean mandatory."
-msgstr "굵은 글씨는 필수항목으로 꼭 입력해야 합니다."
-
-#: static/js/member.js:129
-msgid "Passwords are different each other."
-msgstr "비밀번호가 서로 다릅니다."
-
-#: static/js/member.js:136
-msgid "Please consent to Terms."
-msgstr "약관에 동의해 주세요."

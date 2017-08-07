@@ -15,6 +15,7 @@ def global_settings(request):
         'NICKNAME_MIN_LENGTH': settings.NICKNAME_MIN_LENGTH,
         'NICKNAME_MAX_LENGTH': settings.NICKNAME_MAX_LENGTH,
         'ENABLE_NICKNAME': settings.ENABLE_NICKNAME,
+        'PORTRAIT_SIZE_LIMIT': settings.PORTRAIT_SIZE_LIMIT,
         'REPLY_TEXT_MAX': settings.REPLY_TEXT_MAX,
         'REPLY_IMAGE_AVAILABLE': settings.REPLY_IMAGE_AVAILABLE,
         'REPLY_IMAGE_SIZE_LIMIT': settings.REPLY_IMAGE_SIZE_LIMIT,
