@@ -231,6 +231,7 @@ table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 .member input[type="password"] {width:auto;}
 .member input[type="button"] {padding:0 10px;font-size:.9em;}
 .member input[type="submit"] {display:inline-block;width:100px;height:2.5em;margin-top:10px;margin-bottom:10px;vertical-align:middle;}
+.member input[type="file"] {width:100%;}
 .member a:link {color:#417690; text-decoration:none;}
 .member a:visited {color:#417690; text-decoration:none;}
 .member a:hover {color:#be131c; text-decoration:none;}
@@ -248,9 +249,9 @@ table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 /* inpage menu */
 .gnb {width:auto;margin-bottom:.5em;}
 .gnb:after {content:'';display:block;clear:both;}
-.gnb li {float:left;margin-left:.3em;background:#EDEDED;border-radius:.5em;}
-.gnb li:first-child {margin-left:0 !important}
-.gnb li a {display:block;padding:.3em;color:#000;font-size:1.3em;}
+.gnb li {float:left;margin-left:.3em;margin-bottom:.3em;background:#EDEDED;border-radius:.5em;}
+/*.gnb li:first-child {margin-left:1em !important}*/
+.gnb li a {display:block;padding:.3em;color:#000;font-size:1.2em;}
 .gnb li a:hover {color:#ee2d31;text-decoration:none;}
 
 /* Footer */
