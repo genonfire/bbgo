@@ -36,6 +36,11 @@ urlpatterns = [
         name='show_article'
     ),
     url(
+        r'^article/(?P<id>\d+)/(?P<table>\d+)/$',
+        views.show_article,
+        name='show_table_article'
+    ),
+    url(
         r'^article/(?P<id>\d+)/edit/$',
         views.edit_article,
         name='edit_article'

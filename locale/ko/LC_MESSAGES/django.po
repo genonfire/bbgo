@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-08 13:31+0900\n"
-"PO-Revision-Date: 2017-08-07 18:17+0900\n"
+"POT-Creation-Date: 2017-08-08 15:31+0900\n"
+"PO-Revision-Date: 2017-08-08 15:33+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,28 +19,28 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: accounts/views.py:28 accounts/views.py:94
+#: accounts/views.py:29 accounts/views.py:95
 msgid "Saved successfully."
 msgstr "저장했습니다."
 
-#: accounts/views.py:30 accounts/views.py:98
+#: accounts/views.py:31 accounts/views.py:99
 msgid "Form validation Failure"
 msgstr "폼 입력이 잘못됐습니다."
 
-#: accounts/views.py:70 accounts/views.py:142
+#: accounts/views.py:71 accounts/views.py:143
 msgid "Please check nickname."
 msgstr "닉네임을 확인해 주세요."
 
-#: accounts/views.py:87 accounts/views.py:90 accounts/views.py:161
-#: accounts/views.py:163
+#: accounts/views.py:88 accounts/views.py:91 accounts/views.py:162
+#: accounts/views.py:164
 msgid "Verification failure. Please check verification code again."
 msgstr "인증실패. 인증코드를 다시 확인해 주세요."
 
-#: accounts/views.py:132
+#: accounts/views.py:133
 msgid "Please check username."
 msgstr "아이디를 확인해 주세요."
 
-#: accounts/views.py:165
+#: accounts/views.py:166
 msgid "Sorry. Please try again later."
 msgstr "죄송합니다. 나중에 다시 시도해 주세요."
 
@@ -53,7 +53,7 @@ msgid "status_temp"
 msgstr "임시저장"
 
 #: boards/models.py:14 boards/models.py:52
-#: templates/haru/boards/show_list.html:63
+#: templates/haru/boards/show_list.html:64
 msgid "status_notice"
 msgstr "공지"
 
@@ -69,15 +69,7 @@ msgstr "숨김"
 msgid "status_deleted"
 msgstr "삭제됨"
 
-#: boards/views.py:24 boards/views.py:29 boards/views.py:146
-#: boards/views.py:169 boards/views.py:174 boards/views.py:214
-#: boards/views.py:219 boards/views.py:246 core/api.py:155 core/api.py:175
-#: core/api.py:226 core/api.py:308 core/api.py:336 core/api.py:371
-#: core/api.py:397
-msgid "Wrong access"
-msgstr "잘못된 접근입니다."
-
-#: boards/views.py:155
+#: boards/views.py:153
 msgid "Wrong status from user."
 msgstr "상태정보가 잘못 입력되었습니다."
 
@@ -102,11 +94,11 @@ msgstr "[%(site_name)s] 회원가입을 위한 인증코드입니다."
 msgid "Verification code sent. Please check your E-mail."
 msgstr "인증코드를 전송했습니다. 이메일을 확인해 주세요."
 
-#: core/api.py:111 core/api.py:183
+#: core/api.py:111 core/api.py:181
 msgid "Require login"
 msgstr "회원만 가능합니다."
 
-#: core/api.py:119 core/api.py:191
+#: core/api.py:119 core/api.py:189
 msgid "You like your own post?"
 msgstr "자신의 글입니다."
 
@@ -118,13 +110,17 @@ msgstr "추천했습니다."
 msgid "You've disliked this article"
 msgstr "비추했습니다."
 
-#: core/api.py:150 core/api.py:219
+#: core/api.py:150 core/api.py:217
 msgid "You've already liked"
 msgstr "이미 추천하셨습니다."
 
-#: core/api.py:152 core/api.py:221
+#: core/api.py:152 core/api.py:219
 msgid "You've already disliked"
 msgstr "이미 비추하셨습니다."
+
+#: core/utils.py:10
+msgid "Wrong access"
+msgstr "잘못된 접근입니다."
 
 #: templates/404.html:4 templates/500.html:4
 msgid "Oops"
@@ -138,8 +134,7 @@ msgstr "존재하지 않는 페이지입니다. 뭔가 다른 걸 해보세요."
 msgid ""
 "Something wrong. Please reload the page to try again. If error continues, "
 "please contact administrator."
-msgstr ""
-"서버 에러 발생. 새로고침 후에도 문제가 계속되면 관리자에게 문의해 주세요."
+msgstr "서버 에러 발생. 새로고침 후에도 문제가 계속되면 관리자에게 문의해 주세요."
 
 #: templates/haru/accounts/deactivate_account.html:6
 #: templates/haru/accounts/deactivate_account.html:10
@@ -222,19 +217,19 @@ msgstr "애드센스 정보"
 #: templates/haru/accounts/setting.html:25
 msgid ""
 "Your AdSense will be shown on information and best articles by profit "
-"sharing system. To use this feature please fill followings from your AdSense "
-"code."
+"sharing system. To use this feature please fill followings from your AdSense"
+" code."
 msgstr ""
-"수익 공유 시스템에 따라 정보글이나 추천을 많이 받은 게시물에는 글쓴이의 애드"
-"센스가 나타납니다. 이 기능을 사용하려면 본인의 애드센스 코드를 참조하여 아래 "
-"정보를 채워주세요."
+"수익 공유 시스템에 따라 정보글이나 추천을 많이 받은 게시물에는 글쓴이의 애드센스가 나타납니다. 이 기능을 사용하려면 본인의 애드센스 "
+"코드를 참조하여 아래 정보를 채워주세요."
 
 #: templates/haru/accounts/setting.html:50
 #: templates/haru/accounts/user_info.html:117
 msgid "Save"
 msgstr "저장"
 
-#: templates/haru/accounts/signup.html:14
+#: templates/haru/accounts/signup.html:14 templates/haru/error.html:4
+#: templates/haru/error.html.py:8
 #: templates/haru/registration/password_reset_confirm.html:41
 msgid "Error!"
 msgstr "잘못!"
@@ -315,9 +310,7 @@ msgstr "커뮤니티 규정"
 msgid ""
 "disagreeable or disturbing content violate our Community Standards may be "
 "deleted without warning."
-msgstr ""
-"다른 사용자에게 불쾌감을 주거나 미풍양속을 해치는 컨텐츠는 예고없이 삭제될 "
-"수 있습니다."
+msgstr "다른 사용자에게 불쾌감을 주거나 미풍양속을 해치는 컨텐츠는 예고없이 삭제될 수 있습니다."
 
 #: templates/haru/accounts/user_info.html:33
 msgid "portrait"
@@ -348,7 +341,7 @@ msgid "status"
 msgstr "상태"
 
 #: templates/haru/boards/edit_article.html:62
-#: templates/haru/boards/show_article.html:141
+#: templates/haru/boards/show_article.html:145
 msgid "submit"
 msgstr "등록"
 
@@ -360,57 +353,60 @@ msgstr "저장"
 msgid "cancel"
 msgstr "취소"
 
-#: templates/haru/boards/show_article.html:25
-msgid "to_list"
-msgstr "목록으로"
+#: templates/haru/boards/show_article.html:29
+msgid "Go back"
+msgstr "뒤로가기"
 
-#: templates/haru/boards/show_article.html:42
+#: templates/haru/boards/show_article.html:46
 msgid "who likes"
 msgstr "이 글을 추천해 주신 분들"
 
-#: templates/haru/boards/show_article.html:72
+#: templates/haru/boards/show_article.html:76
 msgid "reference"
 msgstr "출처"
 
-#: templates/haru/boards/show_article.html:84
+#: templates/haru/boards/show_article.html:88
 #: templates/haru/boards/show_list.html:54
-#: templates/haru/boards/show_list.html:95
-#: templates/haru/boards/show_list.html:150
+#: templates/haru/boards/show_list.html:99
+#: templates/haru/boards/show_list.html:160
 msgid "like"
 msgstr "추천"
 
-#: templates/haru/boards/show_article.html:89
+#: templates/haru/boards/show_article.html:93
+#: templates/haru/boards/show_list.html:55
+#: templates/haru/boards/show_list.html:102
+#: templates/haru/boards/show_list.html:163
 msgid "dislike"
 msgstr "비추"
 
-#: templates/haru/boards/show_article.html:94
+#: templates/haru/boards/show_article.html:98
 msgid "share"
 msgstr "공유"
 
-#: templates/haru/boards/show_article.html:100
+#: templates/haru/boards/show_article.html:104
 msgid "edit"
 msgstr "수정"
 
-#: templates/haru/boards/show_article.html:105
+#: templates/haru/boards/show_article.html:109
 #: templates/haru/boards/show_reply.html:57
 msgid "delete"
 msgstr "삭제"
 
-#: templates/haru/boards/show_article.html:122
+#: templates/haru/boards/show_article.html:126
 msgid "Reload replies"
 msgstr "댓글 새로고침"
 
-#: templates/haru/boards/show_article.html:132
+#: templates/haru/boards/show_article.html:136
 msgid "Please show some respect."
 msgstr "서로에 대한 배려와 존중을 보여주세요."
 
 #: templates/haru/boards/show_list.html:39
-#: templates/haru/boards/show_list.html:220
+#: templates/haru/boards/show_list.html:233
 msgid "write"
 msgstr "글쓰기"
 
 #: templates/haru/boards/show_list.html:51
-#: templates/haru/boards/show_list.html:252
+#: templates/haru/boards/show_list.html:265
 msgid "subject"
 msgstr "제목"
 
@@ -419,41 +415,41 @@ msgid "username"
 msgstr "이름"
 
 #: templates/haru/boards/show_list.html:53
-#: templates/haru/boards/show_list.html:98
-#: templates/haru/boards/show_list.html:153
+#: templates/haru/boards/show_list.html:105
+#: templates/haru/boards/show_list.html:166
 msgid "view"
 msgstr "조회"
 
-#: templates/haru/boards/show_list.html:55
+#: templates/haru/boards/show_list.html:56
 msgid "date"
 msgstr "날짜"
 
-#: templates/haru/boards/show_list.html:177
-#: templates/haru/boards/show_list.html:198
-#: templates/haru/boards/show_list.html:229
+#: templates/haru/boards/show_list.html:190
+#: templates/haru/boards/show_list.html:211
+#: templates/haru/boards/show_list.html:242
 msgid "to prev page"
 msgstr "이전 페이지로"
 
-#: templates/haru/boards/show_list.html:184
-#: templates/haru/boards/show_list.html:214
-#: templates/haru/boards/show_list.html:245
+#: templates/haru/boards/show_list.html:197
+#: templates/haru/boards/show_list.html:227
+#: templates/haru/boards/show_list.html:258
 msgid "to next page"
 msgstr "다음 페이지로"
 
-#: templates/haru/boards/show_list.html:197
-#: templates/haru/boards/show_list.html:228
+#: templates/haru/boards/show_list.html:210
+#: templates/haru/boards/show_list.html:241
 msgid "to first page"
 msgstr "첫 페이지로"
 
-#: templates/haru/boards/show_list.html:255
+#: templates/haru/boards/show_list.html:268
 msgid "subject+content"
 msgstr "제목+내용"
 
-#: templates/haru/boards/show_list.html:258
+#: templates/haru/boards/show_list.html:271
 msgid "write user"
 msgstr "글쓴이"
 
-#: templates/haru/boards/show_list.html:262
+#: templates/haru/boards/show_list.html:275
 msgid "search"
 msgstr "검색"
 
@@ -477,6 +473,14 @@ msgstr "문의, 의견 보내기"
 #: templates/haru/menu_main.html:15
 msgid "menu"
 msgstr "메뉴"
+
+#: templates/haru/menu_main.html:20 templates/haru/menu_sub.html:5
+msgid "Best"
+msgstr "베스트"
+
+#: templates/haru/menu_main.html:25
+msgid "Recent"
+msgstr "최신글"
 
 #: templates/haru/menu_main.html:33
 msgid "bookmark"
@@ -502,11 +506,10 @@ msgstr "비밀번호가 변경되었습니다."
 
 #: templates/haru/registration/password_change_form.html:13
 msgid ""
-"Please enter your old password, for security's sake, and then enter your new "
-"password twice so we can verify you typed it in correctly."
+"Please enter your old password, for security's sake, and then enter your new"
+" password twice so we can verify you typed it in correctly."
 msgstr ""
-"기존에 사용하시던 비밀번호를 입력해 주세요. 새로운 비밀번호는 정확히 입력했는"
-"지 확인할 수 있도록 두 번 입력하시기 바랍니다."
+"기존에 사용하시던 비밀번호를 입력해 주세요. 새로운 비밀번호는 정확히 입력했는지 확인할 수 있도록 두 번 입력하시기 바랍니다."
 
 #: templates/haru/registration/password_reset_complete.html:4
 #: templates/haru/registration/password_reset_complete.html:8
@@ -528,9 +531,7 @@ msgstr "비밀번호가 설정되었습니다. 이제 로그인하세요."
 msgid ""
 "Please enter your new password twice so we can verify you typed it in "
 "correctly."
-msgstr ""
-"새로운 비밀번호를 정확히 입력했는지 확인할 수 있도록 두 번 입력하시기 바랍니"
-"다."
+msgstr "새로운 비밀번호를 정확히 입력했는지 확인할 수 있도록 두 번 입력하시기 바랍니다."
 
 #: templates/haru/registration/password_reset_confirm.html:18
 msgid "New password:"
@@ -544,9 +545,7 @@ msgstr "새로운 비밀번호(확인)"
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a new password reset."
-msgstr ""
-"비밀번호 초기화 링크가 이미 사용되었거나 올바르지 않습니다. 비밀번호 초기화"
-"를 과정을 다시 진행해주세요."
+msgstr "비밀번호 초기화 링크가 이미 사용되었거나 올바르지 않습니다. 비밀번호 초기화를 과정을 다시 진행해주세요."
 
 #: templates/haru/registration/password_reset_done.html:11
 msgid "Email sent"
@@ -557,16 +556,13 @@ msgid ""
 "We've emailed you instructions for setting your password, if an account "
 "exists with the email you entered. You should receive them shortly."
 msgstr ""
-"비밀번호를 초기화하는 방법을 이메일로 보내드렸습니다. 해당 이메일주소가 정상"
-"적으로 등록되어 있다면 이메일을 곧 받으실 수 있습니다."
+"비밀번호를 초기화하는 방법을 이메일로 보내드렸습니다. 해당 이메일주소가 정상적으로 등록되어 있다면 이메일을 곧 받으실 수 있습니다."
 
 #: templates/haru/registration/password_reset_done.html:20
 msgid ""
 "If you don't receive an email, please make sure you've entered the address "
 "you registered with, and check your spam folder."
-msgstr ""
-"만약 이메일을 받지 못하였다면, 등록하신 이메일을 다시 확인하시거나 스팸 메일"
-"함을 확인해주세요."
+msgstr "만약 이메일을 받지 못하였다면, 등록하신 이메일을 다시 확인하시거나 스팸 메일함을 확인해주세요."
 
 #: templates/haru/registration/password_reset_email.html:2
 #, python-format
@@ -596,13 +592,14 @@ msgstr "%(site_name)s 팀"
 msgid ""
 "Forgotten your password? Enter your email address below, and we'll email "
 "instructions for setting a new one."
-msgstr ""
-"비밀번호를 분실하셨습니까? 아래에 이메일 주소를 입력해주십시오. 새로운 비밀번"
-"호를 설정하는 이메일을 보내드리겠습니다."
+msgstr "비밀번호를 분실하셨습니까? 아래에 이메일 주소를 입력해주십시오. 새로운 비밀번호를 설정하는 이메일을 보내드리겠습니다."
 
 #: templates/haru/registration/password_reset_form.html:19
 msgid "Email address:"
 msgstr "이메일 주소:"
+
+#~ msgid "to_list"
+#~ msgstr "목록으로"
 
 #~ msgid "sign up"
 #~ msgstr "회원가입"

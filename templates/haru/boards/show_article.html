@@ -15,14 +15,18 @@
 {% load sense %}
 {% block content %}
 
-<h1>{{ table_name }}</h1>
+<h1>
+    <a href="{% url 'boards:show_list_0' table=article.table %}">
+        {{ table_name }}
+    </a>
+</h1>
 <div class="annotation">
 {% if table_desc %}
     {{ table_desc }}
 {% endif %}
 <span>
-    <a href="{% url 'boards:show_list_0' table=article.table %}">
-        {% trans 'to_list' %}
+    <a href="javascript:history.back(1)">
+        {% trans 'Go back' %}
     </a>
 </span>
 </div>
@@ -108,7 +112,11 @@
     {% endif %}
 </div>
 <div class="sense_horizontal_bar">
-    {% show_up_sense %}
+    {% if table == '9' %}
+        {% show_up_sense user %}
+    {% else %}
+        {% show_up_sense %}
+    {% endif %}
 </div>
 <form>{% csrf_token %}</form>
 

@@ -16,13 +16,13 @@
         </a>
         <ul>
             <li class="titlemenu">
-                <a href="#">
-                    Menu 1
+                <a href="{% url 'boards:show_list_0' table=9 %}">
+                    {% trans 'Best' %}
                 </a>
             </li>
             <li>
-                <a href="#">
-                    Menu 2
+                <a href="{% url 'boards:show_list_0' table=0 %}">
+                    {% trans 'Recent' %}
                 </a>
             </li>
         </ul>

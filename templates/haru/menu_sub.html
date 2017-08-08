@@ -1,12 +1,7 @@
 {% load i18n %}
 
 <span>
-    <a href="#">
-        Menu A
-    </a>
-</span>
-<span>
-    <a href="#">
-        Menu B
+    <a href="{% url 'boards:show_list_0' table=9 %}">
+        {% trans 'Best' %}
     </a>
 </span>

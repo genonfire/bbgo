@@ -11,10 +11,12 @@ class BoardTable():
     """Table for all board settings"""
 
     BOARD_LIST_COUNT = 20  # 한 페이지에 표시될 게시물 수
+    BEST_THRESHOLD = 20  # 베스트로 갈 추천 수
+    VETO_THRESHOLD = 10  # 베스트로 못가게 비토할 비추 수
 
     CATEGORY = [
         None,
-        ['잡담', '질문', '추천'],  # 0
+        ['잡담', '질문', '팁', '정보', '홍보'],  # 0
     ]
 
     BOARD_TABLES = [
@@ -31,7 +33,7 @@ class BoardTable():
         ['', '', 0],  # 6
         ['', '', 0],  # 7
         ['', '', 0],  # 8
-        ['', '', 0],  # 9
+        ['베스트', '추천을 많이 받은 게시물이 자동 등록됩니다.', 0],  # 9
         # 회원 쓰기 가능
         ['게시판', '게시판 입니다.', 1],  # 10
     ]
@@ -39,6 +41,14 @@ class BoardTable():
     def get_list_count(self):
         """Get list count"""
         return self.BOARD_LIST_COUNT
+
+    def get_best_threshold(self):
+        """Get best threshold"""
+        return self.BEST_THRESHOLD
+
+    def get_veto_threshold(self):
+        """Get veto threshold"""
+        return self.VETO_THRESHOLD
 
     def get_table_len(self):
         """Get number of tables"""
@@ -67,3 +77,16 @@ class BoardTable():
     def get_table_list(self):
         """Get BOARD_TABLES"""
         return self.BOARD_TABLES
+
+    def writable(self, request, table):
+        """Writable for table"""
+        if request.user.is_authenticated():
+            writable = True
+            if int(table) == 0 or int(table) == 9:
+                writable = False
+            elif int(table) < 10 and not request.user.is_staff:
+                writable = False
+        else:
+            writable = False
+
+        return writable

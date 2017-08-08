@@ -49,13 +49,22 @@ def show_list(request, search_type='', search_word='', table=0, page=0):
     else:
         q = Q(status__iexact='1normal') | Q(status__iexact='4warning')
 
-    if int(table) == 0:
+    if int(table) == 0 or int(table) == 9:
         if search_type == '':
             notice_list = Board.objects.filter(table=1).filter(status__iexact='3notice').order_by('-id')
         else:
             notice_list = None
-        total = Board.objects.filter(q).count()
-        lists = Board.objects.filter(q).order_by('-id')[start_at:end_at]
+        if int(table) == 9:
+            total = Board.objects.filter(q).filter(
+                like_count__gte=board_table.get_best_threshold()).filter(
+                dislike_count__lte=board_table.get_veto_threshold()).count()
+            lists = Board.objects.filter(q).filter(
+                like_count__gte=board_table.get_best_threshold()).filter(
+                dislike_count__lt=board_table.get_veto_threshold()) \
+                .order_by('-id')[start_at:end_at]
+        else:
+            total = Board.objects.filter(q).count()
+            lists = Board.objects.filter(q).order_by('-id')[start_at:end_at]
         name_list = board_table.get_table_list()
     else:
         if search_type == '':
@@ -75,14 +84,7 @@ def show_list(request, search_type='', search_word='', table=0, page=0):
     if mindex_end - mindex_begin >= 5:
         mindex_end = mindex_begin + 4
 
-    if request.user.is_authenticated():
-        writable = True
-        if int(table) == 0:
-            writable = False
-        elif int(table) < 10 and not request.user.is_staff:
-            writable = False
-    else:
-        writable = False
+    writable = board_table.writable(request, table)
 
     return render(
         request,
@@ -108,13 +110,14 @@ def show_list(request, search_type='', search_word='', table=0, page=0):
     )
 
 
-def show_article(request, id):
+def show_article(request, id, table=-1):
     """Show article"""
     article = get_object_or_404(Board, pk=id)
     article.view_count += 1
     article.save()
 
-    table = article.table
+    if int(table) == -1:
+        table = article.table
     board_table = BoardTable()
     table_name = board_table.get_table_name(table)
     table_desc = board_table.get_table_desc(table)
@@ -129,6 +132,7 @@ def show_article(request, id):
         "boards/show_article.html",
         {
             'article': article,
+            'table': table,
             'table_name': table_name,
             'table_desc': table_desc,
             'status_text': status_text,

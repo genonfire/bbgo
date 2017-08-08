@@ -52,17 +52,18 @@
     <th class="name">{% trans 'username' %}</th>
     <th class="view_count">{% trans 'view' %}</th>
     <th class="like_count">{% trans 'like' %}</th>
+    <th class="like_count">{% trans 'dislike' %}</th>
     <th class="datetime">{% trans 'date' %}</th>
 </tr>
 </thead>
 <tbody>
 {% for article in notice_list %} <!--//Notice-->
     <tr>
-        <td class="subject notice tdlink" data-href="{% url 'boards:show_article' id=article.id %}">
+        <td class="subject notice tdlink" data-href="{% url 'boards:show_table_article' id=article.id table=table %}">
             <span class="category">
                 {% trans 'status_notice' %}
             </span>
-            <a href="{% url 'boards:show_article' id=article.id %}" class="board_link">
+            <a href="{% url 'boards:show_table_article' id=article.id table=table %}" class="board_link">
                 {{ article.subject }}
             </a>
             {% if article.reply_count > 0 %}
@@ -79,6 +80,9 @@
             {{ article.like_count }}
         </td>
         <td class="article_info">
+            {{ article.dislike_count }}
+        </td>
+        <td class="article_info">
             {% if article.created_at|localtime|is_today %}
                 {{ article.created_at|time:"H:i" }}
             {% else %}
@@ -93,6 +97,9 @@
             </span>
             <span>
                 {% trans 'like' %} {{ article.like_count }} |
+            </span>
+            <span>
+                {% trans 'dislike' %} {{ article.dislike_count }} |
             </span>
             <span>
                 {% trans 'view' %} {{ article.view_count }} |
@@ -109,15 +116,15 @@
 {% endfor %}
 {% for article in lists %} <!--//Articles-->
     <tr>
-        <td class="subject tdlink" data-href="{% url 'boards:show_article' id=article.id %}">
+        <td class="subject tdlink" data-href="{% url 'boards:show_table_article' id=article.id table=table %}">
             <span class="category">
-                {% if table == '0' %}
+                {% if table == '0' or table == '9' %}
                     {{ name_list|pick_first:article.table }}
                 {% else %}
                     {{ article.category }}
                 {% endif %}
             </span>
-            <a href="{% url 'boards:show_article' id=article.id %}">
+            <a href="{% url 'boards:show_table_article' id=article.id table=table %}">
                 {{ article.subject }}
             </a>
             {% if article.reply_count > 0 %}
@@ -134,6 +141,9 @@
             {{ article.like_count }}
         </td>
         <td class="article_info">
+            {{ article.dislike_count }}
+        </td>
+        <td class="article_info">
             {% if article.created_at|localtime|is_today %}
                 {{ article.created_at|time:"H:i" }}
             {% else %}
@@ -148,6 +158,9 @@
             </span>
             <span>
                 {% trans 'like' %} {{ article.like_count }} |
+            </span>
+            <span>
+                {% trans 'dislike' %} {{ article.dislike_count }} |
             </span>
             <span>
                 {% trans 'view' %} {{ article.view_count }} |
