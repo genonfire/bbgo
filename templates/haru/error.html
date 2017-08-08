@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ SITE_NAME }} - {% trans 'Error!' %}{% endblock %}
+{% block content %}
+
+<h1>
+    {% trans 'Error!' %}
+</h1>
+<div class="annotation">
+</div>
+
+<div class="member">
+    <div class="password_reset_description">
+        {{ msg }}
+    </div>
+</div>
+
+{% endblock %}

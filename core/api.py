@@ -4,7 +4,7 @@ from smtplib import SMTPException
 
 from boards.forms import ReplyEditForm
 from boards.models import Board, Reply
-from core.utils import get_ipaddress
+from core.utils import error_page, get_ipaddress
 
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -13,7 +13,7 @@ from django.core.mail import send_mail
 from django.core.signing import TimestampSigner
 from django.db.models import Case, IntegerField, When
 from django.db.models import Q
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render_to_response
 from django.utils import timezone
 from django.utils.translation import ugettext as _
@@ -152,8 +152,7 @@ def like_article(request, liketype):
                 msg = _("You've already disliked")
             return JsonResponse([0, msg], safe=False, status=201)
     else:
-        msg = _("Wrong access")
-        return HttpResponse(msg)
+        return error_page(request)
 
 
 def like_users(request, liketype):
@@ -172,8 +171,7 @@ def like_users(request, liketype):
         return JsonResponse([user_list], safe=False, status=201)
 
     else:
-        msg = _("Wrong access")
-        return HttpResponse(msg)
+        return error_page(request)
 
 
 def like_reply(request, liketype):
@@ -223,8 +221,7 @@ def like_reply(request, liketype):
 
         return JsonResponse(status=201)
     else:
-        msg = _("Wrong access")
-        return HttpResponse(msg)
+        return error_page(request)
 
 
 def write_reply(request):
@@ -305,8 +302,7 @@ def write_reply(request):
 
         return JsonResponse({'status': 'false'}, status=400)
     else:
-        msg = _("Wrong access")
-        return HttpResponse(msg)
+        return error_page(request)
 
 
 def reload_reply(request):
@@ -333,8 +329,7 @@ def reload_reply(request):
             }
         )
     else:
-        msg = _("Wrong access")
-        return HttpResponse(msg)
+        return error_page(request)
 
 
 def delete_reply(request):
@@ -368,8 +363,7 @@ def delete_reply(request):
                 }
             )
 
-    msg = _("Wrong access")
-    return HttpResponse(msg)
+    return error_page(request)
 
 
 def toggle_bookmark(request):
@@ -394,8 +388,7 @@ def toggle_bookmark(request):
         request.user.profile.save()
         return JsonResponse([data], safe=False, status=201)
 
-    msg = _("Wrong access")
-    return HttpResponse(msg)
+    return error_page(request)
 
 
 def alarm_off(request):
@@ -404,4 +397,4 @@ def alarm_off(request):
         request.user.profile.alarm = False
         request.user.profile.save()
 
-        return HttpResponse(status=204)
+        return error_page(request)

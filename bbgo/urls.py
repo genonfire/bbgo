@@ -22,7 +22,6 @@ js_info_dict = {
 }
 
 urlpatterns = [
-    url(r'^', include('django.contrib.auth.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(
         r'^jsi18n-debug/$',
@@ -34,6 +33,8 @@ urlpatterns = [
         'jsi18ncache.views.javascript_catalog',
         js_info_dict,
     ),
+    url(r'^', include('django.contrib.auth.urls')),
+    url(r'^', include('portal.urls')),
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
     url(r'^boards/', include('boards.urls', namespace='boards')),
     url(r'^api/', include('core.apiurls', namespace='api')),

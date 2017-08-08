@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 from math import ceil
 
-from core.utils import get_ipaddress
+from core.utils import error_page, get_ipaddress
 
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse_lazy
 from django.db.models import Q
-from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 from django.utils.translation import ugettext as _
@@ -21,13 +20,11 @@ def show_list(request, search_type='', search_word='', table=0, page=0):
     """Show list"""
     board_table = BoardTable()
     if int(table) >= board_table.get_table_len():
-        msg = _("Wrong access")
-        return HttpResponse(msg)
+        return error_page(request)
 
     table_name = board_table.get_table_name(table)
     if table_name == '':
-        msg = _("Wrong access")
-        return HttpResponse(msg)
+        return error_page(request)
 
     if int(page) < 1:
         return redirect('boards:show_list', table=table, page=1)
@@ -143,8 +140,7 @@ def show_article(request, id):
 def new_article(request, table=0):
     """New article"""
     if int(table) == 0 or (int(table) < 10 and not request.user.is_staff):
-        msg = _("Wrong access")
-        return HttpResponse(msg)
+        return error_page(request)
 
     if request.method == "POST":
         editform = BoardEditForm(request.POST, request.FILES)
@@ -153,7 +149,7 @@ def new_article(request, table=0):
             if article.status != '1normal' and article.status != '2temp':
                 if not request.user.is_staff:
                     msg = _("Wrong status from user.")
-                    return HttpResponse(msg)
+                    return error_page(request, msg)
             article.user = request.user
             article.ip = get_ipaddress(request)
             article.table = table
@@ -166,13 +162,11 @@ def new_article(request, table=0):
     elif request.method == "GET":
         board_table = BoardTable()
         if int(table) >= board_table.get_table_len():
-            msg = _("Wrong access")
-            return HttpResponse(msg)
+            return error_page(request)
 
         table_name = board_table.get_table_name(table)
         if table_name == '':
-            msg = _("Wrong access")
-            return HttpResponse(msg)
+            return error_page(request)
 
         table_desc = board_table.get_table_desc(table)
         category_choices = board_table.get_category(table)
@@ -211,13 +205,11 @@ def edit_article(request, id):
     elif request.method == "GET":
         board_table = BoardTable()
         if article.table >= board_table.get_table_len():
-            msg = _("Wrong access")
-            return HttpResponse(msg)
+            return error_page(request)
 
         table_name = board_table.get_table_name(article.table)
         if table_name == '':
-            msg = _("Wrong access")
-            return HttpResponse(msg)
+            return error_page(request)
 
         table_desc = board_table.get_table_desc(article.table)
         category_choices = board_table.get_category(article.table)
@@ -243,7 +235,7 @@ def delete_article(request, id):
     article = get_object_or_404(Board, pk=id)
 
     if request.user != article.user and not request.user.is_staff:
-        return HttpResponse(_('Wrong access'))
+        return error_page(request)
 
     article.status = '6deleted'
     article.save()

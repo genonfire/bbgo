@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from smtplib import SMTPException
 
+from core.utils import error_page
+
 from django.conf import settings
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.models import User
@@ -8,7 +10,6 @@ from django.core.mail import send_mail
 from django.core.signing import TimestampSigner
 from django.core.urlresolvers import reverse_lazy
 from django.db.models import Q
-from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import ugettext as _
 
@@ -130,7 +131,7 @@ def sign_up(request):
                 len(username) < settings.ID_MIN_LENGTH or \
                     len(username) > settings.ID_MAX_LENGTH:
                 msg = _('Please check username.')
-                return HttpResponse(msg)
+                return error_page(request, msg)
 
             if settings.ENABLE_NICKNAME:
                 nick = userform.cleaned_data['first_name']
@@ -140,7 +141,7 @@ def sign_up(request):
                         len(nick) < settings.NICKNAME_MIN_LENGTH or \
                             len(nick) > settings.NICKNAME_MAX_LENGTH:
                         msg = _('Please check nickname.')
-                        return HttpResponse(msg)
+                        return error_page(request, msg)
 
             code = userform.cleaned_data['code']
             email = userform.cleaned_data['email']
@@ -164,7 +165,7 @@ def sign_up(request):
         else:
             msg = _('Sorry. Please try again later.')
 
-        return HttpResponse(msg)
+        return error_page(request, msg)
     elif request.method == "GET":
         userform = RegistrationForm()
 
@@ -208,6 +209,6 @@ def send_email(request):
 
     try:
         send_mail(subject, body, settings.EMAIL_HOST_USER, [id_email], fail_silently=False)
-        return HttpResponse("Email sent", status=201)
+        return error_page(request, "Email sent", status=201)
     except SMTPException:
-        return HttpResponse(status=400)
+        return error_page(request, "Error!")

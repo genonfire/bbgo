@@ -1,5 +1,21 @@
 # -*- coding: utf-8 -*-
 """Utility functions for bbgo"""
+from django.shortcuts import render
+from django.utils.translation import ugettext as _
+
+
+def error_page(request, msg=''):
+    """Show error page with msg"""
+    if not msg:
+        msg = _('Wrong access')
+
+    return render(
+        request,
+        "error.html",
+        {
+            'msg': msg,
+        }
+    )
 
 
 def get_ipaddress(request):
@@ -19,11 +35,3 @@ def is_mobile(request):
         return True
     else:
         return False
-
-
-def get_template(request, template):
-    """Return template name according to UA"""
-    if is_mobile(request):
-        return template.replace('m-', '')
-    else:
-        return template.replace('m-', '')
