@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-07 18:16+0900\n"
+"POT-Creation-Date: 2017-08-08 13:31+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: static/js/accounts/deactivate.js:4 static/js/accounts/signup.js:33
+msgid "Please consent to Terms."
+msgstr ""
+
+#: static/js/accounts/deactivate.js:8
+msgid "Are you sure to delete your profile?"
+msgstr ""
 
 #: static/js/accounts/member.js:6 static/js/accounts/member.js:18
 #: static/js/accounts/member.js:40 static/js/accounts/signup.js:6
@@ -47,19 +55,11 @@ msgstr ""
 msgid "Verification failure. Please check verification code again."
 msgstr ""
 
-#: static/js/accounts/setting.js:5 static/js/accounts/signup.js:33
-msgid "Please consent to Terms."
-msgstr ""
-
-#: static/js/accounts/setting.js:9
-msgid "Are you sure to delete your profile?"
-msgstr ""
-
-#: static/js/accounts/setting.js:19
+#: static/js/accounts/setting.js:5
 msgid "Please select correct image."
 msgstr ""
 
-#: static/js/accounts/setting.js:25 static/js/boards/boards_reply.js:119
+#: static/js/accounts/setting.js:11 static/js/boards/boards_reply.js:119
 #: static/js/boards/boards_reply.js:227
 msgid "Selected image is too big. size limit: "
 msgstr ""

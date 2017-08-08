@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-07 18:16+0900\n"
+"POT-Creation-Date: 2017-08-08 13:31+0900\n"
 "PO-Revision-Date: 2017-07-13 14:03+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,28 +18,28 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: accounts/views.py:32 accounts/views.py:96
+#: accounts/views.py:28 accounts/views.py:94
 msgid "Saved successfully."
 msgstr ""
 
-#: accounts/views.py:34 accounts/views.py:100
+#: accounts/views.py:30 accounts/views.py:98
 msgid "Form validation Failure"
 msgstr ""
 
-#: accounts/views.py:72 accounts/views.py:144
+#: accounts/views.py:70 accounts/views.py:142
 msgid "Please check nickname."
 msgstr ""
 
-#: accounts/views.py:89 accounts/views.py:92 accounts/views.py:163
-#: accounts/views.py:165
+#: accounts/views.py:87 accounts/views.py:90 accounts/views.py:161
+#: accounts/views.py:163
 msgid "Verification failure. Please check verification code again."
 msgstr ""
 
-#: accounts/views.py:134
+#: accounts/views.py:132
 msgid "Please check username."
 msgstr ""
 
-#: accounts/views.py:167
+#: accounts/views.py:165
 msgid "Sorry. Please try again later."
 msgstr ""
 
@@ -139,6 +139,22 @@ msgid ""
 "please contact administrator."
 msgstr ""
 
+#: templates/haru/accounts/deactivate_account.html:6
+#: templates/haru/accounts/deactivate_account.html:10
+#: templates/haru/accounts/deactivate_account.html:29
+#: templates/haru/accounts/user_info.html:110
+msgid "Deactivate account"
+msgstr ""
+
+#: templates/haru/accounts/deactivate_account.html:13
+msgid "To delete your profile, please check following Terms."
+msgstr ""
+
+#: templates/haru/accounts/deactivate_account.html:20
+#: templates/haru/accounts/signup.html:111
+msgid "Agree to Terms of Service and Privacy Policy"
+msgstr ""
+
 #: templates/haru/accounts/join.html:4 templates/haru/accounts/join.html:8
 #: templates/haru/accounts/login.html:57 templates/haru/accounts/signup.html:4
 #: templates/haru/accounts/signup.html:19
@@ -209,7 +225,7 @@ msgid ""
 msgstr ""
 
 #: templates/haru/accounts/setting.html:50
-#: templates/haru/accounts/user_info.html:112
+#: templates/haru/accounts/user_info.html:117
 msgid "Save"
 msgstr ""
 
@@ -276,11 +292,6 @@ msgstr ""
 msgid "password confirm"
 msgstr ""
 
-#: templates/haru/accounts/signup.html:111
-#: templates/haru/accounts/user_info.html:126
-msgid "Agree to Terms of Service and Privacy Policy"
-msgstr ""
-
 #: templates/haru/accounts/user_info.html:6
 #: templates/haru/accounts/user_info.html:13
 #: templates/haru/menu_setting.html:11
@@ -319,15 +330,6 @@ msgstr ""
 
 #: templates/haru/accounts/user_info.html:101
 msgid "point"
-msgstr ""
-
-#: templates/haru/accounts/user_info.html:118
-#: templates/haru/accounts/user_info.html:133
-msgid "Delete profile"
-msgstr ""
-
-#: templates/haru/accounts/user_info.html:121
-msgid "To delete your profile, please check following Terms."
 msgstr ""
 
 #: templates/haru/base.html:75

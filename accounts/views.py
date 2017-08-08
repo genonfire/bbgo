@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from smtplib import SMTPException
-import sys
 
 from django.conf import settings
 from django.contrib.auth.decorators import user_passes_test
@@ -15,9 +14,6 @@ from django.utils.translation import ugettext as _
 
 from .forms import RegistrationForm, SettingForm, UserInfoForm
 from .models import Profile
-
-reload(sys)
-sys.setdefaultencoding('utf-8')
 
 
 def setting(request):
@@ -52,8 +48,10 @@ def setting(request):
 
 def user_info(request):
     """User information"""
-    id = request.user.profile.id
-    profile = get_object_or_404(Profile, pk=id)
+    if not request.user.is_authenticated():
+        return redirect('/')
+
+    profile = get_object_or_404(Profile, pk=request.user.profile.id)
     if request.method == "POST":
         infoform = UserInfoForm(request.POST, request.FILES, instance=profile)
         if infoform.is_valid():
@@ -179,8 +177,16 @@ def sign_up(request):
     )
 
 
-def delete_profile(request):
-    """Delete profile"""
+def show_deactivate_account(request):
+    """Show deactivate account page"""
+    return render(
+        request,
+        "accounts/deactivate_account.html"
+    )
+
+
+def deactivate_account(request):
+    """Deactivate account"""
     if request.user.is_authenticated():
         request.user.is_active = False
         if request.user.is_staff:

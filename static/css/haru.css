@@ -88,7 +88,7 @@ a:hover {color:yellow; color:#000;text-decoration:none;}
 .sidebar_message_no {color:#ee2d31;font-weight:bold;}
 .sidebar_buttons {font-size:.9em;}
 .sidebar_buttons input[type="submit"] {width:100%;height:2.4em;margin:.3em;}
-.sidebar_buttons span a {display:inline-block;height:2em;margin-left:.5em;padding:0 .3em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;font-size:.9em;line-height:1.9em;}
+.sidebar_buttons span a {display:inline-block;height:2em;margin-left:.4em;padding:0 .3em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;font-size:.9em;line-height:1.9em;}
 .sidebar_login {text-align:right;height:2em;margin:.3em;font-size:.9em;}
 .sidebar_login input {width:100%;height:2em;padding:.2em;}
 
@@ -197,25 +197,25 @@ table.board tr.article_info_mobile span {padding:.1em;font-weight:300;color:#999
 .reply_header span {color:#409BD1;}
 .reply_body {border-bottom:1px solid #999;}
 .reply_title {height:2.4em;background:#F7F7F7;padding:.2em;vertical-align:middle;font-size:.9em;}
-.reply_title span {margin-right:.5em;font-size:.8em;color:#11223d;}
+.reply_title span {margin-right:.3em;font-size:.9em;color:#11223d;}
 .reply_title span.reply_username {font-weight:bold;}
 .reply_title span.reply_date {color:#999;}
-.reply_title span.reply_delete a {color:#E54F44;}
+.reply_title span.reply_delete a {vertical-align:baseline;color:#E54F44;}
 .reply_body_owner {background:#F4F5F9;}
 .reply_title_owner {background:#EFF0F4;}
 .reply_self {border:1px solid #11223D;}
-.reply_to {padding-left:.5em;color:#999;font-size:.8em;}
+.reply_to {padding-left:.5em;color:#999;font-size:.9em;}
 span.thumb_up_msg {color:#1e88e5;}
 span.thumb_down_msg {color:#e02d31;}
 span.open_reply a {color:#409BD1;}
 .reply_image {display:inline-block;padding:.5em;}
 .reply_image img {max-width:100%;max-height:100%;}
-.reply_content {padding:.5em;font-size:.9em;}
-.reload_reply {height:3em;margin:.5em;padding:.5em;text-align:center;vertical-align:middle;font-size:.8em;}
+.reply_content {padding:.5em;}
+.reload_reply {height:3em;margin:.5em;padding:.5em;text-align:center;vertical-align:middle;font-size:.9em;}
 .input_reply {margin-bottom:1em;}
 .input_reply_text textarea {width:100%;height:6em;line-height:1.2em;}
 .input_reply_buttons input[type="file"] {width:200px;font-size:.9em;}
-.input_reply_buttons input[type="button"] {background:#11223d;color:#fff;}
+.input_reply_buttons input[type="button"] {background:#11223d;color:#fff;font-size:1em;}
 
 table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 
@@ -224,13 +224,12 @@ table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 .signup table {width:100%;}
 .signup tr#code_hide {display:none;}
 .signup td {height:3em;padding:.2em;border-bottom:1px solid #9393AE;}
-.signup td.label {min-width:72px;width:auto;padding-right:.5em;border-right:1px solid #9393AE;font-size:.8em;text-align:right;}
+.signup td.label {min-width:80px;width:auto;padding-right:.5em;border-right:1px solid #9393AE;font-size:.9em;text-align:right;}
 .signup td.required {font-weight:bold;}
 .signup td.input {padding-left:.5em;font-size:.9em;}
 .signup td.ad-client input {width:13em;}
-.signup div {margin:.5em;font-size:.9em;}
-.signup div.concent div {text-align:center;}
-/*.member {margin:1.25em auto 1.6em;background:#fff;}*/
+.signup div {margin:.4em;font-size:.9em;}
+.signup div.concent, .member div.concent div {text-align:center;font-size:.9em;}
 .member input {height:2.2em;padding-left:.2em;vertical-align:middle;}
 .member input[type="password"] {width:auto;}
 .member input[type="button"] {padding:0 10px;font-size:.9em;}
@@ -241,6 +240,8 @@ table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 .member a:hover {color:#be131c; text-decoration:none;}
 .member span a {display:inline-block;height:2.8em;margin-left:.5em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.7em;}
 .member span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
+.member span.delete a {background:#E54F44;color:#fff;}
+.member span.delete a:hover {background:#FF574F;color:#fff;}
 .password_reset_text {margin-left:.5em;padding-top:.5em;font-size:.9em;}
 .password_reset_email {width:100%;font-size:.9em;}
 .password_reset_email input {width:95%;margin-left:.5em;margin-top:.5em;height:2.4em;vertical-align:middle;}

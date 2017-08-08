@@ -42,8 +42,13 @@ urlpatterns = [
         name='user_info'
     ),
     url(
-        r'^delete_profile/$',
-        views.delete_profile,
-        name='delete_profile'
-    )
+        r'^show_deactivate_account/$',
+        views.show_deactivate_account,
+        name='show_deactivate_account',
+    ),
+    url(
+        r'^deactivate_account/$',
+        views.deactivate_account,
+        name='deactivate_account',
+    ),
 ]

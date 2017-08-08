@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-07 18:16+0900\n"
+"POT-Creation-Date: 2017-08-08 13:31+0900\n"
 "PO-Revision-Date: 2017-08-07 18:16+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
+
+#: static/js/accounts/deactivate.js:4 static/js/accounts/signup.js:33
+msgid "Please consent to Terms."
+msgstr "약관에 동의해 주세요."
+
+#: static/js/accounts/deactivate.js:8
+msgid "Are you sure to delete your profile?"
+msgstr "정말로 탈퇴하시겠습니까?"
 
 #: static/js/accounts/member.js:6 static/js/accounts/member.js:18
 #: static/js/accounts/member.js:40 static/js/accounts/signup.js:6
@@ -49,20 +57,11 @@ msgstr "인증 성공."
 msgid "Verification failure. Please check verification code again."
 msgstr "인증실패. 인증코드를 다시 확인해 주세요."
 
-#: static/js/accounts/setting.js:5 static/js/accounts/signup.js:33
-msgid "Please consent to Terms."
-msgstr "약관에 동의해 주세요."
-
-#: static/js/accounts/setting.js:9
-#| msgid "Are you sure to delete this article?"
-msgid "Are you sure to delete your profile?"
-msgstr "정말로 탈퇴하시겠습니까?"
-
-#: static/js/accounts/setting.js:19
+#: static/js/accounts/setting.js:5
 msgid "Please select correct image."
 msgstr "올바른 이미지 파일을 선택해 주세요."
 
-#: static/js/accounts/setting.js:25 static/js/boards/boards_reply.js:119
+#: static/js/accounts/setting.js:11 static/js/boards/boards_reply.js:119
 #: static/js/boards/boards_reply.js:227
 msgid "Selected image is too big. size limit: "
 msgstr "이미지가 너무 큽니다. 사이즈 제한: "
