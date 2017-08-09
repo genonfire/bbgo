@@ -76,7 +76,11 @@
         <td class="article_info">
             {{ article.view_count }}
         </td>
-        <td class="article_info">
+        {% if article.like_count >= HOT_THRESHOLD %}
+            <td class="article_info article_hot">
+        {% else %}
+            <td class="article_info">
+        {% endif %}
             {{ article.like_count }}
         </td>
         <td class="article_info">
@@ -95,11 +99,15 @@
             <span>
                 {{ article.user|nickname|safe }} |
             </span>
+            {% if article.like_count > HOT_THRESHOLD %}
+                <span class="article_hot">
+            {% else %}
+                <span>
+            {% endif %}
+                {{ article.like_count }}
+                </span>
             <span>
-                {% trans 'like' %} {{ article.like_count }} |
-            </span>
-            <span>
-                {% trans 'dislike' %} {{ article.dislike_count }} |
+                | {% trans 'dislike' %} {{ article.dislike_count }} |
             </span>
             <span>
                 {% trans 'view' %} {{ article.view_count }} |
@@ -137,7 +145,11 @@
         <td class="article_info">
             {{ article.view_count }}
         </td>
-        <td class="article_info">
+        {% if article.like_count >= HOT_THRESHOLD %}
+            <td class="article_info article_hot">
+        {% else %}
+            <td class="article_info">
+        {% endif %}
             {{ article.like_count }}
         </td>
         <td class="article_info">
@@ -157,10 +169,17 @@
                 {{ article.user|nickname|safe }} |
             </span>
             <span>
-                {% trans 'like' %} {{ article.like_count }} |
+                {% trans 'like' %}
             </span>
+            {% if article.like_count > HOT_THRESHOLD %}
+                <span class="article_hot">
+            {% else %}
+                <span>
+            {% endif %}
+                {{ article.like_count }}
+                </span>
             <span>
-                {% trans 'dislike' %} {{ article.dislike_count }} |
+                | {% trans 'dislike' %} {{ article.dislike_count }} |
             </span>
             <span>
                 {% trans 'view' %} {{ article.view_count }} |

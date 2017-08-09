@@ -242,6 +242,9 @@ PORTRAIT_SIZE_LIMIT = 500 * 1024
 # Use AdSense
 ENABLE_ADSENSE = True
 
+# Setting for Board
+HOT_THRESHOLD = 10  # emphasize like, dislike count if gte
+
 # Setting for Reply
 REPLY_TEXT_MAX = 3000
 REPLY_IMAGE_AVAILABLE = True
