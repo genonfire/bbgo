@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-09 12:31+0900\n"
+"POT-Creation-Date: 2017-08-09 17:05+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -76,7 +76,11 @@ msgstr ""
 msgid "who likes"
 msgstr ""
 
-#: static/js/boards/boards_article.js:107 static/js/boards/boards_reply.js:201
+#: static/js/boards/boards_article.js:100
+msgid "scrap"
+msgstr ""
+
+#: static/js/boards/boards_article.js:109 static/js/boards/boards_reply.js:201
 msgid "Are you sure to delete this article?"
 msgstr ""
 
@@ -110,4 +114,12 @@ msgstr ""
 
 #: static/js/boards/boards_reply.js:80
 msgid "submit"
+msgstr ""
+
+#: static/js/bookmarks.js:37
+msgid "You've scrapped this article."
+msgstr ""
+
+#: static/js/bookmarks.js:40
+msgid "Already scrapped."
 msgstr ""

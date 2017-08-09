@@ -49,8 +49,8 @@
                 <div class="sidebar_container">
                     <form method="post" action="{% url 'accounts:logout' %}">
                         {% csrf_token %}
-                        <div class="sidebar_username">
-                            <span>
+                        <div class="sidebar_user">
+                            <span class="sidebar_username">
                                 {{ user|nickname|safe }}
                             </span>
                             <span class="float-right">
@@ -60,7 +60,7 @@
                             </span>
                         </div>
                         <div class="sidebar_notice">
-                            <span>
+                            <span class="float-left">
                                 {% if user.profile.alarm %}
                                     <a href="{% url 'api:alarm_off' %}">
                                         <img src="{% static 'icons/alert24.gif' %}">
@@ -68,6 +68,11 @@
                                 {% else %}
                                     <img src="{% static 'icons/alert24.png' %}">
                                 {% endif %}
+                            </span>
+                            <span class="sidebar_message">
+                                <a href="{% url 'accounts:scrap_0' %}">
+                                    {% trans 'scrap' %}
+                                </a>
                             </span>
                             <span class="sidebar_message float-right">
                                 <a href="#">

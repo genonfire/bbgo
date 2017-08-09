@@ -381,12 +381,36 @@ def toggle_bookmark(request):
             profile.bookmarks += app_id
             data = static('icons/stared28.png')
         else:
-            regstr = r"\b(,|)" + re.escape(app_id) + r"\b(,|)"
+            regstr = re.escape(app_id) + r"\b(,|)"
             profile.bookmarks = re.sub(regstr, '', profile.bookmarks)
+            if profile.bookmarks and profile.bookmarks[-1] == ',':
+                profile.bookmarks = profile.bookmarks[:-1]
             data = static('icons/star28.png')
 
         request.user.profile.save()
         return JsonResponse([data], safe=False, status=201)
+
+    return error_page(request)
+
+
+def scrap(request):
+    """API scrap"""
+    if request.method == 'POST':
+        app = request.POST['app']
+        id = request.POST['id']
+        app_id = app + ':' + id
+        profile = request.user.profile
+        scrap = profile.scrap.split(',')
+
+        if app_id not in scrap:
+            if profile.scrap != '':
+                profile.scrap += ","
+            profile.scrap += app_id
+
+            request.user.profile.save()
+            return JsonResponse({'status': 'true'}, status=201)
+        else:
+            return JsonResponse({'status': 'false'}, status=400)
 
     return error_page(request)
 

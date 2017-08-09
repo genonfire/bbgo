@@ -15,7 +15,26 @@
             {% trans 'menu' %}
         </a>
         <ul>
+            {% if user.is_staff %}
+                <li class="titlemenu">
+                    {% trans 'Admin menu' %}
+                </li>
+                <li>
+                    <a href="/admin/" target="_blank">
+                        {% trans 'Site administration' %}
+                    </a>
+                </li>
+                <li>
+                    <a href="/trans/" target="_blank">
+                        {% trans 'Text translation' %}
+                    </a>
+                </li>
+            {% endif %}
+
             <li class="titlemenu">
+                {% trans 'bbs' %}
+            </li>
+            <li>
                 <a href="{% url 'boards:show_list_0' table=9 %}">
                     {% trans 'Best' %}
                 </a>

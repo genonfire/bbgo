@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-09 12:31+0900\n"
-"PO-Revision-Date: 2017-08-07 18:16+0900\n"
+"POT-Creation-Date: 2017-08-09 17:05+0900\n"
+"PO-Revision-Date: 2017-08-09 17:06+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -78,7 +78,11 @@ msgstr "비밀번호가 서로 다릅니다."
 msgid "who likes"
 msgstr "이 글을 추천해 주신 분들"
 
-#: static/js/boards/boards_article.js:107 static/js/boards/boards_reply.js:201
+#: static/js/boards/boards_article.js:100
+msgid "scrap"
+msgstr "스크랩"
+
+#: static/js/boards/boards_article.js:109 static/js/boards/boards_reply.js:201
 msgid "Are you sure to delete this article?"
 msgstr "정말로 삭제하시겠습니까?"
 
@@ -113,3 +117,12 @@ msgstr "서로에 대한 배려와 존중을 보여주세요."
 #: static/js/boards/boards_reply.js:80
 msgid "submit"
 msgstr "등록"
+
+#: static/js/bookmarks.js:37
+#| msgid "Are you sure to delete this article?"
+msgid "You've scrapped this article."
+msgstr "스크랩 했습니다."
+
+#: static/js/bookmarks.js:40
+msgid "Already scrapped."
+msgstr "이미 스크랩한 글입니다."

@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
+from math import ceil
+import re
 from smtplib import SMTPException
 
+from boards.models import Board
+from boards.table import BoardTable
 from core.utils import error_page
 
 from django.conf import settings
@@ -116,6 +120,77 @@ def user_info(request):
             'msg': msg,
         }
     )
+
+
+def scrap(request, page=0):
+    """Show my scrap"""
+    if not request.user.is_authenticated():
+        return redirect('/')
+
+    if int(page) < 1:
+        return redirect('accounts:scrap', page=1)
+
+    board_table = BoardTable()
+    my_scrap = []
+    name_list = board_table.get_table_list()
+    list_count = board_table.get_list_count()
+
+    current_page = int(page) - 1
+    start_at = current_page * list_count
+    end_at = start_at + list_count
+
+    q = Q(status__iexact='1normal') | Q(status__iexact='4warning')
+
+    scrap = request.user.profile.scrap.split(',')
+    total = len(scrap)
+
+    if request.user.profile.scrap != '':
+        for index, s in enumerate(scrap[start_at:end_at]):
+            app, id = s.split(':')
+            if app == 'boards':
+                item = Board.objects.filter(id__iexact=id).filter(q)
+                if item.count():
+                    my_scrap.append([item[0]])
+            else:
+                continue
+
+    index_total = int(ceil(float(total) / list_count))
+    index_begin = (current_page / 10) * 10 + 1
+    index_end = mindex_end = index_total
+    if index_end - index_begin >= 10:
+        index_end = index_begin + 9
+    mindex_begin = (current_page / 5) * 5 + 1
+    if mindex_end - mindex_begin >= 5:
+        mindex_end = mindex_begin + 4
+
+    return render(
+        request,
+        "accounts/scrap.html",
+        {
+            'my_scrap': my_scrap,
+            'total': total,
+            'page': current_page + 1,
+            'index_begin': index_begin,
+            'index_end': index_end + 1,
+            'mindex_begin': mindex_begin,
+            'mindex_end': mindex_end + 1,
+            'index_total': index_total,
+            'name_list': name_list,
+        }
+    )
+
+
+def delete_scrap(request, id):
+    """Delete selected scrap"""
+    profile = request.user.profile
+    app_id = 'boards:' + id
+    regstr = re.escape(app_id) + r"\b(,|)"
+    profile.scrap = re.sub(regstr, '', profile.scrap)
+    if profile.scrap and profile.scrap[-1] == ',':
+        profile.scrap = profile.scrap[:-1]
+
+    request.user.profile.save()
+    return redirect('accounts:scrap_0')
 
 
 def sign_up(request):

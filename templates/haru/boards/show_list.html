@@ -296,7 +296,12 @@
 {% endblock %}
 {% block bodyscript %}
 {% if ENABLE_MARK_KEYWORD %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.0/jquery.mark.es6.min.js" async></script>
+    {% if DEBUG %}
+        <script src="{% static 'js/thirdparty/jquery.mark.min.js' %}" async></script>
+    {% else %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.0/jquery.mark.es6.min.js" async></script>
+        }
+    {% endif %}
 {% endif %}
 <script>
     var search_type = '{{ search_type }}';

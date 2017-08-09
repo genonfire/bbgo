@@ -42,6 +42,21 @@ urlpatterns = [
         name='user_info'
     ),
     url(
+        r'^scrap/$',
+        views.scrap,
+        name='scrap_0'
+    ),
+    url(
+        r'^scrap/(?P<page>\d+)/$',
+        views.scrap,
+        name='scrap'
+    ),
+    url(
+        r'^delete_scrap/(?P<id>\d+)/$',
+        views.delete_scrap,
+        name='delete_scrap'
+    ),
+    url(
         r'^show_deactivate_account/$',
         views.show_deactivate_account,
         name='show_deactivate_account',

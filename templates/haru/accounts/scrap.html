@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load user %}
+{% load sense %}
+{% load range %}
+{% load pick %}
+
+{% block title %}{{ SITE_NAME }} - {% trans 'scrap' %}{% endblock %}
+{% block content %}
+
+<h1>
+    {% trans 'scrap' %}
+</h1>
+<div class="annotation">
+    {% trans "Your scrap page. Delete will delete selected scrap without warning." %}
+</div>
+
+<div class="sense_horizontal_bar">
+    {% show_up_sense %}
+</div>
+
+<table class="board">
+<thead>
+<tr>
+    <th class="subject">{% trans 'subject' %}</th>
+    <th class="name">{% trans 'username' %}</th>
+    <th class="fulldate">{% trans 'date' %}</th>
+    <th class="delete">{% trans 'delete' %}</th>
+</tr>
+</thead>
+<tbody>
+{% for scrap in my_scrap %}
+    <tr>
+        <td class="subject">
+            <span class="category">
+                {{ name_list|pick_first:scrap.0.table }}
+            </span>
+            <a href="{% url 'boards:show_article' id=scrap.0.id %}" target="_blank">
+                {{ scrap.0.subject }}
+            </a>
+        </td>
+        <td class="article_info">
+            {{ scrap.0.user|nickname|safe }}
+        </td>
+        <td class="article_info">
+            {{ scrap.0.created_at|date:" Y-m-d" }}
+        </td>
+        <td class="article_info scrap_delete">
+            <a href="{% url 'accounts:delete_scrap' id=scrap.0.id %}">
+                {% trans 'delete' %}
+            </a>
+        </td>
+    </tr>
+    <tr class="article_info_mobile">
+        <td>
+            <span>
+                {{ scrap.0.user|nickname|safe }} |
+            </span>
+            <span>
+                {{ scrap.0.created_at|date:" Y-m-d" }}
+            </span>
+            <span class="scrap_delete">
+                <a href="{% url 'accounts:delete_scrap' id=scrap.0.id %}">
+                    {% trans 'delete' %}
+                </a>
+            </span>
+        </td>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+
+<div class="nabingator buttons mobile_show">
+    {% if index_end > 2 %}
+        <table>
+            <tr>
+                <td>
+                    {% if page > 1 %}
+                        <a href="../{{ page|add:'-1' }}">
+                            < {% trans 'to prev page' %}
+                        </a>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if page < index_end|add:'-1' %}
+                        <a href="../{{ page|add:'1' }}">
+                            {% trans 'to next page' %} >
+                        </a>
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+    {% endif %}
+</div>
+<div class="navigator mobile_hide">
+    <div class="float-left">
+    </div>
+    {% if index_begin != 1 %}
+        <span>
+            <a href="../1" class="jump" title="{% trans 'to first page' %}"><<</a>
+            <a href="../{{ index_begin|add:'-1' }}" class="jump" title="{% trans 'to prev page' %}"><</a>
+        </span>
+    {% endif %}
+    {% for index in index_begin|range:index_end %}
+        <span>
+            {% if index == page %}
+                <a href="../{{ index }}" class="current_page">
+            {% else %}
+                <a href="../{{ index }}">
+            {% endif %}
+                    {{ index }}
+                </a>
+        </span>
+    {% endfor %}
+    {% if index_end <= index_total %}
+        <span>
+            <a href="../{{ index_end }}" class="jump" title="{% trans 'to next page' %}">></a>
+        </span>
+    {% endif %}
+</div>
+<div class="navigator mobile_show">
+    {% if mindex_begin != 1 %}
+        <span>
+            <a href="../1" class="jump" title="{% trans 'to first page' %}"><<</a>
+            <a href="../{{ mindex_begin|add:'-1' }}" class="jump" title="{% trans 'to prev page' %}"><</a>
+        </span>
+    {% endif %}
+    {% for index in mindex_begin|range:mindex_end %}
+        <span>
+            {% if index == page %}
+                <a href="../{{ index }}" class="current_page">
+            {% else %}
+                <a href="../{{ index }}">
+            {% endif %}
+                    {{ index }}
+                </a>
+        </span>
+    {% endfor %}
+    {% if mindex_end <= index_total %}
+        <span>
+            <a href="../{{ mindex_end }}" class="jump" title="{% trans 'to next page' %}">></a>
+        </span>
+    {% endif %}
+</div>
+
+{% endblock %}
