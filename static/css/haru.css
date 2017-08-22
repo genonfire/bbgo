@@ -21,6 +21,7 @@ input[type="button"], input[type="submit"] {cursor:pointer;display:inline-block;
 input[type="submit"] {background:#11223d;color:#fff;}
 a {vertical-align:middle;box-sizing:border-box;color:#333;text-decoration:none;}
 a:hover {color:yellow; color:#000;text-decoration:none;}
+img.portrait {width:150px;height:150px;}
 
 .buttons span a {display:inline-block;height:2.2em;padding:0 .3em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.1em;}
 .buttons span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
