@@ -13,4 +13,5 @@ def _nickname(user):
     if user.is_staff and not settings.DEBUG:
         return '<font color="#409BD1">%s</font>' % name
     else:
-        return name
+        nametag = "<a href=javascript:void(0) onclick=\"javascript:id_menu(event, '%s');return false;\">%s</a>" % (user.username, name)
+        return nametag

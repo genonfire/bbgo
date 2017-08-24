@@ -3,7 +3,7 @@ from math import ceil
 import re
 from smtplib import SMTPException
 
-from boards.models import Board
+from boards.models import Board, Reply
 from boards.table import BoardTable
 from core.utils import error_page
 
@@ -51,8 +51,8 @@ def setting(request):
     )
 
 
-def user_info(request):
-    """User information"""
+def edit_user_info(request):
+    """Edit user information"""
     if not request.user.is_authenticated():
         return redirect('/')
 
@@ -110,7 +110,7 @@ def user_info(request):
 
     return render(
         request,
-        "accounts/user_info.html",
+        "accounts/edit_user_info.html",
         {
             'infoform': infoform,
             'username': request.user.username,
@@ -118,6 +118,27 @@ def user_info(request):
             'point': profile.point,
             'portrait': profile.portrait,
             'msg': msg,
+        }
+    )
+
+
+def user_info(request, user):
+    """Show user info"""
+    if not request.user.is_authenticated():
+        msg = _("Require login")
+        return error_page(request, msg)
+
+    userinfo = User.objects.filter(username__iexact=user).get()
+    article_no = Board.objects.filter(user__username__iexact=user).count()
+    reply_no = Reply.objects.filter(user__username__iexact=user).count()
+
+    return render(
+        request,
+        "accounts/user_info.html",
+        {
+            'userinfo': userinfo,
+            'article_no': article_no,
+            'reply_no': reply_no,
         }
     )
 

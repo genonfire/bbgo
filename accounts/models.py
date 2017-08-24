@@ -14,7 +14,7 @@ def img_validator(attached):
     """Validator to limit file size"""
     size = attached.file.size
     if size > settings.PORTRAIT_SIZE_LIMIT:
-        raise ValidationError('error text')
+        raise ValidationError('image validation failed')
 
 
 class Profile(models.Model):

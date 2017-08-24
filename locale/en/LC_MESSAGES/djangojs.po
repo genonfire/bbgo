@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-09 17:05+0900\n"
+"POT-Creation-Date: 2017-08-24 13:55+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,6 +23,22 @@ msgstr ""
 
 #: static/js/accounts/deactivate.js:8
 msgid "Are you sure to delete your profile?"
+msgstr ""
+
+#: static/js/accounts/idmenu.js:23
+msgid "user info"
+msgstr ""
+
+#: static/js/accounts/idmenu.js:25
+msgid "Show user article"
+msgstr ""
+
+#: static/js/accounts/idmenu.js:27
+msgid "Show user reply"
+msgstr ""
+
+#: static/js/accounts/idmenu.js:29
+msgid "Send message"
 msgstr ""
 
 #: static/js/accounts/member.js:6 static/js/accounts/member.js:18
@@ -72,15 +88,15 @@ msgstr ""
 msgid "Passwords are different each other."
 msgstr ""
 
-#: static/js/boards/boards_article.js:80
+#: static/js/boards/boards_article.js:59
 msgid "who likes"
 msgstr ""
 
-#: static/js/boards/boards_article.js:100
+#: static/js/boards/boards_article.js:79
 msgid "scrap"
 msgstr ""
 
-#: static/js/boards/boards_article.js:109 static/js/boards/boards_reply.js:201
+#: static/js/boards/boards_article.js:88 static/js/boards/boards_reply.js:201
 msgid "Are you sure to delete this article?"
 msgstr ""
 

@@ -146,6 +146,12 @@
         </div>
     </div>
 </div>
+<script>
+    var url_userinfo = "{% url 'accounts:user_info' user='bb' %}";
+    var url_userarticle = "{% url 'boards:show_search_article' search_type='writeuser' search_word='bb' table=0 page=1 %}";
+    var url_userreply;
+</script>
+<script src="{% static 'js/accounts/idmenu.js' %}" async></script>
 {% block bodyscript %}{% endblock %}
 </body>
 </html>

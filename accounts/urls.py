@@ -37,7 +37,12 @@ urlpatterns = [
         name='setting'
     ),
     url(
-        r'^user_info/$',
+        r'^edit_user_info/$',
+        views.edit_user_info,
+        name='edit_user_info'
+    ),
+    url(
+        r'^user_info/(?P<user>\w+)/$',
         views.user_info,
         name='user_info'
     ),

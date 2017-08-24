@@ -50,7 +50,7 @@ class UserInfoForm(forms.ModelForm):
         """Meta for UserInfoForm"""
 
         model = Profile
-        fields = {"portrait", "email", "code"}
+        fields = {"portrait", "email", "code", "signature"}
         if settings.ENABLE_NICKNAME:
             fields.add("first_name")
 
