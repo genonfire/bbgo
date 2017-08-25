@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% load tz datetime %}
+{% load range %}
+{% load pick %}
+{% load user %}
+{% load sense %}
+{% block title %}{{ SITE_NAME }} - {% trans 'Search reply' %}{% endblock %}
+{% block extra_head_content %}
+{{ block.super }}
+{% endblock %}
+{% block content %}
+
+<h1>
+    {% trans 'Search reply' %}
+</h1>
+<div class="annotation">
+</div>
+
+<div class="sense_horizontal_bar">
+    {% show_up_sense %}
+</div>
+
+<table class="board">
+<thead>
+<tr>
+    <th class="subject">{% trans 'subject' %}</th>
+    <th class="name">{% trans 'username' %}</th>
+    <th class="fulldate">{% trans 'date' %}</th>
+    {% if user == reply.user or user.is_staff %}
+        <th class="delete">{% trans 'delete' %}</th>
+    {% endif %}
+</tr>
+</thead>
+<tbody>
+{% for reply in lists %}
+    <tr>
+        <td class="subject tdlink" data-href="{% url 'boards:show_article' id=reply.article_id %}">
+            <span class="category">
+                {% if table == '0' or table == '9' %}
+                    {{ name_list|pick_first:table }}
+                {% endif %}
+            </span>
+            <a href="{% url 'boards:show_article' id=reply.article_id %}">
+                {{ reply.content|truncatechars:80 }}
+            </a>
+        </td>
+        <td class="article_info">
+            {{ reply.user|nickname|safe }}
+        </td>
+        <td class="article_info">
+            {{ reply.created_at|date:" Y-m-d" }}
+        </td>
+        {% if user == reply.user or user.is_staff %}
+            <td class="article_info scrap_delete">
+                <a href="javascript:delete_reply({{ reply.id }})">
+                    {% trans 'delete' %}
+                </a>
+            </td>
+        {% endif %}
+    </tr>
+    <tr class="article_info_mobile">
+        <td>
+            <span>
+                {{ reply.user|nickname|safe }} |
+            </span>
+            <span>
+                {{ reply.created_at|date:" Y-m-d" }}
+            </span>
+            {% if user == reply.user or user.is_staff %}
+                <span class="scrap_delete">
+                    <a href="javascript:delete_reply({{ reply.id }})">
+                        {% trans 'delete' %}
+                    </a>
+                </span>
+            {% endif %}
+        </td>
+{% endfor %}
+</tbody>
+</table>
+<div class="sense_horizontal_bar">
+    {% show_down_sense %}
+</div>
+<div class="nabingator buttons mobile_show">
+    {% if index_end > 2 %}
+        <table>
+            <tr>
+                <td>
+                    {% if page > 1 %}
+                        <a href="../{{ page|add:'-1' }}">
+                            < {% trans 'to prev page' %}
+                        </a>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if page < index_end|add:'-1' %}
+                        <a href="../{{ page|add:'1' }}">
+                            {% trans 'to next page' %} >
+                        </a>
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+    {% endif %}
+</div>
+<div class="navigator mobile_hide">
+    <div class="float-left">
+    </div>
+    {% if index_begin != 1 %}
+        <span>
+            <a href="../1" class="jump" title="{% trans 'to first page' %}"><<</a>
+            <a href="../{{ index_begin|add:'-1' }}" class="jump" title="{% trans 'to prev page' %}"><</a>
+        </span>
+    {% endif %}
+    {% for index in index_begin|range:index_end %}
+        <span>
+            {% if index == page %}
+                <a href="../{{ index }}" class="current_page">
+            {% else %}
+                <a href="../{{ index }}">
+            {% endif %}
+                    {{ index }}
+                </a>
+        </span>
+    {% endfor %}
+    {% if index_end <= index_total %}
+        <span>
+            <a href="../{{ index_end }}" class="jump" title="{% trans 'to next page' %}">></a>
+        </span>
+    {% endif %}
+{% if writable == True %}
+    <div class="float-right">
+        <span>
+            <a href="{% url 'boards:new_article' table=table %}" class="current_page">{% trans 'write' %}</a>
+        </span>
+    </div>
+{% endif %}
+</div>
+<div class="navigator mobile_show">
+    {% if mindex_begin != 1 %}
+        <span>
+            <a href="../1" class="jump" title="{% trans 'to first page' %}"><<</a>
+            <a href="../{{ mindex_begin|add:'-1' }}" class="jump" title="{% trans 'to prev page' %}"><</a>
+        </span>
+    {% endif %}
+    {% for index in mindex_begin|range:mindex_end %}
+        <span>
+            {% if index == page %}
+                <a href="../{{ index }}" class="current_page">
+            {% else %}
+                <a href="../{{ index }}">
+            {% endif %}
+                    {{ index }}
+                </a>
+        </span>
+    {% endfor %}
+    {% if mindex_end <= index_total %}
+        <span>
+            <a href="../{{ mindex_end }}" class="jump" title="{% trans 'to next page' %}">></a>
+        </span>
+    {% endif %}
+</div>
+<div class="dbsearch">
+    <select id="search_type">
+        <option value="writeuser">
+            {% trans 'write user' %}
+        </option>
+    </select>
+    <input type="text" id="search_word" class="search_word" onkeypress="onKeyPress(event)">
+    <input type="button" id="search_button" class="search_button" value="{% trans 'search' %}" onClick="search_reply()">
+</div>
+
+{% endblock %}
+{% block bodyscript %}
+{% if ENABLE_MARK_KEYWORD %}
+    {% if DEBUG %}
+        <script src="{% static 'js/thirdparty/jquery.mark.min.js' %}" async></script>
+    {% else %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.0/jquery.mark.es6.min.js" async></script>
+        }
+    {% endif %}
+{% endif %}
+<script>
+    var search_type = '{{ search_type }}';
+    var search_word = '{{ search_word }}';
+    var search_reply_url = "{% url 'boards:search_reply' search_type='type' search_word='word' table=table page=page %}";
+    {% if ENABLE_MARK_KEYWORD %}
+        var mark_enabled = true;
+    {% else %}
+        var mark_enabled = false;
+    {% endif %}
+</script>
+<script src="{% static 'js/boards/reply_list.js' %}" async></script>
+{% endblock %}

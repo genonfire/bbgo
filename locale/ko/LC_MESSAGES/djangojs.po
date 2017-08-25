@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-24 13:55+0900\n"
+"POT-Creation-Date: 2017-08-25 14:35+0900\n"
 "PO-Revision-Date: 2017-08-24 13:56+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,6 @@ msgid "Show user reply"
 msgstr "작성댓글 보기"
 
 #: static/js/accounts/idmenu.js:29
-#| msgid "Message"
 msgid "Send message"
 msgstr "쪽지 보내기"
 
@@ -100,6 +99,7 @@ msgid "scrap"
 msgstr "스크랩"
 
 #: static/js/boards/boards_article.js:88 static/js/boards/boards_reply.js:201
+#: static/js/boards/reply_list.js:22
 msgid "Are you sure to delete this article?"
 msgstr "정말로 삭제하시겠습니까?"
 
@@ -116,14 +116,14 @@ msgid "Are you sure to quit editing?"
 msgstr "글작성을 그만두고 나가시겠습니까?"
 
 #: static/js/boards/boards_list.js:8 static/js/boards/boards_reply.js:4
-#: static/js/boards/boards_reply.js:42
+#: static/js/boards/boards_reply.js:42 static/js/boards/reply_list.js:8
 msgid "Please input 2 or more characters."
 msgstr "두 글자 이상 입력해 주세요."
 
 #: static/js/boards/boards_reply.js:34 static/js/boards/boards_reply.js:71
 #: static/js/boards/boards_reply.js:143 static/js/boards/boards_reply.js:169
 #: static/js/boards/boards_reply.js:195 static/js/boards/boards_reply.js:217
-#: static/js/bookmarks.js:18
+#: static/js/boards/reply_list.js:38 static/js/bookmarks.js:18
 msgid "Error!"
 msgstr "잘못!"
 

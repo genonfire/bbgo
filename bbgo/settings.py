@@ -246,7 +246,7 @@ ENABLE_ADSENSE = True
 HOT_THRESHOLD = 10  # emphasize like, dislike count if gte
 
 # Setting for Reply
-REPLY_TEXT_MAX = 3000
+REPLY_TEXT_MAX = 2000
 REPLY_IMAGE_AVAILABLE = True
 REPLY_IMAGE_SIZE_LIMIT = 1 * 1024 * 1024
 

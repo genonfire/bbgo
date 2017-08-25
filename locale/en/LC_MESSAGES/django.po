@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-24 13:55+0900\n"
+"POT-Creation-Date: 2017-08-25 14:35+0900\n"
 "PO-Revision-Date: 2017-07-13 14:03+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -304,23 +304,29 @@ msgid "Your scrap page. Delete will delete selected scrap without warning."
 msgstr ""
 
 #: templates/haru/accounts/scrap.html:25
+#: templates/haru/boards/search_reply.html:28
 #: templates/haru/boards/show_list.html:51
 #: templates/haru/boards/show_list.html:284
 msgid "subject"
 msgstr ""
 
 #: templates/haru/accounts/scrap.html:26
+#: templates/haru/boards/search_reply.html:29
 #: templates/haru/boards/show_list.html:52
 msgid "username"
 msgstr ""
 
 #: templates/haru/accounts/scrap.html:27
+#: templates/haru/boards/search_reply.html:30
 #: templates/haru/boards/show_list.html:56
 msgid "date"
 msgstr ""
 
 #: templates/haru/accounts/scrap.html:28 templates/haru/accounts/scrap.html:50
 #: templates/haru/accounts/scrap.html:64
+#: templates/haru/boards/search_reply.html:32
+#: templates/haru/boards/search_reply.html:58
+#: templates/haru/boards/search_reply.html:74
 #: templates/haru/boards/show_article.html:109
 #: templates/haru/boards/show_reply.html:57
 msgid "delete"
@@ -329,6 +335,9 @@ msgstr ""
 #: templates/haru/accounts/scrap.html:80
 #: templates/haru/accounts/scrap.html:101
 #: templates/haru/accounts/scrap.html:125
+#: templates/haru/boards/search_reply.html:92
+#: templates/haru/boards/search_reply.html:113
+#: templates/haru/boards/search_reply.html:144
 #: templates/haru/boards/show_list.html:209
 #: templates/haru/boards/show_list.html:230
 #: templates/haru/boards/show_list.html:261
@@ -338,6 +347,9 @@ msgstr ""
 #: templates/haru/accounts/scrap.html:87
 #: templates/haru/accounts/scrap.html:117
 #: templates/haru/accounts/scrap.html:141
+#: templates/haru/boards/search_reply.html:99
+#: templates/haru/boards/search_reply.html:129
+#: templates/haru/boards/search_reply.html:160
 #: templates/haru/boards/show_list.html:216
 #: templates/haru/boards/show_list.html:246
 #: templates/haru/boards/show_list.html:277
@@ -346,6 +358,8 @@ msgstr ""
 
 #: templates/haru/accounts/scrap.html:100
 #: templates/haru/accounts/scrap.html:124
+#: templates/haru/boards/search_reply.html:112
+#: templates/haru/boards/search_reply.html:143
 #: templates/haru/boards/show_list.html:229
 #: templates/haru/boards/show_list.html:260
 msgid "to first page"
@@ -431,6 +445,27 @@ msgstr ""
 msgid "cancel"
 msgstr ""
 
+#: templates/haru/boards/search_reply.html:9
+#: templates/haru/boards/search_reply.html:16
+msgid "Search reply"
+msgstr ""
+
+#: templates/haru/boards/search_reply.html:135
+#: templates/haru/boards/show_list.html:39
+#: templates/haru/boards/show_list.html:252
+msgid "write"
+msgstr ""
+
+#: templates/haru/boards/search_reply.html:167
+#: templates/haru/boards/show_list.html:290
+msgid "write user"
+msgstr ""
+
+#: templates/haru/boards/search_reply.html:171
+#: templates/haru/boards/show_list.html:294
+msgid "search"
+msgstr ""
+
 #: templates/haru/boards/show_article.html:29
 msgid "Go back"
 msgstr ""
@@ -472,11 +507,6 @@ msgstr ""
 msgid "Please show some respect."
 msgstr ""
 
-#: templates/haru/boards/show_list.html:39
-#: templates/haru/boards/show_list.html:252
-msgid "write"
-msgstr ""
-
 #: templates/haru/boards/show_list.html:53
 #: templates/haru/boards/show_list.html:113
 #: templates/haru/boards/show_list.html:185
@@ -485,14 +515,6 @@ msgstr ""
 
 #: templates/haru/boards/show_list.html:287
 msgid "subject+content"
-msgstr ""
-
-#: templates/haru/boards/show_list.html:290
-msgid "write user"
-msgstr ""
-
-#: templates/haru/boards/show_list.html:294
-msgid "search"
 msgstr ""
 
 #: templates/haru/boards/show_reply.html:8

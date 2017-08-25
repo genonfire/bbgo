@@ -10,7 +10,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 from django.utils.translation import ugettext as _
 
-from models import Board
+from models import Board, Reply
 
 from .forms import BoardEditForm
 from .table import BoardTable
@@ -251,3 +251,72 @@ def search_article(request, search_type, search_word, table=0):
     """Search article"""
     return redirect(reverse_lazy('boards:show_search_article', kwargs={
         'search_type': search_type, 'search_word': search_word, 'table': table, 'page': 1}))
+
+
+def search_reply(request, search_type, search_word, table=0, page=1):
+    """Show reply list"""
+    board_table = BoardTable()
+    if int(table) >= board_table.get_table_len():
+        return error_page(request)
+
+    table_name = board_table.get_table_name(table)
+    if table_name == '':
+        return error_page(request)
+
+    list_count = board_table.get_list_count()
+
+    current_page = int(page) - 1
+    start_at = current_page * list_count
+    end_at = start_at + list_count
+
+    if search_type == 'writeuser':
+        q = Q(status__iexact='1normal') & (
+            Q(user__username__iexact=search_word) |
+            Q(user__first_name__iexact=search_word))
+    else:
+        return error_page(request)
+
+    total = Reply.objects.filter(q).count()
+    lists = Reply.objects.filter(q).order_by('-id')[start_at:end_at]
+    name_list = board_table.get_table_list()
+
+    index_total = int(ceil(float(total) / list_count))
+    index_begin = (current_page / 10) * 10 + 1
+    index_end = mindex_end = index_total
+    if index_end - index_begin >= 10:
+        index_end = index_begin + 9
+    mindex_begin = (current_page / 5) * 5 + 1
+    if mindex_end - mindex_begin >= 5:
+        mindex_end = mindex_begin + 4
+
+    return render(
+        request,
+        "boards/search_reply.html",
+        {
+            'lists': lists,
+            'total': total,
+            'table': table,
+            'page': current_page + 1,
+            'index_begin': index_begin,
+            'index_end': index_end + 1,
+            'mindex_begin': mindex_begin,
+            'mindex_end': mindex_end + 1,
+            'index_total': index_total,
+            'name_list': name_list,
+            'search_type': search_type,
+            'search_word': search_word,
+        }
+    )
+
+
+def delete_reply(request, id):
+    """Delete reply"""
+    reply = get_object_or_404(Reply, pk=id)
+    if request.user == reply.user or request.user.is_staff:
+        reply.status = '6deleted'
+        reply.save()
+
+        referer = request.META.get('HTTP_REFERER')
+        return redirect(referer)
+
+    return error_page(request)

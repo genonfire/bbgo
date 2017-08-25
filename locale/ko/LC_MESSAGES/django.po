@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-24 13:55+0900\n"
-"PO-Revision-Date: 2017-08-24 13:53+0900\n"
+"POT-Creation-Date: 2017-08-25 14:35+0900\n"
+"PO-Revision-Date: 2017-08-25 14:35+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -134,8 +134,7 @@ msgstr "존재하지 않는 페이지입니다. 뭔가 다른 걸 해보세요."
 msgid ""
 "Something wrong. Please reload the page to try again. If error continues, "
 "please contact administrator."
-msgstr ""
-"서버 에러 발생. 새로고침 후에도 문제가 계속되면 관리자에게 문의해 주세요."
+msgstr "서버 에러 발생. 새로고침 후에도 문제가 계속되면 관리자에게 문의해 주세요."
 
 #: templates/haru/accounts/deactivate_account.html:6
 #: templates/haru/accounts/deactivate_account.html:10
@@ -173,9 +172,7 @@ msgstr "커뮤니티 규정"
 msgid ""
 "disagreeable or disturbing content violate our Community Standards may be "
 "deleted without warning."
-msgstr ""
-"다른 사용자에게 불쾌감을 주거나 미풍양속을 해치는 컨텐츠는 예고없이 삭제될 "
-"수 있습니다."
+msgstr "다른 사용자에게 불쾌감을 주거나 미풍양속을 해치는 컨텐츠는 예고없이 삭제될 수 있습니다."
 
 #: templates/haru/accounts/edit_user_info.html:33
 #: templates/haru/accounts/user_info.html:18
@@ -308,23 +305,29 @@ msgid "Your scrap page. Delete will delete selected scrap without warning."
 msgstr "스크랩 페이지입니다. 삭제 버튼을 누르면 추가 확인없이 바로 삭제됩니다."
 
 #: templates/haru/accounts/scrap.html:25
+#: templates/haru/boards/search_reply.html:28
 #: templates/haru/boards/show_list.html:51
 #: templates/haru/boards/show_list.html:284
 msgid "subject"
 msgstr "제목"
 
 #: templates/haru/accounts/scrap.html:26
+#: templates/haru/boards/search_reply.html:29
 #: templates/haru/boards/show_list.html:52
 msgid "username"
 msgstr "이름"
 
 #: templates/haru/accounts/scrap.html:27
+#: templates/haru/boards/search_reply.html:30
 #: templates/haru/boards/show_list.html:56
 msgid "date"
 msgstr "날짜"
 
 #: templates/haru/accounts/scrap.html:28 templates/haru/accounts/scrap.html:50
 #: templates/haru/accounts/scrap.html:64
+#: templates/haru/boards/search_reply.html:32
+#: templates/haru/boards/search_reply.html:58
+#: templates/haru/boards/search_reply.html:74
 #: templates/haru/boards/show_article.html:109
 #: templates/haru/boards/show_reply.html:57
 msgid "delete"
@@ -333,6 +336,9 @@ msgstr "삭제"
 #: templates/haru/accounts/scrap.html:80
 #: templates/haru/accounts/scrap.html:101
 #: templates/haru/accounts/scrap.html:125
+#: templates/haru/boards/search_reply.html:92
+#: templates/haru/boards/search_reply.html:113
+#: templates/haru/boards/search_reply.html:144
 #: templates/haru/boards/show_list.html:209
 #: templates/haru/boards/show_list.html:230
 #: templates/haru/boards/show_list.html:261
@@ -342,6 +348,9 @@ msgstr "이전 페이지로"
 #: templates/haru/accounts/scrap.html:87
 #: templates/haru/accounts/scrap.html:117
 #: templates/haru/accounts/scrap.html:141
+#: templates/haru/boards/search_reply.html:99
+#: templates/haru/boards/search_reply.html:129
+#: templates/haru/boards/search_reply.html:160
 #: templates/haru/boards/show_list.html:216
 #: templates/haru/boards/show_list.html:246
 #: templates/haru/boards/show_list.html:277
@@ -350,6 +359,8 @@ msgstr "다음 페이지로"
 
 #: templates/haru/accounts/scrap.html:100
 #: templates/haru/accounts/scrap.html:124
+#: templates/haru/boards/search_reply.html:112
+#: templates/haru/boards/search_reply.html:143
 #: templates/haru/boards/show_list.html:229
 #: templates/haru/boards/show_list.html:260
 msgid "to first page"
@@ -371,12 +382,11 @@ msgstr "애드센스 정보"
 #: templates/haru/accounts/setting.html:25
 msgid ""
 "Your AdSense will be shown on information and best articles by profit "
-"sharing system. To use this feature please fill followings from your AdSense "
-"code."
+"sharing system. To use this feature please fill followings from your AdSense"
+" code."
 msgstr ""
-"수익 공유 시스템에 따라 정보글이나 추천을 많이 받은 게시물에는 글쓴이의 애드"
-"센스가 나타납니다. 이 기능을 사용하려면 본인의 애드센스 코드를 참조하여 아래 "
-"정보를 채워주세요."
+"수익 공유 시스템에 따라 정보글이나 추천을 많이 받은 게시물에는 글쓴이의 애드센스가 나타납니다. 이 기능을 사용하려면 본인의 애드센스 "
+"코드를 참조하여 아래 정보를 채워주세요."
 
 #: templates/haru/accounts/signup.html:14 templates/haru/error.html:4
 #: templates/haru/error.html.py:8
@@ -438,6 +448,28 @@ msgstr "저장"
 msgid "cancel"
 msgstr "취소"
 
+#: templates/haru/boards/search_reply.html:9
+#: templates/haru/boards/search_reply.html:16
+#| msgid "Write reply"
+msgid "Search reply"
+msgstr "댓글 검색"
+
+#: templates/haru/boards/search_reply.html:135
+#: templates/haru/boards/show_list.html:39
+#: templates/haru/boards/show_list.html:252
+msgid "write"
+msgstr "글쓰기"
+
+#: templates/haru/boards/search_reply.html:167
+#: templates/haru/boards/show_list.html:290
+msgid "write user"
+msgstr "글쓴이"
+
+#: templates/haru/boards/search_reply.html:171
+#: templates/haru/boards/show_list.html:294
+msgid "search"
+msgstr "검색"
+
 #: templates/haru/boards/show_article.html:29
 msgid "Go back"
 msgstr "뒤로가기"
@@ -479,11 +511,6 @@ msgstr "댓글 새로고침"
 msgid "Please show some respect."
 msgstr "서로에 대한 배려와 존중을 보여주세요."
 
-#: templates/haru/boards/show_list.html:39
-#: templates/haru/boards/show_list.html:252
-msgid "write"
-msgstr "글쓰기"
-
 #: templates/haru/boards/show_list.html:53
 #: templates/haru/boards/show_list.html:113
 #: templates/haru/boards/show_list.html:185
@@ -493,14 +520,6 @@ msgstr "조회"
 #: templates/haru/boards/show_list.html:287
 msgid "subject+content"
 msgstr "제목+내용"
-
-#: templates/haru/boards/show_list.html:290
-msgid "write user"
-msgstr "글쓴이"
-
-#: templates/haru/boards/show_list.html:294
-msgid "search"
-msgstr "검색"
 
 #: templates/haru/boards/show_reply.html:8
 #: templates/haru/boards/show_reply.html:66
@@ -571,11 +590,10 @@ msgstr "비밀번호가 변경되었습니다."
 
 #: templates/haru/registration/password_change_form.html:13
 msgid ""
-"Please enter your old password, for security's sake, and then enter your new "
-"password twice so we can verify you typed it in correctly."
+"Please enter your old password, for security's sake, and then enter your new"
+" password twice so we can verify you typed it in correctly."
 msgstr ""
-"기존에 사용하시던 비밀번호를 입력해 주세요. 새로운 비밀번호는 정확히 입력했는"
-"지 확인할 수 있도록 두 번 입력하시기 바랍니다."
+"기존에 사용하시던 비밀번호를 입력해 주세요. 새로운 비밀번호는 정확히 입력했는지 확인할 수 있도록 두 번 입력하시기 바랍니다."
 
 #: templates/haru/registration/password_reset_complete.html:4
 #: templates/haru/registration/password_reset_complete.html:8
@@ -597,9 +615,7 @@ msgstr "비밀번호가 설정되었습니다. 이제 로그인하세요."
 msgid ""
 "Please enter your new password twice so we can verify you typed it in "
 "correctly."
-msgstr ""
-"새로운 비밀번호를 정확히 입력했는지 확인할 수 있도록 두 번 입력하시기 바랍니"
-"다."
+msgstr "새로운 비밀번호를 정확히 입력했는지 확인할 수 있도록 두 번 입력하시기 바랍니다."
 
 #: templates/haru/registration/password_reset_confirm.html:18
 msgid "New password:"
@@ -613,9 +629,7 @@ msgstr "새로운 비밀번호(확인)"
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a new password reset."
-msgstr ""
-"비밀번호 초기화 링크가 이미 사용되었거나 올바르지 않습니다. 비밀번호 초기화"
-"를 과정을 다시 진행해주세요."
+msgstr "비밀번호 초기화 링크가 이미 사용되었거나 올바르지 않습니다. 비밀번호 초기화를 과정을 다시 진행해주세요."
 
 #: templates/haru/registration/password_reset_done.html:11
 msgid "Email sent"
@@ -626,16 +640,13 @@ msgid ""
 "We've emailed you instructions for setting your password, if an account "
 "exists with the email you entered. You should receive them shortly."
 msgstr ""
-"비밀번호를 초기화하는 방법을 이메일로 보내드렸습니다. 해당 이메일주소가 정상"
-"적으로 등록되어 있다면 이메일을 곧 받으실 수 있습니다."
+"비밀번호를 초기화하는 방법을 이메일로 보내드렸습니다. 해당 이메일주소가 정상적으로 등록되어 있다면 이메일을 곧 받으실 수 있습니다."
 
 #: templates/haru/registration/password_reset_done.html:20
 msgid ""
 "If you don't receive an email, please make sure you've entered the address "
 "you registered with, and check your spam folder."
-msgstr ""
-"만약 이메일을 받지 못하였다면, 등록하신 이메일을 다시 확인하시거나 스팸 메일"
-"함을 확인해주세요."
+msgstr "만약 이메일을 받지 못하였다면, 등록하신 이메일을 다시 확인하시거나 스팸 메일함을 확인해주세요."
 
 #: templates/haru/registration/password_reset_email.html:2
 #, python-format
@@ -665,9 +676,7 @@ msgstr "%(site_name)s 팀"
 msgid ""
 "Forgotten your password? Enter your email address below, and we'll email "
 "instructions for setting a new one."
-msgstr ""
-"비밀번호를 분실하셨습니까? 아래에 이메일 주소를 입력해주십시오. 새로운 비밀번"
-"호를 설정하는 이메일을 보내드리겠습니다."
+msgstr "비밀번호를 분실하셨습니까? 아래에 이메일 주소를 입력해주십시오. 새로운 비밀번호를 설정하는 이메일을 보내드리겠습니다."
 
 #: templates/haru/registration/password_reset_form.html:19
 msgid "Email address:"

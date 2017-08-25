@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-24 13:55+0900\n"
+"POT-Creation-Date: 2017-08-25 14:35+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -97,6 +97,7 @@ msgid "scrap"
 msgstr ""
 
 #: static/js/boards/boards_article.js:88 static/js/boards/boards_reply.js:201
+#: static/js/boards/reply_list.js:22
 msgid "Are you sure to delete this article?"
 msgstr ""
 
@@ -113,14 +114,14 @@ msgid "Are you sure to quit editing?"
 msgstr ""
 
 #: static/js/boards/boards_list.js:8 static/js/boards/boards_reply.js:4
-#: static/js/boards/boards_reply.js:42
+#: static/js/boards/boards_reply.js:42 static/js/boards/reply_list.js:8
 msgid "Please input 2 or more characters."
 msgstr ""
 
 #: static/js/boards/boards_reply.js:34 static/js/boards/boards_reply.js:71
 #: static/js/boards/boards_reply.js:143 static/js/boards/boards_reply.js:169
 #: static/js/boards/boards_reply.js:195 static/js/boards/boards_reply.js:217
-#: static/js/bookmarks.js:18
+#: static/js/boards/reply_list.js:38 static/js/bookmarks.js:18
 msgid "Error!"
 msgstr ""
 

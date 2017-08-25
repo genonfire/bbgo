@@ -21,9 +21,19 @@ urlpatterns = [
         name='show_list'
     ),
     url(
-        r'^(?P<search_type>.*)/(?P<search_word>.*)/(?P<table>\d+)/(?P<page>\d+)/$',
+        r'^search/(?P<search_type>.*)/(?P<search_word>.*)/(?P<table>\d+)/(?P<page>\d+)/$',
         views.show_list,
         name='show_search_article',
+    ),
+    url(
+        r'^search_reply/(?P<search_type>.*)/(?P<search_word>.*)/(?P<table>\d+)/(?P<page>\d+)/$',
+        views.search_reply,
+        name='search_reply',
+    ),
+    url(
+        r'^delete_reply/(?P<id>\d+)/$',
+        views.delete_reply,
+        name='delete_reply'
     ),
     url(
         r'^(?P<table>\d+)/new/$',
