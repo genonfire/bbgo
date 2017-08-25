@@ -124,27 +124,6 @@ function show_input_reply(id, reply_id = 0) {
     }
 }
 
-function reload_reply(id) {
-    $.ajaxSetup({
-        beforeSend: function(xhr, settings) {
-            xhr.setRequestHeader("X-CSRFToken", $("input[name=csrfmiddlewaretoken]").val());
-        }
-    });
-    $.ajax({
-        type: "POST",
-        url: "/api/reload_reply/",
-        data: {
-            id: id
-        },
-        success: function(data) {
-            $('#replies').html(data);
-        },
-        error: function(data) {
-            alert(gettext('Error!'));
-        }
-    });
-}
-
 function like_reply(id) {
     $.ajaxSetup({
         beforeSend: function(xhr, settings) {
@@ -220,6 +199,56 @@ function delete_reply(id) {
     }
 }
 
+function reload_reply(id) {
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            xhr.setRequestHeader("X-CSRFToken", $("input[name=csrfmiddlewaretoken]").val());
+        }
+    });
+    $.ajax({
+        type: "POST",
+        url: "/api/reload_reply/",
+        data: {
+            id: id
+        },
+        success: function(data) {
+            $('#replies').html(data);
+            $('#reload_reply').show();
+            $('#show_new_reply').hide();
+        },
+        error: function(data) {
+            alert(gettext('Error!'));
+        }
+    });
+}
+
+function get_reply_no() {
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            xhr.setRequestHeader("X-CSRFToken", $("input[name=csrfmiddlewaretoken]").val());
+        }
+    });
+    $.ajax({
+        type: "POST",
+        url: "/api/reply_count/",
+        data: {
+            id: article_id
+        },
+        success: function(data) {
+            new_replies = data[0] - reply_count;
+            if (new_replies > 0) {
+                $('#reload_reply').hide();
+                newtext = gettext("Show new replies") + ': ' + new_replies;
+                $('#show_new_reply a').text(newtext);
+                $('#show_new_reply').show();
+            }
+        },
+        error: function(data) {
+            alert(gettext('Error!'));
+        }
+    });
+}
+
 $('#reply_image').on('change', function() {
     var file = this.files[0];
     if (file.size > reply_image_limit) {
@@ -228,4 +257,8 @@ $('#reply_image').on('change', function() {
         $("#reply_image").replaceWith($("#reply_image").val('').clone(true));
         alert(msg);
     }
+});
+
+$(document).ready(function() {
+    setInterval(get_reply_no, reply_auto_renew_ms);
 });

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-25 14:35+0900\n"
-"PO-Revision-Date: 2017-08-24 13:56+0900\n"
+"POT-Creation-Date: 2017-08-25 16:41+0900\n"
+"PO-Revision-Date: 2017-08-25 16:42+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -78,7 +78,7 @@ msgid "Please select correct image."
 msgstr "올바른 이미지 파일을 선택해 주세요."
 
 #: static/js/accounts/setting.js:11 static/js/boards/boards_reply.js:119
-#: static/js/boards/boards_reply.js:227
+#: static/js/boards/boards_reply.js:256
 msgid "Selected image is too big. size limit: "
 msgstr "이미지가 너무 큽니다. 사이즈 제한: "
 
@@ -94,11 +94,11 @@ msgstr "비밀번호가 서로 다릅니다."
 msgid "who likes"
 msgstr "이 글을 추천해 주신 분들"
 
-#: static/js/boards/boards_article.js:79
+#: static/js/boards/boards_article.js:80
 msgid "scrap"
 msgstr "스크랩"
 
-#: static/js/boards/boards_article.js:88 static/js/boards/boards_reply.js:201
+#: static/js/boards/boards_article.js:89 static/js/boards/boards_reply.js:180
 #: static/js/boards/reply_list.js:22
 msgid "Are you sure to delete this article?"
 msgstr "정말로 삭제하시겠습니까?"
@@ -121,9 +121,10 @@ msgid "Please input 2 or more characters."
 msgstr "두 글자 이상 입력해 주세요."
 
 #: static/js/boards/boards_reply.js:34 static/js/boards/boards_reply.js:71
-#: static/js/boards/boards_reply.js:143 static/js/boards/boards_reply.js:169
-#: static/js/boards/boards_reply.js:195 static/js/boards/boards_reply.js:217
-#: static/js/boards/reply_list.js:38 static/js/bookmarks.js:18
+#: static/js/boards/boards_reply.js:148 static/js/boards/boards_reply.js:174
+#: static/js/boards/boards_reply.js:196 static/js/boards/boards_reply.js:220
+#: static/js/boards/boards_reply.js:247 static/js/boards/reply_list.js:38
+#: static/js/bookmarks.js:18
 msgid "Error!"
 msgstr "잘못!"
 
@@ -134,6 +135,11 @@ msgstr "서로에 대한 배려와 존중을 보여주세요."
 #: static/js/boards/boards_reply.js:80
 msgid "submit"
 msgstr "등록"
+
+#: static/js/boards/boards_reply.js:241
+#| msgid "Show user reply"
+msgid "Show new replies"
+msgstr "신규 댓글 보기"
 
 #: static/js/bookmarks.js:37
 msgid "You've scrapped this article."

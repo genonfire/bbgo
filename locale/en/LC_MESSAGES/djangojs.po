@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-25 14:35+0900\n"
+"POT-Creation-Date: 2017-08-25 16:41+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -76,7 +76,7 @@ msgid "Please select correct image."
 msgstr ""
 
 #: static/js/accounts/setting.js:11 static/js/boards/boards_reply.js:119
-#: static/js/boards/boards_reply.js:227
+#: static/js/boards/boards_reply.js:256
 msgid "Selected image is too big. size limit: "
 msgstr ""
 
@@ -92,11 +92,11 @@ msgstr ""
 msgid "who likes"
 msgstr ""
 
-#: static/js/boards/boards_article.js:79
+#: static/js/boards/boards_article.js:80
 msgid "scrap"
 msgstr ""
 
-#: static/js/boards/boards_article.js:88 static/js/boards/boards_reply.js:201
+#: static/js/boards/boards_article.js:89 static/js/boards/boards_reply.js:180
 #: static/js/boards/reply_list.js:22
 msgid "Are you sure to delete this article?"
 msgstr ""
@@ -119,9 +119,10 @@ msgid "Please input 2 or more characters."
 msgstr ""
 
 #: static/js/boards/boards_reply.js:34 static/js/boards/boards_reply.js:71
-#: static/js/boards/boards_reply.js:143 static/js/boards/boards_reply.js:169
-#: static/js/boards/boards_reply.js:195 static/js/boards/boards_reply.js:217
-#: static/js/boards/reply_list.js:38 static/js/bookmarks.js:18
+#: static/js/boards/boards_reply.js:148 static/js/boards/boards_reply.js:174
+#: static/js/boards/boards_reply.js:196 static/js/boards/boards_reply.js:220
+#: static/js/boards/boards_reply.js:247 static/js/boards/reply_list.js:38
+#: static/js/bookmarks.js:18
 msgid "Error!"
 msgstr ""
 
@@ -131,6 +132,10 @@ msgstr ""
 
 #: static/js/boards/boards_reply.js:80
 msgid "submit"
+msgstr ""
+
+#: static/js/boards/boards_reply.js:241
+msgid "Show new replies"
 msgstr ""
 
 #: static/js/bookmarks.js:37

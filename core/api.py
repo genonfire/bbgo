@@ -366,6 +366,18 @@ def delete_reply(request):
     return error_page(request)
 
 
+def reply_count(request):
+    """API reply_count"""
+    if request.method == 'POST':
+        id = request.POST['id']
+        article = get_object_or_404(Board, pk=id)
+        count = article.reply_count
+
+        return JsonResponse([count], safe=False, status=201)
+
+    return error_page(request)
+
+
 def toggle_bookmark(request):
     """API toggle_bookmark"""
     if request.method == 'POST':

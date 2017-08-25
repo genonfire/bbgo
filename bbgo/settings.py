@@ -249,6 +249,7 @@ HOT_THRESHOLD = 10  # emphasize like, dislike count if gte
 REPLY_TEXT_MAX = 2000
 REPLY_IMAGE_AVAILABLE = True
 REPLY_IMAGE_SIZE_LIMIT = 1 * 1024 * 1024
+REPLY_AUTO_RENEW_MS = 30 * 1000
 
 # highlight with coding style for <pre> using highlight.js
 ENABLE_CODE_HIGHLIGHT = False

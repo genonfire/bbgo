@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-25 14:35+0900\n"
+"POT-Creation-Date: 2017-08-25 16:41+0900\n"
 "PO-Revision-Date: 2017-07-13 14:03+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -433,7 +433,7 @@ msgid "status"
 msgstr ""
 
 #: templates/haru/boards/edit_article.html:62
-#: templates/haru/boards/show_article.html:149
+#: templates/haru/boards/show_article.html:154
 msgid "submit"
 msgstr ""
 
@@ -503,7 +503,11 @@ msgstr ""
 msgid "Reload replies"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:140
+#: templates/haru/boards/show_article.html:135
+msgid "Show new replies"
+msgstr ""
+
+#: templates/haru/boards/show_article.html:145
 msgid "Please show some respect."
 msgstr ""
 

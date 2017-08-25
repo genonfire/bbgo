@@ -19,6 +19,7 @@ def global_settings(request):
         'REPLY_IMAGE_AVAILABLE': settings.REPLY_IMAGE_AVAILABLE,
         'REPLY_IMAGE_SIZE_LIMIT': settings.REPLY_IMAGE_SIZE_LIMIT,
         'REPLY_TEXT_MAX': settings.REPLY_TEXT_MAX,
+        'REPLY_AUTO_RENEW_MS': settings.REPLY_AUTO_RENEW_MS,
         'SITE_INFO': settings.SITE_INFO,
         'SITE_LOGO': settings.SITE_LOGO,
         'SITE_NAME': settings.SITE_NAME,

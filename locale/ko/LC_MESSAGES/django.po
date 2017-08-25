@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-25 14:35+0900\n"
-"PO-Revision-Date: 2017-08-25 14:35+0900\n"
+"POT-Creation-Date: 2017-08-25 16:41+0900\n"
+"PO-Revision-Date: 2017-08-25 16:42+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -436,7 +436,7 @@ msgid "status"
 msgstr "상태"
 
 #: templates/haru/boards/edit_article.html:62
-#: templates/haru/boards/show_article.html:149
+#: templates/haru/boards/show_article.html:154
 msgid "submit"
 msgstr "등록"
 
@@ -450,7 +450,6 @@ msgstr "취소"
 
 #: templates/haru/boards/search_reply.html:9
 #: templates/haru/boards/search_reply.html:16
-#| msgid "Write reply"
 msgid "Search reply"
 msgstr "댓글 검색"
 
@@ -507,7 +506,12 @@ msgstr "수정"
 msgid "Reload replies"
 msgstr "댓글 새로고침"
 
-#: templates/haru/boards/show_article.html:140
+#: templates/haru/boards/show_article.html:135
+#| msgid "Reload replies"
+msgid "Show new replies"
+msgstr "신규 댓글 보기"
+
+#: templates/haru/boards/show_article.html:145
 msgid "Please show some respect."
 msgstr "서로에 대한 배려와 존중을 보여주세요."
 

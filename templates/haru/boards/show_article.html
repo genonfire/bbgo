@@ -125,9 +125,14 @@
 </div>
 <hr>
 <div class="reload_reply buttons">
-    <span>
+    <span id="reload_reply">
         <a href="javascript:reload_reply({{ article.id }})">
             {% trans 'Reload replies' %}
+        </a>
+    </span>
+    <span id="show_new_reply" style="display:none">
+        <a href="javascript:reload_reply({{ article.id }})">
+            {% trans 'Show new replies' %}
         </a>
     </span>
 </div>
@@ -162,13 +167,16 @@
 <script src="{% static 'js/bookmarks.js' %}" async></script>
 <script src="{% static 'js/boards/boards_article.js' %}" async></script>
 <script>
-    var reply_text_max = {{ REPLY_TEXT_MAX }}
+    var reply_text_max = {{ REPLY_TEXT_MAX }};
     {% if REPLY_IMAGE_AVAILABLE %}
         var reply_image_available = true;
         var reply_image_limit = {{ REPLY_IMAGE_SIZE_LIMIT }};
     {% else %}
         var reply_image_available = false;
     {% endif %}
+    var article_id = {{ article.id }};
+    var reply_count = {{ article.reply_count }};
+    var reply_auto_renew_ms = {{ REPLY_AUTO_RENEW_MS }};
 </script>
 <script src="{% static 'js/boards/boards_reply.js' %}" async></script>
 {% endblock %}
