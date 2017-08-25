@@ -61,7 +61,8 @@ function like_users(e, id) {
             if (datain[0] != '0') {
                 userlist = datain[0].split(',');
                 for (user in userlist) {
-                    data += "<span>" + userlist[user] + "</span> ";
+                    usertag = url_userinfo.replace(/\/bb\//, '\/' + userlist[user] +'\/');
+                    data += '<span><a href="' + usertag + '">' + userlist[user] + '</a></span> ';
                 }
             }
             show_popup(e, data, 250, 10, 20);
