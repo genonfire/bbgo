@@ -87,6 +87,11 @@ urlpatterns = [
         name='scrap',
     ),
     url(
+        r'^alarm_status/$',
+        api.alarm_status,
+        name='alarm_status'
+    ),
+    url(
         r'^alarm_off/$',
         api.alarm_off,
         name='alarm_off'

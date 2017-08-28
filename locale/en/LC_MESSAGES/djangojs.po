@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-25 16:41+0900\n"
+"POT-Creation-Date: 2017-08-28 14:43+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,22 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: static/js/accounts/alarm.js:24 static/js/accounts/bookmarks.js:18
+#: static/js/boards/boards_reply.js:34 static/js/boards/boards_reply.js:71
+#: static/js/boards/boards_reply.js:148 static/js/boards/boards_reply.js:174
+#: static/js/boards/boards_reply.js:196 static/js/boards/boards_reply.js:220
+#: static/js/boards/boards_reply.js:247 static/js/boards/reply_list.js:38
+msgid "Error!"
+msgstr ""
+
+#: static/js/accounts/bookmarks.js:37
+msgid "You've scrapped this article."
+msgstr ""
+
+#: static/js/accounts/bookmarks.js:40
+msgid "Already scrapped."
+msgstr ""
 
 #: static/js/accounts/deactivate.js:4 static/js/accounts/signup.js:33
 msgid "Please consent to Terms."
@@ -118,14 +134,6 @@ msgstr ""
 msgid "Please input 2 or more characters."
 msgstr ""
 
-#: static/js/boards/boards_reply.js:34 static/js/boards/boards_reply.js:71
-#: static/js/boards/boards_reply.js:148 static/js/boards/boards_reply.js:174
-#: static/js/boards/boards_reply.js:196 static/js/boards/boards_reply.js:220
-#: static/js/boards/boards_reply.js:247 static/js/boards/reply_list.js:38
-#: static/js/bookmarks.js:18
-msgid "Error!"
-msgstr ""
-
 #: static/js/boards/boards_reply.js:79
 msgid "Please show some respect."
 msgstr ""
@@ -136,12 +144,4 @@ msgstr ""
 
 #: static/js/boards/boards_reply.js:241
 msgid "Show new replies"
-msgstr ""
-
-#: static/js/bookmarks.js:37
-msgid "You've scrapped this article."
-msgstr ""
-
-#: static/js/bookmarks.js:40
-msgid "Already scrapped."
 msgstr ""

@@ -63,10 +63,10 @@
                             <span class="float-left">
                                 {% if user.profile.alarm %}
                                     <a href="{% url 'api:alarm_off' %}">
-                                        <img src="{% static 'icons/alert24.gif' %}">
+                                        <img id="alarm_icon" src="{% static 'icons/alert24.gif' %}">
                                     </a>
                                 {% else %}
-                                    <img src="{% static 'icons/alert24.png' %}">
+                                    <img id="alarm_icon" src="{% static 'icons/alert24.png' %}">
                                 {% endif %}
                             </span>
                             <span class="sidebar_message">
@@ -150,7 +150,14 @@
     var url_userinfo = "{% url 'accounts:user_info' user='bb' %}";
     var url_userarticle = "{% url 'boards:show_search_article' search_type='writeuser' search_word='bb' table=0 page=1 %}";
     var url_userreply = "{% url 'boards:search_reply' search_type='writeuser' search_word='bb' table=0 page=1 %}";
+    {% if user.is_authenticated and ENABLE_ALARM_POLLING %}
+        var alarm_polling_enabled = true;
+        var alarm_polling_ms = {{ user.profile.alarm_interval }} * 1000;
+    {% else %}
+        var alarm_polling_enabled = false;
+    {% endif %}
 </script>
+<script src="{% static 'js/accounts/alarm.js' %}" async></script>
 <script src="{% static 'js/accounts/idmenu.js' %}" async></script>
 {% block bodyscript %}{% endblock %}
 </body>

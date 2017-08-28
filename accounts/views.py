@@ -29,6 +29,14 @@ def setting(request):
             setting = settingform.save(commit=False)
             request.user.profile.sense_client = setting.sense_client
             request.user.profile.sense_slot = setting.sense_slot
+            if setting.alarm_interval < settings.MIN_ALARM_INTERVAL:
+                request.user.profile.alarm_interval \
+                    = settings.MIN_ALARM_INTERVAL
+            elif setting.alarm_interval > settings.MAX_ALARM_INTERVAL:
+                request.user.profile.alarm_interval \
+                    = settings.MAX_ALARM_INTERVAL
+            else:
+                request.user.profile.alarm_interval = setting.alarm_interval
             request.user.profile.save()
             msg = _('Saved successfully.')
         else:
@@ -160,7 +168,8 @@ def scrap(request, page=0):
     start_at = current_page * list_count
     end_at = start_at + list_count
 
-    q = Q(status__iexact='1normal') | Q(status__iexact='4warning')
+    q = Q(status__iexact='1normal') | Q(status__iexact='4warning') \
+        | Q(status__iexact='3notice')
 
     scrap = request.user.profile.scrap.split(',')
     total = len(scrap)

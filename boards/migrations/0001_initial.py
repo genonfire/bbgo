@@ -45,7 +45,7 @@ class Migration(migrations.Migration):
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('modified_at', models.DateTimeField(auto_now_add=True)),
                 ('ip', models.GenericIPAddressField()),
-                ('content', models.TextField(max_length=3000)),
+                ('content', models.TextField(max_length=2000)),
                 ('image', models.ImageField(upload_to=b'reply-images/%Y-%m-%d/', blank=True)),
                 ('like_count', models.IntegerField(default=0)),
                 ('dislike_count', models.IntegerField(default=0)),

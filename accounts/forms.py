@@ -36,7 +36,7 @@ class SettingForm(forms.ModelForm):
         """Meta for SettingForm"""
 
         model = Profile
-        fields = {"sense_client", "sense_slot"}
+        fields = {"sense_client", "sense_slot", "alarm_interval"}
 
 
 class UserInfoForm(forms.ModelForm):

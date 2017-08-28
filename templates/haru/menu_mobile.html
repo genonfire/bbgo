@@ -6,10 +6,10 @@
     <li>
         {% if user.profile.alarm %}
             <a href="{% url 'api:alarm_off' %}">
-                <img src="{% static 'icons/alert24.gif' %}">
+                <img id="alarm_icon_mobile" src="{% static 'icons/alert24.gif' %}">
             </a>
         {% else %}
-            <img src="{% static 'icons/alert24.png' %}">
+            <img id="alarm_icon_mobile" src="{% static 'icons/alert24.png' %}">
         {% endif %}
     </li>
     <li>

@@ -43,6 +43,25 @@
                 </td>
             </tr>
         </table>
+
+        <div>
+            <h2>
+                {% trans 'Alarm setting' %}
+            </h2>
+            <span>
+                {% trans 'Interval how often do you want to check new alarm. 30 ~ 3600(1 hour).' %}
+            </span>
+        </div>
+        <table class="member">
+            <tr>
+                <td class="label">
+                    {% trans 'Alarm interval(sec)' %}
+                </td>
+                <td class="input">
+                    {{ settingform.alarm_interval }}
+                </td>
+            </tr>
+        </table>
         <div class="member align-right">
             <span>
                 {{ msg }}

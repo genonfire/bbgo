@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-25 16:41+0900\n"
-"PO-Revision-Date: 2017-08-25 16:42+0900\n"
+"POT-Creation-Date: 2017-08-28 14:43+0900\n"
+"PO-Revision-Date: 2017-08-28 14:45+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,32 +19,32 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: accounts/views.py:33 accounts/views.py:99
+#: accounts/views.py:41 accounts/views.py:107
 msgid "Saved successfully."
 msgstr "저장했습니다."
 
-#: accounts/views.py:35 accounts/views.py:103
+#: accounts/views.py:43 accounts/views.py:111
 msgid "Form validation Failure"
 msgstr "폼 입력이 잘못됐습니다."
 
-#: accounts/views.py:75 accounts/views.py:239
+#: accounts/views.py:83 accounts/views.py:254
 msgid "Please check nickname."
 msgstr "닉네임을 확인해 주세요."
 
-#: accounts/views.py:92 accounts/views.py:95 accounts/views.py:258
-#: accounts/views.py:260
+#: accounts/views.py:100 accounts/views.py:103 accounts/views.py:273
+#: accounts/views.py:275
 msgid "Verification failure. Please check verification code again."
 msgstr "인증실패. 인증코드를 다시 확인해 주세요."
 
-#: accounts/views.py:128 core/api.py:111 core/api.py:181
+#: accounts/views.py:136 core/api.py:111 core/api.py:181
 msgid "Require login"
 msgstr "회원만 가능합니다."
 
-#: accounts/views.py:229
+#: accounts/views.py:244
 msgid "Please check username."
 msgstr "아이디를 확인해 주세요."
 
-#: accounts/views.py:262
+#: accounts/views.py:277
 msgid "Sorry. Please try again later."
 msgstr "죄송합니다. 나중에 다시 시도해 주세요."
 
@@ -249,7 +249,7 @@ msgid "signature"
 msgstr "서명"
 
 #: templates/haru/accounts/edit_user_info.html:125
-#: templates/haru/accounts/setting.html:50
+#: templates/haru/accounts/setting.html:69
 msgid "Save"
 msgstr "저장"
 
@@ -388,6 +388,19 @@ msgstr ""
 "수익 공유 시스템에 따라 정보글이나 추천을 많이 받은 게시물에는 글쓴이의 애드센스가 나타납니다. 이 기능을 사용하려면 본인의 애드센스 "
 "코드를 참조하여 아래 정보를 채워주세요."
 
+#: templates/haru/accounts/setting.html:49
+#| msgid "Setting"
+msgid "Alarm setting"
+msgstr "알람 설정"
+
+#: templates/haru/accounts/setting.html:52
+msgid "Interval how often do you want to check new alarm. 30 ~ 3600(1 hour)."
+msgstr "알람 확인 주기를 설정합니다. 30(초) ~ 3600(1시간) 사이에서 설정 가능합니다."
+
+#: templates/haru/accounts/setting.html:58
+msgid "Alarm interval(sec)"
+msgstr "알람 확인 주기(초)"
+
 #: templates/haru/accounts/signup.html:14 templates/haru/error.html:4
 #: templates/haru/error.html.py:8
 #: templates/haru/registration/password_reset_confirm.html:41
@@ -507,7 +520,6 @@ msgid "Reload replies"
 msgstr "댓글 새로고침"
 
 #: templates/haru/boards/show_article.html:135
-#| msgid "Reload replies"
 msgid "Show new replies"
 msgstr "신규 댓글 보기"
 

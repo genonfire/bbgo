@@ -28,6 +28,7 @@ class Migration(migrations.Migration):
                 ('ip_list', models.TextField(default=b'', blank=True)),
                 ('sense_client', models.CharField(max_length=30, blank=True)),
                 ('sense_slot', models.CharField(max_length=15, blank=True)),
+                ('alarm_interval', models.IntegerField(default=30)),
                 ('portrait', models.ImageField(blank=True, upload_to=b'portrait/%Y-%m-%d/', validators=[accounts.models.img_validator])),
                 ('signature', models.TextField(blank=True)),
                 ('user', models.OneToOneField(to=settings.AUTH_USER_MODEL)),

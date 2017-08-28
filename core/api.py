@@ -427,6 +427,14 @@ def scrap(request):
     return error_page(request)
 
 
+def alarm_status(request):
+    """API alarm_status"""
+    if request.user.is_authenticated():
+        return JsonResponse([request.user.profile.alarm], safe=False, status=201)
+
+    return JsonResponse({'status': 'false'}, status=400)
+
+
 def alarm_off(request):
     """API alarm_off"""
     if request.user.is_authenticated():
