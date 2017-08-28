@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-28 21:59+0900\n"
+"POT-Creation-Date: 2017-08-28 22:12+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,10 +19,10 @@ msgstr ""
 
 #: static/js/accounts/alarm.js:23 static/js/accounts/alarm.js:43
 #: static/js/accounts/alarm.js:90 static/js/accounts/bookmarks.js:18
-#: static/js/boards/boards_reply.js:34 static/js/boards/boards_reply.js:71
-#: static/js/boards/boards_reply.js:148 static/js/boards/boards_reply.js:174
-#: static/js/boards/boards_reply.js:196 static/js/boards/boards_reply.js:220
-#: static/js/boards/boards_reply.js:247 static/js/boards/reply_list.js:38
+#: static/js/boards/boards_reply.js:38 static/js/boards/boards_reply.js:76
+#: static/js/boards/boards_reply.js:153 static/js/boards/boards_reply.js:179
+#: static/js/boards/boards_reply.js:201 static/js/boards/boards_reply.js:225
+#: static/js/boards/boards_reply.js:252 static/js/boards/reply_list.js:38
 msgid "Error!"
 msgstr ""
 
@@ -92,8 +92,8 @@ msgstr ""
 msgid "Please select correct image."
 msgstr ""
 
-#: static/js/accounts/setting.js:11 static/js/boards/boards_reply.js:119
-#: static/js/boards/boards_reply.js:256
+#: static/js/accounts/setting.js:11 static/js/boards/boards_reply.js:124
+#: static/js/boards/boards_reply.js:261
 msgid "Selected image is too big. size limit: "
 msgstr ""
 
@@ -113,7 +113,7 @@ msgstr ""
 msgid "scrap"
 msgstr ""
 
-#: static/js/boards/boards_article.js:89 static/js/boards/boards_reply.js:180
+#: static/js/boards/boards_article.js:89 static/js/boards/boards_reply.js:185
 #: static/js/boards/reply_list.js:22
 msgid "Are you sure to delete this article?"
 msgstr ""
@@ -131,18 +131,22 @@ msgid "Are you sure to quit editing?"
 msgstr ""
 
 #: static/js/boards/boards_list.js:8 static/js/boards/boards_reply.js:4
-#: static/js/boards/boards_reply.js:42 static/js/boards/reply_list.js:8
+#: static/js/boards/boards_reply.js:47 static/js/boards/reply_list.js:8
 msgid "Please input 2 or more characters."
 msgstr ""
 
-#: static/js/boards/boards_reply.js:79
+#: static/js/boards/boards_reply.js:35
+msgid "Require login"
+msgstr ""
+
+#: static/js/boards/boards_reply.js:84
 msgid "Please show some respect."
 msgstr ""
 
-#: static/js/boards/boards_reply.js:80
+#: static/js/boards/boards_reply.js:85
 msgid "submit"
 msgstr ""
 
-#: static/js/boards/boards_reply.js:241
+#: static/js/boards/boards_reply.js:246
 msgid "Show new replies"
 msgstr ""

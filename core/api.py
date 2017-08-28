@@ -228,7 +228,7 @@ def like_reply(request, liketype):
 def write_reply(request):
     """API write_reply"""
     if not request.user.is_authenticated():
-        return JsonResponse({'status': 'false'}, status=400)
+        return JsonResponse({'status': 'false'}, status=401)
 
     if request.method == 'POST':
         id = request.POST['article_id']
@@ -443,7 +443,7 @@ def alarm_status(request):
 def alarm_list(request):
     """API alarm_list"""
     if not request.user.is_authenticated():
-        return JsonResponse({'status': 'false'}, status=400)
+        return JsonResponse({'status': 'false'}, status=401)
 
     if request.method == 'POST':
         type = request.POST['type']
@@ -492,7 +492,7 @@ def alarm_list(request):
 def clear_alarm(request):
     """API clear_alarm"""
     if not request.user.is_authenticated():
-        return JsonResponse({'status': 'false'}, status=400)
+        return JsonResponse({'status': 'false'}, status=401)
 
     if request.method == 'POST':
         request.user.profile.alarm_list = ''

@@ -31,7 +31,12 @@ function write_reply(id) {
             $('#replies').html(data);
         },
         error: function(data) {
-            alert(gettext("Error!"));
+            if (data.status == 401) {
+                alert(gettext("Require login"))
+            }
+            else {
+                alert(gettext("Error!"));
+            }
         }
     });
 }

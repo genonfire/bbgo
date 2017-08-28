@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-28 21:59+0900\n"
-"PO-Revision-Date: 2017-08-25 16:42+0900\n"
+"POT-Creation-Date: 2017-08-28 22:12+0900\n"
+"PO-Revision-Date: 2017-08-28 22:12+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -21,10 +21,10 @@ msgstr ""
 
 #: static/js/accounts/alarm.js:23 static/js/accounts/alarm.js:43
 #: static/js/accounts/alarm.js:90 static/js/accounts/bookmarks.js:18
-#: static/js/boards/boards_reply.js:34 static/js/boards/boards_reply.js:71
-#: static/js/boards/boards_reply.js:148 static/js/boards/boards_reply.js:174
-#: static/js/boards/boards_reply.js:196 static/js/boards/boards_reply.js:220
-#: static/js/boards/boards_reply.js:247 static/js/boards/reply_list.js:38
+#: static/js/boards/boards_reply.js:38 static/js/boards/boards_reply.js:76
+#: static/js/boards/boards_reply.js:153 static/js/boards/boards_reply.js:179
+#: static/js/boards/boards_reply.js:201 static/js/boards/boards_reply.js:225
+#: static/js/boards/boards_reply.js:252 static/js/boards/reply_list.js:38
 msgid "Error!"
 msgstr "잘못!"
 
@@ -94,8 +94,8 @@ msgstr "인증실패. 인증코드를 다시 확인해 주세요."
 msgid "Please select correct image."
 msgstr "올바른 이미지 파일을 선택해 주세요."
 
-#: static/js/accounts/setting.js:11 static/js/boards/boards_reply.js:119
-#: static/js/boards/boards_reply.js:256
+#: static/js/accounts/setting.js:11 static/js/boards/boards_reply.js:124
+#: static/js/boards/boards_reply.js:261
 msgid "Selected image is too big. size limit: "
 msgstr "이미지가 너무 큽니다. 사이즈 제한: "
 
@@ -115,7 +115,7 @@ msgstr "이 글을 추천해 주신 분들"
 msgid "scrap"
 msgstr "스크랩"
 
-#: static/js/boards/boards_article.js:89 static/js/boards/boards_reply.js:180
+#: static/js/boards/boards_article.js:89 static/js/boards/boards_reply.js:185
 #: static/js/boards/reply_list.js:22
 msgid "Are you sure to delete this article?"
 msgstr "정말로 삭제하시겠습니까?"
@@ -133,18 +133,22 @@ msgid "Are you sure to quit editing?"
 msgstr "글작성을 그만두고 나가시겠습니까?"
 
 #: static/js/boards/boards_list.js:8 static/js/boards/boards_reply.js:4
-#: static/js/boards/boards_reply.js:42 static/js/boards/reply_list.js:8
+#: static/js/boards/boards_reply.js:47 static/js/boards/reply_list.js:8
 msgid "Please input 2 or more characters."
 msgstr "두 글자 이상 입력해 주세요."
 
-#: static/js/boards/boards_reply.js:79
+#: static/js/boards/boards_reply.js:35
+msgid "Require login"
+msgstr "회원만 가능합니다."
+
+#: static/js/boards/boards_reply.js:84
 msgid "Please show some respect."
 msgstr "서로에 대한 배려와 존중을 보여주세요."
 
-#: static/js/boards/boards_reply.js:80
+#: static/js/boards/boards_reply.js:85
 msgid "submit"
 msgstr "등록"
 
-#: static/js/boards/boards_reply.js:241
+#: static/js/boards/boards_reply.js:246
 msgid "Show new replies"
 msgstr "신규 댓글 보기"
