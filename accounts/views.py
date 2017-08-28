@@ -29,6 +29,8 @@ def setting(request):
             setting = settingform.save(commit=False)
             request.user.profile.sense_client = setting.sense_client
             request.user.profile.sense_slot = setting.sense_slot
+            request.user.profile.alarm_board = setting.alarm_board
+            request.user.profile.alarm_reply = True
             if setting.alarm_interval < settings.MIN_ALARM_INTERVAL:
                 request.user.profile.alarm_interval \
                     = settings.MIN_ALARM_INTERVAL
@@ -151,13 +153,13 @@ def user_info(request, user):
     )
 
 
-def scrap(request, page=0):
-    """Show my scrap"""
+def scrap_list(request, page=0):
+    """Show scrap list"""
     if not request.user.is_authenticated():
         return redirect('/')
 
     if int(page) < 1:
-        return redirect('accounts:scrap', page=1)
+        return redirect('accounts:scrap_list', page=1)
 
     board_table = BoardTable()
     my_scrap = []
@@ -220,7 +222,7 @@ def delete_scrap(request, id):
         profile.scrap = profile.scrap[:-1]
 
     request.user.profile.save()
-    return redirect('accounts:scrap_0')
+    return redirect('accounts:scrap_list_0')
 
 
 def sign_up(request):

@@ -36,7 +36,16 @@ class SettingForm(forms.ModelForm):
         """Meta for SettingForm"""
 
         model = Profile
-        fields = {"sense_client", "sense_slot", "alarm_interval"}
+        fields = {
+            "alarm_interval", "alarm_board", "alarm_reply",
+            "sense_client", "sense_slot"
+        }
+
+    def __init__(self, *args, **kwargs):
+        """Init"""
+        super(SettingForm, self).__init__(*args, **kwargs)
+        self.fields['alarm_reply'].widget.attrs['checked'] = 'checked'
+        self.fields['alarm_reply'].widget.attrs['disabled'] = True
 
 
 class UserInfoForm(forms.ModelForm):

@@ -10,7 +10,6 @@ function alarm_status() {
         data: {
         },
         success: function(data) {
-            console.log(data[0]);
             if (data[0]) {
                 $('#alarm_icon').attr('src', '/static/icons/alert24.gif');
                 $('#alarm_icon_mobile').attr('src', '/static/icons/alert24.gif');
@@ -18,6 +17,73 @@ function alarm_status() {
             else {
                 $('#alarm_icon').attr('src', '/static/icons/alert24.png');
                 $('#alarm_icon_mobile').attr('src', '/static/icons/alert24.png');
+            }
+        },
+        error: function(data) {
+            alert(gettext('Error!'));
+        }
+    });
+}
+
+function clear_alarm(type) {
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            xhr.setRequestHeader("X-CSRFToken", $("input[name=csrfmiddlewaretoken]").val());
+        }
+    });
+    $.ajax({
+        type: "POST",
+        url: "/api/clear_alarm/",
+        data: {
+        },
+        success: function(data) {
+            alarm_list(type);
+        },
+        error: function(data) {
+            alert(gettext('Error!'));
+        }
+    });
+}
+
+function alarm_list(type) {
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            xhr.setRequestHeader("X-CSRFToken", $("input[name=csrfmiddlewaretoken]").val());
+        }
+    });
+    $.ajax({
+        type: "POST",
+        url: "/api/alarm_list/",
+        data: {
+            type: type,
+        },
+        success: function(data) {
+            if (type == 'desktop') {
+                $('#alarm_list').html(data);
+                $('#alarm_list').show();
+                $('#alarm_icon').attr('src', '/static/icons/alert24.png');
+
+                $('#alarm_list').on('mousedown', function(e) {
+                    e.stopPropagation();
+                })
+                $('body').on('mousedown', function(e) {
+                    $('#alarm_list').hide();
+                    $('body').off('mousedown');
+                })
+            }
+            else if (type == 'mobile') {
+                $('html,body').animate({ scrollTop: 0 }, 'slow');
+                $('#alarm_list_mobile').html(data);
+                $('#alarm_list_mobile').show();
+                $('#alarm_icon_mobile').attr('src', '/static/icons/alert24.png');
+
+                $('#alarm_list_mobile').on('mousedown', function(e) {
+                    e.stopPropagation();
+                })
+                $('body').on('mousedown', function(e) {
+                    $('#alarm_list_mobile').hide();
+                    $('body').off('mousedown');
+                })
             }
         },
         error: function(data) {

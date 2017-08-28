@@ -92,8 +92,13 @@ urlpatterns = [
         name='alarm_status'
     ),
     url(
-        r'^alarm_off/$',
-        api.alarm_off,
-        name='alarm_off'
+        r'^alarm_list/$',
+        api.alarm_list,
+        name='alarm_list'
+    ),
+    url(
+        r'^clear_alarm/$',
+        api.clear_alarm,
+        name='clear_alarm'
     ),
 ]

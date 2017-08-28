@@ -1,0 +1,63 @@
+{% load staticfiles %}
+{% load i18n %}
+{% load pick %}
+{% load tz datetime %}
+
+<h1>
+    {% trans 'Alarm' %}
+</h1>
+<div class="annotation">
+    {{ total }} / {{ max }} {% trans 'alarms exist' %}
+    {% if total > 0 %}
+        <span>
+            <a href="javascript:clear_alarm('{{ type }}')">
+                {% trans 'Read all' %}
+            </a>
+        </span>
+    {% endif %}
+</div>
+
+<div class="alarm">
+    <table>
+        {% for alarm in alarms %}
+            <tr>
+                <td>
+                    {% if alarm.0 == 'b' %}
+                        <span class="category">
+                            {{ name_list|pick_first:alarm.1.table }}
+                        </span>
+                        <a href="{% url 'boards:show_article' id=alarm.1.id %}">
+                            <span class="subject">
+                                {{ alarm.1.subject }}
+                            </span>
+                            {% if alarm.1.created_at|localtime|is_recent %}
+                                <span class="message">
+                            {% else %}
+                                <span>
+                            {% endif %}
+                                {% trans 'Article has a reply.' %}
+                            </span>
+                        </a>
+                    {% elif alarm.0 == 'r' %}
+                        <span class="subject">
+                            {{ alarm.1.content }}
+                        </span>
+                        <a href="{% url 'boards:show_article' id=alarm.1.article_id %}">
+                            {% if alarm.1.created_at|localtime|is_recent %}
+                                <span class="message">
+                            {% else %}
+                                <span>
+                            {% endif %}
+                                {% trans 'Reply has a reply.' %}
+                            </span>
+                        </a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <div class="alarm_msg">
+        {% blocktrans %}It shows recent {{ max }} alarms so may you often clear alarms.{% endblocktrans %}
+    </div>
+</div>

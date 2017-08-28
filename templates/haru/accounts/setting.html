@@ -19,33 +19,6 @@
         {% csrf_token %}
         <div>
             <h2>
-                {% trans 'AdSense info' %}
-            </h2>
-            <span>
-                {% trans 'Your AdSense will be shown on information and best articles by profit sharing system. To use this feature please fill followings from your AdSense code.' %}
-            </span>
-        </div>
-        <table class="member">
-            <tr>
-                <td class="label">
-                    data-ad-client
-                </td>
-                <td class="input ad-client">
-                    {{ settingform.sense_client }}
-                </td>
-            </tr>
-            <tr>
-                <td class="label">
-                    data-ad-slot
-                </td>
-                <td class="input">
-                    {{ settingform.sense_slot}}
-                </td>
-            </tr>
-        </table>
-
-        <div>
-            <h2>
                 {% trans 'Alarm setting' %}
             </h2>
             <span>
@@ -61,7 +34,60 @@
                     {{ settingform.alarm_interval }}
                 </td>
             </tr>
+            <tr>
+                <td class="label">
+                    {% trans 'Article alarm' %}
+                </td>
+                <td class="input">
+                    {{ settingform.alarm_board }}
+                    <div>
+                        {% trans 'Alarm when someone replies on your article.' %}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    {% trans 'Reply alarm' %}
+                </td>
+                <td class="input">
+                    {{ settingform.alarm_reply }}
+                    <div>
+                        {% trans 'Alarm when someone replies on your reply.' %}
+                        {% trans 'You may not turn off.' %}
+                    </div>
+                </td>
+            </tr>
         </table>
+
+        {% if ENABLE_ADSENSE %}
+            <div>
+                <h2>
+                    {% trans 'AdSense info' %}
+                </h2>
+                <span>
+                    {% trans 'Your AdSense will be shown on information and best articles by profit sharing system. To use this feature please fill followings from your AdSense code.' %}
+                </span>
+            </div>
+            <table class="member">
+                <tr>
+                    <td class="label">
+                        data-ad-client
+                    </td>
+                    <td class="input ad-client">
+                        {{ settingform.sense_client }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">
+                        data-ad-slot
+                    </td>
+                    <td class="input">
+                        {{ settingform.sense_slot}}
+                    </td>
+                </tr>
+            </table>
+        {% endif %}
+
         <div class="member align-right">
             <span>
                 {{ msg }}

@@ -15,3 +15,12 @@ def _is_same_day(created_at, modified_at):
         return True
     else:
         return False
+
+
+@register.filter(name='is_recent')
+def _is_recent(created_at):
+    recent = timezone.localtime(timezone.now()) - timezone.timedelta(hours=1)
+    if recent < created_at:
+        return True
+    else:
+        return False

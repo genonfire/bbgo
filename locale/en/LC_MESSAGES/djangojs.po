@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-28 14:43+0900\n"
+"POT-Creation-Date: 2017-08-28 21:59+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: static/js/accounts/alarm.js:24 static/js/accounts/bookmarks.js:18
+#: static/js/accounts/alarm.js:23 static/js/accounts/alarm.js:43
+#: static/js/accounts/alarm.js:90 static/js/accounts/bookmarks.js:18
 #: static/js/boards/boards_reply.js:34 static/js/boards/boards_reply.js:71
 #: static/js/boards/boards_reply.js:148 static/js/boards/boards_reply.js:174
 #: static/js/boards/boards_reply.js:196 static/js/boards/boards_reply.js:220
@@ -75,15 +76,15 @@ msgstr ""
 msgid "Failed to send E-mail. Please try again later."
 msgstr ""
 
-#: static/js/accounts/member.js:79
+#: static/js/accounts/member.js:78
 msgid "Please input verification code correctly."
 msgstr ""
 
-#: static/js/accounts/member.js:97
+#: static/js/accounts/member.js:96
 msgid "Verified successfully."
 msgstr ""
 
-#: static/js/accounts/member.js:100
+#: static/js/accounts/member.js:99
 msgid "Verification failure. Please check verification code again."
 msgstr ""
 

@@ -74,7 +74,6 @@ function get_verification_code() {
 function check_validation() {
     id_email = $('#signup_form #id_email').val();
     id_code = $('#signup_form #id_code').val();
-    console.log(id_code.indexOf(id_email));
     if (!id_code || id_code.indexOf(id_email) != 0) {
         alert(gettext("Please input verification code correctly."));
         return;

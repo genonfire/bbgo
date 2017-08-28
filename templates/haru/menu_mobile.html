@@ -4,13 +4,13 @@
 
 <ul>
     <li>
-        {% if user.profile.alarm %}
-            <a href="{% url 'api:alarm_off' %}">
+        <a href="javascript:alarm_list('mobile')">
+            {% if user.profile.alarm %}
                 <img id="alarm_icon_mobile" src="{% static 'icons/alert24.gif' %}">
-            </a>
-        {% else %}
-            <img id="alarm_icon_mobile" src="{% static 'icons/alert24.png' %}">
-        {% endif %}
+            {% else %}
+                <img id="alarm_icon_mobile" src="{% static 'icons/alert24.png' %}">
+            {% endif %}
+        </a>
     </li>
     <li>
         {% if True %}
@@ -36,7 +36,7 @@
                             </span>
                             <span class="power_util float-right">
                                 <span>
-                                    <a href="{% url 'accounts:scrap_0' %}">
+                                    <a href="{% url 'accounts:scrap_list_0' %}">
                                         <img src="{% static 'icons/scrap24.png' %}">
                                     </a>
                                 </span>

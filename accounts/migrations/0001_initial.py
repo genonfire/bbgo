@@ -29,6 +29,8 @@ class Migration(migrations.Migration):
                 ('sense_client', models.CharField(max_length=30, blank=True)),
                 ('sense_slot', models.CharField(max_length=15, blank=True)),
                 ('alarm_interval', models.IntegerField(default=30)),
+                ('alarm_board', models.BooleanField(default=False)),
+                ('alarm_reply', models.BooleanField(default=True)),
                 ('portrait', models.ImageField(blank=True, upload_to=b'portrait/%Y-%m-%d/', validators=[accounts.models.img_validator])),
                 ('signature', models.TextField(blank=True)),
                 ('user', models.OneToOneField(to=settings.AUTH_USER_MODEL)),

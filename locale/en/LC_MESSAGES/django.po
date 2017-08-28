@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-28 14:43+0900\n"
+"POT-Creation-Date: 2017-08-28 21:59+0900\n"
 "PO-Revision-Date: 2017-07-13 14:03+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,32 +18,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: accounts/views.py:41 accounts/views.py:107
+#: accounts/views.py:43 accounts/views.py:109
 msgid "Saved successfully."
 msgstr ""
 
-#: accounts/views.py:43 accounts/views.py:111
+#: accounts/views.py:45 accounts/views.py:113
 msgid "Form validation Failure"
 msgstr ""
 
-#: accounts/views.py:83 accounts/views.py:254
+#: accounts/views.py:85 accounts/views.py:250
 msgid "Please check nickname."
 msgstr ""
 
-#: accounts/views.py:100 accounts/views.py:103 accounts/views.py:273
-#: accounts/views.py:275
+#: accounts/views.py:102 accounts/views.py:105 accounts/views.py:269
+#: accounts/views.py:271
 msgid "Verification failure. Please check verification code again."
 msgstr ""
 
-#: accounts/views.py:136 core/api.py:111 core/api.py:181
+#: accounts/views.py:138 core/api.py:112 core/api.py:182
 msgid "Require login"
 msgstr ""
 
-#: accounts/views.py:244
+#: accounts/views.py:240
 msgid "Please check username."
 msgstr ""
 
-#: accounts/views.py:277
+#: accounts/views.py:273
 msgid "Sorry. Please try again later."
 msgstr ""
 
@@ -76,44 +76,44 @@ msgstr "Deleted"
 msgid "Wrong status from user."
 msgstr ""
 
-#: core/api.py:46
+#: core/api.py:47
 msgid "Already exist."
 msgstr ""
 
-#: core/api.py:48
+#: core/api.py:49
 msgid "Available"
 msgstr ""
 
-#: core/api.py:63
+#: core/api.py:64
 msgid "E-mail exists. Why don't you try to find your password?"
 msgstr ""
 
-#: core/api.py:72
+#: core/api.py:73
 #, python-format
 msgid "[%(site_name)s] Verification code for signing in"
 msgstr ""
 
-#: core/api.py:79
+#: core/api.py:80
 msgid "Verification code sent. Please check your E-mail."
 msgstr ""
 
-#: core/api.py:119 core/api.py:189
+#: core/api.py:120 core/api.py:190
 msgid "You like your own post?"
 msgstr ""
 
-#: core/api.py:133
+#: core/api.py:134
 msgid "You've liked this article"
 msgstr ""
 
-#: core/api.py:143
+#: core/api.py:144
 msgid "You've disliked this article"
 msgstr ""
 
-#: core/api.py:150 core/api.py:217
+#: core/api.py:151 core/api.py:218
 msgid "You've already liked"
 msgstr ""
 
-#: core/api.py:152 core/api.py:219
+#: core/api.py:153 core/api.py:220
 msgid "You've already disliked"
 msgstr ""
 
@@ -133,6 +133,31 @@ msgstr ""
 msgid ""
 "Something wrong. Please reload the page to try again. If error continues, "
 "please contact administrator."
+msgstr ""
+
+#: templates/haru/accounts/alarm_list.html:7
+msgid "Alarm"
+msgstr ""
+
+#: templates/haru/accounts/alarm_list.html:10
+msgid "alarms exist"
+msgstr ""
+
+#: templates/haru/accounts/alarm_list.html:14
+msgid "Read all"
+msgstr ""
+
+#: templates/haru/accounts/alarm_list.html:38
+msgid "Article has a reply."
+msgstr ""
+
+#: templates/haru/accounts/alarm_list.html:51
+msgid "Reply has a reply."
+msgstr ""
+
+#: templates/haru/accounts/alarm_list.html:61
+#, python-format
+msgid "It shows recent %(max)s alarms so may you often clear alarms."
 msgstr ""
 
 #: templates/haru/accounts/deactivate_account.html:6
@@ -181,7 +206,7 @@ msgstr ""
 #: templates/haru/accounts/edit_user_info.html:47
 #: templates/haru/accounts/login.html:41
 #: templates/haru/accounts/signup.html:36
-#: templates/haru/accounts/user_info.html:28 templates/haru/base.html:103
+#: templates/haru/accounts/user_info.html:28 templates/haru/base.html:104
 #: templates/haru/menu_mobile.html:61
 msgid "id"
 msgstr ""
@@ -248,14 +273,14 @@ msgid "signature"
 msgstr ""
 
 #: templates/haru/accounts/edit_user_info.html:125
-#: templates/haru/accounts/setting.html:69
+#: templates/haru/accounts/setting.html:95
 msgid "Save"
 msgstr ""
 
 #: templates/haru/accounts/join.html:4 templates/haru/accounts/join.html:8
 #: templates/haru/accounts/login.html:57 templates/haru/accounts/signup.html:4
 #: templates/haru/accounts/signup.html:19
-#: templates/haru/accounts/signup.html:102 templates/haru/base.html:121
+#: templates/haru/accounts/signup.html:102 templates/haru/base.html:122
 #: templates/haru/menu_mobile.html:81
 msgid "Sign up"
 msgstr ""
@@ -266,7 +291,7 @@ msgstr ""
 
 #: templates/haru/accounts/join.html:17 templates/haru/accounts/login.html:4
 #: templates/haru/accounts/login.html:12 templates/haru/accounts/login.html:47
-#: templates/haru/base.html:110 templates/haru/menu_mobile.html:64
+#: templates/haru/base.html:111 templates/haru/menu_mobile.html:64
 #: templates/haru/registration/logged_out.html:17
 #: templates/haru/registration/password_reset_complete.html:17
 msgid "login"
@@ -276,7 +301,7 @@ msgstr ""
 msgid "Login failure"
 msgstr ""
 
-#: templates/haru/accounts/login.html:33 templates/haru/base.html:92
+#: templates/haru/accounts/login.html:33 templates/haru/base.html:93
 #: templates/haru/menu_mobile.html:51
 #: templates/haru/registration/logged_out.html:4
 #: templates/haru/registration/logged_out.html:8
@@ -284,18 +309,18 @@ msgid "logout"
 msgstr ""
 
 #: templates/haru/accounts/login.html:44
-#: templates/haru/accounts/signup.html:86 templates/haru/base.html:106
+#: templates/haru/accounts/signup.html:86 templates/haru/base.html:107
 #: templates/haru/menu_mobile.html:69
 msgid "password"
 msgstr ""
 
-#: templates/haru/accounts/login.html:52 templates/haru/base.html:116
+#: templates/haru/accounts/login.html:52 templates/haru/base.html:117
 #: templates/haru/menu_mobile.html:76
 msgid "Reset password"
 msgstr ""
 
 #: templates/haru/accounts/scrap.html:8 templates/haru/accounts/scrap.html:12
-#: templates/haru/base.html:74
+#: templates/haru/base.html:75
 msgid "scrap"
 msgstr ""
 
@@ -375,26 +400,46 @@ msgid "Settings for each user."
 msgstr ""
 
 #: templates/haru/accounts/setting.html:22
-msgid "AdSense info"
+msgid "Alarm setting"
 msgstr ""
 
 #: templates/haru/accounts/setting.html:25
+msgid "Interval how often do you want to check new alarm. 30 ~ 3600(1 hour)."
+msgstr ""
+
+#: templates/haru/accounts/setting.html:31
+msgid "Alarm interval(sec)"
+msgstr ""
+
+#: templates/haru/accounts/setting.html:39
+msgid "Article alarm"
+msgstr ""
+
+#: templates/haru/accounts/setting.html:44
+msgid "Alarm when someone replies on your article."
+msgstr ""
+
+#: templates/haru/accounts/setting.html:50
+msgid "Reply alarm"
+msgstr ""
+
+#: templates/haru/accounts/setting.html:55
+msgid "Alarm when someone replies on your reply."
+msgstr ""
+
+#: templates/haru/accounts/setting.html:56
+msgid "You may not turn off."
+msgstr ""
+
+#: templates/haru/accounts/setting.html:65
+msgid "AdSense info"
+msgstr ""
+
+#: templates/haru/accounts/setting.html:68
 msgid ""
 "Your AdSense will be shown on information and best articles by profit "
 "sharing system. To use this feature please fill followings from your AdSense "
 "code."
-msgstr ""
-
-#: templates/haru/accounts/setting.html:49
-msgid "Alarm setting"
-msgstr ""
-
-#: templates/haru/accounts/setting.html:52
-msgid "Interval how often do you want to check new alarm. 30 ~ 3600(1 hour)."
-msgstr ""
-
-#: templates/haru/accounts/setting.html:58
-msgid "Alarm interval(sec)"
 msgstr ""
 
 #: templates/haru/accounts/signup.html:14 templates/haru/error.html:4
@@ -436,7 +481,7 @@ msgstr ""
 msgid "Reply count"
 msgstr ""
 
-#: templates/haru/base.html:80
+#: templates/haru/base.html:81
 msgid "Message"
 msgstr ""
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-28 14:43+0900\n"
+"POT-Creation-Date: 2017-08-28 21:59+0900\n"
 "PO-Revision-Date: 2017-08-25 16:42+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,8 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: static/js/accounts/alarm.js:24 static/js/accounts/bookmarks.js:18
+#: static/js/accounts/alarm.js:23 static/js/accounts/alarm.js:43
+#: static/js/accounts/alarm.js:90 static/js/accounts/bookmarks.js:18
 #: static/js/boards/boards_reply.js:34 static/js/boards/boards_reply.js:71
 #: static/js/boards/boards_reply.js:148 static/js/boards/boards_reply.js:174
 #: static/js/boards/boards_reply.js:196 static/js/boards/boards_reply.js:220
@@ -77,15 +78,15 @@ msgstr "올바른 이메일 주소를 입력해 주세요."
 msgid "Failed to send E-mail. Please try again later."
 msgstr "이메일 발송 실패. 나중에 다시 시도해 주세요."
 
-#: static/js/accounts/member.js:79
+#: static/js/accounts/member.js:78
 msgid "Please input verification code correctly."
 msgstr "올바른 인증코드를 넣어주세요."
 
-#: static/js/accounts/member.js:97
+#: static/js/accounts/member.js:96
 msgid "Verified successfully."
 msgstr "인증 성공."
 
-#: static/js/accounts/member.js:100
+#: static/js/accounts/member.js:99
 msgid "Verification failure. Please check verification code again."
 msgstr "인증실패. 인증코드를 다시 확인해 주세요."
 

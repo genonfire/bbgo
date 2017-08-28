@@ -48,13 +48,13 @@ urlpatterns = [
     ),
     url(
         r'^scrap/$',
-        views.scrap,
-        name='scrap_0'
+        views.scrap_list,
+        name='scrap_list_0'
     ),
     url(
         r'^scrap/(?P<page>\d+)/$',
-        views.scrap,
-        name='scrap'
+        views.scrap_list,
+        name='scrap_list'
     ),
     url(
         r'^delete_scrap/(?P<id>\d+)/$',

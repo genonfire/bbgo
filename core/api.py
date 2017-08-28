@@ -4,6 +4,7 @@ from smtplib import SMTPException
 
 from boards.forms import ReplyEditForm
 from boards.models import Board, Reply
+from boards.table import BoardTable
 from core.utils import error_page, get_ipaddress
 
 from django.conf import settings
@@ -263,19 +264,23 @@ def write_reply(request):
             if article.user != request.user and reply_id == 0:
                 if article.user.profile.alarm_list != '':
                     article.user.profile.alarm_list += ','
-                alarm_text = 'a.%d' % article.id
+                alarm_text = 'b:%d' % article.id
                 article.user.profile.alarm_list += alarm_text
-                article.user.profile.alarm = True
-                article.user.profile.save()
+
+                if article.user.profile.alarm_board:
+                    article.user.profile.alarm = True
+                    article.user.profile.save()
             elif reply_to != request.user.username and reply_id > 0:
                 user = User.objects.filter(username=reply_to)
                 if user:
                     if user[0].profile.alarm_list != '':
                         user[0].profile.alarm_list += ','
-                    alarm_text = 'r.%d' % reply_id
+                    alarm_text = 'r:%d' % reply_id
                     user[0].profile.alarm_list += alarm_text
-                    user[0].profile.alarm = True
-                    user[0].save()
+
+                    if user[0].profile.alarm_reply:
+                        user[0].profile.alarm = True
+                        user[0].save()
 
             article.save()
 
@@ -435,10 +440,64 @@ def alarm_status(request):
     return JsonResponse({'status': 'false'}, status=400)
 
 
-def alarm_off(request):
-    """API alarm_off"""
-    if request.user.is_authenticated():
-        request.user.profile.alarm = False
+def alarm_list(request):
+    """API alarm_list"""
+    if not request.user.is_authenticated():
+        return JsonResponse({'status': 'false'}, status=400)
+
+    if request.method == 'POST':
+        type = request.POST['type']
+        alarms = request.user.profile.alarm_list.split(',')
+        my_alarms = []
+        board_table = BoardTable()
+        name_list = board_table.get_table_list()
+
+        if request.user.profile.alarm_list != '':
+            total = len(alarms)
+            for alarm in reversed(alarms):
+                app, id = alarm.split(':')
+                if app == 'b':
+                    item = Board.objects.filter(id__iexact=id)
+                elif app == 'r':
+                    item = Reply.objects.filter(id__iexact=id)
+                else:
+                    continue
+
+                if item.count():
+                    my_alarms.append([app, item[0]])
+
+            if request.user.profile.alarm:
+                request.user.profile.alarm = False
+                request.user.profile.save()
+        else:
+            total = 0
+
+        return render_to_response(
+            'accounts/alarm_list.html',
+            {
+                'user': request.user,
+                'alarms': my_alarms,
+                'total': total,
+                'max': settings.ALARM_INBOX_MAX,
+                'type': type,
+                'name_list': name_list,
+            }
+        )
+    else:
+        return error_page(request)
+
+    return JsonResponse({'status': 'false'}, status=400)
+
+
+def clear_alarm(request):
+    """API clear_alarm"""
+    if not request.user.is_authenticated():
+        return JsonResponse({'status': 'false'}, status=400)
+
+    if request.method == 'POST':
+        request.user.profile.alarm_list = ''
         request.user.profile.save()
 
-        return error_page(request)
+        return JsonResponse({'status': 'true'}, status=201)
+    else:
+        return JsonResponse({'status': 'false'}, status=400)
