@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-28 22:12+0900\n"
-"PO-Revision-Date: 2017-08-28 22:12+0900\n"
+"POT-Creation-Date: 2017-08-28 23:10+0900\n"
+"PO-Revision-Date: 2017-08-28 23:10+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,8 +19,12 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: static/js/accounts/alarm.js:23 static/js/accounts/alarm.js:43
-#: static/js/accounts/alarm.js:90 static/js/accounts/bookmarks.js:18
+#: static/js/accounts/alarm.js:20
+msgid "Alarm for your activity."
+msgstr "알람을 확인해 주세요."
+
+#: static/js/accounts/alarm.js:33 static/js/accounts/alarm.js:53
+#: static/js/accounts/alarm.js:100 static/js/accounts/bookmarks.js:18
 #: static/js/boards/boards_reply.js:38 static/js/boards/boards_reply.js:76
 #: static/js/boards/boards_reply.js:153 static/js/boards/boards_reply.js:179
 #: static/js/boards/boards_reply.js:201 static/js/boards/boards_reply.js:225

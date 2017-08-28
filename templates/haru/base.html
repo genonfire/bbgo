@@ -161,7 +161,10 @@
     {% else %}
         var alarm_polling_enabled = false;
     {% endif %}
+    var site_name = '{{ SITE_NAME }}';
+    var site_logo = '{{ SITE_LOGO }}';
 </script>
+<script src="{% static 'js/thirdparty/easyNotify.min.js' %}" async></script>
 <script src="{% static 'js/accounts/alarm.js' %}" async></script>
 <script src="{% static 'js/accounts/idmenu.js' %}" async></script>
 {% block bodyscript %}{% endblock %}

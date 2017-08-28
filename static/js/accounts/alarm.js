@@ -13,6 +13,16 @@ function alarm_status() {
             if (data[0]) {
                 $('#alarm_icon').attr('src', '/static/icons/alert24.gif');
                 $('#alarm_icon_mobile').attr('src', '/static/icons/alert24.gif');
+
+                var options = {
+                    title: site_name,
+                    options: {
+                        body: gettext("Alarm for your activity."),
+                        icon: site_logo,
+                        lang: 'ko-KR'
+                    }
+                };
+                $("#easyNotify").easyNotify(options);
             }
             else {
                 $('#alarm_icon').attr('src', '/static/icons/alert24.png');
