@@ -8,7 +8,7 @@ from boards.table import BoardTable
 from core.utils import error_page
 
 from django.conf import settings
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.core.signing import TimestampSigner
@@ -21,6 +21,7 @@ from .forms import RegistrationForm, SettingForm, UserInfoForm
 from .models import Profile
 
 
+@login_required
 def setting(request):
     """Account setting"""
     if request.method == "POST":
@@ -61,11 +62,9 @@ def setting(request):
     )
 
 
+@login_required
 def edit_user_info(request):
     """Edit user information"""
-    if not request.user.is_authenticated():
-        return redirect('/')
-
     profile = get_object_or_404(Profile, pk=request.user.profile.id)
     if request.method == "POST":
         infoform = UserInfoForm(request.POST, request.FILES, instance=profile)
@@ -132,12 +131,9 @@ def edit_user_info(request):
     )
 
 
+@login_required
 def user_info(request, user):
     """Show user info"""
-    if not request.user.is_authenticated():
-        msg = _("Require login")
-        return error_page(request, msg)
-
     userinfo = User.objects.filter(username__iexact=user).get()
     article_no = Board.objects.filter(user__username__iexact=user).count()
     reply_no = Reply.objects.filter(user__username__iexact=user).count()
@@ -153,11 +149,9 @@ def user_info(request, user):
     )
 
 
+@login_required
 def scrap_list(request, page=0):
     """Show scrap list"""
-    if not request.user.is_authenticated():
-        return redirect('/')
-
     if int(page) < 1:
         return redirect('accounts:scrap_list', page=1)
 
@@ -212,6 +206,7 @@ def scrap_list(request, page=0):
     )
 
 
+@login_required
 def delete_scrap(request, id):
     """Delete selected scrap"""
     profile = request.user.profile
@@ -285,6 +280,7 @@ def sign_up(request):
     )
 
 
+@login_required
 def show_deactivate_account(request):
     """Show deactivate account page"""
     return render(
@@ -293,6 +289,7 @@ def show_deactivate_account(request):
     )
 
 
+@login_required
 def deactivate_account(request):
     """Deactivate account"""
     if request.user.is_authenticated():

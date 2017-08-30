@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-30 22:42+0900\n"
-"PO-Revision-Date: 2017-08-30 22:42+0900\n"
+"PO-Revision-Date: 2017-08-30 22:53+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -134,7 +134,7 @@ msgstr "읽음"
 
 #: msgs/views.py:106 msgs/views.py:146 msgs/views.py:181
 msgid "User does not exist."
-msgstr ""
+msgstr "존재하지 않는 사용자입니다."
 
 #: msgs/views.py:110 msgs/views.py:150 msgs/views.py:185
 msgid "Cannot send message to yourself."

@@ -4,6 +4,7 @@ from math import ceil
 from core.utils import error_page, get_ipaddress
 
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
@@ -15,11 +16,9 @@ from .forms import MsgForm
 from .models import Msg
 
 
+@login_required
 def inbox(request, page=1):
     """Msg inbox"""
-    if not request.user.is_authenticated():
-        return redirect('/')
-
     list_count = settings.MSG_LIST_COUNT
 
     current_page = int(page) - 1
@@ -94,12 +93,9 @@ def inbox(request, page=1):
     )
 
 
+@login_required
 def conversation(request, user):
     """Conversation"""
-    if not request.user.is_authenticated():
-        msg = _('Require login')
-        return error_page(request, msg)
-
     try:
         other = User.objects.filter(username__iexact=user).get()
     except ObjectDoesNotExist:
@@ -134,12 +130,9 @@ def conversation(request, user):
     )
 
 
+@login_required
 def append(request, user):
     """Append message"""
-    if not request.user.is_authenticated():
-        msg = _('Require login')
-        return error_page(request, msg)
-
     try:
         recipient = User.objects.filter(username__iexact=user).get()
     except ObjectDoesNotExist:
@@ -169,12 +162,9 @@ def append(request, user):
     return error_page(request)
 
 
+@login_required
 def send(request, user):
     """Send message"""
-    if not request.user.is_authenticated():
-        msg = _('Require login')
-        return error_page(request, msg)
-
     try:
         recipient = User.objects.filter(username__iexact=user).get()
     except ObjectDoesNotExist:
@@ -215,12 +205,9 @@ def send(request, user):
     )
 
 
+@login_required
 def delete_all(request):
     """Delete all messages"""
-    if not request.user.is_authenticated():
-        msg = _('Require login')
-        return error_page(request, msg)
-
     q_sender = Q(sender__username__iexact=request.user.username) & Q(
         sender_status='1normal')
     msgs = Msg.objects.filter(q_sender)
@@ -239,12 +226,9 @@ def delete_all(request):
     return redirect('msgs:inbox', page=1)
 
 
+@login_required
 def delete_old(request):
     """Delete old messages"""
-    if not request.user.is_authenticated():
-        msg = _('Require login')
-        return error_page(request, msg)
-
     old_at = timezone.now() - timezone.timedelta(
         days=settings.OLD_MSG_THRESHOLD)
 
@@ -266,12 +250,9 @@ def delete_old(request):
     return redirect('msgs:inbox', page=1)
 
 
+@login_required
 def delete_conversation(request, user):
     """Delete conversation"""
-    if not request.user.is_authenticated():
-        msg = _('Require login')
-        return error_page(request, msg)
-
     q_sender = Q(sender__username__iexact=request.user.username) & Q(
         recipient__username__iexact=user) & Q(
             sender_status='1normal')
@@ -291,12 +272,9 @@ def delete_conversation(request, user):
     return redirect('msgs:inbox', page=1)
 
 
+@login_required
 def read_all(request):
     """Read all messages"""
-    if not request.user.is_authenticated():
-        msg = _('Require login')
-        return error_page(request, msg)
-
     msgs = Msg.objects.filter(recipient__username__iexact=request.user.username).filter(recipient_status='1normal')
 
     for msg in msgs:
