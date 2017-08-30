@@ -1,5 +1,5 @@
 function write_reply(id) {
-    content = $('#reply_text').val();
+    content = $('#reply_text').val().replace(/\s+$/, '');
     if (content.length < 2) {
         alert(gettext("Please input 2 or more characters."));
         return;
