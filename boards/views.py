@@ -309,14 +309,17 @@ def search_reply(request, search_type, search_word, table=0, page=1):
     )
 
 
+@login_required
 def delete_reply(request, id):
     """Delete reply"""
     reply = get_object_or_404(Reply, pk=id)
-    if request.user == reply.user or request.user.is_staff:
+    if request.user == reply.user:
         reply.status = '6deleted'
-        reply.save()
+    elif request.user.is_staff:
+        reply.status = '5hidden'
+    else:
+        return error_page(request)
 
-        referer = request.META.get('HTTP_REFERER')
-        return redirect(referer)
-
-    return error_page(request)
+    reply.save()
+    referer = request.META.get('HTTP_REFERER')
+    return redirect(referer)

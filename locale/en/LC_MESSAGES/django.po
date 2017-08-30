@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 21:31+0900\n"
+"POT-Creation-Date: 2017-08-30 22:42+0900\n"
 "PO-Revision-Date: 2017-07-13 14:03+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,8 +22,8 @@ msgstr ""
 msgid "Saved successfully."
 msgstr ""
 
-#: accounts/views.py:45 accounts/views.py:113 msgs/views.py:155
-#: msgs/views.py:185
+#: accounts/views.py:45 accounts/views.py:113 msgs/views.py:166
+#: msgs/views.py:201
 msgid "Form validation Failure"
 msgstr ""
 
@@ -36,9 +36,9 @@ msgstr ""
 msgid "Verification failure. Please check verification code again."
 msgstr ""
 
-#: accounts/views.py:138 core/api.py:114 core/api.py:184 msgs/views.py:99
-#: msgs/views.py:134 msgs/views.py:164 msgs/views.py:205 msgs/views.py:229
-#: msgs/views.py:256 msgs/views.py:281
+#: accounts/views.py:138 core/api.py:114 core/api.py:184 msgs/views.py:100
+#: msgs/views.py:140 msgs/views.py:175 msgs/views.py:221 msgs/views.py:245
+#: msgs/views.py:272 msgs/views.py:297
 msgid "Require login"
 msgstr ""
 
@@ -123,7 +123,7 @@ msgstr ""
 msgid "You've already disliked"
 msgstr ""
 
-#: core/utils.py:10
+#: core/utils.py:10 core/utils.py:24
 msgid "Wrong access"
 msgstr ""
 
@@ -133,7 +133,11 @@ msgstr ""
 msgid "status_read"
 msgstr "Noraml"
 
-#: msgs/views.py:104 msgs/views.py:139 msgs/views.py:169
+#: msgs/views.py:106 msgs/views.py:146 msgs/views.py:181
+msgid "User does not exist."
+msgstr ""
+
+#: msgs/views.py:110 msgs/views.py:150 msgs/views.py:185
 msgid "Cannot send message to yourself."
 msgstr ""
 
@@ -352,7 +356,7 @@ msgstr ""
 #: templates/haru/accounts/scrap.html:25
 #: templates/haru/boards/search_reply.html:28
 #: templates/haru/boards/show_list.html:48
-#: templates/haru/boards/show_list.html:281
+#: templates/haru/boards/show_list.html:205
 msgid "subject"
 msgstr ""
 
@@ -376,42 +380,6 @@ msgstr ""
 #: templates/haru/boards/show_article.html:109
 #: templates/haru/boards/show_reply.html:57 templates/haru/msgs/inbox.html:67
 msgid "delete"
-msgstr ""
-
-#: templates/haru/accounts/scrap.html:80
-#: templates/haru/accounts/scrap.html:101
-#: templates/haru/accounts/scrap.html:125
-#: templates/haru/boards/search_reply.html:92
-#: templates/haru/boards/search_reply.html:113
-#: templates/haru/boards/search_reply.html:144
-#: templates/haru/boards/show_list.html:206
-#: templates/haru/boards/show_list.html:227
-#: templates/haru/boards/show_list.html:258 templates/haru/msgs/inbox.html:85
-#: templates/haru/msgs/inbox.html.py:106 templates/haru/msgs/inbox.html:130
-msgid "to prev page"
-msgstr ""
-
-#: templates/haru/accounts/scrap.html:87
-#: templates/haru/accounts/scrap.html:117
-#: templates/haru/accounts/scrap.html:141
-#: templates/haru/boards/search_reply.html:99
-#: templates/haru/boards/search_reply.html:129
-#: templates/haru/boards/search_reply.html:160
-#: templates/haru/boards/show_list.html:213
-#: templates/haru/boards/show_list.html:243
-#: templates/haru/boards/show_list.html:274 templates/haru/msgs/inbox.html:92
-#: templates/haru/msgs/inbox.html.py:122 templates/haru/msgs/inbox.html:146
-msgid "to next page"
-msgstr ""
-
-#: templates/haru/accounts/scrap.html:100
-#: templates/haru/accounts/scrap.html:124
-#: templates/haru/boards/search_reply.html:112
-#: templates/haru/boards/search_reply.html:143
-#: templates/haru/boards/show_list.html:226
-#: templates/haru/boards/show_list.html:257 templates/haru/msgs/inbox.html:105
-#: templates/haru/msgs/inbox.html.py:129
-msgid "to first page"
 msgstr ""
 
 #: templates/haru/accounts/setting.html:4
@@ -531,19 +499,13 @@ msgstr ""
 msgid "Search reply"
 msgstr ""
 
-#: templates/haru/boards/search_reply.html:135
-#: templates/haru/boards/show_list.html:36
-#: templates/haru/boards/show_list.html:249
-msgid "write"
-msgstr ""
-
-#: templates/haru/boards/search_reply.html:167
-#: templates/haru/boards/show_list.html:287
+#: templates/haru/boards/search_reply.html:91
+#: templates/haru/boards/show_list.html:211
 msgid "write user"
 msgstr ""
 
-#: templates/haru/boards/search_reply.html:171
-#: templates/haru/boards/show_list.html:291
+#: templates/haru/boards/search_reply.html:95
+#: templates/haru/boards/show_list.html:215
 msgid "search"
 msgstr ""
 
@@ -594,13 +556,18 @@ msgstr ""
 msgid "Please show some respect."
 msgstr ""
 
+#: templates/haru/boards/show_list.html:36
+#: templates/haru/show_navigator.html:54
+msgid "write"
+msgstr ""
+
 #: templates/haru/boards/show_list.html:50
 #: templates/haru/boards/show_list.html:110
 #: templates/haru/boards/show_list.html:182
 msgid "view"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:284
+#: templates/haru/boards/show_list.html:208
 msgid "subject+content"
 msgstr ""
 
@@ -615,6 +582,10 @@ msgstr ""
 
 #: templates/haru/boards/show_reply.html:108
 msgid "Deleted reply"
+msgstr ""
+
+#: templates/haru/boards/show_reply.html:110
+msgid "Hidden reply"
 msgstr ""
 
 #: templates/haru/menu_footer.html:5
@@ -823,4 +794,18 @@ msgstr ""
 
 #: templates/haru/registration/password_reset_form.html:19
 msgid "Email address:"
+msgstr ""
+
+#: templates/haru/show_navigator.html:11 templates/haru/show_navigator.html:32
+#: templates/haru/show_navigator.html:63
+msgid "to prev page"
+msgstr ""
+
+#: templates/haru/show_navigator.html:18 templates/haru/show_navigator.html:48
+#: templates/haru/show_navigator.html:79
+msgid "to next page"
+msgstr ""
+
+#: templates/haru/show_navigator.html:31 templates/haru/show_navigator.html:62
+msgid "to first page"
 msgstr ""

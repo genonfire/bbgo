@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 21:31+0900\n"
-"PO-Revision-Date: 2017-08-30 21:37+0900\n"
+"POT-Creation-Date: 2017-08-30 22:42+0900\n"
+"PO-Revision-Date: 2017-08-30 22:42+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -23,8 +23,8 @@ msgstr ""
 msgid "Saved successfully."
 msgstr "저장했습니다."
 
-#: accounts/views.py:45 accounts/views.py:113 msgs/views.py:155
-#: msgs/views.py:185
+#: accounts/views.py:45 accounts/views.py:113 msgs/views.py:166
+#: msgs/views.py:201
 msgid "Form validation Failure"
 msgstr "폼 입력이 잘못됐습니다."
 
@@ -37,9 +37,9 @@ msgstr "닉네임을 확인해 주세요."
 msgid "Verification failure. Please check verification code again."
 msgstr "인증실패. 인증코드를 다시 확인해 주세요."
 
-#: accounts/views.py:138 core/api.py:114 core/api.py:184 msgs/views.py:99
-#: msgs/views.py:134 msgs/views.py:164 msgs/views.py:205 msgs/views.py:229
-#: msgs/views.py:256 msgs/views.py:281
+#: accounts/views.py:138 core/api.py:114 core/api.py:184 msgs/views.py:100
+#: msgs/views.py:140 msgs/views.py:175 msgs/views.py:221 msgs/views.py:245
+#: msgs/views.py:272 msgs/views.py:297
 msgid "Require login"
 msgstr "회원만 가능합니다."
 
@@ -124,16 +124,19 @@ msgstr "이미 추천하셨습니다."
 msgid "You've already disliked"
 msgstr "이미 비추하셨습니다."
 
-#: core/utils.py:10
+#: core/utils.py:10 core/utils.py:24
 msgid "Wrong access"
 msgstr "잘못된 접근입니다."
 
 #: msgs/models.py:13
-#| msgid "status_normal"
 msgid "status_read"
 msgstr "읽음"
 
-#: msgs/views.py:104 msgs/views.py:139 msgs/views.py:169
+#: msgs/views.py:106 msgs/views.py:146 msgs/views.py:181
+msgid "User does not exist."
+msgstr ""
+
+#: msgs/views.py:110 msgs/views.py:150 msgs/views.py:185
 msgid "Cannot send message to yourself."
 msgstr "자신에게 보낼 수 없습니다."
 
@@ -178,7 +181,6 @@ msgid "It shows recent %(max)s alarms so may you often clear alarms."
 msgstr "최대 %(max)s 개의 알람만 보여지므로 종종 모두 읽기를 눌러 정리해 주세요."
 
 #: templates/haru/accounts/alarm_list.html:66
-#| msgid "Reply alarm"
 msgid "No alarms"
 msgstr "알람이 없습니다."
 
@@ -353,7 +355,7 @@ msgstr "스크랩 페이지입니다. 삭제 버튼을 누르면 추가 확인�
 #: templates/haru/accounts/scrap.html:25
 #: templates/haru/boards/search_reply.html:28
 #: templates/haru/boards/show_list.html:48
-#: templates/haru/boards/show_list.html:281
+#: templates/haru/boards/show_list.html:205
 msgid "subject"
 msgstr "제목"
 
@@ -378,42 +380,6 @@ msgstr "날짜"
 #: templates/haru/boards/show_reply.html:57 templates/haru/msgs/inbox.html:67
 msgid "delete"
 msgstr "삭제"
-
-#: templates/haru/accounts/scrap.html:80
-#: templates/haru/accounts/scrap.html:101
-#: templates/haru/accounts/scrap.html:125
-#: templates/haru/boards/search_reply.html:92
-#: templates/haru/boards/search_reply.html:113
-#: templates/haru/boards/search_reply.html:144
-#: templates/haru/boards/show_list.html:206
-#: templates/haru/boards/show_list.html:227
-#: templates/haru/boards/show_list.html:258 templates/haru/msgs/inbox.html:85
-#: templates/haru/msgs/inbox.html.py:106 templates/haru/msgs/inbox.html:130
-msgid "to prev page"
-msgstr "이전 페이지로"
-
-#: templates/haru/accounts/scrap.html:87
-#: templates/haru/accounts/scrap.html:117
-#: templates/haru/accounts/scrap.html:141
-#: templates/haru/boards/search_reply.html:99
-#: templates/haru/boards/search_reply.html:129
-#: templates/haru/boards/search_reply.html:160
-#: templates/haru/boards/show_list.html:213
-#: templates/haru/boards/show_list.html:243
-#: templates/haru/boards/show_list.html:274 templates/haru/msgs/inbox.html:92
-#: templates/haru/msgs/inbox.html.py:122 templates/haru/msgs/inbox.html:146
-msgid "to next page"
-msgstr "다음 페이지로"
-
-#: templates/haru/accounts/scrap.html:100
-#: templates/haru/accounts/scrap.html:124
-#: templates/haru/boards/search_reply.html:112
-#: templates/haru/boards/search_reply.html:143
-#: templates/haru/boards/show_list.html:226
-#: templates/haru/boards/show_list.html:257 templates/haru/msgs/inbox.html:105
-#: templates/haru/msgs/inbox.html.py:129
-msgid "to first page"
-msgstr "첫 페이지로"
 
 #: templates/haru/accounts/setting.html:4
 #: templates/haru/accounts/setting.html:11 templates/haru/menu_setting.html:6
@@ -534,19 +500,13 @@ msgstr "취소"
 msgid "Search reply"
 msgstr "댓글 검색"
 
-#: templates/haru/boards/search_reply.html:135
-#: templates/haru/boards/show_list.html:36
-#: templates/haru/boards/show_list.html:249
-msgid "write"
-msgstr "글쓰기"
-
-#: templates/haru/boards/search_reply.html:167
-#: templates/haru/boards/show_list.html:287
+#: templates/haru/boards/search_reply.html:91
+#: templates/haru/boards/show_list.html:211
 msgid "write user"
 msgstr "글쓴이"
 
-#: templates/haru/boards/search_reply.html:171
-#: templates/haru/boards/show_list.html:291
+#: templates/haru/boards/search_reply.html:95
+#: templates/haru/boards/show_list.html:215
 msgid "search"
 msgstr "검색"
 
@@ -597,13 +557,18 @@ msgstr "신규 댓글 보기"
 msgid "Please show some respect."
 msgstr "서로에 대한 배려와 존중을 보여주세요."
 
+#: templates/haru/boards/show_list.html:36
+#: templates/haru/show_navigator.html:54
+msgid "write"
+msgstr "글쓰기"
+
 #: templates/haru/boards/show_list.html:50
 #: templates/haru/boards/show_list.html:110
 #: templates/haru/boards/show_list.html:182
 msgid "view"
 msgstr "조회"
 
-#: templates/haru/boards/show_list.html:284
+#: templates/haru/boards/show_list.html:208
 msgid "subject+content"
 msgstr "제목+내용"
 
@@ -619,6 +584,11 @@ msgstr "댓글 달기"
 #: templates/haru/boards/show_reply.html:108
 msgid "Deleted reply"
 msgstr "삭제된 댓글입니다."
+
+#: templates/haru/boards/show_reply.html:110
+#| msgid "Write reply"
+msgid "Hidden reply"
+msgstr "관리자에 의해 삭제된 댓글입니다."
 
 #: templates/haru/menu_footer.html:5
 msgid "Send feedback"
@@ -681,12 +651,10 @@ msgid "Send"
 msgstr "보내기"
 
 #: templates/haru/msgs/inbox.html:4 templates/haru/msgs/inbox.html.py:10
-#| msgid "Message"
 msgid "Message inbox"
 msgstr "쪽지함"
 
 #: templates/haru/msgs/inbox.html:14
-#| msgid "Already exist."
 msgid "unread messages exist."
 msgstr "개의 안 읽은 쪽지가 있습니다."
 
@@ -697,22 +665,18 @@ msgid ""
 msgstr "개의 오래된 쪽지가 있습니다. 오래된 쪽지를 지우면 전반적인 성능이 향상될 수 있습니다."
 
 #: templates/haru/msgs/inbox.html:18
-#| msgid "Already exist."
 msgid "messages exist."
 msgstr "개의 쪽지가 있습니다."
 
 #: templates/haru/msgs/inbox.html:24
-#| msgid "Deleted reply"
 msgid "Delete all"
 msgstr "모두 삭제"
 
 #: templates/haru/msgs/inbox.html:31
-#| msgid "Deleted reply"
 msgid "Delete old"
 msgstr "오래된 쪽지 삭제"
 
 #: templates/haru/msgs/send_msg.html:4 templates/haru/msgs/send_msg.html:9
-#| msgid "Message"
 msgid "Send message"
 msgstr "쪽지 보내기"
 
@@ -727,7 +691,6 @@ msgid "recipient"
 msgstr "수신인"
 
 #: templates/haru/msgs/send_msg.html:28
-#| msgid "subject+content"
 msgid "content"
 msgstr "내용"
 
@@ -836,6 +799,20 @@ msgstr "비밀번호를 분실하셨습니까? 아래에 이메일 주소를 입
 #: templates/haru/registration/password_reset_form.html:19
 msgid "Email address:"
 msgstr "이메일 주소:"
+
+#: templates/haru/show_navigator.html:11 templates/haru/show_navigator.html:32
+#: templates/haru/show_navigator.html:63
+msgid "to prev page"
+msgstr "이전 페이지로"
+
+#: templates/haru/show_navigator.html:18 templates/haru/show_navigator.html:48
+#: templates/haru/show_navigator.html:79
+msgid "to next page"
+msgstr "다음 페이지로"
+
+#: templates/haru/show_navigator.html:31 templates/haru/show_navigator.html:62
+msgid "to first page"
+msgstr "첫 페이지로"
 
 #~ msgid "to_list"
 #~ msgstr "목록으로"

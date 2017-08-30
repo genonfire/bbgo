@@ -5,7 +5,7 @@ from smtplib import SMTPException
 from boards.forms import ReplyEditForm
 from boards.models import Board, Reply
 from boards.table import BoardTable
-from core.utils import error_page, get_ipaddress
+from core.utils import error_page, error_to_response, get_ipaddress
 
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -309,7 +309,7 @@ def write_reply(request):
 
         return JsonResponse({'status': 'false'}, status=400)
     else:
-        return error_page(request)
+        return error_to_response(request)
 
 
 def reload_reply(request):
@@ -336,7 +336,7 @@ def reload_reply(request):
             }
         )
     else:
-        return error_page(request)
+        return error_to_response(request)
 
 
 def delete_reply(request):
@@ -345,32 +345,36 @@ def delete_reply(request):
         id = request.POST['id']
         reply = get_object_or_404(Reply, pk=id)
 
-        if request.user == reply.user or request.user.is_staff:
+        if request.user == reply.user:
             reply.status = '6deleted'
-            reply.save()
+        elif request.user.is_staff:
+            reply.status = '5hidden'
+        else:
+            return error_to_response(request)
 
-            article_id = reply.article_id
-            replies = Reply.objects.filter(article_id=article_id).annotate(
-                custom_order=Case(
-                    When(reply_id=0, then='id'),
-                    default='reply_id',
-                    output_field=IntegerField(),
-                )
-            ).order_by('custom_order', 'id')
-
-            article = get_object_or_404(Board, pk=article_id)
-
-            return render_to_response(
-                'boards/show_reply.html',
-                {
-                    'user': request.user,
-                    'article_user': article.user,
-                    'replies': replies,
-                    'count': replies.count()
-                }
+        reply.save()
+        article_id = reply.article_id
+        replies = Reply.objects.filter(article_id=article_id).annotate(
+            custom_order=Case(
+                When(reply_id=0, then='id'),
+                default='reply_id',
+                output_field=IntegerField(),
             )
+        ).order_by('custom_order', 'id')
 
-    return error_page(request)
+        article = get_object_or_404(Board, pk=article_id)
+
+        return render_to_response(
+            'boards/show_reply.html',
+            {
+                'user': request.user,
+                'article_user': article.user,
+                'replies': replies,
+                'count': replies.count()
+            }
+        )
+
+    return error_to_response(request)
 
 
 def reply_count(request):
@@ -486,7 +490,7 @@ def alarm_list(request):
             }
         )
     else:
-        return error_page(request)
+        return error_to_response(request)
 
     return JsonResponse({'status': 'false'}, status=400)
 

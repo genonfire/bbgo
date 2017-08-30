@@ -18,6 +18,20 @@ def error_page(request, msg=''):
     )
 
 
+def error_to_response(request, msg=''):
+    """Show error response with msg"""
+    if not msg:
+        msg = _('Wrong access')
+
+    return render(
+        request,
+        "error_response.html",
+        {
+            'msg': msg,
+        }
+    )
+
+
 def get_ipaddress(request):
     """Return ipaddress"""
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
