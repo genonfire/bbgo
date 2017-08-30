@@ -5,6 +5,7 @@ from core.utils import error_page, get_ipaddress
 
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
@@ -99,7 +100,12 @@ def conversation(request, user):
         msg = _('Require login')
         return error_page(request, msg)
 
-    other = User.objects.filter(username__iexact=user).get()
+    try:
+        other = User.objects.filter(username__iexact=user).get()
+    except ObjectDoesNotExist:
+        msg = _('User does not exist.')
+        return error_page(request, msg)
+
     if request.user == other:
         msg = _('Cannot send message to yourself.')
         return error_page(request, msg)
@@ -134,7 +140,12 @@ def append(request, user):
         msg = _('Require login')
         return error_page(request, msg)
 
-    recipient = User.objects.filter(username__iexact=user).get()
+    try:
+        recipient = User.objects.filter(username__iexact=user).get()
+    except ObjectDoesNotExist:
+        msg = _('User does not exist.')
+        return error_page(request, msg)
+
     if request.user == recipient:
         msg = _('Cannot send message to yourself.')
         return error_page(request, msg)
@@ -164,7 +175,12 @@ def send(request, user):
         msg = _('Require login')
         return error_page(request, msg)
 
-    recipient = User.objects.filter(username__iexact=user).get()
+    try:
+        recipient = User.objects.filter(username__iexact=user).get()
+    except ObjectDoesNotExist:
+        msg = _('User does not exist.')
+        return error_page(request, msg)
+
     if request.user == recipient:
         msg = _('Cannot send message to yourself.')
         return error_page(request, msg)
