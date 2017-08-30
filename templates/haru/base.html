@@ -76,13 +76,13 @@
                                 </a>
                             </span>
                             <span class="sidebar_message float-right">
-                                <a href="#">
+                                <a href="{% url 'msgs:inbox' page=1 %}">
                                     <span>
                                         {% trans 'Message' %}
                                     </span>
                                     <span class="sidebar_message_no">
-                                        {% if False %}
-                                            0
+                                        {% if user.profile.msg_count > 0 %}
+                                            {{ user.profile.msg_count }}
                                         {% endif %}
                                     </span>
                                 </a>
@@ -155,7 +155,8 @@
     var url_userinfo = "{% url 'accounts:user_info' user='bb' %}";
     var url_userarticle = "{% url 'boards:show_search_article' search_type='writeuser' search_word='bb' table=0 page=1 %}";
     var url_userreply = "{% url 'boards:search_reply' search_type='writeuser' search_word='bb' table=0 page=1 %}";
-    {% if user.is_authenticated and ENABLE_ALARM_POLLING %}
+    var url_message = "{% url 'msgs:send' user='bb' %}";
+    {% if user.is_authenticated and ENABLE_ALARM_POLLING and not DEBUG %}
         var alarm_polling_enabled = true;
         var alarm_polling_ms = {{ user.profile.alarm_interval }} * 1000;
     {% else %}

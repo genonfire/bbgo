@@ -1,4 +1,4 @@
-"""accounts URL Configuration"""
+"""portal URL Configuration"""
 
 from django.conf.urls import url
 

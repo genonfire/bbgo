@@ -17,6 +17,7 @@ def global_settings(request):
         'NICKNAME_MAX_LENGTH': settings.NICKNAME_MAX_LENGTH,
         'PORTRAIT_SIZE_LIMIT': settings.PORTRAIT_SIZE_LIMIT,
         'ENABLE_ALARM_POLLING': settings.ENABLE_ALARM_POLLING,
+        'MSG_TEXT_MAX': settings.MSG_TEXT_MAX,
         'REPLY_IMAGE_AVAILABLE': settings.REPLY_IMAGE_AVAILABLE,
         'REPLY_IMAGE_SIZE_LIMIT': settings.REPLY_IMAGE_SIZE_LIMIT,
         'REPLY_TEXT_MAX': settings.REPLY_TEXT_MAX,

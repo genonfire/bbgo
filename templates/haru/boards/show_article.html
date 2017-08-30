@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load i18n %}
 {% block title %}{{ SITE_NAME }} - {{ table_name }}{% endblock %}
 {% block extra_head_content %}
 {{ block.super }}
 {% if ENABLE_CODE_HIGHLIGHT %}
 <link rel="stylesheet" href="{% static 'css/monokai-sublime.min.css' %}">
 {% endif %}
-{% load i18n %}
 {% endblock %}
 {% load tz datetime %}
 {% load censor %}
@@ -176,7 +176,12 @@
     {% endif %}
     var article_id = {{ article.id }};
     var reply_count = {{ article.reply_count }};
-    var reply_auto_renew_ms = {{ REPLY_AUTO_RENEW_MS }};
+    {% if DEBUG %}
+        var reply_auto_renew_enabled = false;
+    {% else %}
+        reply_auto_renew_enabled = true;
+        var reply_auto_renew_ms = {{ REPLY_AUTO_RENEW_MS }};
+    {% endif %}
 </script>
 <script src="{% static 'js/boards/boards_reply.js' %}" async></script>
 {% endblock %}

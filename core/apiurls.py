@@ -101,4 +101,9 @@ urlpatterns = [
         api.clear_alarm,
         name='clear_alarm'
     ),
+    url(
+        r'^delete_message/$',
+        api.delete_message,
+        name='delete_message'
+    ),
 ]

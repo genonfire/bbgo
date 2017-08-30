@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-28 23:10+0900\n"
+"POT-Creation-Date: 2017-08-30 21:31+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,6 +27,7 @@ msgstr ""
 #: static/js/boards/boards_reply.js:153 static/js/boards/boards_reply.js:179
 #: static/js/boards/boards_reply.js:201 static/js/boards/boards_reply.js:225
 #: static/js/boards/boards_reply.js:252 static/js/boards/reply_list.js:38
+#: static/js/msgs/conversation.js:19
 msgid "Error!"
 msgstr ""
 
@@ -126,7 +127,7 @@ msgstr ""
 msgid "Please fill the subject."
 msgstr ""
 
-#: static/js/boards/boards_edit.js:23
+#: static/js/boards/boards_edit.js:23 static/js/msgs/message.js:6
 msgid "Please fill the contents."
 msgstr ""
 
@@ -153,4 +154,20 @@ msgstr ""
 
 #: static/js/boards/boards_reply.js:246
 msgid "Show new replies"
+msgstr ""
+
+#: static/js/msgs/conversation.js:2
+msgid "Are you sure to delete this message?"
+msgstr ""
+
+#: static/js/msgs/inbox.js:2
+msgid "Are you sure to delete all?"
+msgstr ""
+
+#: static/js/msgs/inbox.js:8
+msgid "Are you sure to delete old messages?"
+msgstr ""
+
+#: static/js/msgs/inbox.js:14
+msgid "Are you sure to delete this conversation?"
 msgstr ""

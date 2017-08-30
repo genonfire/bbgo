@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% block title %}{{ SITE_NAME }} - {% trans 'Message inbox' %}{% endblock %}
+{% load user %}
+{% load range %}
+{% block content %}
+
+<h1>
+    {% trans 'Message inbox' %}
+</h1>
+<div class="annotation">
+    {% if unread_total > 0 %}
+        {{ unread_total }} {% trans 'unread messages exist.' %}
+    {% elif old_total > 0 %}
+        {{ old_total }} {% trans 'old messages exist. Deleting old messages may be able to improve overall performance.' %}
+    {% else %}
+        {{ total }} {% trans 'messages exist.' %}
+    {% endif %}
+    <div>
+        {% if total > 0 %}
+            <span class="delete">
+                <a href="javascript:delete_all()">
+                    {% trans 'Delete all' %}
+                </a>
+            </span>
+        {% endif %}
+        {% if old_total > 0 %}
+            <span>
+                <a href="javascript:delete_old()">
+                    {% trans 'Delete old' %}
+                </a>
+            </span>
+        {% endif %}
+        {% if unread_total > 0 %}
+            <span>
+                <a href="{% url 'msgs:read_all' %}">
+                    {% trans 'Read all' %}
+                </a>
+            </span>
+        {% endif %}
+    </div>
+</div>
+
+<div class="editing">
+    <table>
+        {% for msg in msgs %}
+            <tr>
+                <td>
+                    <div class="message_with">
+                        {{ msg.0|nickname|safe }}
+                    </div>
+                    <div class="message">
+                        {% if user == msg.1.recipient and msg.1.recipient_status == '1normal' %}
+                            <span class="unread">
+                        {% else %}
+                            <span>
+                        {% endif %}
+                            <a href="{% url 'msgs:conversation' user=msg.0 %}">
+                                {{ msg.1.text|truncatechars:70 }}
+                            </a>
+                        </span>
+                        <span class="msg_date float-right">
+                            {{ msg.1.created_at|date:" Y-m-d" }}
+                            <span class="delete">
+                                <a href="javascript:delete_conversation('{{ msg.0 }}')">
+                                    {% trans 'delete' %}
+                                </a>
+                            </span>
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="nabingator buttons mobile_show">
+    {% if index_end > 2 %}
+        <table>
+            <tr>
+                <td>
+                    {% if page > 1 %}
+                        <a href="../{{ page|add:'-1' }}">
+                            < {% trans 'to prev page' %}
+                        </a>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if page < index_end|add:'-1' %}
+                        <a href="../{{ page|add:'1' }}">
+                            {% trans 'to next page' %} >
+                        </a>
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+    {% endif %}
+</div>
+<div class="navigator mobile_hide">
+    <div class="float-left">
+    </div>
+    {% if index_begin != 1 %}
+        <span>
+            <a href="../1" class="jump" title="{% trans 'to first page' %}"><<</a>
+            <a href="../{{ index_begin|add:'-1' }}" class="jump" title="{% trans 'to prev page' %}"><</a>
+        </span>
+    {% endif %}
+    {% for index in index_begin|range:index_end %}
+        <span>
+            {% if index == page %}
+                <a href="../{{ index }}" class="current_page">
+            {% else %}
+                <a href="../{{ index }}">
+            {% endif %}
+                    {{ index }}
+                </a>
+        </span>
+    {% endfor %}
+    {% if index_end <= index_total %}
+        <span>
+            <a href="../{{ index_end }}" class="jump" title="{% trans 'to next page' %}">></a>
+        </span>
+    {% endif %}
+</div>
+<div class="navigator mobile_show">
+    {% if mindex_begin != 1 %}
+        <span>
+            <a href="../1" class="jump" title="{% trans 'to first page' %}"><<</a>
+            <a href="../{{ mindex_begin|add:'-1' }}" class="jump" title="{% trans 'to prev page' %}"><</a>
+        </span>
+    {% endif %}
+    {% for index in mindex_begin|range:mindex_end %}
+        <span>
+            {% if index == page %}
+                <a href="../{{ index }}" class="current_page">
+            {% else %}
+                <a href="../{{ index }}">
+            {% endif %}
+                    {{ index }}
+                </a>
+        </span>
+    {% endfor %}
+    {% if mindex_end <= index_total %}
+        <span>
+            <a href="../{{ mindex_end }}" class="jump" title="{% trans 'to next page' %}">></a>
+        </span>
+    {% endif %}
+</div>
+
+{% endblock %}
+
+{% block bodyscript %}
+<script>
+    var delete_all_url = "{% url 'msgs:delete_all' %}";
+    var delete_old_url = "{% url 'msgs:delete_old' %}";
+    var delete_converation_url = "{% url 'msgs:delete_conversation' user='bb' %}"
+</script>
+<script src="{% static 'js/msgs/inbox.js' %}" async></script>
+{% endblock %}

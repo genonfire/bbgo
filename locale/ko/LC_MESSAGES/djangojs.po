@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-28 23:10+0900\n"
-"PO-Revision-Date: 2017-08-28 23:10+0900\n"
+"POT-Creation-Date: 2017-08-30 21:31+0900\n"
+"PO-Revision-Date: 2017-08-30 21:32+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -29,6 +29,7 @@ msgstr "알람을 확인해 주세요."
 #: static/js/boards/boards_reply.js:153 static/js/boards/boards_reply.js:179
 #: static/js/boards/boards_reply.js:201 static/js/boards/boards_reply.js:225
 #: static/js/boards/boards_reply.js:252 static/js/boards/reply_list.js:38
+#: static/js/msgs/conversation.js:19
 msgid "Error!"
 msgstr "잘못!"
 
@@ -128,7 +129,7 @@ msgstr "정말로 삭제하시겠습니까?"
 msgid "Please fill the subject."
 msgstr "제목을 입력해 주세요."
 
-#: static/js/boards/boards_edit.js:23
+#: static/js/boards/boards_edit.js:23 static/js/msgs/message.js:6
 msgid "Please fill the contents."
 msgstr "내용을 입력해 주세요."
 
@@ -156,3 +157,23 @@ msgstr "등록"
 #: static/js/boards/boards_reply.js:246
 msgid "Show new replies"
 msgstr "신규 댓글 보기"
+
+#: static/js/msgs/conversation.js:2
+#| msgid "Are you sure to delete this article?"
+msgid "Are you sure to delete this message?"
+msgstr "쪽지를 삭제하시겠습니까?"
+
+#: static/js/msgs/inbox.js:2
+#| msgid "Are you sure to delete this article?"
+msgid "Are you sure to delete all?"
+msgstr "모두 삭제하시겠습니까?"
+
+#: static/js/msgs/inbox.js:8
+#| msgid "Are you sure to delete your profile?"
+msgid "Are you sure to delete old messages?"
+msgstr "오래된 쪽지를 모두 삭제하시겠습니까?"
+
+#: static/js/msgs/inbox.js:14
+#| msgid "Are you sure to delete this article?"
+msgid "Are you sure to delete this conversation?"
+msgstr "대화를 삭제하시겠습니까?"

@@ -59,6 +59,7 @@ EDITOR_APPS = (
 )
 LOCAL_APPS = (
     'accounts',
+    'msgs',
     'core',
     'boards',
 )
@@ -246,6 +247,11 @@ MAX_ALARM_INTERVAL = 3600  # 1 hour
 
 # Use AdSense
 ENABLE_ADSENSE = True
+
+# Setting for Msg
+MSG_TEXT_MAX = 1000
+MSG_LIST_COUNT = 10
+OLD_MSG_THRESHOLD = 100  # days
 
 # Setting for Board
 HOT_THRESHOLD = 10  # emphasize like, dislike count if gte

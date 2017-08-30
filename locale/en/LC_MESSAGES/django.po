@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-28 23:10+0900\n"
+"POT-Creation-Date: 2017-08-30 21:31+0900\n"
 "PO-Revision-Date: 2017-07-13 14:03+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,8 @@ msgstr ""
 msgid "Saved successfully."
 msgstr ""
 
-#: accounts/views.py:45 accounts/views.py:113
+#: accounts/views.py:45 accounts/views.py:113 msgs/views.py:155
+#: msgs/views.py:185
 msgid "Form validation Failure"
 msgstr ""
 
@@ -35,7 +36,9 @@ msgstr ""
 msgid "Verification failure. Please check verification code again."
 msgstr ""
 
-#: accounts/views.py:138 core/api.py:112 core/api.py:182
+#: accounts/views.py:138 core/api.py:114 core/api.py:184 msgs/views.py:99
+#: msgs/views.py:134 msgs/views.py:164 msgs/views.py:205 msgs/views.py:229
+#: msgs/views.py:256 msgs/views.py:281
 msgid "Require login"
 msgstr ""
 
@@ -48,6 +51,7 @@ msgid "Sorry. Please try again later."
 msgstr ""
 
 #: boards/models.py:12 boards/models.py:48 boards/models.py:65
+#: msgs/models.py:12
 msgid "status_normal"
 msgstr "Noraml"
 
@@ -56,7 +60,7 @@ msgid "status_temp"
 msgstr "Temporary Saved"
 
 #: boards/models.py:14 boards/models.py:52
-#: templates/haru/boards/show_list.html:64
+#: templates/haru/boards/show_list.html:61
 msgid "status_notice"
 msgstr "Notice"
 
@@ -65,10 +69,12 @@ msgid "status_warning"
 msgstr "Warning"
 
 #: boards/models.py:16 boards/models.py:56 boards/models.py:66
+#: msgs/models.py:14
 msgid "status_hidden"
 msgstr "Hidden"
 
 #: boards/models.py:17 boards/models.py:58 boards/models.py:67
+#: msgs/models.py:15
 msgid "status_deleted"
 msgstr "Deleted"
 
@@ -76,49 +82,59 @@ msgstr "Deleted"
 msgid "Wrong status from user."
 msgstr ""
 
-#: core/api.py:47
+#: core/api.py:49
 msgid "Already exist."
 msgstr ""
 
-#: core/api.py:49
+#: core/api.py:51
 msgid "Available"
 msgstr ""
 
-#: core/api.py:64
+#: core/api.py:66
 msgid "E-mail exists. Why don't you try to find your password?"
 msgstr ""
 
-#: core/api.py:73
+#: core/api.py:75
 #, python-format
 msgid "[%(site_name)s] Verification code for signing in"
 msgstr ""
 
-#: core/api.py:80
+#: core/api.py:82
 msgid "Verification code sent. Please check your E-mail."
 msgstr ""
 
-#: core/api.py:120 core/api.py:190
+#: core/api.py:122 core/api.py:192
 msgid "You like your own post?"
 msgstr ""
 
-#: core/api.py:134
+#: core/api.py:136
 msgid "You've liked this article"
 msgstr ""
 
-#: core/api.py:144
+#: core/api.py:146
 msgid "You've disliked this article"
 msgstr ""
 
-#: core/api.py:151 core/api.py:218
+#: core/api.py:153 core/api.py:220
 msgid "You've already liked"
 msgstr ""
 
-#: core/api.py:153 core/api.py:220
+#: core/api.py:155 core/api.py:222
 msgid "You've already disliked"
 msgstr ""
 
 #: core/utils.py:10
 msgid "Wrong access"
+msgstr ""
+
+#: msgs/models.py:13
+#, fuzzy
+#| msgid "status_normal"
+msgid "status_read"
+msgstr "Noraml"
+
+#: msgs/views.py:104 msgs/views.py:139 msgs/views.py:169
+msgid "Cannot send message to yourself."
 msgstr ""
 
 #: templates/404.html:4 templates/500.html:4
@@ -144,6 +160,7 @@ msgid "alarms exist"
 msgstr ""
 
 #: templates/haru/accounts/alarm_list.html:14
+#: templates/haru/msgs/inbox.html:38
 msgid "Read all"
 msgstr ""
 
@@ -155,9 +172,13 @@ msgstr ""
 msgid "Reply has a reply."
 msgstr ""
 
-#: templates/haru/accounts/alarm_list.html:61
+#: templates/haru/accounts/alarm_list.html:62
 #, python-format
 msgid "It shows recent %(max)s alarms so may you often clear alarms."
+msgstr ""
+
+#: templates/haru/accounts/alarm_list.html:66
+msgid "No alarms"
 msgstr ""
 
 #: templates/haru/accounts/deactivate_account.html:6
@@ -207,7 +228,7 @@ msgstr ""
 #: templates/haru/accounts/login.html:41
 #: templates/haru/accounts/signup.html:36
 #: templates/haru/accounts/user_info.html:28 templates/haru/base.html:104
-#: templates/haru/menu_mobile.html:61
+#: templates/haru/menu_mobile.html:63
 msgid "id"
 msgstr ""
 
@@ -281,7 +302,7 @@ msgstr ""
 #: templates/haru/accounts/login.html:57 templates/haru/accounts/signup.html:4
 #: templates/haru/accounts/signup.html:19
 #: templates/haru/accounts/signup.html:102 templates/haru/base.html:122
-#: templates/haru/menu_mobile.html:81
+#: templates/haru/menu_mobile.html:83
 msgid "Sign up"
 msgstr ""
 
@@ -291,7 +312,7 @@ msgstr ""
 
 #: templates/haru/accounts/join.html:17 templates/haru/accounts/login.html:4
 #: templates/haru/accounts/login.html:12 templates/haru/accounts/login.html:47
-#: templates/haru/base.html:111 templates/haru/menu_mobile.html:64
+#: templates/haru/base.html:111 templates/haru/menu_mobile.html:66
 #: templates/haru/registration/logged_out.html:17
 #: templates/haru/registration/password_reset_complete.html:17
 msgid "login"
@@ -302,7 +323,7 @@ msgid "Login failure"
 msgstr ""
 
 #: templates/haru/accounts/login.html:33 templates/haru/base.html:93
-#: templates/haru/menu_mobile.html:51
+#: templates/haru/menu_mobile.html:53
 #: templates/haru/registration/logged_out.html:4
 #: templates/haru/registration/logged_out.html:8
 msgid "logout"
@@ -310,12 +331,12 @@ msgstr ""
 
 #: templates/haru/accounts/login.html:44
 #: templates/haru/accounts/signup.html:86 templates/haru/base.html:107
-#: templates/haru/menu_mobile.html:69
+#: templates/haru/menu_mobile.html:71
 msgid "password"
 msgstr ""
 
 #: templates/haru/accounts/login.html:52 templates/haru/base.html:117
-#: templates/haru/menu_mobile.html:76
+#: templates/haru/menu_mobile.html:78
 msgid "Reset password"
 msgstr ""
 
@@ -330,20 +351,20 @@ msgstr ""
 
 #: templates/haru/accounts/scrap.html:25
 #: templates/haru/boards/search_reply.html:28
-#: templates/haru/boards/show_list.html:51
-#: templates/haru/boards/show_list.html:284
+#: templates/haru/boards/show_list.html:48
+#: templates/haru/boards/show_list.html:281
 msgid "subject"
 msgstr ""
 
 #: templates/haru/accounts/scrap.html:26
 #: templates/haru/boards/search_reply.html:29
-#: templates/haru/boards/show_list.html:52
+#: templates/haru/boards/show_list.html:49
 msgid "username"
 msgstr ""
 
 #: templates/haru/accounts/scrap.html:27
 #: templates/haru/boards/search_reply.html:30
-#: templates/haru/boards/show_list.html:56
+#: templates/haru/boards/show_list.html:53
 msgid "date"
 msgstr ""
 
@@ -353,7 +374,7 @@ msgstr ""
 #: templates/haru/boards/search_reply.html:58
 #: templates/haru/boards/search_reply.html:74
 #: templates/haru/boards/show_article.html:109
-#: templates/haru/boards/show_reply.html:57
+#: templates/haru/boards/show_reply.html:57 templates/haru/msgs/inbox.html:67
 msgid "delete"
 msgstr ""
 
@@ -363,9 +384,10 @@ msgstr ""
 #: templates/haru/boards/search_reply.html:92
 #: templates/haru/boards/search_reply.html:113
 #: templates/haru/boards/search_reply.html:144
-#: templates/haru/boards/show_list.html:209
-#: templates/haru/boards/show_list.html:230
-#: templates/haru/boards/show_list.html:261
+#: templates/haru/boards/show_list.html:206
+#: templates/haru/boards/show_list.html:227
+#: templates/haru/boards/show_list.html:258 templates/haru/msgs/inbox.html:85
+#: templates/haru/msgs/inbox.html.py:106 templates/haru/msgs/inbox.html:130
 msgid "to prev page"
 msgstr ""
 
@@ -375,9 +397,10 @@ msgstr ""
 #: templates/haru/boards/search_reply.html:99
 #: templates/haru/boards/search_reply.html:129
 #: templates/haru/boards/search_reply.html:160
-#: templates/haru/boards/show_list.html:216
-#: templates/haru/boards/show_list.html:246
-#: templates/haru/boards/show_list.html:277
+#: templates/haru/boards/show_list.html:213
+#: templates/haru/boards/show_list.html:243
+#: templates/haru/boards/show_list.html:274 templates/haru/msgs/inbox.html:92
+#: templates/haru/msgs/inbox.html.py:122 templates/haru/msgs/inbox.html:146
 msgid "to next page"
 msgstr ""
 
@@ -385,8 +408,9 @@ msgstr ""
 #: templates/haru/accounts/scrap.html:124
 #: templates/haru/boards/search_reply.html:112
 #: templates/haru/boards/search_reply.html:143
-#: templates/haru/boards/show_list.html:229
-#: templates/haru/boards/show_list.html:260
+#: templates/haru/boards/show_list.html:226
+#: templates/haru/boards/show_list.html:257 templates/haru/msgs/inbox.html:105
+#: templates/haru/msgs/inbox.html.py:129
 msgid "to first page"
 msgstr ""
 
@@ -508,18 +532,18 @@ msgid "Search reply"
 msgstr ""
 
 #: templates/haru/boards/search_reply.html:135
-#: templates/haru/boards/show_list.html:39
-#: templates/haru/boards/show_list.html:252
+#: templates/haru/boards/show_list.html:36
+#: templates/haru/boards/show_list.html:249
 msgid "write"
 msgstr ""
 
 #: templates/haru/boards/search_reply.html:167
-#: templates/haru/boards/show_list.html:290
+#: templates/haru/boards/show_list.html:287
 msgid "write user"
 msgstr ""
 
 #: templates/haru/boards/search_reply.html:171
-#: templates/haru/boards/show_list.html:294
+#: templates/haru/boards/show_list.html:291
 msgid "search"
 msgstr ""
 
@@ -536,15 +560,15 @@ msgid "reference"
 msgstr ""
 
 #: templates/haru/boards/show_article.html:88
-#: templates/haru/boards/show_list.html:54
-#: templates/haru/boards/show_list.html:172
+#: templates/haru/boards/show_list.html:51
+#: templates/haru/boards/show_list.html:169
 msgid "like"
 msgstr ""
 
 #: templates/haru/boards/show_article.html:93
-#: templates/haru/boards/show_list.html:55
-#: templates/haru/boards/show_list.html:110
-#: templates/haru/boards/show_list.html:182
+#: templates/haru/boards/show_list.html:52
+#: templates/haru/boards/show_list.html:107
+#: templates/haru/boards/show_list.html:179
 msgid "dislike"
 msgstr ""
 
@@ -565,16 +589,18 @@ msgid "Show new replies"
 msgstr ""
 
 #: templates/haru/boards/show_article.html:145
+#: templates/haru/msgs/conversation.html:40
+#: templates/haru/msgs/send_msg.html:40
 msgid "Please show some respect."
 msgstr ""
 
-#: templates/haru/boards/show_list.html:53
-#: templates/haru/boards/show_list.html:113
-#: templates/haru/boards/show_list.html:185
+#: templates/haru/boards/show_list.html:50
+#: templates/haru/boards/show_list.html:110
+#: templates/haru/boards/show_list.html:182
 msgid "view"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:287
+#: templates/haru/boards/show_list.html:284
 msgid "subject+content"
 msgstr ""
 
@@ -635,6 +661,68 @@ msgstr ""
 #: templates/haru/registration/password_change_form.html:48
 #: templates/haru/registration/password_reset_confirm.html:35
 msgid "Change password"
+msgstr ""
+
+#: templates/haru/msgs/conversation.html:4
+#: templates/haru/msgs/conversation.html:12
+msgid "Conversation"
+msgstr ""
+
+#: templates/haru/msgs/conversation.html:15
+msgid "Conversation with"
+msgstr ""
+
+#: templates/haru/msgs/conversation.html:46
+#: templates/haru/msgs/send_msg.html:46
+msgid "Send"
+msgstr ""
+
+#: templates/haru/msgs/inbox.html:4 templates/haru/msgs/inbox.html.py:10
+msgid "Message inbox"
+msgstr ""
+
+#: templates/haru/msgs/inbox.html:14
+msgid "unread messages exist."
+msgstr ""
+
+#: templates/haru/msgs/inbox.html:16
+msgid ""
+"old messages exist. Deleting old messages may be able to improve overall "
+"performance."
+msgstr ""
+
+#: templates/haru/msgs/inbox.html:18
+msgid "messages exist."
+msgstr ""
+
+#: templates/haru/msgs/inbox.html:24
+msgid "Delete all"
+msgstr ""
+
+#: templates/haru/msgs/inbox.html:31
+msgid "Delete old"
+msgstr ""
+
+#: templates/haru/msgs/send_msg.html:4 templates/haru/msgs/send_msg.html:9
+msgid "Send message"
+msgstr ""
+
+#: templates/haru/msgs/send_msg.html:12
+msgid ""
+"Messages that include spam, abusive or harmful content may cause ban or "
+"suspension on your account."
+msgstr ""
+
+#: templates/haru/msgs/send_msg.html:20
+msgid "recipient"
+msgstr ""
+
+#: templates/haru/msgs/send_msg.html:28
+msgid "content"
+msgstr ""
+
+#: templates/haru/msgs/send_msg.html:33
+msgid "characters available."
 msgstr ""
 
 #: templates/haru/registration/logged_out.html:11

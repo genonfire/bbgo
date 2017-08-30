@@ -19,6 +19,8 @@ from django.shortcuts import get_object_or_404, render_to_response
 from django.utils import timezone
 from django.utils.translation import ugettext as _
 
+from msgs.models import Msg
+
 
 def check_duplication(request):
     """API check_duplication"""
@@ -501,3 +503,23 @@ def clear_alarm(request):
         return JsonResponse({'status': 'true'}, status=201)
     else:
         return JsonResponse({'status': 'false'}, status=400)
+
+
+def delete_message(request):
+    """API delete_message"""
+    if request.method == 'POST':
+        id = request.POST['id']
+        msg = get_object_or_404(Msg, pk=id)
+
+        if msg.sender == request.user:
+            msg.sender_status = '6deleted'
+            msg.save()
+        elif msg.recipient == request.user:
+            msg.recipient_status = '6deleted'
+            msg.save()
+        else:
+            return JsonResponse({'status': 'false'}, status=400)
+
+        return JsonResponse({'status': 'true'}, status=201)
+
+    return error_page(request)

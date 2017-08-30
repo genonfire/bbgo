@@ -58,6 +58,13 @@
     </table>
 
     <div class="alarm_msg">
-        {% blocktrans %}It shows recent {{ max }} alarms so may you often clear alarms.{% endblocktrans %}
+        {% if total > 0 %}
+            {% blocktrans %}It shows recent {{ max }} alarms so may you often clear alarms.{% endblocktrans %}
+        {% else %}
+            <img src="{% static 'icons/alert96.png' %}">
+            <div>
+                {% trans 'No alarms' %}
+            </div>
+        {% endif %}
     </div>
 </div>

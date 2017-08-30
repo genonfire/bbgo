@@ -41,7 +41,7 @@ class ReplyEditForm(forms.ModelForm):
     """Form for reply"""
 
     class Meta:
-        """MEta for ModelForm"""
+        """Meta for ModelForm"""
 
         model = Reply
         exclude = (

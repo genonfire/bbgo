@@ -265,5 +265,7 @@ $('#reply_image').on('change', function() {
 });
 
 $(document).ready(function() {
-    setInterval(get_reply_no, reply_auto_renew_ms);
+    if (reply_auto_renew_enabled) {
+        setInterval(get_reply_no, reply_auto_renew_ms);
+    }
 });

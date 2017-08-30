@@ -36,15 +36,12 @@ urlpatterns = [
     url(r'^', include('django.contrib.auth.urls')),
     url(r'^', include('portal.urls')),
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
+    url(r'^msgs/', include('msgs.urls', namespace='msgs')),
     url(r'^boards/', include('boards.urls', namespace='boards')),
     url(r'^api/', include('core.apiurls', namespace='api')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if 'django_summernote' in settings.INSTALLED_APPS:
-    urlpatterns.append(url(
-        r'^summernote/', include('django_summernote.urls')
-    ))
+    urlpatterns.append(url(r'^summernote/', include('django_summernote.urls')))
 if 'rosetta' in settings.INSTALLED_APPS:
-    urlpatterns.append(url(
-        r'^trans/', include('rosetta.urls'),
-    ))
+    urlpatterns.append(url(r'^trans/', include('rosetta.urls'),))

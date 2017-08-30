@@ -1,10 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-{% block title %}{{ SITE_NAME }} - {{ table_name }}{% endblock %}
-{% block extra_head_content %}
-{{ block.super }}
-{% endblock %}
 {% load i18n %}
+{% block title %}{{ SITE_NAME }} - {{ table_name }}{% endblock %}
 {% load tz datetime %}
 {% load range %}
 {% load pick %}

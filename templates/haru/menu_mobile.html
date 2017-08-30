@@ -13,11 +13,13 @@
         </a>
     </li>
     <li>
-        {% if True %}
-            <img src="{% static 'icons/nomessage24.png' %}">
-        {% else %}
-            <img src="{% static 'icons/message24.png' %}">
-        {% endif %}
+        <a href="{% url 'msgs:inbox' page=1 %}">
+            {% if user.profile.msg_count > 0 %}
+                <img src="{% static 'icons/message24.png' %}">
+            {% else %}
+                <img src="{% static 'icons/nomessage24.png' %}">
+            {% endif %}
+        </a>
     </li>
     <li>
         {% if user.is_authenticated %}

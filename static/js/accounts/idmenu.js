@@ -27,7 +27,7 @@ function id_menu(e, user) {
     var userreply_text = gettext("Show user reply");
     var userreply_url = url_userreply.replace(/\/bb\//, '\/' + user +'\/');;
     var message_text = gettext('Send message');
-    var message_url = "#";
+    var message_url = url_message.replace(/\/bb\//, '\/' + user +'\/');
     var data = '<table width="100%"><tr><td><a href="' + userinfo_url + '">' + userinfo_text + '</a>' + '</td></tr><tr><td><a href="' + userarticle_url + '">' + userarticle_text + '</a></td></tr><tr><td><a href="' + userreply_url + '">' + userreply_text + '</a></td></tr><tr><td><a href="' + message_url + '">' + message_text +'</a></td></tr></table>';
 
     show_popup(e, data, 90, 20, 20);

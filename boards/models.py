@@ -70,7 +70,8 @@ class Reply(models.Model):
     article_id = models.IntegerField(default=0)
     reply_id = models.IntegerField(default=0)
     reply_to = models.CharField(max_length=150, default='', blank=True)
-    status = models.CharField(max_length=10, choices=REPLY_STATUS, default='1normal')
+    status = models.CharField(
+        max_length=10, choices=REPLY_STATUS, default='1normal')
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now_add=True)
