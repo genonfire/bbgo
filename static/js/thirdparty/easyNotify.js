@@ -17,7 +17,7 @@
     this.init = function() {
         var notify = this;
       if (!("Notification" in window)) {
-        alert("This browser does not support desktop notification");
+        console.log("This browser does not support desktop notification");
       } else if (Notification.permission === "granted") {
 
         var notification = new Notification(settings.title, settings.options);

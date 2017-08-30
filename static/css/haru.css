@@ -1,6 +1,5 @@
 @charset "utf-8";
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
-/* reset */
 body {font-family:Noto Sans KR, sans-serif;}
 body, html {width:100%;margin:0;padding:0;background:#EDEDED;font-size:1.0em;}
 div,p,h1,h2,h3,h4,h5,h6,section, article, aside, footer, figure, figcaption, nav,ul,ol,li,dl,dt,dd,table,tr,thead,tbody,tfoot,td,th,a,span,strong,em,i,img,address,form,fieldset,legend,input,textarea,select,label,button,pre,
