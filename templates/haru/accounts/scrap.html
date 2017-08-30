@@ -40,7 +40,7 @@
             </a>
         </td>
         <td class="article_info">
-            {{ scrap.0.user|nickname|safe }}
+            {{ scrap.0.user|nickname:user.is_authenticated|safe }}
         </td>
         <td class="article_info">
             {{ scrap.0.created_at|date:" Y-m-d" }}
@@ -54,7 +54,7 @@
     <tr class="article_info_mobile">
         <td>
             <span>
-                {{ scrap.0.user|nickname|safe }} |
+                {{ scrap.0.user|nickname:user.is_authenticated|safe }} |
             </span>
             <span>
                 {{ scrap.0.created_at|date:" Y-m-d" }}

@@ -23,7 +23,7 @@
                 {% csrf_token %}
                 <div>
                     <span class="float-left">
-                        {{ user|nickname|safe }}
+                        {{ user|nickname:user.is_authenticated|safe }}
                     </span>
                     <span class="float-right">
                         <img src="{% static 'icons/edit24.png' %}">

@@ -34,7 +34,7 @@
                         {% csrf_token %}
                         <div class="power_user">
                             <span class="float-left">
-                                {{ user|nickname|safe }}
+                                {{ user|nickname:user.is_authenticated|safe }}
                             </span>
                             <span class="power_util float-right">
                                 <span>

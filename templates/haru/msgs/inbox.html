@@ -48,7 +48,7 @@
             <tr>
                 <td>
                     <div class="message_with">
-                        {{ msg.0|nickname|safe }}
+                        {{ msg.0|nickname:user.is_authenticated|safe }}
                     </div>
                     <div class="message">
                         {% if user == msg.1.recipient and msg.1.recipient_status == '1normal' %}

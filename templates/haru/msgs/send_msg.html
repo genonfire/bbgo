@@ -20,7 +20,7 @@
                     {% trans 'recipient' %}
                 </td>
                 <td class="input">
-                    {{ recipient|nickname|safe }}
+                    {{ recipient|nickname:user.is_authenticated|safe }}
                 </td>
             </tr>
             <tr>

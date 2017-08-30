@@ -47,7 +47,7 @@
             </a>
         </td>
         <td class="article_info">
-            {{ reply.user|nickname|safe }}
+            {{ reply.user|nickname:user.is_authenticated|safe }}
         </td>
         <td class="article_info">
             {{ reply.created_at|date:" Y-m-d" }}
@@ -63,7 +63,7 @@
     <tr class="article_info_mobile">
         <td>
             <span>
-                {{ reply.user|nickname|safe }} |
+                {{ reply.user|nickname:user.is_authenticated|safe }} |
             </span>
             <span>
                 {{ reply.created_at|date:" Y-m-d" }}

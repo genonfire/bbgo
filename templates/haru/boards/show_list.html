@@ -68,7 +68,7 @@
             {% endif %}
         </td>
         <td class="article_info">
-            {{ article.user|nickname|safe }}
+            {{ article.user|nickname:user.is_authenticated|safe }}
         </td>
         <td class="article_info">
             {{ article.view_count }}
@@ -94,7 +94,7 @@
     <tr class="article_info_mobile">
         <td>
             <span>
-                {{ article.user|nickname|safe }} |
+                {{ article.user|nickname:user.is_authenticated|safe }} |
             </span>
             {% if article.like_count > HOT_THRESHOLD %}
                 <span class="article_hot">
@@ -137,7 +137,7 @@
             {% endif %}
         </td>
         <td class="article_info">
-            {{ article.user|nickname|safe }}
+            {{ article.user|nickname:user.is_authenticated|safe }}
         </td>
         <td class="article_info">
             {{ article.view_count }}
@@ -163,7 +163,7 @@
     <tr class="article_info_mobile">
         <td>
             <span>
-                {{ article.user|nickname|safe }} |
+                {{ article.user|nickname:user.is_authenticated|safe }} |
             </span>
             <span>
                 {% trans 'like' %}

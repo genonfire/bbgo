@@ -12,7 +12,7 @@
     {% trans 'Conversation' %}
 </h1>
 <div class="annotation">
-    {% trans 'Conversation with' %} <b>{{ other|nickname|safe }}</b>
+    {% trans 'Conversation with' %} <b>{{ other|nickname:user.is_authenticated|safe }}</b>
 </div>
 
 <div class="conversation">
