@@ -4,30 +4,30 @@ from django.shortcuts import render
 from django.utils.translation import ugettext as _
 
 
-def error_page(request, msg=''):
-    """Show error page with msg"""
-    if not msg:
-        msg = _('Wrong access')
+def error_page(request, errormsg=''):
+    """Show error page with message"""
+    if not errormsg:
+        errormsg = _('Wrong access')
 
     return render(
         request,
         "error.html",
         {
-            'msg': msg,
+            'errormsg': errormsg,
         }
     )
 
 
-def error_to_response(request, msg=''):
+def error_to_response(request, errormsg=''):
     """Show error response with msg"""
-    if not msg:
-        msg = _('Wrong access')
+    if not errormsg:
+        errormsg = _('Wrong access')
 
     return render(
         request,
         "error_response.html",
         {
-            'msg': msg,
+            'errormsg': errormsg,
         }
     )
 

@@ -36,7 +36,7 @@
 </div>
 
 <div class="append_msg">
-    <form id="send_msg_form" action="{% url 'msgs:append' user=other %}" method="post">{% csrf_token %}
+    <form id="send_msg_form" action="" method="post">{% csrf_token %}
         <textarea id="id_text" name="text" maxlength="{{ MSG_TEXT_MAX }}" placeholder="{% trans 'Please show some respect.' %}" rows="10"></textarea>
         <div class="member">
             <span id="id_text_len">

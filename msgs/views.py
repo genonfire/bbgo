@@ -99,67 +99,52 @@ def conversation(request, user):
     try:
         other = User.objects.filter(username__iexact=user).get()
     except ObjectDoesNotExist:
-        msg = _('User does not exist.')
-        return error_page(request, msg)
+        errormsg = _('User does not exist.')
+        return error_page(request, errormsg)
 
     if request.user == other:
-        msg = _('Cannot send message to yourself.')
-        return error_page(request, msg)
-
-    q = (Q(sender__username__iexact=other.username) & Q(
-        recipient__username__iexact=request.user.username) & (Q(
-            recipient_status='1normal') | Q(recipient_status='2read'))) | (Q(
-                sender__username__iexact=request.user.username) & Q(
-                    recipient__username__iexact=other.username) & Q(
-                        sender_status='1normal'))
-
-    msgs = Msg.objects.filter(q).order_by('id')
-
-    unread_msgs = msgs.filter(recipient_status='1normal').filter(recipient__username__iexact=request.user.username)
-    for msg in unread_msgs:
-        msg.recipient_status = '2read'
-        msg.save()
-
-    return render(
-        request,
-        "msgs/conversation.html",
-        {
-            'msgs': msgs,
-            'other': other,
-        }
-    )
-
-
-@login_required
-def append(request, user):
-    """Append message"""
-    try:
-        recipient = User.objects.filter(username__iexact=user).get()
-    except ObjectDoesNotExist:
-        msg = _('User does not exist.')
-        return error_page(request, msg)
-
-    if request.user == recipient:
-        msg = _('Cannot send message to yourself.')
-        return error_page(request, msg)
+        errormsg = _('Cannot send message to yourself.')
+        return error_page(request, errormsg)
 
     if request.method == "POST":
         msgform = MsgForm(request.POST)
         if msgform.is_valid():
-            message = msgform.save(commit=False)
-            message.sender = request.user
-            message.recipient = recipient
-            message.ip = get_ipaddress(request)
-            message.save()
-            recipient.profile.msg_count += 1
-            recipient.profile.save()
+            msg = msgform.save(commit=False)
+            msg.sender = request.user
+            msg.recipient = other
+            msg.ip = get_ipaddress(request)
+            msg.save()
+            other.profile.msg_count += 1
+            other.profile.save()
 
-            return redirect('msgs:conversation', user=recipient)
+            return redirect('msgs:conversation', user=other)
         else:
-            msg = _('Form validation Failure')
-            return error_page(request, msg)
+            errormsg = _('Form validation Failure')
+            return error_page(request, errormsg)
+    else:
+        q = (Q(sender__username__iexact=other.username) & Q(
+            recipient__username__iexact=request.user.username) & (Q(
+                recipient_status='1normal') | Q(recipient_status='2read'))) | \
+            (Q(sender__username__iexact=request.user.username) & Q(
+                recipient__username__iexact=other.username) & Q(
+                    sender_status='1normal'))
 
-    return error_page(request)
+        msgs = Msg.objects.filter(q).order_by('id')
+
+        unread_msgs = msgs.filter(recipient_status='1normal').filter(
+            recipient__username__iexact=request.user.username)
+        for um in unread_msgs:
+            um.recipient_status = '2read'
+            um.save()
+
+        return render(
+            request,
+            "msgs/conversation.html",
+            {
+                'msgs': msgs,
+                'other': other,
+            }
+        )
 
 
 @login_required
@@ -168,12 +153,12 @@ def send(request, user):
     try:
         recipient = User.objects.filter(username__iexact=user).get()
     except ObjectDoesNotExist:
-        msg = _('User does not exist.')
-        return error_page(request, msg)
+        errormsg = _('User does not exist.')
+        return error_page(request, errormsg)
 
     if request.user == recipient:
-        msg = _('Cannot send message to yourself.')
-        return error_page(request, msg)
+        errormsg = _('Cannot send message to yourself.')
+        return error_page(request, errormsg)
 
     if request.method == "POST":
         msgform = MsgForm(request.POST)

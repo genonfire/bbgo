@@ -16,11 +16,6 @@ urlpatterns = [
         name='conversation'
     ),
     url(
-        r'^append/(?P<user>\w+)/$',
-        views.append,
-        name='append'
-    ),
-    url(
         r'^send/(?P<user>\w+)/$',
         views.send,
         name='send'

@@ -152,8 +152,8 @@ def new_article(request, table=0):
             article = editform.save(commit=False)
             if article.status != '1normal' and article.status != '2temp':
                 if not request.user.is_staff:
-                    msg = _("Wrong status from user.")
-                    return error_page(request, msg)
+                    errormsg = _("Wrong status from user.")
+                    return error_page(request, errormsg)
             article.user = request.user
             article.ip = get_ipaddress(request)
             article.table = table

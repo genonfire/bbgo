@@ -258,8 +258,8 @@ def sign_up(request):
             if User.objects.filter(q).exists() or \
                 len(username) < settings.ID_MIN_LENGTH or \
                     len(username) > settings.ID_MAX_LENGTH:
-                msg = _('Please check username.')
-                return error_page(request, msg)
+                errormsg = _('Please check username.')
+                return error_page(request, errormsg)
 
             if settings.ENABLE_NICKNAME:
                 nick = userform.cleaned_data['first_name']
@@ -268,8 +268,8 @@ def sign_up(request):
                     if User.objects.filter(q).exists() or \
                         len(nick) < settings.NICKNAME_MIN_LENGTH or \
                             len(nick) > settings.NICKNAME_MAX_LENGTH:
-                        msg = _('Please check nickname.')
-                        return error_page(request, msg)
+                        errormsg = _('Please check nickname.')
+                        return error_page(request, errormsg)
 
             code = userform.cleaned_data['code']
             email = userform.cleaned_data['email']
@@ -287,13 +287,13 @@ def sign_up(request):
                         "accounts/join.html",
                     )
                 else:
-                    msg = _('Verification failure. Please check verification code again.')
+                    errormsg = _('Verification failure. Please check verification code again.')
             except:
-                msg = _('Verification failure. Please check verification code again.')
+                errormsg = _('Verification failure. Please check verification code again.')
         else:
-            msg = _('Sorry. Please try again later.')
+            errormsg = _('Sorry. Please try again later.')
 
-        return error_page(request, msg)
+        return error_page(request, errormsg)
     elif request.method == "GET":
         userform = RegistrationForm()
 
