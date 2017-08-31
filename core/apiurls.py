@@ -82,6 +82,11 @@ urlpatterns = [
         name='toggle_bookmark',
     ),
     url(
+        r'^edit_bookmarks/$',
+        api.edit_bookmarks,
+        name='edit_bookmarks',
+    ),
+    url(
         r'^scrap/$',
         api.scrap,
         name='scrap',

@@ -394,11 +394,14 @@ def toggle_bookmark(request):
     if request.method == 'POST':
         app = request.POST['app']
         id = request.POST['id']
-        app_id = app + ':' + id
+        app_id = app + '-' + id
         profile = request.user.profile
         bookmarks = profile.bookmarks.split(',')
 
         if app_id not in bookmarks:
+            if len(bookmarks) > settings.MAX_BOOKMARKS:
+                return JsonResponse({'status': 'false'}, status=400)
+
             if profile.bookmarks != '':
                 profile.bookmarks += ","
             profile.bookmarks += app_id
@@ -412,6 +415,25 @@ def toggle_bookmark(request):
 
         request.user.profile.save()
         return JsonResponse([data], safe=False, status=201)
+
+    return error_page(request)
+
+
+def edit_bookmarks(request):
+    """API edit_bookmarks"""
+    if request.method == 'POST':
+        bookmarks = dict(request.POST.iterlists())['bookmarks[]']
+        my_bookmarks = ''
+
+        for bm in bookmarks:
+            if my_bookmarks != '':
+                my_bookmarks += ","
+            my_bookmarks += bm
+        request.user.profile.bookmarks = my_bookmarks
+        request.user.profile.save()
+
+        msg = _('Saved successfully.')
+        return JsonResponse([msg], safe=False, status=201)
 
     return error_page(request)
 

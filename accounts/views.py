@@ -220,6 +220,32 @@ def delete_scrap(request, id):
     return redirect('accounts:scrap_list_0')
 
 
+@login_required
+def edit_bookmarks(request):
+    """Edit bookmarks"""
+    my_bookmark = []
+    if request.user.profile.bookmarks:
+        bookmarks = request.user.profile.bookmarks.split(',')
+
+        for bm in bookmarks:
+            app, id = bm.split('-')
+            if app == 'boards':
+                app_table = BoardTable()
+            else:
+                continue
+            my_bookmark.append(
+                [bm, app_table.get_table_name(id)]
+            )
+
+    return render(
+        request,
+        "accounts/edit_bookmarks.html",
+        {
+            'my_bookmark': my_bookmark,
+        }
+    )
+
+
 def sign_up(request):
     """Sign up"""
     if request.method == "POST":

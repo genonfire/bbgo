@@ -19,7 +19,7 @@ def menu_main(context):
             bookmarks = user.profile.bookmarks.split(',')
 
             for bm in bookmarks:
-                app, id = bm.split(':')
+                app, id = bm.split('-')
                 if app == 'boards':
                     app_table = BoardTable()
                 else:

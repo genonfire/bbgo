@@ -16,7 +16,7 @@
     </a>
     {% if user.is_authenticated %}
         <a href="javascript:toggle_bookmark('boards', '{{ table }}')">
-            {% with 'boards:'|add:table as app_id %}
+            {% with 'boards-'|add:table as app_id %}
                 {% if user|is_stared:app_id %}
                     <img src="{% static 'icons/stared28.png' %}" id="header_star">
                 {% else %}

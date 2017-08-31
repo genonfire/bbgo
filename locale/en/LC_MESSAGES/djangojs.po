@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 22:42+0900\n"
+"POT-Creation-Date: 2017-08-31 14:16+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,13 +22,17 @@ msgid "Alarm for your activity."
 msgstr ""
 
 #: static/js/accounts/alarm.js:33 static/js/accounts/alarm.js:53
-#: static/js/accounts/alarm.js:100 static/js/accounts/bookmarks.js:18
+#: static/js/accounts/alarm.js:100 static/js/accounts/edit_bookmarks.js:30
 #: static/js/boards/boards_reply.js:38 static/js/boards/boards_reply.js:76
 #: static/js/boards/boards_reply.js:153 static/js/boards/boards_reply.js:179
 #: static/js/boards/boards_reply.js:201 static/js/boards/boards_reply.js:225
 #: static/js/boards/boards_reply.js:252 static/js/boards/reply_list.js:38
 #: static/js/msgs/conversation.js:19
 msgid "Error!"
+msgstr ""
+
+#: static/js/accounts/bookmarks.js:18
+msgid "Error! Please check bookmarks limitation."
 msgstr ""
 
 #: static/js/accounts/bookmarks.js:37

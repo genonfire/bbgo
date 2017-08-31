@@ -52,12 +52,18 @@
                 {% trans 'bookmark' %}
             </a>
             <ul>
-                <li>
-                    {% for mb in my_bookmark %}
+                {% for mb in my_bookmark %}
+                    <li>
                         <a href="{{ mb.1 }}">
                             {{ mb.0 }}
                         </a>
-                    {% endfor %}
+                    </li>
+                {% endfor %}
+                <li>
+                    <a href="{% url 'accounts:edit_bookmarks' %}">
+                        <img src="{% static 'icons/edit20.png' %}">
+                        {% trans 'Edit' %}
+                    </a>
                 </li>
             </ul>
         </li>

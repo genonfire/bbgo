@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 22:42+0900\n"
-"PO-Revision-Date: 2017-08-30 22:53+0900\n"
+"POT-Creation-Date: 2017-08-31 14:16+0900\n"
+"PO-Revision-Date: 2017-08-31 14:19+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,35 +19,29 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: accounts/views.py:43 accounts/views.py:109
+#: accounts/views.py:44 accounts/views.py:108 core/api.py:435
 msgid "Saved successfully."
 msgstr "저장했습니다."
 
-#: accounts/views.py:45 accounts/views.py:113 msgs/views.py:166
-#: msgs/views.py:201
+#: accounts/views.py:46 accounts/views.py:112 msgs/views.py:159
+#: msgs/views.py:191
 msgid "Form validation Failure"
 msgstr "폼 입력이 잘못됐습니다."
 
-#: accounts/views.py:85 accounts/views.py:250
+#: accounts/views.py:84 accounts/views.py:271
 msgid "Please check nickname."
 msgstr "닉네임을 확인해 주세요."
 
-#: accounts/views.py:102 accounts/views.py:105 accounts/views.py:269
-#: accounts/views.py:271
+#: accounts/views.py:101 accounts/views.py:104 accounts/views.py:290
+#: accounts/views.py:292
 msgid "Verification failure. Please check verification code again."
 msgstr "인증실패. 인증코드를 다시 확인해 주세요."
 
-#: accounts/views.py:138 core/api.py:114 core/api.py:184 msgs/views.py:100
-#: msgs/views.py:140 msgs/views.py:175 msgs/views.py:221 msgs/views.py:245
-#: msgs/views.py:272 msgs/views.py:297
-msgid "Require login"
-msgstr "회원만 가능합니다."
-
-#: accounts/views.py:240
+#: accounts/views.py:261
 msgid "Please check username."
 msgstr "아이디를 확인해 주세요."
 
-#: accounts/views.py:273
+#: accounts/views.py:294
 msgid "Sorry. Please try again later."
 msgstr "죄송합니다. 나중에 다시 시도해 주세요."
 
@@ -104,6 +98,10 @@ msgstr "[%(site_name)s] 회원가입을 위한 인증코드입니다."
 msgid "Verification code sent. Please check your E-mail."
 msgstr "인증코드를 전송했습니다. 이메일을 확인해 주세요."
 
+#: core/api.py:114 core/api.py:184
+msgid "Require login"
+msgstr "회원만 가능합니다."
+
 #: core/api.py:122 core/api.py:192
 msgid "You like your own post?"
 msgstr "자신의 글입니다."
@@ -132,11 +130,11 @@ msgstr "잘못된 접근입니다."
 msgid "status_read"
 msgstr "읽음"
 
-#: msgs/views.py:106 msgs/views.py:146 msgs/views.py:181
+#: msgs/views.py:102 msgs/views.py:139 msgs/views.py:171
 msgid "User does not exist."
 msgstr "존재하지 않는 사용자입니다."
 
-#: msgs/views.py:110 msgs/views.py:150 msgs/views.py:185
+#: msgs/views.py:106 msgs/views.py:143 msgs/views.py:175
 msgid "Cannot send message to yourself."
 msgstr "자신에게 보낼 수 없습니다."
 
@@ -199,6 +197,29 @@ msgstr "탈퇴하시려면 다음의 약관을 확인해 주세요."
 #: templates/haru/accounts/signup.html:111
 msgid "Agree to Terms of Service and Privacy Policy"
 msgstr "약관 및 개인정보 처리방침에 동의합니다."
+
+#: templates/haru/accounts/edit_bookmarks.html:4
+#: templates/haru/accounts/edit_bookmarks.html:8
+#| msgid "bookmark"
+msgid "Edit bookmarks"
+msgstr "북마크 편집"
+
+#: templates/haru/accounts/edit_bookmarks.html:11
+msgid ""
+"Drag and drop to edit bookmark ordering. Saving is necessary to save your "
+"changes such as deleting and ordering."
+msgstr "끌어다 놓기로 북마크 순서를 변경할 수 있습니다. 저장 버튼을 눌러야 순서 변경이나 삭제한 내용이 저장됩니다."
+
+#: templates/haru/accounts/edit_bookmarks.html:18
+#, python-format
+msgid "Bookmarks are limited to %(MAX_BOOKMARKS)s."
+msgstr "북마크는 %(MAX_BOOKMARKS)s개까지 저장 가능합니다."
+
+#: templates/haru/accounts/edit_bookmarks.html:37
+#: templates/haru/accounts/edit_user_info.html:125
+#: templates/haru/accounts/setting.html:95
+msgid "Save"
+msgstr "저장"
 
 #: templates/haru/accounts/edit_user_info.html:6
 #: templates/haru/accounts/edit_user_info.html:13
@@ -295,11 +316,6 @@ msgstr "포인트"
 #: templates/haru/accounts/user_info.html:86
 msgid "signature"
 msgstr "서명"
-
-#: templates/haru/accounts/edit_user_info.html:125
-#: templates/haru/accounts/setting.html:95
-msgid "Save"
-msgstr "저장"
 
 #: templates/haru/accounts/join.html:4 templates/haru/accounts/join.html:8
 #: templates/haru/accounts/login.html:57 templates/haru/accounts/signup.html:4
@@ -586,7 +602,6 @@ msgid "Deleted reply"
 msgstr "삭제된 댓글입니다."
 
 #: templates/haru/boards/show_reply.html:110
-#| msgid "Write reply"
 msgid "Hidden reply"
 msgstr "관리자에 의해 삭제된 댓글입니다."
 
@@ -624,7 +639,11 @@ msgstr "최신글"
 
 #: templates/haru/menu_main.html:52
 msgid "bookmark"
-msgstr "즐겨찾기"
+msgstr "북마크"
+
+#: templates/haru/menu_main.html:65
+msgid "Edit"
+msgstr "편집"
 
 #: templates/haru/menu_setting.html:16
 #: templates/haru/registration/password_change_done.html:4

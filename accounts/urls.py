@@ -62,6 +62,11 @@ urlpatterns = [
         name='delete_scrap'
     ),
     url(
+        r'^edit_bookmarks/$',
+        views.edit_bookmarks,
+        name='edit_bookmarks'
+    ),
+    url(
         r'^show_deactivate_account/$',
         views.show_deactivate_account,
         name='show_deactivate_account',

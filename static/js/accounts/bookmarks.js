@@ -15,7 +15,7 @@ function toggle_bookmark(app, id) {
             $('#header_star').attr("src", datain);
         },
         error: function(data) {
-            alert(gettext("Error!"));
+            alert(gettext("Error! Please check bookmarks limitation."));
         }
     });
 }

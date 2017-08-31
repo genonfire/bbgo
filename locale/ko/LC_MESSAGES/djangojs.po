@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 22:42+0900\n"
-"PO-Revision-Date: 2017-08-30 21:32+0900\n"
+"POT-Creation-Date: 2017-08-31 14:16+0900\n"
+"PO-Revision-Date: 2017-08-31 14:17+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -24,7 +24,7 @@ msgid "Alarm for your activity."
 msgstr "알람을 확인해 주세요."
 
 #: static/js/accounts/alarm.js:33 static/js/accounts/alarm.js:53
-#: static/js/accounts/alarm.js:100 static/js/accounts/bookmarks.js:18
+#: static/js/accounts/alarm.js:100 static/js/accounts/edit_bookmarks.js:30
 #: static/js/boards/boards_reply.js:38 static/js/boards/boards_reply.js:76
 #: static/js/boards/boards_reply.js:153 static/js/boards/boards_reply.js:179
 #: static/js/boards/boards_reply.js:201 static/js/boards/boards_reply.js:225
@@ -32,6 +32,10 @@ msgstr "알람을 확인해 주세요."
 #: static/js/msgs/conversation.js:19
 msgid "Error!"
 msgstr "잘못!"
+
+#: static/js/accounts/bookmarks.js:18
+msgid "Error! Please check bookmarks limitation."
+msgstr "에러! 북마크 개수 제한을 넘겼는지 확인해 주세요."
 
 #: static/js/accounts/bookmarks.js:37
 msgid "You've scrapped this article."
