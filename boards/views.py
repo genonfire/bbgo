@@ -36,22 +36,24 @@ def show_list(request, search_type='', search_word='', table=0, page=0):
     start_at = current_page * list_count
     end_at = start_at + list_count
 
+    sq = (Q(status='1normal') | Q(status='4warning') | Q(status='5hidden'))
     if search_type == 'subject':
-        q = Q(status__iexact='1normal') & Q(subject__icontains=search_word)
+        q = sq & Q(subject__icontains=search_word)
     elif search_type == 'subjectcontent':
-        q = Q(status__iexact='1normal') & (
+        q = sq & (
             Q(subject__icontains=search_word) |
             Q(content__icontains=search_word))
     elif search_type == 'writeuser':
-        q = Q(status__iexact='1normal') & (
+        q = sq & (
             Q(user__username__icontains=search_word) |
             Q(user__first_name__icontains=search_word))
     else:
-        q = Q(status__iexact='1normal') | Q(status__iexact='4warning')
+        q = sq
 
     if int(table) == 0 or int(table) == 9:
         if search_type == '':
-            notice_list = Board.objects.filter(table=1).filter(status__iexact='3notice').order_by('-id')
+            notice_list = Board.objects.filter(table=1).filter(
+                status='3notice').order_by('-id')
         else:
             notice_list = None
         if int(table) == 9:
@@ -113,6 +115,16 @@ def show_list(request, search_type='', search_word='', table=0, page=0):
 def show_article(request, id, table=-1):
     """Show article"""
     article = get_object_or_404(Board, pk=id)
+
+    if article.status == '5hidden' and not request.user.is_staff:
+        errormsg = _('status_hidden')
+        return error_page(request, errormsg)
+    elif article.status == '6deleted' and not request.user.is_staff:
+        errormsg = _('status_deleted')
+        return error_page(request, errormsg)
+    elif article.status == '2temp' and not request.user == article.user:
+        return error_page(request)
+
     article.view_count += 1
     article.save()
 
@@ -238,11 +250,14 @@ def delete_article(request, id):
     """Delete article"""
     article = get_object_or_404(Board, pk=id)
 
-    if request.user != article.user and not request.user.is_staff:
+    if request.user == article.user:
+        article.status = '6deleted'
+        article.save()
+    elif request.user.is_staff:
+        article.status = '5hidden'
+        article.save()
+    else:
         return error_page(request)
-
-    article.status = '6deleted'
-    article.save()
 
     return redirect(article.get_absolute_url())
 

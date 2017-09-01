@@ -34,6 +34,9 @@ function write_reply(id) {
             if (data.status == 401) {
                 alert(gettext("Require login"))
             }
+            else if (data.status == 402) {
+                alert(gettext("Reply to warning article is not available."))
+            }
             else {
                 alert(gettext("Error!"));
             }

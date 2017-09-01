@@ -241,6 +241,11 @@ def write_reply(request):
 
         form = ReplyEditForm(request.POST, request.FILES)
         if form.is_valid():
+            article = get_object_or_404(Board, pk=id)
+            if article.status != '1normal' and article.status != '3notice' \
+                    and not request.user.is_staff:
+                return JsonResponse({'status': 'false'}, status=402)
+
             reply = form.save(commit=False)
             parent_id = reply_id
 
@@ -262,8 +267,8 @@ def write_reply(request):
             reply.ip = get_ipaddress(request)
             reply.save()
 
-            article = get_object_or_404(Board, pk=id)
             article.reply_count += 1
+            article.save()
 
             if article.user != request.user and reply_id == 0:
                 if article.user.profile.alarm_board:
@@ -283,8 +288,6 @@ def write_reply(request):
                         user[0].profile.alarm_list += alarm_text
                         user[0].profile.alarm = True
                         user[0].save()
-
-            article.save()
 
             request.user.profile.last_reply_at = timezone.now()
             request.user.profile.save()
@@ -566,6 +569,10 @@ def write_team_reply(request):
 
         form = TeamReplyEditForm(request.POST)
         if form.is_valid():
+            article = get_object_or_404(Team, pk=id)
+            if (article.status == '5hidden' or article.status == '6deleted') \
+                    and not request.user.is_staff:
+                return JsonResponse({'status': 'false'}, status=402)
             reply = form.save(commit=False)
             parent_id = reply_id
 
@@ -587,8 +594,8 @@ def write_team_reply(request):
             reply.ip = get_ipaddress(request)
             reply.save()
 
-            article = get_object_or_404(Team, pk=id)
             article.reply_count += 1
+            article.save()
 
             if article.user != request.user and reply_id == 0:
                 if article.user.profile.alarm_board:
@@ -609,7 +616,6 @@ def write_team_reply(request):
                         user[0].profile.alarm = True
                         user[0].save()
 
-            article.save()
 
             request.user.profile.last_reply_at = timezone.now()
             request.user.profile.save()

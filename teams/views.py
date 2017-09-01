@@ -36,7 +36,7 @@ def recruitment(request, table=0, page=0):
     start_at = current_page * list_count
     end_at = start_at + list_count
 
-    q = Q(status='1normal') | Q(status='7canceled') | Q(status='8full')
+    q = Q(status='1normal') | Q(status='7canceled') | Q(status='8full') | Q(status='5hidden')
 
     total = Team.objects.filter(table=table).filter(q).count()
     lists = Team.objects.filter(table=table).filter(q).order_by('-id')[start_at:end_at]

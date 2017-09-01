@@ -54,30 +54,50 @@
 <tbody>
 {% for article in lists %}
     <tr>
-        <td class="subject tdlink" data-href="{% url 'teams:show_recruitment' id=article.id %}">
-            <span class="category">
-                {{ article.category }}
-            </span>
-            {% if article.status == '7canceled' %}
-                <span class="canceled">
-            {% elif article.status == '8full' %}
-                <span class="done">
-            {% else %}
+        {% if article.status == '5hidden'%}
+            <td class="subject">
+                <span class="category">
+                    {{ article.category }}
+                </span>
                 <span>
-            {% endif %}
-                <a href="{% url 'teams:show_recruitment' id=article.id %}">
-                    {{ article.subject }} ({{ article.slot}}/{{ article.slot_total }})
-                </a>
-                {% if article.status == '8full' %}
-                    <span>
-                        {% trans 'status_full' %}
-                    </span>
+                    {% if user.is_staff %}
+                        <a href="{% url 'teams:show_recruitment' id=article.id %}">
+                            {% trans 'status_hidden' %}
+                        </a>
+                    {% else %}
+                        {% trans 'status_hidden' %}
+                    {% endif %}
+                </span>
+                {% if article.reply_count > 0 %}
+                    <span class="reply_count">[{{ article.reply_count }}]</span>
                 {% endif %}
-            </span>
-            {% if article.reply_count > 0 %}
-                <span class="reply_count">[{{ article.reply_count }}]</span>
-            {% endif %}
-        </td>
+            </td>
+        {% else %}
+            <td class="subject tdlink" data-href="{% url 'teams:show_recruitment' id=article.id %}">
+                <span class="category">
+                    {{ article.category }}
+                </span>
+                {% if article.status == '7canceled' %}
+                    <span class="canceled">
+                {% elif article.status == '8full' %}
+                    <span class="done">
+                {% else %}
+                    <span>
+                {% endif %}
+                    <a href="{% url 'teams:show_recruitment' id=article.id %}">
+                        {{ article.subject }} ({{ article.slot}}/{{ article.slot_total }})
+                    </a>
+                    {% if article.status == '8full' %}
+                        <span>
+                            {% trans 'status_full' %}
+                        </span>
+                    {% endif %}
+                </span>
+                {% if article.reply_count > 0 %}
+                    <span class="reply_count">[{{ article.reply_count }}]</span>
+                {% endif %}
+            </td>
+        {% endif %}
         <td class="article_info">
             {{ article.user|nickname:user.is_authenticated|safe }}
         </td>

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-02 00:44+0900\n"
-"PO-Revision-Date: 2017-09-02 01:02+0900\n"
+"POT-Creation-Date: 2017-09-02 01:43+0900\n"
+"PO-Revision-Date: 2017-09-02 02:12+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,29 +19,29 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: accounts/views.py:46 accounts/views.py:110 core/api.py:435
+#: accounts/views.py:48 accounts/views.py:112 core/api.py:437
 msgid "Saved successfully."
 msgstr "저장했습니다."
 
-#: accounts/views.py:48 accounts/views.py:114 msgs/views.py:122
+#: accounts/views.py:50 accounts/views.py:116 msgs/views.py:122
 #: msgs/views.py:176
 msgid "Form validation Failure"
 msgstr "폼 입력이 잘못됐습니다."
 
-#: accounts/views.py:86 accounts/views.py:273
+#: accounts/views.py:88 accounts/views.py:277
 msgid "Please check nickname."
 msgstr "닉네임을 확인해 주세요."
 
-#: accounts/views.py:103 accounts/views.py:106 accounts/views.py:292
-#: accounts/views.py:294
+#: accounts/views.py:105 accounts/views.py:108 accounts/views.py:296
+#: accounts/views.py:298
 msgid "Verification failure. Please check verification code again."
 msgstr "인증실패. 인증코드를 다시 확인해 주세요."
 
-#: accounts/views.py:263
+#: accounts/views.py:267
 msgid "Please check username."
 msgstr "아이디를 확인해 주세요."
 
-#: accounts/views.py:296
+#: accounts/views.py:300
 msgid "Sorry. Please try again later."
 msgstr "죄송합니다. 나중에 다시 시도해 주세요."
 
@@ -64,16 +64,18 @@ msgid "status_warning"
 msgstr "신고접수"
 
 #: boards/models.py:16 boards/models.py:56 boards/models.py:66
-#: msgs/models.py:14 teams/models.py:13 teams/models.py:49 teams/models.py:63
+#: boards/views.py:118 msgs/models.py:14 teams/models.py:13 teams/models.py:49
+#: teams/models.py:63
 msgid "status_hidden"
-msgstr "숨김"
+msgstr "관리자 삭제"
 
 #: boards/models.py:17 boards/models.py:58 boards/models.py:67
-#: msgs/models.py:15 teams/models.py:14 teams/models.py:51 teams/models.py:64
+#: boards/views.py:121 msgs/models.py:15 teams/models.py:14 teams/models.py:51
+#: teams/models.py:64
 msgid "status_deleted"
 msgstr "삭제됨"
 
-#: boards/views.py:155 teams/views.py:117
+#: boards/views.py:165 teams/views.py:117
 msgid "Wrong status from user."
 msgstr "상태정보가 잘못 입력되었습니다."
 
@@ -200,7 +202,6 @@ msgid "A guardian leaved your fireteam."
 msgstr "파이어팀을 떠난 가디언이 있습니다."
 
 #: templates/haru/accounts/alarm_list.html:73
-#| msgid "A guardian joined your fireteam."
 msgid "You are kicked from fireteam."
 msgstr "파이어팀에서 강제로 나갔습니다."
 

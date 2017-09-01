@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-02 00:44+0900\n"
+"POT-Creation-Date: 2017-09-02 01:43+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,10 +23,10 @@ msgstr ""
 
 #: static/js/accounts/alarm.js:33 static/js/accounts/alarm.js:53
 #: static/js/accounts/alarm.js:100 static/js/accounts/edit_bookmarks.js:30
-#: static/js/boards/boards_reply.js:38 static/js/boards/boards_reply.js:76
-#: static/js/boards/boards_reply.js:153 static/js/boards/boards_reply.js:179
-#: static/js/boards/boards_reply.js:201 static/js/boards/boards_reply.js:225
-#: static/js/boards/boards_reply.js:252 static/js/boards/reply_list.js:38
+#: static/js/boards/boards_reply.js:41 static/js/boards/boards_reply.js:79
+#: static/js/boards/boards_reply.js:156 static/js/boards/boards_reply.js:182
+#: static/js/boards/boards_reply.js:204 static/js/boards/boards_reply.js:228
+#: static/js/boards/boards_reply.js:255 static/js/boards/reply_list.js:38
 #: static/js/msgs/conversation.js:19 static/js/teams/team.js:33
 #: static/js/teams/team.js:66 static/js/teams/team.js:101
 #: static/js/teams/team.js:126 static/js/teams/teams_reply.js:34
@@ -105,8 +105,8 @@ msgstr ""
 msgid "Please select correct image."
 msgstr ""
 
-#: static/js/accounts/setting.js:11 static/js/boards/boards_reply.js:124
-#: static/js/boards/boards_reply.js:261
+#: static/js/accounts/setting.js:11 static/js/boards/boards_reply.js:127
+#: static/js/boards/boards_reply.js:264
 msgid "Selected image is too big. size limit: "
 msgstr ""
 
@@ -126,7 +126,7 @@ msgstr ""
 msgid "scrap"
 msgstr ""
 
-#: static/js/boards/boards_article.js:89 static/js/boards/boards_reply.js:185
+#: static/js/boards/boards_article.js:89 static/js/boards/boards_reply.js:188
 #: static/js/boards/reply_list.js:22 static/js/teams/teams_reply.js:105
 msgid "Are you sure to delete this article?"
 msgstr ""
@@ -144,7 +144,7 @@ msgid "Are you sure to quit editing?"
 msgstr ""
 
 #: static/js/boards/boards_list.js:8 static/js/boards/boards_reply.js:4
-#: static/js/boards/boards_reply.js:47 static/js/boards/reply_list.js:8
+#: static/js/boards/boards_reply.js:50 static/js/boards/reply_list.js:8
 #: static/js/teams/teams_reply.js:4 static/js/teams/teams_reply.js:43
 msgid "Please input 2 or more characters."
 msgstr ""
@@ -155,15 +155,19 @@ msgstr ""
 msgid "Require login"
 msgstr ""
 
-#: static/js/boards/boards_reply.js:84 static/js/teams/teams_reply.js:77
+#: static/js/boards/boards_reply.js:38
+msgid "Reply to warning article is not available."
+msgstr ""
+
+#: static/js/boards/boards_reply.js:87 static/js/teams/teams_reply.js:77
 msgid "Please show some respect."
 msgstr ""
 
-#: static/js/boards/boards_reply.js:85 static/js/teams/teams_reply.js:78
+#: static/js/boards/boards_reply.js:88 static/js/teams/teams_reply.js:78
 msgid "submit"
 msgstr ""
 
-#: static/js/boards/boards_reply.js:246 static/js/teams/teams_reply.js:167
+#: static/js/boards/boards_reply.js:249 static/js/teams/teams_reply.js:167
 msgid "Show new replies"
 msgstr ""
 

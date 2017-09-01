@@ -121,21 +121,48 @@
 {% endfor %}
 {% for article in lists %} <!--//Articles-->
     <tr>
-        <td class="subject tdlink" data-href="{% url 'boards:show_table_article' id=article.id table=table %}">
-            <span class="category">
-                {% if table == '0' or table == '9' %}
-                    {{ name_list|pick_first:article.table }}
+        {% if article.status == '5hidden'%}
+            <td class="subject">
+                <span class="category">
+                    {% if table == '0' or table == '9' %}
+                        {{ name_list|pick_first:article.table }}
+                    {% else %}
+                        {{ article.category }}
+                    {% endif %}
+                </span>
+                {% if user.is_staff %}
+                    <a href="{% url 'boards:show_table_article' id=article.id table=table %}">
+                        {% trans 'status_hidden' %}
+                    </a>
                 {% else %}
-                    {{ article.category }}
+                    {% trans 'status_hidden' %}
                 {% endif %}
-            </span>
-            <a href="{% url 'boards:show_table_article' id=article.id table=table %}">
-                {{ article.subject }}
-            </a>
-            {% if article.reply_count > 0 %}
-                <span class="reply_count">[{{ article.reply_count }}]</span>
-            {% endif %}
-        </td>
+                {% if article.reply_count > 0 %}
+                    <span class="reply_count">[{{ article.reply_count }}]</span>
+                {% endif %}
+            </td>
+        {% else %}
+            <td class="subject tdlink" data-href="{% url 'boards:show_table_article' id=article.id table=table %}">
+                <span class="category">
+                    {% if table == '0' or table == '9' %}
+                        {{ name_list|pick_first:article.table }}
+                    {% else %}
+                        {{ article.category }}
+                    {% endif %}
+                </span>
+                <a href="{% url 'boards:show_table_article' id=article.id table=table %}">
+                    {{ article.subject }}
+                </a>
+                {% if article.reply_count > 0 %}
+                    <span class="reply_count">[{{ article.reply_count }}]</span>
+                {% endif %}
+                {% if article.status == '4warning' %}
+                    <span class="warning">
+                        {% trans 'status_warning' %}
+                    </span>
+                {% endif %}
+            </td>
+        {% endif %}
         <td class="article_info">
             {{ article.user|nickname:user.is_authenticated|safe }}
         </td>
