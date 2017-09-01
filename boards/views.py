@@ -164,30 +164,30 @@ def new_article(request, table=0):
 
             return redirect(article.get_absolute_url())
     elif request.method == "GET":
-        board_table = BoardTable()
-        if int(table) >= board_table.get_table_len():
-            return error_page(request)
-
-        table_name = board_table.get_table_name(table)
-        if table_name == '':
-            return error_page(request)
-
-        table_desc = board_table.get_table_desc(table)
-        category_choices = board_table.get_category(table)
-
         editform = BoardEditForm()
 
-        return render(
-            request,
-            'boards/edit_article.html',
-            {
-                'form': editform,
-                'edit_type': 'new',
-                'table_name': table_name,
-                'table_desc': table_desc,
-                'category_choices': category_choices,
-            }
-        )
+    board_table = BoardTable()
+    if int(table) >= board_table.get_table_len():
+        return error_page(request)
+
+    table_name = board_table.get_table_name(table)
+    if table_name == '':
+        return error_page(request)
+
+    table_desc = board_table.get_table_desc(table)
+    category_choices = board_table.get_category(table)
+
+    return render(
+        request,
+        'boards/edit_article.html',
+        {
+            'form': editform,
+            'edit_type': 'new',
+            'table_name': table_name,
+            'table_desc': table_desc,
+            'category_choices': category_choices,
+        }
+    )
 
 
 @login_required

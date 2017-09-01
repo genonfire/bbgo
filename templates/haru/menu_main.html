@@ -44,6 +44,25 @@
                     {% trans 'Recent' %}
                 </a>
             </li>
+
+            <li class="titlemenu">
+                {% trans 'Recruitment' %}
+            </li>
+            <li>
+                <a href="{% url 'teams:recruitment' table=0 page=1 %}">
+                    PS4
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'teams:recruitment' table=1 page=1 %}">
+                    Xbox
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'teams:recruitment' table=2 page=1 %}">
+                    PC
+                </a>
+            </li>
         </ul>
     </li>
     {% if user.is_authenticated %}

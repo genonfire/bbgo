@@ -17,6 +17,8 @@ from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.translation import ugettext as _
 
+from teams.table import TeamTable
+
 from .forms import RegistrationForm, SettingForm, UserInfoForm
 from .models import Profile
 
@@ -32,6 +34,8 @@ def setting(request):
             request.user.profile.sense_slot = setting.sense_slot
             request.user.profile.alarm_board = setting.alarm_board
             request.user.profile.alarm_reply = True
+            request.user.profile.alarm_team = setting.alarm_team
+            request.user.profile.alarm_full = True
             if setting.alarm_interval < settings.MIN_ALARM_INTERVAL:
                 request.user.profile.alarm_interval \
                     = settings.MIN_ALARM_INTERVAL
@@ -231,6 +235,8 @@ def edit_bookmarks(request):
             app, id = bm.split('-')
             if app == 'boards':
                 app_table = BoardTable()
+            elif app == 'teams':
+                app_table = TeamTable()
             else:
                 continue
             my_bookmark.append(

@@ -32,10 +32,15 @@ class Profile(models.Model):
     ip_list = models.TextField(default='', blank=True)
     sense_client = models.CharField(max_length=30, blank=True)
     sense_slot = models.CharField(max_length=15, blank=True)
+    id1 = models.CharField(max_length=30, blank=True)
+    id2 = models.CharField(max_length=30, blank=True)
+    id3 = models.CharField(max_length=30, blank=True)
     alarm_interval = models.IntegerField(
         default=settings.DEFAULT_ALARM_INTERVAL)
     alarm_board = models.BooleanField(default=False)
     alarm_reply = models.BooleanField(default=True)
+    alarm_team = models.BooleanField(default=False)
+    alarm_full = models.BooleanField(default=True)
     portrait = models.ImageField(
         upload_to="portrait/%Y-%m-%d/", blank=True, validators=[img_validator])
     signature = models.TextField(blank=True)

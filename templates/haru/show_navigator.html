@@ -48,13 +48,6 @@
             <a href="../{{ index_end }}" class="jump" title="{% trans 'to next page' %}">></a>
         </span>
     {% endif %}
-{% if writable == True %}
-    <div class="float-right">
-        <span>
-            <a href="{% url 'boards:new_article' table=table %}" class="current_page">{% trans 'write' %}</a>
-        </span>
-    </div>
-{% endif %}
 </div>
 <div class="navigator mobile_show">
     {% if mindex_begin != 1 %}

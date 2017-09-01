@@ -2,21 +2,17 @@
 {% load staticfiles %}
 {% load i18n %}
 {% block title %}{{ SITE_NAME }} - {{ table_name }}{% endblock %}
-{% block extra_head_content %}
-{{ block.super }}
-{% if ENABLE_CODE_HIGHLIGHT %}
-<link rel="stylesheet" href="{% static 'css/monokai-sublime.min.css' %}">
-{% endif %}
-{% endblock %}
 {% load tz datetime %}
 {% load censor %}
-{% load reply %}
+{% load team_reply %}
+{% load team %}
+{% load link %}
 {% load user %}
 {% load sense %}
 {% block content %}
 
 <h1>
-    <a href="{% url 'boards:show_list_0' table=article.table %}">
+    <a href="{% url 'teams:recruitment' table=article.table page=1 %}">
         {{ table_name }}
     </a>
 </h1>
@@ -35,22 +31,13 @@
     {% if article.status != '1normal' %}
         <span>[{{ status_text }}]</span>
     {% endif %}
-    {{ article.subject }}
+    {{ article.subject }} ({{ article.slot}}/{{ article.slot_total }})
 </div>
 <div class="article_user">
     {{ article.user|nickname:user.is_authenticated|safe }}
     <div class="article_view_count">
         <img src="{% static 'icons/eye18.png' %}">
         <span>{{ article.view_count }}</span>
-        {% if article.like_count > 0 %}
-            <a href="javascript:void(0)" onClick="javascript:like_users(event, {{ article.id }});return false;" title="{% trans 'who likes' %}">
-        {% else %}
-            <a href="javascript:void(0)">
-        {% endif %}
-                <span id="article_view_like_count">
-                    {{ article.like_count }}
-                </span>
-            </a>
     </div>
 </div>
 <div class="article_view_misc">
@@ -69,59 +56,65 @@
     {% endif %}
 </div>
 <div class="article_view_content">
-    {{ article.content|safe}}
+    <div id="team_slot" align="center">
+        {% show_team article.id %}
+    </div>
+    <div class="reload_team buttons">
+        <span id="reload_team">
+            <a href="javascript:reload_team({{ article.id }})">
+                {% trans 'Reload fireteam' %}
+            </a>
+        </span>
+        <span id="show_new_team" style="display:none">
+            <a href="javascript:reload_team({{ article.id }})">
+                {% trans 'Show new guardians' %}
+            </a>
+        </span>
+    </div>
+    <div>
+        {{ article.content|urlize|target_blank|linebreaksbr}}
+    </div>
 </div>
-{% if article.reference %}
-<div class="article_view_reference">
-    <img src="{% static 'icons/link18.png' %}" title="{% trans 'reference' %}">
-    <a href="{{ article.reference }}" target="_blank">
-        {{ article.reference }}
-    </a>
-</div>
-{% endif %}
 <div class="article_view_msg">
     <span id="article_view_text"></span>
 </div>
 <div class="article_view_buttons">
-    <span class="like">
-        <a href="javascript:like_article({{ article.id }})">
-            {% trans 'like' %}
-        </a>
-    </span>
-    <span>
-        <a href="javascript:dislike_article({{ article.id }})">
-            {% trans 'dislike' %}
-        </a>
-    </span>
-    <span>
-        <a href="javascript:void(0)" onclick="javascript:share_via(event, 'boards', '{{ article.id }}', '{{ article.subject }}');return false;">
-            {% trans 'share' %}
-        </a>
-    </span>
     {% if user.is_staff or article.user == user %}
         <span>
-            <a href="{% url 'boards:edit_article' id=article.id %}">
+            <a href="{% url 'teams:edit_recruitment' id=article.id %}">
                 {% trans 'edit' %}
             </a>
         </span>
-        <span class="delete">
-            <a href=javascript:delete_article("{% url 'boards:delete_article' id=article.id %}")>
-                {% trans 'delete' %}
-            </a>
-        </span>
+        {% if article.status != '1normal' %}
+            <span>
+                <a href="javascript:change_status('1normal')">
+                    {% trans 'resume recruitment' %}
+                </a>
+            </span>
+        {% endif %}
+        {% if article.status != '7canceled' %}
+            <span class="delete">
+                <a href="javascript:change_status('7canceled')">
+                    {% trans 'cancel' %}
+                </a>
+            </span>
+        {% endif %}
+        {% if article.status != '8full' %}
+            <span class="like">
+                <a href="javascript:change_status('8full')">
+                    {% trans 'status_full' %}
+                </a>
+            </span>
+        {% endif %}
     {% endif %}
 </div>
 <div class="sense_horizontal_bar">
-    {% if table == '9' %}
-        {% show_up_sense user %}
-    {% else %}
         {% show_up_sense %}
-    {% endif %}
 </div>
 <form>{% csrf_token %}</form>
 
 <div id="replies" class="replies">
-    {% show_reply article.id %}
+    {% show_team_reply article.id %}
 </div>
 <hr>
 <div class="reload_reply buttons">
@@ -145,11 +138,6 @@
             <textarea id="reply_text" maxlength="{{ REPLY_TEXT_MAX }}" placeholder="{% trans 'Please show some respect.' %}"></textarea>
         </div>
         <div class="input_reply_buttons">
-            {% if REPLY_IMAGE_AVAILABLE %}
-                <span>
-                    <input id="reply_image" type="file" accept="image/*">
-                </span>
-            {% endif %}
             <span class="float-right">
                 <input type="button" value="{% trans 'submit' %}" onClick=write_reply({{ article.id }})>
             </span>
@@ -160,28 +148,20 @@
 {% endblock %}
 
 {% block bodyscript %}
-{% if ENABLE_CODE_HIGHLIGHT %}
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    <script src="{% static 'js/boards/boards_highlight.js' %}" async></script>
-{% endif %}
 <script src="{% static 'js/accounts/bookmarks.js' %}" async></script>
-<script src="{% static 'js/boards/boards_article.js' %}" async></script>
 <script>
     var reply_text_max = {{ REPLY_TEXT_MAX }};
-    {% if REPLY_IMAGE_AVAILABLE %}
-        var reply_image_available = true;
-        var reply_image_limit = {{ REPLY_IMAGE_SIZE_LIMIT }};
-    {% else %}
-        var reply_image_available = false;
-    {% endif %}
     var article_id = {{ article.id }};
     var reply_count = {{ article.reply_count }};
+    var slot_in = {{ article.slot }};
     {% if DEBUG %}
         var reply_auto_renew_enabled = false;
     {% else %}
         var reply_auto_renew_enabled = true;
         var reply_auto_renew_ms = {{ REPLY_AUTO_RENEW_MS }};
     {% endif %}
+    var status_url = "{% url 'teams:change_status' id=article.id status='1normal' %}";
 </script>
-<script src="{% static 'js/boards/boards_reply.js' %}" async></script>
+<script src="{% static 'js/teams/show_recruitment.js' %}" async></script>
+<script src="{% static 'js/teams/teams_reply.js' %}" async></script>
 {% endblock %}

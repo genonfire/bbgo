@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-31 14:16+0900\n"
+"POT-Creation-Date: 2017-09-02 00:44+0900\n"
 "PO-Revision-Date: 2017-07-13 14:03+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,34 +18,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: accounts/views.py:44 accounts/views.py:108 core/api.py:435
+#: accounts/views.py:46 accounts/views.py:110 core/api.py:435
 msgid "Saved successfully."
 msgstr ""
 
-#: accounts/views.py:46 accounts/views.py:112 msgs/views.py:159
-#: msgs/views.py:191
+#: accounts/views.py:48 accounts/views.py:114 msgs/views.py:122
+#: msgs/views.py:176
 msgid "Form validation Failure"
 msgstr ""
 
-#: accounts/views.py:84 accounts/views.py:271
+#: accounts/views.py:86 accounts/views.py:273
 msgid "Please check nickname."
 msgstr ""
 
-#: accounts/views.py:101 accounts/views.py:104 accounts/views.py:290
-#: accounts/views.py:292
+#: accounts/views.py:103 accounts/views.py:106 accounts/views.py:292
+#: accounts/views.py:294
 msgid "Verification failure. Please check verification code again."
 msgstr ""
 
-#: accounts/views.py:261
+#: accounts/views.py:263
 msgid "Please check username."
 msgstr ""
 
-#: accounts/views.py:294
+#: accounts/views.py:296
 msgid "Sorry. Please try again later."
 msgstr ""
 
 #: boards/models.py:12 boards/models.py:48 boards/models.py:65
-#: msgs/models.py:12
+#: msgs/models.py:12 teams/models.py:12 teams/models.py:47 teams/models.py:62
 msgid "status_normal"
 msgstr "Noraml"
 
@@ -63,61 +63,61 @@ msgid "status_warning"
 msgstr "Warning"
 
 #: boards/models.py:16 boards/models.py:56 boards/models.py:66
-#: msgs/models.py:14
+#: msgs/models.py:14 teams/models.py:13 teams/models.py:49 teams/models.py:63
 msgid "status_hidden"
 msgstr "Hidden"
 
 #: boards/models.py:17 boards/models.py:58 boards/models.py:67
-#: msgs/models.py:15
+#: msgs/models.py:15 teams/models.py:14 teams/models.py:51 teams/models.py:64
 msgid "status_deleted"
 msgstr "Deleted"
 
-#: boards/views.py:155
+#: boards/views.py:155 teams/views.py:117
 msgid "Wrong status from user."
 msgstr ""
 
-#: core/api.py:49
+#: core/api.py:51
 msgid "Already exist."
 msgstr ""
 
-#: core/api.py:51
+#: core/api.py:53
 msgid "Available"
 msgstr ""
 
-#: core/api.py:66
+#: core/api.py:68
 msgid "E-mail exists. Why don't you try to find your password?"
 msgstr ""
 
-#: core/api.py:75
+#: core/api.py:77
 #, python-format
 msgid "[%(site_name)s] Verification code for signing in"
 msgstr ""
 
-#: core/api.py:82
+#: core/api.py:84
 msgid "Verification code sent. Please check your E-mail."
 msgstr ""
 
-#: core/api.py:114 core/api.py:184
+#: core/api.py:116 core/api.py:186
 msgid "Require login"
 msgstr ""
 
-#: core/api.py:122 core/api.py:192
+#: core/api.py:124 core/api.py:194
 msgid "You like your own post?"
 msgstr ""
 
-#: core/api.py:136
+#: core/api.py:138
 msgid "You've liked this article"
 msgstr ""
 
-#: core/api.py:146
+#: core/api.py:148
 msgid "You've disliked this article"
 msgstr ""
 
-#: core/api.py:153 core/api.py:220
+#: core/api.py:155 core/api.py:222
 msgid "You've already liked"
 msgstr ""
 
-#: core/api.py:155 core/api.py:222
+#: core/api.py:157 core/api.py:224
 msgid "You've already disliked"
 msgstr ""
 
@@ -131,13 +131,27 @@ msgstr ""
 msgid "status_read"
 msgstr "Noraml"
 
-#: msgs/views.py:102 msgs/views.py:139 msgs/views.py:171
+#: msgs/views.py:102 msgs/views.py:156
 msgid "User does not exist."
 msgstr ""
 
-#: msgs/views.py:106 msgs/views.py:143 msgs/views.py:175
+#: msgs/views.py:106 msgs/views.py:160
 msgid "Cannot send message to yourself."
 msgstr ""
+
+#: teams/models.py:15 teams/models.py:53
+#, fuzzy
+#| msgid "status_deleted"
+msgid "status_canceled"
+msgstr "Deleted"
+
+#: teams/models.py:16 teams/models.py:55
+#: templates/haru/teams/recruitment.html:73
+#: templates/haru/teams/show_recruitment.html:105
+#, fuzzy
+#| msgid "status_normal"
+msgid "status_full"
+msgstr "Noraml"
 
 #: templates/404.html:4 templates/500.html:4
 msgid "Oops"
@@ -174,19 +188,39 @@ msgstr ""
 msgid "Reply has a reply."
 msgstr ""
 
-#: templates/haru/accounts/alarm_list.html:62
+#: templates/haru/accounts/alarm_list.html:65
+msgid "A guardian joined your fireteam."
+msgstr ""
+
+#: templates/haru/accounts/alarm_list.html:67
+msgid "Fireteam you joined is now full."
+msgstr ""
+
+#: templates/haru/accounts/alarm_list.html:69
+msgid "Fireteam you joined is canceled."
+msgstr ""
+
+#: templates/haru/accounts/alarm_list.html:71
+msgid "A guardian leaved your fireteam."
+msgstr ""
+
+#: templates/haru/accounts/alarm_list.html:73
+msgid "You are kicked from fireteam."
+msgstr ""
+
+#: templates/haru/accounts/alarm_list.html:85
 #, python-format
 msgid "It shows recent %(max)s alarms so may you often clear alarms."
 msgstr ""
 
-#: templates/haru/accounts/alarm_list.html:66
+#: templates/haru/accounts/alarm_list.html:89
 msgid "No alarms"
 msgstr ""
 
 #: templates/haru/accounts/deactivate_account.html:6
 #: templates/haru/accounts/deactivate_account.html:10
 #: templates/haru/accounts/deactivate_account.html:29
-#: templates/haru/accounts/edit_user_info.html:118
+#: templates/haru/accounts/edit_user_info.html:142
 msgid "Deactivate account"
 msgstr ""
 
@@ -216,8 +250,8 @@ msgid "Bookmarks are limited to %(MAX_BOOKMARKS)s."
 msgstr ""
 
 #: templates/haru/accounts/edit_bookmarks.html:37
-#: templates/haru/accounts/edit_user_info.html:125
-#: templates/haru/accounts/setting.html:95
+#: templates/haru/accounts/edit_user_info.html:149
+#: templates/haru/accounts/setting.html:118
 msgid "Save"
 msgstr ""
 
@@ -293,27 +327,42 @@ msgid "Changing E-mail address requires E-mail verification once again."
 msgstr ""
 
 #: templates/haru/accounts/edit_user_info.html:89
+#: templates/haru/accounts/user_info.html:62
+msgid "PSN ID"
+msgstr ""
+
+#: templates/haru/accounts/edit_user_info.html:97
+#: templates/haru/accounts/user_info.html:70
+msgid "Xbox ID"
+msgstr ""
+
+#: templates/haru/accounts/edit_user_info.html:105
+#: templates/haru/accounts/user_info.html:78
+msgid "BattleTag"
+msgstr ""
+
+#: templates/haru/accounts/edit_user_info.html:113
 #: templates/haru/accounts/signup.html:74
 msgid "Verification code"
 msgstr ""
 
-#: templates/haru/accounts/edit_user_info.html:93
+#: templates/haru/accounts/edit_user_info.html:117
 #: templates/haru/accounts/signup.html:78
 msgid "Verify"
 msgstr ""
 
-#: templates/haru/accounts/edit_user_info.html:95
+#: templates/haru/accounts/edit_user_info.html:119
 #: templates/haru/accounts/signup.html:80
 msgid "Verification code is started by Email address"
 msgstr ""
 
-#: templates/haru/accounts/edit_user_info.html:101
-#: templates/haru/accounts/user_info.html:78
+#: templates/haru/accounts/edit_user_info.html:125
+#: templates/haru/accounts/user_info.html:102
 msgid "point"
 msgstr ""
 
-#: templates/haru/accounts/edit_user_info.html:109
-#: templates/haru/accounts/user_info.html:86
+#: templates/haru/accounts/edit_user_info.html:133
+#: templates/haru/accounts/user_info.html:110
 msgid "signature"
 msgstr ""
 
@@ -372,18 +421,21 @@ msgstr ""
 #: templates/haru/boards/search_reply.html:28
 #: templates/haru/boards/show_list.html:48
 #: templates/haru/boards/show_list.html:205
+#: templates/haru/teams/recruitment.html:48
 msgid "subject"
 msgstr ""
 
 #: templates/haru/accounts/scrap.html:26
 #: templates/haru/boards/search_reply.html:29
 #: templates/haru/boards/show_list.html:49
+#: templates/haru/teams/recruitment.html:49
 msgid "username"
 msgstr ""
 
 #: templates/haru/accounts/scrap.html:27
 #: templates/haru/boards/search_reply.html:30
 #: templates/haru/boards/show_list.html:53
+#: templates/haru/teams/recruitment.html:51
 msgid "date"
 msgstr ""
 
@@ -394,6 +446,7 @@ msgstr ""
 #: templates/haru/boards/search_reply.html:74
 #: templates/haru/boards/show_article.html:109
 #: templates/haru/boards/show_reply.html:57 templates/haru/msgs/inbox.html:67
+#: templates/haru/teams/show_team_reply.html:57
 msgid "delete"
 msgstr ""
 
@@ -435,14 +488,31 @@ msgid "Alarm when someone replies on your reply."
 msgstr ""
 
 #: templates/haru/accounts/setting.html:56
+#: templates/haru/accounts/setting.html:79
 msgid "You may not turn off."
 msgstr ""
 
-#: templates/haru/accounts/setting.html:65
+#: templates/haru/accounts/setting.html:62
+msgid "Team alarm"
+msgstr ""
+
+#: templates/haru/accounts/setting.html:67
+msgid "Alarm when someone joins your team."
+msgstr ""
+
+#: templates/haru/accounts/setting.html:73
+msgid "Team full alarm"
+msgstr ""
+
+#: templates/haru/accounts/setting.html:78
+msgid "Alarm when your team recruiting finished or canceled."
+msgstr ""
+
+#: templates/haru/accounts/setting.html:88
 msgid "AdSense info"
 msgstr ""
 
-#: templates/haru/accounts/setting.html:68
+#: templates/haru/accounts/setting.html:91
 msgid ""
 "Your AdSense will be shown on information and best articles by profit "
 "sharing system. To use this feature please fill followings from your AdSense "
@@ -480,11 +550,11 @@ msgstr ""
 msgid "Last login"
 msgstr ""
 
-#: templates/haru/accounts/user_info.html:62
+#: templates/haru/accounts/user_info.html:86
 msgid "Article count"
 msgstr ""
 
-#: templates/haru/accounts/user_info.html:70
+#: templates/haru/accounts/user_info.html:94
 msgid "Reply count"
 msgstr ""
 
@@ -492,20 +562,31 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
+#: templates/haru/boards/edit_article.html:45
+#: templates/haru/teams/edit_recruitment.html:42
+msgid "category"
+msgstr ""
+
 #: templates/haru/boards/edit_article.html:58
+#: templates/haru/teams/edit_recruitment.html:68
 msgid "status"
 msgstr ""
 
 #: templates/haru/boards/edit_article.html:62
 #: templates/haru/boards/show_article.html:154
+#: templates/haru/teams/edit_recruitment.html:72
+#: templates/haru/teams/show_recruitment.html:142
 msgid "submit"
 msgstr ""
 
 #: templates/haru/boards/edit_article.html:64
+#: templates/haru/teams/edit_recruitment.html:74
 msgid "save"
 msgstr ""
 
 #: templates/haru/boards/edit_article.html:66
+#: templates/haru/teams/edit_recruitment.html:76
+#: templates/haru/teams/show_recruitment.html:98
 msgid "cancel"
 msgstr ""
 
@@ -525,6 +606,7 @@ msgid "search"
 msgstr ""
 
 #: templates/haru/boards/show_article.html:29
+#: templates/haru/teams/show_recruitment.html:25
 msgid "Go back"
 msgstr ""
 
@@ -554,31 +636,37 @@ msgid "share"
 msgstr ""
 
 #: templates/haru/boards/show_article.html:104
+#: templates/haru/teams/show_recruitment.html:85
 msgid "edit"
 msgstr ""
 
 #: templates/haru/boards/show_article.html:130
+#: templates/haru/teams/show_recruitment.html:123
 msgid "Reload replies"
 msgstr ""
 
 #: templates/haru/boards/show_article.html:135
+#: templates/haru/teams/show_recruitment.html:128
 msgid "Show new replies"
 msgstr ""
 
 #: templates/haru/boards/show_article.html:145
 #: templates/haru/msgs/conversation.html:40
 #: templates/haru/msgs/send_msg.html:40
+#: templates/haru/teams/show_recruitment.html:138
 msgid "Please show some respect."
 msgstr ""
 
 #: templates/haru/boards/show_list.html:36
-#: templates/haru/show_navigator.html:54
+#: templates/haru/teams/recruitment.html:36
 msgid "write"
 msgstr ""
 
 #: templates/haru/boards/show_list.html:50
 #: templates/haru/boards/show_list.html:110
 #: templates/haru/boards/show_list.html:182
+#: templates/haru/teams/recruitment.html:50
+#: templates/haru/teams/recruitment.html:101
 msgid "view"
 msgstr ""
 
@@ -588,18 +676,23 @@ msgstr ""
 
 #: templates/haru/boards/show_reply.html:8
 #: templates/haru/boards/show_reply.html:66
+#: templates/haru/teams/show_team_reply.html:8
+#: templates/haru/teams/show_team_reply.html:66
 msgid "reply"
 msgstr ""
 
 #: templates/haru/boards/show_reply.html:19
+#: templates/haru/teams/show_team_reply.html:19
 msgid "Write reply"
 msgstr ""
 
 #: templates/haru/boards/show_reply.html:108
+#: templates/haru/teams/show_team_reply.html:79
 msgid "Deleted reply"
 msgstr ""
 
 #: templates/haru/boards/show_reply.html:110
+#: templates/haru/teams/show_team_reply.html:81
 msgid "Hidden reply"
 msgstr ""
 
@@ -635,11 +728,15 @@ msgstr ""
 msgid "Recent"
 msgstr ""
 
-#: templates/haru/menu_main.html:52
+#: templates/haru/menu_main.html:49 templates/haru/menu_sub.html:9
+msgid "Recruitment"
+msgstr ""
+
+#: templates/haru/menu_main.html:71
 msgid "bookmark"
 msgstr ""
 
-#: templates/haru/menu_main.html:65
+#: templates/haru/menu_main.html:84
 msgid "Edit"
 msgstr ""
 
@@ -816,15 +913,50 @@ msgid "Email address:"
 msgstr ""
 
 #: templates/haru/show_navigator.html:11 templates/haru/show_navigator.html:32
-#: templates/haru/show_navigator.html:63
+#: templates/haru/show_navigator.html:56
 msgid "to prev page"
 msgstr ""
 
 #: templates/haru/show_navigator.html:18 templates/haru/show_navigator.html:48
-#: templates/haru/show_navigator.html:79
+#: templates/haru/show_navigator.html:72
 msgid "to next page"
 msgstr ""
 
-#: templates/haru/show_navigator.html:31 templates/haru/show_navigator.html:62
+#: templates/haru/show_navigator.html:31 templates/haru/show_navigator.html:55
 msgid "to first page"
+msgstr ""
+
+#: templates/haru/teams/edit_recruitment.html:49
+msgid "Select activity then slot may be adjusted automatically."
+msgstr ""
+
+#: templates/haru/teams/edit_recruitment.html:54
+msgid "slot"
+msgstr ""
+
+#: templates/haru/teams/edit_recruitment.html:60
+msgid "Total guardians needed include yourself."
+msgstr ""
+
+#: templates/haru/teams/show_recruitment.html:65
+msgid "Reload fireteam"
+msgstr ""
+
+#: templates/haru/teams/show_recruitment.html:70
+msgid "Show new guardians"
+msgstr ""
+
+#: templates/haru/teams/show_recruitment.html:91
+msgid "resume recruitment"
+msgstr ""
+
+#: templates/haru/teams/show_team.html:8
+msgid ""
+"To join fireteam, claim an empty slot. ID for this platform must exist in "
+"your user information. Press your ID once again to leave firetime."
+msgstr ""
+
+#: templates/haru/teams/show_team.html:54
+#: templates/haru/teams/show_team.html:58
+msgid "empty slot."
 msgstr ""

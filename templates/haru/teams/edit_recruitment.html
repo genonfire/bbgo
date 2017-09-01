@@ -29,7 +29,7 @@
     <div class="input_subject">
         {{ form.subject }}
     </div>
-    <div class="input_content">
+    <div class="input_text">
         {{ form.content }}
     </div>
     {% if msg %}
@@ -37,9 +37,6 @@
         {{ msg }}
     </div>
     {% endif %}
-    <div class="input_reference">
-        {{ form.reference }}
-    </div>
     {% if category_choices %}
         <div class="input_category">
             <b>{% trans 'category' %}</b>
@@ -48,8 +45,21 @@
                 <option value="{{ choice }}">{{ choice }}</option>
             {% endfor %}
             </select>
+            <div>
+                * {% trans 'Select activity then slot may be adjusted automatically.' %}
+            </div>
         </div>
     {% endif %}
+    <div class="input_category">
+        <b>{% trans 'slot' %}</b>
+        {{ form.slot_total }}
+        <span>
+            <input type="button" value="-1" onClick="slot_minus()">
+        </span>
+        <div>
+            * {% trans 'Total guardians needed include yourself.' %}
+        </div>
+    </div>
     {% if user.is_staff %}
         <div class="input_status">
     {% else %}
@@ -69,5 +79,5 @@
 {% endblock %}
 
 {% block bodyscript %}
-<script src="{% static 'js/boards/boards_edit.js' %}" async></script>
+<script src="{% static 'js/teams/edit_recruitment.js' %}" async></script>
 {% endblock %}

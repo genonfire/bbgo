@@ -57,6 +57,29 @@
                     </div>
                 </td>
             </tr>
+            <tr>
+                <td class="label">
+                    {% trans 'Team alarm' %}
+                </td>
+                <td class="input">
+                    {{ settingform.alarm_team }}
+                    <div>
+                        {% trans 'Alarm when someone joins your team.' %}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    {% trans 'Team full alarm' %}
+                </td>
+                <td class="input">
+                    {{ settingform.alarm_full }}
+                    <div>
+                        {% trans 'Alarm when your team recruiting finished or canceled.' %}
+                        {% trans 'You may not turn off.' %}
+                    </div>
+                </td>
+            </tr>
         </table>
 
         {% if ENABLE_ADSENSE %}

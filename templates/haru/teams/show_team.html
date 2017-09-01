@@ -1,0 +1,71 @@
+{% load staticfiles %}
+{% load i18n %}
+{% load user %}
+{% load range %}
+{% load pick %}
+
+<div class="slot_notice">
+    {% trans 'To join fireteam, claim an empty slot. ID for this platform must exist in your user information. Press your ID once again to leave firetime.' %}
+</div>
+<div class="slot_container">
+    <div class="slot">
+        <table>
+            <tr>
+                <td class="portrait">
+                    <img src="{{ article_user|portrait }}">
+                </td>
+                <td>
+                    {{ article_user|nickname:user.is_authenticated|safe }}
+                    <span>
+                        - {{ article_user|id:table }}
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    {% with slot_total|add:'-1' as total %}
+        {% for slot in 0|range:total %}
+            <div class="slot">
+                <table>
+                    <tr>
+                        {% if slot < slot_in|add:'-1' %}
+                            <td class="portrait">
+                                <img src="{{ slot_users|pick_first:slot|portrait }}">
+                            </td>
+                            <td>
+                                {{ slot_users|pick_first:slot|nickname:user.is_authenticated|safe }}
+                                <span class="platform_id">
+                                    {% if slot_users|pick_first:slot == user %}
+                                    -
+                                        <a href="javascript:leave_team('{{ article_id }}')">
+                                            {{ slot_users|pick_first:slot|id:table }}
+                                        </a>
+                                    {% elif user == article_user or user.is_staff %}
+                                        <a href="javascript:kick_player('{{ article_id }}', '{{ slot_users|pick_first:slot }}')">
+                                            {{ slot_users|pick_first:slot|id:table }}
+                                        </a>
+                                    {% else %}
+                                    - {{ slot_users|pick_first:slot|id:table }}
+                                    {% endif %}
+                                </span>
+                            </td>
+                        {% elif article_user == user %}
+                            <td>
+                                {% trans 'empty slot.' %}
+                            </td>
+                        {%else %}
+                            <td class="tdlink" data-href="javascript:join_team('{{ article_id }}')" align="center">
+                                {% trans 'empty slot.' %}
+                            </td>
+                        {% endif %}
+                    </tr>
+                </table>
+            </div>
+        {% endfor %}
+    {% endwith %}
+</div>
+
+<script>
+    slot_in = {{ slot_in }};
+</script>
+<script src="{% static 'js/teams/team.js' %}"></script>

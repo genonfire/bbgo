@@ -111,4 +111,44 @@ urlpatterns = [
         api.delete_message,
         name='delete_message'
     ),
+    url(
+        r'^write_team_reply/$',
+        api.write_team_reply,
+        name='write_team_reply',
+    ),
+    url(
+        r'^reload_team_reply/$',
+        api.reload_team_reply,
+        name='reload_team_reply',
+    ),
+    url(
+        r'^delete_team_reply/$',
+        api.delete_team_reply,
+        name='delete_team_reply',
+    ),
+    url(
+        r'^team_reply_count/$',
+        api.team_reply_count,
+        name='team_reply_count',
+    ),
+    url(
+        r'^join_team/$',
+        api.join_team,
+        name='join_team'
+    ),
+    url(
+        r'^leave_team/$',
+        api.leave_team,
+        name='leave_team'
+    ),
+    url(
+        r'^kick_player/$',
+        api.kick_player,
+        name='kick_player'
+    ),
+    url(
+        r'^reload_team/$',
+        api.reload_team,
+        name='reload_team'
+    ),
 ]

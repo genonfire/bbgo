@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-31 14:16+0900\n"
+"POT-Creation-Date: 2017-09-02 00:44+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,11 @@ msgstr ""
 #: static/js/boards/boards_reply.js:153 static/js/boards/boards_reply.js:179
 #: static/js/boards/boards_reply.js:201 static/js/boards/boards_reply.js:225
 #: static/js/boards/boards_reply.js:252 static/js/boards/reply_list.js:38
-#: static/js/msgs/conversation.js:19
+#: static/js/msgs/conversation.js:19 static/js/teams/team.js:33
+#: static/js/teams/team.js:66 static/js/teams/team.js:101
+#: static/js/teams/team.js:126 static/js/teams/teams_reply.js:34
+#: static/js/teams/teams_reply.js:69 static/js/teams/teams_reply.js:121
+#: static/js/teams/teams_reply.js:145 static/js/teams/teams_reply.js:179
 msgid "Error!"
 msgstr ""
 
@@ -123,11 +127,11 @@ msgid "scrap"
 msgstr ""
 
 #: static/js/boards/boards_article.js:89 static/js/boards/boards_reply.js:185
-#: static/js/boards/reply_list.js:22
+#: static/js/boards/reply_list.js:22 static/js/teams/teams_reply.js:105
 msgid "Are you sure to delete this article?"
 msgstr ""
 
-#: static/js/boards/boards_edit.js:18
+#: static/js/boards/boards_edit.js:18 static/js/teams/edit_recruitment.js:36
 msgid "Please fill the subject."
 msgstr ""
 
@@ -135,28 +139,31 @@ msgstr ""
 msgid "Please fill the contents."
 msgstr ""
 
-#: static/js/boards/boards_edit.js:31
+#: static/js/boards/boards_edit.js:31 static/js/teams/edit_recruitment.js:44
 msgid "Are you sure to quit editing?"
 msgstr ""
 
 #: static/js/boards/boards_list.js:8 static/js/boards/boards_reply.js:4
 #: static/js/boards/boards_reply.js:47 static/js/boards/reply_list.js:8
+#: static/js/teams/teams_reply.js:4 static/js/teams/teams_reply.js:43
 msgid "Please input 2 or more characters."
 msgstr ""
 
-#: static/js/boards/boards_reply.js:35
+#: static/js/boards/boards_reply.js:35 static/js/teams/team.js:18
+#: static/js/teams/team.js:57 static/js/teams/team.js:92
+#: static/js/teams/teams_reply.js:31
 msgid "Require login"
 msgstr ""
 
-#: static/js/boards/boards_reply.js:84
+#: static/js/boards/boards_reply.js:84 static/js/teams/teams_reply.js:77
 msgid "Please show some respect."
 msgstr ""
 
-#: static/js/boards/boards_reply.js:85
+#: static/js/boards/boards_reply.js:85 static/js/teams/teams_reply.js:78
 msgid "submit"
 msgstr ""
 
-#: static/js/boards/boards_reply.js:246
+#: static/js/boards/boards_reply.js:246 static/js/teams/teams_reply.js:167
 msgid "Show new replies"
 msgstr ""
 
@@ -174,4 +181,60 @@ msgstr ""
 
 #: static/js/msgs/inbox.js:14
 msgid "Are you sure to delete this conversation?"
+msgstr ""
+
+#: static/js/teams/show_recruitment.js:2
+msgid "Are you sure to resume recruitment?"
+msgstr ""
+
+#: static/js/teams/show_recruitment.js:4
+msgid "Are you sure to cancel recruitment?"
+msgstr ""
+
+#: static/js/teams/show_recruitment.js:7
+msgid "Are you sure to finish recruitment?"
+msgstr ""
+
+#: static/js/teams/team.js:21
+msgid "Already joined."
+msgstr ""
+
+#: static/js/teams/team.js:24
+msgid "Fireteam full."
+msgstr ""
+
+#: static/js/teams/team.js:27
+msgid "Recruitment canceled."
+msgstr ""
+
+#: static/js/teams/team.js:30
+msgid "ID for this platform must exist in your user information."
+msgstr ""
+
+#: static/js/teams/team.js:40
+msgid "Are you sure to leave this fireteam?"
+msgstr ""
+
+#: static/js/teams/team.js:60
+msgid "Please don't leave your team behind."
+msgstr ""
+
+#: static/js/teams/team.js:63
+msgid "You are not a member of this fireteam."
+msgstr ""
+
+#: static/js/teams/team.js:74
+msgid "Are you sure to kick this guardian?"
+msgstr ""
+
+#: static/js/teams/team.js:95
+msgid "You are not the fireteam leader."
+msgstr ""
+
+#: static/js/teams/team.js:98
+msgid "That guardian is not a member of this fireteam."
+msgstr ""
+
+#: static/js/teams/teams_reply.js:173
+msgid "Show new guardians"
 msgstr ""

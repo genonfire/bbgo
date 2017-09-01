@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-31 14:16+0900\n"
-"PO-Revision-Date: 2017-08-31 14:19+0900\n"
+"POT-Creation-Date: 2017-09-02 00:44+0900\n"
+"PO-Revision-Date: 2017-09-02 01:02+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,34 +19,34 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: accounts/views.py:44 accounts/views.py:108 core/api.py:435
+#: accounts/views.py:46 accounts/views.py:110 core/api.py:435
 msgid "Saved successfully."
 msgstr "저장했습니다."
 
-#: accounts/views.py:46 accounts/views.py:112 msgs/views.py:159
-#: msgs/views.py:191
+#: accounts/views.py:48 accounts/views.py:114 msgs/views.py:122
+#: msgs/views.py:176
 msgid "Form validation Failure"
 msgstr "폼 입력이 잘못됐습니다."
 
-#: accounts/views.py:84 accounts/views.py:271
+#: accounts/views.py:86 accounts/views.py:273
 msgid "Please check nickname."
 msgstr "닉네임을 확인해 주세요."
 
-#: accounts/views.py:101 accounts/views.py:104 accounts/views.py:290
-#: accounts/views.py:292
+#: accounts/views.py:103 accounts/views.py:106 accounts/views.py:292
+#: accounts/views.py:294
 msgid "Verification failure. Please check verification code again."
 msgstr "인증실패. 인증코드를 다시 확인해 주세요."
 
-#: accounts/views.py:261
+#: accounts/views.py:263
 msgid "Please check username."
 msgstr "아이디를 확인해 주세요."
 
-#: accounts/views.py:294
+#: accounts/views.py:296
 msgid "Sorry. Please try again later."
 msgstr "죄송합니다. 나중에 다시 시도해 주세요."
 
 #: boards/models.py:12 boards/models.py:48 boards/models.py:65
-#: msgs/models.py:12
+#: msgs/models.py:12 teams/models.py:12 teams/models.py:47 teams/models.py:62
 msgid "status_normal"
 msgstr "일반"
 
@@ -64,61 +64,61 @@ msgid "status_warning"
 msgstr "신고접수"
 
 #: boards/models.py:16 boards/models.py:56 boards/models.py:66
-#: msgs/models.py:14
+#: msgs/models.py:14 teams/models.py:13 teams/models.py:49 teams/models.py:63
 msgid "status_hidden"
 msgstr "숨김"
 
 #: boards/models.py:17 boards/models.py:58 boards/models.py:67
-#: msgs/models.py:15
+#: msgs/models.py:15 teams/models.py:14 teams/models.py:51 teams/models.py:64
 msgid "status_deleted"
 msgstr "삭제됨"
 
-#: boards/views.py:155
+#: boards/views.py:155 teams/views.py:117
 msgid "Wrong status from user."
 msgstr "상태정보가 잘못 입력되었습니다."
 
-#: core/api.py:49
+#: core/api.py:51
 msgid "Already exist."
 msgstr "이미 존재합니다."
 
-#: core/api.py:51
+#: core/api.py:53
 msgid "Available"
 msgstr "사용 가능합니다."
 
-#: core/api.py:66
+#: core/api.py:68
 msgid "E-mail exists. Why don't you try to find your password?"
 msgstr "이메일 주소가 존재합니다. 비밀번호 찾기를 이용해 보세요."
 
-#: core/api.py:75
+#: core/api.py:77
 #, python-format
 msgid "[%(site_name)s] Verification code for signing in"
 msgstr "[%(site_name)s] 회원가입을 위한 인증코드입니다."
 
-#: core/api.py:82
+#: core/api.py:84
 msgid "Verification code sent. Please check your E-mail."
 msgstr "인증코드를 전송했습니다. 이메일을 확인해 주세요."
 
-#: core/api.py:114 core/api.py:184
+#: core/api.py:116 core/api.py:186
 msgid "Require login"
 msgstr "회원만 가능합니다."
 
-#: core/api.py:122 core/api.py:192
+#: core/api.py:124 core/api.py:194
 msgid "You like your own post?"
 msgstr "자신의 글입니다."
 
-#: core/api.py:136
+#: core/api.py:138
 msgid "You've liked this article"
 msgstr "추천했습니다."
 
-#: core/api.py:146
+#: core/api.py:148
 msgid "You've disliked this article"
 msgstr "비추했습니다."
 
-#: core/api.py:153 core/api.py:220
+#: core/api.py:155 core/api.py:222
 msgid "You've already liked"
 msgstr "이미 추천하셨습니다."
 
-#: core/api.py:155 core/api.py:222
+#: core/api.py:157 core/api.py:224
 msgid "You've already disliked"
 msgstr "이미 비추하셨습니다."
 
@@ -130,13 +130,23 @@ msgstr "잘못된 접근입니다."
 msgid "status_read"
 msgstr "읽음"
 
-#: msgs/views.py:102 msgs/views.py:139 msgs/views.py:171
+#: msgs/views.py:102 msgs/views.py:156
 msgid "User does not exist."
 msgstr "존재하지 않는 사용자입니다."
 
-#: msgs/views.py:106 msgs/views.py:143 msgs/views.py:175
+#: msgs/views.py:106 msgs/views.py:160
 msgid "Cannot send message to yourself."
 msgstr "자신에게 보낼 수 없습니다."
+
+#: teams/models.py:15 teams/models.py:53
+msgid "status_canceled"
+msgstr "취소"
+
+#: teams/models.py:16 teams/models.py:55
+#: templates/haru/teams/recruitment.html:73
+#: templates/haru/teams/show_recruitment.html:105
+msgid "status_full"
+msgstr "마감"
 
 #: templates/404.html:4 templates/500.html:4
 msgid "Oops"
@@ -173,19 +183,40 @@ msgstr "게시글에 댓글이 달렸습니다."
 msgid "Reply has a reply."
 msgstr "댓글에 댓글이 달렸습니다."
 
-#: templates/haru/accounts/alarm_list.html:62
+#: templates/haru/accounts/alarm_list.html:65
+msgid "A guardian joined your fireteam."
+msgstr "파이어팀에 참여한 가디언이 있습니다."
+
+#: templates/haru/accounts/alarm_list.html:67
+msgid "Fireteam you joined is now full."
+msgstr "파이어팀 모집이 마감되었습니다."
+
+#: templates/haru/accounts/alarm_list.html:69
+msgid "Fireteam you joined is canceled."
+msgstr "파이어팀 모집이 취소되었습니다."
+
+#: templates/haru/accounts/alarm_list.html:71
+msgid "A guardian leaved your fireteam."
+msgstr "파이어팀을 떠난 가디언이 있습니다."
+
+#: templates/haru/accounts/alarm_list.html:73
+#| msgid "A guardian joined your fireteam."
+msgid "You are kicked from fireteam."
+msgstr "파이어팀에서 강제로 나갔습니다."
+
+#: templates/haru/accounts/alarm_list.html:85
 #, python-format
 msgid "It shows recent %(max)s alarms so may you often clear alarms."
-msgstr "최대 %(max)s 개의 알람만 보여지므로 종종 모두 읽기를 눌러 정리해 주세요."
+msgstr "최대 %(max)s개의 알람만 보여지므로 종종 모두 읽음을 눌러 정리해 주세요."
 
-#: templates/haru/accounts/alarm_list.html:66
+#: templates/haru/accounts/alarm_list.html:89
 msgid "No alarms"
 msgstr "알람이 없습니다."
 
 #: templates/haru/accounts/deactivate_account.html:6
 #: templates/haru/accounts/deactivate_account.html:10
 #: templates/haru/accounts/deactivate_account.html:29
-#: templates/haru/accounts/edit_user_info.html:118
+#: templates/haru/accounts/edit_user_info.html:142
 msgid "Deactivate account"
 msgstr "회원탈퇴"
 
@@ -200,7 +231,6 @@ msgstr "약관 및 개인정보 처리방침에 동의합니다."
 
 #: templates/haru/accounts/edit_bookmarks.html:4
 #: templates/haru/accounts/edit_bookmarks.html:8
-#| msgid "bookmark"
 msgid "Edit bookmarks"
 msgstr "북마크 편집"
 
@@ -216,8 +246,8 @@ msgid "Bookmarks are limited to %(MAX_BOOKMARKS)s."
 msgstr "북마크는 %(MAX_BOOKMARKS)s개까지 저장 가능합니다."
 
 #: templates/haru/accounts/edit_bookmarks.html:37
-#: templates/haru/accounts/edit_user_info.html:125
-#: templates/haru/accounts/setting.html:95
+#: templates/haru/accounts/edit_user_info.html:149
+#: templates/haru/accounts/setting.html:118
 msgid "Save"
 msgstr "저장"
 
@@ -293,27 +323,42 @@ msgid "Changing E-mail address requires E-mail verification once again."
 msgstr "이메일 주소를 변경하려면 이메일 인증과정을 다시 수행해야 합니다."
 
 #: templates/haru/accounts/edit_user_info.html:89
+#: templates/haru/accounts/user_info.html:62
+msgid "PSN ID"
+msgstr "PSN 아이디"
+
+#: templates/haru/accounts/edit_user_info.html:97
+#: templates/haru/accounts/user_info.html:70
+msgid "Xbox ID"
+msgstr "Xbox 아이디"
+
+#: templates/haru/accounts/edit_user_info.html:105
+#: templates/haru/accounts/user_info.html:78
+msgid "BattleTag"
+msgstr "배틀태그"
+
+#: templates/haru/accounts/edit_user_info.html:113
 #: templates/haru/accounts/signup.html:74
 msgid "Verification code"
 msgstr "인증코드"
 
-#: templates/haru/accounts/edit_user_info.html:93
+#: templates/haru/accounts/edit_user_info.html:117
 #: templates/haru/accounts/signup.html:78
 msgid "Verify"
 msgstr "인증"
 
-#: templates/haru/accounts/edit_user_info.html:95
+#: templates/haru/accounts/edit_user_info.html:119
 #: templates/haru/accounts/signup.html:80
 msgid "Verification code is started by Email address"
 msgstr "인증코드는 이메일주소로 시작됩니다."
 
-#: templates/haru/accounts/edit_user_info.html:101
-#: templates/haru/accounts/user_info.html:78
+#: templates/haru/accounts/edit_user_info.html:125
+#: templates/haru/accounts/user_info.html:102
 msgid "point"
 msgstr "포인트"
 
-#: templates/haru/accounts/edit_user_info.html:109
-#: templates/haru/accounts/user_info.html:86
+#: templates/haru/accounts/edit_user_info.html:133
+#: templates/haru/accounts/user_info.html:110
 msgid "signature"
 msgstr "서명"
 
@@ -372,18 +417,21 @@ msgstr "스크랩 페이지입니다. 삭제 버튼을 누르면 추가 확인�
 #: templates/haru/boards/search_reply.html:28
 #: templates/haru/boards/show_list.html:48
 #: templates/haru/boards/show_list.html:205
+#: templates/haru/teams/recruitment.html:48
 msgid "subject"
 msgstr "제목"
 
 #: templates/haru/accounts/scrap.html:26
 #: templates/haru/boards/search_reply.html:29
 #: templates/haru/boards/show_list.html:49
+#: templates/haru/teams/recruitment.html:49
 msgid "username"
 msgstr "이름"
 
 #: templates/haru/accounts/scrap.html:27
 #: templates/haru/boards/search_reply.html:30
 #: templates/haru/boards/show_list.html:53
+#: templates/haru/teams/recruitment.html:51
 msgid "date"
 msgstr "날짜"
 
@@ -394,6 +442,7 @@ msgstr "날짜"
 #: templates/haru/boards/search_reply.html:74
 #: templates/haru/boards/show_article.html:109
 #: templates/haru/boards/show_reply.html:57 templates/haru/msgs/inbox.html:67
+#: templates/haru/teams/show_team_reply.html:57
 msgid "delete"
 msgstr "삭제"
 
@@ -435,14 +484,31 @@ msgid "Alarm when someone replies on your reply."
 msgstr "댓글에 댓글이 달렸을 때 알려줍니다."
 
 #: templates/haru/accounts/setting.html:56
+#: templates/haru/accounts/setting.html:79
 msgid "You may not turn off."
 msgstr "끌 수 없습니다."
 
-#: templates/haru/accounts/setting.html:65
+#: templates/haru/accounts/setting.html:62
+msgid "Team alarm"
+msgstr "가디언 알람"
+
+#: templates/haru/accounts/setting.html:67
+msgid "Alarm when someone joins your team."
+msgstr "모집중인 파이어팀에 누군가 참여하면 알려줍니다."
+
+#: templates/haru/accounts/setting.html:73
+msgid "Team full alarm"
+msgstr "파이어팀 알람"
+
+#: templates/haru/accounts/setting.html:78
+msgid "Alarm when your team recruiting finished or canceled."
+msgstr "모집중이거나 참여중인 파이어팀이 마감되거나 취소되면 알려줍니다."
+
+#: templates/haru/accounts/setting.html:88
 msgid "AdSense info"
 msgstr "애드센스 정보"
 
-#: templates/haru/accounts/setting.html:68
+#: templates/haru/accounts/setting.html:91
 msgid ""
 "Your AdSense will be shown on information and best articles by profit "
 "sharing system. To use this feature please fill followings from your AdSense"
@@ -482,11 +548,11 @@ msgstr "비밀번호확인"
 msgid "Last login"
 msgstr "최근 로그인"
 
-#: templates/haru/accounts/user_info.html:62
+#: templates/haru/accounts/user_info.html:86
 msgid "Article count"
 msgstr "작성 글 수"
 
-#: templates/haru/accounts/user_info.html:70
+#: templates/haru/accounts/user_info.html:94
 msgid "Reply count"
 msgstr "작성 댓글 수"
 
@@ -494,20 +560,31 @@ msgstr "작성 댓글 수"
 msgid "Message"
 msgstr "쪽지"
 
+#: templates/haru/boards/edit_article.html:45
+#: templates/haru/teams/edit_recruitment.html:42
+msgid "category"
+msgstr "구분"
+
 #: templates/haru/boards/edit_article.html:58
+#: templates/haru/teams/edit_recruitment.html:68
 msgid "status"
 msgstr "상태"
 
 #: templates/haru/boards/edit_article.html:62
 #: templates/haru/boards/show_article.html:154
+#: templates/haru/teams/edit_recruitment.html:72
+#: templates/haru/teams/show_recruitment.html:142
 msgid "submit"
 msgstr "등록"
 
 #: templates/haru/boards/edit_article.html:64
+#: templates/haru/teams/edit_recruitment.html:74
 msgid "save"
 msgstr "저장"
 
 #: templates/haru/boards/edit_article.html:66
+#: templates/haru/teams/edit_recruitment.html:76
+#: templates/haru/teams/show_recruitment.html:98
 msgid "cancel"
 msgstr "취소"
 
@@ -527,6 +604,7 @@ msgid "search"
 msgstr "검색"
 
 #: templates/haru/boards/show_article.html:29
+#: templates/haru/teams/show_recruitment.html:25
 msgid "Go back"
 msgstr "뒤로가기"
 
@@ -556,31 +634,37 @@ msgid "share"
 msgstr "공유"
 
 #: templates/haru/boards/show_article.html:104
+#: templates/haru/teams/show_recruitment.html:85
 msgid "edit"
 msgstr "수정"
 
 #: templates/haru/boards/show_article.html:130
+#: templates/haru/teams/show_recruitment.html:123
 msgid "Reload replies"
 msgstr "댓글 새로고침"
 
 #: templates/haru/boards/show_article.html:135
+#: templates/haru/teams/show_recruitment.html:128
 msgid "Show new replies"
 msgstr "신규 댓글 보기"
 
 #: templates/haru/boards/show_article.html:145
 #: templates/haru/msgs/conversation.html:40
 #: templates/haru/msgs/send_msg.html:40
+#: templates/haru/teams/show_recruitment.html:138
 msgid "Please show some respect."
 msgstr "서로에 대한 배려와 존중을 보여주세요."
 
 #: templates/haru/boards/show_list.html:36
-#: templates/haru/show_navigator.html:54
+#: templates/haru/teams/recruitment.html:36
 msgid "write"
 msgstr "글쓰기"
 
 #: templates/haru/boards/show_list.html:50
 #: templates/haru/boards/show_list.html:110
 #: templates/haru/boards/show_list.html:182
+#: templates/haru/teams/recruitment.html:50
+#: templates/haru/teams/recruitment.html:101
 msgid "view"
 msgstr "조회"
 
@@ -590,18 +674,23 @@ msgstr "제목+내용"
 
 #: templates/haru/boards/show_reply.html:8
 #: templates/haru/boards/show_reply.html:66
+#: templates/haru/teams/show_team_reply.html:8
+#: templates/haru/teams/show_team_reply.html:66
 msgid "reply"
 msgstr "댓글"
 
 #: templates/haru/boards/show_reply.html:19
+#: templates/haru/teams/show_team_reply.html:19
 msgid "Write reply"
 msgstr "댓글 달기"
 
 #: templates/haru/boards/show_reply.html:108
+#: templates/haru/teams/show_team_reply.html:79
 msgid "Deleted reply"
 msgstr "삭제된 댓글입니다."
 
 #: templates/haru/boards/show_reply.html:110
+#: templates/haru/teams/show_team_reply.html:81
 msgid "Hidden reply"
 msgstr "관리자에 의해 삭제된 댓글입니다."
 
@@ -637,11 +726,15 @@ msgstr "핫게"
 msgid "Recent"
 msgstr "최신글"
 
-#: templates/haru/menu_main.html:52
+#: templates/haru/menu_main.html:49 templates/haru/menu_sub.html:9
+msgid "Recruitment"
+msgstr "파티찾기"
+
+#: templates/haru/menu_main.html:71
 msgid "bookmark"
 msgstr "북마크"
 
-#: templates/haru/menu_main.html:65
+#: templates/haru/menu_main.html:84
 msgid "Edit"
 msgstr "편집"
 
@@ -820,21 +913,55 @@ msgid "Email address:"
 msgstr "이메일 주소:"
 
 #: templates/haru/show_navigator.html:11 templates/haru/show_navigator.html:32
-#: templates/haru/show_navigator.html:63
+#: templates/haru/show_navigator.html:56
 msgid "to prev page"
 msgstr "이전 페이지로"
 
 #: templates/haru/show_navigator.html:18 templates/haru/show_navigator.html:48
-#: templates/haru/show_navigator.html:79
+#: templates/haru/show_navigator.html:72
 msgid "to next page"
 msgstr "다음 페이지로"
 
-#: templates/haru/show_navigator.html:31 templates/haru/show_navigator.html:62
+#: templates/haru/show_navigator.html:31 templates/haru/show_navigator.html:55
 msgid "to first page"
 msgstr "첫 페이지로"
 
+#: templates/haru/teams/edit_recruitment.html:49
+msgid "Select activity then slot may be adjusted automatically."
+msgstr "활동을 선택하시면 그에 맞게 슬롯 크기가 자동으로 조절됩니다."
+
+#: templates/haru/teams/edit_recruitment.html:54
+msgid "slot"
+msgstr "슬롯"
+
+#: templates/haru/teams/edit_recruitment.html:60
+msgid "Total guardians needed include yourself."
+msgstr "본인을 포함한 파이어팀의 가디언 수"
+
+#: templates/haru/teams/show_recruitment.html:65
+msgid "Reload fireteam"
+msgstr "파이어팀 새로고침"
+
+#: templates/haru/teams/show_recruitment.html:70
+msgid "Show new guardians"
+msgstr "새로 참여한 가디언"
+
+#: templates/haru/teams/show_recruitment.html:91
+msgid "resume recruitment"
+msgstr "모집 재개"
+
+#: templates/haru/teams/show_team.html:8
+msgid ""
+"To join fireteam, claim an empty slot. ID for this platform must exist in "
+"your user information. Press your ID once again to leave firetime."
+msgstr ""
+"빈 자리를 선택하면 파이어팀에 참여합니다. 회원정보에 해당 기종의 아이디가 지정되어 있어야 슬롯에 참여할 수 있습니다. 아이디를 한 번 "
+"더 누르면 파이어팀을 떠납니다."
+
+#: templates/haru/teams/show_team.html:54
+#: templates/haru/teams/show_team.html:58
+msgid "empty slot."
+msgstr "빈 자리"
+
 #~ msgid "to_list"
 #~ msgstr "목록으로"
-
-#~ msgid "category"
-#~ msgstr "구분"

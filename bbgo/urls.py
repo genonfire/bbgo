@@ -38,6 +38,7 @@ urlpatterns = [
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
     url(r'^msgs/', include('msgs.urls', namespace='msgs')),
     url(r'^boards/', include('boards.urls', namespace='boards')),
+    url(r'^teams/', include('teams.urls', namespace='teams')),
     url(r'^api/', include('core.apiurls', namespace='api')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

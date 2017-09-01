@@ -38,7 +38,7 @@ class SettingForm(forms.ModelForm):
         model = Profile
         fields = {
             "alarm_interval", "alarm_board", "alarm_reply",
-            "sense_client", "sense_slot"
+            "alarm_team", "alarm_full", "sense_client", "sense_slot"
         }
 
     def __init__(self, *args, **kwargs):
@@ -46,6 +46,8 @@ class SettingForm(forms.ModelForm):
         super(SettingForm, self).__init__(*args, **kwargs)
         self.fields['alarm_reply'].widget.attrs['checked'] = 'checked'
         self.fields['alarm_reply'].widget.attrs['disabled'] = True
+        self.fields['alarm_full'].widget.attrs['checked'] = 'checked'
+        self.fields['alarm_full'].widget.attrs['disabled'] = True
 
 
 class UserInfoForm(forms.ModelForm):
@@ -59,7 +61,9 @@ class UserInfoForm(forms.ModelForm):
         """Meta for UserInfoForm"""
 
         model = Profile
-        fields = {"portrait", "email", "code", "signature"}
+        fields = {
+            "portrait", "email", "code", "id1", "id2", "id3", "signature"
+        }
         if settings.ENABLE_NICKNAME:
             fields.add("first_name")
 

@@ -20,6 +20,8 @@ from django.utils import timezone
 from django.utils.translation import ugettext as _
 
 from msgs.models import Msg
+from teams.forms import TeamReplyEditForm
+from teams.models import Team, TeamReply
 
 
 def check_duplication(request):
@@ -264,23 +266,21 @@ def write_reply(request):
             article.reply_count += 1
 
             if article.user != request.user and reply_id == 0:
-                if article.user.profile.alarm_list != '':
-                    article.user.profile.alarm_list += ','
-                alarm_text = 'b:%d' % article.id
-                article.user.profile.alarm_list += alarm_text
-
                 if article.user.profile.alarm_board:
+                    if article.user.profile.alarm_list != '':
+                        article.user.profile.alarm_list += ','
+                    alarm_text = 'b:%d' % article.id
+                    article.user.profile.alarm_list += alarm_text
                     article.user.profile.alarm = True
                     article.user.profile.save()
             elif reply_to != request.user.username and reply_id > 0:
                 user = User.objects.filter(username=reply_to)
                 if user:
-                    if user[0].profile.alarm_list != '':
-                        user[0].profile.alarm_list += ','
-                    alarm_text = 'r:%d' % reply_id
-                    user[0].profile.alarm_list += alarm_text
-
                     if user[0].profile.alarm_reply:
+                        if user[0].profile.alarm_list != '':
+                            user[0].profile.alarm_list += ','
+                        alarm_text = 'r:%d' % reply_id
+                        user[0].profile.alarm_list += alarm_text
                         user[0].profile.alarm = True
                         user[0].save()
 
@@ -488,6 +488,9 @@ def alarm_list(request):
                     item = Board.objects.filter(id__iexact=id)
                 elif app == 'r':
                     item = Reply.objects.filter(id__iexact=id)
+                elif app == 't' or app == 'f' or app == 'c' or app == 'l' \
+                        or app == 'k':
+                    item = Team.objects.filter(id__iexact=id)
                 else:
                     continue
 
@@ -549,3 +552,414 @@ def delete_message(request):
         return JsonResponse({'status': 'true'}, status=201)
 
     return error_page(request)
+
+
+def write_team_reply(request):
+    """API write_team_reply"""
+    if not request.user.is_authenticated():
+        return JsonResponse({'status': 'false'}, status=401)
+
+    if request.method == 'POST':
+        id = request.POST['article_id']
+        reply_id = int(request.POST['reply_id'])
+        reply_to = ''
+
+        form = TeamReplyEditForm(request.POST)
+        if form.is_valid():
+            reply = form.save(commit=False)
+            parent_id = reply_id
+
+            while parent_id != 0:
+                parent = get_object_or_404(TeamReply, pk=parent_id)
+                if parent:
+                    if parent_id == reply_id and request.user != parent.user:
+                        reply_to = parent.user.username
+                    parent_id = parent.reply_id
+                    if parent_id == 0:
+                        reply_id = parent.id
+                else:
+                    return JsonResponse({'status': 'false'}, status=400)
+
+            reply.reply_id = reply_id
+            reply.reply_to = reply_to
+            reply.status = '1normal'
+            reply.user = request.user
+            reply.ip = get_ipaddress(request)
+            reply.save()
+
+            article = get_object_or_404(Team, pk=id)
+            article.reply_count += 1
+
+            if article.user != request.user and reply_id == 0:
+                if article.user.profile.alarm_board:
+                    if article.user.profile.alarm_list != '':
+                        article.user.profile.alarm_list += ','
+                    alarm_text = 'b:%d' % article.id
+                    article.user.profile.alarm_list += alarm_text
+                    article.user.profile.alarm = True
+                    article.user.profile.save()
+            elif reply_to != request.user.username and reply_id > 0:
+                user = User.objects.filter(username=reply_to)
+                if user:
+                    if user[0].profile.alarm_reply:
+                        if user[0].profile.alarm_list != '':
+                            user[0].profile.alarm_list += ','
+                        alarm_text = 'r:%d' % reply_id
+                        user[0].profile.alarm_list += alarm_text
+                        user[0].profile.alarm = True
+                        user[0].save()
+
+            article.save()
+
+            request.user.profile.last_reply_at = timezone.now()
+            request.user.profile.save()
+
+            replies = TeamReply.objects.filter(article_id=id).annotate(
+                custom_order=Case(
+                    When(reply_id=0, then='id'),
+                    default='reply_id',
+                    output_field=IntegerField(),
+                )
+            ).order_by('custom_order', 'id')
+
+            return render_to_response(
+                'teams/show_team_reply.html',
+                {
+                    'user': request.user,
+                    'article_user': article.user,
+                    'replies': replies,
+                    'count': replies.count()
+                }
+            )
+
+        return JsonResponse({'status': 'false'}, status=400)
+    else:
+        return error_to_response(request)
+
+
+def reload_team_reply(request):
+    """API reload_team_reply"""
+    if request.method == 'POST':
+        id = request.POST['id']
+        replies = TeamReply.objects.filter(article_id=id).annotate(
+            custom_order=Case(
+                When(reply_id=0, then='id'),
+                default='reply_id',
+                output_field=IntegerField(),
+            )
+        ).order_by('custom_order', 'id')
+
+        article = get_object_or_404(Team, pk=id)
+
+        return render_to_response(
+            'teams/show_team_reply.html',
+            {
+                'user': request.user,
+                'article_user': article.user,
+                'replies': replies,
+                'count': replies.count()
+            }
+        )
+    else:
+        return error_to_response(request)
+
+
+def delete_team_reply(request):
+    """API delete_team_reply"""
+    if request.method == 'POST':
+        id = request.POST['id']
+        reply = get_object_or_404(TeamReply, pk=id)
+
+        if request.user == reply.user:
+            reply.status = '6deleted'
+        elif request.user.is_staff:
+            reply.status = '5hidden'
+        else:
+            return error_to_response(request)
+
+        reply.save()
+        article_id = reply.article_id
+        replies = TeamReply.objects.filter(article_id=article_id).annotate(
+            custom_order=Case(
+                When(reply_id=0, then='id'),
+                default='reply_id',
+                output_field=IntegerField(),
+            )
+        ).order_by('custom_order', 'id')
+
+        article = get_object_or_404(Team, pk=article_id)
+
+        return render_to_response(
+            'teams/show_team_reply.html',
+            {
+                'user': request.user,
+                'article_user': article.user,
+                'replies': replies,
+                'count': replies.count()
+            }
+        )
+
+    return error_to_response(request)
+
+
+def team_reply_count(request):
+    """API team_reply_count"""
+    if request.method == 'POST':
+        id = request.POST['id']
+        article = get_object_or_404(Team, pk=id)
+        count = article.reply_count
+        slot = article.slot
+
+        return JsonResponse([count, slot], safe=False, status=201)
+
+    return error_page(request)
+
+
+def join_team(request):
+    """API join_team"""
+    if request.method == 'POST':
+        if not request.user.is_authenticated():
+            return JsonResponse({'status': 'false'}, status=401)
+
+        id = request.POST['id']
+        username = request.user.username
+        article = get_object_or_404(Team, pk=id)
+        table = article.table
+
+        if table == 0:
+            if not request.user.profile.id1:
+                return JsonResponse({'status': 'false'}, status=412)
+        elif table == 1:
+            if not request.user.profile.id2:
+                return JsonResponse({'status': 'false'}, status=412)
+        elif table == 2:
+            if not request.user.profile.id3:
+                return JsonResponse({'status': 'false'}, status=412)
+
+        if article.user.username == username:
+            return JsonResponse({'status': 'false'}, status=405)
+
+        if article.slot >= article.slot_total:
+            return JsonResponse({'status': 'false'}, status=406)
+
+        if article.status == '1normal':
+            slots = article.slot_users.split(',')
+            slot_users = []
+
+            if username not in slots:
+                if article.slot_users != '':
+                    article.slot_users += ","
+                article.slot_users += username
+                article.slot += 1
+                if article.slot == article.slot_total:
+                    article.status = '8full'
+                article.save()
+
+                if article.user.profile.alarm_team or (
+                        article.slot == article.slot_total and
+                        article.user.profile.alarm_full
+                ):
+                    if article.user.profile.alarm_list != '':
+                        article.user.profile.alarm_list += ','
+                    if article.user.profile.alarm_full and \
+                            article.slot == article.slot_total:
+                        alarm_text = 'f:%d' % article.id
+                    else:
+                        alarm_text = 't:%d' % article.id
+                    article.user.profile.alarm_list += alarm_text
+                    article.user.profile.alarm = True
+                    article.user.save()
+
+                slots = article.slot_users.split(',')
+                for slot in slots:
+                    slotuser = User.objects.filter(username__iexact=slot).get()
+                    slot_users.append([slotuser])
+                    if article.slot == article.slot_total:
+                        if slotuser.profile.alarm_full:
+                            if slotuser.profile.alarm_list != '':
+                                slotuser.profile.alarm_list += ','
+                            alarm_text = 'f:%d' % article.id
+                            slotuser.profile.alarm_list += alarm_text
+                            slotuser.profile.alarm = True
+                            slotuser.save()
+
+                return render_to_response(
+                    'teams/show_team.html',
+                    {
+                        'user': request.user,
+                        'table': table,
+                        'article_id': article.id,
+                        'article_user': article.user,
+                        'slot_in': article.slot,
+                        'slot_total': article.slot_total,
+                        'slot_users': slot_users,
+                    }
+                )
+            else:
+                return JsonResponse({'status': 'false'}, status=405)
+        elif article.status == '7canceled':
+            return JsonResponse({'status': 'false'}, status=410)
+        elif article.status == '8full':
+            return JsonResponse({'status': 'false'}, status=406)
+        else:
+            return JsonResponse({'status': 'false'}, status=400)
+    else:
+        return error_page(request)
+
+
+def leave_team(request):
+    """API leave_team"""
+    if request.method == 'POST':
+        if not request.user.is_authenticated():
+            return JsonResponse({'status': 'false'}, status=401)
+
+        id = request.POST['id']
+        username = request.user.username
+        article = get_object_or_404(Team, pk=id)
+        table = article.table
+
+        if article.user.username == username:
+            return JsonResponse({'status': 'false'}, status=403)
+
+        slots = article.slot_users.split(',')
+        slot_users = []
+
+        if username in slots:
+            regstr = re.escape(username) + r"\b(,|)"
+            article.slot_users = re.sub(regstr, '', article.slot_users)
+            if article.slot_users and article.slot_users[-1] == ',':
+                article.slot_users = article.slot_users[:-1]
+            article.slot -= 1
+
+            if article.status == '8full':
+                article.status = '1normal'
+            article.save()
+
+            if article.user.profile.alarm_team:
+                if article.user.profile.alarm_list != '':
+                    article.user.profile.alarm_list += ','
+                alarm_text = 'l:%d' % article.id
+                article.user.profile.alarm_list += alarm_text
+                article.user.profile.alarm = True
+                article.user.save()
+
+            if article.slot > 1:
+                slots = article.slot_users.split(',')
+                for slot in slots:
+                    slotuser = User.objects.filter(username__iexact=slot).get()
+                    slot_users.append([slotuser])
+
+            return render_to_response(
+                'teams/show_team.html',
+                {
+                    'user': request.user,
+                    'table': table,
+                    'article_id': article.id,
+                    'article_user': article.user,
+                    'slot_in': article.slot,
+                    'slot_total': article.slot_total,
+                    'slot_users': slot_users,
+                }
+            )
+        else:
+            return JsonResponse({'status': 'false'}, status=404)
+    else:
+        return error_page(request)
+
+
+def kick_player(request):
+    """API reload_team"""
+    if request.method == 'POST':
+        if not request.user.is_authenticated():
+            return JsonResponse({'status': 'false'}, status=401)
+
+        id = request.POST['id']
+        kick_user = request.POST['kick_user']
+        # username = request.user.username
+        article = get_object_or_404(Team, pk=id)
+        table = article.table
+
+        if article.user != request.user and not request.user.is_staff:
+            return JsonResponse({'status': 'false'}, status=403)
+
+        slots = article.slot_users.split(',')
+        slot_users = []
+
+        if kick_user in slots:
+            regstr = re.escape(kick_user) + r"\b(,|)"
+            article.slot_users = re.sub(regstr, '', article.slot_users)
+            if article.slot_users and article.slot_users[-1] == ',':
+                article.slot_users = article.slot_users[:-1]
+            article.slot -= 1
+
+            if article.status == '8full':
+                article.status = '1normal'
+            article.save()
+
+            if article.user.profile.alarm_team:
+                if article.user.profile.alarm_list != '':
+                    article.user.profile.alarm_list += ','
+                alarm_text = 'l:%d' % article.id
+                article.user.profile.alarm_list += alarm_text
+                article.user.profile.alarm = True
+                article.user.save()
+
+            kickuser = User.objects.filter(username__iexact=kick_user).get()
+            if kickuser.profile.alarm_list != '':
+                kickuser.profile.alarm_list += ','
+            alarm_text = 'k:%d' % article.id
+            kickuser.profile.alarm_list += alarm_text
+            kickuser.profile.alarm = True
+            kickuser.save()
+
+            if article.slot > 1:
+                slots = article.slot_users.split(',')
+                for slot in slots:
+                    slotuser = User.objects.filter(username__iexact=slot).get()
+                    slot_users.append([slotuser])
+
+            return render_to_response(
+                'teams/show_team.html',
+                {
+                    'user': request.user,
+                    'table': table,
+                    'article_id': article.id,
+                    'article_user': article.user,
+                    'slot_in': article.slot,
+                    'slot_total': article.slot_total,
+                    'slot_users': slot_users,
+                }
+            )
+        else:
+            return JsonResponse({'status': 'false'}, status=404)
+    else:
+        return error_page(request)
+
+
+def reload_team(request):
+    """API reload_team"""
+    if request.method == 'POST':
+        id = request.POST['id']
+        article = get_object_or_404(Team, pk=id)
+        slot_users = []
+
+        if article.slot > 1:
+            slots = article.slot_users.split(',')
+            for slot in slots:
+                slotuser = User.objects.filter(username__iexact=slot).get()
+                slot_users.append([slotuser])
+
+        return render_to_response(
+            'teams/show_team.html',
+            {
+                'user': request.user,
+                'table': article.table,
+                'article_id': article.id,
+                'article_user': article.user,
+                'slot_in': article.slot,
+                'slot_total': article.slot_total,
+                'slot_users': slot_users,
+            }
+        )
+    else:
+        return error_to_response(request)

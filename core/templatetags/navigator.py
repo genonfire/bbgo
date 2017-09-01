@@ -33,7 +33,6 @@ def show_navigator_boards(context):
     mindex_begin = context['mindex_begin']
     mindex_end = context['mindex_end']
     table = context['table']
-    writable = context['writable']
 
     return {
         'table': table,
@@ -43,5 +42,4 @@ def show_navigator_boards(context):
         'index_total': index_total,
         'mindex_begin': mindex_begin,
         'mindex_end': mindex_end,
-        'writable': writable,
     }

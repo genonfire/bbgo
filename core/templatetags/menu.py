@@ -3,6 +3,8 @@ from boards.table import BoardTable
 
 from django import template
 
+from teams.table import TeamTable
+
 register = template.Library()
 
 
@@ -22,6 +24,8 @@ def menu_main(context):
                 app, id = bm.split('-')
                 if app == 'boards':
                     app_table = BoardTable()
+                elif app == 'teams':
+                    app_table = TeamTable()
                 else:
                     continue
                 my_bookmark.append(
