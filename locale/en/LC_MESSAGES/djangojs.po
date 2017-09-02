@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-02 14:23+0900\n"
+"POT-Creation-Date: 2017-09-02 19:28+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,13 +25,14 @@ msgstr ""
 #: static/js/accounts/alarm.js:100 static/js/accounts/edit_bookmarks.js:30
 #: static/js/boards/boards_reply.js:41 static/js/boards/boards_reply.js:79
 #: static/js/boards/boards_reply.js:156 static/js/boards/boards_reply.js:182
-#: static/js/boards/boards_reply.js:204 static/js/boards/boards_reply.js:228
-#: static/js/boards/boards_reply.js:255 static/js/boards/reply_list.js:38
-#: static/js/msgs/conversation.js:19 static/js/teams/team.js:36
-#: static/js/teams/team.js:69 static/js/teams/team.js:104
-#: static/js/teams/team.js:129 static/js/teams/teams_reply.js:37
-#: static/js/teams/teams_reply.js:72 static/js/teams/teams_reply.js:124
-#: static/js/teams/teams_reply.js:148 static/js/teams/teams_reply.js:182
+#: static/js/boards/boards_reply.js:204 static/js/boards/boards_reply.js:227
+#: static/js/boards/boards_reply.js:251 static/js/boards/boards_reply.js:278
+#: static/js/boards/reply_list.js:38 static/js/msgs/conversation.js:19
+#: static/js/teams/team.js:36 static/js/teams/team.js:69
+#: static/js/teams/team.js:104 static/js/teams/team.js:129
+#: static/js/teams/teams_reply.js:37 static/js/teams/teams_reply.js:72
+#: static/js/teams/teams_reply.js:124 static/js/teams/teams_reply.js:147
+#: static/js/teams/teams_reply.js:171 static/js/teams/teams_reply.js:205
 msgid "Error!"
 msgstr ""
 
@@ -55,19 +56,19 @@ msgstr ""
 msgid "Are you sure to delete your profile?"
 msgstr ""
 
-#: static/js/accounts/idmenu.js:23
+#: static/js/accounts/idmenu.js:26
 msgid "user info"
 msgstr ""
 
-#: static/js/accounts/idmenu.js:25
+#: static/js/accounts/idmenu.js:28
 msgid "Show user article"
 msgstr ""
 
-#: static/js/accounts/idmenu.js:27
+#: static/js/accounts/idmenu.js:30
 msgid "Show user reply"
 msgstr ""
 
-#: static/js/accounts/idmenu.js:29
+#: static/js/accounts/idmenu.js:32
 msgid "Send message"
 msgstr ""
 
@@ -106,7 +107,7 @@ msgid "Please select correct image."
 msgstr ""
 
 #: static/js/accounts/setting.js:11 static/js/boards/boards_reply.js:127
-#: static/js/boards/boards_reply.js:264
+#: static/js/boards/boards_reply.js:287
 msgid "Selected image is too big. size limit: "
 msgstr ""
 
@@ -118,15 +119,11 @@ msgstr ""
 msgid "Passwords are different each other."
 msgstr ""
 
-#: static/js/boards/boards_article.js:59
-msgid "who likes"
-msgstr ""
-
-#: static/js/boards/boards_article.js:80
+#: static/js/boards/boards_article.js:84
 msgid "scrap"
 msgstr ""
 
-#: static/js/boards/boards_article.js:89 static/js/boards/boards_reply.js:188
+#: static/js/boards/boards_article.js:93 static/js/boards/boards_reply.js:188
 #: static/js/boards/reply_list.js:22 static/js/teams/teams_reply.js:108
 msgid "Are you sure to delete this article?"
 msgstr ""
@@ -167,7 +164,11 @@ msgstr ""
 msgid "submit"
 msgstr ""
 
-#: static/js/boards/boards_reply.js:249 static/js/teams/teams_reply.js:170
+#: static/js/boards/boards_reply.js:211 static/js/teams/teams_reply.js:131
+msgid "Are you sure to restore this article?"
+msgstr ""
+
+#: static/js/boards/boards_reply.js:272 static/js/teams/teams_reply.js:193
 msgid "Show new replies"
 msgstr ""
 
@@ -243,6 +244,6 @@ msgstr ""
 msgid "That guardian is not a member of this fireteam."
 msgstr ""
 
-#: static/js/teams/teams_reply.js:176
+#: static/js/teams/teams_reply.js:199
 msgid "Show new guardians"
 msgstr ""

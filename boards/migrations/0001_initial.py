@@ -29,6 +29,8 @@ class Migration(migrations.Migration):
                 ('like_count', models.IntegerField(default=0)),
                 ('dislike_count', models.IntegerField(default=0)),
                 ('reference', models.CharField(default=b'', max_length=1855, blank=True)),
+                ('has_image', models.BooleanField(default=False)),
+                ('has_video', models.BooleanField(default=False)),
                 ('dislike_users', models.ManyToManyField(related_name='board_dislike_users', to=settings.AUTH_USER_MODEL)),
                 ('like_users', models.ManyToManyField(related_name='board_like_users', to=settings.AUTH_USER_MODEL)),
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),

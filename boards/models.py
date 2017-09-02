@@ -35,6 +35,8 @@ class Board(models.Model):
     dislike_users = models.ManyToManyField(
         User, related_name="board_dislike_users")
     reference = models.CharField(max_length=1855, default='', blank=True)
+    has_image = models.BooleanField(default=False)
+    has_video = models.BooleanField(default=False)
 
     def get_absolute_url(self):
         """Back to list"""
@@ -58,6 +60,14 @@ class Board(models.Model):
             return _('status_hidden')
         elif self.status == '6deleted':
             return _('status_deleted')
+
+    def get_image_text(self):
+        """Get image text"""
+        return '<img src="/upload/django-summernote/'
+
+    def get_video_text(self):
+        """Get video text"""
+        return '<iframe frameborder="0" src="//www.youtube.com/'
 
 
 class Reply(models.Model):

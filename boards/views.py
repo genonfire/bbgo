@@ -166,6 +166,14 @@ def new_article(request, table=0):
                 if not request.user.is_staff:
                     errormsg = _("Wrong status from user.")
                     return error_page(request, errormsg)
+
+            image_text = article.get_image_text()
+            if image_text in article.content:
+                article.has_image = True
+            video_text = article.get_video_text()
+            if video_text in article.content:
+                article.has_video = True
+
             article.user = request.user
             article.ip = get_ipaddress(request)
             article.table = table
@@ -212,6 +220,15 @@ def edit_article(request, id):
         if editform.is_valid():
             article = editform.save(commit=False)
             article.modified_at = timezone.now()
+
+            image_text = article.get_image_text()
+            if image_text in article.content:
+                article.has_image = True
+            else:
+                article.has_image = False
+            video_text = article.get_video_text()
+            if video_text in article.content:
+                article.has_video = True
             article.save()
 
             request.user.profile.last_article_at = timezone.now()

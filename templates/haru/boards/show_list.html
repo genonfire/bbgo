@@ -63,6 +63,11 @@
             <a href="{% url 'boards:show_table_article' id=article.id table=table %}" class="board_link">
                 {{ article.subject }}
             </a>
+            {% if article.has_video %}
+                <img src="{% static 'icons/video20.png' %}">
+            {% elif article.has_image %}
+                <img src="{% static 'icons/photo20.png' %}">
+            {% endif %}
             {% if article.reply_count > 0 %}
                 <span class="reply_count">[{{ article.reply_count }}]</span>
             {% endif %}
@@ -134,6 +139,11 @@
                     <a href="{% url 'boards:show_table_article' id=article.id table=table %}">
                         {% trans 'status_hidden' %}
                     </a>
+                {% if article.has_video %}
+                    <img src="{% static 'icons/video20.png' %}">
+                {% elif article.has_image %}
+                        <img src="{% static 'icons/photo20.png' %}">
+                    {% endif %}
                 {% else %}
                     {% trans 'status_hidden' %}
                 {% endif %}
@@ -153,6 +163,11 @@
                 <a href="{% url 'boards:show_table_article' id=article.id table=table %}">
                     {{ article.subject }}
                 </a>
+                {% if article.has_video %}
+                    <img src="{% static 'icons/video20.png' %}">
+                {% elif article.has_image %}
+                    <img src="{% static 'icons/photo20.png' %}">
+                {% endif %}
                 {% if article.reply_count > 0 %}
                     <span class="reply_count">[{{ article.reply_count }}]</span>
                 {% endif %}

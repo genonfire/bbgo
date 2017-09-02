@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-02 14:23+0900\n"
-"PO-Revision-Date: 2017-07-13 14:03+0900\n"
-"Last-Translator:   <>\n"
+"POT-Creation-Date: 2017-09-02 19:28+0900\n"
+"PO-Revision-Date: 2017-09-02 19:32+0900\n"
+"Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: accounts/views.py:48 accounts/views.py:112 core/api.py:438
+#: accounts/views.py:48 accounts/views.py:112 core/api.py:472
 msgid "Saved successfully."
 msgstr ""
 
@@ -44,35 +44,35 @@ msgstr ""
 msgid "Sorry. Please try again later."
 msgstr ""
 
-#: boards/models.py:12 boards/models.py:48 boards/models.py:65
+#: boards/models.py:13 boards/models.py:52 boards/models.py:77
 #: msgs/models.py:12 teams/models.py:13 teams/models.py:47 teams/models.py:62
 msgid "status_normal"
 msgstr "Noraml"
 
-#: boards/models.py:13 boards/models.py:50
+#: boards/models.py:14 boards/models.py:54
 msgid "status_temp"
 msgstr "Temporary Saved"
 
-#: boards/models.py:14 boards/models.py:52
+#: boards/models.py:15 boards/models.py:56
 #: templates/haru/boards/show_list.html:61
 msgid "status_notice"
 msgstr "Notice"
 
-#: boards/models.py:15 boards/models.py:54
-#: templates/haru/boards/show_list.html:161
+#: boards/models.py:16 boards/models.py:58
+#: templates/haru/boards/show_list.html:176
 msgid "status_warning"
 msgstr "Warning"
 
-#: boards/models.py:16 boards/models.py:56 boards/models.py:66
+#: boards/models.py:17 boards/models.py:60 boards/models.py:78
 #: boards/views.py:120 msgs/models.py:14 teams/models.py:14 teams/models.py:49
-#: teams/models.py:63 templates/haru/boards/show_list.html:135
-#: templates/haru/boards/show_list.html:138
+#: teams/models.py:63 templates/haru/boards/show_list.html:140
+#: templates/haru/boards/show_list.html:148
 #: templates/haru/teams/recruitment.html:65
 #: templates/haru/teams/recruitment.html:68
 msgid "status_hidden"
 msgstr "Hidden"
 
-#: boards/models.py:17 boards/models.py:58 boards/models.py:67
+#: boards/models.py:18 boards/models.py:62 boards/models.py:79
 #: boards/views.py:123 msgs/models.py:15 teams/models.py:15 teams/models.py:51
 #: teams/models.py:64
 msgid "status_deleted"
@@ -103,27 +103,27 @@ msgstr ""
 msgid "Verification code sent. Please check your E-mail."
 msgstr ""
 
-#: core/api.py:116 core/api.py:186
+#: core/api.py:116 core/api.py:188
 msgid "Require login"
 msgstr ""
 
-#: core/api.py:124 core/api.py:194
+#: core/api.py:124 core/api.py:196
 msgid "You like your own post?"
 msgstr ""
 
-#: core/api.py:138
+#: core/api.py:136
 msgid "You've liked this article"
 msgstr ""
 
-#: core/api.py:148
+#: core/api.py:144
 msgid "You've disliked this article"
 msgstr ""
 
-#: core/api.py:155 core/api.py:222
+#: core/api.py:151 core/api.py:220
 msgid "You've already liked"
 msgstr ""
 
-#: core/api.py:157 core/api.py:224
+#: core/api.py:153 core/api.py:222
 msgid "You've already disliked"
 msgstr ""
 
@@ -132,10 +132,9 @@ msgid "Wrong access"
 msgstr ""
 
 #: msgs/models.py:13
-#, fuzzy
 #| msgid "status_normal"
 msgid "status_read"
-msgstr "Noraml"
+msgstr "Read"
 
 #: msgs/views.py:102 msgs/views.py:156
 msgid "User does not exist."
@@ -146,18 +145,16 @@ msgid "Cannot send message to yourself."
 msgstr ""
 
 #: teams/models.py:16 teams/models.py:53
-#, fuzzy
 #| msgid "status_deleted"
 msgid "status_canceled"
-msgstr "Deleted"
+msgstr "Canceled"
 
 #: teams/models.py:17 teams/models.py:55
 #: templates/haru/teams/recruitment.html:92
 #: templates/haru/teams/show_recruitment.html:105
-#, fuzzy
 #| msgid "status_normal"
 msgid "status_full"
-msgstr "Noraml"
+msgstr "Full"
 
 #: templates/404.html:4 templates/500.html:4
 msgid "Oops"
@@ -426,7 +423,7 @@ msgstr ""
 #: templates/haru/accounts/scrap.html:25
 #: templates/haru/boards/search_reply.html:28
 #: templates/haru/boards/show_list.html:48
-#: templates/haru/boards/show_list.html:232
+#: templates/haru/boards/show_list.html:247
 #: templates/haru/teams/recruitment.html:48
 msgid "subject"
 msgstr ""
@@ -521,8 +518,8 @@ msgstr ""
 #: templates/haru/accounts/setting.html:91
 msgid ""
 "Your AdSense will be shown on information and best articles by profit "
-"sharing system. To use this feature please fill followings from your AdSense "
-"code."
+"sharing system. To use this feature please fill followings from your AdSense"
+" code."
 msgstr ""
 
 #: templates/haru/accounts/signup.html:14 templates/haru/error.html:4
@@ -596,18 +593,23 @@ msgstr ""
 msgid "cancel"
 msgstr ""
 
+#: templates/haru/boards/like_users.html:6
+#: templates/haru/boards/show_article.html:46
+msgid "who likes"
+msgstr ""
+
 #: templates/haru/boards/search_reply.html:9
 #: templates/haru/boards/search_reply.html:16
 msgid "Search reply"
 msgstr ""
 
 #: templates/haru/boards/search_reply.html:91
-#: templates/haru/boards/show_list.html:238
+#: templates/haru/boards/show_list.html:253
 msgid "write user"
 msgstr ""
 
 #: templates/haru/boards/search_reply.html:95
-#: templates/haru/boards/show_list.html:242
+#: templates/haru/boards/show_list.html:257
 msgid "search"
 msgstr ""
 
@@ -616,24 +618,20 @@ msgstr ""
 msgid "Go back"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:46
-msgid "who likes"
-msgstr ""
-
 #: templates/haru/boards/show_article.html:76
 msgid "reference"
 msgstr ""
 
 #: templates/haru/boards/show_article.html:88
 #: templates/haru/boards/show_list.html:51
-#: templates/haru/boards/show_list.html:196
+#: templates/haru/boards/show_list.html:211
 msgid "like"
 msgstr ""
 
 #: templates/haru/boards/show_article.html:93
 #: templates/haru/boards/show_list.html:52
-#: templates/haru/boards/show_list.html:107
-#: templates/haru/boards/show_list.html:206
+#: templates/haru/boards/show_list.html:112
+#: templates/haru/boards/show_list.html:221
 msgid "dislike"
 msgstr ""
 
@@ -669,21 +667,21 @@ msgid "write"
 msgstr ""
 
 #: templates/haru/boards/show_list.html:50
-#: templates/haru/boards/show_list.html:110
-#: templates/haru/boards/show_list.html:209
+#: templates/haru/boards/show_list.html:115
+#: templates/haru/boards/show_list.html:224
 #: templates/haru/teams/recruitment.html:50
 #: templates/haru/teams/recruitment.html:121
 msgid "view"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:235
+#: templates/haru/boards/show_list.html:250
 msgid "subject+content"
 msgstr ""
 
 #: templates/haru/boards/show_reply.html:8
-#: templates/haru/boards/show_reply.html:66
+#: templates/haru/boards/show_reply.html:72
 #: templates/haru/teams/show_team_reply.html:8
-#: templates/haru/teams/show_team_reply.html:66
+#: templates/haru/teams/show_team_reply.html:72
 msgid "reply"
 msgstr ""
 
@@ -692,13 +690,18 @@ msgstr ""
 msgid "Write reply"
 msgstr ""
 
-#: templates/haru/boards/show_reply.html:108
-#: templates/haru/teams/show_team_reply.html:79
+#: templates/haru/boards/show_reply.html:63
+#: templates/haru/teams/show_team_reply.html:63
+msgid "restore"
+msgstr ""
+
+#: templates/haru/boards/show_reply.html:120
+#: templates/haru/teams/show_team_reply.html:85
 msgid "Deleted reply"
 msgstr ""
 
-#: templates/haru/boards/show_reply.html:110
-#: templates/haru/teams/show_team_reply.html:81
+#: templates/haru/boards/show_reply.html:127
+#: templates/haru/teams/show_team_reply.html:92
 msgid "Hidden reply"
 msgstr ""
 
@@ -828,8 +831,8 @@ msgstr ""
 
 #: templates/haru/registration/password_change_form.html:13
 msgid ""
-"Please enter your old password, for security's sake, and then enter your new "
-"password twice so we can verify you typed it in correctly."
+"Please enter your old password, for security's sake, and then enter your new"
+" password twice so we can verify you typed it in correctly."
 msgstr ""
 
 #: templates/haru/registration/password_reset_complete.html:4
