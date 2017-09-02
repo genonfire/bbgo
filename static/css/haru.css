@@ -193,6 +193,7 @@ table.board tr.article_info_mobile span.scrap_delete a {vertical-align:baseline;
 .article_view_misc {margin-left:.5em;font-size:.8em;color:#999;vertical-align:middle;}
 .article_view_ip {margin-right:.5;letter-spacing:.1em;}
 .article_view_content {display:inline-block;width:100%;margin-top:.5em;margin-bottom:.5em;}
+.article_view_content iframe {max-width:100%;}
 .article_view_content img {max-width:100%;}
 .article_view_reference {margin:1.5em;margin-bottom:0;margin-right:0;height:2.0em;vertical-align:middle;background:#EDEDED;font-size:0.8em;}
 .article_view_reference a:hover {color:#E54F44;}
