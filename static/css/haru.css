@@ -48,6 +48,7 @@ img.portrait {width:150px;height:150px;}
 #mainnav ul li:hover ul {display:block;padding:.5em;position:absolute;background:#585A5E;}
 #mainnav ul li ul li {display:block;float:none;position:relative;padding:.2em;}
 #mainnav ul li ul li.titlemenu {border-bottom:dotted 1px #fff;}
+#mainnav ul li ul li a {display:inline-block;margin-left:.5em;}
 
 #power ul {list-style: none;}
 #power ul li {float:left;margin-left:.8em;}
