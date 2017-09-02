@@ -1,7 +1,177 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% load i18n %}
+{% load sense %}
 
 {% block title %}{{ SITE_NAME }}{% endblock %}
 {% block content %}
+
+<div class="banner">
+    {% if banner == 1 %}
+        <img src="{% static 'images/banner1.jpg' %}">
+    {% elif banner == 2 %}
+        <img src="{% static 'images/banner2.jpg' %}">
+    {% elif banner == 3 %}
+        <img src="{% static 'images/banner3.jpg' %}">
+    {% else %}
+        <img src="{% static 'images/banner.jpg' %}">
+    {% endif %}
+</div>
+
+<div class="board_sample">
+    <table class="board sample">
+        <tr>
+            <td>
+                <div>
+                    <div class="titlebar">
+                        <a href="{% url 'boards:show_list' table=9 page=1 %}">
+                            {% trans 'Best' %}
+                            <img src="{% static 'icons/arrowright24.png' %}">
+                        </a>
+                    </div>
+                    {% for article in best %}
+                        {% if forloop.counter0 >= sample_limit_mobile %}
+                            <div class="sample_subject mobile_hide">
+                        {% else %}
+                            <div class="sample_subject">
+                        {% endif %}
+                                <a href="{% url 'boards:show_article' id=article.id %}" class="board_link">
+                                    {{ article.subject|truncatechars:26 }}
+                                </a>
+                                <span class="reply_count">
+                                    [{{ article.reply_count }}]
+                                </span>
+                        </div>
+                    {% endfor %}
+                </div>
+            </td>
+            <td class="right mobile_hide">
+                <div>
+                    <div class="titlebar">
+                        <a href="{% url 'boards:show_list' table=11 page=1 %}">
+                            {% trans 'Infobbs' %}
+                            <img src="{% static 'icons/arrowright24.png' %}">
+                        </a>
+                    </div>
+                    {% for article in info %}
+                        <div class="sample_subject">
+                            <a href="{% url 'boards:show_article' id=article.id %}" class="board_link">
+                                {{ article.subject|truncatechars:26 }}
+                            </a>
+                            <span class="reply_count">
+                                [{{ article.reply_count }}]
+                            </span>
+                        </div>
+                    {% endfor %}
+                </div>
+            </td>
+        </tr>
+        <tr class="mobile_show">
+            <td>
+                <div>
+                    <div class="titlebar">
+                        <a href="{% url 'boards:show_list' table=11 page=1 %}">
+                            {% trans 'Infobbs' %}
+                            <img src="{% static 'icons/arrowright24.png' %}">
+                        </a>
+                    </div>
+                    {% for article in info %}
+                        {% if forloop.counter0 >= sample_limit_mobile %}
+                            <div class="sample_subject mobile_hide">
+                        {% else %}
+                            <div class="sample_subject">
+                        {% endif %}
+                                <a href="{% url 'boards:show_article' id=article.id %}" class="board_link">
+                                    {{ article.subject|truncatechars:26 }}
+                                </a>
+                                <span class="reply_count">
+                                    [{{ article.reply_count }}]
+                                </span>
+                        </div>
+                    {% endfor %}
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <table class="board sample">
+        <tr>
+            <td>
+                <div>
+                    <div class="titlebar">
+                        <a href="{% url 'teams:recruitment' table=1 page=1 %}">
+                            {% trans 'Recruitment' %} PS4
+                            <img src="{% static 'icons/arrowright24.png' %}">
+                        </a>
+                    </div>
+                    {% for article in ps4 %}
+                        {% if forloop.counter0 >= sample_limit_mobile %}
+                            <div class="sample_subject mobile_hide">
+                        {% else %}
+                            <div class="sample_subject">
+                        {% endif %}
+                                <a href="{% url 'teams:show_recruitment' id=article.id %}">
+                                    {{ article.subject|truncatechars:26 }}
+                                </a>
+                                <span class="reply_count">
+                                    [{{ article.reply_count }}]
+                                </span>
+                        </div>
+                    {% endfor %}
+                </div>
+            </td>
+            <td class="right mobile_hide">
+                <div>
+                    <div class="titlebar">
+                        <a href="{% url 'teams:recruitment' table=3 page=1 %}">
+                            {% trans 'Notice' %}
+                            <img src="{% static 'icons/arrowright24.png' %}">
+                        </a>
+                    </div>
+                    {% for article in notice %}
+                        <div class="sample_subject">
+                            <a href="{% url 'teams:show_recruitment' id=article.id %}">
+                                {{ article.subject|truncatechars:26 }}
+                            </a>
+                            <span class="reply_count">
+                                [{{ article.reply_count }}]
+                            </span>
+                        </div>
+                    {% endfor %}
+                </div>
+            </td>
+        </tr>
+        <tr class="mobile_show">
+            <td>
+                <div>
+                    <div class="titlebar">
+                        <a href="{% url 'teams:recruitment' table=3 page=1 %}">
+                            {% trans 'Notice' %}
+                            <img src="{% static 'icons/arrowright24.png' %}">
+                        </a>
+                    </div>
+                    {% for article in notice %}
+                        {% if forloop.counter0 >= sample_limit_mobile %}
+                            <div class="sample_subject mobile_hide">
+                        {% else %}
+                            <div class="sample_subject">
+                        {% endif %}
+                                <a href="{% url 'teams:show_recruitment' id=article.id %}">
+                                    {{ article.subject|truncatechars:26 }}
+                                </a>
+                                <span class="reply_count">
+                                    [{{ article.reply_count }}]
+                                </span>
+                        </div>
+                    {% endfor %}
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="sense_horizontal_bar">
+    {% show_down_sense %}
+</div>
 
 {% endblock %}

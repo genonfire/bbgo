@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-02 22:25+0900\n"
+"POT-Creation-Date: 2017-09-03 03:41+0900\n"
 "PO-Revision-Date: 2017-09-02 19:32+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -78,7 +78,7 @@ msgstr "Hidden"
 msgid "status_deleted"
 msgstr "Deleted"
 
-#: boards/views.py:172 teams/views.py:117
+#: boards/views.py:172 teams/views.py:116
 msgid "Wrong status from user."
 msgstr ""
 
@@ -706,8 +706,16 @@ msgstr ""
 msgid "Hidden reply"
 msgstr ""
 
-#: templates/haru/menu_footer.html:5
-msgid "Send feedback"
+#: templates/haru/menu_footer.html:12
+msgid "Feedback"
+msgstr ""
+
+#: templates/haru/menu_footer.html:17
+msgid "Report"
+msgstr ""
+
+#: templates/haru/menu_footer.html:22
+msgid "About us"
 msgstr ""
 
 #: templates/haru/menu_main.html:15
@@ -731,22 +739,33 @@ msgid "bbs"
 msgstr ""
 
 #: templates/haru/menu_main.html:39 templates/haru/menu_sub.html:5
+#: templates/haru/portal/index.html:28
 msgid "Best"
 msgstr ""
 
-#: templates/haru/menu_main.html:44
+#: templates/haru/menu_main.html:42
 msgid "Recent"
 msgstr ""
 
-#: templates/haru/menu_main.html:49 templates/haru/menu_sub.html:9
+#: templates/haru/menu_main.html:47 templates/haru/portal/index.html:52
+#: templates/haru/portal/index.html:74
+msgid "Infobbs"
+msgstr ""
+
+#: templates/haru/menu_main.html:52
+msgid "Freebbs"
+msgstr ""
+
+#: templates/haru/menu_main.html:57 templates/haru/menu_sub.html:9
+#: templates/haru/portal/index.html:103
 msgid "Recruitment"
 msgstr ""
 
-#: templates/haru/menu_main.html:71
+#: templates/haru/menu_main.html:75
 msgid "bookmark"
 msgstr ""
 
-#: templates/haru/menu_main.html:84
+#: templates/haru/menu_main.html:88
 msgid "Edit"
 msgstr ""
 
@@ -820,6 +839,10 @@ msgstr ""
 
 #: templates/haru/msgs/send_msg.html:33
 msgid "characters available."
+msgstr ""
+
+#: templates/haru/portal/index.html:127 templates/haru/portal/index.html:149
+msgid "Notice"
 msgstr ""
 
 #: templates/haru/registration/logged_out.html:11

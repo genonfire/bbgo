@@ -40,7 +40,7 @@ class Board(models.Model):
 
     def get_absolute_url(self):
         """Back to list"""
-        return reverse_lazy('boards:show_list_0', args=[self.table])
+        return reverse_lazy('boards:show_list', args=[self.table, 1])
 
     def get_article_url(self):
         """Back to article"""

@@ -11,7 +11,7 @@
 {% block content %}
 
 <h1>
-    <a href="{% url 'boards:show_list_0' table=table %}">
+    <a href="{% url 'boards:show_list' table=table page=1 %}">
         {{ table_name }}
     </a>
     {% if user.is_authenticated %}

@@ -110,7 +110,6 @@ def new_recruitment(request, table=0):
     if request.method == "POST":
         editform = TeamEditForm(request.POST)
         if editform.is_valid():
-            print 'valid'
             article = editform.save(commit=False)
             if article.status != '1normal':
                 if not request.user.is_staff:
@@ -125,8 +124,6 @@ def new_recruitment(request, table=0):
             request.user.profile.save()
 
             return redirect(article.get_absolute_url())
-        else:
-            print 'invalid'
     elif request.method == "GET":
         editform = TeamEditForm()
 

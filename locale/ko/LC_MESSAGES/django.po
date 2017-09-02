@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-02 22:25+0900\n"
-"PO-Revision-Date: 2017-09-02 22:25+0900\n"
+"POT-Creation-Date: 2017-09-03 03:41+0900\n"
+"PO-Revision-Date: 2017-09-03 03:48+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -79,7 +79,7 @@ msgstr "관리자 삭제"
 msgid "status_deleted"
 msgstr "삭제됨"
 
-#: boards/views.py:172 teams/views.py:117
+#: boards/views.py:172 teams/views.py:116
 msgid "Wrong status from user."
 msgstr "상태정보가 잘못 입력되었습니다."
 
@@ -709,9 +709,18 @@ msgstr "삭제된 댓글입니다."
 msgid "Hidden reply"
 msgstr "관리자에 의해 삭제된 댓글입니다."
 
-#: templates/haru/menu_footer.html:5
-msgid "Send feedback"
-msgstr "문의, 의견 보내기"
+#: templates/haru/menu_footer.html:12
+#| msgid "Send feedback"
+msgid "Feedback"
+msgstr "운영참여"
+
+#: templates/haru/menu_footer.html:17
+msgid "Report"
+msgstr "신고"
+
+#: templates/haru/menu_footer.html:22
+msgid "About us"
+msgstr "소개"
 
 #: templates/haru/menu_main.html:15
 msgid "menu"
@@ -734,22 +743,33 @@ msgid "bbs"
 msgstr "게시판"
 
 #: templates/haru/menu_main.html:39 templates/haru/menu_sub.html:5
+#: templates/haru/portal/index.html:28
 msgid "Best"
 msgstr "베스트"
 
-#: templates/haru/menu_main.html:44
+#: templates/haru/menu_main.html:42
 msgid "Recent"
 msgstr "최신글"
 
-#: templates/haru/menu_main.html:49 templates/haru/menu_sub.html:9
+#: templates/haru/menu_main.html:47 templates/haru/portal/index.html:52
+#: templates/haru/portal/index.html:74
+msgid "Infobbs"
+msgstr "정보/공략/팁"
+
+#: templates/haru/menu_main.html:52
+msgid "Freebbs"
+msgstr "자유게시판"
+
+#: templates/haru/menu_main.html:57 templates/haru/menu_sub.html:9
+#: templates/haru/portal/index.html:103
 msgid "Recruitment"
 msgstr "파티찾기"
 
-#: templates/haru/menu_main.html:71
+#: templates/haru/menu_main.html:75
 msgid "bookmark"
 msgstr "북마크"
 
-#: templates/haru/menu_main.html:84
+#: templates/haru/menu_main.html:88
 msgid "Edit"
 msgstr "편집"
 
@@ -824,6 +844,10 @@ msgstr "내용"
 #: templates/haru/msgs/send_msg.html:33
 msgid "characters available."
 msgstr "글자까지 입력 가능합니다."
+
+#: templates/haru/portal/index.html:127 templates/haru/portal/index.html:149
+msgid "Notice"
+msgstr "공지사항"
 
 #: templates/haru/registration/logged_out.html:11
 msgid "Thanks for spending some quality time with the Web site today."

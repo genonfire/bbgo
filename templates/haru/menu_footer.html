@@ -2,7 +2,25 @@
 {% load i18n %}
 
 <li>
-    {% trans 'Send feedback' %}
+    © {{ SITE_NAME }}
+    <a href="https://github.com/genonfire/bbgo/">
+        Made by bbgo
+    </a>
+</li>
+<li>
+    <a href="{% url 'boards:show_list' table=10 page=1 %}">
+        {% trans 'Feedback' %}
+    </a>
+</li>
+<li>
+    <a href="{% url 'boards:show_list' table=8 page=1 %}">
+        {% trans 'Report' %}
+    </a>
+</li>
+<li>
+    <a href="#">
+        {% trans 'About us' %}
+    </a>
 </li>
 <li>
     <a href="mailto:{{ ADMIN_EMAIL }}">

@@ -16,7 +16,7 @@
 {% block content %}
 
 <h1>
-    <a href="{% url 'boards:show_list_0' table=article.table %}">
+    <a href="{% url 'boards:show_list' table=article.table page=1 %}">
         {{ table_name }}
     </a>
 </h1>

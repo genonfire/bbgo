@@ -14,9 +14,14 @@ class BoardTable():
     BEST_THRESHOLD = 20  # 베스트로 갈 추천 수
     VETO_THRESHOLD = 10  # 베스트로 못가게 비토할 비추 수
 
+    SAMPLE_LIMIT = 10  # 포탈에서 샘플로 보여줄 리스트 수
+    SAMPLE_LIMIT_MOBILE = 5  # 포탈 모바일용 샘플 리스트 수
+    SAMPLE_NOTICE = 3  # 포탈에서 샘플로 보여줄 공지사항 수
+
     CATEGORY = [
         None,
-        ['잡담', '질문', '팁', '정보', '홍보'],  # 0
+        ['잡담', '질문', '홍보', '클랜'],  # 1
+        ['정보', '공략', '팁'],  # 2
     ]
 
     BOARD_TABLES = [
@@ -36,11 +41,21 @@ class BoardTable():
         ['베스트', '추천을 많이 받은 게시물이 자동 등록됩니다.', 0],  # 9
         # 회원 쓰기 가능
         ['운영/문의/건의', '사이트 운영에 대한 건의나 문의, 버그신고 게시판입니다. 신고는 비밀글을 지원하는 신고게시판을 이용해 주세요.', 0],  # 10
+        ['정보/공략/팁', '각종 정보, 공략이나 팁을 공유합니다.', 2],  # 11
+        ['자유게시판', '', 1],  # 12
     ]
 
     def get_list_count(self):
         """Get list count"""
         return self.BOARD_LIST_COUNT
+
+    def get_sample_limit(self):
+        """Get sample limit"""
+        return self.SAMPLE_LIMIT, self.SAMPLE_LIMIT_MOBILE
+
+    def get_sample_notice(self):
+        """Get sample notice"""
+        return self.SAMPLE_NOTICE
 
     def get_best_threshold(self):
         """Get best threshold"""
@@ -60,7 +75,7 @@ class BoardTable():
 
     def get_table_url(self, table):
         """Get URL of the table"""
-        return reverse_lazy('boards:show_list_0', args=[table])
+        return reverse_lazy('boards:show_list', args=[table, 1])
 
     def get_table_desc(self, table):
         """Get description of the table"""

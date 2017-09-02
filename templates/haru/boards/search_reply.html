@@ -28,9 +28,7 @@
     <th class="subject">{% trans 'subject' %}</th>
     <th class="name">{% trans 'username' %}</th>
     <th class="fulldate">{% trans 'date' %}</th>
-    {% if user == reply.user or user.is_staff %}
-        <th class="delete">{% trans 'delete' %}</th>
-    {% endif %}
+    <th class="delete">{% trans 'delete' %}</th>
 </tr>
 </thead>
 <tbody>
@@ -52,13 +50,13 @@
         <td class="article_info">
             {{ reply.created_at|date:" Y-m-d" }}
         </td>
-        {% if user == reply.user or user.is_staff %}
-            <td class="article_info scrap_delete">
+        <td class="article_info scrap_delete">  
+            {% if user == reply.user or user.is_staff %}
                 <a href="javascript:delete_reply({{ reply.id }})">
                     {% trans 'delete' %}
                 </a>
-            </td>
-        {% endif %}
+            {% endif %}
+        </td>
     </tr>
     <tr class="article_info_mobile">
         <td>

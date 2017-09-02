@@ -69,6 +69,8 @@ def menu_setting():
 def menu_footer(context):
     """Footer navigation menu"""
     admin_email = context['ADMIN_EMAIL']
+    site_name = context['SITE_NAME']
     return {
+        'SITE_NAME': site_name,
         'ADMIN_EMAIL': admin_email,
     }

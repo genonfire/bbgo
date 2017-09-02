@@ -6,11 +6,6 @@ from . import views
 
 urlpatterns = [
     url(
-        r'^$',
-        views.show_list,
-        name='show'
-    ),
-    url(
         r'^(?P<table>\d+)/$',
         views.show_list,
         name='show_list_0'
