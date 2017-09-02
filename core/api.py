@@ -728,42 +728,40 @@ def join_team(request):
             return JsonResponse({'status': 'false'}, status=401)
 
         id = request.POST['id']
-        username = request.user.username
+        user = request.user
         article = get_object_or_404(Team, pk=id)
-        table = article.table
 
-        if table == 0:
-            if not request.user.profile.id1:
+        if article.table == 1:
+            if not user.profile.id1:
                 return JsonResponse({'status': 'false'}, status=412)
-        elif table == 1:
-            if not request.user.profile.id2:
+        elif article.table == 2:
+            if not user.profile.id2:
                 return JsonResponse({'status': 'false'}, status=412)
-        elif table == 2:
-            if not request.user.profile.id3:
+        elif article.table == 3:
+            if not user.profile.id3:
                 return JsonResponse({'status': 'false'}, status=412)
 
-        if article.user.username == username:
+        if article.user == user:
             return JsonResponse({'status': 'false'}, status=405)
 
         if article.slot >= article.slot_total:
             return JsonResponse({'status': 'false'}, status=406)
 
         if article.status == '1normal':
-            slots = article.slot_users.split(',')
-            slot_users = []
+            slots = article.slot_users.all()
 
-            if username not in slots:
-                if article.slot_users != '':
-                    article.slot_users += ","
-                article.slot_users += username
+            if user not in slots:
+                article.slot_users.add(user)
                 article.slot += 1
+
                 if article.slot == article.slot_total:
                     article.status = '8full'
                 article.save()
+                slot_users = article.slot_users.all()
 
-                if article.user.profile.alarm_team or (
-                        article.slot == article.slot_total and
-                        article.user.profile.alarm_full
+                if user.profile.alarm_team or (
+                    article.slot == article.slot_total and
+                    article.user.profile.alarm_full
                 ):
                     if article.user.profile.alarm_list != '':
                         article.user.profile.alarm_list += ','
@@ -776,28 +774,25 @@ def join_team(request):
                     article.user.profile.alarm = True
                     article.user.save()
 
-                slots = article.slot_users.split(',')
-                for slot in slots:
-                    slotuser = User.objects.filter(username__iexact=slot).get()
-                    slot_users.append([slotuser])
-                    if article.slot == article.slot_total:
-                        if slotuser.profile.alarm_full:
-                            if slotuser.profile.alarm_list != '':
-                                slotuser.profile.alarm_list += ','
+                if article.slot == article.slot_total:
+                    for slot_user in slot_users:
+                        if slot_user.profile.alarm_full:
+                            if slot_user.profile.alarm_list != '':
+                                slot_user.profile.alarm_list += ','
                             alarm_text = 'f:%d' % article.id
-                            slotuser.profile.alarm_list += alarm_text
-                            slotuser.profile.alarm = True
-                            slotuser.save()
+                            slot_user.profile.alarm_list += alarm_text
+                            slot_user.profile.alarm = True
+                            slot_user.save()
 
                 return render_to_response(
                     'teams/show_team.html',
                     {
-                        'user': request.user,
-                        'table': table,
+                        'user': user,
+                        'table': article.table,
                         'article_id': article.id,
                         'article_user': article.user,
                         'slot_in': article.slot,
-                        'slot_total': article.slot_total,
+                        'empty_slots': article.slot_total - article.slot,
                         'slot_users': slot_users,
                     }
                 )
@@ -807,6 +802,8 @@ def join_team(request):
             return JsonResponse({'status': 'false'}, status=410)
         elif article.status == '8full':
             return JsonResponse({'status': 'false'}, status=406)
+        elif article.status == '5hidden' or article.status == '6deleted':
+            return JsonResponse({'status': 'false'}, status=404)
         else:
             return JsonResponse({'status': 'false'}, status=400)
     else:
@@ -820,26 +817,23 @@ def leave_team(request):
             return JsonResponse({'status': 'false'}, status=401)
 
         id = request.POST['id']
-        username = request.user.username
+        user = request.user
         article = get_object_or_404(Team, pk=id)
-        table = article.table
 
-        if article.user.username == username:
+        if article.user == user:
             return JsonResponse({'status': 'false'}, status=403)
 
-        slots = article.slot_users.split(',')
-        slot_users = []
+        slots = article.slot_users.all()
 
-        if username in slots:
-            regstr = re.escape(username) + r"\b(,|)"
-            article.slot_users = re.sub(regstr, '', article.slot_users)
-            if article.slot_users and article.slot_users[-1] == ',':
-                article.slot_users = article.slot_users[:-1]
-            article.slot -= 1
+        if user in slots:
+            article.slot_users.remove(user)
+            if article.slot > 1:
+                article.slot -= 1
 
             if article.status == '8full':
                 article.status = '1normal'
             article.save()
+            slot_users = article.slot_users.all()
 
             if article.user.profile.alarm_team:
                 if article.user.profile.alarm_list != '':
@@ -849,21 +843,15 @@ def leave_team(request):
                 article.user.profile.alarm = True
                 article.user.save()
 
-            if article.slot > 1:
-                slots = article.slot_users.split(',')
-                for slot in slots:
-                    slotuser = User.objects.filter(username__iexact=slot).get()
-                    slot_users.append([slotuser])
-
             return render_to_response(
                 'teams/show_team.html',
                 {
-                    'user': request.user,
-                    'table': table,
+                    'user': user,
+                    'table': article.table,
                     'article_id': article.id,
                     'article_user': article.user,
                     'slot_in': article.slot,
-                    'slot_total': article.slot_total,
+                    'empty_slots': article.slot_total - article.slot,
                     'slot_users': slot_users,
                 }
             )
@@ -880,27 +868,25 @@ def kick_player(request):
             return JsonResponse({'status': 'false'}, status=401)
 
         id = request.POST['id']
-        kick_user = request.POST['kick_user']
-        # username = request.user.username
+        kick = request.POST['kick_user']
+        kick_user = User.objects.filter(username__iexact=kick).get()
+        user = request.user
         article = get_object_or_404(Team, pk=id)
-        table = article.table
 
-        if article.user != request.user and not request.user.is_staff:
+        if article.user != user and not user.is_staff:
             return JsonResponse({'status': 'false'}, status=403)
 
-        slots = article.slot_users.split(',')
-        slot_users = []
+        slots = article.slot_users.all()
 
         if kick_user in slots:
-            regstr = re.escape(kick_user) + r"\b(,|)"
-            article.slot_users = re.sub(regstr, '', article.slot_users)
-            if article.slot_users and article.slot_users[-1] == ',':
-                article.slot_users = article.slot_users[:-1]
-            article.slot -= 1
+            article.slot_users.remove(kick_user)
+            if article.slot > 1:
+                article.slot -= 1
 
             if article.status == '8full':
                 article.status = '1normal'
             article.save()
+            slot_users = article.slot_users.all()
 
             if article.user.profile.alarm_team:
                 if article.user.profile.alarm_list != '':
@@ -910,29 +896,22 @@ def kick_player(request):
                 article.user.profile.alarm = True
                 article.user.save()
 
-            kickuser = User.objects.filter(username__iexact=kick_user).get()
-            if kickuser.profile.alarm_list != '':
-                kickuser.profile.alarm_list += ','
+            if kick_user.profile.alarm_list != '':
+                kick_user.profile.alarm_list += ','
             alarm_text = 'k:%d' % article.id
-            kickuser.profile.alarm_list += alarm_text
-            kickuser.profile.alarm = True
-            kickuser.save()
-
-            if article.slot > 1:
-                slots = article.slot_users.split(',')
-                for slot in slots:
-                    slotuser = User.objects.filter(username__iexact=slot).get()
-                    slot_users.append([slotuser])
+            kick_user.profile.alarm_list += alarm_text
+            kick_user.profile.alarm = True
+            kick_user.save()
 
             return render_to_response(
                 'teams/show_team.html',
                 {
-                    'user': request.user,
-                    'table': table,
+                    'user': user,
+                    'table': article.table,
                     'article_id': article.id,
                     'article_user': article.user,
                     'slot_in': article.slot,
-                    'slot_total': article.slot_total,
+                    'empty_slots': article.slot_total - article.slot,
                     'slot_users': slot_users,
                 }
             )
@@ -947,13 +926,7 @@ def reload_team(request):
     if request.method == 'POST':
         id = request.POST['id']
         article = get_object_or_404(Team, pk=id)
-        slot_users = []
-
-        if article.slot > 1:
-            slots = article.slot_users.split(',')
-            for slot in slots:
-                slotuser = User.objects.filter(username__iexact=slot).get()
-                slot_users.append([slotuser])
+        slot_users = article.slot_users.all()
 
         return render_to_response(
             'teams/show_team.html',
@@ -963,7 +936,7 @@ def reload_team(request):
                 'article_id': article.id,
                 'article_user': article.user,
                 'slot_in': article.slot,
-                'slot_total': article.slot_total,
+                'empty_slots': article.slot_total - article.slot,
                 'slot_users': slot_users,
             }
         )

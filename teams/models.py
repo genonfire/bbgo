@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse_lazy
 from django.db import models
 from django.utils.translation import ugettext as _
@@ -30,8 +31,7 @@ class Team(models.Model):
     reply_count = models.IntegerField(default=0)
     slot = models.IntegerField(default=1)
     slot_total = models.IntegerField(default=6)
-    slot_users = models.TextField(default='', blank=True)
-    # slot_users = models.ManyToManyField(User)
+    slot_users = models.ManyToManyField(User, related_name="team_slot_users")
 
     def get_absolute_url(self):
         """Back to list"""

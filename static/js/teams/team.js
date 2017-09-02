@@ -17,6 +17,9 @@ function join_team(id) {
             if (data.status == 401) {
                 alert(gettext("Require login"))
             }
+            else if (data.status == 404) {
+                alert(gettext("Unable to join to deleted recruitment."))
+            }
             else if (data.status == 405) {
                 alert(gettext("Already joined."))
             }

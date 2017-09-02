@@ -211,19 +211,18 @@ def change_status(request, id, status):
                 article.status = status
                 article.save()
 
-                slots = article.slot_users.split(',')
-                for slot in slots:
-                    slotuser = User.objects.filter(username__iexact=slot).get()
-                    if slotuser.profile.alarm_full:
-                        if slotuser.profile.alarm_list != '':
-                            slotuser.profile.alarm_list += ','
+                slot_users = article.slot_users.all()
+                for slot_user in slot_users:
+                    if slot_user.profile.alarm_full:
+                        if slot_user.profile.alarm_list != '':
+                            slot_user.profile.alarm_list += ','
                         if status == '8full':
                             alarm_text = 'f:%d' % article.id
                         else:
                             alarm_text = 'c:%d' % article.id
-                        slotuser.profile.alarm_list += alarm_text
-                        slotuser.profile.alarm = True
-                        slotuser.save()
+                        slot_user.profile.alarm_list += alarm_text
+                        slot_user.profile.alarm = True
+                        slot_user.save()
         return redirect(article.get_article_url())
     else:
         return error_page(request)

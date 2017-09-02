@@ -12,7 +12,11 @@
         <table>
             <tr>
                 <td class="portrait">
-                    <img src="{{ article_user|portrait }}">
+                    {% if article_user.profile.portrait %}
+                        <img src="{{ article_user.profile.portrait.url }}">
+                    {% else %}
+                        <img src="{% static 'icons/account30.png' %}">
+                    {% endif %}
                 </td>
                 <td>
                     {{ article_user|nickname:user.is_authenticated|safe }}
@@ -23,37 +27,48 @@
             </tr>
         </table>
     </div>
-    {% with slot_total|add:'-1' as total %}
-        {% for slot in 0|range:total %}
+    {% for slot_user in slot_users %}
+        <div class="slot">
+            <table>
+                <tr>
+                    <td class="portrait">
+                        {% if slot_user.profile.portrait %}
+                            <img src="{{ slot_user.profile.portrait.url }}">
+                        {% else %}
+                            <img src="{% static 'icons/account30.png' %}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {{ slot_user|nickname:user.is_authenticated|safe }}
+                        <span class="platform_id">
+                            {% if slot_user == user %}
+                            -
+                                <a href="javascript:leave_team('{{ article_id }}')">
+                                    {{ slot_user|id:table }}
+                                </a>
+                            {% elif user == article_user or user.is_staff %}
+                                <a href="javascript:kick_player('{{ article_id }}', '{{ slot_user }}')">
+                                    {{ slot_user|id:table }}
+                                </a>
+                            {% else %}
+                            - {{ slot_user|id:table }}
+                            {% endif %}
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    {% endfor %}
+    {% if empty_slots %}
+        {% for slot in 0|range:empty_slots %}
             <div class="slot">
                 <table>
                     <tr>
-                        {% if slot < slot_in|add:'-1' %}
-                            <td class="portrait">
-                                <img src="{{ slot_users|pick_first:slot|portrait }}">
-                            </td>
-                            <td>
-                                {{ slot_users|pick_first:slot|nickname:user.is_authenticated|safe }}
-                                <span class="platform_id">
-                                    {% if slot_users|pick_first:slot == user %}
-                                    -
-                                        <a href="javascript:leave_team('{{ article_id }}')">
-                                            {{ slot_users|pick_first:slot|id:table }}
-                                        </a>
-                                    {% elif user == article_user or user.is_staff %}
-                                        <a href="javascript:kick_player('{{ article_id }}', '{{ slot_users|pick_first:slot }}')">
-                                            {{ slot_users|pick_first:slot|id:table }}
-                                        </a>
-                                    {% else %}
-                                    - {{ slot_users|pick_first:slot|id:table }}
-                                    {% endif %}
-                                </span>
-                            </td>
-                        {% elif article_user == user %}
+                        {% if article_user == user %}
                             <td>
                                 {% trans 'empty slot.' %}
                             </td>
-                        {%else %}
+                        {% else %}
                             <td class="tdlink" data-href="javascript:join_team('{{ article_id }}')" align="center">
                                 {% trans 'empty slot.' %}
                             </td>
@@ -62,7 +77,7 @@
                 </table>
             </div>
         {% endfor %}
-    {% endwith %}
+    {% endif %}
 </div>
 
 <script>

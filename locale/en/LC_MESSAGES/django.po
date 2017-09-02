@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-02 01:43+0900\n"
+"POT-Creation-Date: 2017-09-02 14:23+0900\n"
 "PO-Revision-Date: 2017-07-13 14:03+0900\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: accounts/views.py:48 accounts/views.py:112 core/api.py:437
+#: accounts/views.py:48 accounts/views.py:112 core/api.py:438
 msgid "Saved successfully."
 msgstr ""
 
@@ -45,7 +45,7 @@ msgid "Sorry. Please try again later."
 msgstr ""
 
 #: boards/models.py:12 boards/models.py:48 boards/models.py:65
-#: msgs/models.py:12 teams/models.py:12 teams/models.py:47 teams/models.py:62
+#: msgs/models.py:12 teams/models.py:13 teams/models.py:47 teams/models.py:62
 msgid "status_normal"
 msgstr "Noraml"
 
@@ -59,22 +59,26 @@ msgid "status_notice"
 msgstr "Notice"
 
 #: boards/models.py:15 boards/models.py:54
+#: templates/haru/boards/show_list.html:161
 msgid "status_warning"
 msgstr "Warning"
 
 #: boards/models.py:16 boards/models.py:56 boards/models.py:66
-#: boards/views.py:118 msgs/models.py:14 teams/models.py:13 teams/models.py:49
-#: teams/models.py:63
+#: boards/views.py:120 msgs/models.py:14 teams/models.py:14 teams/models.py:49
+#: teams/models.py:63 templates/haru/boards/show_list.html:135
+#: templates/haru/boards/show_list.html:138
+#: templates/haru/teams/recruitment.html:65
+#: templates/haru/teams/recruitment.html:68
 msgid "status_hidden"
 msgstr "Hidden"
 
 #: boards/models.py:17 boards/models.py:58 boards/models.py:67
-#: boards/views.py:121 msgs/models.py:15 teams/models.py:14 teams/models.py:51
+#: boards/views.py:123 msgs/models.py:15 teams/models.py:15 teams/models.py:51
 #: teams/models.py:64
 msgid "status_deleted"
 msgstr "Deleted"
 
-#: boards/views.py:165 teams/views.py:117
+#: boards/views.py:167 teams/views.py:117
 msgid "Wrong status from user."
 msgstr ""
 
@@ -141,14 +145,14 @@ msgstr ""
 msgid "Cannot send message to yourself."
 msgstr ""
 
-#: teams/models.py:15 teams/models.py:53
+#: teams/models.py:16 teams/models.py:53
 #, fuzzy
 #| msgid "status_deleted"
 msgid "status_canceled"
 msgstr "Deleted"
 
-#: teams/models.py:16 teams/models.py:55
-#: templates/haru/teams/recruitment.html:73
+#: teams/models.py:17 teams/models.py:55
+#: templates/haru/teams/recruitment.html:92
 #: templates/haru/teams/show_recruitment.html:105
 #, fuzzy
 #| msgid "status_normal"
@@ -422,7 +426,7 @@ msgstr ""
 #: templates/haru/accounts/scrap.html:25
 #: templates/haru/boards/search_reply.html:28
 #: templates/haru/boards/show_list.html:48
-#: templates/haru/boards/show_list.html:205
+#: templates/haru/boards/show_list.html:232
 #: templates/haru/teams/recruitment.html:48
 msgid "subject"
 msgstr ""
@@ -598,12 +602,12 @@ msgid "Search reply"
 msgstr ""
 
 #: templates/haru/boards/search_reply.html:91
-#: templates/haru/boards/show_list.html:211
+#: templates/haru/boards/show_list.html:238
 msgid "write user"
 msgstr ""
 
 #: templates/haru/boards/search_reply.html:95
-#: templates/haru/boards/show_list.html:215
+#: templates/haru/boards/show_list.html:242
 msgid "search"
 msgstr ""
 
@@ -622,14 +626,14 @@ msgstr ""
 
 #: templates/haru/boards/show_article.html:88
 #: templates/haru/boards/show_list.html:51
-#: templates/haru/boards/show_list.html:169
+#: templates/haru/boards/show_list.html:196
 msgid "like"
 msgstr ""
 
 #: templates/haru/boards/show_article.html:93
 #: templates/haru/boards/show_list.html:52
 #: templates/haru/boards/show_list.html:107
-#: templates/haru/boards/show_list.html:179
+#: templates/haru/boards/show_list.html:206
 msgid "dislike"
 msgstr ""
 
@@ -666,13 +670,13 @@ msgstr ""
 
 #: templates/haru/boards/show_list.html:50
 #: templates/haru/boards/show_list.html:110
-#: templates/haru/boards/show_list.html:182
+#: templates/haru/boards/show_list.html:209
 #: templates/haru/teams/recruitment.html:50
-#: templates/haru/teams/recruitment.html:101
+#: templates/haru/teams/recruitment.html:121
 msgid "view"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:208
+#: templates/haru/boards/show_list.html:235
 msgid "subject+content"
 msgstr ""
 
@@ -958,7 +962,7 @@ msgid ""
 "your user information. Press your ID once again to leave firetime."
 msgstr ""
 
-#: templates/haru/teams/show_team.html:54
-#: templates/haru/teams/show_team.html:58
+#: templates/haru/teams/show_team.html:69
+#: templates/haru/teams/show_team.html:73
 msgid "empty slot."
 msgstr ""

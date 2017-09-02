@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('table', models.IntegerField(default=0)),
-                ('status', models.CharField(default=b'1normal', max_length=10, choices=[(b'2temp', '\uc784\uc2dc\uc800\uc7a5'), (b'6deleted', '\uc0ad\uc81c\ub428'), (b'3notice', '\uacf5\uc9c0'), (b'1normal', '\uc77c\ubc18'), (b'5hidden', '\uc228\uae40'), (b'4warning', '\uc2e0\uace0\uc811\uc218')])),
+                ('status', models.CharField(default=b'1normal', max_length=10, choices=[(b'2temp', '\uc784\uc2dc\uc800\uc7a5'), (b'6deleted', '\uc0ad\uc81c\ub428'), (b'3notice', '\uacf5\uc9c0'), (b'5hidden', '\uad00\ub9ac\uc790 \uc0ad\uc81c'), (b'1normal', '\uc77c\ubc18'), (b'4warning', '\uc2e0\uace0\uc811\uc218')])),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('modified_at', models.DateTimeField(auto_now_add=True)),
                 ('ip', models.GenericIPAddressField()),
@@ -41,7 +41,7 @@ class Migration(migrations.Migration):
                 ('article_id', models.IntegerField(default=0)),
                 ('reply_id', models.IntegerField(default=0)),
                 ('reply_to', models.CharField(default=b'', max_length=150, blank=True)),
-                ('status', models.CharField(default=b'1normal', max_length=10, choices=[(b'6deleted', '\uc0ad\uc81c\ub428'), (b'1normal', '\uc77c\ubc18'), (b'5hidden', '\uc228\uae40')])),
+                ('status', models.CharField(default=b'1normal', max_length=10, choices=[(b'6deleted', '\uc0ad\uc81c\ub428'), (b'5hidden', '\uad00\ub9ac\uc790 \uc0ad\uc81c'), (b'1normal', '\uc77c\ubc18')])),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('modified_at', models.DateTimeField(auto_now_add=True)),
                 ('ip', models.GenericIPAddressField()),
