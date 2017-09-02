@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-02 19:28+0900\n"
-"PO-Revision-Date: 2017-09-02 19:30+0900\n"
+"POT-Creation-Date: 2017-09-02 20:35+0900\n"
+"PO-Revision-Date: 2017-09-02 20:52+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -60,7 +60,7 @@ msgstr "정말로 탈퇴하시겠습니까?"
 
 #: static/js/accounts/idmenu.js:26
 msgid "user info"
-msgstr "사용자 정보"
+msgstr "회원 정보"
 
 #: static/js/accounts/idmenu.js:28
 msgid "Show user article"
@@ -167,7 +167,6 @@ msgid "submit"
 msgstr "등록"
 
 #: static/js/boards/boards_reply.js:211 static/js/teams/teams_reply.js:131
-#| msgid "Are you sure to delete this article?"
 msgid "Are you sure to restore this article?"
 msgstr "정말로 복구 하시겠습니까?"
 
@@ -212,8 +211,9 @@ msgid "Already joined."
 msgstr "이미 참여중입니다."
 
 #: static/js/teams/team.js:27
-msgid "Fireteam full."
-msgstr "파이어팀 모집이 마감되었습니다."
+#| msgid "Fireteam full."
+msgid "Party full."
+msgstr "파티 모집이 마감되었습니다."
 
 #: static/js/teams/team.js:30
 msgid "Recruitment canceled."
@@ -224,29 +224,35 @@ msgid "ID for this platform must exist in your user information."
 msgstr "회원정보에 해당 기종의 아이디가 지정되어 있어야 슬롯에 참여할 수 있습니다."
 
 #: static/js/teams/team.js:43
-msgid "Are you sure to leave this fireteam?"
-msgstr "파이어팀을 떠나시겠습니까?"
+#| msgid "Are you sure to leave this fireteam?"
+msgid "Are you sure to leave this party?"
+msgstr "파티를 떠나시겠습니까?"
 
 #: static/js/teams/team.js:63
 msgid "Please don't leave your team behind."
 msgstr "파이어팀을 두고 떠나지 마세요."
 
 #: static/js/teams/team.js:66
-msgid "You are not a member of this fireteam."
-msgstr "이 파이어팀의 일원이 아닙니다."
+#| msgid "You are not a member of this fireteam."
+msgid "You are not a member of this party."
+msgstr "이 파티의 일원이 아닙니다."
 
 #: static/js/teams/team.js:77
-msgid "Are you sure to kick this guardian?"
+#| msgid "Are you sure to kick this guardian?"
+msgid "Are you sure to kick this player?"
 msgstr "정말로 강퇴하시겠습니까?"
 
 #: static/js/teams/team.js:98
-msgid "You are not the fireteam leader."
-msgstr "파이어팀의 리더가 아닙니다."
+#| msgid "You are not the fireteam leader."
+msgid "You are not the party leader."
+msgstr "파티의 리더가 아닙니다."
 
 #: static/js/teams/team.js:101
-msgid "That guardian is not a member of this fireteam."
-msgstr "그 가디언은 파이어팀 일원이 아닙니다."
+#| msgid "That guardian is not a member of this fireteam."
+msgid "That player is not a member of this party."
+msgstr "파티의 일원이 아닙니다."
 
 #: static/js/teams/teams_reply.js:199
-msgid "Show new guardians"
-msgstr "신규 참여 가디언"
+#| msgid "Show new replies"
+msgid "Show new player"
+msgstr "새로 참여한 플레이어"

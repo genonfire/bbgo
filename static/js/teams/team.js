@@ -24,7 +24,7 @@ function join_team(id) {
                 alert(gettext("Already joined."))
             }
             else if (data.status == 406) {
-                alert(gettext("Fireteam full."))
+                alert(gettext("Party full."))
             }
             else if (data.status == 410) {
                 alert(gettext("Recruitment canceled."))
@@ -40,7 +40,7 @@ function join_team(id) {
 }
 
 function leave_team(id) {
-    if (confirm(gettext("Are you sure to leave this fireteam?"))) {
+    if (confirm(gettext("Are you sure to leave this party?"))) {
         $.ajaxSetup({
             beforeSend: function(xhr, settings) {
                 xhr.setRequestHeader("X-CSRFToken", $("input[name=csrfmiddlewaretoken]").val());
@@ -63,7 +63,7 @@ function leave_team(id) {
                     alert(gettext("Please don't leave your team behind."))
                 }
                 else if (data.status == 404) {
-                    alert(gettext("You are not a member of this fireteam."))
+                    alert(gettext("You are not a member of this party."))
                 }
                 else {
                     alert(gettext("Error!"));
@@ -74,7 +74,7 @@ function leave_team(id) {
 }
 
 function kick_player(id, user) {
-    if (confirm(gettext("Are you sure to kick this guardian?"))) {
+    if (confirm(gettext("Are you sure to kick this player?"))) {
         $.ajaxSetup({
             beforeSend: function(xhr, settings) {
                 xhr.setRequestHeader("X-CSRFToken", $("input[name=csrfmiddlewaretoken]").val());
@@ -95,10 +95,10 @@ function kick_player(id, user) {
                     alert(gettext("Require login"))
                 }
                 else if (data.status == 403) {
-                    alert(gettext("You are not the fireteam leader."))
+                    alert(gettext("You are not the party leader."))
                 }
                 else if (data.status == 404) {
-                    alert(gettext("That guardian is not a member of this fireteam."))
+                    alert(gettext("That player is not a member of this party."))
                 }
                 else {
                     alert(gettext("Error!"));

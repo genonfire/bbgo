@@ -5,7 +5,7 @@
 {% load pick %}
 
 <div class="slot_notice">
-    {% trans 'To join fireteam, claim an empty slot. ID for this platform must exist in your user information. Press your ID once again to leave firetime.' %}
+    {% trans 'To join party, claim an empty slot. ID for this platform must exist in your user information. Press your ID once again to leave firetime.' %}
 </div>
 <div class="slot_container">
     <div class="slot">
@@ -41,17 +41,17 @@
                     <td>
                         {{ slot_user|nickname:user.is_authenticated|safe }}
                         <span class="platform_id">
-                            {% if slot_user == user %}
                             -
+                            {% if slot_user == user %}
                                 <a href="javascript:leave_team('{{ article_id }}')">
                                     {{ slot_user|id:table }}
                                 </a>
                             {% elif user == article_user or user.is_staff %}
-                                <a href="javascript:kick_player('{{ article_id }}', '{{ slot_user }}')">
+                                <a href="javascript:kick_player('{{ article_id }}', '{{ slot_user }}')" title="Kick player">
                                     {{ slot_user|id:table }}
                                 </a>
                             {% else %}
-                            - {{ slot_user|id:table }}
+                                {{ slot_user|id:table }}
                             {% endif %}
                         </span>
                     </td>

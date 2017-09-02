@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-02 19:28+0900\n"
-"PO-Revision-Date: 2017-09-02 19:29+0900\n"
+"POT-Creation-Date: 2017-09-02 20:35+0900\n"
+"PO-Revision-Date: 2017-09-02 20:52+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -138,7 +138,7 @@ msgstr "읽음"
 
 #: msgs/views.py:102 msgs/views.py:156
 msgid "User does not exist."
-msgstr "존재하지 않는 사용자입니다."
+msgstr "존재하지 않는 회원입니다."
 
 #: msgs/views.py:106 msgs/views.py:160
 msgid "Cannot send message to yourself."
@@ -190,24 +190,29 @@ msgid "Reply has a reply."
 msgstr "댓글에 댓글이 달렸습니다."
 
 #: templates/haru/accounts/alarm_list.html:65
-msgid "A guardian joined your fireteam."
-msgstr "파이어팀에 참여한 가디언이 있습니다."
+#| msgid "A guardian joined your fireteam."
+msgid "A player joined your party."
+msgstr "파티에 참가자가 있습니다."
 
 #: templates/haru/accounts/alarm_list.html:67
-msgid "Fireteam you joined is now full."
-msgstr "파이어팀 모집이 마감되었습니다."
+#| msgid "Fireteam you joined is now full."
+msgid "The party you joined is now full."
+msgstr "파티 모집이 마감되었습니다."
 
 #: templates/haru/accounts/alarm_list.html:69
-msgid "Fireteam you joined is canceled."
-msgstr "파이어팀 모집이 취소되었습니다."
+#| msgid "Fireteam you joined is canceled."
+msgid "The party you joined is canceled."
+msgstr "파티 모집이 취소되었습니다."
 
 #: templates/haru/accounts/alarm_list.html:71
-msgid "A guardian leaved your fireteam."
-msgstr "파이어팀을 떠난 가디언이 있습니다."
+#| msgid "A guardian leaved your fireteam."
+msgid "A player leaved your party."
+msgstr "파티를 누군가 떠났습니다."
 
 #: templates/haru/accounts/alarm_list.html:73
-msgid "You are kicked from fireteam."
-msgstr "파이어팀에서 강제로 나갔습니다."
+#| msgid "You are kicked from fireteam."
+msgid "You are kicked from party."
+msgstr "파티에서 강제로 나갔습니다."
 
 #: templates/haru/accounts/alarm_list.html:85
 #, python-format
@@ -262,11 +267,11 @@ msgstr "저장"
 #: templates/haru/accounts/user_info.html:9
 #: templates/haru/menu_setting.html:11
 msgid "User info"
-msgstr "사용자 정보"
+msgstr "회원 정보"
 
 #: templates/haru/accounts/edit_user_info.html:16
 msgid "Your private information."
-msgstr "사용자 개인 정보입니다."
+msgstr "회원 개인 정보입니다."
 
 #: templates/haru/accounts/edit_user_info.html:24
 msgid "Community standards"
@@ -458,7 +463,7 @@ msgstr "설정"
 
 #: templates/haru/accounts/setting.html:14
 msgid "Settings for each user."
-msgstr "사용자 설정"
+msgstr "회원별 개인 설정"
 
 #: templates/haru/accounts/setting.html:22
 msgid "Alarm setting"
@@ -946,28 +951,34 @@ msgid "slot"
 msgstr "슬롯"
 
 #: templates/haru/teams/edit_recruitment.html:60
-msgid "Total guardians needed include yourself."
-msgstr "본인을 포함한 파이어팀의 가디언 수"
+#| msgid "Total guardians needed include yourself."
+msgid "Total players needed include yourself."
+msgstr "본인을 포함한 파티의 플레이어 수"
 
 #: templates/haru/teams/show_recruitment.html:65
-msgid "Reload fireteam"
-msgstr "파이어팀 새로고침"
+#| msgid "Reload fireteam"
+msgid "Reload party"
+msgstr "파티 새로고침"
 
 #: templates/haru/teams/show_recruitment.html:70
-msgid "Show new guardians"
-msgstr "새로 참여한 가디언"
+#| msgid "Show new replies"
+msgid "Show new players"
+msgstr "새로 참여한 플레이어"
 
 #: templates/haru/teams/show_recruitment.html:91
 msgid "resume recruitment"
 msgstr "모집 재개"
 
 #: templates/haru/teams/show_team.html:8
+#| msgid ""
+#| "To join fireteam, claim an empty slot. ID for this platform must exist in "
+#| "your user information. Press your ID once again to leave firetime."
 msgid ""
-"To join fireteam, claim an empty slot. ID for this platform must exist in "
-"your user information. Press your ID once again to leave firetime."
+"To join party, claim an empty slot. ID for this platform must exist in your "
+"user information. Press your ID once again to leave firetime."
 msgstr ""
-"빈 자리를 선택하면 파이어팀에 참여합니다. 회원정보에 해당 기종의 아이디가 지정되어 있어야 슬롯에 참여할 수 있습니다. 아이디를 한 번 "
-"더 누르면 파이어팀을 떠납니다."
+"빈 자리를 선택하면 파티에 참여합니다. 회원정보에 해당 기종의 아이디가 지정되어 있어야 참여할 수 있습니다. 아이디를 한 번 더 누르면 "
+"파티를 떠납니다."
 
 #: templates/haru/teams/show_team.html:69
 #: templates/haru/teams/show_team.html:73

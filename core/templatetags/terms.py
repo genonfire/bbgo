@@ -9,7 +9,8 @@ register = template.Library()
 def show_terms():
     """Show Terms of service and Privacy Policy"""
     return {
-        "SITE_NAME": settings.SITE_NAME
+        "SITE_NAME": settings.SITE_NAME,
+        "ADMIN_EMAIL": settings.ADMIN_EMAIL,
     }
 
 

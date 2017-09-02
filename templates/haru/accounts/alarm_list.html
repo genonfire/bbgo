@@ -62,15 +62,15 @@
                                 <span>
                             {% endif %}
                             {% if alarm.0 == 't' %}
-                                {% trans 'A guardian joined your fireteam.' %}
+                                {% trans 'A player joined your party.' %}
                             {% elif alarm.0 == 'f' %}
-                                {% trans 'Fireteam you joined is now full.' %}
+                                {% trans 'The party you joined is now full.' %}
                             {% elif alarm.0 == 'c' %}
-                                {% trans 'Fireteam you joined is canceled.' %}
+                                {% trans 'The party you joined is canceled.' %}
                             {% elif alarm.0 == 'l' %}
-                                {% trans 'A guardian leaved your fireteam.' %}
+                                {% trans 'A player leaved your party.' %}
                             {% elif alarm.0 == 'k' %}
-                                {% trans 'You are kicked from fireteam.' %}
+                                {% trans 'You are kicked from party.' %}
                             {% endif %}
                             </span>
                         </a>

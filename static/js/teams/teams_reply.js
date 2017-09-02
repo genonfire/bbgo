@@ -196,7 +196,7 @@ function get_reply_no() {
             }
             if (new_slot != 0) {
                 $('#reload_team').hide();
-                newtext = gettext("Show new guardians") + ': ' + new_slot;
+                newtext = gettext("Show new player") + ': ' + new_slot;
                 $('#show_new_team a').text(newtext);
                 $('#show_new_team').show();
             }

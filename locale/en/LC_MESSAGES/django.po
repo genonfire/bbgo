@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-02 19:28+0900\n"
+"POT-Creation-Date: 2017-09-02 20:35+0900\n"
 "PO-Revision-Date: 2017-09-02 19:32+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -132,7 +132,6 @@ msgid "Wrong access"
 msgstr ""
 
 #: msgs/models.py:13
-#| msgid "status_normal"
 msgid "status_read"
 msgstr "Read"
 
@@ -145,14 +144,12 @@ msgid "Cannot send message to yourself."
 msgstr ""
 
 #: teams/models.py:16 teams/models.py:53
-#| msgid "status_deleted"
 msgid "status_canceled"
 msgstr "Canceled"
 
 #: teams/models.py:17 teams/models.py:55
 #: templates/haru/teams/recruitment.html:92
 #: templates/haru/teams/show_recruitment.html:105
-#| msgid "status_normal"
 msgid "status_full"
 msgstr "Full"
 
@@ -192,23 +189,23 @@ msgid "Reply has a reply."
 msgstr ""
 
 #: templates/haru/accounts/alarm_list.html:65
-msgid "A guardian joined your fireteam."
+msgid "A player joined your party."
 msgstr ""
 
 #: templates/haru/accounts/alarm_list.html:67
-msgid "Fireteam you joined is now full."
+msgid "The party you joined is now full."
 msgstr ""
 
 #: templates/haru/accounts/alarm_list.html:69
-msgid "Fireteam you joined is canceled."
+msgid "The party you joined is canceled."
 msgstr ""
 
 #: templates/haru/accounts/alarm_list.html:71
-msgid "A guardian leaved your fireteam."
+msgid "A player leaved your party."
 msgstr ""
 
 #: templates/haru/accounts/alarm_list.html:73
-msgid "You are kicked from fireteam."
+msgid "You are kicked from party."
 msgstr ""
 
 #: templates/haru/accounts/alarm_list.html:85
@@ -518,8 +515,8 @@ msgstr ""
 #: templates/haru/accounts/setting.html:91
 msgid ""
 "Your AdSense will be shown on information and best articles by profit "
-"sharing system. To use this feature please fill followings from your AdSense"
-" code."
+"sharing system. To use this feature please fill followings from your AdSense "
+"code."
 msgstr ""
 
 #: templates/haru/accounts/signup.html:14 templates/haru/error.html:4
@@ -831,8 +828,8 @@ msgstr ""
 
 #: templates/haru/registration/password_change_form.html:13
 msgid ""
-"Please enter your old password, for security's sake, and then enter your new"
-" password twice so we can verify you typed it in correctly."
+"Please enter your old password, for security's sake, and then enter your new "
+"password twice so we can verify you typed it in correctly."
 msgstr ""
 
 #: templates/haru/registration/password_reset_complete.html:4
@@ -944,15 +941,15 @@ msgid "slot"
 msgstr ""
 
 #: templates/haru/teams/edit_recruitment.html:60
-msgid "Total guardians needed include yourself."
+msgid "Total players needed include yourself."
 msgstr ""
 
 #: templates/haru/teams/show_recruitment.html:65
-msgid "Reload fireteam"
+msgid "Reload party"
 msgstr ""
 
 #: templates/haru/teams/show_recruitment.html:70
-msgid "Show new guardians"
+msgid "Show new players"
 msgstr ""
 
 #: templates/haru/teams/show_recruitment.html:91
@@ -961,8 +958,8 @@ msgstr ""
 
 #: templates/haru/teams/show_team.html:8
 msgid ""
-"To join fireteam, claim an empty slot. ID for this platform must exist in "
-"your user information. Press your ID once again to leave firetime."
+"To join party, claim an empty slot. ID for this platform must exist in your "
+"user information. Press your ID once again to leave firetime."
 msgstr ""
 
 #: templates/haru/teams/show_team.html:69

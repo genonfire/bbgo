@@ -202,7 +202,7 @@ def change_status(request, id, status):
     """Change status"""
     article = get_object_or_404(Team, pk=id)
 
-    if request.user == article.user or request.user.is_staff():
+    if request.user == article.user or request.user.is_staff:
         if article.status != status:
             if status == '1normal':
                 article.status = status

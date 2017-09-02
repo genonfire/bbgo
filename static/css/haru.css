@@ -221,10 +221,11 @@ table.board tr.article_info_mobile span.scrap_delete a {vertical-align:baseline;
 .reply_body {border-bottom:1px solid #999;}
 .reply_title {height:2.4em;background:#F7F7F7;padding:.2em;vertical-align:middle;font-size:.9em;}
 .reply_title span {margin-right:.3em;font-size:.9em;color:#11223d;}
+.reply_title span a {vertical-align:baseline;}
 .reply_title span.reply_username {font-weight:bold;}
 .reply_title span.reply_date {color:#999;}
-.reply_title span.reply_delete a {vertical-align:baseline;color:#E54F44;}
-.reply_title span.reply_restore a {vertical-align:baseline;color:#32A1FD;}
+.reply_title span.reply_delete a {color:#E54F44;}
+.reply_title span.reply_restore a {color:#32A1FD;}
 .reply_body_owner {background:#F4F5F9;}
 .reply_title_owner {background:#EFF0F4;}
 .reply_self {border:1px solid #11223D;}
@@ -332,14 +333,13 @@ table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 .slot_notice {width:90%;max-width:600px;margin-bottom:.5em;color:#666;font-size:.9em;}
 .slot_container {width:95%;max-width:500px;padding:.2em;background:#F6F6F6;}
 .slot {margin:.5em;height:35px;background:#EDEDED;text-align:left;}
-/*.slot a {color:#F2A43F;}*/
-/*.slot a:hover {color:#fff;}*/
 .slot img {width:30px;height:30px;}
 .slot table {width:100%;}
 .slot td {padding:.1em;}
 .slot td.portrait {width:30px;padding-right:.5em;}
 .slot td.tdlink {cursor:pointer;}
-.slot span {margin-left:.5em;letter-spacing:.1em;}
+.slot span {margin-left:.5em;letter-spacing:.1em;vertical-align:middle;}
+.slot span a {vertical-align:baseline;}
 .slot span.platform_id a {color:#333;}
 .slot span.platform_id a:hover {color:#D07D2F;}
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-02 19:28+0900\n"
+"POT-Creation-Date: 2017-09-02 20:35+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -209,7 +209,7 @@ msgid "Already joined."
 msgstr ""
 
 #: static/js/teams/team.js:27
-msgid "Fireteam full."
+msgid "Party full."
 msgstr ""
 
 #: static/js/teams/team.js:30
@@ -221,7 +221,7 @@ msgid "ID for this platform must exist in your user information."
 msgstr ""
 
 #: static/js/teams/team.js:43
-msgid "Are you sure to leave this fireteam?"
+msgid "Are you sure to leave this party?"
 msgstr ""
 
 #: static/js/teams/team.js:63
@@ -229,21 +229,21 @@ msgid "Please don't leave your team behind."
 msgstr ""
 
 #: static/js/teams/team.js:66
-msgid "You are not a member of this fireteam."
+msgid "You are not a member of this party."
 msgstr ""
 
 #: static/js/teams/team.js:77
-msgid "Are you sure to kick this guardian?"
+msgid "Are you sure to kick this player?"
 msgstr ""
 
 #: static/js/teams/team.js:98
-msgid "You are not the fireteam leader."
+msgid "You are not the party leader."
 msgstr ""
 
 #: static/js/teams/team.js:101
-msgid "That guardian is not a member of this fireteam."
+msgid "That player is not a member of this party."
 msgstr ""
 
 #: static/js/teams/teams_reply.js:199
-msgid "Show new guardians"
+msgid "Show new player"
 msgstr ""
