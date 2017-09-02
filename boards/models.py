@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse_lazy
 from django.db import models
 from django.utils.translation import ugettext as _
@@ -27,11 +28,12 @@ class Board(models.Model):
     subject = models.CharField(max_length=41)
     content = models.TextField()
     view_count = models.IntegerField(default=0)
+    reply_count = models.IntegerField(default=0)
     like_count = models.IntegerField(default=0)
     dislike_count = models.IntegerField(default=0)
-    reply_count = models.IntegerField(default=0)
-    like_users = models.TextField(default='', blank=True)
-    dislike_users = models.TextField(default='', blank=True)
+    like_users = models.ManyToManyField(User, related_name="board_like_users")
+    dislike_users = models.ManyToManyField(
+        User, related_name="board_dislike_users")
     reference = models.CharField(max_length=1855, default='', blank=True)
 
     def get_absolute_url(self):
@@ -80,5 +82,6 @@ class Reply(models.Model):
     image = models.ImageField(upload_to="reply-images/%Y-%m-%d/", blank=True)
     like_count = models.IntegerField(default=0)
     dislike_count = models.IntegerField(default=0)
-    like_users = models.TextField(default='', blank=True)
-    dislike_users = models.TextField(default='', blank=True)
+    like_users = models.ManyToManyField(User, related_name="reply_like_users")
+    dislike_users = models.ManyToManyField(
+        User, related_name="reply_dislike_users")

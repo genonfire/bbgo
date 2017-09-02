@@ -26,7 +26,7 @@ img.portrait {width:150px;height:150px;}
 .buttons span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
 
 /* Header */
-#header {width:100%;height:2.5em;float-left;position:fixed;background:rgba(51,54,59,0.80);color:#EEEEEE;z-index:99995;}
+#header {width:100%;height:2.5em;float-left;position:fixed;background:rgba(51,54,59,0.80);color:#EEEEEE;z-index:99980;}
 .head_container {width:800px;padding-left:7px;}
 .head_container span {height:100%;vertical-align:baseline;}
 .head_container div {height:2.5em;padding-top:.2em;}
@@ -207,10 +207,13 @@ table.board tr.article_info_mobile span.scrap_delete a {vertical-align:baseline;
 .article_view_buttons span.delete a:hover {background:#FF574F;color:#fff;}
 
 .popup_frame {height:auto;min-height:2em;padding:.5em;background-color:#fff;font-size:.8em;display:block;z-index:99999;color:#000;box-shadow:0 0 3px 3px #999;}
-.popup_frame span {margin:.1em;display:inline-block;height:1.8em;padding:0 .15em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:1.9em;vertical-align:center;}
-.popup_frame span a:hover {background:gray;}
+.popup_frame span {margin:.1em;display:inline-block;height:1.9em;padding:.1em;padding-top:0;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;vertical-align:middle;}
+.popup_frame span a:hover {background:#CCC;vertical-align:middle;}
 .popup_frame table tr:hover {background-color:#f6f6f6;}
 .popup_frame table td a:hover {text-decoration:none;color:#E54F44;}
+
+#like_users_popup {position:absolute;width:280px;}
+.like_users_title {background:#EDEDED;color:#000;text-align:center;margin-bottom:.5em;padding:.1em;}
 
 /* reply */
 .reply_header {height:2.8em;margin-top:.5em;margin-bottom:1em;background:#F9F9F9;padding:.3em;border:1px solid #999;border-radius:.5em;font-size:.9em;line-height:2em;vertical-align:middle;}
@@ -221,6 +224,7 @@ table.board tr.article_info_mobile span.scrap_delete a {vertical-align:baseline;
 .reply_title span.reply_username {font-weight:bold;}
 .reply_title span.reply_date {color:#999;}
 .reply_title span.reply_delete a {vertical-align:baseline;color:#E54F44;}
+.reply_title span.reply_restore a {vertical-align:baseline;color:#32A1FD;}
 .reply_body_owner {background:#F4F5F9;}
 .reply_title_owner {background:#EFF0F4;}
 .reply_self {border:1px solid #11223D;}
@@ -231,6 +235,7 @@ span.open_reply a {color:#409BD1;}
 .reply_image {display:inline-block;padding:.5em;}
 .reply_image img {max-width:100%;max-height:100%;}
 .reply_content {padding:.5em;}
+.deleted_reply {font-size:.8em;color:#32A1FD;}
 .reload_reply, .reload_team {height:3em;margin:.5em;padding:.5em;text-align:center;vertical-align:middle;font-size:.9em;}
 .reload_reply span#show_new_reply a {background:#11223d;color:#fff;}
 .reload_team span#show_new_team a {background:#11223d;color:#fff;}
@@ -289,8 +294,8 @@ table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 #sort_items img {vertical-align:baseline;}
 
 /* alarm */
-#alarm_list {position:absolute;top:5px;right:180px;width:600px;height:60vh;overflow-y:scroll;min-height:2em;padding:.5em;background-color:#fff;font-size:.8em;display:block;z-index:99998;color:#000;box-shadow:0 0 3px 3px #D3908B;}
-#alarm_list_mobile {position:absolute;top:0px;right:10px;width:90%;height:60vh;overflow-y:scroll;min-height:2em;padding:.5em;background-color:#fff;font-size:.8em;display:block;z-index:99998;color:#000;box-shadow:0 0 3px 3px #D3908B;}
+#alarm_list {position:absolute;top:5px;right:180px;width:600px;height:60vh;overflow-y:scroll;min-height:2em;padding:.5em;background-color:#fff;font-size:.8em;display:block;z-index:99990;color:#000;box-shadow:0 0 3px 3px #D3908B;}
+#alarm_list_mobile {position:absolute;top:0px;right:10px;width:90%;height:60vh;overflow-y:scroll;min-height:2em;padding:.5em;background-color:#fff;font-size:.8em;display:block;z-index:99990;color:#000;box-shadow:0 0 3px 3px #D3908B;}
 .alarm {width:100%;margin-bottom:.5em;position:relative;margin: 0 auto;}
 .alarm table {width:100%;}
 .alarm td {padding:.2em;border-bottom:1px solid #9393AE;}

@@ -57,6 +57,12 @@
                             {% trans 'delete' %}
                         </a>
                     </span>
+                {% elif user.is_staff %}
+                    <span class="reply_restore">
+                        <a href="javascript:restore_reply({{ reply.id }})">
+                            {% trans 'restore' %}
+                        </a>
+                    </span>
                 {% endif %}
             {% endif %}
             <div class="float-right">
@@ -77,8 +83,18 @@
         <div id="reply_content{{ reply.id }}" class="reply_content">
             {% if reply.status == '6deleted' %}
                 <font color="#999">{% trans 'Deleted reply' %}</font>
+                {% if user.is_staff %}
+                    <div class="deleted_reply">
+                        {{ reply.content|urlize|target_blank|linebreaksbr }}
+                    </div>
+                {% endif %}
             {% elif reply.status == '5hidden' %}
                 <font color="#999">{% trans 'Hidden reply' %}</font>
+                {% if user.is_staff %}
+                    <div class="deleted_reply">
+                        {{ reply.content|urlize|target_blank|linebreaksbr }}
+                    </div>
+                {% endif %}
             {% else %}
                 {{ reply.content|urlize|target_blank|linebreaksbr }}
             {% endif %}

@@ -72,6 +72,11 @@ urlpatterns = [
         name='delete_reply',
     ),
     url(
+        r'^restore_reply/$',
+        api.restore_reply,
+        name='restore_reply',
+    ),
+    url(
         r'^reply_count/$',
         api.reply_count,
         name='reply_count',
@@ -125,6 +130,11 @@ urlpatterns = [
         r'^delete_team_reply/$',
         api.delete_team_reply,
         name='delete_team_reply',
+    ),
+    url(
+        r'^restore_team_reply/$',
+        api.restore_team_reply,
+        name='restore_team_reply',
     ),
     url(
         r'^team_reply_count/$',

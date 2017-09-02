@@ -44,6 +44,11 @@ function dislike_article(id) {
 }
 
 function like_users(e, id) {
+    var top = e.clientY + $(document).scrollTop()
+    var left = e.clientX - 270 + $(document).scrollLeft();
+    if (e.clientX < 280)
+        left = 10 + $(document).scrollLeft();
+
     $.ajaxSetup({
         beforeSend: function(xhr, settings) {
             xhr.setRequestHeader("X-CSRFToken", $("input[name=csrfmiddlewaretoken]").val());
@@ -55,18 +60,17 @@ function like_users(e, id) {
         data: {
             id: id
         },
-        success: function(datain) {
-            msg = gettext("who likes");
-            data = "<div style=background:#EDEDED;color:#000;text-align:center;margin-bottom:.5em;padding:.1em>" + msg + "</div>";
-            if (datain[0] != '0') {
-                userlist = datain[0].split(',');
-                for (user in userlist) {
-                    usertag = url_userinfo.replace(/\/bb\//, '\/' + userlist[user] +'\/');
-                    data += '<span><a href="' + usertag + '">' + userlist[user] + '</a></span> ';
-                }
-            }
-            show_popup(e, data, 250, 10, 20);
-
+        success: function(data) {
+            $('#like_users_popup').html(data);
+            $('#like_users_popup').css({top: top, left: left});
+            $('#like_users_popup').show();
+            $('#like_users_popup').on('mousedown', function(e) {
+                e.stopPropagation();
+            })
+            $('body').on('mousedown', function(e) {
+                $('#like_users_popup').hide();
+                $('body').off('mousedown');
+            })
         },
         error: function(data) {
             $('#article_view_text').html('error');

@@ -117,21 +117,19 @@ def like_article(request, liketype):
             return JsonResponse([0, msg], safe=False, status=201)
 
         id = request.POST['id']
-        user = request.user.username
+        user = request.user
         article = get_object_or_404(Board, pk=id)
 
-        if article.user.username == user:
+        if article.user == user:
             msg = _("You like your own post?")
             return JsonResponse([0, msg], safe=False, status=201)
 
-        like_users = article.like_users.split(',')
-        dislike_users = article.dislike_users.split(',')
+        like_users = article.like_users.all()
+        dislike_users = article.dislike_users.all()
 
         if user not in like_users and user not in dislike_users:
             if liketype == 'like':
-                if article.like_users != '':
-                    article.like_users += ","
-                article.like_users += user
+                article.like_users.add(user)
                 article.like_count += 1
                 article.save()
 
@@ -139,9 +137,7 @@ def like_article(request, liketype):
                 return JsonResponse(
                     [article.like_count, msg], safe=False, status=201)
             elif liketype == 'dislike':
-                if article.dislike_users != '':
-                    article.dislike_users += ","
-                article.dislike_users += user
+                article.dislike_users.add(user)
                 article.dislike_count += 1
                 article.save()
 
@@ -167,13 +163,19 @@ def like_users(request, liketype):
         article = get_object_or_404(Board, pk=id)
 
         if liketype == 'like':
-            user_list = article.like_users
+            like_users = article.like_users.all()
         elif liketype == 'dislike':
-            user_list = article.dislike_users
+            like_users = article.dislike_users.all()
         else:
             return JsonResponse({'status': 'false'}, status=400)
 
-        return JsonResponse([user_list], safe=False, status=201)
+        return render_to_response(
+            'boards/like_users.html',
+            {
+                'user': request.user,
+                'like_users': like_users,
+            }
+        )
 
     else:
         return error_page(request)
@@ -187,29 +189,25 @@ def like_reply(request, liketype):
             return JsonResponse([0, msg], safe=False, status=201)
 
         id = request.POST['id']
-        user = request.user.username
+        user = request.user
         reply = get_object_or_404(Reply, pk=id)
 
-        if reply.user.username == user:
+        if reply.user == user:
             msg = _("You like your own post?")
             return JsonResponse([0, msg], safe=False, status=201)
 
-        like_users = reply.like_users.split(',')
-        dislike_users = reply.dislike_users.split(',')
+        like_users = reply.like_users.all()
+        dislike_users = reply.dislike_users.all()
 
         if user not in like_users and user not in dislike_users:
             if liketype == 'like':
-                if reply.like_users != '':
-                    reply.like_users += ","
-                reply.like_users += user
+                reply.like_users.add(user)
                 reply.like_count += 1
                 reply.save()
 
                 return JsonResponse([reply.like_count], safe=False, status=201)
             elif liketype == 'dislike':
-                if reply.dislike_users != '':
-                    reply.dislike_users += ","
-                reply.dislike_users += user
+                reply.dislike_users.add(user)
                 reply.dislike_count += 1
                 reply.save()
 
@@ -352,6 +350,42 @@ def delete_reply(request):
             reply.status = '6deleted'
         elif request.user.is_staff:
             reply.status = '5hidden'
+        else:
+            return error_to_response(request)
+
+        reply.save()
+        article_id = reply.article_id
+        replies = Reply.objects.filter(article_id=article_id).annotate(
+            custom_order=Case(
+                When(reply_id=0, then='id'),
+                default='reply_id',
+                output_field=IntegerField(),
+            )
+        ).order_by('custom_order', 'id')
+
+        article = get_object_or_404(Board, pk=article_id)
+
+        return render_to_response(
+            'boards/show_reply.html',
+            {
+                'user': request.user,
+                'article_user': article.user,
+                'replies': replies,
+                'count': replies.count()
+            }
+        )
+
+    return error_to_response(request)
+
+
+def restore_reply(request):
+    """API restore_reply"""
+    if request.method == 'POST':
+        id = request.POST['id']
+        reply = get_object_or_404(Reply, pk=id)
+
+        if request.user.is_staff:
+            reply.status = '1normal'
         else:
             return error_to_response(request)
 
@@ -680,6 +714,42 @@ def delete_team_reply(request):
             reply.status = '6deleted'
         elif request.user.is_staff:
             reply.status = '5hidden'
+        else:
+            return error_to_response(request)
+
+        reply.save()
+        article_id = reply.article_id
+        replies = TeamReply.objects.filter(article_id=article_id).annotate(
+            custom_order=Case(
+                When(reply_id=0, then='id'),
+                default='reply_id',
+                output_field=IntegerField(),
+            )
+        ).order_by('custom_order', 'id')
+
+        article = get_object_or_404(Team, pk=article_id)
+
+        return render_to_response(
+            'teams/show_team_reply.html',
+            {
+                'user': request.user,
+                'article_user': article.user,
+                'replies': replies,
+                'count': replies.count()
+            }
+        )
+
+    return error_to_response(request)
+
+
+def restore_team_reply(request):
+    """API restore_team_reply"""
+    if request.method == 'POST':
+        id = request.POST['id']
+        reply = get_object_or_404(TeamReply, pk=id)
+
+        if request.user.is_staff:
+            reply.status = '1normal'
         else:
             return error_to_response(request)
 

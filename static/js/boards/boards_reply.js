@@ -207,6 +207,29 @@ function delete_reply(id) {
     }
 }
 
+function restore_reply(id) {
+    if (confirm(gettext("Are you sure to restore this article?"))) {
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                xhr.setRequestHeader("X-CSRFToken", $("input[name=csrfmiddlewaretoken]").val());
+            }
+        });
+        $.ajax({
+            type: "POST",
+            url: "/api/restore_reply/",
+            data: {
+                id: id
+            },
+            success: function(data) {
+                $('#replies').html(data);
+            },
+            error: function(data) {
+                alert(gettext('Error!'));
+            }
+        });
+    }
+}
+
 function reload_reply(id) {
     $.ajaxSetup({
         beforeSend: function(xhr, settings) {

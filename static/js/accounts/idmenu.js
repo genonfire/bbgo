@@ -13,6 +13,9 @@ function show_popup(e, data, width, marginX, marginY) {
     $('#popup_frame').on('mousedown', function(e) {
         e.stopPropagation();
     })
+    $('#like_users_popup').on('mousedown', function(e) {
+        $('#popup_frame').remove();
+    })
     $('body').on('mousedown', function(e) {
         $('#popup_frame').remove();
         $('body').off('mousedown');
