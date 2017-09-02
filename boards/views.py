@@ -125,6 +125,10 @@ def show_article(request, id, table=-1):
     elif article.status == '2temp' and not request.user == article.user:
         return error_page(request)
 
+    if article.table == 8 and article.status != '3notice' and not (
+            request.user.is_staff or request.user == article.user):
+        return error_page(request)
+
     article.view_count += 1
     article.save()
 
@@ -155,7 +159,8 @@ def show_article(request, id, table=-1):
 @login_required
 def new_article(request, table=0):
     """New article"""
-    if int(table) == 0 or (int(table) < 10 and not request.user.is_staff):
+    if int(table) == 0 or int(table) == 9 or (
+            int(table) < 8 and not request.user.is_staff):
         return error_page(request)
 
     if request.method == "POST":

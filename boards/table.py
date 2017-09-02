@@ -26,16 +26,16 @@ class BoardTable():
         # 0 ~ 9 관리자만(superuser, staff) 쓰기 가능
         ['최신글', '모든 게시판의 최근 게시물을 모아봅니다.', 0],  # 0: 쓰기금지
         ['전체공지', '', 0],  # 1
-        ['도움말', '', 0],  # 2
-        ['', '', 0],  # 3
+        ['공지사항', '', 0],  # 2
+        ['도움말', '', 0],  # 3
         ['', '', 0],  # 4
         ['', '', 0],  # 5
         ['', '', 0],  # 6
         ['', '', 0],  # 7
-        ['', '', 0],  # 8
-        ['핫게', '추천을 많이 받은 게시물이 자동 등록됩니다.', 0],  # 9
+        ['신고게시판', '신고 게시판의 모든 글은 글쓴이와 관리자만 볼 수 있습니다.', 0],  # 8: 비밀글
+        ['베스트', '추천을 많이 받은 게시물이 자동 등록됩니다.', 0],  # 9
         # 회원 쓰기 가능
-        ['게시판', '게시판 입니다.', 1],  # 10
+        ['운영/문의/건의', '사이트 운영에 대한 건의나 문의, 버그신고 게시판입니다. 신고는 비밀글을 지원하는 신고게시판을 이용해 주세요.', 1],  # 10
     ]
 
     def get_list_count(self):
@@ -84,7 +84,9 @@ class BoardTable():
             writable = True
             if int(table) == 0 or int(table) == 9:
                 writable = False
-            elif int(table) < 10 and not request.user.is_staff:
+            elif int(table) == 8:
+                writable = True
+            elif int(table) < 8 and not request.user.is_staff:
                 writable = False
         else:
             writable = False

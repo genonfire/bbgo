@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-02 20:35+0900\n"
+"POT-Creation-Date: 2017-09-02 22:25+0900\n"
 "PO-Revision-Date: 2017-09-02 19:32+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,7 +59,7 @@ msgid "status_notice"
 msgstr "Notice"
 
 #: boards/models.py:16 boards/models.py:58
-#: templates/haru/boards/show_list.html:176
+#: templates/haru/boards/show_list.html:185
 msgid "status_warning"
 msgstr "Warning"
 
@@ -78,7 +78,7 @@ msgstr "Hidden"
 msgid "status_deleted"
 msgstr "Deleted"
 
-#: boards/views.py:167 teams/views.py:117
+#: boards/views.py:172 teams/views.py:117
 msgid "Wrong status from user."
 msgstr ""
 
@@ -420,7 +420,7 @@ msgstr ""
 #: templates/haru/accounts/scrap.html:25
 #: templates/haru/boards/search_reply.html:28
 #: templates/haru/boards/show_list.html:48
-#: templates/haru/boards/show_list.html:247
+#: templates/haru/boards/show_list.html:256
 #: templates/haru/teams/recruitment.html:48
 msgid "subject"
 msgstr ""
@@ -601,12 +601,12 @@ msgid "Search reply"
 msgstr ""
 
 #: templates/haru/boards/search_reply.html:91
-#: templates/haru/boards/show_list.html:253
+#: templates/haru/boards/show_list.html:262
 msgid "write user"
 msgstr ""
 
 #: templates/haru/boards/search_reply.html:95
-#: templates/haru/boards/show_list.html:257
+#: templates/haru/boards/show_list.html:266
 msgid "search"
 msgstr ""
 
@@ -621,14 +621,14 @@ msgstr ""
 
 #: templates/haru/boards/show_article.html:88
 #: templates/haru/boards/show_list.html:51
-#: templates/haru/boards/show_list.html:211
+#: templates/haru/boards/show_list.html:220
 msgid "like"
 msgstr ""
 
 #: templates/haru/boards/show_article.html:93
 #: templates/haru/boards/show_list.html:52
 #: templates/haru/boards/show_list.html:112
-#: templates/haru/boards/show_list.html:221
+#: templates/haru/boards/show_list.html:230
 msgid "dislike"
 msgstr ""
 
@@ -665,13 +665,17 @@ msgstr ""
 
 #: templates/haru/boards/show_list.html:50
 #: templates/haru/boards/show_list.html:115
-#: templates/haru/boards/show_list.html:224
+#: templates/haru/boards/show_list.html:233
 #: templates/haru/teams/recruitment.html:50
 #: templates/haru/teams/recruitment.html:121
 msgid "view"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:250
+#: templates/haru/boards/show_list.html:168
+msgid "Secret article"
+msgstr ""
+
+#: templates/haru/boards/show_list.html:259
 msgid "subject+content"
 msgstr ""
 

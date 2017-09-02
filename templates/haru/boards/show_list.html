@@ -152,7 +152,11 @@
                 {% endif %}
             </td>
         {% else %}
-            <td class="subject tdlink" data-href="{% url 'boards:show_table_article' id=article.id table=table %}">
+            {% if table == '8' and not user.is_staff %}
+                <td class="subject">
+            {% else %}
+                <td class="subject tdlink" data-href="{% url 'boards:show_table_article' id=article.id table=table %}">
+            {% endif %}
                 <span class="category">
                     {% if table == '0' or table == '9' %}
                         {{ name_list|pick_first:article.table }}
@@ -160,13 +164,18 @@
                         {{ article.category }}
                     {% endif %}
                 </span>
-                <a href="{% url 'boards:show_table_article' id=article.id table=table %}">
-                    {{ article.subject }}
-                </a>
-                {% if article.has_video %}
-                    <img src="{% static 'icons/video20.png' %}">
-                {% elif article.has_image %}
-                    <img src="{% static 'icons/photo20.png' %}">
+                {% if table == '8' and not user.is_staff and not user == article.user %}
+                    {% trans 'Secret article' %}
+                    <img src="{% static 'icons/lock18.png' %}">
+                {% else %}
+                    <a href="{% url 'boards:show_table_article' id=article.id table=table %}">
+                        {{ article.subject }}
+                    </a>
+                    {% if article.has_video %}
+                        <img src="{% static 'icons/video20.png' %}">
+                    {% elif article.has_image %}
+                        <img src="{% static 'icons/photo20.png' %}">
+                    {% endif %}
                 {% endif %}
                 {% if article.reply_count > 0 %}
                     <span class="reply_count">[{{ article.reply_count }}]</span>

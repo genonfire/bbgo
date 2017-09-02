@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-02 20:35+0900\n"
-"PO-Revision-Date: 2017-09-02 20:52+0900\n"
+"POT-Creation-Date: 2017-09-02 22:25+0900\n"
+"PO-Revision-Date: 2017-09-02 22:25+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -60,7 +60,7 @@ msgid "status_notice"
 msgstr "공지"
 
 #: boards/models.py:16 boards/models.py:58
-#: templates/haru/boards/show_list.html:176
+#: templates/haru/boards/show_list.html:185
 msgid "status_warning"
 msgstr "신고접수"
 
@@ -79,7 +79,7 @@ msgstr "관리자 삭제"
 msgid "status_deleted"
 msgstr "삭제됨"
 
-#: boards/views.py:167 teams/views.py:117
+#: boards/views.py:172 teams/views.py:117
 msgid "Wrong status from user."
 msgstr "상태정보가 잘못 입력되었습니다."
 
@@ -190,27 +190,22 @@ msgid "Reply has a reply."
 msgstr "댓글에 댓글이 달렸습니다."
 
 #: templates/haru/accounts/alarm_list.html:65
-#| msgid "A guardian joined your fireteam."
 msgid "A player joined your party."
 msgstr "파티에 참가자가 있습니다."
 
 #: templates/haru/accounts/alarm_list.html:67
-#| msgid "Fireteam you joined is now full."
 msgid "The party you joined is now full."
 msgstr "파티 모집이 마감되었습니다."
 
 #: templates/haru/accounts/alarm_list.html:69
-#| msgid "Fireteam you joined is canceled."
 msgid "The party you joined is canceled."
 msgstr "파티 모집이 취소되었습니다."
 
 #: templates/haru/accounts/alarm_list.html:71
-#| msgid "A guardian leaved your fireteam."
 msgid "A player leaved your party."
 msgstr "파티를 누군가 떠났습니다."
 
 #: templates/haru/accounts/alarm_list.html:73
-#| msgid "You are kicked from fireteam."
 msgid "You are kicked from party."
 msgstr "파티에서 강제로 나갔습니다."
 
@@ -426,7 +421,7 @@ msgstr "스크랩 페이지입니다. 삭제 버튼을 누르면 추가 확인�
 #: templates/haru/accounts/scrap.html:25
 #: templates/haru/boards/search_reply.html:28
 #: templates/haru/boards/show_list.html:48
-#: templates/haru/boards/show_list.html:247
+#: templates/haru/boards/show_list.html:256
 #: templates/haru/teams/recruitment.html:48
 msgid "subject"
 msgstr "제목"
@@ -609,12 +604,12 @@ msgid "Search reply"
 msgstr "댓글 검색"
 
 #: templates/haru/boards/search_reply.html:91
-#: templates/haru/boards/show_list.html:253
+#: templates/haru/boards/show_list.html:262
 msgid "write user"
 msgstr "글쓴이"
 
 #: templates/haru/boards/search_reply.html:95
-#: templates/haru/boards/show_list.html:257
+#: templates/haru/boards/show_list.html:266
 msgid "search"
 msgstr "검색"
 
@@ -629,14 +624,14 @@ msgstr "출처"
 
 #: templates/haru/boards/show_article.html:88
 #: templates/haru/boards/show_list.html:51
-#: templates/haru/boards/show_list.html:211
+#: templates/haru/boards/show_list.html:220
 msgid "like"
 msgstr "추천"
 
 #: templates/haru/boards/show_article.html:93
 #: templates/haru/boards/show_list.html:52
 #: templates/haru/boards/show_list.html:112
-#: templates/haru/boards/show_list.html:221
+#: templates/haru/boards/show_list.html:230
 msgid "dislike"
 msgstr "비추"
 
@@ -673,13 +668,17 @@ msgstr "글쓰기"
 
 #: templates/haru/boards/show_list.html:50
 #: templates/haru/boards/show_list.html:115
-#: templates/haru/boards/show_list.html:224
+#: templates/haru/boards/show_list.html:233
 #: templates/haru/teams/recruitment.html:50
 #: templates/haru/teams/recruitment.html:121
 msgid "view"
 msgstr "조회"
 
-#: templates/haru/boards/show_list.html:250
+#: templates/haru/boards/show_list.html:168
+msgid "Secret article"
+msgstr "비밀글입니다."
+
+#: templates/haru/boards/show_list.html:259
 msgid "subject+content"
 msgstr "제목+내용"
 
@@ -736,7 +735,7 @@ msgstr "게시판"
 
 #: templates/haru/menu_main.html:39 templates/haru/menu_sub.html:5
 msgid "Best"
-msgstr "핫게"
+msgstr "베스트"
 
 #: templates/haru/menu_main.html:44
 msgid "Recent"
@@ -951,17 +950,14 @@ msgid "slot"
 msgstr "슬롯"
 
 #: templates/haru/teams/edit_recruitment.html:60
-#| msgid "Total guardians needed include yourself."
 msgid "Total players needed include yourself."
 msgstr "본인을 포함한 파티의 플레이어 수"
 
 #: templates/haru/teams/show_recruitment.html:65
-#| msgid "Reload fireteam"
 msgid "Reload party"
 msgstr "파티 새로고침"
 
 #: templates/haru/teams/show_recruitment.html:70
-#| msgid "Show new replies"
 msgid "Show new players"
 msgstr "새로 참여한 플레이어"
 
@@ -970,9 +966,6 @@ msgid "resume recruitment"
 msgstr "모집 재개"
 
 #: templates/haru/teams/show_team.html:8
-#| msgid ""
-#| "To join fireteam, claim an empty slot. ID for this platform must exist in "
-#| "your user information. Press your ID once again to leave firetime."
 msgid ""
 "To join party, claim an empty slot. ID for this platform must exist in your "
 "user information. Press your ID once again to leave firetime."
