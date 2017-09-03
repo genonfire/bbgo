@@ -207,7 +207,7 @@ table.board tr.article_info_mobile span.scrap_delete a {vertical-align:baseline;
 .article_view_content iframe {max-width:100%;}
 .article_view_content img {max-width:100%;}
 .article_view_content a {vertical-align:baseline;}
-.article_view_reference {margin:1.5em;margin-bottom:0;margin-right:0;height:2.0em;vertical-align:middle;background:#EDEDED;font-size:0.8em;}
+.article_view_reference {margin:1.5em;margin-bottom:0;margin-right:0;min-height:2.0em;height:auto;vertical-align:middle;background:#EDEDED;font-size:0.8em;}
 .article_view_reference a:hover {color:#E54F44;}
 .article_view_msg {height:1.5em;text-align:center;vertical-align:middle;}
 .article_view_msg span {font-size:.8em;color:#888;}
