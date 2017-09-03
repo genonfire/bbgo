@@ -18,7 +18,7 @@ pre {box-sizing:border-box;margin-top:.5em;margin-bottom:.5em;background:#EFF0F1
 input, button, select, textarea {box-sizing:border-box;}
 input[type="button"], input[type="submit"] {cursor:pointer;display:inline-block;height:2.1em;margin-left:.5em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.2em;-webkit-appearance:none;}
 input[type="submit"] {background:#11223d;color:#fff;-webkit-appearance:none;}
-a {vertical-align:middle;box-sizing:border-box;color:#333;text-decoration:none;}
+a {vertical-align:baseline;box-sizing:border-box;color:#333;text-decoration:none;}
 a:hover {color:#000;text-decoration:none;}
 img.portrait {width:150px;height:150px;}
 
@@ -313,6 +313,7 @@ table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 .alarm {width:100%;margin-bottom:.5em;position:relative;margin: 0 auto;}
 .alarm table {width:100%;}
 .alarm td {padding:.2em;border-bottom:1px solid #9393AE;}
+.alarm td a {vertical-align:baseline;}
 .alarm td span.category {margin-right:.5em;color:#9393AE;}
 .alarm td span.subject {margin-right:.5em;font-weight:bold;}
 .alarm td span.message {color:red;}

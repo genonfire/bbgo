@@ -234,7 +234,7 @@ def write_reply(request):
 
     if request.method == 'POST':
         id = request.POST['article_id']
-        reply_id = int(request.POST['reply_id'])
+        reply_id = r_id = int(request.POST['reply_id'])
         reply_to = ''
 
         form = ReplyEditForm(request.POST, request.FILES)
@@ -282,7 +282,7 @@ def write_reply(request):
                     if user[0].profile.alarm_reply:
                         if user[0].profile.alarm_list != '':
                             user[0].profile.alarm_list += ','
-                        alarm_text = 'r:%d' % reply_id
+                        alarm_text = 'r:%d' % r_id
                         user[0].profile.alarm_list += alarm_text
                         user[0].profile.alarm = True
                         user[0].save()
@@ -526,8 +526,10 @@ def alarm_list(request):
                 elif app == 'r':
                     item = Reply.objects.filter(id__iexact=id)
                 elif app == 't' or app == 'f' or app == 'c' or app == 'l' \
-                        or app == 'k':
+                        or app == 'k' or app == 'bt':
                     item = Team.objects.filter(id__iexact=id)
+                elif app == 'rt':
+                    item = TeamReply.objects.filter(id__iexact=id)
                 else:
                     continue
 
@@ -598,7 +600,7 @@ def write_team_reply(request):
 
     if request.method == 'POST':
         id = request.POST['article_id']
-        reply_id = int(request.POST['reply_id'])
+        reply_id = rt_id = int(request.POST['reply_id'])
         reply_to = ''
 
         form = TeamReplyEditForm(request.POST)
@@ -635,7 +637,7 @@ def write_team_reply(request):
                 if article.user.profile.alarm_board:
                     if article.user.profile.alarm_list != '':
                         article.user.profile.alarm_list += ','
-                    alarm_text = 'b:%d' % article.id
+                    alarm_text = 'bt:%d' % article.id
                     article.user.profile.alarm_list += alarm_text
                     article.user.profile.alarm = True
                     article.user.profile.save()
@@ -645,11 +647,10 @@ def write_team_reply(request):
                     if user[0].profile.alarm_reply:
                         if user[0].profile.alarm_list != '':
                             user[0].profile.alarm_list += ','
-                        alarm_text = 'r:%d' % reply_id
+                        alarm_text = 'rt:%d' % rt_id
                         user[0].profile.alarm_list += alarm_text
                         user[0].profile.alarm = True
                         user[0].save()
-
 
             request.user.profile.last_reply_at = timezone.now()
             request.user.profile.save()
@@ -829,7 +830,7 @@ def join_team(request):
                 article.save()
                 slot_users = article.slot_users.all()
 
-                if user.profile.alarm_team or (
+                if article.user.profile.alarm_team or (
                     article.slot == article.slot_total and
                     article.user.profile.alarm_full
                 ):

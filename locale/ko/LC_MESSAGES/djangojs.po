@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-03 03:41+0900\n"
-"PO-Revision-Date: 2017-09-02 20:52+0900\n"
+"PO-Revision-Date: 2017-09-03 22:16+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -216,12 +216,11 @@ msgstr "파티 모집이 마감되었습니다."
 
 #: static/js/teams/team.js:30
 msgid "Recruitment canceled."
-msgstr "파이어팀 모집이 취소되었습니다."
+msgstr "파티팀 모집이 취소되었습니다."
 
 #: static/js/teams/team.js:33
 msgid "ID for this platform must exist in your user information."
-msgstr ""
-"회원정보에 해당 기종의 아이디가 지정되어 있어야 슬롯에 참여할 수 있습니다."
+msgstr "회원정보에 해당 기종의 아이디가 지정되어 있어야 슬롯에 참여할 수 있습니다."
 
 #: static/js/teams/team.js:43
 msgid "Are you sure to leave this party?"
@@ -229,7 +228,7 @@ msgstr "파티를 떠나시겠습니까?"
 
 #: static/js/teams/team.js:63
 msgid "Please don't leave your team behind."
-msgstr "파이어팀을 두고 떠나지 마세요."
+msgstr "파티원들을 두고 떠나지 마세요."
 
 #: static/js/teams/team.js:66
 msgid "You are not a member of this party."

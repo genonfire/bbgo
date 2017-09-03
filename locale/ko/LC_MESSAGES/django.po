@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-03 03:41+0900\n"
-"PO-Revision-Date: 2017-09-03 03:48+0900\n"
+"PO-Revision-Date: 2017-09-03 22:16+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -499,15 +499,15 @@ msgstr "가디언 알람"
 
 #: templates/haru/accounts/setting.html:67
 msgid "Alarm when someone joins your team."
-msgstr "모집중인 파이어팀에 누군가 참여하면 알려줍니다."
+msgstr "모집중인 파티에 누군가 참여하면 알려줍니다."
 
 #: templates/haru/accounts/setting.html:73
 msgid "Team full alarm"
-msgstr "파이어팀 알람"
+msgstr "파티 알람"
 
 #: templates/haru/accounts/setting.html:78
 msgid "Alarm when your team recruiting finished or canceled."
-msgstr "모집중이거나 참여중인 파이어팀이 마감되거나 취소되면 알려줍니다."
+msgstr "모집중이거나 참여중인 파티가 마감되거나 취소되면 알려줍니다."
 
 #: templates/haru/accounts/setting.html:88
 msgid "AdSense info"

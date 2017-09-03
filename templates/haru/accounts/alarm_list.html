@@ -51,7 +51,7 @@
                                 {% trans 'Reply has a reply.' %}
                             </span>
                         </a>
-                    {% elif alarm.0 == 't' or alarm.0 == 'f' or alarm.0 == 'c' or alarm.0 == 'l' or alarm.0 == 'k' %}
+                    {% elif alarm.0 == 't' or alarm.0 == 'f' or alarm.0 == 'c' or alarm.0 == 'l' or alarm.0 == 'k' or alarm.0 == 'bt' %}
                         <span class="subject">
                             {{ alarm.1.subject }}
                         </span>
@@ -71,7 +71,22 @@
                                 {% trans 'A player leaved your party.' %}
                             {% elif alarm.0 == 'k' %}
                                 {% trans 'You are kicked from party.' %}
+                            {% elif alarm.0 == 'bt' %}
+                                {% trans 'Article has a reply.' %}
                             {% endif %}
+                            </span>
+                        </a>
+                    {% elif alarm.0 == 'rt' %}
+                        <span class="subject">
+                            {{ alarm.1.content }}
+                        </span>
+                        <a href="{% url 'teams:show_recruitment' id=alarm.1.id %}">
+                            {% if alarm.1.created_at|localtime|is_recent %}
+                                <span class="message">
+                            {% else %}
+                                <span>
+                            {% endif %}
+                                {% trans 'Reply has a reply.' %}
                             </span>
                         </a>
                     {% endif %}
