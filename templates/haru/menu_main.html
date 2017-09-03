@@ -11,10 +11,10 @@
         {{ SITE_INFO }}
     </li>
     <li class="head_menu">
-        <a>
+        <a href="#">
             {% trans 'menu' %}
         </a>
-        <ul>
+        <ul id="mainnav_menu">
             {% if user.is_staff %}
                 <li class="titlemenu">
                     {% trans 'Admin menu' %}
@@ -71,10 +71,10 @@
     </li>
     {% if user.is_authenticated %}
         <li class="head_menu">
-            <a>
+            <a href="#">
                 {% trans 'bookmark' %}
             </a>
-            <ul>
+            <ul id="mainnav_bookmark">
                 {% for mb in my_bookmark %}
                     <li>
                         <a href="{{ mb.1 }}">

@@ -73,12 +73,12 @@ function alarm_list(type) {
                 $('#alarm_list').show();
                 $('#alarm_icon').attr('src', '/static/icons/alert24.png');
 
-                $('#alarm_list').on('mousedown', function(e) {
+                $('#alarm_list').on('mousedown touchstart', function(e) {
                     e.stopPropagation();
                 })
-                $('body').on('mousedown', function(e) {
+                $('body').on('mousedown touchstart', function(e) {
                     $('#alarm_list').hide();
-                    $('body').off('mousedown');
+                    $('body').off('mousedown touchstart');
                 })
             }
             else if (type == 'mobile') {
@@ -87,12 +87,12 @@ function alarm_list(type) {
                 $('#alarm_list_mobile').show();
                 $('#alarm_icon_mobile').attr('src', '/static/icons/alert24.png');
 
-                $('#alarm_list_mobile').on('mousedown', function(e) {
+                $('#alarm_list_mobile').on('mousedown touchstart', function(e) {
                     e.stopPropagation();
                 })
-                $('body').on('mousedown', function(e) {
+                $('body').on('mousedown touchstart', function(e) {
                     $('#alarm_list_mobile').hide();
-                    $('body').off('mousedown');
+                    $('body').off('mousedown touchstart');
                 })
             }
         },

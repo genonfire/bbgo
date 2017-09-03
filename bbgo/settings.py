@@ -217,7 +217,7 @@ SUMMERNOTE_CONFIG = {
         ['super', ['superscript', 'subscript']],
         ['fontname', ['fontname', 'fontsize', 'color', 'clear']],
         ['para', ['height', 'paragraph']],
-        ['format', ['ul', 'ol', 'hr', 'table']],
+        ['format', ['hr', 'table']],
         ['insert', ['link', 'picture', 'video']],
         ['misc', ['codeview']],
     ],

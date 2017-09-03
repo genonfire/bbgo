@@ -10,15 +10,15 @@ function show_popup(e, data, width, marginX, marginY) {
         html: data,
         style: "width:" + width + "px;position:absolute;top:" + top + "px;left:" + left + "px;"
     }).appendTo('body');
-    $('#popup_frame').on('mousedown', function(e) {
+    $('#popup_frame').on('mousedown touchstart', function(e) {
         e.stopPropagation();
     })
-    $('#like_users_popup').on('mousedown', function(e) {
+    $('#like_users_popup').on('mousedown touchstart', function(e) {
         $('#popup_frame').remove();
     })
-    $('body').on('mousedown', function(e) {
+    $('body').on('mousedown touchstart', function(e) {
         $('#popup_frame').remove();
-        $('body').off('mousedown');
+        $('body').off('mousedown touchstart');
     })
 }
 
@@ -35,3 +35,5 @@ function id_menu(e, user) {
 
     show_popup(e, data, 90, 20, 20);
 }
+
+(function(l){var i,s={touchend:function(){}};for(i in s)l.addEventListener(i,s)})(document);

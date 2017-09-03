@@ -38,9 +38,11 @@
                                 <a href="{% url 'boards:show_article' id=article.id %}" class="board_link">
                                     {{ article.subject|truncatechars:26 }}
                                 </a>
-                                <span class="reply_count">
-                                    [{{ article.reply_count }}]
-                                </span>
+                                {% if article.reply_count > 0 %}
+                                    <span class="reply_count">
+                                        [{{ article.reply_count }}]
+                                    </span>
+                                {% endif %}
                         </div>
                     {% endfor %}
                 </div>
@@ -58,9 +60,11 @@
                             <a href="{% url 'boards:show_article' id=article.id %}" class="board_link">
                                 {{ article.subject|truncatechars:26 }}
                             </a>
-                            <span class="reply_count">
-                                [{{ article.reply_count }}]
-                            </span>
+                            {% if article.reply_count > 0 %}
+                                <span class="reply_count">
+                                    [{{ article.reply_count }}]
+                                </span>
+                            {% endif %}
                         </div>
                     {% endfor %}
                 </div>
@@ -84,9 +88,11 @@
                                 <a href="{% url 'boards:show_article' id=article.id %}" class="board_link">
                                     {{ article.subject|truncatechars:26 }}
                                 </a>
-                                <span class="reply_count">
-                                    [{{ article.reply_count }}]
-                                </span>
+                                {% if article.reply_count > 0 %}
+                                    <span class="reply_count">
+                                        [{{ article.reply_count }}]
+                                    </span>
+                                {% endif %}
                         </div>
                     {% endfor %}
                 </div>
@@ -113,9 +119,11 @@
                                 <a href="{% url 'teams:show_recruitment' id=article.id %}">
                                     {{ article.subject|truncatechars:26 }}
                                 </a>
-                                <span class="reply_count">
-                                    [{{ article.reply_count }}]
-                                </span>
+                                {% if article.reply_count > 0 %}
+                                    <span class="reply_count">
+                                        [{{ article.reply_count }}]
+                                    </span>
+                                {% endif %}
                         </div>
                     {% endfor %}
                 </div>
@@ -123,19 +131,21 @@
             <td class="right mobile_hide">
                 <div>
                     <div class="titlebar">
-                        <a href="{% url 'teams:recruitment' table=3 page=1 %}">
+                        <a href="{% url 'boards:show_list' table=2 page=1 %}">
                             {% trans 'Notice' %}
                             <img src="{% static 'icons/arrowright24.png' %}">
                         </a>
                     </div>
                     {% for article in notice %}
                         <div class="sample_subject">
-                            <a href="{% url 'teams:show_recruitment' id=article.id %}">
+                            <a href="{% url 'boards:show_article' id=article.id %}">
                                 {{ article.subject|truncatechars:26 }}
                             </a>
-                            <span class="reply_count">
-                                [{{ article.reply_count }}]
-                            </span>
+                            {% if article.reply_count > 0 %}
+                                <span class="reply_count">
+                                    [{{ article.reply_count }}]
+                                </span>
+                            {% endif %}
                         </div>
                     {% endfor %}
                 </div>
@@ -145,7 +155,7 @@
             <td>
                 <div>
                     <div class="titlebar">
-                        <a href="{% url 'teams:recruitment' table=3 page=1 %}">
+                        <a href="{% url 'boards:show_list' table=2 page=1 %}">
                             {% trans 'Notice' %}
                             <img src="{% static 'icons/arrowright24.png' %}">
                         </a>
@@ -156,12 +166,14 @@
                         {% else %}
                             <div class="sample_subject">
                         {% endif %}
-                                <a href="{% url 'teams:show_recruitment' id=article.id %}">
+                                <a href="{% url 'boards:show_article' id=article.id %}">
                                     {{ article.subject|truncatechars:26 }}
                                 </a>
-                                <span class="reply_count">
-                                    [{{ article.reply_count }}]
-                                </span>
+                                {% if article.reply_count > 0 %}
+                                    <span class="reply_count">
+                                        [{{ article.reply_count }}]
+                                    </span>
+                                {% endif %}
                         </div>
                     {% endfor %}
                 </div>

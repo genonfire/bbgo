@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
 body {font-family:Noto Sans KR, sans-serif;}
 body, html {width:100%;margin:0;padding:0;background:#EDEDED;font-size:1.0em;}
 div,p,h1,h2,h3,h4,h5,h6,section, article, aside, footer, figure, figcaption, nav,ul,ol,li,dl,dt,dd,table,tr,thead,tbody,tfoot,td,th,a,span,strong,em,i,img,address,form,fieldset,legend,input,textarea,select,label,button,pre,
@@ -15,7 +15,7 @@ li {list-style-type:none;}
 form {margin:0;padding:0;}
 div {box-sizing:border-box;}
 pre {box-sizing:border-box;margin-top:.5em;margin-bottom:.5em;background:#EFF0F1;font-size:.95em;font-family:"Courier";overflow-x:scroll;}
-input, button, select, textarea {box-sizing:border-box;}
+input, button, select, textarea {box-sizing:border-box;-webkit-appearance:none;}
 input[type="button"], input[type="submit"] {cursor:pointer;display:inline-block;height:2.1em;margin-left:.5em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.2em;}
 input[type="submit"] {background:#11223d;color:#fff;}
 a {vertical-align:middle;box-sizing:border-box;color:#333;text-decoration:none;}
@@ -26,11 +26,10 @@ img.portrait {width:150px;height:150px;}
 .buttons span a:hover {border-color:#11223d;color:#000;text-decoration:none;}
 
 /* Header */
-#header {width:100%;height:2.5em;float-left;position:fixed;background:rgba(51,54,59,0.80);color:#EEEEEE;z-index:99980;}
+#header {width:100%;height:2.5em;float-left;position:fixed;background:rgba(51,54,59,0.8);color:#EEEEEE;z-index:99980;}
 .head_container {width:800px;padding-left:7px;}
 .head_container span {height:100%;vertical-align:baseline;}
 .head_container div {height:2.5em;padding-top:.2em;}
-/*.head_container div.power span {margin-left:1em;}*/
 
 .head_logo {height:100%;margin-right:.5em;}
 .head_logo img {width:32px;height:32px;}
