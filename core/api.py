@@ -288,6 +288,7 @@ def write_reply(request):
                         user[0].save()
 
             request.user.profile.last_reply_at = timezone.now()
+            request.user.profile.point += settings.POINT_REPLY
             request.user.profile.save()
 
             replies = Reply.objects.filter(article_id=id).annotate(
@@ -653,6 +654,7 @@ def write_team_reply(request):
                         user[0].save()
 
             request.user.profile.last_reply_at = timezone.now()
+            request.user.profile.point += settings.POINT_REPLY
             request.user.profile.save()
 
             replies = TeamReply.objects.filter(article_id=id).annotate(

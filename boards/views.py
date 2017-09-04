@@ -3,6 +3,7 @@ from math import ceil
 
 from core.utils import error_page, get_ipaddress
 
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse_lazy
 from django.db.models import Q
@@ -185,6 +186,7 @@ def new_article(request, table=0):
             article.save()
 
             request.user.profile.last_article_at = timezone.now()
+            request.user.profile.point += settings.POINT_ARTICLE
             request.user.profile.save()
 
             return redirect(article.get_absolute_url())

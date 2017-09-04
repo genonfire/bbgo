@@ -240,6 +240,8 @@ NICKNAME_MAX_LENGTH = 10
 ENABLE_NICKNAME = True
 VERIFICATION_CODE_VALID = 24 * 3600  # 24 hours
 PORTRAIT_SIZE_LIMIT = 500 * 1024
+POINT_ARTICLE = 5  # point per article
+POINT_REPLY = 1  # point per reply
 
 # Setting for Alarm
 ENABLE_ALARM_POLLING = True
