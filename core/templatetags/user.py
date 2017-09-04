@@ -1,5 +1,6 @@
 from django import template
 from django.conf import settings
+from django.contrib.auth.models import User
 
 register = template.Library()
 
@@ -17,6 +18,17 @@ def _nickname(user, is_authenticated=False):
         return nametag
     else:
         return name
+
+
+@register.filter(name='textnickname')
+def _textnickname(username, is_authenticated=False):
+    name = username
+    if settings.ENABLE_NICKNAME:
+        user = User.objects.filter(username__iexact=username)
+        if user:
+            if user[0].first_name:
+                name = user[0].first_name
+    return name
 
 
 @register.filter(name='id')

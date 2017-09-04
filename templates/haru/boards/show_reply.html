@@ -99,7 +99,7 @@
         </div>
         {% if reply.reply_to %}
         <div class="reply_to">
-            <span id="reply_to">{{ reply.reply_to }}</span>
+            <span id="reply_to">{{ reply.reply_to|textnickname }}</span>
         </div>
         {% endif %}
         {% if reply.image and reply.status == '1normal' %}
