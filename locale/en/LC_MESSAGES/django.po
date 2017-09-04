@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-03 03:41+0900\n"
+"POT-Creation-Date: 2017-09-04 12:34+0900\n"
 "PO-Revision-Date: 2017-09-02 19:32+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: accounts/views.py:48 accounts/views.py:112 core/api.py:472
+#: accounts/views.py:48 accounts/views.py:112 core/api.py:473
 msgid "Saved successfully."
 msgstr ""
 
@@ -64,7 +64,7 @@ msgid "status_warning"
 msgstr "Warning"
 
 #: boards/models.py:17 boards/models.py:60 boards/models.py:78
-#: boards/views.py:120 msgs/models.py:14 teams/models.py:14 teams/models.py:49
+#: boards/views.py:121 msgs/models.py:14 teams/models.py:14 teams/models.py:49
 #: teams/models.py:63 templates/haru/boards/show_list.html:140
 #: templates/haru/boards/show_list.html:148
 #: templates/haru/teams/recruitment.html:65
@@ -73,12 +73,12 @@ msgid "status_hidden"
 msgstr "Hidden"
 
 #: boards/models.py:18 boards/models.py:62 boards/models.py:79
-#: boards/views.py:123 msgs/models.py:15 teams/models.py:15 teams/models.py:51
+#: boards/views.py:124 msgs/models.py:15 teams/models.py:15 teams/models.py:51
 #: teams/models.py:64
 msgid "status_deleted"
 msgstr "Deleted"
 
-#: boards/views.py:172 teams/views.py:116
+#: boards/views.py:173 teams/views.py:116
 msgid "Wrong status from user."
 msgstr ""
 
@@ -181,10 +181,12 @@ msgid "Read all"
 msgstr ""
 
 #: templates/haru/accounts/alarm_list.html:38
+#: templates/haru/accounts/alarm_list.html:75
 msgid "Article has a reply."
 msgstr ""
 
 #: templates/haru/accounts/alarm_list.html:51
+#: templates/haru/accounts/alarm_list.html:89
 msgid "Reply has a reply."
 msgstr ""
 
@@ -208,12 +210,12 @@ msgstr ""
 msgid "You are kicked from party."
 msgstr ""
 
-#: templates/haru/accounts/alarm_list.html:85
+#: templates/haru/accounts/alarm_list.html:100
 #, python-format
 msgid "It shows recent %(max)s alarms so may you often clear alarms."
 msgstr ""
 
-#: templates/haru/accounts/alarm_list.html:89
+#: templates/haru/accounts/alarm_list.html:104
 msgid "No alarms"
 msgstr ""
 
@@ -285,8 +287,8 @@ msgstr ""
 #: templates/haru/accounts/edit_user_info.html:47
 #: templates/haru/accounts/login.html:41
 #: templates/haru/accounts/signup.html:36
-#: templates/haru/accounts/user_info.html:28 templates/haru/base.html:104
-#: templates/haru/menu_mobile.html:63
+#: templates/haru/accounts/user_info.html:28 templates/haru/base.html:102
+#: templates/haru/menu_mobile.html:67
 msgid "id"
 msgstr ""
 
@@ -369,8 +371,8 @@ msgstr ""
 #: templates/haru/accounts/join.html:4 templates/haru/accounts/join.html:8
 #: templates/haru/accounts/login.html:57 templates/haru/accounts/signup.html:4
 #: templates/haru/accounts/signup.html:19
-#: templates/haru/accounts/signup.html:102 templates/haru/base.html:122
-#: templates/haru/menu_mobile.html:83
+#: templates/haru/accounts/signup.html:102 templates/haru/base.html:120
+#: templates/haru/menu_mobile.html:87
 msgid "Sign up"
 msgstr ""
 
@@ -380,7 +382,7 @@ msgstr ""
 
 #: templates/haru/accounts/join.html:17 templates/haru/accounts/login.html:4
 #: templates/haru/accounts/login.html:12 templates/haru/accounts/login.html:47
-#: templates/haru/base.html:111 templates/haru/menu_mobile.html:66
+#: templates/haru/base.html:109 templates/haru/menu_mobile.html:70
 #: templates/haru/registration/logged_out.html:17
 #: templates/haru/registration/password_reset_complete.html:17
 msgid "login"
@@ -390,26 +392,26 @@ msgstr ""
 msgid "Login failure"
 msgstr ""
 
-#: templates/haru/accounts/login.html:33 templates/haru/base.html:93
-#: templates/haru/menu_mobile.html:53
+#: templates/haru/accounts/login.html:33 templates/haru/base.html:91
+#: templates/haru/menu_mobile.html:57
 #: templates/haru/registration/logged_out.html:4
 #: templates/haru/registration/logged_out.html:8
 msgid "logout"
 msgstr ""
 
 #: templates/haru/accounts/login.html:44
-#: templates/haru/accounts/signup.html:86 templates/haru/base.html:107
-#: templates/haru/menu_mobile.html:71
+#: templates/haru/accounts/signup.html:86 templates/haru/base.html:105
+#: templates/haru/menu_mobile.html:75
 msgid "password"
 msgstr ""
 
-#: templates/haru/accounts/login.html:52 templates/haru/base.html:117
-#: templates/haru/menu_mobile.html:78
+#: templates/haru/accounts/login.html:52 templates/haru/base.html:115
+#: templates/haru/menu_mobile.html:82
 msgid "Reset password"
 msgstr ""
 
 #: templates/haru/accounts/scrap.html:8 templates/haru/accounts/scrap.html:12
-#: templates/haru/base.html:75
+#: templates/haru/base.html:73
 msgid "scrap"
 msgstr ""
 
@@ -441,9 +443,9 @@ msgstr ""
 
 #: templates/haru/accounts/scrap.html:28 templates/haru/accounts/scrap.html:50
 #: templates/haru/accounts/scrap.html:64
-#: templates/haru/boards/search_reply.html:32
-#: templates/haru/boards/search_reply.html:58
-#: templates/haru/boards/search_reply.html:74
+#: templates/haru/boards/search_reply.html:31
+#: templates/haru/boards/search_reply.html:56
+#: templates/haru/boards/search_reply.html:72
 #: templates/haru/boards/show_article.html:109
 #: templates/haru/boards/show_reply.html:57 templates/haru/msgs/inbox.html:67
 #: templates/haru/teams/show_team_reply.html:57
@@ -558,7 +560,7 @@ msgstr ""
 msgid "Reply count"
 msgstr ""
 
-#: templates/haru/base.html:81
+#: templates/haru/base.html:79
 msgid "Message"
 msgstr ""
 
@@ -600,12 +602,12 @@ msgstr ""
 msgid "Search reply"
 msgstr ""
 
-#: templates/haru/boards/search_reply.html:91
+#: templates/haru/boards/search_reply.html:89
 #: templates/haru/boards/show_list.html:262
 msgid "write user"
 msgstr ""
 
-#: templates/haru/boards/search_reply.html:95
+#: templates/haru/boards/search_reply.html:93
 #: templates/haru/boards/show_list.html:266
 msgid "search"
 msgstr ""
@@ -747,8 +749,8 @@ msgstr ""
 msgid "Recent"
 msgstr ""
 
-#: templates/haru/menu_main.html:47 templates/haru/portal/index.html:52
-#: templates/haru/portal/index.html:74
+#: templates/haru/menu_main.html:47 templates/haru/portal/index.html:54
+#: templates/haru/portal/index.html:78
 msgid "Infobbs"
 msgstr ""
 
@@ -757,7 +759,7 @@ msgid "Freebbs"
 msgstr ""
 
 #: templates/haru/menu_main.html:57 templates/haru/menu_sub.html:9
-#: templates/haru/portal/index.html:103
+#: templates/haru/portal/index.html:109
 msgid "Recruitment"
 msgstr ""
 
@@ -841,7 +843,7 @@ msgstr ""
 msgid "characters available."
 msgstr ""
 
-#: templates/haru/portal/index.html:127 templates/haru/portal/index.html:149
+#: templates/haru/portal/index.html:135 templates/haru/portal/index.html:159
 msgid "Notice"
 msgstr ""
 
