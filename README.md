@@ -1,8 +1,8 @@
 # bbgo
 Total bbs system made by django
 
-# Demo and project site
-http://bbgo.gencode.me
+# Demo
+https://destinyflix.com
 
 # Issue management
 http://jira.gencode.me/browse/BBGO
