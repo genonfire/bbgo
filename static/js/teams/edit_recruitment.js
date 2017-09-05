@@ -10,6 +10,10 @@ function slot_minus() {
 }
 
 $('#id_category').change(function() {
+    if (edit_type == 'edit') {
+        return;
+    }
+
     category = $(this).val();
     switch(category) {
         case '레이드':

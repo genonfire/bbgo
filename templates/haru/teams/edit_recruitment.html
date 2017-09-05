@@ -42,7 +42,11 @@
             <b>{% trans 'category' %}</b>
             <select id="id_category" maxlength="23" name="category">
             {% for choice in category_choices %}
-                <option value="{{ choice }}">{{ choice }}</option>
+                {% if choice == category %}
+                    <option value="{{ choice }}" selected>{{ choice }}</option>
+                {% else %}
+                    <option value="{{ choice }}">{{ choice }}</option>
+                {% endif %}
             {% endfor %}
             </select>
             <div>
@@ -79,5 +83,8 @@
 {% endblock %}
 
 {% block bodyscript %}
+<script>
+    var edit_type = '{{ edit_type }}';
+</script>
 <script src="{% static 'js/teams/edit_recruitment.js' %}" async></script>
 {% endblock %}

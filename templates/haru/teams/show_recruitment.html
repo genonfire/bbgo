@@ -31,6 +31,9 @@
     {% if article.status != '1normal' %}
         <span>[{{ status_text }}]</span>
     {% endif %}
+    {% if article.category %}
+        <span>[{{ article.category }}]</span>
+    {% endif %}
     {{ article.subject }} ({{ article.slot}}/{{ article.slot_total }})
 </div>
 <div class="article_user">

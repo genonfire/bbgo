@@ -267,6 +267,7 @@ def edit_article(request, id):
             'table_name': table_name,
             'table_desc': table_desc,
             'category_choices': category_choices,
+            'category': article.category
         }
     )
 
