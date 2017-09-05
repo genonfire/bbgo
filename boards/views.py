@@ -53,21 +53,23 @@ def show_list(request, search_type='', search_word='', table=0, page=0):
 
     if int(table) == 0 or int(table) == 9:
         if search_type == '':
-            notice_list = Board.objects.filter(table=1).filter(
-                status='3notice').order_by('-id')
+            notice_list = Board.objects.filter(Q(table=1) | Q(table=2)).filter(
+                status='3notice').exclude(table=8).order_by('table', '-id')
         else:
             notice_list = None
         if int(table) == 9:
             total = Board.objects.filter(q).filter(
                 like_count__gte=board_table.get_best_threshold()).filter(
-                dislike_count__lte=board_table.get_veto_threshold()).count()
+                dislike_count__lte=board_table.get_veto_threshold()).exclude(
+                table=8).count()
             lists = Board.objects.filter(q).filter(
                 like_count__gte=board_table.get_best_threshold()).filter(
-                dislike_count__lt=board_table.get_veto_threshold()) \
-                .order_by('-id')[start_at:end_at]
+                dislike_count__lt=board_table.get_veto_threshold()).exclude(
+                table=8).order_by('-id')[start_at:end_at]
         else:
-            total = Board.objects.filter(q).count()
-            lists = Board.objects.filter(q).order_by('-id')[start_at:end_at]
+            total = Board.objects.filter(q).exclude(table=8).count()
+            lists = Board.objects.filter(q).exclude(table=8).order_by('-id')[
+                start_at:end_at]
         name_list = board_table.get_table_list()
     else:
         if search_type == '':
