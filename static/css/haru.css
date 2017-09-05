@@ -85,7 +85,7 @@ table.sample td {text-align:left;vertical-align:top;}
 table.sample td.right {width:50%;border-left:1px solid #11223d;}
 table.sample div.titlebar {height:2.6em;margin-bottom:.3em;margin-right:.1em;padding-top:.4em;background:#EDEDED;text-align:center;}
 table.sample div.titlebar img {vertical-align:middle;}
-.sample_subject {height:2.1em;}
+.sample_subject {min-height:2.1em;}
 .sample_subject span.reply_count {font-size:.85em;font-weight:bold;color:#409BD1;}
 
 /* Contents */
