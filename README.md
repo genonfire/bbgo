@@ -11,5 +11,7 @@ http://jira.gencode.me/browse/BBGO
 http://wiki.gencode.me/pages/viewpage.action?pageId=7569417
 
 # Tested by
-<a href="https://www.browserstack.com/" rel="some text">![Foo](./docs/browserstack.png]</a>
-- A cross-browser testing tool
+# Tested by
+<a href="https://www.browserstack.com/">
+  <img src="./docs/browserstack.png" width="50%">- A cross-browser testing tool
+</a>
