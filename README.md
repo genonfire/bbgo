@@ -10,5 +10,6 @@ http://jira.gencode.me/browse/BBGO
 # How to
 http://wiki.gencode.me/pages/viewpage.action?pageId=7569417
 
-![screenshot](./docs/Logo-01.svg?raw=true "screenshot")
-BrowserStack - A cross-browser testing tool
+# Tested by
+<a href="https://www.browserstack.com/" rel="some text">![Foo](./docs/browserstack.png]</a>
+- A cross-browser testing tool
