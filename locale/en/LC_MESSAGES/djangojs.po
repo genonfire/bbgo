@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-04 12:34+0900\n"
+"POT-Creation-Date: 2017-09-06 15:32+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,18 +21,18 @@ msgstr ""
 msgid "Alarm for your activity."
 msgstr ""
 
-#: static/js/accounts/alarm.js:33 static/js/accounts/alarm.js:53
-#: static/js/accounts/alarm.js:100 static/js/accounts/edit_bookmarks.js:30
-#: static/js/boards/boards_reply.js:41 static/js/boards/boards_reply.js:79
-#: static/js/boards/boards_reply.js:156 static/js/boards/boards_reply.js:182
-#: static/js/boards/boards_reply.js:204 static/js/boards/boards_reply.js:227
-#: static/js/boards/boards_reply.js:251 static/js/boards/boards_reply.js:278
-#: static/js/boards/reply_list.js:38 static/js/msgs/conversation.js:19
-#: static/js/teams/team.js:36 static/js/teams/team.js:69
-#: static/js/teams/team.js:104 static/js/teams/team.js:129
-#: static/js/teams/teams_reply.js:37 static/js/teams/teams_reply.js:72
-#: static/js/teams/teams_reply.js:124 static/js/teams/teams_reply.js:147
-#: static/js/teams/teams_reply.js:171 static/js/teams/teams_reply.js:205
+#: static/js/accounts/alarm.js:53 static/js/accounts/alarm.js:100
+#: static/js/accounts/edit_bookmarks.js:30 static/js/boards/boards_reply.js:41
+#: static/js/boards/boards_reply.js:79 static/js/boards/boards_reply.js:156
+#: static/js/boards/boards_reply.js:182 static/js/boards/boards_reply.js:204
+#: static/js/boards/boards_reply.js:227 static/js/boards/boards_reply.js:251
+#: static/js/boards/boards_reply.js:278 static/js/boards/reply_list.js:38
+#: static/js/msgs/conversation.js:19 static/js/teams/team.js:36
+#: static/js/teams/team.js:69 static/js/teams/team.js:104
+#: static/js/teams/team.js:129 static/js/teams/teams_reply.js:37
+#: static/js/teams/teams_reply.js:72 static/js/teams/teams_reply.js:124
+#: static/js/teams/teams_reply.js:147 static/js/teams/teams_reply.js:171
+#: static/js/teams/teams_reply.js:205
 msgid "Error!"
 msgstr ""
 
@@ -128,7 +128,7 @@ msgstr ""
 msgid "Are you sure to delete this article?"
 msgstr ""
 
-#: static/js/boards/boards_edit.js:18 static/js/teams/edit_recruitment.js:36
+#: static/js/boards/boards_edit.js:18 static/js/teams/edit_recruitment.js:40
 msgid "Please fill the subject."
 msgstr ""
 
@@ -136,7 +136,7 @@ msgstr ""
 msgid "Please fill the contents."
 msgstr ""
 
-#: static/js/boards/boards_edit.js:31 static/js/teams/edit_recruitment.js:44
+#: static/js/boards/boards_edit.js:31 static/js/teams/edit_recruitment.js:48
 msgid "Are you sure to quit editing?"
 msgstr ""
 

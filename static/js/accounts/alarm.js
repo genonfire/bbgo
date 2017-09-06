@@ -30,7 +30,7 @@ function alarm_status() {
             }
         },
         error: function(data) {
-            alert(gettext('Error!'));
+            // alert(gettext('Error!'));
         }
     });
 }

@@ -19,9 +19,12 @@
                     {% endif %}
                 </td>
                 <td>
-                    {{ article_user|nickname:user.is_authenticated|safe }}
-                    <span>
-                        - {{ article_user|id:table }}
+                    <span clas="nickname">
+                        {{ article_user|nickname:user.is_authenticated|safe }}
+                        -
+                    </span>
+                    <span class="platform_id">
+                        {{ article_user|id:table }}
                     </span>
                 </td>
             </tr>
@@ -39,15 +42,17 @@
                         {% endif %}
                     </td>
                     <td>
-                        {{ slot_user|nickname:user.is_authenticated|safe }}
-                        <span class="platform_id">
+                        <span clas="nickname">
+                            {{ slot_user|nickname:user.is_authenticated|safe }}
                             -
+                        </span>
+                        <span class="platform_id">
                             {% if slot_user == user %}
                                 <a href="javascript:leave_team('{{ article_id }}')">
                                     {{ slot_user|id:table }}
                                 </a>
                             {% elif user == article_user or user.is_staff %}
-                                <a href="javascript:kick_player('{{ article_id }}', '{{ slot_user }}')" title="Kick player">
+                                <a href="javascript:kick_player('{{ article_id }}', '{{ slot_user }}')" title="{% trans 'Kick player' %}">
                                     {{ slot_user|id:table }}
                                 </a>
                             {% else %}

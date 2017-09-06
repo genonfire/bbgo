@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-04 12:34+0900\n"
+"POT-Creation-Date: 2017-09-06 15:32+0900\n"
 "PO-Revision-Date: 2017-09-03 22:16+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,18 +23,18 @@ msgstr ""
 msgid "Alarm for your activity."
 msgstr "알람을 확인해 주세요."
 
-#: static/js/accounts/alarm.js:33 static/js/accounts/alarm.js:53
-#: static/js/accounts/alarm.js:100 static/js/accounts/edit_bookmarks.js:30
-#: static/js/boards/boards_reply.js:41 static/js/boards/boards_reply.js:79
-#: static/js/boards/boards_reply.js:156 static/js/boards/boards_reply.js:182
-#: static/js/boards/boards_reply.js:204 static/js/boards/boards_reply.js:227
-#: static/js/boards/boards_reply.js:251 static/js/boards/boards_reply.js:278
-#: static/js/boards/reply_list.js:38 static/js/msgs/conversation.js:19
-#: static/js/teams/team.js:36 static/js/teams/team.js:69
-#: static/js/teams/team.js:104 static/js/teams/team.js:129
-#: static/js/teams/teams_reply.js:37 static/js/teams/teams_reply.js:72
-#: static/js/teams/teams_reply.js:124 static/js/teams/teams_reply.js:147
-#: static/js/teams/teams_reply.js:171 static/js/teams/teams_reply.js:205
+#: static/js/accounts/alarm.js:53 static/js/accounts/alarm.js:100
+#: static/js/accounts/edit_bookmarks.js:30 static/js/boards/boards_reply.js:41
+#: static/js/boards/boards_reply.js:79 static/js/boards/boards_reply.js:156
+#: static/js/boards/boards_reply.js:182 static/js/boards/boards_reply.js:204
+#: static/js/boards/boards_reply.js:227 static/js/boards/boards_reply.js:251
+#: static/js/boards/boards_reply.js:278 static/js/boards/reply_list.js:38
+#: static/js/msgs/conversation.js:19 static/js/teams/team.js:36
+#: static/js/teams/team.js:69 static/js/teams/team.js:104
+#: static/js/teams/team.js:129 static/js/teams/teams_reply.js:37
+#: static/js/teams/teams_reply.js:72 static/js/teams/teams_reply.js:124
+#: static/js/teams/teams_reply.js:147 static/js/teams/teams_reply.js:171
+#: static/js/teams/teams_reply.js:205
 msgid "Error!"
 msgstr "잘못!"
 
@@ -130,7 +130,7 @@ msgstr "스크랩"
 msgid "Are you sure to delete this article?"
 msgstr "정말로 삭제하시겠습니까?"
 
-#: static/js/boards/boards_edit.js:18 static/js/teams/edit_recruitment.js:36
+#: static/js/boards/boards_edit.js:18 static/js/teams/edit_recruitment.js:40
 msgid "Please fill the subject."
 msgstr "제목을 입력해 주세요."
 
@@ -138,7 +138,7 @@ msgstr "제목을 입력해 주세요."
 msgid "Please fill the contents."
 msgstr "내용을 입력해 주세요."
 
-#: static/js/boards/boards_edit.js:31 static/js/teams/edit_recruitment.js:44
+#: static/js/boards/boards_edit.js:31 static/js/teams/edit_recruitment.js:48
 msgid "Are you sure to quit editing?"
 msgstr "글작성을 그만두고 나가시겠습니까?"
 

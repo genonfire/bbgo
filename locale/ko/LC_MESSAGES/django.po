@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-04 12:34+0900\n"
-"PO-Revision-Date: 2017-09-03 22:16+0900\n"
+"POT-Creation-Date: 2017-09-06 15:31+0900\n"
+"PO-Revision-Date: 2017-09-06 15:32+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -65,7 +65,7 @@ msgid "status_warning"
 msgstr "신고접수"
 
 #: boards/models.py:17 boards/models.py:60 boards/models.py:78
-#: boards/views.py:121 msgs/models.py:14 teams/models.py:14 teams/models.py:49
+#: boards/views.py:123 msgs/models.py:14 teams/models.py:14 teams/models.py:49
 #: teams/models.py:63 templates/haru/boards/show_list.html:140
 #: templates/haru/boards/show_list.html:148
 #: templates/haru/teams/recruitment.html:65
@@ -74,12 +74,12 @@ msgid "status_hidden"
 msgstr "관리자 삭제"
 
 #: boards/models.py:18 boards/models.py:62 boards/models.py:79
-#: boards/views.py:124 msgs/models.py:15 teams/models.py:15 teams/models.py:51
+#: boards/views.py:126 msgs/models.py:15 teams/models.py:15 teams/models.py:51
 #: teams/models.py:64
 msgid "status_deleted"
 msgstr "삭제됨"
 
-#: boards/views.py:173 teams/views.py:116
+#: boards/views.py:175 teams/views.py:116
 msgid "Wrong status from user."
 msgstr "상태정보가 잘못 입력되었습니다."
 
@@ -150,7 +150,7 @@ msgstr "취소"
 
 #: teams/models.py:17 teams/models.py:55
 #: templates/haru/teams/recruitment.html:92
-#: templates/haru/teams/show_recruitment.html:105
+#: templates/haru/teams/show_recruitment.html:108
 msgid "status_full"
 msgstr "마감"
 
@@ -166,8 +166,7 @@ msgstr "존재하지 않는 페이지입니다. 뭔가 다른 걸 해보세요."
 msgid ""
 "Something wrong. Please reload the page to try again. If error continues, "
 "please contact administrator."
-msgstr ""
-"서버 에러 발생. 새로고침 후에도 문제가 계속되면 관리자에게 문의해 주세요."
+msgstr "서버 에러 발생. 새로고침 후에도 문제가 계속되면 관리자에게 문의해 주세요."
 
 #: templates/haru/accounts/alarm_list.html:7
 msgid "Alarm"
@@ -215,8 +214,7 @@ msgstr "파티에서 강제로 나갔습니다."
 #: templates/haru/accounts/alarm_list.html:100
 #, python-format
 msgid "It shows recent %(max)s alarms so may you often clear alarms."
-msgstr ""
-"최대 %(max)s개의 알람만 보여지므로 종종 모두 읽음을 눌러 정리해 주세요."
+msgstr "최대 %(max)s개의 알람만 보여지므로 종종 모두 읽음을 눌러 정리해 주세요."
 
 #: templates/haru/accounts/alarm_list.html:104
 msgid "No alarms"
@@ -247,9 +245,7 @@ msgstr "북마크 편집"
 msgid ""
 "Drag and drop to edit bookmark ordering. Saving is necessary to save your "
 "changes such as deleting and ordering."
-msgstr ""
-"끌어다 놓기로 북마크 순서를 변경할 수 있습니다. 저장 버튼을 눌러야 순서 변경"
-"이나 삭제한 내용이 저장됩니다."
+msgstr "끌어다 놓기로 북마크 순서를 변경할 수 있습니다. 저장 버튼을 눌러야 순서 변경이나 삭제한 내용이 저장됩니다."
 
 #: templates/haru/accounts/edit_bookmarks.html:18
 #, python-format
@@ -282,9 +278,7 @@ msgstr "커뮤니티 규정"
 msgid ""
 "disagreeable or disturbing content violate our Community Standards may be "
 "deleted without warning."
-msgstr ""
-"다른 사용자에게 불쾌감을 주거나 미풍양속을 해치는 컨텐츠는 예고없이 삭제될 "
-"수 있습니다."
+msgstr "다른 사용자에게 불쾌감을 주거나 미풍양속을 해치는 컨텐츠는 예고없이 삭제될 수 있습니다."
 
 #: templates/haru/accounts/edit_user_info.html:33
 #: templates/haru/accounts/user_info.html:18
@@ -474,8 +468,7 @@ msgstr "알람 설정"
 
 #: templates/haru/accounts/setting.html:25
 msgid "Interval how often do you want to check new alarm. 30 ~ 3600(1 hour)."
-msgstr ""
-"알람 확인 주기를 설정합니다. 30(초) ~ 3600(1시간) 사이에서 설정 가능합니다."
+msgstr "알람 확인 주기를 설정합니다. 30(초) ~ 3600(1시간) 사이에서 설정 가능합니다."
 
 #: templates/haru/accounts/setting.html:31
 msgid "Alarm interval(sec)"
@@ -525,12 +518,11 @@ msgstr "애드센스 정보"
 #: templates/haru/accounts/setting.html:91
 msgid ""
 "Your AdSense will be shown on information and best articles by profit "
-"sharing system. To use this feature please fill followings from your AdSense "
-"code."
+"sharing system. To use this feature please fill followings from your AdSense"
+" code."
 msgstr ""
-"수익 공유 시스템에 따라 정보글이나 추천을 많이 받은 게시글에는 글쓴이의 애드"
-"센스가 나타납니다. 이 기능을 사용하려면 본인의 애드센스 코드를 참조하여 아래 "
-"정보를 채워주세요."
+"수익 공유 시스템에 따라 정보글이나 추천을 많이 받은 게시글에는 글쓴이의 애드센스가 나타납니다. 이 기능을 사용하려면 본인의 애드센스 "
+"코드를 참조하여 아래 정보를 채워주세요."
 
 #: templates/haru/accounts/signup.html:14 templates/haru/error.html:4
 #: templates/haru/error.html.py:8
@@ -580,26 +572,26 @@ msgstr "쪽지"
 msgid "category"
 msgstr "구분"
 
-#: templates/haru/boards/edit_article.html:58
-#: templates/haru/teams/edit_recruitment.html:68
+#: templates/haru/boards/edit_article.html:62
+#: templates/haru/teams/edit_recruitment.html:72
 msgid "status"
 msgstr "상태"
 
-#: templates/haru/boards/edit_article.html:62
+#: templates/haru/boards/edit_article.html:66
 #: templates/haru/boards/show_article.html:154
-#: templates/haru/teams/edit_recruitment.html:72
-#: templates/haru/teams/show_recruitment.html:142
+#: templates/haru/teams/edit_recruitment.html:76
+#: templates/haru/teams/show_recruitment.html:145
 msgid "submit"
 msgstr "등록"
 
-#: templates/haru/boards/edit_article.html:64
-#: templates/haru/teams/edit_recruitment.html:74
+#: templates/haru/boards/edit_article.html:68
+#: templates/haru/teams/edit_recruitment.html:78
 msgid "save"
 msgstr "저장"
 
-#: templates/haru/boards/edit_article.html:66
-#: templates/haru/teams/edit_recruitment.html:76
-#: templates/haru/teams/show_recruitment.html:98
+#: templates/haru/boards/edit_article.html:70
+#: templates/haru/teams/edit_recruitment.html:80
+#: templates/haru/teams/show_recruitment.html:101
 msgid "cancel"
 msgstr "취소"
 
@@ -650,24 +642,24 @@ msgid "share"
 msgstr "공유"
 
 #: templates/haru/boards/show_article.html:104
-#: templates/haru/teams/show_recruitment.html:85
+#: templates/haru/teams/show_recruitment.html:88
 msgid "edit"
 msgstr "수정"
 
 #: templates/haru/boards/show_article.html:130
-#: templates/haru/teams/show_recruitment.html:123
+#: templates/haru/teams/show_recruitment.html:126
 msgid "Reload replies"
 msgstr "댓글 새로고침"
 
 #: templates/haru/boards/show_article.html:135
-#: templates/haru/teams/show_recruitment.html:128
+#: templates/haru/teams/show_recruitment.html:131
 msgid "Show new replies"
 msgstr "신규 댓글 보기"
 
 #: templates/haru/boards/show_article.html:145
 #: templates/haru/msgs/conversation.html:40
 #: templates/haru/msgs/send_msg.html:40
-#: templates/haru/teams/show_recruitment.html:138
+#: templates/haru/teams/show_recruitment.html:141
 msgid "Please show some respect."
 msgstr "서로에 대한 배려와 존중을 보여주세요."
 
@@ -818,9 +810,7 @@ msgstr "개의 안 읽은 쪽지가 있습니다."
 msgid ""
 "old messages exist. Deleting old messages may be able to improve overall "
 "performance."
-msgstr ""
-"개의 오래된 쪽지가 있습니다. 오래된 쪽지를 지우면 전반적인 성능이 향상될 수 "
-"있습니다."
+msgstr "개의 오래된 쪽지가 있습니다. 오래된 쪽지를 지우면 전반적인 성능이 향상될 수 있습니다."
 
 #: templates/haru/msgs/inbox.html:18
 msgid "messages exist."
@@ -842,9 +832,7 @@ msgstr "쪽지 보내기"
 msgid ""
 "Messages that include spam, abusive or harmful content may cause ban or "
 "suspension on your account."
-msgstr ""
-"스팸이나 욕설, 비방, 시비성 내용을 보낼 경우 계정 정지 등의 징계를 받을 수 있"
-"습니다."
+msgstr "스팸이나 욕설, 비방, 시비성 내용을 보낼 경우 계정 정지 등의 징계를 받을 수 있습니다."
 
 #: templates/haru/msgs/send_msg.html:20
 msgid "recipient"
@@ -872,11 +860,10 @@ msgstr "비밀번호가 변경되었습니다."
 
 #: templates/haru/registration/password_change_form.html:13
 msgid ""
-"Please enter your old password, for security's sake, and then enter your new "
-"password twice so we can verify you typed it in correctly."
+"Please enter your old password, for security's sake, and then enter your new"
+" password twice so we can verify you typed it in correctly."
 msgstr ""
-"기존에 사용하시던 비밀번호를 입력해 주세요. 새로운 비밀번호는 정확히 입력했는"
-"지 확인할 수 있도록 두 번 입력하시기 바랍니다."
+"기존에 사용하시던 비밀번호를 입력해 주세요. 새로운 비밀번호는 정확히 입력했는지 확인할 수 있도록 두 번 입력하시기 바랍니다."
 
 #: templates/haru/registration/password_reset_complete.html:4
 #: templates/haru/registration/password_reset_complete.html:8
@@ -898,9 +885,7 @@ msgstr "비밀번호가 설정되었습니다. 이제 로그인하세요."
 msgid ""
 "Please enter your new password twice so we can verify you typed it in "
 "correctly."
-msgstr ""
-"새로운 비밀번호를 정확히 입력했는지 확인할 수 있도록 두 번 입력하시기 바랍니"
-"다."
+msgstr "새로운 비밀번호를 정확히 입력했는지 확인할 수 있도록 두 번 입력하시기 바랍니다."
 
 #: templates/haru/registration/password_reset_confirm.html:18
 msgid "New password:"
@@ -914,9 +899,7 @@ msgstr "새로운 비밀번호(확인)"
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a new password reset."
-msgstr ""
-"비밀번호 초기화 링크가 이미 사용되었거나 올바르지 않습니다. 비밀번호 초기화"
-"를 과정을 다시 진행해주세요."
+msgstr "비밀번호 초기화 링크가 이미 사용되었거나 올바르지 않습니다. 비밀번호 초기화를 과정을 다시 진행해주세요."
 
 #: templates/haru/registration/password_reset_done.html:11
 msgid "Email sent"
@@ -927,16 +910,13 @@ msgid ""
 "We've emailed you instructions for setting your password, if an account "
 "exists with the email you entered. You should receive them shortly."
 msgstr ""
-"비밀번호를 초기화하는 방법을 이메일로 보내드렸습니다. 해당 이메일주소가 정상"
-"적으로 등록되어 있다면 이메일을 곧 받으실 수 있습니다."
+"비밀번호를 초기화하는 방법을 이메일로 보내드렸습니다. 해당 이메일주소가 정상적으로 등록되어 있다면 이메일을 곧 받으실 수 있습니다."
 
 #: templates/haru/registration/password_reset_done.html:20
 msgid ""
 "If you don't receive an email, please make sure you've entered the address "
 "you registered with, and check your spam folder."
-msgstr ""
-"만약 이메일을 받지 못하였다면, 등록하신 이메일을 다시 확인하시거나 스팸 메일"
-"함을 확인해주세요."
+msgstr "만약 이메일을 받지 못하였다면, 등록하신 이메일을 다시 확인하시거나 스팸 메일함을 확인해주세요."
 
 #: templates/haru/registration/password_reset_email.html:2
 #, python-format
@@ -966,9 +946,7 @@ msgstr "%(site_name)s 팀"
 msgid ""
 "Forgotten your password? Enter your email address below, and we'll email "
 "instructions for setting a new one."
-msgstr ""
-"비밀번호를 분실하셨습니까? 아래에 이메일 주소를 입력해주십시오. 새로운 비밀번"
-"호를 설정하는 이메일을 보내드리겠습니다."
+msgstr "비밀번호를 분실하셨습니까? 아래에 이메일 주소를 입력해주십시오. 새로운 비밀번호를 설정하는 이메일을 보내드리겠습니다."
 
 #: templates/haru/registration/password_reset_form.html:19
 msgid "Email address:"
@@ -988,27 +966,27 @@ msgstr "다음 페이지로"
 msgid "to first page"
 msgstr "첫 페이지로"
 
-#: templates/haru/teams/edit_recruitment.html:49
+#: templates/haru/teams/edit_recruitment.html:53
 msgid "Select activity then slot may be adjusted automatically."
 msgstr "활동을 선택하시면 그에 맞게 슬롯 크기가 자동으로 조절됩니다."
 
-#: templates/haru/teams/edit_recruitment.html:54
+#: templates/haru/teams/edit_recruitment.html:58
 msgid "slot"
 msgstr "슬롯"
 
-#: templates/haru/teams/edit_recruitment.html:60
+#: templates/haru/teams/edit_recruitment.html:64
 msgid "Total players needed include yourself."
 msgstr "본인을 포함한 파티의 플레이어 수"
 
-#: templates/haru/teams/show_recruitment.html:65
+#: templates/haru/teams/show_recruitment.html:68
 msgid "Reload party"
 msgstr "파티 새로고침"
 
-#: templates/haru/teams/show_recruitment.html:70
+#: templates/haru/teams/show_recruitment.html:73
 msgid "Show new players"
 msgstr "새로 참여한 플레이어"
 
-#: templates/haru/teams/show_recruitment.html:91
+#: templates/haru/teams/show_recruitment.html:94
 msgid "resume recruitment"
 msgstr "모집 재개"
 
@@ -1017,10 +995,14 @@ msgid ""
 "To join party, claim an empty slot. ID for this platform must exist in your "
 "user information. Press your ID once again to leave firetime."
 msgstr ""
-"빈 자리를 선택하면 파티에 참여합니다. 회원정보에 해당 기종의 아이디가 지정되"
-"어 있어야 참여할 수 있습니다. 아이디를 한 번 더 누르면 파티를 떠납니다."
+"빈 자리를 선택하면 파티에 참여합니다. 회원정보에 해당 기종의 아이디가 지정되어 있어야 참여할 수 있습니다. 아이디를 한 번 더 누르면 "
+"파티를 떠납니다."
 
-#: templates/haru/teams/show_team.html:69
-#: templates/haru/teams/show_team.html:73
+#: templates/haru/teams/show_team.html:55
+msgid "Kick player"
+msgstr "강퇴"
+
+#: templates/haru/teams/show_team.html:74
+#: templates/haru/teams/show_team.html:78
 msgid "empty slot."
 msgstr "빈 자리"

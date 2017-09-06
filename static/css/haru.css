@@ -349,14 +349,14 @@ table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 #team_slot {width:100%;}
 .slot_notice {width:90%;max-width:600px;margin-bottom:.5em;color:#666;font-size:.9em;}
 .slot_container {width:95%;max-width:500px;padding:.2em;background:#F6F6F6;}
-.slot {margin:.5em;height:35px;background:#EDEDED;text-align:left;}
+.slot {margin:.5em;min-height:35px;background:#EDEDED;text-align:left;}
 .slot img {width:30px;height:30px;}
 .slot table {width:100%;}
 .slot td {padding:.1em;}
 .slot td.portrait {width:30px;padding-right:.5em;}
 .slot td.tdlink {cursor:pointer;}
-.slot span {margin-left:.5em;letter-spacing:.1em;vertical-align:middle;}
 .slot span a {vertical-align:baseline;}
+.slot span.platform_id {margin-left:.5em;letter-spacing:.1em;}
 .slot span.platform_id a {color:#333;}
 .slot span.platform_id a:hover {color:#D07D2F;}
 
