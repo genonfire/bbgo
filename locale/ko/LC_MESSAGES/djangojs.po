@@ -21,7 +21,7 @@ msgstr ""
 
 #: static/js/accounts/alarm.js:20
 msgid "Alarm for your activity."
-msgstr "알람을 확인해 주세요."
+msgstr "알림을 확인해 주세요."
 
 #: static/js/accounts/alarm.js:53 static/js/accounts/alarm.js:100
 #: static/js/accounts/edit_bookmarks.js:30 static/js/boards/boards_reply.js:41

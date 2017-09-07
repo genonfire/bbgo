@@ -1,3 +1,12 @@
+function handle_notification_click() {
+    alarm_notification_enabled = true;
+    location.href = "/";
+}
+
+function handle_notification_close() {
+    alarm_notification_enabled = true;
+}
+
 function alarm_status() {
     $.ajaxSetup({
         beforeSend: function(xhr, settings) {
@@ -14,15 +23,20 @@ function alarm_status() {
                 $('#alarm_icon').attr('src', '/static/icons/alert24.gif');
                 $('#alarm_icon_mobile').attr('src', '/static/icons/alert24.gif');
 
-                var options = {
-                    title: site_name,
-                    options: {
-                        body: gettext("Alarm for your activity."),
-                        icon: site_logo,
-                        lang: 'ko-KR'
-                    }
-                };
-                $("#easyNotify").easyNotify(options);
+                if (alarm_notification_enabled) {
+                    var options = {
+                        title: site_name,
+                        options: {
+                            body: gettext("Alarm for your activity."),
+                            icon: site_logo,
+                            lang: 'ko-KR',
+                            onClick: handle_notification_click,
+                            onClose: handle_notification_close,
+                        }
+                    };
+                    $("#easyNotify").easyNotify(options);
+                }
+                alarm_notification_enabled = false;
             }
             else {
                 $('#alarm_icon').attr('src', '/static/icons/alert24.png');

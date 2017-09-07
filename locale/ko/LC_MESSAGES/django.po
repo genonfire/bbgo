@@ -170,11 +170,11 @@ msgstr "서버 에러 발생. 새로고침 후에도 문제가 계속되면 관�
 
 #: templates/haru/accounts/alarm_list.html:7
 msgid "Alarm"
-msgstr "알람"
+msgstr "알림"
 
 #: templates/haru/accounts/alarm_list.html:10
 msgid "alarms exist"
-msgstr "개의 알람이 있습니다."
+msgstr "개의 알림이 있습니다."
 
 #: templates/haru/accounts/alarm_list.html:14
 #: templates/haru/msgs/inbox.html:38
@@ -214,11 +214,11 @@ msgstr "파티에서 강제로 나갔습니다."
 #: templates/haru/accounts/alarm_list.html:100
 #, python-format
 msgid "It shows recent %(max)s alarms so may you often clear alarms."
-msgstr "최대 %(max)s개의 알람만 보여지므로 종종 모두 읽음을 눌러 정리해 주세요."
+msgstr "최대 %(max)s개의 알림만 보여지므로 종종 모두 읽음을 눌러 정리해 주세요."
 
 #: templates/haru/accounts/alarm_list.html:104
 msgid "No alarms"
-msgstr "알람이 없습니다."
+msgstr "알림이 없습니다."
 
 #: templates/haru/accounts/deactivate_account.html:6
 #: templates/haru/accounts/deactivate_account.html:10
@@ -464,19 +464,19 @@ msgstr "회원별 개인 설정"
 
 #: templates/haru/accounts/setting.html:22
 msgid "Alarm setting"
-msgstr "알람 설정"
+msgstr "알림 설정"
 
 #: templates/haru/accounts/setting.html:25
 msgid "Interval how often do you want to check new alarm. 30 ~ 3600(1 hour)."
-msgstr "알람 확인 주기를 설정합니다. 30(초) ~ 3600(1시간) 사이에서 설정 가능합니다."
+msgstr "알림 확인 주기를 설정합니다. 30(초) ~ 3600(1시간) 사이에서 설정 가능합니다."
 
 #: templates/haru/accounts/setting.html:31
 msgid "Alarm interval(sec)"
-msgstr "알람 확인 주기(초)"
+msgstr "알림 확인 주기(초)"
 
 #: templates/haru/accounts/setting.html:39
 msgid "Article alarm"
-msgstr "게시글 알람"
+msgstr "게시글 알림"
 
 #: templates/haru/accounts/setting.html:44
 msgid "Alarm when someone replies on your article."
@@ -484,7 +484,7 @@ msgstr "게시글에 댓글이 달렸을 때 알려줍니다."
 
 #: templates/haru/accounts/setting.html:50
 msgid "Reply alarm"
-msgstr "댓글 알람"
+msgstr "댓글 알림"
 
 #: templates/haru/accounts/setting.html:55
 msgid "Alarm when someone replies on your reply."
@@ -497,7 +497,7 @@ msgstr "끌 수 없습니다."
 
 #: templates/haru/accounts/setting.html:62
 msgid "Team alarm"
-msgstr "가디언 알람"
+msgstr "가디언 알림"
 
 #: templates/haru/accounts/setting.html:67
 msgid "Alarm when someone joins your team."
@@ -505,7 +505,7 @@ msgstr "모집중인 파티에 누군가 참여하면 알려줍니다."
 
 #: templates/haru/accounts/setting.html:73
 msgid "Team full alarm"
-msgstr "파티 알람"
+msgstr "파티 알림"
 
 #: templates/haru/accounts/setting.html:78
 msgid "Alarm when your team recruiting finished or canceled."

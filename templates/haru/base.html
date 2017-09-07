@@ -156,6 +156,7 @@
     var url_message = "{% url 'msgs:send' user='bb' %}";
     {% if user.is_authenticated and ENABLE_ALARM_POLLING and not DEBUG %}
         var alarm_polling_enabled = true;
+        var alarm_notification_enabled = true;
         var alarm_polling_ms = {{ user.profile.alarm_interval }} * 1000;
     {% else %}
         var alarm_polling_enabled = false;

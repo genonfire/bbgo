@@ -21,7 +21,7 @@
       } else if (Notification.permission === "granted") {
 
         var notification = new Notification(settings.title, settings.options);
-        
+
         notification.onclose = function() {
             if (typeof settings.options.onClose == 'function') { 
                 settings.options.onClose();
@@ -31,6 +31,7 @@
         notification.onclick = function(){
             if (typeof settings.options.onClick == 'function') { 
                 settings.options.onClick();
+                this.close();
             }
         };
 
