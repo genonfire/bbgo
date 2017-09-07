@@ -39,10 +39,10 @@
                             </span>
                         </a>
                     {% elif alarm.0 == 'r' %}
-                        <span class="subject">
-                            {{ alarm.1.content }}
-                        </span>
                         <a href="{% url 'boards:show_article' id=alarm.1.article_id %}">
+                            <span class="subject">
+                                {{ alarm.1.content }}
+                            </span>
                             {% if alarm.1.created_at|localtime|is_recent %}
                                 <span class="message">
                             {% else %}
@@ -52,10 +52,10 @@
                             </span>
                         </a>
                     {% elif alarm.0 == 't' or alarm.0 == 'f' or alarm.0 == 'c' or alarm.0 == 'l' or alarm.0 == 'k' or alarm.0 == 'bt' %}
-                        <span class="subject">
-                            {{ alarm.1.subject }}
-                        </span>
                         <a href="{% url 'teams:show_recruitment' id=alarm.1.id %}">
+                            <span class="subject">
+                                {{ alarm.1.subject }}
+                            </span>
                             {% if alarm.1.created_at|localtime|is_recent %}
                                 <span class="message">
                             {% else %}
@@ -77,10 +77,10 @@
                             </span>
                         </a>
                     {% elif alarm.0 == 'rt' %}
-                        <span class="subject">
-                            {{ alarm.1.content }}
-                        </span>
                         <a href="{% url 'teams:show_recruitment' id=alarm.1.id %}">
+                            <span class="subject">
+                                {{ alarm.1.content }}
+                            </span>
                             {% if alarm.1.created_at|localtime|is_recent %}
                                 <span class="message">
                             {% else %}
