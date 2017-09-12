@@ -124,7 +124,7 @@ def new_recruitment(request, table=0):
             request.user.profile.point += settings.POINT_ARTICLE
             request.user.profile.save()
 
-            return redirect(article.get_absolute_url())
+            return redirect(article.get_article_url())
     elif request.method == "GET":
         editform = TeamEditForm()
 
