@@ -25,7 +25,7 @@ def portal(request):
         0:sample_notice]
     notice = Board.objects.filter(qs).filter(table=2).order_by('-id')[
         0:sample_notice]
-    info = Board.objects.filter(qs).filter(table=11).order_by('-id')[
+    bbs = Board.objects.filter(qs).filter(table=12).order_by('-id')[
         0:sample_limit]
 
     return render(
@@ -35,7 +35,7 @@ def portal(request):
             'banner': banner,
             'best': best,
             'recent': recent,
-            'info': info,
+            'bbs': bbs,
             'notice': notice,
             'sample_limit_mobile': sample_limit_mobile,
         }

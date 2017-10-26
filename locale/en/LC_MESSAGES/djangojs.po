@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-06 15:32+0900\n"
+"POT-Creation-Date: 2017-10-27 07:09+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: static/js/accounts/alarm.js:20
+#: static/js/accounts/alarm.js:30
 msgid "Alarm for your activity."
 msgstr ""
 
-#: static/js/accounts/alarm.js:53 static/js/accounts/alarm.js:100
+#: static/js/accounts/alarm.js:67 static/js/accounts/alarm.js:114
 #: static/js/accounts/edit_bookmarks.js:30 static/js/boards/boards_reply.js:41
 #: static/js/boards/boards_reply.js:79 static/js/boards/boards_reply.js:156
 #: static/js/boards/boards_reply.js:182 static/js/boards/boards_reply.js:204

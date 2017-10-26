@@ -45,4 +45,4 @@ urlpatterns = [
 if 'django_summernote' in settings.INSTALLED_APPS:
     urlpatterns.append(url(r'^summernote/', include('django_summernote.urls')))
 if 'rosetta' in settings.INSTALLED_APPS:
-    urlpatterns.append(url(r'^trans/', include('rosetta.urls'),))
+    urlpatterns.append(url(r'^trans/', include('rosetta.urls')))

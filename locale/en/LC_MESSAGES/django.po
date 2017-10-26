@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-06 15:31+0900\n"
+"POT-Creation-Date: 2017-10-27 07:09+0900\n"
 "PO-Revision-Date: 2017-09-02 19:32+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -741,33 +741,29 @@ msgid "bbs"
 msgstr ""
 
 #: templates/haru/menu_main.html:39 templates/haru/menu_sub.html:5
-#: templates/haru/portal/index.html:28
+#: templates/haru/portal/board_sample.html:28
 msgid "Best"
 msgstr ""
 
-#: templates/haru/menu_main.html:42
+#: templates/haru/menu_main.html:42 templates/haru/menu_sub.html:10
+#: templates/haru/portal/board_sample.html:109
 msgid "Recent"
 msgstr ""
 
-#: templates/haru/menu_main.html:47 templates/haru/portal/index.html:54
-#: templates/haru/portal/index.html:78
+#: templates/haru/menu_main.html:47
 msgid "Infobbs"
 msgstr ""
 
-#: templates/haru/menu_main.html:52
+#: templates/haru/menu_main.html:52 templates/haru/portal/board_sample.html:54
+#: templates/haru/portal/board_sample.html:78
 msgid "Freebbs"
 msgstr ""
 
-#: templates/haru/menu_main.html:57 templates/haru/menu_sub.html:9
-#: templates/haru/portal/index.html:109
-msgid "Recruitment"
-msgstr ""
-
-#: templates/haru/menu_main.html:75
+#: templates/haru/menu_main.html:60
 msgid "bookmark"
 msgstr ""
 
-#: templates/haru/menu_main.html:88
+#: templates/haru/menu_main.html:73
 msgid "Edit"
 msgstr ""
 
@@ -843,7 +839,8 @@ msgstr ""
 msgid "characters available."
 msgstr ""
 
-#: templates/haru/portal/index.html:135 templates/haru/portal/index.html:159
+#: templates/haru/portal/board_sample.html:131
+#: templates/haru/portal/board_sample.html:155
 msgid "Notice"
 msgstr ""
 
