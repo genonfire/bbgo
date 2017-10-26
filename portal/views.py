@@ -7,8 +7,6 @@ from boards.table import BoardTable
 from django.db.models import Q
 from django.shortcuts import render
 
-from teams.models import Team
-
 
 def portal(request):
     """Portal"""
@@ -23,25 +21,22 @@ def portal(request):
         dislike_count__lt=board_table.get_veto_threshold())
     qs = Q(status='1normal') | Q(status='3notice') | Q(status='4warning')
     best = Board.objects.filter(q).filter(qs).order_by('-id')[0:sample_limit]
+    recent = Board.objects.filter(qs).order_by('-id')[
+        0:sample_notice]
     notice = Board.objects.filter(qs).filter(table=2).order_by('-id')[
         0:sample_notice]
     info = Board.objects.filter(qs).filter(table=11).order_by('-id')[
         0:sample_limit]
-    ps4 = Team.objects.filter(qs).filter(table=1).order_by('-id')[
-        0:sample_limit]
-    # pc = Team.objects.filter(qs).filter(table=3).order_by('-id')[
-    #     0:sample_limit]
 
     return render(
         request,
-        "portal/index.html",
+        "portal/board_sample.html",
         {
             'banner': banner,
             'best': best,
+            'recent': recent,
             'info': info,
             'notice': notice,
-            'ps4': ps4,
-            # 'pc': pc,
             'sample_limit_mobile': sample_limit_mobile,
         }
     )

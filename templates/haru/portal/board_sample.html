@@ -105,25 +105,21 @@
             <td>
                 <div>
                     <div class="titlebar">
-                        <a href="{% url 'teams:recruitment' table=1 page=1 %}">
-                            {% trans 'Recruitment' %} PS4
+                        <a href="{% url 'boards:show_list' table=0 page=1 %}">
+                            {% trans 'Recent' %}
                             <img src="{% static 'icons/arrowright24.png' %}">
                         </a>
                     </div>
-                    {% for article in ps4 %}
-                        {% if forloop.counter0 >= sample_limit_mobile %}
-                            <div class="sample_subject mobile_hide">
-                        {% else %}
-                            <div class="sample_subject">
-                        {% endif %}
-                                <a href="{% url 'teams:show_recruitment' id=article.id %}">
-                                    {{ article.subject|truncatechars:26 }}
-                                </a>
-                                {% if article.reply_count > 0 %}
-                                    <span class="reply_count">
-                                        [{{ article.reply_count }}]
-                                    </span>
-                                {% endif %}
+                    {% for article in recent %}
+                        <div class="sample_subject">
+                            <a href="{% url 'boards:show_article' id=article.id %}">
+                                {{ article.subject|truncatechars:26 }}
+                            </a>
+                            {% if article.reply_count > 0 %}
+                                <span class="reply_count">
+                                    [{{ article.reply_count }}]
+                                </span>
+                            {% endif %}
                         </div>
                     {% endfor %}
                 </div>
