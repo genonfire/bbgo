@@ -10,7 +10,7 @@ from django.shortcuts import render
 
 def portal(request):
     """Portal"""
-    banner_limit = 4
+    banner_limit = 2
     banner = randint(0, banner_limit)
 
     board_table = BoardTable()
