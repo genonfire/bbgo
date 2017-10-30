@@ -60,9 +60,16 @@
             <span class="category">
                 {% trans 'status_notice' %}
             </span>
-            <a href="{% url 'boards:show_table_article' id=article.id table=table %}" class="board_link">
-                {{ article.subject }}
-            </a>
+            {% if article.status == '2temp' %}
+                <a href="{% url 'boards:edit_article' id=article.id %}">
+                    [{% trans 'Draft' %}]
+                    {{ article.subject }}
+                </a>
+            {% else %}
+                <a href="{% url 'boards:show_table_article' id=article.id table=table %}" class="board_link">
+                    {{ article.subject }}
+                </a>
+            {% endif %}
             {% if article.has_video %}
                 <img src="{% static 'icons/video20.png' %}">
             {% elif article.has_image %}
@@ -168,9 +175,16 @@
                     {% trans 'Secret article' %}
                     <img src="{% static 'icons/lock18.png' %}">
                 {% else %}
-                    <a href="{% url 'boards:show_table_article' id=article.id table=table %}">
+                    {% if article.status == '2temp' %}
+                        <a href="{% url 'boards:edit_article' id=article.id %}">
+                        [{% trans 'Draft' %}]
                         {{ article.subject }}
-                    </a>
+                        </a>
+                    {% else %}
+                        <a href="{% url 'boards:show_table_article' id=article.id table=table %}">
+                            {{ article.subject }}
+                        </a>
+                    {% endif %}
                     {% if article.has_video %}
                         <img src="{% static 'icons/video20.png' %}">
                     {% elif article.has_image %}

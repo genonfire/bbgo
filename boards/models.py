@@ -46,6 +46,10 @@ class Board(models.Model):
         """Back to article"""
         return reverse_lazy('boards:show_article', args=[self.id])
 
+    def get_edit_url(self):
+        """Stay editing"""
+        return reverse_lazy('boards:edit_article', args=[self.id])
+
     def get_status_text(self):
         """Get status text"""
         if self.status == '1normal':

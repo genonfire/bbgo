@@ -38,12 +38,17 @@ def show_list(request, search_type='', search_word='', table=0, page=0):
     end_at = start_at + list_count
 
     sq = (Q(status='1normal') | Q(status='4warning') | Q(status='5hidden'))
+    mq = (sq | Q(status='2temp'))
     if search_type == 'subject':
         q = sq & Q(subject__icontains=search_word)
     elif search_type == 'subjectcontent':
         q = sq & (
             Q(subject__icontains=search_word) |
             Q(content__icontains=search_word))
+    elif search_type == 'writeuser' and search_word == request.user.username:
+        q = mq & (
+            Q(user__username__icontains=search_word) |
+            Q(user__first_name__icontains=search_word))
     elif search_type == 'writeuser':
         q = sq & (
             Q(user__username__icontains=search_word) |
@@ -187,6 +192,9 @@ def new_article(request, table=0):
             article.table = table
             article.save()
 
+            if article.status == '2temp':
+                return redirect(article.get_edit_url())
+
             request.user.profile.last_article_at = timezone.now()
             request.user.profile.point += settings.POINT_ARTICLE
             request.user.profile.save()
@@ -223,12 +231,12 @@ def new_article(request, table=0):
 def edit_article(request, id):
     """Edit article"""
     article = get_object_or_404(Board, pk=id)
+    edit_type = 'edit'
 
     if request.method == "POST":
         editform = BoardEditForm(request.POST, request.FILES, instance=article)
         if editform.is_valid():
             article = editform.save(commit=False)
-            article.modified_at = timezone.now()
 
             image_text = article.get_image_text()
             if image_text in article.content:
@@ -238,6 +246,13 @@ def edit_article(request, id):
             video_text = article.get_video_text()
             if video_text in article.content:
                 article.has_video = True
+
+            if article.status == '2temp':
+                article.created_at = timezone.now()
+                article.save()
+                return redirect(article.get_edit_url())
+
+            article.modified_at = timezone.now()
             article.save()
 
             request.user.profile.last_article_at = timezone.now()
@@ -258,16 +273,20 @@ def edit_article(request, id):
 
         editform = BoardEditForm(instance=article)
 
+        if article.status == '2temp':
+            edit_type = 'temp'
+
     return render(
         request,
         'boards/edit_article.html',
         {
             'form': editform,
-            'edit_type': 'edit',
+            'edit_type': edit_type,
             'table_name': table_name,
             'table_desc': table_desc,
             'category_choices': category_choices,
-            'category': article.category
+            'category': article.category,
+            'created_at': article.created_at,
         }
     )
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-27 07:09+0900\n"
+"POT-Creation-Date: 2017-10-30 11:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -128,15 +128,15 @@ msgstr ""
 msgid "Are you sure to delete this article?"
 msgstr ""
 
-#: static/js/boards/boards_edit.js:18 static/js/teams/edit_recruitment.js:40
+#: static/js/boards/boards_edit.js:30 static/js/teams/edit_recruitment.js:40
 msgid "Please fill the subject."
 msgstr ""
 
-#: static/js/boards/boards_edit.js:23 static/js/msgs/message.js:6
+#: static/js/boards/boards_edit.js:35 static/js/msgs/message.js:6
 msgid "Please fill the contents."
 msgstr ""
 
-#: static/js/boards/boards_edit.js:31 static/js/teams/edit_recruitment.js:48
+#: static/js/boards/boards_edit.js:43 static/js/teams/edit_recruitment.js:48
 msgid "Are you sure to quit editing?"
 msgstr ""
 

@@ -13,6 +13,17 @@
 {% if table_desc %}
     {{ table_desc }}
 {% endif %}
+{% if edit_type == 'new' or edit_type == 'temp' %}
+    <span>
+        <a href="javascript:save_as_draft()">
+            {% trans 'Save as draft' %}
+        </a>
+        {% if edit_type == 'temp' %}
+            {% trans 'Draft saved at' %}
+            {{ created_at|date:" Y-m-d H:i:s" }}
+        {% endif %}
+    </span>
+{% endif %}
 </div>
 <div class="sense_horizontal_bar">
     {% show_up_sense %}
@@ -65,7 +76,7 @@
         {% if edit_type == 'new' %}
             <input type="submit" value="{% trans 'submit' %}">
         {% else %}
-            <input type="submit" value="{% trans 'save' %}">
+            <input type="submit" value="{% trans 'save' %}" onClick="javascript:save_override()">
         {% endif %}
         <input type="button" value="{% trans 'cancel' %}" onClick="javascript:history.back(1);">
     </div>
