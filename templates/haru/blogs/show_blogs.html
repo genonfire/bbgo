@@ -3,8 +3,6 @@
 {% load i18n %}
 {% block title %}{{ SITE_NAME }}{% endblock %}
 {% load tz datetime %}
-{% load user %}
-{% load bookmark %}
 {% load sense %}
 {% load navigator %}
 {% load tags %}
@@ -103,5 +101,5 @@
         var mark_enabled = false;
     {% endif %}
 </script>
-<script src="{% static 'js/accounts/bookmarks.js' %}" async></script>
+<script src="{% static 'js/blogs/blogs_list.js' %}" async></script>
 {% endblock %}
