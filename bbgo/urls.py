@@ -37,6 +37,7 @@ urlpatterns = [
     url(r'^', include('portal.urls')),
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
     url(r'^msgs/', include('msgs.urls', namespace='msgs')),
+    url(r'^blogs/', include('blogs.urls', namespace='blogs')),
     url(r'^boards/', include('boards.urls', namespace='boards')),
     url(r'^teams/', include('teams.urls', namespace='teams')),
     url(r'^api/', include('core.apiurls', namespace='api')),

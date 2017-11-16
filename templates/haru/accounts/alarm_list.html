@@ -51,7 +51,27 @@
                                 {% trans 'Reply has a reply.' %}
                             </span>
                         </a>
-                    {% elif alarm.0 == 't' or alarm.0 == 'f' or alarm.0 == 'c' or alarm.0 == 'l' or alarm.0 == 'k' or alarm.0 == 'bt' %}
+                    {% elif alarm.0 == 'l' or alarm.0 == 'c' %}
+                        <span class="category">
+                            {% trans 'Blog' %}
+                        </span>
+                        <a href="{% url 'blogs:show_post' id=alarm.1.id %}#comment_header">
+                            {% if alarm.0 == 'l' %}
+                                <span class="subject">
+                                    {{ alarm.1.title }}
+                                </span>
+                                <span>
+                                    {% trans 'Post has a reply.' %}
+                                </span>
+                            {% elif alarm.0 == 'c' %}
+                                <span class="subject">
+                                    {{ alarm.1.content }}
+                                </span>
+                                <span>
+                                    {% trans 'Reply has a reply.' %}
+                                </span>
+                            {% endif %}
+                    {% elif alarm.0 == 't' or alarm.0 == 'tf' or alarm.0 == 'tc' or alarm.0 == 'tl' or alarm.0 == 'tk' or alarm.0 == 'bt' %}
                         <a href="{% url 'teams:show_recruitment' id=alarm.1.id %}">
                             <span class="subject">
                                 {{ alarm.1.subject }}
@@ -63,13 +83,13 @@
                             {% endif %}
                             {% if alarm.0 == 't' %}
                                 {% trans 'A player joined your party.' %}
-                            {% elif alarm.0 == 'f' %}
+                            {% elif alarm.0 == 'tf' %}
                                 {% trans 'The party you joined is now full.' %}
-                            {% elif alarm.0 == 'c' %}
+                            {% elif alarm.0 == 'tc' %}
                                 {% trans 'The party you joined is canceled.' %}
-                            {% elif alarm.0 == 'l' %}
+                            {% elif alarm.0 == 'tl' %}
                                 {% trans 'A player leaved your party.' %}
-                            {% elif alarm.0 == 'k' %}
+                            {% elif alarm.0 == 'tk' %}
                                 {% trans 'You are kicked from party.' %}
                             {% elif alarm.0 == 'bt' %}
                                 {% trans 'Article has a reply.' %}

@@ -64,12 +64,12 @@ function like_users(e, id) {
             $('#like_users_popup').html(data);
             $('#like_users_popup').css({top: top, left: left});
             $('#like_users_popup').show();
-            $('#like_users_popup').on('mousedown touchstart', function(e) {
+            $('#like_users_popup').on('mouseup touchend', function(e) {
                 e.stopPropagation();
             })
-            $('body').on('mousedown touchstart', function(e) {
+            $('body').on('mouseup touchend', function(e) {
                 $('#like_users_popup').hide();
-                $('body').off('mousedown touchstart');
+                $('body').off('mouseup touchend');
             })
         },
         error: function(data) {
@@ -98,6 +98,6 @@ function delete_article(url) {
 $(window).bind("blur", function() {
     if ($('#popup_frame').length > 0) {
         $('#popup_frame').remove();
-        $('body').off('mousedown touchstart');
+        $('body').off('mouseup touchend');
     }
 });

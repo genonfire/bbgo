@@ -1,12 +1,43 @@
 {% load i18n %}
-
-<span>
-    <a href="{% url 'boards:show_list' table=9 page=1 %}">
-        {% trans 'Best' %}
-    </a>
-</span>
-<span>
-    <a href="{% url 'boards:show_list' table=0 page=1 %}">
-        {% trans 'Recent' %}
-    </a>
-</span>
+{{ namespace }}
+{% if app == 'blogs' %}
+    <div class="subnav_blog_title">
+        <span>
+            <a href="{% url 'blogs:blog_home' %}">
+                {{ SITE_NAME }}
+            </a>
+        </span>
+        <span class="blog_description">
+            {{ SITE_INFO }}
+        </span>
+    </div>
+    {% for category in blog_category %}
+        <span>
+            <a href="{% url 'blogs:search_post' search_type='category' search_word=category page=1 %}">
+                {{ category }}
+            </a>
+        </span>
+    {% endfor %}
+    <span>
+        <a href="{% url 'blogs:search_post' search_type='category' search_word='' page=1 %}" title="{% trans 'uncategorized' %}">
+            ...
+        </a>
+    </span>
+{% elif app == 'boards' %}
+    <span>
+        <a href="{% url 'boards:show_list' table=9 page=1 %}">
+            {% trans 'Best' %}
+        </a>
+    </span>
+    <span>
+        <a href="{% url 'boards:show_list' table=0 page=1 %}">
+            {% trans 'Recent' %}
+        </a>
+    </span>
+{% else %}
+    <span>
+        <a href="{% url 'blogs:blog_home' %}">
+            {% trans 'Blog' %}
+        </a>
+    </span>
+{% endif %}

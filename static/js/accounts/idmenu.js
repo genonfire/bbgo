@@ -10,15 +10,15 @@ function show_popup(e, data, width, marginX, marginY) {
         html: data,
         style: "width:" + width + "px;position:absolute;top:" + top + "px;left:" + left + "px;"
     }).appendTo('body');
-    $('#popup_frame').on('mousedown touchstart', function(e) {
+    $('#popup_frame').on('mouseup touchend', function(e) {
         e.stopPropagation();
     })
-    $('#like_users_popup').on('mousedown touchstart', function(e) {
+    $('#like_users_popup').on('mouseup touchend', function(e) {
         $('#popup_frame').remove();
     })
-    $('body').on('mousedown touchstart', function(e) {
+    $('body').on('mouseup touchend', function(e) {
         $('#popup_frame').remove();
-        $('body').off('mousedown touchstart');
+        $('body').off('mouseup touchend');
     })
 }
 

@@ -10,7 +10,6 @@ $('#edit_bookmarks_form').submit(function(e) {
         id = $(this).attr('id');
         bookmarks.push(id);
     });
-    console.log(bookmarks);
 
     $.ajaxSetup({
         beforeSend: function(xhr, settings) {

@@ -17,6 +17,11 @@
 <meta name="description" content="Total bbs system by django">
 <link rel="shortcut icon" href="{% static 'icons/favicon.ico' %}">
 <link rel="apple-touch-icon" href="{% static 'icons/apple-touch-icon.png' %}">
+{% if DEBUG %}
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+{% else %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css">
+{% endif %}
 <link rel="stylesheet" href="{% static 'css/haru.css' %}">
 <script src="{% static 'js/thirdparty/jquery-1.12.4.min.js' %}"></script>
 {% if DEBUG %}
@@ -68,19 +73,18 @@
                                     {% endif %}
                                 </a>
                             </span>
-                            <span class="sidebar_message">
+                            <span>
                                 <a href="{% url 'accounts:scrap_list_0' %}">
-                                    {% trans 'scrap' %}
+                                    <img src="{% static 'icons/scrap24.png' %}">
                                 </a>
                             </span>
-                            <span class="sidebar_message float-right">
+                            <span class="float-right">
                                 <a href="{% url 'msgs:inbox' page=1 %}">
-                                    <span>
-                                        {% trans 'Message' %}
-                                    </span>
                                     <span class="sidebar_message_no">
                                         {% if user.profile.msg_count > 0 %}
-                                            {{ user.profile.msg_count }}
+                                            <img src="{% static 'icons/message24.png' %}">
+                                        {% else %}
+                                            <img src="{% static 'icons/nomessage24.png' %}">
                                         {% endif %}
                                     </span>
                                 </a>
@@ -125,6 +129,9 @@
                     </form>
                 </div>
             {% endif %}
+            <div class="side_menu">
+                {% menu_banner %}
+            </div>
             <div class="sense_sidebar">
                 {% show_side_sense %}
             </div>

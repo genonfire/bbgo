@@ -161,4 +161,24 @@ urlpatterns = [
         api.reload_team,
         name='reload_team'
     ),
+    url(
+        r'^like_post/$',
+        api.like_post,
+        name='like_post',
+    ),
+    url(
+        r'^write_comment/$',
+        api.write_comment,
+        name='write_comment',
+    ),
+    url(
+        r'^delete_comment/$',
+        api.delete_comment,
+        name='delete_comment',
+    ),
+    url(
+        r'^reload_comment/$',
+        api.reload_comment,
+        name='reload_comment',
+    ),
 ]

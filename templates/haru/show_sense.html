@@ -1,10 +1,19 @@
 {% if sense_enabled %}
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="{{ sense_client }}"
-         data-ad-slot="{{ sense_slot }}"
-         data-ad-format="auto"></ins>
+    {% if sense_native %}
+        <ins class="adsbygoogle"
+            style="display:block; text-align:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="{{ sense_client }}"
+            data-ad-slot="{{ sense_slot }}"></ins>
+    {% else %}
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="{{ sense_client }}"
+            data-ad-slot="{{ sense_slot }}"
+            data-ad-format="auto"></ins>
+    {% endif %}
     <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
     </script>

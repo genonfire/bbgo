@@ -2,6 +2,8 @@
 import re
 from smtplib import SMTPException
 
+from blogs.forms import CommentEditForm
+from blogs.models import Blog, Comment
 from boards.forms import ReplyEditForm
 from boards.models import Board, Reply
 from boards.table import BoardTable
@@ -12,8 +14,7 @@ from django.contrib.auth.models import User
 from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.core.mail import send_mail
 from django.core.signing import TimestampSigner
-from django.db.models import Case, IntegerField, When
-from django.db.models import Q
+from django.db.models import Case, IntegerField, Q, When
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render_to_response
 from django.utils import timezone
@@ -526,8 +527,12 @@ def alarm_list(request):
                     item = Board.objects.filter(id__iexact=id)
                 elif app == 'r':
                     item = Reply.objects.filter(id__iexact=id)
-                elif app == 't' or app == 'f' or app == 'c' or app == 'l' \
-                        or app == 'k' or app == 'bt':
+                elif app == 'l':
+                    item = Blog.objects.filter(id__iexact=id)
+                elif app == 'c':
+                    item = Comment.objects.filter(id__iexact=id)
+                elif app == 't' or app == 'tf' or app == 'tc' or app == 'tl' \
+                        or app == 'tk' or app == 'bt':
                     item = Team.objects.filter(id__iexact=id)
                 elif app == 'rt':
                     item = TeamReply.objects.filter(id__iexact=id)
@@ -1011,6 +1016,184 @@ def reload_team(request):
                 'slot_in': article.slot,
                 'empty_slots': article.slot_total - article.slot,
                 'slot_users': slot_users,
+            }
+        )
+    else:
+        return error_to_response(request)
+
+
+def like_post(request):
+    """API like_post"""
+    if request.method == 'POST':
+        id = request.POST['id']
+        ip = get_ipaddress(request)
+        user = request.user
+        post = get_object_or_404(Blog, pk=id)
+        like_users = post.like_users.split(',')
+
+        if post.user == user or ip == post.ip:
+            msg = _("You like your own post?")
+            return JsonResponse([0, msg], safe=False, status=201)
+
+        if ip not in like_users:
+            if post.like_users != '':
+                post.like_users += ","
+            post.like_users += ip
+            post.like_count += 1
+            post.save()
+
+            msg = _("You've liked this article")
+            return JsonResponse(
+                [post.like_count, msg], safe=False, status=201)
+        else:
+            msg = _("You've already liked")
+            return JsonResponse([0, msg], safe=False, status=201)
+    else:
+        return error_page(request)
+
+
+def write_comment(request):
+    """API write_comment"""
+    if request.method == 'POST':
+        id = request.POST['post_id']
+        comment_id = r_id = int(request.POST['comment_id'])
+        username = request.POST['username']
+
+        form = CommentEditForm(request.POST)
+        if form.is_valid():
+            post = get_object_or_404(Blog, pk=id)
+            if post.status != '1normal' and not request.user.is_staff:
+                return JsonResponse({'status': 'false'}, status=402)
+
+            comment = form.save(commit=False)
+            parent_id = comment_id
+
+            while parent_id != 0:
+                parent = get_object_or_404(Comment, pk=parent_id)
+                if parent:
+                    parent_id = parent.comment_id
+                    if parent_id == 0:
+                        comment_id = parent.id
+                else:
+                    return JsonResponse({'status': 'false'}, status=400)
+
+            comment.comment_id = comment_id
+            comment.status = '1normal'
+            if request.user.is_authenticated():
+                comment.userid = request.user.username
+            else:
+                comment.username = username
+            comment.ip = get_ipaddress(request)
+            comment.save()
+
+            post.comment_count += 1
+            post.save()
+
+            if post.user != request.user and comment_id == 0:
+                if post.user.profile.alarm_list != '':
+                    post.user.profile.alarm_list += ','
+                alarm_text = 'l:%d' % post.id
+                post.user.profile.alarm_list += alarm_text
+                post.user.profile.alarm = True
+                post.user.profile.save()
+            elif comment_id > 0:
+                comment_to = get_object_or_404(Comment, pk=comment_id)
+                if comment_to and comment_to.userid:
+                    user = User.objects.filter(username=comment_to.userid)
+                    if user and user[0] is not request.user:
+                        if user[0].profile.alarm_reply:
+                            if user[0].profile.alarm_list != '':
+                                user[0].profile.alarm_list += ','
+                            alarm_text = 'c:%d' % r_id
+                            user[0].profile.alarm_list += alarm_text
+                            user[0].profile.alarm = True
+                            user[0].save()
+
+            q = Q(status='1normal')
+            comments = Comment.objects.filter(post_id=id).filter(q).annotate(
+                custom_order=Case(
+                    When(comment_id=0, then='id'),
+                    default='comment_id',
+                    output_field=IntegerField(),
+                )
+            ).order_by('custom_order', 'id')
+
+            return render_to_response(
+                'blogs/show_comment.html',
+                {
+                    'user': request.user,
+                    'post_user': post.user.username,
+                    'comments': comments,
+                    'count': comments.count()
+                }
+            )
+
+        return JsonResponse({'status': 'false'}, status=400)
+    else:
+        return error_to_response(request)
+
+
+def delete_comment(request):
+    """API delete_comment"""
+    if request.method == 'POST':
+        id = request.POST['id']
+        comment = get_object_or_404(Comment, pk=id)
+
+        if request.user.username == comment.userid or request.user.is_staff:
+            comment.status = '6deleted'
+        else:
+            return error_to_response(request)
+
+        comment.save()
+        post_id = comment.post_id
+        post = get_object_or_404(Blog, pk=post_id)
+        post.comment_count -= 1
+        post.save()
+
+        q = Q(status='1normal')
+        comments = Comment.objects.filter(post_id=post_id).filter(q).annotate(
+            custom_order=Case(
+                When(post_id=0, then='id'),
+                default='post_id',
+                output_field=IntegerField(),
+            )
+        ).order_by('custom_order', 'id')
+
+        return render_to_response(
+            'blogs/show_comment.html',
+            {
+                'user': request.user,
+                'post_user': post.user.username,
+                'comments': comments,
+                'count': comments.count()
+            }
+        )
+
+    return error_to_response(request)
+
+
+def reload_comment(request):
+    """API reload_comment"""
+    if request.method == 'POST':
+        id = request.POST['id']
+        post = get_object_or_404(Blog, pk=id)
+
+        q = Q(status='1normal')
+        comments = Comment.objects.filter(post_id=id).filter(q).annotate(
+            custom_order=Case(
+                When(post_id=0, then='id'),
+                default='post_id',
+                output_field=IntegerField(),
+            )
+        ).order_by('custom_order', 'id')
+
+        return render_to_response(
+            'blogs/show_comment.html',
+            {
+                'user': request.user,
+                'post_user': post.user.username,
+                'comments': comments,
+                'count': comments.count()
             }
         )
     else:

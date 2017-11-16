@@ -24,3 +24,12 @@ def _is_recent(created_at):
         return True
     else:
         return False
+
+
+@register.filter(name='is_lately')
+def _is_lately(created_at):
+    lately = timezone.localtime(timezone.now()) - timezone.timedelta(days=1)
+    if lately < created_at:
+        return True
+    else:
+        return False

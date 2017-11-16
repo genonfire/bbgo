@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-
 from django import forms
+from django.utils.translation import ugettext as _
 from django_summernote.widgets import SummernoteWidget
 
 from .models import Board, Reply
@@ -22,10 +22,10 @@ class BoardEditForm(forms.ModelForm):
         )
         widgets = {
             'subject': forms.TextInput(
-                attrs={'placeholder': u'제목을 입력해 주세요.'}
+                attrs={'placeholder': _('Enter title here.')}
             ),
             'reference': forms.TextInput(
-                attrs={'placeholder': u'출처가 있으면 입력해 주세요.'}
+                attrs={'placeholder': _('Add a reference URL.')}
             ),
             'category': forms.Select(choices=CATEGORY),
             'content': SummernoteWidget(),

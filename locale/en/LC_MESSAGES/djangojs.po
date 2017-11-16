@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-30 11:18+0900\n"
+"POT-Creation-Date: 2017-11-16 16:20+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,9 @@ msgid "Alarm for your activity."
 msgstr ""
 
 #: static/js/accounts/alarm.js:67 static/js/accounts/alarm.js:114
-#: static/js/accounts/edit_bookmarks.js:30 static/js/boards/boards_reply.js:41
+#: static/js/accounts/edit_bookmarks.js:29 static/js/blogs/blogs_comment.js:36
+#: static/js/blogs/blogs_comment.js:76 static/js/blogs/blogs_comment.js:137
+#: static/js/blogs/blogs_comment.js:159 static/js/boards/boards_reply.js:41
 #: static/js/boards/boards_reply.js:79 static/js/boards/boards_reply.js:156
 #: static/js/boards/boards_reply.js:182 static/js/boards/boards_reply.js:204
 #: static/js/boards/boards_reply.js:227 static/js/boards/boards_reply.js:251
@@ -119,31 +121,54 @@ msgstr ""
 msgid "Passwords are different each other."
 msgstr ""
 
-#: static/js/boards/boards_article.js:84
-msgid "scrap"
+#: static/js/blogs/blogs_comment.js:4 static/js/blogs/blogs_comment.js:44
+#: static/js/blogs/sidemenu.js:7 static/js/boards/boards_list.js:8
+#: static/js/boards/boards_reply.js:4 static/js/boards/boards_reply.js:50
+#: static/js/boards/reply_list.js:8 static/js/teams/teams_reply.js:4
+#: static/js/teams/teams_reply.js:46
+msgid "Please input 2 or more characters."
 msgstr ""
 
-#: static/js/boards/boards_article.js:93 static/js/boards/boards_reply.js:188
-#: static/js/boards/reply_list.js:22 static/js/teams/teams_reply.js:108
-msgid "Are you sure to delete this article?"
+#: static/js/blogs/blogs_comment.js:84
+msgid "Enter comment here."
 msgstr ""
 
-#: static/js/boards/boards_edit.js:30 static/js/teams/edit_recruitment.js:40
+#: static/js/blogs/blogs_comment.js:85
+msgid "Enter name here."
+msgstr ""
+
+#: static/js/blogs/blogs_comment.js:86 static/js/boards/boards_reply.js:88
+#: static/js/teams/teams_reply.js:81
+msgid "submit"
+msgstr ""
+
+#: static/js/blogs/blogs_comment.js:121
+msgid "Are you sure to delete this comment?"
+msgstr ""
+
+#: static/js/blogs/blogs_edit.js:23 static/js/boards/boards_edit.js:30
+#: static/js/teams/edit_recruitment.js:40
 msgid "Please fill the subject."
 msgstr ""
 
-#: static/js/boards/boards_edit.js:35 static/js/msgs/message.js:6
+#: static/js/blogs/blogs_edit.js:28 static/js/boards/boards_edit.js:35
+#: static/js/msgs/message.js:6
 msgid "Please fill the contents."
 msgstr ""
 
-#: static/js/boards/boards_edit.js:43 static/js/teams/edit_recruitment.js:48
+#: static/js/blogs/blogs_edit.js:36 static/js/boards/boards_edit.js:43
+#: static/js/teams/edit_recruitment.js:48
 msgid "Are you sure to quit editing?"
 msgstr ""
 
-#: static/js/boards/boards_list.js:8 static/js/boards/boards_reply.js:4
-#: static/js/boards/boards_reply.js:50 static/js/boards/reply_list.js:8
-#: static/js/teams/teams_reply.js:4 static/js/teams/teams_reply.js:46
-msgid "Please input 2 or more characters."
+#: static/js/blogs/blogs_post.js:26 static/js/boards/boards_article.js:93
+#: static/js/boards/boards_reply.js:188 static/js/boards/reply_list.js:22
+#: static/js/teams/teams_reply.js:108
+msgid "Are you sure to delete this article?"
+msgstr ""
+
+#: static/js/boards/boards_article.js:84
+msgid "scrap"
 msgstr ""
 
 #: static/js/boards/boards_reply.js:35 static/js/teams/team.js:18
@@ -158,10 +183,6 @@ msgstr ""
 
 #: static/js/boards/boards_reply.js:87 static/js/teams/teams_reply.js:80
 msgid "Please show some respect."
-msgstr ""
-
-#: static/js/boards/boards_reply.js:88 static/js/teams/teams_reply.js:81
-msgid "submit"
 msgstr ""
 
 #: static/js/boards/boards_reply.js:211 static/js/teams/teams_reply.js:131

@@ -2,6 +2,7 @@
 from boards.table import BoardTable
 
 from django import template
+from django.core.urlresolvers import resolve
 
 from teams.table import TeamTable
 
@@ -12,6 +13,7 @@ register = template.Library()
 def menu_main(context):
     """Main navigation menu"""
     user = context['request'].user
+    name = context['SITE_NAME']
     logo = context['SITE_LOGO']
     info = context['SITE_INFO']
     my_bookmark = []
@@ -34,6 +36,7 @@ def menu_main(context):
 
     return {
         'user': user,
+        'SITE_NAME': name,
         'SITE_LOGO': logo,
         'SITE_INFO': info,
         'my_bookmark': my_bookmark,
@@ -53,10 +56,31 @@ def menu_mobile(context):
     }
 
 
-@register.inclusion_tag('menu_sub.html')
-def menu_sub():
+@register.inclusion_tag('menu_sub.html', takes_context=True)
+def menu_sub(context):
     """Sub navigation menu"""
-    return {}
+    request = context['request']
+    app = resolve(request.path).namespace
+    name = context['SITE_NAME']
+    info = context['SITE_INFO']
+    blog_category = context['BLOG_CATEGORY']
+
+    return {
+        'app': app,
+        'SITE_NAME': name,
+        'SITE_INFO': info,
+        'blog_category': blog_category,
+    }
+
+
+@register.inclusion_tag('menu_banner.html', takes_context=True)
+def menu_banner(context):
+    """Side banner"""
+    request = context['request']
+    app = resolve(request.path).namespace
+    return {
+        'app': app,
+    }
 
 
 @register.inclusion_tag('menu_setting.html')

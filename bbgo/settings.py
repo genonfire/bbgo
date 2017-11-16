@@ -61,6 +61,7 @@ LOCAL_APPS = (
     'accounts',
     'msgs',
     'core',
+    'blogs',
     'boards',
     'teams',
 )
@@ -126,6 +127,7 @@ try:
     SITE_NAME = getattr(secrets, "SITE_NAME")
     SITE_LOGO = getattr(secrets, "SITE_LOGO")
     SITE_INFO = getattr(secrets, "SITE_INFO")
+    BLOG_CATEGORY = getattr(secrets, "BLOG_CATEGORY")
     ADMIN_EMAIL = getattr(secrets, "ADMIN_EMAIL")
     SENSE_UP_CLIENT = getattr(secrets, "SENSE_UP_CLIENT")
     SENSE_UP_SLOT = getattr(secrets, "SENSE_UP_SLOT")
@@ -145,6 +147,7 @@ except IOError:
     SITE_NAME = ''
     SITE_LOGO = ''
     SITE_INFO = ''
+    BLOG_CATEGORY = ''
     ADMIN_EMAIL = ''
     SENSE_UP_CLIENT = ''
     SENSE_UP_SLOT = ''
@@ -267,11 +270,18 @@ REPLY_IMAGE_AVAILABLE = True
 REPLY_IMAGE_SIZE_LIMIT = 1 * 1024 * 1024
 REPLY_AUTO_RENEW_MS = 30 * 1000
 
+# Setting for Blog
+ENABLE_MEMBER_BLOG = True
+ENABLE_ANONYMOUS_COMMENT = True
+COMMENT_TEXT_MAX = 2000
+USERNAME_MAX = 23
+BLOG_LIST_COUNT = 10
+
 # Use AdSense
 ENABLE_ADSENSE = True
 
 # highlight with coding style for <pre> using highlight.js
-ENABLE_CODE_HIGHLIGHT = False
+ENABLE_CODE_HIGHLIGHT = True
 
 # highlight keyword using mark.js
 ENABLE_MARK_KEYWORD = True

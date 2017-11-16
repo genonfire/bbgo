@@ -5,7 +5,7 @@
 {% block extra_head_content %}
 {{ block.super }}
 {% if ENABLE_CODE_HIGHLIGHT %}
-<link rel="stylesheet" href="{% static 'css/monokai-sublime.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/monokai-sublime.min.css' %}">
 {% endif %}
 {% endblock %}
 {% load tz datetime %}
@@ -41,7 +41,9 @@
     {{ article.user|nickname:user.is_authenticated|safe }}
     <div class="article_view_count">
         <img src="{% static 'icons/eye18.png' %}">
-        <span>{{ article.view_count }}</span>
+        <span>
+            {{ article.view_count }}
+        </span>
         {% if article.like_count > 0 %}
             <a href="javascript:void(0)" onClick="javascript:like_users(event, {{ article.id }});return false;" title="{% trans 'who likes' %}">
         {% else %}
@@ -151,7 +153,7 @@
                 </span>
             {% endif %}
             <span class="float-right">
-                <input type="button" value="{% trans 'submit' %}" onClick=write_reply({{ article.id }})>
+                <input type="button" value="{% trans 'submit' %}" onClick="write_reply({{ article.id }})">
             </span>
         </div>
     </form>
@@ -166,7 +168,7 @@
 {% if ENABLE_CODE_HIGHLIGHT %}
     <script src="{% static 'js/thirdparty/highlight.min.js' %}"></script>
     <script src="{% static 'js/thirdparty/highlightjs-line-numbers.min.js' %}"></script>
-    <script src="{% static 'js/boards/boards_highlight.js' %}" async></script>
+    <script src="{% static 'js/thirdparty/highlight.js' %}" async></script>
 {% endif %}
 <script src="{% static 'js/accounts/bookmarks.js' %}" async></script>
 <script src="{% static 'js/boards/boards_article.js' %}" async></script>

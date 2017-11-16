@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% block title %}{{ post.title }} - {{ SITE_NAME }}{% endblock %}
+{% block extra_head_content %}
+{{ block.super }}
+{% if ENABLE_CODE_HIGHLIGHT %}
+    <link rel="stylesheet" href="{% static 'css/xcode.min.css' %}">
+{% endif %}
+{% endblock %}
+{% load tz datetime %}
+{% load censor %}
+{% load user %}
+{% load sense %}
+{% load tags %}
+{% load comment %}
+{% block content %}
+
+<div class="blog_header">
+    <span>
+        {% if post.category %}
+            {{ post.category }}
+        {% else %}
+            {% trans 'uncategorized' %}
+        {% endif %}
+    </span>
+    <div class="post_view_count">
+        <img src="{% static 'icons/eye18.png' %}">
+        <span>
+            {{ post.view_count }}
+        </span>
+        <img src="{% static 'icons/comment18.png' %}">
+        <span>
+            {{ post.comment_count }}
+        </span>
+    </div>
+</div>
+
+<div class="post_view_title">
+    {% if post.status != '1normal' %}
+        <span>
+            [{{ status_text }}]
+        </span>
+    {% endif %}
+    {{ post.title }}
+</div>
+<div class="post_view_misc">
+    <div>
+        <img src="{% static 'icons/watch18.png' %}">
+        {{ post.created_at|date:" Y-m-d H:i:s" }}
+        <span class="post_view_username">
+            - {{ post.user.username }}
+        </span>
+    </div>
+    {% if not post.created_at|is_same_date:post.modified_at %}
+        <div>
+            <img src="{% static 'icons/niun18.png' %}">
+            {{ post.modified_at|date:" Y-m-d H:i:s" }}
+        </div>
+    {% endif %}
+</div>
+
+<div class="post_view_wrapper">
+    <div class="post_header">
+        <span>
+            {% if post.image %}
+                <img src="{{ post.image.url }}">
+            {% else %}
+                <img src="{% static 'icons/addphoto200.png' %}">
+            {% endif %}
+        </span>
+    </div>
+    <div class="post_view_content">
+        {{ post.content|safe }}
+    </div>
+
+    <div class="blog_tags">
+        {% if post.tags %}
+            {% trans 'Tags:' %} {% show_tags post.tags %}
+        {% endif %}
+    </div>
+
+    <div class="article_view_msg">
+        <span id="post_view_text"></span>
+    </div>
+    <div class="article_view_buttons post_view_buttons">
+        <span>
+            <a href="javascript:like_post({{ post.id }})">
+                <img src="{% static 'icons/like24.png' %}">
+                <span id="post_view_like_count">
+                    {{ post.like_count }}
+                </span>
+            </a>
+        </span>
+        <span>
+            <a href="https://twitter.com/intent/tweet?text={{ post.title }}&url={{ request.build_absolute_uri }}" target="_blank">
+                <img src="{% static 'icons/twitter24.png' %}">
+            </a>
+        </span>
+        <span>
+            <a href="http://www.facebook.com/share.php?u={{ request.build_absolute_uri }}" target="_blank">
+                <img src="{% static 'icons/facebook24.png' %}">
+            </a>
+        </span>
+        {% if user.is_staff or post.user == user %}
+            <span>
+                <a href="{% url 'blogs:edit_post' id=post.id %}">
+                    {% trans 'edit' %}
+                </a>
+            </span>
+            <span class="delete">
+                <a href=javascript:delete_post("{% url 'blogs:delete_post' id=post.id %}")>
+                    {% trans 'delete' %}
+                </a>
+            </span>
+        {% endif %}
+    </div>
+</div>
+
+<div class="sense_horizontal_bar">
+    {% show_down_sense %}
+</div>
+
+<div id="comments">
+    {% show_comment post.id %}
+</div>
+
+<div class="reload_reply buttons">
+    <span id="reload_comment">
+        <a href="javascript:reload_comment({{ post.id }})">
+            {% trans 'Reload comments' %}
+        </a>
+    </span>
+</div>
+<div class="input_reply">
+    <form id="form_comment" method="post" enctype="multipart/form-data">
+        <div class="input_reply_text">
+            <textarea id="comment_text" maxlength="{{ COMMENT_TEXT_MAX }}" placeholder="{% trans 'Enter comment here.' %}"></textarea>
+        </div>
+        <div class="input_comment">
+            {% if not user.is_authenticated %}
+                <span class="float-left comment_name">
+                    <input id="comment_username" type="text" maxlength="{{ USERNAME_MAX }}" placeholder="{% trans 'Enter name here.' %}">
+                </span>
+            {% endif %}
+            <span class="float-right">
+                <input type="button" value="{% trans 'submit' %}" onClick="write_comment({{ post.id }})">
+            </span>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
+
+{% block bodyscript %}
+{% if ENABLE_CODE_HIGHLIGHT %}
+    <script src="{% static 'js/thirdparty/highlight.min.js' %}"></script>
+    <script src="{% static 'js/thirdparty/highlightjs-line-numbers.min.js' %}"></script>
+    <script src="{% static 'js/thirdparty/highlight.js' %}" async></script>
+{% endif %}
+<script src="{% static 'js/blogs/blogs_post.js' %}" async></script>
+<script>
+    var comment_text_max = {{ COMMENT_TEXT_MAX }};
+    var comment_username_max = {{ USERNAME_MAX }}
+</script>
+<script src="{% static 'js/blogs/blogs_comment.js' %}" async></script>
+{% endblock %}

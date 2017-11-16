@@ -78,7 +78,7 @@ def show_list(request, search_type='', search_word='', table=0, page=0):
         name_list = board_table.get_table_list()
     else:
         if search_type == '':
-            notice_list = Board.objects.filter(Q(table=1) | Q(table=table)).filter(status__iexact='3notice').order_by('table', '-id')
+            notice_list = Board.objects.filter(Q(table=1) | Q(table=table)).filter(status='3notice').order_by('table', '-id')
         else:
             notice_list = None
         total = Board.objects.filter(table=table).filter(q).count()

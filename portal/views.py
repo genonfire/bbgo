@@ -5,11 +5,16 @@ from boards.models import Board
 from boards.table import BoardTable
 
 from django.db.models import Q
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 
 def portal(request):
-    """Portal"""
+    """Redirect to blog"""
+    return redirect('blogs:blog_home')
+
+
+def board_sample(request):
+    """Show board samples"""
     banner_limit = 2
     banner = randint(0, banner_limit)
 

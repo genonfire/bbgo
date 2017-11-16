@@ -1,6 +1,6 @@
 certifi==2017.4.17
 chardet==3.0.4
-Django==1.8.17
+Django==1.8.18
 django-rosetta==0.7.13
 django-summernote==0.8.7
 idna==2.5

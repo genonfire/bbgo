@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-30 11:18+0900\n"
-"PO-Revision-Date: 2017-10-30 11:20+0900\n"
+"POT-Creation-Date: 2017-11-16 16:20+0900\n"
+"PO-Revision-Date: 2017-11-16 16:25+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: accounts/views.py:48 accounts/views.py:112 core/api.py:473
+#: accounts/views.py:48 accounts/views.py:112 core/api.py:474
 msgid "Saved successfully."
 msgstr "저장했습니다."
 
@@ -45,10 +45,51 @@ msgstr "아이디를 확인해 주세요."
 msgid "Sorry. Please try again later."
 msgstr "죄송합니다. 나중에 다시 시도해 주세요."
 
-#: boards/models.py:13 boards/models.py:56 boards/models.py:81
-#: msgs/models.py:12 teams/models.py:13 teams/models.py:47 teams/models.py:62
+#: blogs/forms.py:24 boards/forms.py:25
+msgid "Enter title here."
+msgstr "제목을 입력해 주세요."
+
+#: blogs/forms.py:27
+msgid "Enter comma separated tags here."
+msgstr "각 태그를 쉼표로 분리해 입력해 주세요."
+
+#: blogs/models.py:12
+#| msgid "status_deleted"
+msgid "status_published"
+msgstr "발행됨"
+
+#: blogs/models.py:13 blogs/models.py:51
+#| msgid "status_read"
+msgid "status_draft"
+msgstr "임시 글"
+
+#: blogs/models.py:14 blogs/models.py:53 blogs/views.py:77
+#| msgid "status_warning"
+msgid "status_pending"
+msgstr "검토중"
+
+#: blogs/models.py:15 blogs/models.py:55 blogs/models.py:63 blogs/views.py:80
+#: boards/models.py:18 boards/models.py:66 boards/models.py:83
+#: boards/views.py:131 msgs/models.py:15 teams/models.py:15 teams/models.py:51
+#: teams/models.py:64
+msgid "status_deleted"
+msgstr "삭제됨"
+
+#: blogs/models.py:49 blogs/models.py:62 boards/models.py:13
+#: boards/models.py:56 boards/models.py:81 msgs/models.py:12
+#: teams/models.py:13 teams/models.py:47 teams/models.py:62
 msgid "status_normal"
 msgstr "일반"
+
+#: blogs/models.py:64
+#| msgid "status_temp"
+msgid "status_spam"
+msgstr "스팸"
+
+#: boards/forms.py:28
+#| msgid "reference"
+msgid "Add a reference URL."
+msgstr "출처가 있으면 입력해 주세요."
 
 #: boards/models.py:14 boards/models.py:58
 msgid "status_temp"
@@ -73,58 +114,52 @@ msgstr "신고접수"
 msgid "status_hidden"
 msgstr "관리자 삭제"
 
-#: boards/models.py:18 boards/models.py:66 boards/models.py:83
-#: boards/views.py:131 msgs/models.py:15 teams/models.py:15 teams/models.py:51
-#: teams/models.py:64
-msgid "status_deleted"
-msgstr "삭제됨"
-
 #: boards/views.py:180 teams/views.py:116
 msgid "Wrong status from user."
 msgstr "상태정보가 잘못 입력되었습니다."
 
-#: core/api.py:51
+#: core/api.py:52
 msgid "Already exist."
 msgstr "이미 존재합니다."
 
-#: core/api.py:53
+#: core/api.py:54
 msgid "Available"
 msgstr "사용 가능합니다."
 
-#: core/api.py:68
+#: core/api.py:69
 msgid "E-mail exists. Why don't you try to find your password?"
 msgstr "이메일 주소가 존재합니다. 비밀번호 찾기를 이용해 보세요."
 
-#: core/api.py:77
+#: core/api.py:78
 #, python-format
 msgid "[%(site_name)s] Verification code for signing in"
 msgstr "[%(site_name)s] 회원가입을 위한 인증코드입니다."
 
-#: core/api.py:84
+#: core/api.py:85
 msgid "Verification code sent. Please check your E-mail."
 msgstr "인증코드를 전송했습니다. 이메일을 확인해 주세요."
 
-#: core/api.py:116 core/api.py:188
+#: core/api.py:117 core/api.py:189
 msgid "Require login"
 msgstr "회원만 가능합니다."
 
-#: core/api.py:124 core/api.py:196
+#: core/api.py:125 core/api.py:197 core/api.py:1035
 msgid "You like your own post?"
 msgstr "자신의 글입니다."
 
-#: core/api.py:136
+#: core/api.py:137 core/api.py:1045
 msgid "You've liked this article"
 msgstr "추천했습니다."
 
-#: core/api.py:144
+#: core/api.py:145
 msgid "You've disliked this article"
 msgstr "비추했습니다."
 
-#: core/api.py:151 core/api.py:220
+#: core/api.py:152 core/api.py:221 core/api.py:1049
 msgid "You've already liked"
 msgstr "이미 추천하셨습니다."
 
-#: core/api.py:153 core/api.py:222
+#: core/api.py:154 core/api.py:223
 msgid "You've already disliked"
 msgstr "이미 비추하셨습니다."
 
@@ -182,41 +217,52 @@ msgid "Read all"
 msgstr "모두 읽음"
 
 #: templates/haru/accounts/alarm_list.html:38
-#: templates/haru/accounts/alarm_list.html:75
+#: templates/haru/accounts/alarm_list.html:95
 msgid "Article has a reply."
 msgstr "게시글에 댓글이 달렸습니다."
 
 #: templates/haru/accounts/alarm_list.html:51
-#: templates/haru/accounts/alarm_list.html:89
+#: templates/haru/accounts/alarm_list.html:71
+#: templates/haru/accounts/alarm_list.html:109
 msgid "Reply has a reply."
 msgstr "댓글에 댓글이 달렸습니다."
 
-#: templates/haru/accounts/alarm_list.html:65
+#: templates/haru/accounts/alarm_list.html:56
+#: templates/haru/blogs/show_blogs.html:16 templates/haru/menu_sub.html:50
+msgid "Blog"
+msgstr "블로그"
+
+#: templates/haru/accounts/alarm_list.html:64
+#| msgid "Article has a reply."
+msgid "Post has a reply."
+msgstr "게시글에 댓글이 달렸습니다."
+
+#: templates/haru/accounts/alarm_list.html:85
 msgid "A player joined your party."
 msgstr "파티에 참가자가 있습니다."
 
-#: templates/haru/accounts/alarm_list.html:67
+#: templates/haru/accounts/alarm_list.html:87
 msgid "The party you joined is now full."
 msgstr "파티 모집이 마감되었습니다."
 
-#: templates/haru/accounts/alarm_list.html:69
+#: templates/haru/accounts/alarm_list.html:89
 msgid "The party you joined is canceled."
 msgstr "파티 모집이 취소되었습니다."
 
-#: templates/haru/accounts/alarm_list.html:71
+#: templates/haru/accounts/alarm_list.html:91
 msgid "A player leaved your party."
 msgstr "파티를 누군가 떠났습니다."
 
-#: templates/haru/accounts/alarm_list.html:73
+#: templates/haru/accounts/alarm_list.html:93
 msgid "You are kicked from party."
 msgstr "파티에서 강제로 나갔습니다."
 
-#: templates/haru/accounts/alarm_list.html:100
+#: templates/haru/accounts/alarm_list.html:120
 #, python-format
 msgid "It shows recent %(max)s alarms so may you often clear alarms."
 msgstr "최대 %(max)s개의 알림만 보여지므로 종종 모두 읽음을 눌러 정리해 주세요."
 
-#: templates/haru/accounts/alarm_list.html:104
+#: templates/haru/accounts/alarm_list.html:124
 msgid "No alarms"
 msgstr "알림이 없습니다."
 
@@ -288,7 +334,7 @@ msgstr "사진"
 #: templates/haru/accounts/edit_user_info.html:47
 #: templates/haru/accounts/login.html:41
 #: templates/haru/accounts/signup.html:36
-#: templates/haru/accounts/user_info.html:28 templates/haru/base.html:102
+#: templates/haru/accounts/user_info.html:28 templates/haru/base.html:106
 #: templates/haru/menu_mobile.html:67
 msgid "id"
 msgstr "아이디"
@@ -372,7 +418,7 @@ msgstr "서명"
 #: templates/haru/accounts/join.html:4 templates/haru/accounts/join.html:8
 #: templates/haru/accounts/login.html:57 templates/haru/accounts/signup.html:4
 #: templates/haru/accounts/signup.html:19
-#: templates/haru/accounts/signup.html:102 templates/haru/base.html:120
+#: templates/haru/accounts/signup.html:102 templates/haru/base.html:124
 #: templates/haru/menu_mobile.html:87
 msgid "Sign up"
 msgstr "회원가입"
@@ -383,7 +429,7 @@ msgstr "회원가입 성공. 함께해 주셔서 감사합니다."
 
 #: templates/haru/accounts/join.html:17 templates/haru/accounts/login.html:4
 #: templates/haru/accounts/login.html:12 templates/haru/accounts/login.html:47
-#: templates/haru/base.html:109 templates/haru/menu_mobile.html:70
+#: templates/haru/base.html:113 templates/haru/menu_mobile.html:70
 #: templates/haru/registration/logged_out.html:17
 #: templates/haru/registration/password_reset_complete.html:17
 msgid "login"
@@ -393,7 +439,7 @@ msgstr "로그인"
 msgid "Login failure"
 msgstr "로그인 실패"
 
-#: templates/haru/accounts/login.html:33 templates/haru/base.html:91
+#: templates/haru/accounts/login.html:33 templates/haru/base.html:95
 #: templates/haru/menu_mobile.html:57
 #: templates/haru/registration/logged_out.html:4
 #: templates/haru/registration/logged_out.html:8
@@ -401,18 +447,17 @@ msgid "logout"
 msgstr "로그아웃"
 
 #: templates/haru/accounts/login.html:44
-#: templates/haru/accounts/signup.html:86 templates/haru/base.html:105
+#: templates/haru/accounts/signup.html:86 templates/haru/base.html:109
 #: templates/haru/menu_mobile.html:75
 msgid "password"
 msgstr "비밀번호"
 
-#: templates/haru/accounts/login.html:52 templates/haru/base.html:115
+#: templates/haru/accounts/login.html:52 templates/haru/base.html:119
 #: templates/haru/menu_mobile.html:82
 msgid "Reset password"
 msgstr "비밀번호찾기"
 
 #: templates/haru/accounts/scrap.html:8 templates/haru/accounts/scrap.html:12
-#: templates/haru/base.html:73
 msgid "scrap"
 msgstr "스크랩"
 
@@ -444,10 +489,12 @@ msgstr "날짜"
 
 #: templates/haru/accounts/scrap.html:28 templates/haru/accounts/scrap.html:50
 #: templates/haru/accounts/scrap.html:64
+#: templates/haru/blogs/show_comment.html:57
+#: templates/haru/blogs/show_post.html:113
 #: templates/haru/boards/search_reply.html:31
 #: templates/haru/boards/search_reply.html:56
 #: templates/haru/boards/search_reply.html:72
-#: templates/haru/boards/show_article.html:109
+#: templates/haru/boards/show_article.html:111
 #: templates/haru/boards/show_reply.html:57 templates/haru/msgs/inbox.html:67
 #: templates/haru/teams/show_team_reply.html:57
 msgid "delete"
@@ -497,7 +544,7 @@ msgstr "끌 수 없습니다."
 
 #: templates/haru/accounts/setting.html:62
 msgid "Team alarm"
-msgstr "가디언 알림"
+msgstr "팀 알림"
 
 #: templates/haru/accounts/setting.html:67
 msgid "Alarm when someone joins your team."
@@ -563,48 +610,109 @@ msgstr "작성 글 수"
 msgid "Reply count"
 msgstr "작성 댓글 수"
 
-#: templates/haru/base.html:79
-msgid "Message"
-msgstr "쪽지"
+#: templates/haru/blogs/edit_post.html:11
+#: templates/haru/blogs/show_blogs.html:21
+msgid "+ New Post"
+msgstr "+ 새 글"
 
+#: templates/haru/blogs/edit_post.html:16
 #: templates/haru/boards/edit_article.html:19
 msgid "Save as draft"
 msgstr "임시글로 저장"
 
+#: templates/haru/blogs/edit_post.html:19
 #: templates/haru/boards/edit_article.html:22
 msgid "Draft saved at"
 msgstr "임시로 저장됨:"
 
+#: templates/haru/blogs/edit_post.html:45
+msgid "Featured image"
+msgstr "특성 이미지"
+
+#: templates/haru/blogs/edit_post.html:56
 #: templates/haru/boards/edit_article.html:56
 #: templates/haru/teams/edit_recruitment.html:42
 msgid "category"
 msgstr "구분"
 
+#: templates/haru/blogs/edit_post.html:74
 #: templates/haru/boards/edit_article.html:73
 #: templates/haru/teams/edit_recruitment.html:72
 msgid "status"
 msgstr "상태"
 
+#: templates/haru/blogs/edit_post.html:78
+#: templates/haru/blogs/show_post.html:147
 #: templates/haru/boards/edit_article.html:77
-#: templates/haru/boards/show_article.html:154
+#: templates/haru/boards/show_article.html:156
 #: templates/haru/teams/edit_recruitment.html:76
 #: templates/haru/teams/show_recruitment.html:145
 msgid "submit"
 msgstr "등록"
 
+#: templates/haru/blogs/edit_post.html:80
 #: templates/haru/boards/edit_article.html:79
 #: templates/haru/teams/edit_recruitment.html:78
 msgid "save"
 msgstr "저장"
 
+#: templates/haru/blogs/edit_post.html:82
 #: templates/haru/boards/edit_article.html:81
 #: templates/haru/teams/edit_recruitment.html:80
 #: templates/haru/teams/show_recruitment.html:101
 msgid "cancel"
 msgstr "취소"
 
+#: templates/haru/blogs/show_blogs.html:24
+msgid "Dashboard"
+msgstr "대시보드"
+
+#: templates/haru/blogs/show_blogs.html:66
+#: templates/haru/blogs/show_post.html:24 templates/haru/menu_sub.html:27
+#| msgid "category"
+msgid "uncategorized"
+msgstr "미분류"
+
+#: templates/haru/blogs/show_comment.html:8
+#: templates/haru/blogs/show_comment.html:64
+#: templates/haru/boards/show_reply.html:8
+#: templates/haru/boards/show_reply.html:72
+#: templates/haru/teams/show_team_reply.html:8
+#: templates/haru/teams/show_team_reply.html:72
+msgid "reply"
+msgstr "댓글"
+
+#: templates/haru/blogs/show_comment.html:19
+#: templates/haru/boards/show_reply.html:19
+#: templates/haru/teams/show_team_reply.html:19
+msgid "Write reply"
+msgstr "댓글 달기"
+
+#: templates/haru/blogs/show_post.html:79
+msgid "Tags:"
+msgstr "태그: "
+
+#: templates/haru/blogs/show_post.html:108
+#: templates/haru/boards/show_article.html:106
+#: templates/haru/teams/show_recruitment.html:88
+msgid "edit"
+msgstr "수정"
+
+#: templates/haru/blogs/show_post.html:131
+#| msgid "Reload replies"
+msgid "Reload comments"
+msgstr "댓글 새로고침"
+
+#: templates/haru/blogs/show_post.html:138
+msgid "Enter comment here."
+msgstr "댓글을 입력해 주세요."
+
+#: templates/haru/blogs/show_post.html:143
+msgid "Enter name here."
+msgstr "이름을 입력해 주세요."
+
 #: templates/haru/boards/like_users.html:6
-#: templates/haru/boards/show_article.html:46
+#: templates/haru/boards/show_article.html:48
 msgid "who likes"
 msgstr "이 글을 추천해 주신 분들"
 
@@ -628,43 +736,38 @@ msgstr "검색"
 msgid "Go back"
 msgstr "뒤로가기"
 
-#: templates/haru/boards/show_article.html:76
+#: templates/haru/boards/show_article.html:78
 msgid "reference"
 msgstr "출처"
 
-#: templates/haru/boards/show_article.html:88
+#: templates/haru/boards/show_article.html:90
 #: templates/haru/boards/show_list.html:51
 #: templates/haru/boards/show_list.html:234
 msgid "like"
 msgstr "추천"
 
-#: templates/haru/boards/show_article.html:93
+#: templates/haru/boards/show_article.html:95
 #: templates/haru/boards/show_list.html:52
 #: templates/haru/boards/show_list.html:119
 #: templates/haru/boards/show_list.html:244
 msgid "dislike"
 msgstr "비추"
 
-#: templates/haru/boards/show_article.html:98
+#: templates/haru/boards/show_article.html:100
 msgid "share"
 msgstr "공유"
 
-#: templates/haru/boards/show_article.html:104
-#: templates/haru/teams/show_recruitment.html:88
-msgid "edit"
-msgstr "수정"
-
-#: templates/haru/boards/show_article.html:130
+#: templates/haru/boards/show_article.html:132
 #: templates/haru/teams/show_recruitment.html:126
 msgid "Reload replies"
 msgstr "댓글 새로고침"
 
-#: templates/haru/boards/show_article.html:135
+#: templates/haru/boards/show_article.html:137
 #: templates/haru/teams/show_recruitment.html:131
 msgid "Show new replies"
 msgstr "신규 댓글 보기"
 
-#: templates/haru/boards/show_article.html:145
+#: templates/haru/boards/show_article.html:147
 #: templates/haru/msgs/conversation.html:40
 #: templates/haru/msgs/send_msg.html:40
 #: templates/haru/teams/show_recruitment.html:141
@@ -697,18 +800,6 @@ msgstr "비밀글입니다."
 msgid "subject+content"
 msgstr "제목+내용"
 
-#: templates/haru/boards/show_reply.html:8
-#: templates/haru/boards/show_reply.html:72
-#: templates/haru/teams/show_team_reply.html:8
-#: templates/haru/teams/show_team_reply.html:72
-msgid "reply"
-msgstr "댓글"
-
-#: templates/haru/boards/show_reply.html:19
-#: templates/haru/teams/show_team_reply.html:19
-msgid "Write reply"
-msgstr "댓글 달기"
-
 #: templates/haru/boards/show_reply.html:63
 #: templates/haru/teams/show_team_reply.html:63
 msgid "restore"
@@ -724,17 +815,9 @@ msgstr "삭제된 댓글입니다."
 msgid "Hidden reply"
 msgstr "관리자에 의해 삭제된 댓글입니다."
 
-#: templates/haru/menu_footer.html:12
-msgid "Feedback"
-msgstr "운영참여"
-
-#: templates/haru/menu_footer.html:17
-msgid "Report"
-msgstr "신고"
-
-#: templates/haru/menu_footer.html:22
-msgid "About us"
-msgstr "소개"
+#: templates/haru/menu_banner.html:6
+msgid "Enter search word here."
+msgstr "검색어를 입력해 주세요."
 
 #: templates/haru/menu_main.html:15
 msgid "menu"
@@ -756,13 +839,13 @@ msgstr "텍스트 관리"
 msgid "bbs"
 msgstr "게시판"
 
-#: templates/haru/menu_main.html:39 templates/haru/menu_sub.html:5
-#: templates/haru/portal/board_sample.html:28
+#: templates/haru/menu_main.html:39 templates/haru/menu_sub.html:34
+#: templates/haru/portal/board_sample.html:24
 msgid "Best"
 msgstr "베스트"
 
-#: templates/haru/menu_main.html:42 templates/haru/menu_sub.html:10
-#: templates/haru/portal/board_sample.html:109
+#: templates/haru/menu_main.html:42 templates/haru/menu_sub.html:39
+#: templates/haru/portal/board_sample.html:105
 msgid "Recent"
 msgstr "최신글"
 
@@ -770,8 +853,8 @@ msgstr "최신글"
 msgid "Infobbs"
 msgstr "정보게시판"
 
-#: templates/haru/menu_main.html:52 templates/haru/portal/board_sample.html:54
-#: templates/haru/portal/board_sample.html:78
+#: templates/haru/menu_main.html:52 templates/haru/portal/board_sample.html:50
+#: templates/haru/portal/board_sample.html:74
 msgid "Freebbs"
 msgstr "자유게시판"
 
@@ -855,8 +938,8 @@ msgstr "내용"
 msgid "characters available."
 msgstr "글자까지 입력 가능합니다."
 
-#: templates/haru/portal/board_sample.html:131
-#: templates/haru/portal/board_sample.html:155
+#: templates/haru/portal/board_sample.html:127
+#: templates/haru/portal/board_sample.html:151
 msgid "Notice"
 msgstr "공지사항"
 

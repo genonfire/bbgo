@@ -1,0 +1,22 @@
+{% load staticfiles %}
+{% load i18n %}
+{% if app == 'blogs' %}
+    <div>
+        <form method="get" action="javascript:search_post_by_all();">
+            <input id="side_search_word" type="text" placeholder="{% trans 'Enter search word here.' %}">
+        </form>
+    </div>
+{% endif %}
+
+    <div>
+        <a href="https://github.com/genonfire/bbgo/" target="_blank">
+            <img src="{% static 'images/side_banner_bbgo.png' %}">
+        </a>
+    </div>
+
+{% block bodyscript %}
+    <script>
+        var url_searchpost = "{% url 'blogs:search_post' search_type='all' search_word='bb' page=1 %}";
+    </script>
+    <script src="{% static 'js/blogs/sidemenu.js' %}" async></script>
+{% endblock %}

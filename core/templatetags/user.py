@@ -40,3 +40,13 @@ def _id(user, table):
         return user.profile.id2
     elif platform == 3:
         return user.profile.id3
+
+
+@register.filter(name='portrait')
+def _portrait(username):
+    username_tag = username
+    user = User.objects.filter(username__iexact=username)
+    if user and user[0].profile.portrait:
+        username_tag = "<img src='%s' width=20px height=20px> %s" % (user[0].profile.portrait.url, username)
+
+    return username_tag
