@@ -8,7 +8,13 @@
 {% load sense %}
 {% block content %}
 
-<h1>{% trans '+ New Post' %}</h1>
+<h1>
+    {% if edit_type == 'new' %}
+        {% trans '+ New Post' %}
+    {% else %}
+        {% trans 'Edit Post' %}
+    {% endif %}
+</h1>
 <div class="annotation">
 {% if edit_type == 'new' or edit_type == 'temp' %}
     <span>

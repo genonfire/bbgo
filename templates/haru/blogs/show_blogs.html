@@ -18,7 +18,7 @@
             <a href="{% url 'blogs:new_post' %}">
                 <input type="button" value="{% trans '+ New Post' %}">
             </a>
-            <a href="{% url 'blogs:dashboard' page=1 %}">
+            <a href="{% url 'blogs:dashboard' condition='recent' %}">
                 <input type="button" value="{% trans 'Dashboard' %}">
             </a>
         </span>

@@ -337,7 +337,6 @@ def deactivate_account(request):
 def send_email(request):
     """Send email to user for testing purpose"""
     id_email = request.user.email
-    print "sending email to", id_email
     signer = TimestampSigner()
     value = signer.sign(id_email)
     subject = u'Test email.'

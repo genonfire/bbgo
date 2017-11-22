@@ -49,3 +49,9 @@ def is_mobile(request):
         return True
     else:
         return False
+
+
+def get_referer(request):
+    """Get referer URL to stay"""
+    referer = request.META.get('HTTP_REFERER')
+    return referer
