@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-22 15:05+0900\n"
-"PO-Revision-Date: 2017-11-22 15:29+0900\n"
+"POT-Creation-Date: 2017-11-22 22:07+0900\n"
+"PO-Revision-Date: 2017-11-22 22:08+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -495,7 +495,7 @@ msgstr "날짜"
 #: templates/haru/accounts/scrap.html:28 templates/haru/accounts/scrap.html:50
 #: templates/haru/accounts/scrap.html:64
 #: templates/haru/blogs/show_comment.html:57
-#: templates/haru/blogs/show_post.html:112
+#: templates/haru/blogs/show_post.html:116
 #: templates/haru/boards/search_reply.html:31
 #: templates/haru/boards/search_reply.html:56
 #: templates/haru/boards/search_reply.html:72
@@ -666,22 +666,18 @@ msgid "Top posts order"
 msgstr "글 정렬"
 
 #: templates/haru/blogs/dashboard.html:52
-#| msgid "Recent"
 msgid "by recent"
 msgstr "최신 순"
 
 #: templates/haru/blogs/dashboard.html:61
-#| msgid "view"
 msgid "by view"
 msgstr "조회 순"
 
 #: templates/haru/blogs/dashboard.html:70
-#| msgid "like"
 msgid "by like"
 msgstr "추천 순"
 
 #: templates/haru/blogs/dashboard.html:79
-#| msgid "comments"
 msgid "by comment"
 msgstr "댓글 순"
 
@@ -780,7 +776,7 @@ msgid "status"
 msgstr "상태"
 
 #: templates/haru/blogs/edit_post.html:84
-#: templates/haru/blogs/show_post.html:146
+#: templates/haru/blogs/show_post.html:173
 #: templates/haru/boards/edit_article.html:77
 #: templates/haru/boards/show_article.html:156
 #: templates/haru/teams/edit_recruitment.html:76
@@ -802,7 +798,8 @@ msgid "cancel"
 msgstr "취소"
 
 #: templates/haru/blogs/show_blogs.html:64
-#: templates/haru/blogs/show_post.html:23 templates/haru/menu_sub.html:22
+#: templates/haru/blogs/show_post.html:23
+#: templates/haru/blogs/show_post.html:128 templates/haru/menu_sub.html:22
 msgid "uncategorized"
 msgstr "미분류"
 
@@ -825,21 +822,25 @@ msgstr "댓글 달기"
 msgid "Tags:"
 msgstr "태그: "
 
-#: templates/haru/blogs/show_post.html:107
+#: templates/haru/blogs/show_post.html:111
 #: templates/haru/boards/show_article.html:106
 #: templates/haru/teams/show_recruitment.html:88
 msgid "edit"
 msgstr "수정"
 
 #: templates/haru/blogs/show_post.html:130
+msgid "'s other posts"
+msgstr "의 다른 포스트"
+
+#: templates/haru/blogs/show_post.html:157
 msgid "Reload comments"
 msgstr "댓글 새로고침"
 
-#: templates/haru/blogs/show_post.html:137
+#: templates/haru/blogs/show_post.html:164
 msgid "Enter comment here."
 msgstr "댓글을 입력해 주세요."
 
-#: templates/haru/blogs/show_post.html:142
+#: templates/haru/blogs/show_post.html:169
 msgid "Enter name here."
 msgstr "이름을 입력해 주세요."
 

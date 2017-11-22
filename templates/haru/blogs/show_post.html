@@ -79,6 +79,10 @@
         {% endif %}
     </div>
 
+    <div class="sense_horizontal_bar">
+        {% show_down_sense %}
+    </div>
+
     <div class="article_view_msg">
         <span id="post_view_text"></span>
     </div>
@@ -116,8 +120,31 @@
     </div>
 </div>
 
-<div class="sense_horizontal_bar">
-    {% show_down_sense %}
+<div class="post_navigation">
+    <div>
+        {% if post.category %}
+            {{ post.category }}
+        {% else %}
+            {% trans 'uncategorized' %}
+        {% endif %}
+        {% trans "'s other posts" %}
+    </div>
+    {% for p in post_navi %}
+        <div>
+            <a href="{% url 'blogs:show_post' id=p.id %}">
+                {% if p.id == post.id %}
+                    <font color="#a0a0a0"><u>
+                        > {{ p.title }}
+                    </u></font>
+                {% else %}
+                    {{ p.title }}
+                {% endif %}
+            </a>
+            <span class="float-right">
+                {{ p.created_at|date:"Y-m-d" }}
+            </span>
+        </div>
+    {% endfor %}
 </div>
 
 <div id="comments">
