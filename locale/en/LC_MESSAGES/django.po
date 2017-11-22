@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-16 16:20+0900\n"
+"POT-Creation-Date: 2017-11-22 15:05+0900\n"
 "PO-Revision-Date: 2017-11-16 16:26+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,36 +52,39 @@ msgstr ""
 msgid "Enter comma separated tags here."
 msgstr ""
 
-#: blogs/models.py:12
-#| msgid "status_deleted"
+#: blogs/models.py:12 core/templatetags/status.py:10
+#: templates/haru/blogs/dashboard_post.html:42
 msgid "status_published"
 msgstr "published"
 
-#: blogs/models.py:13 blogs/models.py:51
-#| msgid "status_read"
+#: blogs/models.py:13 blogs/models.py:51 core/templatetags/status.py:12
+#: templates/haru/blogs/dashboard_post.html:52
 msgid "status_draft"
 msgstr "draft"
 
-#: blogs/models.py:14 blogs/models.py:53 blogs/views.py:77
-#| msgid "status_warning"
+#: blogs/models.py:14 blogs/models.py:53 blogs/views.py:76
+#: core/templatetags/status.py:14 templates/haru/blogs/dashboard_post.html:62
 msgid "status_pending"
 msgstr "pending"
 
-#: blogs/models.py:15 blogs/models.py:55 blogs/models.py:63 blogs/views.py:80
+#: blogs/models.py:15 blogs/models.py:55 blogs/models.py:63 blogs/views.py:79
 #: boards/models.py:18 boards/models.py:66 boards/models.py:83
-#: boards/views.py:131 msgs/models.py:15 teams/models.py:15 teams/models.py:51
-#: teams/models.py:64
+#: boards/views.py:131 core/templatetags/status.py:16 msgs/models.py:15
+#: teams/models.py:15 teams/models.py:51 teams/models.py:64
+#: templates/haru/blogs/dashboard_comment.html:55
+#: templates/haru/blogs/dashboard_post.html:72
 msgid "status_deleted"
 msgstr "Deleted"
 
 #: blogs/models.py:49 blogs/models.py:62 boards/models.py:13
 #: boards/models.py:56 boards/models.py:81 msgs/models.py:12
 #: teams/models.py:13 teams/models.py:47 teams/models.py:62
+#: templates/haru/blogs/dashboard_comment.html:45
 msgid "status_normal"
 msgstr "Noraml"
 
-#: blogs/models.py:64
-#| msgid "status_temp"
+#: blogs/models.py:64 core/templatetags/status.py:18
+#: templates/haru/blogs/dashboard_comment.html:65
 msgid "status_spam"
 msgstr "spam"
 
@@ -226,7 +229,7 @@ msgid "Reply has a reply."
 msgstr ""
 
 #: templates/haru/accounts/alarm_list.html:56
-#: templates/haru/blogs/show_blogs.html:16 templates/haru/menu_sub.html:50
+#: templates/haru/blogs/show_blogs.html:14 templates/haru/menu_sub.html:40
 msgid "Blog"
 msgstr ""
 
@@ -478,6 +481,10 @@ msgid "username"
 msgstr ""
 
 #: templates/haru/accounts/scrap.html:27
+#: templates/haru/blogs/dashboard.html:91
+#: templates/haru/blogs/dashboard.html:133
+#: templates/haru/blogs/dashboard_comment.html:84
+#: templates/haru/blogs/dashboard_post.html:97
 #: templates/haru/boards/search_reply.html:30
 #: templates/haru/boards/show_list.html:53
 #: templates/haru/teams/recruitment.html:51
@@ -487,7 +494,7 @@ msgstr ""
 #: templates/haru/accounts/scrap.html:28 templates/haru/accounts/scrap.html:50
 #: templates/haru/accounts/scrap.html:64
 #: templates/haru/blogs/show_comment.html:57
-#: templates/haru/blogs/show_post.html:113
+#: templates/haru/blogs/show_post.html:112
 #: templates/haru/boards/search_reply.html:31
 #: templates/haru/boards/search_reply.html:56
 #: templates/haru/boards/search_reply.html:72
@@ -562,8 +569,8 @@ msgstr ""
 #: templates/haru/accounts/setting.html:91
 msgid ""
 "Your AdSense will be shown on information and best articles by profit "
-"sharing system. To use this feature please fill followings from your AdSense"
-" code."
+"sharing system. To use this feature please fill followings from your AdSense "
+"code."
 msgstr ""
 
 #: templates/haru/accounts/signup.html:14 templates/haru/error.html:4
@@ -605,39 +612,168 @@ msgstr ""
 msgid "Reply count"
 msgstr ""
 
-#: templates/haru/blogs/edit_post.html:11
-#: templates/haru/blogs/show_blogs.html:21
-msgid "+ New Post"
+#: templates/haru/blogs/dashboard.html:4
+#: templates/haru/blogs/dashboard.html:15
+#: templates/haru/blogs/dashboard_comment.html:4
+#: templates/haru/blogs/dashboard_comment.html:15
+#: templates/haru/blogs/dashboard_comment.html:24
+#: templates/haru/blogs/dashboard_post.html:4
+#: templates/haru/blogs/dashboard_post.html:12
+#: templates/haru/blogs/dashboard_post.html:21
+#: templates/haru/blogs/show_blogs.html:22
+msgid "Dashboard"
 msgstr ""
 
-#: templates/haru/blogs/edit_post.html:16
-#: templates/haru/boards/edit_article.html:19
-msgid "Save as draft"
+#: templates/haru/blogs/dashboard.html:18
+#: templates/haru/blogs/dashboard_comment.html:21
+#: templates/haru/blogs/dashboard_post.html:14
+msgid "Post"
 msgstr ""
 
-#: templates/haru/blogs/edit_post.html:19
-#: templates/haru/boards/edit_article.html:22
-msgid "Draft saved at"
+#: templates/haru/blogs/dashboard.html:21
+#: templates/haru/blogs/dashboard.html:131
+#: templates/haru/blogs/dashboard_comment.html:17
+#: templates/haru/blogs/dashboard_comment.html:82
+#: templates/haru/blogs/dashboard_post.html:18
+msgid "Comment"
 msgstr ""
 
-#: templates/haru/blogs/edit_post.html:45
-msgid "Featured image"
+#: templates/haru/blogs/dashboard.html:28
+msgid "Summary"
 msgstr ""
 
-#: templates/haru/blogs/edit_post.html:56
+#: templates/haru/blogs/dashboard.html:31
+msgid "posts"
+msgstr ""
+
+#: templates/haru/blogs/dashboard.html:34
+msgid "comments"
+msgstr ""
+
+#: templates/haru/blogs/dashboard.html:37
+msgid "spams"
+msgstr ""
+
+#: templates/haru/blogs/dashboard.html:40
+msgid "users"
+msgstr ""
+
+#: templates/haru/blogs/dashboard.html:45
+msgid "Top posts order"
+msgstr ""
+
+#: templates/haru/blogs/dashboard.html:52
+msgid "by recent"
+msgstr ""
+
+#: templates/haru/blogs/dashboard.html:61
+msgid "by view"
+msgstr ""
+
+#: templates/haru/blogs/dashboard.html:70
+msgid "by like"
+msgstr ""
+
+#: templates/haru/blogs/dashboard.html:79
+msgid "by comment"
+msgstr ""
+
+#: templates/haru/blogs/dashboard.html:87
+#: templates/haru/blogs/dashboard.html:132
+#: templates/haru/blogs/dashboard_comment.html:83
+#: templates/haru/blogs/dashboard_post.html:93
+msgid "title"
+msgstr ""
+
+#: templates/haru/blogs/dashboard.html:88
+#: templates/haru/blogs/dashboard_post.html:94
+#: templates/haru/blogs/edit_post.html:62
 #: templates/haru/boards/edit_article.html:56
 #: templates/haru/teams/edit_recruitment.html:42
 msgid "category"
 msgstr ""
 
-#: templates/haru/blogs/edit_post.html:74
+#: templates/haru/blogs/dashboard.html:89
+#: templates/haru/blogs/dashboard_post.html:95
+msgid "Tags"
+msgstr ""
+
+#: templates/haru/blogs/dashboard.html:124
+msgid "Recent comments"
+msgstr ""
+
+#: templates/haru/blogs/dashboard.html:130
+#: templates/haru/blogs/dashboard_comment.html:81
+msgid "name"
+msgstr ""
+
+#: templates/haru/blogs/dashboard.html:156
+#: templates/haru/blogs/dashboard_comment.html:119
+msgid "Spam"
+msgstr ""
+
+#: templates/haru/blogs/dashboard.html:161
+#: templates/haru/blogs/dashboard_comment.html:124
+#: templates/haru/blogs/dashboard_post.html:127
+msgid "Delete"
+msgstr ""
+
+#: templates/haru/blogs/dashboard_comment.html:35
+#: templates/haru/blogs/dashboard_post.html:32
+#: templates/haru/blogs/dashboard_post.html:78
+msgid "All"
+msgstr ""
+
+#: templates/haru/blogs/dashboard_comment.html:72
+msgid "Empty"
+msgstr ""
+
+#: templates/haru/blogs/dashboard_comment.html:108
+#: templates/haru/blogs/dashboard_post.html:116
+msgid "Restore"
+msgstr ""
+
+#: templates/haru/blogs/dashboard_comment.html:113
+#: templates/haru/blogs/dashboard_post.html:121
+msgid "Delete permanently"
+msgstr ""
+
+#: templates/haru/blogs/dashboard_post.html:110
+#: templates/haru/menu_main.html:73
+msgid "Edit"
+msgstr ""
+
+#: templates/haru/blogs/edit_post.html:13
+#: templates/haru/blogs/show_blogs.html:19
+msgid "+ New Post"
+msgstr ""
+
+#: templates/haru/blogs/edit_post.html:15
+msgid "Edit Post"
+msgstr ""
+
+#: templates/haru/blogs/edit_post.html:22
+#: templates/haru/boards/edit_article.html:19
+msgid "Save as draft"
+msgstr ""
+
+#: templates/haru/blogs/edit_post.html:25
+#: templates/haru/boards/edit_article.html:22
+msgid "Draft saved at"
+msgstr ""
+
+#: templates/haru/blogs/edit_post.html:51
+msgid "Featured image"
+msgstr ""
+
+#: templates/haru/blogs/edit_post.html:80
 #: templates/haru/boards/edit_article.html:73
 #: templates/haru/teams/edit_recruitment.html:72
 msgid "status"
 msgstr ""
 
-#: templates/haru/blogs/edit_post.html:78
-#: templates/haru/blogs/show_post.html:147
+#: templates/haru/blogs/edit_post.html:84
+#: templates/haru/blogs/show_post.html:146
 #: templates/haru/boards/edit_article.html:77
 #: templates/haru/boards/show_article.html:156
 #: templates/haru/teams/edit_recruitment.html:76
@@ -645,25 +781,21 @@ msgstr ""
 msgid "submit"
 msgstr ""
 
-#: templates/haru/blogs/edit_post.html:80
+#: templates/haru/blogs/edit_post.html:86
 #: templates/haru/boards/edit_article.html:79
 #: templates/haru/teams/edit_recruitment.html:78
 msgid "save"
 msgstr ""
 
-#: templates/haru/blogs/edit_post.html:82
+#: templates/haru/blogs/edit_post.html:88
 #: templates/haru/boards/edit_article.html:81
 #: templates/haru/teams/edit_recruitment.html:80
 #: templates/haru/teams/show_recruitment.html:101
 msgid "cancel"
 msgstr ""
 
-#: templates/haru/blogs/show_blogs.html:24
-msgid "Dashboard"
-msgstr ""
-
-#: templates/haru/blogs/show_blogs.html:66
-#: templates/haru/blogs/show_post.html:24 templates/haru/menu_sub.html:27
+#: templates/haru/blogs/show_blogs.html:64
+#: templates/haru/blogs/show_post.html:23 templates/haru/menu_sub.html:22
 msgid "uncategorized"
 msgstr ""
 
@@ -682,25 +814,25 @@ msgstr ""
 msgid "Write reply"
 msgstr ""
 
-#: templates/haru/blogs/show_post.html:79
+#: templates/haru/blogs/show_post.html:78
 msgid "Tags:"
 msgstr ""
 
-#: templates/haru/blogs/show_post.html:108
+#: templates/haru/blogs/show_post.html:107
 #: templates/haru/boards/show_article.html:106
 #: templates/haru/teams/show_recruitment.html:88
 msgid "edit"
 msgstr ""
 
-#: templates/haru/blogs/show_post.html:131
+#: templates/haru/blogs/show_post.html:130
 msgid "Reload comments"
 msgstr ""
 
-#: templates/haru/blogs/show_post.html:138
+#: templates/haru/blogs/show_post.html:137
 msgid "Enter comment here."
 msgstr ""
 
-#: templates/haru/blogs/show_post.html:143
+#: templates/haru/blogs/show_post.html:142
 msgid "Enter name here."
 msgstr ""
 
@@ -809,7 +941,7 @@ msgid "Hidden reply"
 msgstr ""
 
 #: templates/haru/menu_banner.html:6
-msgid "Enter search word here."
+msgid "Blog search"
 msgstr ""
 
 #: templates/haru/menu_main.html:15
@@ -832,12 +964,12 @@ msgstr ""
 msgid "bbs"
 msgstr ""
 
-#: templates/haru/menu_main.html:39 templates/haru/menu_sub.html:34
+#: templates/haru/menu_main.html:39 templates/haru/menu_sub.html:29
 #: templates/haru/portal/board_sample.html:24
 msgid "Best"
 msgstr ""
 
-#: templates/haru/menu_main.html:42 templates/haru/menu_sub.html:39
+#: templates/haru/menu_main.html:42 templates/haru/menu_sub.html:34
 #: templates/haru/portal/board_sample.html:105
 msgid "Recent"
 msgstr ""
@@ -853,10 +985,6 @@ msgstr ""
 
 #: templates/haru/menu_main.html:60
 msgid "bookmark"
-msgstr ""
-
-#: templates/haru/menu_main.html:73
-msgid "Edit"
 msgstr ""
 
 #: templates/haru/menu_setting.html:16
@@ -946,8 +1074,8 @@ msgstr ""
 
 #: templates/haru/registration/password_change_form.html:13
 msgid ""
-"Please enter your old password, for security's sake, and then enter your new"
-" password twice so we can verify you typed it in correctly."
+"Please enter your old password, for security's sake, and then enter your new "
+"password twice so we can verify you typed it in correctly."
 msgstr ""
 
 #: templates/haru/registration/password_reset_complete.html:4

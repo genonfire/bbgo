@@ -42,14 +42,14 @@
 </div>
 
 <div class="dashboard_header">
-    {% trans 'Top posts order by' %}
+    {% trans 'Top posts order' %}
     {% if condition == 'recent' %}
         <span class="status_selected">
     {% else %}
         <span>
     {% endif %}
             <a href="{% url 'blogs:dashboard' condition='recent' %}">
-                {% trans 'Recent' %}
+                {% trans 'by recent' %}
             </a>
         </span>
     {% if condition == 'view' %}
@@ -58,7 +58,7 @@
         <span>
     {% endif %}
             <a href="{% url 'blogs:dashboard' condition='view' %}">
-                {% trans 'View' %}
+                {% trans 'by view' %}
             </a>
         </span>
     {% if condition == 'like' %}
@@ -67,7 +67,7 @@
         <span>
     {% endif %}
             <a href="{% url 'blogs:dashboard' condition='like' %}">
-                {% trans 'Like' %}
+                {% trans 'by like' %}
             </a>
         </span>
     {% if condition == 'comment' %}
@@ -76,7 +76,7 @@
         <span>
     {% endif %}
             <a href="{% url 'blogs:dashboard' condition='comment' %}">
-                {% trans 'Comment' %}
+                {% trans 'by comment' %}
             </a>
         </span>
 </div>
