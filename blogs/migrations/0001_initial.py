@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             name='Blog',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('status', models.CharField(default=b'1normal', max_length=10, choices=[(b'2temp', 'status_draft'), (b'6deleted', '\uc0ad\uc81c\ub428'), (b'5hidden', 'status_pending'), (b'1normal', 'status_published')])),
+                ('status', models.CharField(default=b'1normal', max_length=10, choices=[(b'6deleted', '\uc0ad\uc81c\ub428'), (b'1normal', '\ubc1c\ud589\ub428'), (b'2temp', '\uc784\uc2dc \uae00'), (b'5hidden', '\uac80\ud1a0\uc911')])),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('modified_at', models.DateTimeField(auto_now_add=True)),
                 ('ip', models.GenericIPAddressField()),
@@ -38,7 +38,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('post_id', models.IntegerField(default=0)),
                 ('comment_id', models.IntegerField(default=0)),
-                ('status', models.CharField(default=b'1normal', max_length=10, choices=[(b'6deleted', '\uc0ad\uc81c\ub428'), (b'7spam', 'status_spam'), (b'1normal', '\uc77c\ubc18')])),
+                ('status', models.CharField(default=b'1normal', max_length=10, choices=[(b'6deleted', '\uc0ad\uc81c\ub428'), (b'7spam', '\uc2a4\ud338'), (b'1normal', '\uc77c\ubc18')])),
                 ('userid', models.CharField(max_length=16, blank=True)),
                 ('username', models.CharField(max_length=23, blank=True)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-22 22:08+0900\n"
+"POT-Creation-Date: 2017-11-27 23:20+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,17 +24,17 @@ msgstr ""
 #: static/js/accounts/alarm.js:67 static/js/accounts/alarm.js:114
 #: static/js/accounts/edit_bookmarks.js:29 static/js/blogs/blogs_comment.js:36
 #: static/js/blogs/blogs_comment.js:76 static/js/blogs/blogs_comment.js:137
-#: static/js/blogs/blogs_comment.js:159 static/js/boards/boards_reply.js:41
-#: static/js/boards/boards_reply.js:79 static/js/boards/boards_reply.js:156
-#: static/js/boards/boards_reply.js:182 static/js/boards/boards_reply.js:204
-#: static/js/boards/boards_reply.js:227 static/js/boards/boards_reply.js:251
-#: static/js/boards/boards_reply.js:278 static/js/boards/reply_list.js:38
-#: static/js/msgs/conversation.js:19 static/js/teams/team.js:36
-#: static/js/teams/team.js:69 static/js/teams/team.js:104
-#: static/js/teams/team.js:129 static/js/teams/teams_reply.js:37
-#: static/js/teams/teams_reply.js:72 static/js/teams/teams_reply.js:124
-#: static/js/teams/teams_reply.js:147 static/js/teams/teams_reply.js:171
-#: static/js/teams/teams_reply.js:205
+#: static/js/blogs/blogs_comment.js:159 static/js/blogs/dashboard.js:30
+#: static/js/boards/boards_reply.js:41 static/js/boards/boards_reply.js:79
+#: static/js/boards/boards_reply.js:156 static/js/boards/boards_reply.js:182
+#: static/js/boards/boards_reply.js:204 static/js/boards/boards_reply.js:227
+#: static/js/boards/boards_reply.js:251 static/js/boards/boards_reply.js:278
+#: static/js/boards/reply_list.js:38 static/js/msgs/conversation.js:19
+#: static/js/teams/team.js:36 static/js/teams/team.js:69
+#: static/js/teams/team.js:104 static/js/teams/team.js:129
+#: static/js/teams/teams_reply.js:37 static/js/teams/teams_reply.js:72
+#: static/js/teams/teams_reply.js:124 static/js/teams/teams_reply.js:147
+#: static/js/teams/teams_reply.js:171 static/js/teams/teams_reply.js:205
 msgid "Error!"
 msgstr ""
 
@@ -124,8 +124,8 @@ msgstr ""
 #: static/js/blogs/blogs_comment.js:4 static/js/blogs/blogs_comment.js:44
 #: static/js/blogs/sidemenu.js:7 static/js/boards/boards_list.js:8
 #: static/js/boards/boards_reply.js:4 static/js/boards/boards_reply.js:50
-#: static/js/boards/reply_list.js:8 static/js/teams/teams_reply.js:4
-#: static/js/teams/teams_reply.js:46
+#: static/js/boards/reply_list.js:8 static/js/spams/spam.js:54
+#: static/js/teams/teams_reply.js:4 static/js/teams/teams_reply.js:46
 msgid "Please input 2 or more characters."
 msgstr ""
 
@@ -165,6 +165,24 @@ msgstr ""
 #: static/js/boards/boards_reply.js:188 static/js/boards/reply_list.js:22
 #: static/js/teams/teams_reply.js:108
 msgid "Are you sure to delete this article?"
+msgstr ""
+
+#: static/js/blogs/dashboard.js:3 static/js/blogs/dashboard.js:27
+#: static/js/spams/spam.js:4 static/js/spams/spam.js:27
+msgid "Please input correct IP address."
+msgstr ""
+
+#: static/js/blogs/dashboard.js:7
+msgid "Are you sure to register this IP address to spam?"
+msgstr ""
+
+#: static/js/blogs/dashboard.js:20
+msgid "Saved successfully."
+msgstr ""
+
+#: static/js/blogs/dashboard.js:24 static/js/spams/spam.js:24
+#: static/js/spams/spam.js:74
+msgid "Already exist."
 msgstr ""
 
 #: static/js/boards/boards_article.js:84

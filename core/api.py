@@ -21,6 +21,7 @@ from django.utils import timezone
 from django.utils.translation import ugettext as _
 
 from msgs.models import Msg
+from spams.views import check_spam
 from teams.forms import TeamReplyEditForm
 from teams.models import Team, TeamReply
 
@@ -1083,31 +1084,37 @@ def write_comment(request):
                 comment.userid = request.user.username
             else:
                 comment.username = username
+
+                ip_exist, word_exist = check_spam(request, comment)
+                if ip_exist or word_exist:
+                    comment.status = '7spam'
+
             comment.ip = get_ipaddress(request)
             comment.save()
 
             post.comment_count += 1
             post.save()
 
-            if post.user != request.user and comment_id == 0:
-                if post.user.profile.alarm_list != '':
-                    post.user.profile.alarm_list += ','
-                alarm_text = 'l:%d' % post.id
-                post.user.profile.alarm_list += alarm_text
-                post.user.profile.alarm = True
-                post.user.profile.save()
-            elif comment_id > 0:
-                comment_to = get_object_or_404(Comment, pk=comment_id)
-                if comment_to and comment_to.userid:
-                    user = User.objects.filter(username=comment_to.userid)
-                    if user and user[0] is not request.user:
-                        if user[0].profile.alarm_reply:
-                            if user[0].profile.alarm_list != '':
-                                user[0].profile.alarm_list += ','
-                            alarm_text = 'c:%d' % r_id
-                            user[0].profile.alarm_list += alarm_text
-                            user[0].profile.alarm = True
-                            user[0].save()
+            if comment.status != '7spam':
+                if post.user != request.user and comment_id == 0:
+                    if post.user.profile.alarm_list != '':
+                        post.user.profile.alarm_list += ','
+                    alarm_text = 'l:%d' % post.id
+                    post.user.profile.alarm_list += alarm_text
+                    post.user.profile.alarm = True
+                    post.user.profile.save()
+                elif comment_id > 0:
+                    comment_to = get_object_or_404(Comment, pk=comment_id)
+                    if comment_to and comment_to.userid:
+                        user = User.objects.filter(username=comment_to.userid)
+                        if user and user[0] is not request.user:
+                            if user[0].profile.alarm_reply:
+                                if user[0].profile.alarm_list != '':
+                                    user[0].profile.alarm_list += ','
+                                alarm_text = 'c:%d' % r_id
+                                user[0].profile.alarm_list += alarm_text
+                                user[0].profile.alarm = True
+                                user[0].save()
 
             q = Q(status='1normal')
             comments = Comment.objects.filter(post_id=id).filter(q).annotate(

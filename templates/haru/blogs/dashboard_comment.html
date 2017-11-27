@@ -95,7 +95,9 @@
                         {% endif %}
                         <div class="dashboard_function">
                             <span>
-                                {{ comment.ip }}
+                                <a href="javascript:register_spam_ip('{{ comment.ip }}')" title="{% trans 'Register to spam' %}">
+                                    {{ comment.ip }}
+                                </a>
                             </span>
                         </div>
                     </td>
@@ -144,4 +146,7 @@
 
 {% show_navigator %}
 
+{% endblock %}
+{% block bodyscript %}
+<script src="{% static 'js/blogs/dashboard.js' %}" async></script>
 {% endblock %}

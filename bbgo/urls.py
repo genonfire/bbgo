@@ -40,6 +40,7 @@ urlpatterns = [
     url(r'^blogs/', include('blogs.urls', namespace='blogs')),
     url(r'^boards/', include('boards.urls', namespace='boards')),
     url(r'^teams/', include('teams.urls', namespace='teams')),
+    url(r'^spams/', include('spams.urls', namespace='spams')),
     url(r'^api/', include('core.apiurls', namespace='api')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -28,13 +28,27 @@
         {% trans 'Summary' %}
     </div>
     <div>
-        {{ total_posts }} {% trans 'posts' %}
+        <a href="{% url 'blogs:dashboard_post' status='all' category='all' page=1 %}">
+            {{ total_posts }}
+        </a>
+        {% trans 'posts' %}
     </div>
     <div>
-        {{ total_comments }} {% trans 'comments' %}
+        <a href="{% url 'blogs:dashboard_comment' status='all' page=1 %}">
+            {{ total_comments }}
+        </a>
+        {% trans 'comments' %}
     </div>
     <div>
-        {{ total_spams }} {% trans 'spams' %}
+        <a href="{% url 'blogs:dashboard_comment' status='7spam' page=1 %}">
+            {{ total_spams }}
+        </a>
+        {% trans 'spams' %}
+        <span class="float-right">
+            <a href="{% url 'spams:setting' %}">
+                {% trans 'Spam setting' %}
+            </a>
+        </span>
     </div>
     <div>
         {{ total_users }} {% trans 'users' %}
@@ -144,7 +158,9 @@
                         {% endif %}
                         <div class="dashboard_function">
                             <span>
-                                {{ comment.ip }}
+                                <a href="javascript:register_spam_ip('{{ comment.ip }}')" title="{% trans 'Register to spam' %}">
+                                    {{ comment.ip }}
+                                </a>
                             </span>
                         </div>
                     </td>
@@ -178,4 +194,7 @@
     </table>
 </div>
 
+{% endblock %}
+{% block bodyscript %}
+<script src="{% static 'js/blogs/dashboard.js' %}" async></script>
 {% endblock %}

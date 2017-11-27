@@ -63,6 +63,7 @@ LOCAL_APPS = (
     'core',
     'blogs',
     'boards',
+    'spams',
     'teams',
 )
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + EDITOR_APPS + LOCAL_APPS

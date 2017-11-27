@@ -15,7 +15,8 @@ class Blog(models.Model):
         ('6deleted', _('status_deleted')),
     }
 
-    status = models.CharField(max_length=10, choices=BLOG_STATUS, default='1normal')
+    status = models.CharField(
+        max_length=10, choices=BLOG_STATUS, default='1normal')
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now_add=True)
