@@ -1079,17 +1079,15 @@ def write_comment(request):
                     return JsonResponse({'status': 'false'}, status=400)
 
             comment.comment_id = comment_id
+            comment.ip = get_ipaddress(request)
             comment.status = '1normal'
             if request.user.is_authenticated():
                 comment.userid = request.user.username
             else:
                 comment.username = username
-
-                ip_exist, word_exist = check_spam(request, comment)
-                if ip_exist or word_exist:
+                if check_spam(request, comment):
                     comment.status = '7spam'
 
-            comment.ip = get_ipaddress(request)
             comment.save()
 
             post.comment_count += 1

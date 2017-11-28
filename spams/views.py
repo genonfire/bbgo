@@ -1,27 +1,64 @@
 # -*- coding: utf-8 -*-
-from core.utils import error_to_response, get_ipaddress
+from core.utils import error_to_response, get_referrer, get_useragent
+from django.conf import settings
 from django.contrib.admin.views.decorators import staff_member_required
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render, render_to_response
+from django.utils import timezone
+import requests
 
 from .forms import SpamIPEditForm, SpamWordEditForm
 from .models import IP, Word
 
 
+def akismet_comment_check(request, comment):
+    """Akismet comment check"""
+    if settings.ENABLE_AKISMET:
+        url_verify_key = 'https://rest.akismet.com/1.1/verify-key'
+        key = settings.AKISMET_API_KEY
+        blog = settings.BLOG_URL
+        data = {'key': key, 'blog': blog}
+
+        response = requests.post(url_verify_key, data=data)
+        if response.text == 'valid':
+            url = 'https://%s.rest.akismet.com/1.1/comment-check' % key
+            data = {
+                'blog': blog,
+                'user_ip': comment.ip,
+                'user_agent': get_useragent(request),
+                'referrer': get_referrer(request),
+                'comment_type': 'comment',
+                'comment_author': comment.username,
+                'comment_content': comment.content,
+                'comment_date_gmt': timezone.now(),
+                'blog_lang': settings.LANGUAGE_CODE,
+                'blog_charset': 'UTF-8',
+            }
+
+            result = requests.post(url, data=data)
+            if result.text == 'true':
+                return True
+    return False
+
+
 def check_spam(request, comment):
     """Check spam"""
-    ip = get_ipaddress(request)
-
+    ip = comment.ip
     ip_exist = IP.objects.filter(ip__iexact=ip).exists()
-    word_exist = False
+    if ip_exist:
+        return True
 
     words = Word.objects.all()
     for word in words:
         if word.word in comment.content:
-            word_exist = True
-            break
+            return True
 
-    return ip_exist, word_exist
+    if settings.ENABLE_AKISMET:
+        is_spam = akismet_comment_check(request, comment)
+        if is_spam:
+            return True
+
+    return False
 
 
 @staff_member_required

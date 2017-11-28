@@ -42,6 +42,18 @@ def get_ipaddress(request):
     return ip
 
 
+def get_referrer(request):
+    """Return referrer"""
+    referrer = request.META['HTTP_REFERER']
+    return referrer
+
+
+def get_useragent(request):
+    """Return useragent"""
+    user_agent = request.META['HTTP_USER_AGENT']
+    return user_agent
+
+
 def is_mobile(request):
     """Return true if request from Android and iPhone"""
     user_agent = request.META['HTTP_USER_AGENT']

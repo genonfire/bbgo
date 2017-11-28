@@ -13,6 +13,8 @@
     "SITE_INFO": "Total bbs system by django",
     "ADMIN_EMAIL": "@gmail.com",
     "BLOG_CATEGORY": ["category1", "category2", "category3"],
+    "AKISMET_API_KEY": "",
+    "BLOG_URL": "",
     "SENSE_UP_CLIENT": "",
     "SENSE_UP_SLOT": "",
     "SENSE_DOWN_CLIENT": "",

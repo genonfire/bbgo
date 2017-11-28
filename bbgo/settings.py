@@ -130,6 +130,8 @@ try:
     SITE_INFO = getattr(secrets, "SITE_INFO")
     ADMIN_EMAIL = getattr(secrets, "ADMIN_EMAIL")
     BLOG_CATEGORY = getattr(secrets, "BLOG_CATEGORY")
+    AKISMET_API_KEY = getattr(secrets, "AKISMET_API_KEY")
+    BLOG_URL = getattr(secrets, "BLOG_URL")
     SENSE_UP_CLIENT = getattr(secrets, "SENSE_UP_CLIENT")
     SENSE_UP_SLOT = getattr(secrets, "SENSE_UP_SLOT")
     SENSE_DOWN_CLIENT = getattr(secrets, "SENSE_DOWN_CLIENT")
@@ -150,6 +152,8 @@ except IOError:
     SITE_INFO = ''
     ADMIN_EMAIL = ''
     BLOG_CATEGORY = ''
+    AKISMET_API_KEY = ''
+    BLOG_URL = ''
     SENSE_UP_CLIENT = ''
     SENSE_UP_SLOT = ''
     SENSE_DOWN_CLIENT = ''
@@ -280,6 +284,7 @@ BLOG_LIST_COUNT = 10
 DASHBOARD_LIST_COUNT = 50
 DASHBOARD_POST_COUNT = 10
 DASHBOARD_COMMENT_COUNT = 5
+ENABLE_AKISMET = True
 
 # Use AdSense
 ENABLE_ADSENSE = True
