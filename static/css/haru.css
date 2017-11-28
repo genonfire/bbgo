@@ -81,7 +81,7 @@ img.portrait {width:150px;height:150px;}
 .subnav_blog_title {width:100%;margin-bottom:.2em;padding:1em 0 1.5em .5em;border-bottom:1px solid #666;}
 .subnav_blog_title span {vertical-align:middle;}
 .subnav_blog_title span:after {content:'';}
-.subnav_blog_title span a {color:#fff;font-size:2em;}
+.subnav_blog_title span a {color:#fff;font-size:2em;font-weight:bold;}
 .subnav_blog_title span.blog_description {vertical-align:middle;font-style:italic;font-size:.95em;}
 
 /* portal */
