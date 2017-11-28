@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css">
 {% endif %}
 <link rel="stylesheet" href="{% static 'css/haru.css' %}">
+<link rel="stylesheet" href="{% static 'css/waitMe.css' %}">
 <script src="{% static 'js/thirdparty/jquery-1.12.4.min.js' %}"></script>
 {% if DEBUG %}
     <script src="/jsi18n-debug/" async></script>
@@ -172,6 +173,7 @@
     var site_logo = '{{ SITE_LOGO }}';
 </script>
 <script src="{% static 'js/thirdparty/easyNotify.min.js' %}" async></script>
+<script src="{% static 'js/thirdparty/waitMe.min.js' %}" async></script>
 <script src="{% static 'js/accounts/alarm.js' %}" async></script>
 <script src="{% static 'js/accounts/idmenu.js' %}" async></script>
 {% block bodyscript %}{% endblock %}

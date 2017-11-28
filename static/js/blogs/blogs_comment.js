@@ -16,6 +16,13 @@ function write_comment(id) {
     form_data.append("content", content);
     form_data.append("username", username);
 
+    $('body').waitMe({
+        effect : 'win8',
+        text : '',
+        bg : 'rgba(255,255,255,0.5)',
+        color : '#000'
+    });
+
     $.ajaxSetup({
         beforeSend: function(xhr, settings) {
             xhr.setRequestHeader("X-CSRFToken", $("input[name=csrfmiddlewaretoken]").val());
@@ -29,10 +36,12 @@ function write_comment(id) {
         contentType: false,
         processData: false,
         success: function(data) {
+            $('body').waitMe('hide');
             $('#comment_text').val('');
             $('#comments').html(data);
         },
         error: function(data) {
+            $('body').waitMe('hide');
             alert(gettext("Error!"));
         }
     });

@@ -49,6 +49,13 @@ function get_verification_code() {
         return;
     }
 
+    $('body').waitMe({
+        effect : 'win8',
+        text : '',
+        bg : 'rgba(255,255,255,0.5)',
+        color : '#000'
+    });
+
     $.ajaxSetup({
         crossDomain: false,
         beforeSend: function(xhr, settings) {
@@ -62,10 +69,12 @@ function get_verification_code() {
             email: id_email
         },
         success: function(data) {
+            $('body').waitMe('hide');
             $('#code_hide').show();
             alert(data.msg);
         },
         error: function(request, status, error) {
+            $('body').waitMe('hide');
             alert(gettext("Failed to send E-mail. Please try again later."));
         }
     });
