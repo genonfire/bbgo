@@ -128,8 +128,8 @@ try:
     SITE_NAME = getattr(secrets, "SITE_NAME")
     SITE_LOGO = getattr(secrets, "SITE_LOGO")
     SITE_INFO = getattr(secrets, "SITE_INFO")
-    BLOG_CATEGORY = getattr(secrets, "BLOG_CATEGORY")
     ADMIN_EMAIL = getattr(secrets, "ADMIN_EMAIL")
+    BLOG_CATEGORY = getattr(secrets, "BLOG_CATEGORY")
     SENSE_UP_CLIENT = getattr(secrets, "SENSE_UP_CLIENT")
     SENSE_UP_SLOT = getattr(secrets, "SENSE_UP_SLOT")
     SENSE_DOWN_CLIENT = getattr(secrets, "SENSE_DOWN_CLIENT")
@@ -148,8 +148,8 @@ except IOError:
     SITE_NAME = ''
     SITE_LOGO = ''
     SITE_INFO = ''
-    BLOG_CATEGORY = ''
     ADMIN_EMAIL = ''
+    BLOG_CATEGORY = ''
     SENSE_UP_CLIENT = ''
     SENSE_UP_SLOT = ''
     SENSE_DOWN_CLIENT = ''
