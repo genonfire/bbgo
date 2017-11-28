@@ -61,9 +61,9 @@
     <table class="board">
         <thead>
         <tr>
-            <th class="tag">{% trans 'id' %}</th>
-            <th class="tag">{% trans 'Email address' %}</th>
-            <th>{% trans 'IP' %}</th>
+            <th class="longname">{% trans 'id' %}</th>
+            <th class="email">{% trans 'Email address' %}</th>
+            <th>{% trans 'IP Address' %}</th>
             <th class="fulldate">{% trans 'Last login' %}</th>
             <th class="fulldate">{% trans 'Date joined' %}</th>
             <th class="view_count">{% trans 'point' %}</th>
@@ -77,7 +77,12 @@
                     <tr>
                 {% endif %}
                     <td class="title">
-                        {{ user.username|portrait|safe }}
+                        {% if user.profile.portrait %}
+                            <img src="{{ user.profile.portrait.url }}" width="20px" height="20px">
+                        {% endif %}
+                        <a href="/admin/auth/user/{{ user.id }}/" target="_blank">
+                            {{ user.username }}
+                        </a>
                         ({{ user.first_name }})
                     </td>
                     <td class="article_info">

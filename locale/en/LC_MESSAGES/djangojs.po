@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-27 23:20+0900\n"
+"POT-Creation-Date: 2017-11-28 19:18+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,9 +22,9 @@ msgid "Alarm for your activity."
 msgstr ""
 
 #: static/js/accounts/alarm.js:67 static/js/accounts/alarm.js:114
-#: static/js/accounts/edit_bookmarks.js:29 static/js/blogs/blogs_comment.js:36
-#: static/js/blogs/blogs_comment.js:76 static/js/blogs/blogs_comment.js:137
-#: static/js/blogs/blogs_comment.js:159 static/js/blogs/dashboard.js:30
+#: static/js/accounts/edit_bookmarks.js:29 static/js/blogs/blogs_comment.js:45
+#: static/js/blogs/blogs_comment.js:85 static/js/blogs/blogs_comment.js:146
+#: static/js/blogs/blogs_comment.js:168 static/js/blogs/dashboard.js:30
 #: static/js/boards/boards_reply.js:41 static/js/boards/boards_reply.js:79
 #: static/js/boards/boards_reply.js:156 static/js/boards/boards_reply.js:182
 #: static/js/boards/boards_reply.js:204 static/js/boards/boards_reply.js:227
@@ -88,19 +88,19 @@ msgstr ""
 msgid "Please input correct E-mail address."
 msgstr ""
 
-#: static/js/accounts/member.js:69
+#: static/js/accounts/member.js:78
 msgid "Failed to send E-mail. Please try again later."
 msgstr ""
 
-#: static/js/accounts/member.js:78
+#: static/js/accounts/member.js:87
 msgid "Please input verification code correctly."
 msgstr ""
 
-#: static/js/accounts/member.js:96
+#: static/js/accounts/member.js:105
 msgid "Verified successfully."
 msgstr ""
 
-#: static/js/accounts/member.js:99
+#: static/js/accounts/member.js:108
 msgid "Verification failure. Please check verification code again."
 msgstr ""
 
@@ -121,7 +121,7 @@ msgstr ""
 msgid "Passwords are different each other."
 msgstr ""
 
-#: static/js/blogs/blogs_comment.js:4 static/js/blogs/blogs_comment.js:44
+#: static/js/blogs/blogs_comment.js:4 static/js/blogs/blogs_comment.js:53
 #: static/js/blogs/sidemenu.js:7 static/js/boards/boards_list.js:8
 #: static/js/boards/boards_reply.js:4 static/js/boards/boards_reply.js:50
 #: static/js/boards/reply_list.js:8 static/js/spams/spam.js:54
@@ -129,20 +129,20 @@ msgstr ""
 msgid "Please input 2 or more characters."
 msgstr ""
 
-#: static/js/blogs/blogs_comment.js:84
+#: static/js/blogs/blogs_comment.js:93
 msgid "Enter comment here."
 msgstr ""
 
-#: static/js/blogs/blogs_comment.js:85
+#: static/js/blogs/blogs_comment.js:94
 msgid "Enter name here."
 msgstr ""
 
-#: static/js/blogs/blogs_comment.js:86 static/js/boards/boards_reply.js:88
+#: static/js/blogs/blogs_comment.js:95 static/js/boards/boards_reply.js:88
 #: static/js/teams/teams_reply.js:81
 msgid "submit"
 msgstr ""
 
-#: static/js/blogs/blogs_comment.js:121
+#: static/js/blogs/blogs_comment.js:130
 msgid "Are you sure to delete this comment?"
 msgstr ""
 

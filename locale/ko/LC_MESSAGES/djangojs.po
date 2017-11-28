@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-27 23:20+0900\n"
+"POT-Creation-Date: 2017-11-28 19:18+0900\n"
 "PO-Revision-Date: 2017-11-27 23:23+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,9 +24,9 @@ msgid "Alarm for your activity."
 msgstr "알림을 확인해 주세요."
 
 #: static/js/accounts/alarm.js:67 static/js/accounts/alarm.js:114
-#: static/js/accounts/edit_bookmarks.js:29 static/js/blogs/blogs_comment.js:36
-#: static/js/blogs/blogs_comment.js:76 static/js/blogs/blogs_comment.js:137
-#: static/js/blogs/blogs_comment.js:159 static/js/blogs/dashboard.js:30
+#: static/js/accounts/edit_bookmarks.js:29 static/js/blogs/blogs_comment.js:45
+#: static/js/blogs/blogs_comment.js:85 static/js/blogs/blogs_comment.js:146
+#: static/js/blogs/blogs_comment.js:168 static/js/blogs/dashboard.js:30
 #: static/js/boards/boards_reply.js:41 static/js/boards/boards_reply.js:79
 #: static/js/boards/boards_reply.js:156 static/js/boards/boards_reply.js:182
 #: static/js/boards/boards_reply.js:204 static/js/boards/boards_reply.js:227
@@ -90,19 +90,19 @@ msgstr "영문 숫자 특수문자(_ - .)만 가능합니다."
 msgid "Please input correct E-mail address."
 msgstr "올바른 이메일 주소를 입력해 주세요."
 
-#: static/js/accounts/member.js:69
+#: static/js/accounts/member.js:78
 msgid "Failed to send E-mail. Please try again later."
 msgstr "이메일 발송 실패. 나중에 다시 시도해 주세요."
 
-#: static/js/accounts/member.js:78
+#: static/js/accounts/member.js:87
 msgid "Please input verification code correctly."
 msgstr "올바른 인증코드를 넣어주세요."
 
-#: static/js/accounts/member.js:96
+#: static/js/accounts/member.js:105
 msgid "Verified successfully."
 msgstr "인증 성공."
 
-#: static/js/accounts/member.js:99
+#: static/js/accounts/member.js:108
 msgid "Verification failure. Please check verification code again."
 msgstr "인증실패. 인증코드를 다시 확인해 주세요."
 
@@ -123,7 +123,7 @@ msgstr "굵은 글씨는 필수항목으로 꼭 입력해야 합니다."
 msgid "Passwords are different each other."
 msgstr "비밀번호가 서로 다릅니다."
 
-#: static/js/blogs/blogs_comment.js:4 static/js/blogs/blogs_comment.js:44
+#: static/js/blogs/blogs_comment.js:4 static/js/blogs/blogs_comment.js:53
 #: static/js/blogs/sidemenu.js:7 static/js/boards/boards_list.js:8
 #: static/js/boards/boards_reply.js:4 static/js/boards/boards_reply.js:50
 #: static/js/boards/reply_list.js:8 static/js/spams/spam.js:54
@@ -131,20 +131,20 @@ msgstr "비밀번호가 서로 다릅니다."
 msgid "Please input 2 or more characters."
 msgstr "두 글자 이상 입력해 주세요."
 
-#: static/js/blogs/blogs_comment.js:84
+#: static/js/blogs/blogs_comment.js:93
 msgid "Enter comment here."
 msgstr "댓글을 입력해 주세요."
 
-#: static/js/blogs/blogs_comment.js:85
+#: static/js/blogs/blogs_comment.js:94
 msgid "Enter name here."
 msgstr "이름을 입력해 주세요."
 
-#: static/js/blogs/blogs_comment.js:86 static/js/boards/boards_reply.js:88
+#: static/js/blogs/blogs_comment.js:95 static/js/boards/boards_reply.js:88
 #: static/js/teams/teams_reply.js:81
 msgid "submit"
 msgstr "등록"
 
-#: static/js/blogs/blogs_comment.js:121
+#: static/js/blogs/blogs_comment.js:130
 msgid "Are you sure to delete this comment?"
 msgstr "정말로 삭제하시겠습니까?"
 
@@ -171,23 +171,19 @@ msgstr "정말로 삭제하시겠습니까?"
 
 #: static/js/blogs/dashboard.js:3 static/js/blogs/dashboard.js:27
 #: static/js/spams/spam.js:4 static/js/spams/spam.js:27
-#| msgid "Please input correct E-mail address."
 msgid "Please input correct IP address."
 msgstr "올바른 IP 주소를 입력해 주세요."
 
 #: static/js/blogs/dashboard.js:7
-#| msgid "Are you sure to restore this article?"
 msgid "Are you sure to register this IP address to spam?"
 msgstr "이 IP 주소를 스팸에 등록하시겠습니까?"
 
 #: static/js/blogs/dashboard.js:20
-#| msgid "Verified successfully."
 msgid "Saved successfully."
 msgstr "저장 성공."
 
 #: static/js/blogs/dashboard.js:24 static/js/spams/spam.js:24
 #: static/js/spams/spam.js:74
-#| msgid "Already joined."
 msgid "Already exist."
 msgstr "이미 존재합니다."
 
@@ -263,7 +259,8 @@ msgstr "파티팀 모집이 취소되었습니다."
 
 #: static/js/teams/team.js:33
 msgid "ID for this platform must exist in your user information."
-msgstr "회원정보에 해당 기종의 아이디가 지정되어 있어야 슬롯에 참여할 수 있습니다."
+msgstr ""
+"회원정보에 해당 기종의 아이디가 지정되어 있어야 슬롯에 참여할 수 있습니다."
 
 #: static/js/teams/team.js:43
 msgid "Are you sure to leave this party?"

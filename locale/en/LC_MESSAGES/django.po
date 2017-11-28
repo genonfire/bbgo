@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-27 23:20+0900\n"
+"POT-Creation-Date: 2017-11-28 19:18+0900\n"
 "PO-Revision-Date: 2017-11-16 16:26+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,29 +18,29 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: accounts/views.py:48 accounts/views.py:112 core/api.py:475
+#: accounts/views.py:49 accounts/views.py:113 core/api.py:475
 msgid "Saved successfully."
 msgstr ""
 
-#: accounts/views.py:50 accounts/views.py:116 msgs/views.py:122
+#: accounts/views.py:51 accounts/views.py:117 msgs/views.py:122
 #: msgs/views.py:176
 msgid "Form validation Failure"
 msgstr ""
 
-#: accounts/views.py:88 accounts/views.py:277
+#: accounts/views.py:89 accounts/views.py:278
 msgid "Please check nickname."
 msgstr ""
 
-#: accounts/views.py:105 accounts/views.py:108 accounts/views.py:296
-#: accounts/views.py:298
+#: accounts/views.py:106 accounts/views.py:109 accounts/views.py:297
+#: accounts/views.py:299
 msgid "Verification failure. Please check verification code again."
 msgstr ""
 
-#: accounts/views.py:267
+#: accounts/views.py:268
 msgid "Please check username."
 msgstr ""
 
-#: accounts/views.py:300
+#: accounts/views.py:301
 msgid "Sorry. Please try again later."
 msgstr ""
 
@@ -266,6 +266,82 @@ msgstr ""
 msgid "No alarms"
 msgstr ""
 
+#: templates/haru/accounts/dashboard_user.html:7
+#: templates/haru/accounts/dashboard_user.html:13
+#: templates/haru/blogs/dashboard.html:57
+msgid "users"
+msgstr ""
+
+#: templates/haru/accounts/dashboard_user.html:11
+#: templates/haru/accounts/dashboard_user.html:17
+#: templates/haru/blogs/dashboard.html:4
+#: templates/haru/blogs/dashboard.html:15
+#: templates/haru/blogs/dashboard_comment.html:4
+#: templates/haru/blogs/dashboard_comment.html:15
+#: templates/haru/blogs/dashboard_comment.html:24
+#: templates/haru/blogs/dashboard_post.html:4
+#: templates/haru/blogs/dashboard_post.html:12
+#: templates/haru/blogs/dashboard_post.html:21
+#: templates/haru/blogs/show_blogs.html:22
+msgid "Dashboard"
+msgstr ""
+
+#: templates/haru/accounts/dashboard_user.html:22
+msgid "Users order"
+msgstr ""
+
+#: templates/haru/accounts/dashboard_user.html:29
+msgid "by Default"
+msgstr ""
+
+#: templates/haru/accounts/dashboard_user.html:38
+msgid "by point"
+msgstr ""
+
+#: templates/haru/accounts/dashboard_user.html:47
+msgid "by Date joined"
+msgstr ""
+
+#: templates/haru/accounts/dashboard_user.html:56
+msgid "by Last login"
+msgstr ""
+
+#: templates/haru/accounts/dashboard_user.html:64
+#: templates/haru/accounts/edit_user_info.html:47
+#: templates/haru/accounts/login.html:41
+#: templates/haru/accounts/signup.html:36
+#: templates/haru/accounts/user_info.html:28 templates/haru/base.html:107
+#: templates/haru/menu_mobile.html:67
+msgid "id"
+msgstr ""
+
+#: templates/haru/accounts/dashboard_user.html:65
+#: templates/haru/accounts/edit_user_info.html:77
+#: templates/haru/accounts/signup.html:62
+msgid "Email address"
+msgstr ""
+
+#: templates/haru/accounts/dashboard_user.html:66
+msgid "IP Address"
+msgstr ""
+
+#: templates/haru/accounts/dashboard_user.html:67
+#: templates/haru/accounts/user_info.html:54
+msgid "Last login"
+msgstr ""
+
+#: templates/haru/accounts/dashboard_user.html:68
+#: templates/haru/accounts/edit_user_info.html:55
+#: templates/haru/accounts/user_info.html:36
+msgid "Date joined"
+msgstr ""
+
+#: templates/haru/accounts/dashboard_user.html:69
+#: templates/haru/accounts/edit_user_info.html:101
+#: templates/haru/accounts/user_info.html:78
+msgid "point"
+msgstr ""
+
 #: templates/haru/accounts/deactivate_account.html:6
 #: templates/haru/accounts/deactivate_account.html:10
 #: templates/haru/accounts/deactivate_account.html:29
@@ -331,19 +407,6 @@ msgstr ""
 msgid "portrait"
 msgstr ""
 
-#: templates/haru/accounts/edit_user_info.html:47
-#: templates/haru/accounts/login.html:41
-#: templates/haru/accounts/signup.html:36
-#: templates/haru/accounts/user_info.html:28 templates/haru/base.html:106
-#: templates/haru/menu_mobile.html:67
-msgid "id"
-msgstr ""
-
-#: templates/haru/accounts/edit_user_info.html:55
-#: templates/haru/accounts/user_info.html:36
-msgid "Date joined"
-msgstr ""
-
 #: templates/haru/accounts/edit_user_info.html:64
 #: templates/haru/accounts/signup.html:49
 #: templates/haru/accounts/user_info.html:45
@@ -360,11 +423,6 @@ msgstr ""
 #: templates/haru/accounts/signup.html:42
 #: templates/haru/accounts/signup.html:55
 msgid "Length limit"
-msgstr ""
-
-#: templates/haru/accounts/edit_user_info.html:77
-#: templates/haru/accounts/signup.html:62
-msgid "Email address"
 msgstr ""
 
 #: templates/haru/accounts/edit_user_info.html:81
@@ -390,20 +448,15 @@ msgstr ""
 msgid "Verification code is started by Email address"
 msgstr ""
 
-#: templates/haru/accounts/edit_user_info.html:101
-#: templates/haru/accounts/user_info.html:102
-msgid "point"
-msgstr ""
-
 #: templates/haru/accounts/edit_user_info.html:109
-#: templates/haru/accounts/user_info.html:110
+#: templates/haru/accounts/user_info.html:86
 msgid "signature"
 msgstr ""
 
 #: templates/haru/accounts/join.html:4 templates/haru/accounts/join.html:8
 #: templates/haru/accounts/login.html:57 templates/haru/accounts/signup.html:4
 #: templates/haru/accounts/signup.html:19
-#: templates/haru/accounts/signup.html:102 templates/haru/base.html:124
+#: templates/haru/accounts/signup.html:102 templates/haru/base.html:125
 #: templates/haru/menu_mobile.html:87
 msgid "Sign up"
 msgstr ""
@@ -414,7 +467,7 @@ msgstr ""
 
 #: templates/haru/accounts/join.html:17 templates/haru/accounts/login.html:4
 #: templates/haru/accounts/login.html:12 templates/haru/accounts/login.html:47
-#: templates/haru/base.html:113 templates/haru/menu_mobile.html:70
+#: templates/haru/base.html:114 templates/haru/menu_mobile.html:70
 #: templates/haru/registration/logged_out.html:17
 #: templates/haru/registration/password_reset_complete.html:17
 msgid "login"
@@ -424,7 +477,7 @@ msgstr ""
 msgid "Login failure"
 msgstr ""
 
-#: templates/haru/accounts/login.html:33 templates/haru/base.html:95
+#: templates/haru/accounts/login.html:33 templates/haru/base.html:96
 #: templates/haru/menu_mobile.html:57
 #: templates/haru/registration/logged_out.html:4
 #: templates/haru/registration/logged_out.html:8
@@ -432,12 +485,12 @@ msgid "logout"
 msgstr ""
 
 #: templates/haru/accounts/login.html:44
-#: templates/haru/accounts/signup.html:86 templates/haru/base.html:109
+#: templates/haru/accounts/signup.html:86 templates/haru/base.html:110
 #: templates/haru/menu_mobile.html:75
 msgid "password"
 msgstr ""
 
-#: templates/haru/accounts/login.html:52 templates/haru/base.html:119
+#: templates/haru/accounts/login.html:52 templates/haru/base.html:120
 #: templates/haru/menu_mobile.html:82
 msgid "Reset password"
 msgstr ""
@@ -466,8 +519,8 @@ msgid "username"
 msgstr ""
 
 #: templates/haru/accounts/scrap.html:27
-#: templates/haru/blogs/dashboard.html:105
-#: templates/haru/blogs/dashboard.html:147
+#: templates/haru/blogs/dashboard.html:108
+#: templates/haru/blogs/dashboard.html:150
 #: templates/haru/blogs/dashboard_comment.html:84
 #: templates/haru/blogs/dashboard_post.html:97
 #: templates/haru/boards/search_reply.html:30
@@ -585,40 +638,12 @@ msgstr ""
 msgid "password confirm"
 msgstr ""
 
-#: templates/haru/accounts/user_info.html:54
-msgid "Last login"
-msgstr ""
-
 #: templates/haru/accounts/user_info.html:62
-msgid "PSN ID"
-msgstr ""
-
-#: templates/haru/accounts/user_info.html:70
-msgid "Xbox ID"
-msgstr ""
-
-#: templates/haru/accounts/user_info.html:78
-msgid "BattleTag"
-msgstr ""
-
-#: templates/haru/accounts/user_info.html:86
 msgid "Article count"
 msgstr ""
 
-#: templates/haru/accounts/user_info.html:94
+#: templates/haru/accounts/user_info.html:70
 msgid "Reply count"
-msgstr ""
-
-#: templates/haru/blogs/dashboard.html:4
-#: templates/haru/blogs/dashboard.html:15
-#: templates/haru/blogs/dashboard_comment.html:4
-#: templates/haru/blogs/dashboard_comment.html:15
-#: templates/haru/blogs/dashboard_comment.html:24
-#: templates/haru/blogs/dashboard_post.html:4
-#: templates/haru/blogs/dashboard_post.html:12
-#: templates/haru/blogs/dashboard_post.html:21
-#: templates/haru/blogs/show_blogs.html:22
-msgid "Dashboard"
 msgstr ""
 
 #: templates/haru/blogs/dashboard.html:18
@@ -628,7 +653,7 @@ msgid "Post"
 msgstr ""
 
 #: templates/haru/blogs/dashboard.html:21
-#: templates/haru/blogs/dashboard.html:145
+#: templates/haru/blogs/dashboard.html:148
 #: templates/haru/blogs/dashboard_comment.html:17
 #: templates/haru/blogs/dashboard_comment.html:82
 #: templates/haru/blogs/dashboard_post.html:18
@@ -656,38 +681,34 @@ msgstr ""
 msgid "Spam setting"
 msgstr ""
 
-#: templates/haru/blogs/dashboard.html:54
-msgid "users"
-msgstr ""
-
-#: templates/haru/blogs/dashboard.html:59
+#: templates/haru/blogs/dashboard.html:62
 msgid "Top posts order"
 msgstr ""
 
-#: templates/haru/blogs/dashboard.html:66
+#: templates/haru/blogs/dashboard.html:69
 msgid "by recent"
 msgstr ""
 
-#: templates/haru/blogs/dashboard.html:75
+#: templates/haru/blogs/dashboard.html:78
 msgid "by view"
 msgstr ""
 
-#: templates/haru/blogs/dashboard.html:84
+#: templates/haru/blogs/dashboard.html:87
 msgid "by like"
 msgstr ""
 
-#: templates/haru/blogs/dashboard.html:93
+#: templates/haru/blogs/dashboard.html:96
 msgid "by comment"
 msgstr ""
 
-#: templates/haru/blogs/dashboard.html:101
-#: templates/haru/blogs/dashboard.html:146
+#: templates/haru/blogs/dashboard.html:104
+#: templates/haru/blogs/dashboard.html:149
 #: templates/haru/blogs/dashboard_comment.html:83
 #: templates/haru/blogs/dashboard_post.html:93
 msgid "title"
 msgstr ""
 
-#: templates/haru/blogs/dashboard.html:102
+#: templates/haru/blogs/dashboard.html:105
 #: templates/haru/blogs/dashboard_post.html:94
 #: templates/haru/blogs/edit_post.html:62
 #: templates/haru/boards/edit_article.html:56
@@ -695,31 +716,31 @@ msgstr ""
 msgid "category"
 msgstr ""
 
-#: templates/haru/blogs/dashboard.html:103
+#: templates/haru/blogs/dashboard.html:106
 #: templates/haru/blogs/dashboard_post.html:95
 msgid "Tags"
 msgstr ""
 
-#: templates/haru/blogs/dashboard.html:138
+#: templates/haru/blogs/dashboard.html:141
 msgid "Recent comments"
 msgstr ""
 
-#: templates/haru/blogs/dashboard.html:144
+#: templates/haru/blogs/dashboard.html:147
 #: templates/haru/blogs/dashboard_comment.html:81
 msgid "name"
 msgstr ""
 
-#: templates/haru/blogs/dashboard.html:161
+#: templates/haru/blogs/dashboard.html:164
 #: templates/haru/blogs/dashboard_comment.html:98
 msgid "Register to spam"
 msgstr ""
 
-#: templates/haru/blogs/dashboard.html:172
+#: templates/haru/blogs/dashboard.html:175
 #: templates/haru/blogs/dashboard_comment.html:121
 msgid "Spam"
 msgstr ""
 
-#: templates/haru/blogs/dashboard.html:177
+#: templates/haru/blogs/dashboard.html:180
 #: templates/haru/blogs/dashboard_comment.html:126
 #: templates/haru/blogs/dashboard_post.html:127
 msgid "Delete"
