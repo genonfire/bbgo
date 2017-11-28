@@ -51,7 +51,10 @@
         </span>
     </div>
     <div>
-        {{ total_users }} {% trans 'users' %}
+        <a href="{% url 'accounts:dashboard_user' condition='default' page=1 %}">
+            {{ total_users }}
+        </a>
+        {% trans 'users' %}
     </div>
 </div>
 
@@ -101,7 +104,7 @@
             <th class="title">{% trans 'title' %}</th>
             <th class="category">{% trans 'category' %}</th>
             <th class="tag">{% trans 'Tags' %}</th>
-            <th class="blogcount"><img src="{% static 'icons/eye18.png' %}"</th>
+            <th class="blogcount"><img src="{% static 'icons/eye18.png' %}"></th>
             <th class="fulldate">{% trans 'date' %}</th>
         </tr>
         </thead>

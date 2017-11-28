@@ -76,4 +76,9 @@ urlpatterns = [
         views.deactivate_account,
         name='deactivate_account',
     ),
+    url(
+        r'^dashboard_user/(?P<condition>.*)/(?P<page>\d+)/$',
+        views.dashboard_user,
+        name='dashboard_user'
+    ),
 ]

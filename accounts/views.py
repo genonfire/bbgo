@@ -8,6 +8,7 @@ from boards.table import BoardTable
 from core.utils import error_page
 
 from django.conf import settings
+from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
@@ -347,3 +348,56 @@ def send_email(request):
         return error_page(request, "Email sent", status=201)
     except SMTPException:
         return error_page(request, "Error!")
+
+
+@staff_member_required
+def dashboard_user(request, condition='recent', page=1):
+    """Dashboard user"""
+    list_count = settings.DASHBOARD_LIST_COUNT
+
+    if int(page) < 1:
+        return redirect('accounts:dashboard_user', condition, 1)
+
+    if condition == 'recent':
+        order = '-id'
+    elif condition == 'point':
+        order = '-profile__point'
+    elif condition == 'login':
+        order = '-last_login'
+    elif condition != 'default':
+        return error_page(request)
+
+    current_page = int(page) - 1
+    start_at = current_page * list_count
+    end_at = start_at + list_count
+
+    total = User.objects.count()
+    if condition == 'default':
+        users = User.objects.order_by('-is_superuser', '-is_staff', '-is_active', 'username')[start_at:end_at]
+    else:
+        users = User.objects.order_by(order)[start_at:end_at]
+
+    index_total = int(ceil(float(total) / list_count))
+    index_begin = (current_page / 10) * 10 + 1
+    index_end = mindex_end = index_total
+    if index_end - index_begin >= 10:
+        index_end = index_begin + 9
+    mindex_begin = (current_page / 5) * 5 + 1
+    if mindex_end - mindex_begin >= 5:
+        mindex_end = mindex_begin + 4
+
+    return render(
+        request,
+        "accounts/dashboard_user.html",
+        {
+            'users': users,
+            'total': total,
+            'page': current_page + 1,
+            'index_begin': index_begin,
+            'index_end': index_end + 1,
+            'mindex_begin': mindex_begin,
+            'mindex_end': mindex_end + 1,
+            'index_total': index_total,
+            'condition': condition,
+        }
+    )
