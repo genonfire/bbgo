@@ -30,28 +30,6 @@
                     </a>
                 </li>
             {% endif %}
-
-            <li class="titlemenu">
-                {% trans 'bbs' %}
-            </li>
-            <li>
-                <a href="{% url 'boards:show_list' table=9 page=1 %}">
-                    {% trans 'Best' %}
-                </a>
-                <a href="{% url 'boards:show_list' table=0 page=1 %}">
-                    {% trans 'Recent' %}
-                </a>
-            </li>
-            <li>
-                <a href="{% url 'boards:show_list' table=11 page=1 %}">
-                    {% trans 'Infobbs' %}
-                </a>
-            </li>
-            <li>
-                <a href="{% url 'boards:show_list' table=12 page=1 %}">
-                    {% trans 'Freebbs' %}
-                </a>
-            </li>
         </ul>
     </li>
     {% if user.is_authenticated %}
