@@ -13,9 +13,10 @@ function toggle_bookmark(app, id) {
         },
         success: function(datain) {
             $('#header_star').attr("src", datain);
+            toast(gettext("Bookmark saved."), 500);
         },
         error: function(data) {
-            alert(gettext("Error! Please check bookmarks limitation."));
+            toast(gettext("Error! Please check bookmarks limitation."));
         }
     });
 }
@@ -34,10 +35,10 @@ function scrap(app, id) {
             id: id
         },
         success: function(datain) {
-            alert(gettext("You've scrapped this article."));
+            toast(gettext("You've scrapped this article."));
         },
         error: function(data) {
-            alert(gettext("Already scrapped."));
+            toast(gettext("Already scrapped."));
         }
     });
 }

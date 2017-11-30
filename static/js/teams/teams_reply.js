@@ -28,7 +28,7 @@ function write_reply(id) {
         },
         error: function(data) {
             if (data.status == 401) {
-                alert(gettext("Require login"))
+                toast(gettext("Require login"))
             }
             else if (data.status == 402) {
                 alert(gettext("Reply to warning article is not available."))

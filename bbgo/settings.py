@@ -65,6 +65,7 @@ LOCAL_APPS = (
     'boards',
     'spams',
     'teams',
+    'vaults',
 )
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + EDITOR_APPS + LOCAL_APPS
 
@@ -214,6 +215,12 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/upload/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')
 
+# SSL
+if not DEBUG:
+    SESSION_COOKIE_SECURE = True,
+    SECURE_SSL_REDIRECT = True,
+    CSRF_COOKIE_SECURE = True,
+
 
 # Summernote customization
 SUMMERNOTE_CONFIG = {
@@ -294,3 +301,8 @@ ENABLE_CODE_HIGHLIGHT = True
 
 # highlight keyword using mark.js
 ENABLE_MARK_KEYWORD = True
+
+# Setting for Vault
+ENABLE_MASTERKEY = True
+MASTERKEY_LENGTH = 6
+MASTERKEY_SESSION_TIME = 15  # minutes

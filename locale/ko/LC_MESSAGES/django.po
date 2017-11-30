@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 19:18+0900\n"
-"PO-Revision-Date: 2017-11-28 18:29+0900\n"
+"POT-Creation-Date: 2017-12-04 20:48+0900\n"
+"PO-Revision-Date: 2017-12-04 21:28+0828\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: accounts/views.py:49 accounts/views.py:113 core/api.py:475
+#: accounts/views.py:49 accounts/views.py:113
 msgid "Saved successfully."
 msgstr "저장했습니다."
 
@@ -145,11 +145,11 @@ msgstr "인증코드를 전송했습니다. 이메일을 확인해 주세요."
 msgid "Require login"
 msgstr "회원만 가능합니다."
 
-#: core/api.py:126 core/api.py:198 core/api.py:1036
+#: core/api.py:126 core/api.py:198 core/api.py:1035
 msgid "You like your own post?"
 msgstr "자신의 글입니다."
 
-#: core/api.py:138 core/api.py:1046
+#: core/api.py:138 core/api.py:1045
 msgid "You've liked this article"
 msgstr "추천했습니다."
 
@@ -157,7 +157,7 @@ msgstr "추천했습니다."
 msgid "You've disliked this article"
 msgstr "비추했습니다."
 
-#: core/api.py:153 core/api.py:222 core/api.py:1050
+#: core/api.py:153 core/api.py:222 core/api.py:1049
 msgid "You've already liked"
 msgstr "이미 추천하셨습니다."
 
@@ -203,8 +203,7 @@ msgstr "존재하지 않는 페이지입니다. 뭔가 다른 걸 해보세요."
 msgid ""
 "Something wrong. Please reload the page to try again. If error continues, "
 "please contact administrator."
-msgstr ""
-"서버 에러 발생. 새로고침 후에도 문제가 계속되면 관리자에게 문의해 주세요."
+msgstr "서버 에러 발생. 새로고침 후에도 문제가 계속되면 관리자에게 문의해 주세요."
 
 #: templates/haru/accounts/alarm_list.html:7
 msgid "Alarm"
@@ -231,7 +230,7 @@ msgid "Reply has a reply."
 msgstr "댓글에 댓글이 달렸습니다."
 
 #: templates/haru/accounts/alarm_list.html:56
-#: templates/haru/blogs/show_blogs.html:14 templates/haru/menu_sub.html:40
+#: templates/haru/blogs/show_blogs.html:14 templates/haru/menu_sub.html:55
 msgid "Blog"
 msgstr "블로그"
 
@@ -262,8 +261,7 @@ msgstr "파티에서 강제로 나갔습니다."
 #: templates/haru/accounts/alarm_list.html:120
 #, python-format
 msgid "It shows recent %(max)s alarms so may you often clear alarms."
-msgstr ""
-"최대 %(max)s개의 알림만 보여지므로 종종 모두 읽음을 눌러 정리해 주세요."
+msgstr "최대 %(max)s개의 알림만 보여지므로 종종 모두 읽음을 눌러 정리해 주세요."
 
 #: templates/haru/accounts/alarm_list.html:124
 msgid "No alarms"
@@ -370,9 +368,7 @@ msgstr "북마크 편집"
 msgid ""
 "Drag and drop to edit bookmark ordering. Saving is necessary to save your "
 "changes such as deleting and ordering."
-msgstr ""
-"끌어다 놓기로 북마크 순서를 변경할 수 있습니다. 저장 버튼을 눌러야 순서 변경"
-"이나 삭제한 내용이 저장됩니다."
+msgstr "끌어다 놓기로 북마크 순서를 변경할 수 있습니다. 저장 버튼을 눌러야 순서 변경이나 삭제한 내용이 저장됩니다."
 
 #: templates/haru/accounts/edit_bookmarks.html:18
 #, python-format
@@ -382,6 +378,9 @@ msgstr "북마크는 %(MAX_BOOKMARKS)s개까지 저장 가능합니다."
 #: templates/haru/accounts/edit_bookmarks.html:37
 #: templates/haru/accounts/edit_user_info.html:125
 #: templates/haru/accounts/setting.html:118
+#: templates/haru/vaults/edit_key.html:52
+#: templates/haru/vaults/edit_vault.html:100
+#: templates/haru/vaults/show_vault.html:115
 msgid "Save"
 msgstr "저장"
 
@@ -405,9 +404,7 @@ msgstr "커뮤니티 규정"
 msgid ""
 "disagreeable or disturbing content violate our Community Standards may be "
 "deleted without warning."
-msgstr ""
-"다른 사용자에게 불쾌감을 주거나 미풍양속을 해치는 컨텐츠는 예고없이 삭제될 "
-"수 있습니다."
+msgstr "다른 사용자에게 불쾌감을 주거나 미풍양속을 해치는 컨텐츠는 예고없이 삭제될 수 있습니다."
 
 #: templates/haru/accounts/edit_user_info.html:33
 #: templates/haru/accounts/user_info.html:18
@@ -564,8 +561,7 @@ msgstr "알림 설정"
 
 #: templates/haru/accounts/setting.html:25
 msgid "Interval how often do you want to check new alarm. 30 ~ 3600(1 hour)."
-msgstr ""
-"알림 확인 주기를 설정합니다. 30(초) ~ 3600(1시간) 사이에서 설정 가능합니다."
+msgstr "알림 확인 주기를 설정합니다. 30(초) ~ 3600(1시간) 사이에서 설정 가능합니다."
 
 #: templates/haru/accounts/setting.html:31
 msgid "Alarm interval(sec)"
@@ -615,12 +611,11 @@ msgstr "애드센스 정보"
 #: templates/haru/accounts/setting.html:91
 msgid ""
 "Your AdSense will be shown on information and best articles by profit "
-"sharing system. To use this feature please fill followings from your AdSense "
-"code."
+"sharing system. To use this feature please fill followings from your AdSense"
+" code."
 msgstr ""
-"수익 공유 시스템에 따라 정보글이나 추천을 많이 받은 게시글에는 글쓴이의 애드"
-"센스가 나타납니다. 이 기능을 사용하려면 본인의 애드센스 코드를 참조하여 아래 "
-"정보를 채워주세요."
+"수익 공유 시스템에 따라 정보글이나 추천을 많이 받은 게시글에는 글쓴이의 애드센스가 나타납니다. 이 기능을 사용하려면 본인의 애드센스 "
+"코드를 참조하여 아래 정보를 채워주세요."
 
 #: templates/haru/accounts/signup.html:14 templates/haru/error.html:4
 #: templates/haru/error.html.py:8
@@ -634,6 +629,7 @@ msgid "Hello %(user)s!"
 msgstr "%(user)s님 안녕하세요!"
 
 #: templates/haru/accounts/signup.html:27
+#: templates/haru/vaults/edit_vault.html:26
 msgid "Please fill all bold text which mean mandatory."
 msgstr "굵은 글씨는 필수항목으로 꼭 입력해야 합니다."
 
@@ -724,6 +720,7 @@ msgstr "제목"
 #: templates/haru/blogs/edit_post.html:62
 #: templates/haru/boards/edit_article.html:56
 #: templates/haru/teams/edit_recruitment.html:42
+#: templates/haru/vaults/edit_vault.html:39
 msgid "category"
 msgstr "구분"
 
@@ -738,6 +735,7 @@ msgstr "최근 댓글"
 
 #: templates/haru/blogs/dashboard.html:147
 #: templates/haru/blogs/dashboard_comment.html:81
+#: templates/haru/vaults/edit_vault.html:31
 msgid "name"
 msgstr "이름"
 
@@ -754,12 +752,14 @@ msgstr "스팸"
 #: templates/haru/blogs/dashboard.html:180
 #: templates/haru/blogs/dashboard_comment.html:126
 #: templates/haru/blogs/dashboard_post.html:127
+#: templates/haru/vaults/edit_vault.html:96
 msgid "Delete"
 msgstr "삭제"
 
 #: templates/haru/blogs/dashboard_comment.html:35
 #: templates/haru/blogs/dashboard_post.html:32
 #: templates/haru/blogs/dashboard_post.html:78
+#: templates/haru/vaults/show_vault.html:23
 msgid "All"
 msgstr "모두"
 
@@ -778,7 +778,7 @@ msgid "Delete permanently"
 msgstr "영구 삭제"
 
 #: templates/haru/blogs/dashboard_post.html:110
-#: templates/haru/menu_main.html:73
+#: templates/haru/menu_main.html:61 templates/haru/vaults/show_vault.html:87
 msgid "Edit"
 msgstr "편집"
 
@@ -837,7 +837,7 @@ msgstr "취소"
 
 #: templates/haru/blogs/show_blogs.html:64
 #: templates/haru/blogs/show_post.html:23
-#: templates/haru/blogs/show_post.html:128 templates/haru/menu_sub.html:22
+#: templates/haru/blogs/show_post.html:128 templates/haru/menu_sub.html:21
 msgid "uncategorized"
 msgstr "미분류"
 
@@ -1006,30 +1006,21 @@ msgstr "사이트 관리"
 msgid "Text translation"
 msgstr "텍스트 관리"
 
-#: templates/haru/menu_main.html:35
-msgid "bbs"
-msgstr "게시판"
+#: templates/haru/menu_main.html:34
+msgid "Sub site"
+msgstr "서브 사이트"
 
-#: templates/haru/menu_main.html:39 templates/haru/menu_sub.html:29
-#: templates/haru/portal/board_sample.html:24
-msgid "Best"
-msgstr "베스트"
+#: templates/haru/menu_main.html:39 templates/haru/menu_sub.html:39
+#: templates/haru/vaults/check_key.html:4
+#: templates/haru/vaults/edit_key.html:4
+#: templates/haru/vaults/edit_vault.html:4
+#: templates/haru/vaults/new_key.html:4
+#: templates/haru/vaults/show_vault.html:4
+#: templates/haru/vaults/show_vault.html:9
+msgid "Vaults"
+msgstr "나만보꼬얌"
 
-#: templates/haru/menu_main.html:42 templates/haru/menu_sub.html:34
-#: templates/haru/portal/board_sample.html:105
-msgid "Recent"
-msgstr "최신글"
-
-#: templates/haru/menu_main.html:47
-msgid "Infobbs"
-msgstr "정보게시판"
-
-#: templates/haru/menu_main.html:52 templates/haru/portal/board_sample.html:50
-#: templates/haru/portal/board_sample.html:74
-msgid "Freebbs"
-msgstr "자유게시판"
-
-#: templates/haru/menu_main.html:60
+#: templates/haru/menu_main.html:48
 msgid "bookmark"
 msgstr "북마크"
 
@@ -1042,6 +1033,22 @@ msgstr "북마크"
 #: templates/haru/registration/password_reset_confirm.html:35
 msgid "Change password"
 msgstr "비밀번호 변경"
+
+#: templates/haru/menu_sub.html:28 templates/haru/portal/board_sample.html:24
+msgid "Best"
+msgstr "베스트"
+
+#: templates/haru/menu_sub.html:33 templates/haru/portal/board_sample.html:105
+msgid "Recent"
+msgstr "최신글"
+
+#: templates/haru/menu_sub.html:44 templates/haru/vaults/edit_key.html:8
+msgid "Change key"
+msgstr "키 변경"
+
+#: templates/haru/menu_sub.html:49 templates/haru/vaults/edit_vault.html:9
+msgid "+ New item"
+msgstr "+ 새 항목"
 
 #: templates/haru/msgs/conversation.html:4
 #: templates/haru/msgs/conversation.html:12
@@ -1069,9 +1076,7 @@ msgstr "개의 안 읽은 쪽지가 있습니다."
 msgid ""
 "old messages exist. Deleting old messages may be able to improve overall "
 "performance."
-msgstr ""
-"개의 오래된 쪽지가 있습니다. 오래된 쪽지를 지우면 전반적인 성능이 향상될 수 "
-"있습니다."
+msgstr "개의 오래된 쪽지가 있습니다. 오래된 쪽지를 지우면 전반적인 성능이 향상될 수 있습니다."
 
 #: templates/haru/msgs/inbox.html:18
 msgid "messages exist."
@@ -1093,9 +1098,7 @@ msgstr "쪽지 보내기"
 msgid ""
 "Messages that include spam, abusive or harmful content may cause ban or "
 "suspension on your account."
-msgstr ""
-"스팸이나 욕설, 비방, 시비성 내용을 보낼 경우 계정 정지 등의 징계를 받을 수 있"
-"습니다."
+msgstr "스팸이나 욕설, 비방, 시비성 내용을 보낼 경우 계정 정지 등의 징계를 받을 수 있습니다."
 
 #: templates/haru/msgs/send_msg.html:20
 msgid "recipient"
@@ -1108,6 +1111,11 @@ msgstr "내용"
 #: templates/haru/msgs/send_msg.html:33
 msgid "characters available."
 msgstr "글자까지 입력 가능합니다."
+
+#: templates/haru/portal/board_sample.html:50
+#: templates/haru/portal/board_sample.html:74
+msgid "Freebbs"
+msgstr "자유게시판"
 
 #: templates/haru/portal/board_sample.html:127
 #: templates/haru/portal/board_sample.html:151
@@ -1124,11 +1132,10 @@ msgstr "비밀번호가 변경되었습니다."
 
 #: templates/haru/registration/password_change_form.html:13
 msgid ""
-"Please enter your old password, for security's sake, and then enter your new "
-"password twice so we can verify you typed it in correctly."
+"Please enter your old password, for security's sake, and then enter your new"
+" password twice so we can verify you typed it in correctly."
 msgstr ""
-"기존에 사용하시던 비밀번호를 입력해 주세요. 새로운 비밀번호는 정확히 입력했는"
-"지 확인할 수 있도록 두 번 입력하시기 바랍니다."
+"기존에 사용하시던 비밀번호를 입력해 주세요. 새로운 비밀번호는 정확히 입력했는지 확인할 수 있도록 두 번 입력하시기 바랍니다."
 
 #: templates/haru/registration/password_reset_complete.html:4
 #: templates/haru/registration/password_reset_complete.html:8
@@ -1150,9 +1157,7 @@ msgstr "비밀번호가 설정되었습니다. 이제 로그인하세요."
 msgid ""
 "Please enter your new password twice so we can verify you typed it in "
 "correctly."
-msgstr ""
-"새로운 비밀번호를 정확히 입력했는지 확인할 수 있도록 두 번 입력하시기 바랍니"
-"다."
+msgstr "새로운 비밀번호를 정확히 입력했는지 확인할 수 있도록 두 번 입력하시기 바랍니다."
 
 #: templates/haru/registration/password_reset_confirm.html:18
 msgid "New password:"
@@ -1166,9 +1171,7 @@ msgstr "새로운 비밀번호(확인)"
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a new password reset."
-msgstr ""
-"비밀번호 초기화 링크가 이미 사용되었거나 올바르지 않습니다. 비밀번호 초기화"
-"를 과정을 다시 진행해주세요."
+msgstr "비밀번호 초기화 링크가 이미 사용되었거나 올바르지 않습니다. 비밀번호 초기화를 과정을 다시 진행해주세요."
 
 #: templates/haru/registration/password_reset_done.html:11
 msgid "Email sent"
@@ -1179,16 +1182,13 @@ msgid ""
 "We've emailed you instructions for setting your password, if an account "
 "exists with the email you entered. You should receive them shortly."
 msgstr ""
-"비밀번호를 초기화하는 방법을 이메일로 보내드렸습니다. 해당 이메일주소가 정상"
-"적으로 등록되어 있다면 이메일을 곧 받으실 수 있습니다."
+"비밀번호를 초기화하는 방법을 이메일로 보내드렸습니다. 해당 이메일주소가 정상적으로 등록되어 있다면 이메일을 곧 받으실 수 있습니다."
 
 #: templates/haru/registration/password_reset_done.html:20
 msgid ""
 "If you don't receive an email, please make sure you've entered the address "
 "you registered with, and check your spam folder."
-msgstr ""
-"만약 이메일을 받지 못하였다면, 등록하신 이메일을 다시 확인하시거나 스팸 메일"
-"함을 확인해주세요."
+msgstr "만약 이메일을 받지 못하였다면, 등록하신 이메일을 다시 확인하시거나 스팸 메일함을 확인해주세요."
 
 #: templates/haru/registration/password_reset_email.html:2
 #, python-format
@@ -1218,9 +1218,7 @@ msgstr "%(site_name)s 팀"
 msgid ""
 "Forgotten your password? Enter your email address below, and we'll email "
 "instructions for setting a new one."
-msgstr ""
-"비밀번호를 분실하셨습니까? 아래에 이메일 주소를 입력해주십시오. 새로운 비밀번"
-"호를 설정하는 이메일을 보내드리겠습니다."
+msgstr "비밀번호를 분실하셨습니까? 아래에 이메일 주소를 입력해주십시오. 새로운 비밀번호를 설정하는 이메일을 보내드리겠습니다."
 
 #: templates/haru/registration/password_reset_form.html:19
 msgid "Email address:"
@@ -1285,8 +1283,8 @@ msgid ""
 "To join party, claim an empty slot. ID for this platform must exist in your "
 "user information. Press your ID once again to leave firetime."
 msgstr ""
-"빈 자리를 선택하면 파티에 참여합니다. 회원정보에 해당 기종의 아이디가 지정되"
-"어 있어야 참여할 수 있습니다. 아이디를 한 번 더 누르면 파티를 떠납니다."
+"빈 자리를 선택하면 파티에 참여합니다. 회원정보에 해당 기종의 아이디가 지정되어 있어야 참여할 수 있습니다. 아이디를 한 번 더 누르면 "
+"파티를 떠납니다."
 
 #: templates/haru/teams/show_team.html:55
 msgid "Kick player"
@@ -1296,3 +1294,142 @@ msgstr "강퇴"
 #: templates/haru/teams/show_team.html:78
 msgid "empty slot."
 msgstr "빈 자리"
+
+#: templates/haru/vaults/check_key.html:8
+msgid "Open vault"
+msgstr "금고 열기"
+
+#: templates/haru/vaults/check_key.html:11
+#, python-format
+msgid "Please enter %(MASTERKEY_LENGTH)s digit number of master key."
+msgstr "마스터키 %(MASTERKEY_LENGTH)s 자리 숫자를 입력하세요."
+
+#: templates/haru/vaults/check_key.html:23
+msgid "Enter"
+msgstr "입력"
+
+#: templates/haru/vaults/edit_key.html:17
+msgid ""
+"Please enter current master key, for security's sake, and then enter your "
+"new master key twice so we can verify you typed it in correctly."
+msgstr "기존에 사용하던 마스터키를 입력해 주세요. 새로운 마스터키는 정확히 입력했는지 확인할 수 있도록 두 번 입력하시기 바랍니다."
+
+#: templates/haru/vaults/edit_key.html:22
+msgid "Current master key"
+msgstr "현재 마스터키"
+
+#: templates/haru/vaults/edit_key.html:30
+msgid "New master key"
+msgstr "새 마스터키"
+
+#: templates/haru/vaults/edit_key.html:35
+#: templates/haru/vaults/new_key.html:28
+msgid "digit number"
+msgstr "자리 숫자"
+
+#: templates/haru/vaults/edit_key.html:41
+#: templates/haru/vaults/new_key.html:34
+msgid "Master key confirm"
+msgstr "마스터키 확인"
+
+#: templates/haru/vaults/edit_vault.html:11
+msgid "Edit item"
+msgstr "항목 편집"
+
+#: templates/haru/vaults/edit_vault.html:15
+msgid "All items saved in database are encrypted to protect data."
+msgstr "데이터 보호를 위해 암호화되어 데이터베이스에 저장됩니다."
+
+#: templates/haru/vaults/edit_vault.html:18
+#: templates/haru/vaults/show_vault.html:13
+msgid "Extend expiry"
+msgstr "시간 연장"
+
+#: templates/haru/vaults/edit_vault.html:47
+msgid "Number"
+msgstr "번호"
+
+#: templates/haru/vaults/edit_vault.html:55
+msgid "Logo"
+msgstr "로고"
+
+#: templates/haru/vaults/edit_vault.html:71
+msgid "Valid through"
+msgstr "유효기간"
+
+#: templates/haru/vaults/edit_vault.html:79
+msgid "CVC"
+msgstr "CVC"
+
+#: templates/haru/vaults/edit_vault.html:87
+msgid "Description"
+msgstr "설명"
+
+#: templates/haru/vaults/new_key.html:8
+msgid "New key"
+msgstr "마스터키 생성"
+
+#: templates/haru/vaults/new_key.html:11
+msgid ""
+"Do not store sensitive information on the server. We are not responsible for"
+" your data lost or leakage of personal information. It is your sole "
+"responsibility to ensure your information safely protected from any kind of "
+"issues."
+msgstr ""
+"민감한 정보는 서버에 저장하지 마세요. 어떠한 종류의 공격이나 문제 상황이든지 그로부터 데이터를 안전하게 보호하는 것은 전적으로 사용자 "
+"본인의 책임이며 서버에 저장한 데이터의 분실, 개인정보 유출 등에 대해 우리는 책임을 지지 않습니다."
+
+#: templates/haru/vaults/new_key.html:18
+msgid ""
+"By creating master key, you agree to our Terms and Data policy as described "
+"above."
+msgstr "마스터키를 생성함으로써 당신은 위에서 언급한 약관 및 데이터 보호 정책에 동의하게 됩니다."
+
+#: templates/haru/vaults/new_key.html:23
+msgid "Master key"
+msgstr "마스터키"
+
+#: templates/haru/vaults/new_key.html:42
+msgid "Create"
+msgstr "생성"
+
+#: templates/haru/vaults/show_vault.html:32
+msgid "Account"
+msgstr "계좌"
+
+#: templates/haru/vaults/show_vault.html:41
+msgid "Card"
+msgstr "카드"
+
+#: templates/haru/vaults/show_vault.html:50
+msgid "Membership"
+msgstr "멤버십"
+
+#: templates/haru/vaults/show_vault.html:59
+msgid "Other"
+msgstr "기타"
+
+#: templates/haru/vaults/show_vault.html:114
+msgid ""
+"Drag and drop to edit ordering. Saving is necessary to save your changes."
+msgstr "끌어다 놓기로 순서를 변경할 수 있습니다. 저장 버튼을 눌러야 변경된 내용이 저장됩니다."
+
+#: vaults/models.py:27
+msgid "vault_account"
+msgstr "계좌"
+
+#: vaults/models.py:28
+msgid "vault_card"
+msgstr "카드"
+
+#: vaults/models.py:29
+msgid "vault_membership"
+msgstr "멤버십"
+
+#: vaults/models.py:30
+msgid "vault_other"
+msgstr "기타"
+
+#: vaults/views.py:53 vaults/views.py:115
+msgid "Wrong master key."
+msgstr "마스터키를 잘못 입력했습니다."

@@ -1,5 +1,6 @@
 from django import template
 from django.conf import settings
+from django.core.urlresolvers import resolve
 
 register = template.Library()
 
@@ -7,8 +8,9 @@ register = template.Library()
 @register.inclusion_tag('show_sense.html', takes_context=True)
 def show_up_sense(context, sense=''):
     """Show AdSense for SENSE_UP"""
+    request = context['request']
     if sense == 'user':
-        user = context['request'].user
+        user = request.user
         if user.profile.sense_client and user.profile.sense_slot:
             sense_client = user.profile.sense_client
             sense_slot = user.profile.sense_slot
@@ -34,8 +36,9 @@ def show_up_sense(context, sense=''):
 @register.inclusion_tag('show_sense.html', takes_context=True)
 def show_up_sense_native(context, sense=''):
     """Show AdSense Native for SENSE_UP"""
+    request = context['request']
     if sense == 'user':
-        user = context['request'].user
+        user = request.user
         if user.profile.sense_client and user.profile.sense_slot:
             sense_client = user.profile.sense_client
             sense_slot = user.profile.sense_slot
@@ -61,8 +64,9 @@ def show_up_sense_native(context, sense=''):
 @register.inclusion_tag('show_sense.html', takes_context=True)
 def show_down_sense(context, sense=''):
     """Show AdSense for SENSE_DOWN"""
+    request = context['request']
     if sense == 'user':
-        user = context['request'].user
+        user = request.user
         if user.profile.sense_client and user.profile.sense_slot:
             sense_client = user.profile.sense_client
             sense_slot = user.profile.sense_slot
@@ -88,8 +92,9 @@ def show_down_sense(context, sense=''):
 @register.inclusion_tag('show_sense.html', takes_context=True)
 def show_down_sense_native(context, sense=''):
     """Show AdSense Native for SENSE_DOWN"""
+    request = context['request']
     if sense == 'user':
-        user = context['request'].user
+        user = request.user
         if user.profile.sense_client and user.profile.sense_slot:
             sense_client = user.profile.sense_client
             sense_slot = user.profile.sense_slot
@@ -115,8 +120,9 @@ def show_down_sense_native(context, sense=''):
 @register.inclusion_tag('show_sense.html', takes_context=True)
 def show_side_sense(context, sense=''):
     """Show AdSense for SENSE_SIDE"""
+    request = context['request']
     if sense == 'user':
-        user = context['request'].user
+        user = request.user
         if user.profile.sense_client and user.profile.sense_slot:
             sense_client = user.profile.sense_client
             sense_slot = user.profile.sense_slot
@@ -130,6 +136,10 @@ def show_side_sense(context, sense=''):
     sense_enabled = settings.ENABLE_ADSENSE
     if settings.DEBUG:
         sense_enabled = False
+    else:
+        app = resolve(request.path).namespace
+        if app == 'vaults':
+            sense_enabled = False
 
     return {
         'sense_enabled': sense_enabled,
@@ -142,8 +152,9 @@ def show_side_sense(context, sense=''):
 @register.inclusion_tag('show_sense.html', takes_context=True)
 def show_side_sense_native(context, sense=''):
     """Show AdSense Native for SENSE_SIDE"""
+    request = context['request']
     if sense == 'user':
-        user = context['request'].user
+        user = request.user
         if user.profile.sense_client and user.profile.sense_slot:
             sense_client = user.profile.sense_client
             sense_slot = user.profile.sense_slot
@@ -157,6 +168,10 @@ def show_side_sense_native(context, sense=''):
     sense_enabled = settings.ENABLE_ADSENSE
     if settings.DEBUG:
         sense_enabled = False
+    else:
+        app = resolve(request.path).namespace
+        if app == 'vaults':
+            sense_enabled = False
 
     return {
         'sense_enabled': sense_enabled,

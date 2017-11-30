@@ -11,7 +11,7 @@ class SpamIPEditForm(forms.ModelForm):
         """Meta for ModelForm"""
 
         model = IP
-        fields = {"ip"}
+        fields = ('ip',)
 
 
 class SpamWordEditForm(forms.ModelForm):
@@ -21,4 +21,4 @@ class SpamWordEditForm(forms.ModelForm):
         """Meta for ModelForm"""
 
         model = Word
-        fields = {"word"}
+        fields = ('word',)

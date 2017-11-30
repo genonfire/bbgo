@@ -472,8 +472,7 @@ def edit_bookmarks(request):
         request.user.profile.bookmarks = my_bookmarks
         request.user.profile.save()
 
-        msg = _('Saved successfully.')
-        return JsonResponse([msg], safe=False, status=201)
+        return JsonResponse({'status': 'true'}, status=201)
 
     return error_page(request)
 

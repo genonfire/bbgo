@@ -26,6 +26,8 @@ def global_settings(request):
         'COMMENT_TEXT_MAX': settings.COMMENT_TEXT_MAX,
         'USERNAME_MAX': settings.USERNAME_MAX,
         'BLOG_CATEGORY': settings.BLOG_CATEGORY,
+        'ENABLE_MASTERKEY': settings.ENABLE_MASTERKEY,
+        'MASTERKEY_LENGTH': settings.MASTERKEY_LENGTH,
         'ENABLE_ADSENSE': settings.ENABLE_ADSENSE,
         'SITE_INFO': settings.SITE_INFO,
         'SITE_LOGO': settings.SITE_LOGO,

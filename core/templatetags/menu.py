@@ -80,6 +80,7 @@ def menu_banner(context):
     app = resolve(request.path).namespace
     return {
         'app': app,
+        'user': request.user,
     }
 
 

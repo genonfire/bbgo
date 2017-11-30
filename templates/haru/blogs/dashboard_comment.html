@@ -31,41 +31,41 @@
     {% else %}
         <span>
     {% endif %}
-        <a href="{% url 'blogs:dashboard_comment' status='all' page=1 %}">
-            {% trans 'All' %}
-        </a>
-        ({{ count_all }})
-    </span>
+            <a href="{% url 'blogs:dashboard_comment' status='all' page=1 %}">
+                {% trans 'All' %}
+            </a>
+            ({{ count_all }})
+        </span>
     {% if status == '1normal' %}
         <span class="status_selected">
     {% else %}
         <span>
     {% endif %}
-        <a href="{% url 'blogs:dashboard_comment' status='1normal' page=1 %}">
-            {% trans 'status_normal' %}
-        </a>
-        ({{ count_normal }})
-    </span>
+            <a href="{% url 'blogs:dashboard_comment' status='1normal' page=1 %}">
+                {% trans 'status_normal' %}
+            </a>
+            ({{ count_normal }})
+        </span>
     {% if status == '6deleted' %}
         <span class="status_selected">
     {% else %}
         <span>
     {% endif %}
-        <a href="{% url 'blogs:dashboard_comment' status='6deleted' page=1 %}">
-            {% trans 'status_deleted' %}
-        </a>
-        ({{ count_deleted }})
-    </span>
+            <a href="{% url 'blogs:dashboard_comment' status='6deleted' page=1 %}">
+                {% trans 'status_deleted' %}
+            </a>
+            ({{ count_deleted }})
+        </span>
     {% if status == '7spam' %}
         <span class="status_selected last-child">
     {% else %}
         <span class="last-child">
     {% endif %}
-        <a href="{% url 'blogs:dashboard_comment' status='7spam' page=1 %}">
-            {% trans 'status_spam' %}
-        </a>
-        ({{ count_spam }})
-    </span>
+            <a href="{% url 'blogs:dashboard_comment' status='7spam' page=1 %}">
+                {% trans 'status_spam' %}
+            </a>
+            ({{ count_spam }})
+        </span>
     {% if status == '6deleted' or status == '7spam' %}
         <span class="float-right">
             <a href="{% url 'blogs:empty_comment' status=status %}">

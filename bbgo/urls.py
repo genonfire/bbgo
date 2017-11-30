@@ -42,6 +42,7 @@ urlpatterns = [
     url(r'^teams/', include('teams.urls', namespace='teams')),
     url(r'^spams/', include('spams.urls', namespace='spams')),
     url(r'^api/', include('core.apiurls', namespace='api')),
+    url(r'^vaults/', include('vaults.urls', namespace='vaults')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if 'django_summernote' in settings.INSTALLED_APPS:

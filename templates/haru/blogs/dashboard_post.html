@@ -38,41 +38,41 @@
     {% else %}
         <span>
     {% endif %}
-        <a href="{% url 'blogs:dashboard_post' status='1normal' category=category page=1 %}">
-            {% trans 'status_published' %}
-        </a>
-        ({{ count_published }})
-    </span>
+            <a href="{% url 'blogs:dashboard_post' status='1normal' category=category page=1 %}">
+                {% trans 'status_published' %}
+            </a>
+            ({{ count_published }})
+        </span>
     {% if status == '2temp' %}
         <span class="status_selected">
     {% else %}
         <span>
     {% endif %}
-        <a href="{% url 'blogs:dashboard_post' status='2temp' category=category page=1 %}">
-            {% trans 'status_draft' %}
-        </a>
-        ({{ count_draft }})
-    </span>
+            <a href="{% url 'blogs:dashboard_post' status='2temp' category=category page=1 %}">
+                {% trans 'status_draft' %}
+            </a>
+            ({{ count_draft }})
+        </span>
     {% if status == '5hidden' %}
         <span class="status_selected">
     {% else %}
         <span>
     {% endif %}
-        <a href="{% url 'blogs:dashboard_post' status='5hidden' category=category page=1 %}">
-            {% trans 'status_pending' %}
-        </a>
-        ({{ count_pending }})
-    </span>
+            <a href="{% url 'blogs:dashboard_post' status='5hidden' category=category page=1 %}">
+                {% trans 'status_pending' %}
+            </a>
+            ({{ count_pending }})
+        </span>
     {% if status == '6deleted' %}
         <span class="status_selected last-child">
     {% else %}
         <span class="last-child">
     {% endif %}
-        <a href="{% url 'blogs:dashboard_post' status='6deleted' category=category page=1 %}">
-            {% trans 'status_deleted' %}
-        </a>
-        ({{ count_deleted }})
-    </span>
+            <a href="{% url 'blogs:dashboard_post' status='6deleted' category=category page=1 %}">
+                {% trans 'status_deleted' %}
+            </a>
+            ({{ count_deleted }})
+        </span>
     <span class="float-right">
         <select id="id_category" maxlength="23" name="category">
             <option value="">{% trans 'All' %}</option>

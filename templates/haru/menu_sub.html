@@ -33,6 +33,22 @@
             {% trans 'Recent' %}
         </a>
     </span>
+{% elif app == 'vaults' %}
+    <span>
+        <a href="{% url 'vaults:open_vault' %}">
+            {% trans 'Vaults' %}
+        </a>
+    </span>
+    <span>
+        <a href="{% url 'vaults:edit_key' %}">
+            {% trans 'Change key' %}
+        </a>
+    </span>
+    <span>
+        <a href="{% url 'vaults:new_vault' %}">
+            {% trans '+ New item' %}
+        </a>
+    </span>
 {% else %}
     <span>
         <a href="{% url 'blogs:blog_home' %}">

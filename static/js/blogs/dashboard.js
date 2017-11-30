@@ -17,14 +17,14 @@ function register_spam_ip(ip) {
                 ip: ip
             },
             success: function(data) {
-                alert(gettext("Saved successfully."))
+                toast(gettext("Saved successfully."));
             },
             error: function(data) {
                 if (data.status == 412) {
-                    alert(gettext("Already exist."))
+                    toast(gettext("Already exist."));
                 }
                 else if (data.status == 500) {
-                    alert(gettext("Please input correct IP address."));
+                    toast(gettext("Please input correct IP address."));
                 }
                 else {
                     alert(gettext('Error!'));

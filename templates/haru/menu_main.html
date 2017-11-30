@@ -30,6 +30,16 @@
                     </a>
                 </li>
             {% endif %}
+            <li class="titlemenu">
+                {% trans 'Sub site' %}
+            </li>
+            {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'vaults:open_vault' %}">
+                        {% trans 'Vaults' %}
+                    </a>
+                </li>
+            {% endif %}
         </ul>
     </li>
     {% if user.is_authenticated %}

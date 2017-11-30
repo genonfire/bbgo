@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 19:18+0900\n"
-"PO-Revision-Date: 2017-11-27 23:23+0900\n"
+"POT-Creation-Date: 2017-12-04 20:48+0900\n"
+"PO-Revision-Date: 2017-12-04 20:49+0828\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -37,18 +37,23 @@ msgstr "알림을 확인해 주세요."
 #: static/js/teams/teams_reply.js:37 static/js/teams/teams_reply.js:72
 #: static/js/teams/teams_reply.js:124 static/js/teams/teams_reply.js:147
 #: static/js/teams/teams_reply.js:171 static/js/teams/teams_reply.js:205
+#: static/js/vaults/vault.js:42
 msgid "Error!"
 msgstr "잘못!"
 
-#: static/js/accounts/bookmarks.js:18
+#: static/js/accounts/bookmarks.js:16
+msgid "Bookmark saved."
+msgstr "북마크 저장됨"
+
+#: static/js/accounts/bookmarks.js:19
 msgid "Error! Please check bookmarks limitation."
 msgstr "에러! 북마크 개수 제한을 넘겼는지 확인해 주세요."
 
-#: static/js/accounts/bookmarks.js:37
+#: static/js/accounts/bookmarks.js:38
 msgid "You've scrapped this article."
 msgstr "스크랩 했습니다."
 
-#: static/js/accounts/bookmarks.js:40
+#: static/js/accounts/bookmarks.js:41
 msgid "Already scrapped."
 msgstr "이미 스크랩한 글입니다."
 
@@ -59,6 +64,11 @@ msgstr "약관에 동의해 주세요."
 #: static/js/accounts/deactivate.js:8
 msgid "Are you sure to delete your profile?"
 msgstr "정말로 탈퇴하시겠습니까?"
+
+#: static/js/accounts/edit_bookmarks.js:26 static/js/blogs/dashboard.js:20
+#: static/js/vaults/vault.js:39
+msgid "Saved successfully."
+msgstr "저장 성공."
 
 #: static/js/accounts/idmenu.js:26
 msgid "user info"
@@ -78,7 +88,8 @@ msgstr "쪽지 보내기"
 
 #: static/js/accounts/member.js:6 static/js/accounts/member.js:18
 #: static/js/accounts/member.js:40 static/js/accounts/signup.js:6
-#: static/js/accounts/signup.js:11
+#: static/js/accounts/signup.js:11 static/js/vaults/edit_key.js:7
+#: static/js/vaults/new_key.js:6
 msgid "Mind the chracter length limitation."
 msgstr "글자수 제한을 지켜주세요."
 
@@ -126,7 +137,7 @@ msgstr "비밀번호가 서로 다릅니다."
 #: static/js/blogs/blogs_comment.js:4 static/js/blogs/blogs_comment.js:53
 #: static/js/blogs/sidemenu.js:7 static/js/boards/boards_list.js:8
 #: static/js/boards/boards_reply.js:4 static/js/boards/boards_reply.js:50
-#: static/js/boards/reply_list.js:8 static/js/spams/spam.js:54
+#: static/js/boards/reply_list.js:8 static/js/spams/spam.js:55
 #: static/js/teams/teams_reply.js:4 static/js/teams/teams_reply.js:46
 msgid "Please input 2 or more characters."
 msgstr "두 글자 이상 입력해 주세요."
@@ -170,7 +181,7 @@ msgid "Are you sure to delete this article?"
 msgstr "정말로 삭제하시겠습니까?"
 
 #: static/js/blogs/dashboard.js:3 static/js/blogs/dashboard.js:27
-#: static/js/spams/spam.js:4 static/js/spams/spam.js:27
+#: static/js/spams/spam.js:4 static/js/spams/spam.js:28
 msgid "Please input correct IP address."
 msgstr "올바른 IP 주소를 입력해 주세요."
 
@@ -178,12 +189,8 @@ msgstr "올바른 IP 주소를 입력해 주세요."
 msgid "Are you sure to register this IP address to spam?"
 msgstr "이 IP 주소를 스팸에 등록하시겠습니까?"
 
-#: static/js/blogs/dashboard.js:20
-msgid "Saved successfully."
-msgstr "저장 성공."
-
-#: static/js/blogs/dashboard.js:24 static/js/spams/spam.js:24
-#: static/js/spams/spam.js:74
+#: static/js/blogs/dashboard.js:24 static/js/spams/spam.js:25
+#: static/js/spams/spam.js:76
 msgid "Already exist."
 msgstr "이미 존재합니다."
 
@@ -259,8 +266,7 @@ msgstr "파티팀 모집이 취소되었습니다."
 
 #: static/js/teams/team.js:33
 msgid "ID for this platform must exist in your user information."
-msgstr ""
-"회원정보에 해당 기종의 아이디가 지정되어 있어야 슬롯에 참여할 수 있습니다."
+msgstr "회원정보에 해당 기종의 아이디가 지정되어 있어야 슬롯에 참여할 수 있습니다."
 
 #: static/js/teams/team.js:43
 msgid "Are you sure to leave this party?"
@@ -289,3 +295,32 @@ msgstr "파티의 일원이 아닙니다."
 #: static/js/teams/teams_reply.js:199
 msgid "Show new player"
 msgstr "새로 참여한 플레이어"
+
+#: static/js/vaults/edit_key.js:12 static/js/vaults/new_key.js:11
+msgid "Master keys are different each other."
+msgstr "마스터키가 서로 다릅니다."
+
+#: static/js/vaults/edit_key.js:17
+msgid "New masker key is same as current key."
+msgstr "기존의 마스터키와 동일한 키를 입력했습니다."
+
+#: static/js/vaults/edit_key.js:23 static/js/vaults/new_key.js:17
+msgid "Number only!"
+msgstr "숫자만 가능합니다!"
+
+#: static/js/vaults/vault.js:2
+msgid "Are you sure to delete?"
+msgstr "정말로 삭제하시겠습니까?"
+
+#: static/js/vaults/vault.js:57
+msgid "Extended."
+msgstr "연장되었습니다."
+
+#: static/js/vaults/vault.js:61
+#| msgid "Already exist."
+msgid "Already expired."
+msgstr "이미 만료되었습니다."
+
+#: static/js/vaults/vault.js:93
+msgid "Copied to clipboard."
+msgstr "클립보드에 복사했습니다."

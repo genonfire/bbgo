@@ -23,7 +23,7 @@ $('#edit_bookmarks_form').submit(function(e) {
             bookmarks: bookmarks
         },
         success: function(data) {
-            $('#result_msg').html(data[0]);
+            toast(gettext("Saved successfully."))
         },
         error: function(data) {
             alert(gettext('Error!'));

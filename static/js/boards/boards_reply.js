@@ -32,7 +32,7 @@ function write_reply(id) {
         },
         error: function(data) {
             if (data.status == 401) {
-                alert(gettext("Require login"))
+                toast(gettext("Require login"));
             }
             else if (data.status == 402) {
                 alert(gettext("Reply to warning article is not available."))
@@ -146,7 +146,7 @@ function like_reply(id) {
         },
         success: function(data) {
             if (data[0] == 0) {
-                alert(data[1]);
+                toast(data[1]);
                 return;
             }
             tagname = '#thumb_up_msg' + id;
@@ -172,7 +172,7 @@ function dislike_reply(id) {
         },
         success: function(data) {
             if (data[0] == 0) {
-                alert(data[1]);
+                toast(data[1]);
                 return;
             }
             tagname = '#thumb_down_msg' + id;

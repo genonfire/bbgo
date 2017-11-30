@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-28 19:18+0900\n"
+"POT-Creation-Date: 2017-12-04 20:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,18 +35,23 @@ msgstr ""
 #: static/js/teams/teams_reply.js:37 static/js/teams/teams_reply.js:72
 #: static/js/teams/teams_reply.js:124 static/js/teams/teams_reply.js:147
 #: static/js/teams/teams_reply.js:171 static/js/teams/teams_reply.js:205
+#: static/js/vaults/vault.js:42
 msgid "Error!"
 msgstr ""
 
-#: static/js/accounts/bookmarks.js:18
+#: static/js/accounts/bookmarks.js:16
+msgid "Bookmark saved."
+msgstr ""
+
+#: static/js/accounts/bookmarks.js:19
 msgid "Error! Please check bookmarks limitation."
 msgstr ""
 
-#: static/js/accounts/bookmarks.js:37
+#: static/js/accounts/bookmarks.js:38
 msgid "You've scrapped this article."
 msgstr ""
 
-#: static/js/accounts/bookmarks.js:40
+#: static/js/accounts/bookmarks.js:41
 msgid "Already scrapped."
 msgstr ""
 
@@ -56,6 +61,11 @@ msgstr ""
 
 #: static/js/accounts/deactivate.js:8
 msgid "Are you sure to delete your profile?"
+msgstr ""
+
+#: static/js/accounts/edit_bookmarks.js:26 static/js/blogs/dashboard.js:20
+#: static/js/vaults/vault.js:39
+msgid "Saved successfully."
 msgstr ""
 
 #: static/js/accounts/idmenu.js:26
@@ -76,7 +86,8 @@ msgstr ""
 
 #: static/js/accounts/member.js:6 static/js/accounts/member.js:18
 #: static/js/accounts/member.js:40 static/js/accounts/signup.js:6
-#: static/js/accounts/signup.js:11
+#: static/js/accounts/signup.js:11 static/js/vaults/edit_key.js:7
+#: static/js/vaults/new_key.js:6
 msgid "Mind the chracter length limitation."
 msgstr ""
 
@@ -124,7 +135,7 @@ msgstr ""
 #: static/js/blogs/blogs_comment.js:4 static/js/blogs/blogs_comment.js:53
 #: static/js/blogs/sidemenu.js:7 static/js/boards/boards_list.js:8
 #: static/js/boards/boards_reply.js:4 static/js/boards/boards_reply.js:50
-#: static/js/boards/reply_list.js:8 static/js/spams/spam.js:54
+#: static/js/boards/reply_list.js:8 static/js/spams/spam.js:55
 #: static/js/teams/teams_reply.js:4 static/js/teams/teams_reply.js:46
 msgid "Please input 2 or more characters."
 msgstr ""
@@ -168,7 +179,7 @@ msgid "Are you sure to delete this article?"
 msgstr ""
 
 #: static/js/blogs/dashboard.js:3 static/js/blogs/dashboard.js:27
-#: static/js/spams/spam.js:4 static/js/spams/spam.js:27
+#: static/js/spams/spam.js:4 static/js/spams/spam.js:28
 msgid "Please input correct IP address."
 msgstr ""
 
@@ -176,12 +187,8 @@ msgstr ""
 msgid "Are you sure to register this IP address to spam?"
 msgstr ""
 
-#: static/js/blogs/dashboard.js:20
-msgid "Saved successfully."
-msgstr ""
-
-#: static/js/blogs/dashboard.js:24 static/js/spams/spam.js:24
-#: static/js/spams/spam.js:74
+#: static/js/blogs/dashboard.js:24 static/js/spams/spam.js:25
+#: static/js/spams/spam.js:76
 msgid "Already exist."
 msgstr ""
 
@@ -285,4 +292,32 @@ msgstr ""
 
 #: static/js/teams/teams_reply.js:199
 msgid "Show new player"
+msgstr ""
+
+#: static/js/vaults/edit_key.js:12 static/js/vaults/new_key.js:11
+msgid "Master keys are different each other."
+msgstr ""
+
+#: static/js/vaults/edit_key.js:17
+msgid "New masker key is same as current key."
+msgstr ""
+
+#: static/js/vaults/edit_key.js:23 static/js/vaults/new_key.js:17
+msgid "Number only!"
+msgstr ""
+
+#: static/js/vaults/vault.js:2
+msgid "Are you sure to delete?"
+msgstr ""
+
+#: static/js/vaults/vault.js:57
+msgid "Extended."
+msgstr ""
+
+#: static/js/vaults/vault.js:61
+msgid "Already expired."
+msgstr ""
+
+#: static/js/vaults/vault.js:93
+msgid "Copied to clipboard."
 msgstr ""

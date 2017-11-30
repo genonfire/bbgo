@@ -15,7 +15,7 @@ function join_team(id) {
         },
         error: function(data) {
             if (data.status == 401) {
-                alert(gettext("Require login"))
+                toast(gettext("Require login"))
             }
             else if (data.status == 404) {
                 alert(gettext("Unable to join to deleted recruitment."))
@@ -57,7 +57,7 @@ function leave_team(id) {
             },
             error: function(data) {
                 if (data.status == 401) {
-                    alert(gettext("Require login"))
+                    toast(gettext("Require login"))
                 }
                 else if (data.status == 403) {
                     alert(gettext("Please don't leave your team behind."))
@@ -92,7 +92,7 @@ function kick_player(id, user) {
             },
             error: function(data) {
                 if (data.status == 401) {
-                    alert(gettext("Require login"))
+                    toast(gettext("Require login"))
                 }
                 else if (data.status == 403) {
                     alert(gettext("You are not the party leader."))
