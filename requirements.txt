@@ -6,7 +6,7 @@ cryptography==2.1.4
 Django==1.8.18
 django-fernet-fields==0.5
 django-rosetta==0.7.13
-django-summernote==0.8.7
+django-summernote==0.8.8.4
 enum34==1.1.6
 idna==2.5
 ipaddress==1.0.18

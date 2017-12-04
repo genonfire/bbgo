@@ -223,28 +223,45 @@ if not DEBUG:
 
 
 # Summernote customization
-SUMMERNOTE_CONFIG = {
-    'lang': 'ko-KR',
-    'width': '100%',
-    'toolbar': [
-        ['style', ['style']],
-        ['font', ['bold', 'italic', 'underline', 'strikethrough']],
-        ['super', ['superscript', 'subscript']],
-        ['fontname', ['fontname', 'fontsize', 'color', 'clear']],
-        ['para', ['height', 'paragraph']],
-        ['format', ['hr', 'table']],
-        ['insert', ['link', 'picture', 'video']],
-        ['misc', ['codeview']],
-    ],
-    'attachment_filesize_limit': 2 * 1024 * 1024,
-    'external_css': (
-        '//http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css',
-    ),
-    'external_js': (
-        '//https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js',
-        '//http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js',
-    ),
-}
+if DEBUG:
+    SUMMERNOTE_CONFIG = {
+        'lang': 'ko-KR',
+        'width': '100%',
+        'toolbar': [
+            ['style', ['style']],
+            ['font', ['bold', 'italic', 'underline', 'strikethrough']],
+            ['super', ['superscript', 'subscript']],
+            ['fontname', ['fontname', 'fontsize', 'color', 'clear']],
+            ['para', ['height', 'paragraph']],
+            ['format', ['hr', 'table']],
+            ['insert', ['link', 'picture', 'video']],
+            ['misc', ['codeview']],
+        ],
+        'attachment_filesize_limit': 2 * 1024 * 1024,
+        'base_css': (
+            '/static/css/bootstrap.min.css',
+        ),
+        'base_js': (
+            '/static/js/thirdparty/jquery-3.2.1.min.js',
+            '/static/js/thirdparty/bootstrap.min.js',
+        ),
+    }
+else:
+    SUMMERNOTE_CONFIG = {
+        'lang': 'ko-KR',
+        'width': '100%',
+        'toolbar': [
+            ['style', ['style']],
+            ['font', ['bold', 'italic', 'underline', 'strikethrough']],
+            ['super', ['superscript', 'subscript']],
+            ['fontname', ['fontname', 'fontsize', 'color', 'clear']],
+            ['para', ['height', 'paragraph']],
+            ['format', ['hr', 'table']],
+            ['insert', ['link', 'picture', 'video']],
+            ['misc', ['codeview']],
+        ],
+        'attachment_filesize_limit': 2 * 1024 * 1024,
+    }
 
 
 # Setting for Member
