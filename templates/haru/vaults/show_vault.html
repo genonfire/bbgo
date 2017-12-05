@@ -70,7 +70,7 @@
     <div class="blog_wrapper">
 {% endif %}
     {% for vault in vaults %}
-        <div id="vault_{{ vault.id }}" class="post_wrapper">
+        <div id="{{ vault.id }}" class="post_wrapper">
             <div class="small_thumbnail">
                 <a href="javascript:empahsis('{{ vault.id }}')">
                     {% if vault.image %}

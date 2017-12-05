@@ -5,7 +5,7 @@ function delete_vault(url) {
 }
 
 function empahsis(id) {
-    tagname = '#vault_' + id;
+    tagname = '#' + id;
     bgcolor = $(tagname).css('background-color');
     if (bgcolor == 'rgba(0, 0, 0, 0)') {
         $(tagname).css('background-color', '#eee');

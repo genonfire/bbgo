@@ -40,6 +40,11 @@ class Vault(models.Model):
     description = EncryptedCharField(max_length=128, blank=True)
     image = models.ImageField(upload_to="vaults/", blank=True)
 
+    def delete(self, *args, **kwargs):
+        """To delete attached too"""
+        self.image.delete()
+        super(Vault, self).delete(*args, **kwargs)
+
     def get_absolute_url(self):
         """Back to list"""
         return reverse_lazy('vaults:open_vault')
