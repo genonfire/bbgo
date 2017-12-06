@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-04 20:48+0900\n"
+"POT-Creation-Date: 2017-12-06 23:42+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,12 +30,14 @@ msgstr ""
 #: static/js/boards/boards_reply.js:204 static/js/boards/boards_reply.js:227
 #: static/js/boards/boards_reply.js:251 static/js/boards/boards_reply.js:278
 #: static/js/boards/reply_list.js:38 static/js/msgs/conversation.js:19
-#: static/js/teams/team.js:36 static/js/teams/team.js:69
-#: static/js/teams/team.js:104 static/js/teams/team.js:129
-#: static/js/teams/teams_reply.js:37 static/js/teams/teams_reply.js:72
-#: static/js/teams/teams_reply.js:124 static/js/teams/teams_reply.js:147
-#: static/js/teams/teams_reply.js:171 static/js/teams/teams_reply.js:205
-#: static/js/vaults/vault.js:42
+#: static/js/recipes/category.js:20 static/js/recipes/category.js:42
+#: static/js/recipes/category.js:73 static/js/recipes/recipes.js:36
+#: static/js/recipes/recipes.js:59 static/js/teams/team.js:36
+#: static/js/teams/team.js:69 static/js/teams/team.js:104
+#: static/js/teams/team.js:129 static/js/teams/teams_reply.js:37
+#: static/js/teams/teams_reply.js:72 static/js/teams/teams_reply.js:124
+#: static/js/teams/teams_reply.js:147 static/js/teams/teams_reply.js:171
+#: static/js/teams/teams_reply.js:205 static/js/vaults/vault.js:42
 msgid "Error!"
 msgstr ""
 
@@ -64,6 +66,7 @@ msgid "Are you sure to delete your profile?"
 msgstr ""
 
 #: static/js/accounts/edit_bookmarks.js:26 static/js/blogs/dashboard.js:20
+#: static/js/recipes/category.js:70 static/js/recipes/recipes.js:33
 #: static/js/vaults/vault.js:39
 msgid "Saved successfully."
 msgstr ""
@@ -234,6 +237,10 @@ msgstr ""
 msgid "Are you sure to delete this conversation?"
 msgstr ""
 
+#: static/js/recipes/category.js:26 static/js/vaults/vault.js:2
+msgid "Are you sure to delete?"
+msgstr ""
+
 #: static/js/teams/show_recruitment.js:2
 msgid "Are you sure to resume recruitment?"
 msgstr ""
@@ -304,10 +311,6 @@ msgstr ""
 
 #: static/js/vaults/edit_key.js:23 static/js/vaults/new_key.js:17
 msgid "Number only!"
-msgstr ""
-
-#: static/js/vaults/vault.js:2
-msgid "Are you sure to delete?"
 msgstr ""
 
 #: static/js/vaults/vault.js:57

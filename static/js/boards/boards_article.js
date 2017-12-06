@@ -95,7 +95,7 @@ function delete_article(url) {
     }
 }
 
-$(window).bind("blur", function() {
+$(window).on("blur", function() {
     if ($('#popup_frame').length > 0) {
         $('#popup_frame').remove();
         $('body').off('mouseup touchend');

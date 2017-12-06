@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-04 20:48+0900\n"
+"POT-Creation-Date: 2017-12-06 23:42+0900\n"
 "PO-Revision-Date: 2017-11-30 21:47+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -229,7 +229,7 @@ msgid "Reply has a reply."
 msgstr ""
 
 #: templates/haru/accounts/alarm_list.html:56
-#: templates/haru/blogs/show_blogs.html:14 templates/haru/menu_sub.html:55
+#: templates/haru/blogs/show_blogs.html:14 templates/haru/menu_sub.html:71
 msgid "Blog"
 msgstr ""
 
@@ -377,9 +377,12 @@ msgstr ""
 #: templates/haru/accounts/edit_bookmarks.html:37
 #: templates/haru/accounts/edit_user_info.html:125
 #: templates/haru/accounts/setting.html:118
+#: templates/haru/recipes/edit_recipe.html:79
+#: templates/haru/recipes/show_category.html:26
+#: templates/haru/recipes/show_recipes.html:79
 #: templates/haru/vaults/edit_key.html:52
 #: templates/haru/vaults/edit_vault.html:100
-#: templates/haru/vaults/show_vault.html:115
+#: templates/haru/vaults/show_vault.html:117
 msgid "Save"
 msgstr ""
 
@@ -547,6 +550,9 @@ msgstr ""
 
 #: templates/haru/accounts/setting.html:4
 #: templates/haru/accounts/setting.html:11 templates/haru/menu_setting.html:6
+#: templates/haru/menu_sub.html:60
+#: templates/haru/recipes/edit_category.html:10
+#: templates/haru/recipes/instruction.html:14
 msgid "Setting"
 msgstr ""
 
@@ -626,6 +632,7 @@ msgid "Hello %(user)s!"
 msgstr ""
 
 #: templates/haru/accounts/signup.html:27
+#: templates/haru/recipes/edit_recipe.html:21
 #: templates/haru/vaults/edit_vault.html:26
 msgid "Please fill all bold text which mean mandatory."
 msgstr ""
@@ -716,6 +723,7 @@ msgstr ""
 #: templates/haru/blogs/dashboard_post.html:94
 #: templates/haru/blogs/edit_post.html:62
 #: templates/haru/boards/edit_article.html:56
+#: templates/haru/recipes/edit_recipe.html:34
 #: templates/haru/teams/edit_recruitment.html:42
 #: templates/haru/vaults/edit_vault.html:39
 msgid "category"
@@ -732,6 +740,7 @@ msgstr ""
 
 #: templates/haru/blogs/dashboard.html:147
 #: templates/haru/blogs/dashboard_comment.html:81
+#: templates/haru/recipes/edit_recipe.html:26
 #: templates/haru/vaults/edit_vault.html:31
 msgid "name"
 msgstr ""
@@ -749,6 +758,7 @@ msgstr ""
 #: templates/haru/blogs/dashboard.html:180
 #: templates/haru/blogs/dashboard_comment.html:126
 #: templates/haru/blogs/dashboard_post.html:127
+#: templates/haru/recipes/edit_recipe.html:75
 #: templates/haru/vaults/edit_vault.html:96
 msgid "Delete"
 msgstr ""
@@ -756,7 +766,8 @@ msgstr ""
 #: templates/haru/blogs/dashboard_comment.html:35
 #: templates/haru/blogs/dashboard_post.html:32
 #: templates/haru/blogs/dashboard_post.html:78
-#: templates/haru/vaults/show_vault.html:23
+#: templates/haru/recipes/show_recipes.html:22
+#: templates/haru/vaults/show_vault.html:25
 msgid "All"
 msgstr ""
 
@@ -775,7 +786,9 @@ msgid "Delete permanently"
 msgstr ""
 
 #: templates/haru/blogs/dashboard_post.html:110
-#: templates/haru/menu_main.html:61 templates/haru/vaults/show_vault.html:87
+#: templates/haru/menu_main.html:66
+#: templates/haru/recipes/show_recipes.html:61
+#: templates/haru/vaults/show_vault.html:89
 msgid "Edit"
 msgstr ""
 
@@ -1017,7 +1030,16 @@ msgstr ""
 msgid "Vaults"
 msgstr ""
 
-#: templates/haru/menu_main.html:48
+#: templates/haru/menu_main.html:45 templates/haru/menu_sub.html:55
+#: templates/haru/recipes/edit_category.html:4
+#: templates/haru/recipes/edit_recipe.html:4
+#: templates/haru/recipes/instruction.html:4
+#: templates/haru/recipes/show_recipes.html:4
+#: templates/haru/recipes/show_recipes.html:9
+msgid "Recipes"
+msgstr ""
+
+#: templates/haru/menu_main.html:53
 msgid "bookmark"
 msgstr ""
 
@@ -1043,7 +1065,9 @@ msgstr ""
 msgid "Change key"
 msgstr ""
 
-#: templates/haru/menu_sub.html:49 templates/haru/vaults/edit_vault.html:9
+#: templates/haru/menu_sub.html:49 templates/haru/menu_sub.html.py:65
+#: templates/haru/recipes/edit_recipe.html:9
+#: templates/haru/vaults/edit_vault.html:9
 msgid "+ New item"
 msgstr ""
 
@@ -1117,6 +1141,46 @@ msgstr ""
 #: templates/haru/portal/board_sample.html:127
 #: templates/haru/portal/board_sample.html:151
 msgid "Notice"
+msgstr ""
+
+#: templates/haru/recipes/edit_category.html:14
+msgid "Deleting a category also delete the objects reference it."
+msgstr ""
+
+#: templates/haru/recipes/edit_recipe.html:11
+#: templates/haru/vaults/edit_vault.html:11
+msgid "Edit item"
+msgstr ""
+
+#: templates/haru/recipes/edit_recipe.html:50
+msgid "Photo"
+msgstr ""
+
+#: templates/haru/recipes/edit_recipe.html:66
+msgid "recipe"
+msgstr ""
+
+#: templates/haru/recipes/instruction.html:10
+msgid "Please set category first."
+msgstr ""
+
+#: templates/haru/recipes/show_category.html:9
+msgid "Name of new category"
+msgstr ""
+
+#: templates/haru/recipes/show_category.html:10
+msgid "Add"
+msgstr ""
+
+#: templates/haru/recipes/show_category.html:25
+#: templates/haru/recipes/show_recipes.html:78
+#: templates/haru/vaults/show_vault.html:116
+msgid ""
+"Drag and drop to edit ordering. Saving is necessary to save your changes."
+msgstr ""
+
+#: templates/haru/recipes/show_recipes.html:12
+msgid "What today?"
 msgstr ""
 
 #: templates/haru/registration/logged_out.html:11
@@ -1325,16 +1389,12 @@ msgstr ""
 msgid "Master key confirm"
 msgstr ""
 
-#: templates/haru/vaults/edit_vault.html:11
-msgid "Edit item"
-msgstr ""
-
 #: templates/haru/vaults/edit_vault.html:15
 msgid "All items saved in database are encrypted to protect data."
 msgstr ""
 
 #: templates/haru/vaults/edit_vault.html:18
-#: templates/haru/vaults/show_vault.html:13
+#: templates/haru/vaults/show_vault.html:14
 msgid "Extend expiry"
 msgstr ""
 
@@ -1384,25 +1444,20 @@ msgstr ""
 msgid "Create"
 msgstr ""
 
-#: templates/haru/vaults/show_vault.html:32
+#: templates/haru/vaults/show_vault.html:34
 msgid "Account"
 msgstr ""
 
-#: templates/haru/vaults/show_vault.html:41
+#: templates/haru/vaults/show_vault.html:43
 msgid "Card"
 msgstr ""
 
-#: templates/haru/vaults/show_vault.html:50
+#: templates/haru/vaults/show_vault.html:52
 msgid "Membership"
 msgstr ""
 
-#: templates/haru/vaults/show_vault.html:59
+#: templates/haru/vaults/show_vault.html:61
 msgid "Other"
-msgstr ""
-
-#: templates/haru/vaults/show_vault.html:114
-msgid ""
-"Drag and drop to edit ordering. Saving is necessary to save your changes."
 msgstr ""
 
 #: vaults/models.py:27
@@ -1421,6 +1476,6 @@ msgstr "Membership"
 msgid "vault_other"
 msgstr "Others"
 
-#: vaults/views.py:53 vaults/views.py:115
+#: vaults/views.py:61 vaults/views.py:127
 msgid "Wrong master key."
 msgstr ""

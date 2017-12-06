@@ -1,0 +1,37 @@
+{% load staticfiles %}
+{% load context %}
+{% load i18n %}
+
+<ul id="sort_items">
+    <div class="add_category">
+        <form id="category_form" action="javascript:new_category()" method="post">
+            {% csrf_token %}
+            <input type="text" id="new_category_name" maxlength="{{ category_length }}" placeholder="{% trans 'Name of new category' %}">
+            <input type="submit" value="{% trans 'Add' %}">
+        </form>
+    </div>
+    {% for category in categories %}
+        <li id="{{ category.id }}">
+            <input type="text" value="{{ category.name }}" maxlength="{{ category_length }}">
+            <span class="float-right">
+                <a href="javascript:delete_category('{{ category.id }}')">
+                    <img src="{% static 'icons/delete24.png' %}">
+                </a>
+            </span>
+        </li>
+    {% endfor %}
+</ul>
+<div class="sortable_plate">
+    {% trans 'Drag and drop to edit ordering. Saving is necessary to save your changes.' %}
+    <input type="button" class="submit" value="{% trans 'Save' %}" onClick="javascript:save_category()">
+</div>
+
+{% block bodyscript %}
+    {% if DEBUG %}
+        <script src="{% static 'js/thirdparty/jquery-ui.min.js' %}"></script>
+    {% else %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    {% endif %}
+    <script src="{% static 'js/thirdparty/jquery-ui-touch-punch.min.js' %}"></script>
+    <script src="{% static 'js/recipes/category.js' %}" async></script>
+{% endblock %}

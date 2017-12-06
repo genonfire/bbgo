@@ -16,13 +16,13 @@ div {box-sizing:border-box;}
 span {box-sizing:border-box;}
 pre {box-sizing:border-box;margin-top:.5em;margin-bottom:.5em;background:#EFF0F1;font-size:.95em;font-family:"Courier";overflow-x:scroll;}
 input, button, select, textarea {box-sizing:border-box;}
-input[type="button"], input[type="submit"] {cursor:pointer;display:inline-block;height:2.1em;margin-left:.5em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.2em;-webkit-appearance:none;}
+input[type="button"], input[type="submit"] {cursor:pointer;display:inline-block;height:2.2em;margin-left:.5em;padding:0 .5em;box-sizing:border-box;border:1px solid #a5a5a5;background:#f6f6f6;color:#000;line-height:2.2em;-webkit-appearance:none;}
+input[type="submit"] {background:#11223d;color:#fff;-webkit-appearance:none;}
 input[type="submit"]:hover {background-color:#283850;}
 input.delete {background:#E54F44;color:#fff;}
 input.delete:hover {background:#FF574F;color:#fff;}
 input.submit {background:#11223d;color:#fff;}
 input.submit:hover {background-color:#283850;}
-input[type="submit"] {background:#11223d;color:#fff;-webkit-appearance:none;}
 a {vertical-align:baseline;box-sizing:border-box;color:#333;text-decoration:none;}
 a:hover {color:#000;text-decoration:none;}
 img.portrait {width:150px;height:150px;}
@@ -97,6 +97,12 @@ table.sample div.titlebar {height:2.6em;margin-bottom:.3em;margin-right:.1em;pad
 table.sample div.titlebar img {vertical-align:middle;}
 .sample_subject {min-height:2.1em;}
 .sample_subject span.reply_count {font-size:.85em;font-weight:bold;color:#409BD1;}
+
+.instruction {width:270px;margin:auto;float:center;border:2px dashed #a5a5a5;background:#f6f6f6;text-align:center;}
+.instruction div {margin:1em;}
+.instruction a {color:#0073aa;}
+.instruction a:hover {color:#3992bf;}
+.up_button {position:fixed;bottom:15px;right:15px;z-index:99999;background-color:rgba(65,52,55,0.1);}
 
 /* Contents */
 .container {width:980px;margin:0;position:relative;}
@@ -338,8 +344,9 @@ table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 #sort_items li {margin:.5em;padding:.5em;cursor:move;border:1px solid black;}
 #sort_items img {vertical-align:baseline;}
 #sort_items div {cursor:move;}
+#sort_items input[type='text'] {height:2em;padding:.2em;}
+.add_category {margin:.5em;}
 .sortable_plate {float:right;margin-top:.5em;margin-bottom:1em;}
-/*.sortable_plate input[type="button"] {background:#11223d;color:#fff;}*/
 
 /* alarm */
 #alarm_list {position:absolute;top:5px;right:180px;width:600px;height:60vh;overflow-y:scroll;min-height:2em;padding:.5em;background-color:#fff;font-size:.8em;display:block;z-index:99990;color:#000;box-shadow:0 0 3px 3px #D3908B;}
@@ -395,6 +402,7 @@ table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 .blog_header {color:#000;border-bottom:1px solid #aaa;padding:.5em 0 1em .5em;}
 .blog_header span {color:#aaa;font-weight:bold;}
 .blog_header input:hover {border-color:#11223d;}
+.blog_neck {margin:.5em;color:#444;}
 .blog_wrapper {width:100%;}
 .blog_wrapper:after {content:'';display:block;clear:both;margin-bottom:1em;}
 .post_wrapper {float:left;width:100%;min-width:320px;padding:.5em;border-bottom:1px solid #aaa;}
@@ -483,6 +491,16 @@ td.password input {-webkit-text-security:disc;}
 span#expiry_min, span#expiry_sec {color:#666;font-weight:normal;}
 span#expiry_min:after {content:':';color:#666;font-weight:normal;}
 
+/* recipes */
+.wide_thumbnail {display:inline-block;position:relative;width:144px;height:80px;float:left;margin-right:1em;}
+.wide_thumbnail img {width:100%;max-height:100%;}
+.recipe_content {display:block;float:left;width:586px;}
+.recipe_name {margin-bottom:.2em;color:#777;font-size:1.5em;}
+.recipe_name span.recipe_category {margin-right:.5em;font-size:.7em;}
+.recipe_name a {color:#0073aa;}
+.recipe_name a:hover {color:#3992bf;}
+.recipe_text {display:inline-block;font-size:1em;overflow-wrap:break-word;float-left;font-size:.9em;}
+
 /* Footer */
 #footer {padding:1em;text-align:center;font-size:.9em;}
 #footer:after {content:'';display:block;clear:both;}
@@ -542,8 +560,11 @@ div.hljs-ln-line {margin-left:.5em;}
     .dbsearch input.search_word {width:auto}
     .blog_thumbnail {width:25%;height:auto;}
     .small_thumbnail {width:10%;height:auto;}
+    .wide_thumbnail {width:30%;height:auto;margin-bottom:.5em;}
     .blog_sample {width:64%;}
     .vault_content {width:80%;}
+    .recipe_content {width:60%;}
+    .recipe_name {font-size:1.2em;height:100%;}
     .comment_over_thumbnail {top:20%;}
     .mobile_hide {display:none;}
 }

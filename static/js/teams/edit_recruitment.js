@@ -41,9 +41,9 @@ $('#edit_article_form').submit(function(e) {
         return;
     }
 
-    $(window).unbind('beforeunload');
+    $(window).off('beforeunload');
 });
 
-$(window).bind('beforeunload', function(){
+$(window).on('beforeunload', function(){
     return gettext('Are you sure to quit editing?');
 });

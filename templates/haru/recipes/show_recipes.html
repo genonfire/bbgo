@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% block title %}{% trans 'Recipes' %}{% endblock %}
+{% block content %}
+
+<div class="blog_header">
+    <span>
+        {% trans 'Recipes' %}
+    </span>
+    <span class="float-right">
+        <input type="button" value="{% trans 'What today?' %}" onClick="javascript:what_today('{{ category }}')">
+    </span>
+</div>
+<div class="dashboard_header">
+    {% if not category %}
+        <span class="status_selected">
+    {% else %}
+        <span>
+    {% endif %}
+            <a href="{% url 'recipes:show_recipes' %}">
+                {% trans 'All' %}
+            </a>
+        </span>
+    {% for c in categories %}
+        {% if category == c.id %}
+            <span class="status_selected">
+        {% else %}
+            <span>
+        {% endif %}
+                <a href="{% url 'recipes:change_recipes' category=c.id %}">
+                    {{ c.name }}
+                </a>
+            </span>
+    {% endfor %}
+</div>
+
+{% if category %}
+    <div id="sort_container" class="blog_wrapper">
+        <ul id="sort_items">
+{% else %}
+    <div class="blog_wrapper">
+{% endif %}
+    {% for recipe in recipes %}
+        <div id="{{ recipe.id }}" class="post_wrapper">
+            <div class="wide_thumbnail">
+                <a href="javascript:empahsis('{{ recipe.id }}')">
+                    {% if recipe.image %}
+                        <img src="{{ recipe.image.url }}">
+                    {% else %}
+                        <img src="{% static 'icons/noimage.png' %}">
+                    {% endif %}
+                </a>
+            </div>
+            <div class="recipe_content">
+                <div class="recipe_name">
+                    <span class="recipe_category">
+                        {{ recipe.category.name }}
+                    </span>
+                    <span>
+                        <a href="{% url 'recipes:edit_recipe' id=recipe.id %}" title="{% trans 'Edit' %}">
+                            {{ recipe.name }}
+                        </a>
+                    </span>
+                </div>
+                <div class="recipe_text mobile_hide">
+                    {{ recipe.recipe|linebreaksbr }}
+                </div>
+            </div>
+            <div class="recipe_text mobile_show">
+                {{ recipe.recipe|linebreaksbr }}
+            </div>
+        </div>
+    {% endfor %}
+{% if category and recipes.count >= 2 %}
+    </ul>
+    <div class="sortable_plate">
+        {% trans 'Drag and drop to edit ordering. Saving is necessary to save your changes.' %}
+        <input type="button" class="submit" value="{% trans 'Save' %}" onClick="javascript:save_order()">
+    </div>
+{% endif %}
+    <input id="copyslave" type="text" style="display:none">
+</div>
+
+<div class="up_button mobile_show">
+    <a href="javascript:scroll_top()">
+        <img src="{% static 'icons/up48.png' %}">
+    </a>
+</div>
+
+{% endblock %}
+{% block bodyscript %}
+    {% if DEBUG %}
+        <script src="{% static 'js/thirdparty/jquery-ui.min.js' %}"></script>
+    {% else %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    {% endif %}
+    <script src="{% static 'js/thirdparty/jquery-ui-touch-punch.min.js' %}"></script>
+    <script>
+    </script>
+    <script src="{% static 'js/recipes/recipes.js' %}" async></script>
+{% endblock %}

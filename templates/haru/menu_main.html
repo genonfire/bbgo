@@ -40,6 +40,11 @@
                     </a>
                 </li>
             {% endif %}
+            <li>
+                <a href="{% url 'recipes:show_recipes' %}">
+                    {% trans 'Recipes' %}
+                </a>
+            </li>
         </ul>
     </li>
     {% if user.is_authenticated %}
