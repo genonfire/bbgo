@@ -11,9 +11,7 @@ def _nickname(user, is_authenticated=False):
     if settings.ENABLE_NICKNAME and user.first_name:
         name = user.first_name
 
-    if user.is_staff and not settings.DEBUG:
-        return '<font color="#409BD1">%s</font>' % name
-    elif is_authenticated:
+    if is_authenticated:
         nametag = "<a href=javascript:void(0) onclick=\"javascript:id_menu(event, '%s');return false;\">%s</a>" % (user.username, name)
         return nametag
     else:
