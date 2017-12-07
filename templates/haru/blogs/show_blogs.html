@@ -57,13 +57,15 @@
             <div class="blog_sample">
                 <div class="blog_category">
                     <span class="small-text">
-                        <a href="{% url 'blogs:search_post' search_type='category' search_word=post.category page=1 %}">
-                            {% if post.category %}
+                        {% if post.category %}
+                            <a href="{% url 'blogs:search_post' search_type='category' search_word=post.category page=1 %}">
                                 {{ post.category }}
-                            {% else %}
+                            </a>
+                        {% else %}
+                            <a href="{% url 'blogs:search_post' search_type='category' search_word='_uncategorized' page=1 %}">
                                 {% trans 'uncategorized' %}
-                            {% endif %}
-                        </a>
+                            </a>
+                        {% endif %}
                     </span>
                     <span class="humble_text small-text">
                         {{ post.created_at|date:"DATE_FORMAT" }}

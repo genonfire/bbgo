@@ -29,6 +29,8 @@ def show_blogs(request, search_type='', search_word='', page=0):
 
     sq = Q(status='1normal')
     if search_type == 'category':
+        if search_word == '_uncategorized':
+            search_word = ''
         q = sq & Q(category__iexact=search_word)
     elif search_type == 'tag':
         q = sq & Q(tags__icontains=search_word)

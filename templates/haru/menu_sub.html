@@ -18,7 +18,7 @@
         </span>
     {% endfor %}
     <span>
-        <a href="{% url 'blogs:search_post' search_type='category' search_word='' page=1 %}" title="{% trans 'uncategorized' %}">
+        <a href="{% url 'blogs:search_post' search_type='category' search_word='_uncategorized' page=1 %}" title="{% trans 'uncategorized' %}">
             ...
         </a>
     </span>
