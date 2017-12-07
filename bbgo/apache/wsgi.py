@@ -18,7 +18,6 @@ workspace = os.path.dirname(project)
 sys.path.append(workspace)
 sys.path.append(project)
 
-sys.path.append('/home/genonfire/git/bbgo/bbgo')
 os.environ['DJANGO_SETTINGS_MODULE'] = 'bbgo.settings'
 
 application = get_wsgi_application()
