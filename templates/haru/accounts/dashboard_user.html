@@ -83,7 +83,9 @@
                         <a href="/admin/auth/user/{{ user.id }}/" target="_blank">
                             {{ user.username }}
                         </a>
-                        ({{ user.first_name }})
+                        {% if user.first_name %}
+                            ({{ user.first_name }})
+                        {% endif %}
                     </td>
                     <td class="article_info">
                         {{ user.email }}
