@@ -438,9 +438,9 @@ span.small-text {font-size:.8em;}
 .post_header:after {content:'';display:block;clear:both;margin-bottom:2em;}
 .post_view_buttons span a img {vertical-align:middle;margin:0 .3em .2em .3em;}
 .post_view_buttons span a span {margin-right:.3em;}
-.input_tags {margin-bottom:1.0em;margin-left:.5em;}
+.input_tags {margin-bottom:1.0em;}
 .input_tags input {width:100%;padding:.3em;height:2.5em}
-.featured_image {margin:0 0 1em .5em;padding:.5em;border:2px dashed #aaa;}
+.featured_image {margin:.5em 0 .5em 0;padding:.5em;border:2px dashed #aaa;}
 .input_comment span.comment_name {min-width:50%;}
 .input_comment input[type="text"] {width:100%;height:2.2em;padding:.2em;}
 .input_comment input[type="button"] {background:#11223d;color:#fff;font-size:1em;}

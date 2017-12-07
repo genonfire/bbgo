@@ -43,9 +43,6 @@
     <div class="input_content">
         {{ form.content }}
     </div>
-    <div class="input_tags">
-        {{ form.tags }}
-    </div>
     <div class="featured_image">
         <div>
             {% trans 'Featured image' %} (200 x 200)
@@ -56,6 +53,9 @@
             </div>
         {% endif %}
         {{ form.image }}
+    </div>
+    <div class="input_tags">
+        {{ form.tags }}
     </div>
     {% if category_choices %}
         <div class="input_category">
