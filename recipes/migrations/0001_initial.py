@@ -22,11 +22,11 @@ class Migration(migrations.Migration):
             name='Recipe',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('category', models.IntegerField(default=0)),
                 ('name', models.CharField(max_length=32)),
                 ('order', models.IntegerField(default=1)),
                 ('recipe', models.TextField()),
                 ('image', models.ImageField(upload_to=b'recipes/', blank=True)),
+                ('category', models.ForeignKey(to='recipes.Category')),
             ],
         ),
     ]
