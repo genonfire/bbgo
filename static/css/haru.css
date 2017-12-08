@@ -534,7 +534,7 @@ div.hljs-ln-line {margin-left:.5em;}
 
 /* adsense */
 .sense_horizontal_bar {padding-top:.5em;margin-top:.5em;margin-bottom:.5em;}
-.sense_sidebar {width:150px;padding-left:.5em;margin-top:.5em;}
+.sense_sidebar {width:170px;padding-left:.5em;margin-top:.5em;}
 
 @media all and (min-width:1080px) {
     .container {margin:auto;}
