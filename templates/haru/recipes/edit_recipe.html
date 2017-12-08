@@ -36,7 +36,7 @@
                 <td class="input">
                     <select id="id_category" name="category">
                         {% for category in categories %}
-                            {% if edit_type == 'edit' and recipe.id == category.id %}
+                            {% if edit_type == 'edit' and recipe.category.id == category.id %}
                                 <option value="{{ category.id }}" selected>{{ category.name }}</option>
                             {% else %}
                                 <option value="{{ category.id }}">{{ category.name }}</option>

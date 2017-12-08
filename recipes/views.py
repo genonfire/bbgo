@@ -111,9 +111,7 @@ def edit_recipe(request, id):
     if request.method == "POST":
         editform = RecipeEditForm(request.POST, request.FILES, instance=recipe)
         if editform.is_valid():
-            recipe = editform.save(commit=False)
-            recipe.save()
-
+            editform.save()
             return redirect(recipe.get_absolute_url())
     elif request.method == "GET":
         editform = RecipeEditForm(instance=recipe)
