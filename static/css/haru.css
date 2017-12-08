@@ -432,6 +432,7 @@ span.small-text {font-size:.8em;}
 .post_view_title {margin:.5em 0 .3em .5em;font-size:2em;}
 .post_view_title span {font-size:.9em;font-weight:bold;color:#999;}
 .post_view_content {margin-bottom:2em;overflow-wrap:break-word;}
+.post_view_content img {max-width:100%;}
 .post_view_content a {color:#428bca;}
 .post_view_content a:hover {color:#E54F44;}
 .post_view_misc {margin:0 0 1.5em 1em;color:#aaa;font-size:.8em;}
@@ -565,6 +566,8 @@ div.hljs-ln-line {margin-left:.5em;}
     .small_thumbnail {width:10%;height:auto;}
     .wide_thumbnail {width:30%;height:auto;margin-bottom:.5em;}
     .blog_sample {width:64%;}
+    .blog_title {font-size:1.3em;}
+    .post_view_title {font-size:1.4em;}
     .vault_content {width:80%;}
     .recipe_content {width:60%;}
     .recipe_name {font-size:1.2em;height:100%;}
