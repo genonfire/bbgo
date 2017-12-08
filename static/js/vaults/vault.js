@@ -93,15 +93,17 @@ $(function() {
         }, 1000);
     }
     $('.vault_number span').click(function() {
-        text = $(this).text();
-        if (text) {
-            number = text.split('-').join('');
-            $('#copyslave').val(number);
-            $('#copyslave').show();
-            $('#copyslave').select();
-            document.execCommand("Copy");
-            $('#copyslave').hide();
-            toast(gettext("Copied to clipboard."), 1000);
+        if (!navigator.userAgent.match(/iPhone/i)) {
+            text = $(this).text();
+            if (text) {
+                number = text.split('-').join('');
+                $('#copyslave').val(number);
+                $('#copyslave').show();
+                $('#copyslave').select();
+                document.execCommand("Copy");
+                $('#copyslave').hide();
+                toast(gettext("Copied to clipboard."), 1000);
+            }
         }
     });
 
