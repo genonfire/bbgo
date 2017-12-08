@@ -8,7 +8,7 @@ from django.db.models import Q
 from django.shortcuts import redirect, render
 
 
-def portal(request):
+def portal(request, page=''):
     """Redirect to blog"""
     return redirect('blogs:blog_home')
 

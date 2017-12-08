@@ -10,4 +10,9 @@ urlpatterns = [
         views.portal,
         name='portal',
     ),
+    url(
+        r'^(?P<page>\d+)$',
+        views.portal,
+        name='portal_redirection',
+    ),
 ]
