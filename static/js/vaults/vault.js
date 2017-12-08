@@ -64,6 +64,17 @@ function extend_expiry() {
     });
 }
 
+function scroll_top() {
+    $('html,body').animate({ scrollTop: 0 }, 'fast');
+}
+
+function scroll_pagedown() {
+    var height = $(window).height();
+    var onepage = ($(window).scrollTop() / height + 1) * height
+
+    $('html,body').animate({ scrollTop: onepage }, 'fast');
+}
+
 $(function() {
     if (enable_masterkey) {
         function padding(val) {

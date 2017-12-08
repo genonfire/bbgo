@@ -102,7 +102,8 @@ table.sample div.titlebar img {vertical-align:middle;}
 .instruction div {margin:1em;}
 .instruction a {color:#0073aa;}
 .instruction a:hover {color:#3992bf;}
-.up_button {position:fixed;bottom:15px;right:15px;z-index:99999;background-color:rgba(65,52,55,0.1);}
+.up_button {position:fixed;bottom:70px;right:15px;z-index:99999;background-color:rgba(65,52,55,0.2);}
+.down_button {position:fixed;bottom:15px;right:15px;z-index:99999;background-color:rgba(65,52,55,0.1);}
 
 /* Contents */
 .container {width:980px;margin:0;position:relative;}

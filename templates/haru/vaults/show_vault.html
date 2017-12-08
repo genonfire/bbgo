@@ -120,6 +120,17 @@
     <input id="copyslave" type="text" style="display:none">
 </div>
 
+<div class="up_button mobile_show">
+    <a href="javascript:scroll_top()">
+        <img src="{% static 'icons/up48.png' %}">
+    </a>
+</div>
+<div class="down_button mobile_show">
+    <a href="javascript:scroll_pagedown()">
+        <img src="{% static 'icons/down48.png' %}">
+    </a>
+</div>
+
 {% endblock %}
 {% block bodyscript %}
     {% if DEBUG %}
