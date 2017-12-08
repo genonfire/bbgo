@@ -93,11 +93,11 @@ def show_post(request, id):
 
     q = Q(status__iexact='1normal') & Q(category__iexact=post.category)
 
-    next_post = Blog.objects.filter(q).order_by('-id').filter(id__gt=id)[:3]
+    next_post = Blog.objects.filter(q).order_by('id').filter(id__gt=id)[:3]
     prev_post = Blog.objects.filter(q).order_by('-id').filter(id__lt=id)[:3]
     post_navi = []
 
-    for p in next_post:
+    for p in reversed(next_post):
         post_navi.append(p)
     post_navi.append(post)
     for p in prev_post:
