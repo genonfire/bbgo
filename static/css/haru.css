@@ -431,7 +431,9 @@ span.small-text {font-size:.8em;}
 .post_view_count span {margin:0 .5em 0 .2em;font-weight:normal;}
 .post_view_title {margin:.5em 0 .3em .5em;font-size:2em;}
 .post_view_title span {font-size:.9em;font-weight:bold;color:#999;}
-.post_view_content {margin-bottom:2em;}
+.post_view_content {margin-bottom:2em;overflow-wrap:break-word;}
+.post_view_content a {color:#428bca;}
+.post_view_content a:hover {color:#E54F44;}
 .post_view_misc {margin:0 0 1.5em 1em;color:#aaa;font-size:.8em;}
 .post_view_username {color:#3992bf;font-size:1.2em;}
 .post_view_wrapper {margin:1em;}
