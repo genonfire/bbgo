@@ -4,13 +4,12 @@
 {% block title %}{{ SITE_NAME }} - {{ table_name }}{% endblock %}
 {% block open_graph %}
     {% if FB_APP_ID %}
-        <meta property="fb:app_id" content="{{ FB_APP_ID }}"/>
-        <meta property="og:site_name" content="{{ SITE_NAME }}"/>
-        <meta property="og:description" content="{{ SITE_INFO }}" />
-        <meta property="og:url" content="{{ request.build_absolute_uri }}" />
-        <meta property="article:author" content="{{ article.user.username }}" />
-        <meta property="og:title" content="{{ article.subject }}"/>
-        <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ SITE_LOGO }}" />
+        <meta property="fb:app_id" content="{{ FB_APP_ID }}">
+        <meta property="og:site_name" content="{{ SITE_NAME }}">
+        <meta property="og:description" content="{{ SITE_INFO }}">
+        <meta property="og:url" content="{{ request.build_absolute_uri }}">
+        <meta property="og:title" content="{{ article.subject }}">
+        <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ SITE_LOGO }}">
     {% endif %}
 {% endblock %}
 {% block extra_head_content %}
