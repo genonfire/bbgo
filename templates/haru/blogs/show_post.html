@@ -11,7 +11,7 @@
         <meta property="article:author" content="{{ post.user.username }}" />
         <meta property="og:title" content="{{ post.title }}"/>
         {% if post.image %}
-            <meta property="og:image" content="{{ request.get_host }}{{ post.image.url }}" />
+            <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ post.image.url }}" />
         {% endif %}
     {% endif %}
 {% endblock %}

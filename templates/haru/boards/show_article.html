@@ -10,7 +10,7 @@
         <meta property="og:url" content="{{ request.build_absolute_uri }}" />
         <meta property="article:author" content="{{ article.user.username }}" />
         <meta property="og:title" content="{{ article.subject }}"/>
-        <meta property="og:image" content="{{ request.get_host }}{{ SITE_LOGO }}" />
+        <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ SITE_LOGO }}" />
     {% endif %}
 {% endblock %}
 {% block extra_head_content %}
