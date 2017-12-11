@@ -32,4 +32,5 @@ def global_settings(request):
         'SITE_INFO': settings.SITE_INFO,
         'SITE_LOGO': settings.SITE_LOGO,
         'SITE_NAME': settings.SITE_NAME,
+        'FB_APP_ID': settings.FB_APP_ID,
     }

@@ -140,6 +140,7 @@ try:
     SENSE_DOWN_SLOT = getattr(secrets, "SENSE_DOWN_SLOT")
     SENSE_SIDE_CLIENT = getattr(secrets, "SENSE_SIDE_CLIENT")
     SENSE_SIDE_SLOT = getattr(secrets, "SENSE_SIDE_SLOT")
+    FB_APP_ID = getattr(secrets, "FB_APP_ID")
 except IOError:
     SECRET_KEY = 'k8n13h0y@$=v$uxg*^brlv9$#hm8w7nye6km!shc*&bkgkcd*p'
     DB_NAME = ''
@@ -162,6 +163,7 @@ except IOError:
     SENSE_DOWN_SLOT = ''
     SENSE_SIDE_CLIENT = ''
     SENSE_SIDE_SLOT = ''
+    FB_APP_ID = ''
 f.close()
 
 try:
