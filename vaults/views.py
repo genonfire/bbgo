@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from core.utils import error_page
+from core.utils import error_page, is_mobile
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import check_password, make_password
@@ -154,6 +154,7 @@ def open_vault(request, category='all'):
         q = Q(user=request.user) & Q(category__iexact=category)
 
     vaults = Vault.objects.filter(q).order_by('category', 'order')
+    mobile = is_mobile(request)
 
     return render(
         request,
@@ -162,6 +163,7 @@ def open_vault(request, category='all'):
             'vaults': vaults,
             'category': category,
             'expiry': expiry,
+            'mobile': mobile,
         }
     )
 

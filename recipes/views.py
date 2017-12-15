@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from random import randint
 
-from core.utils import error_page
+from core.utils import error_page, is_mobile
 from django.conf import settings
 from django.contrib.auth.decorators import user_passes_test
 from django.core.exceptions import ObjectDoesNotExist
@@ -35,6 +35,7 @@ def show_recipes(request, category=''):
         q = Q()
 
     recipes = Recipe.objects.filter(q).order_by('category__order', 'order')
+    mobile = is_mobile(request)
     if category:
         category = int(category)
 
@@ -45,6 +46,7 @@ def show_recipes(request, category=''):
             'categories': categories,
             'recipes': recipes,
             'category': category,
+            'mobile': mobile,
         }
     )
 

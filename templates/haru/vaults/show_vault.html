@@ -63,7 +63,7 @@
         </span>
 </div>
 
-{% if category != 'all' %}
+{% if category != 'all' and not mobile %}
     <div id="sort_container" class="blog_wrapper">
         <ul id="sort_items">
 {% else %}
@@ -110,7 +110,7 @@
             </div>
         </div>
     {% endfor %}
-{% if category != 'all' and vaults.count >= 2 %}
+{% if category != 'all' and not mobile and vaults.count >= 2 %}
     </ul>
     <div class="sortable_plate">
         {% trans 'Drag and drop to edit ordering. Saving is necessary to save your changes.' %}
