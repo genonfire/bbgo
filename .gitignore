@@ -3,3 +3,5 @@ upload/
 secrets.json
 analytics.js
 backup.sh
+sitemap.xml
+robots.txt
