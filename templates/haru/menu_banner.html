@@ -9,7 +9,7 @@
 {% endif %}
 
     <div>
-        <a href="https://github.com/genonfire/bbgo/" target="_blank">
+        <a href="{% url 'bbgo' %}">
             <img src="{% static 'images/side_banner_bbgo.png' %}">
         </a>
     </div>
@@ -23,6 +23,11 @@
     <div>
         <a href="{% url 'recipes:show_recipes' %}">
             <img src="{% static 'images/side_banner_recipe.png' %}">
+        </a>
+    </div>
+    <div>
+        <a href="http://wiki.gencode.me/" target="_blank">
+            <img src="{% static 'images/side_banner_confluence.png' %}">
         </a>
     </div>
 

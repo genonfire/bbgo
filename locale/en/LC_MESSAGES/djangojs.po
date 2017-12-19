@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-06 23:42+0900\n"
+"POT-Creation-Date: 2017-12-19 21:04+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr ""
 #: static/js/boards/reply_list.js:38 static/js/msgs/conversation.js:19
 #: static/js/recipes/category.js:20 static/js/recipes/category.js:42
 #: static/js/recipes/category.js:73 static/js/recipes/recipes.js:36
-#: static/js/recipes/recipes.js:59 static/js/teams/team.js:36
+#: static/js/recipes/recipes.js:58 static/js/teams/team.js:36
 #: static/js/teams/team.js:69 static/js/teams/team.js:104
 #: static/js/teams/team.js:129 static/js/teams/teams_reply.js:37
 #: static/js/teams/teams_reply.js:72 static/js/teams/teams_reply.js:124
@@ -321,6 +321,6 @@ msgstr ""
 msgid "Already expired."
 msgstr ""
 
-#: static/js/vaults/vault.js:93
+#: static/js/vaults/vault.js:105
 msgid "Copied to clipboard."
 msgstr ""

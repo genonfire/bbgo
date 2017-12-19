@@ -22,6 +22,7 @@ input[type="submit"] {background:#11223d;color:#fff;-webkit-appearance:none;}
 input[type="submit"]:hover {background-color:#283850;}
 input.delete {background:#E54F44;color:#fff;}
 input.delete:hover {background:#FF574F;color:#fff;}
+input[type="button"]:hover {border-color:#11223d;}
 input.submit {background:#11223d;color:#fff;}
 input.submit:hover {background-color:#283850;}
 a {vertical-align:baseline;box-sizing:border-box;color:#333;text-decoration:none;}
@@ -91,11 +92,27 @@ img.portrait {width:150px;height:150px;}
 /* portal */
 .banner {display:inline-block;width:100%;}
 .banner img {max-width:100%;}
+.banner_title {max-width:80%;margin:0 auto;padding-top:1em;text-align:center;font-size:2em;font-weight:300;}
+.banner_button {text-align:center;}
+.banner_button input {margin:1.5em;min-width:200px;height:2.8em;font-size:1.2em;}
 .board_sample {margin-top:.5em;}
+.board_sample div p {margin:.5em;}
+.sample_wrapper {float:left;width:100%;margin:.5em;}
+.sample_icon {position:relative;display:inline-block;position:relative;width:64px;height:64px;float:left;}
+.sample_icon img {max-width:100%;}
+.sample_text {display:block;width:300px;padding-left:1em;vertical-align:middle;float:left;}
+.sample_text a {color:red;font-weight:bold;}
+.oneline {padding-top:1.2em;}
+.qnr {margin:.5em;}
+.qnr a {color:#0073aa !important;}
+.qnr a:hover {color:#3992bf !important;}
+.qnr div {margin-top:1em;}
+.qnr_title {padding-bottom:.5em;font-size:1.5em;border-bottom:1px solid #666;}
 table.sample td {text-align:left;vertical-align:top;}
 table.sample td.right {width:50%;border-left:1px solid #11223d;}
 table.sample div.titlebar {height:2.6em;margin-bottom:.3em;margin-right:.1em;padding-top:.4em;background:#EDEDED;text-align:center;}
 table.sample div.titlebar img {vertical-align:middle;}
+table.sample div.title {margin:1em;font-size:1.5em;}
 .sample_subject {min-height:2.1em;}
 .sample_subject span.reply_count {font-size:.85em;font-weight:bold;color:#409BD1;}
 
@@ -573,5 +590,9 @@ div.hljs-ln-line {margin-left:.5em;}
     .recipe_content {width:60%;}
     .recipe_name {font-size:1.2em;height:100%;}
     .comment_over_thumbnail {top:20%;}
+    .sample_icon {width:10%;height:auto;}
+    .sample_text {width:80%;}
+    .oneline {padding-top:.5em;}
+    .banner_button input {margin:1em;}
     .mobile_hide {display:none;}
 }

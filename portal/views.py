@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-from random import randint
-
 from boards.models import Board
 from boards.table import BoardTable
 
@@ -10,38 +8,48 @@ from django.shortcuts import redirect, render
 
 def portal(request, page=''):
     """Redirect to blog"""
+    # redirect example
+    if page == '1019':
+        return redirect('blogs:show_post', id=43)
+    elif page == '1039':
+        return redirect('blogs:show_post', id=44)
+    elif page == '1044':
+        return redirect('blogs:show_post', id=45)
+    elif page == '1064':
+        return redirect('blogs:show_post', id=46)
+    elif page == '1080':
+        return redirect('blogs:show_post', id=47)
+    elif page == '1318':
+        return redirect('blogs:show_post', id=48)
+    elif page == '1364':
+        return redirect('blogs:show_post', id=50)
+    elif page == '1374':
+        return redirect('blogs:show_post', id=52)
+    elif page == '1168':
+        return redirect('blogs:show_post', id=53)
+    elif page == '1260':
+        return redirect('blogs:show_post', id=54)
+    # end of example
+
     return redirect('blogs:blog_home')
 
 
-def board_sample(request):
+def bbgo(request):
     """Show board samples"""
-    banner_limit = 2
-    banner = randint(0, banner_limit)
-
     board_table = BoardTable()
     sample_limit, sample_limit_mobile = board_table.get_sample_limit()
-    sample_notice = board_table.get_sample_notice()
 
-    q = Q(like_count__gte=board_table.get_best_threshold()) & Q(
-        dislike_count__lt=board_table.get_veto_threshold())
     qs = Q(status='1normal') | Q(status='3notice') | Q(status='4warning')
-    best = Board.objects.filter(q).filter(qs).order_by('-id')[0:sample_limit]
-    recent = Board.objects.filter(qs).order_by('-id')[
-        0:sample_notice]
-    notice = Board.objects.filter(qs).filter(table=2).order_by('-id')[
-        0:sample_notice]
-    bbs = Board.objects.filter(qs).filter(table=12).order_by('-id')[
+    table = Q(table=3) | Q(table=12)
+    bbs = Board.objects.filter(qs).filter(table).order_by('-id')[
         0:sample_limit]
 
     return render(
         request,
-        "portal/board_sample.html",
+        "portal/bbgo.html",
         {
-            'banner': banner,
-            'best': best,
-            'recent': recent,
             'bbs': bbs,
-            'notice': notice,
             'sample_limit_mobile': sample_limit_mobile,
+            'app': 'bbgo',
         }
     )

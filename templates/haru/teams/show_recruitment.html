@@ -112,7 +112,7 @@
     {% endif %}
 </div>
 <div class="sense_horizontal_bar">
-        {% show_up_sense %}
+    {% show_up_sense_native %}
 </div>
 <form>{% csrf_token %}</form>
 
@@ -131,9 +131,6 @@
             {% trans 'Show new replies' %}
         </a>
     </span>
-</div>
-<div class="sense_horizontal_bar">
-    {% show_down_sense %}
 </div>
 <div class="input_reply">
     <form id="form_reply" method="post" enctype="multipart/form-data">

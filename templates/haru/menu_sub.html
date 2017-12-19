@@ -22,15 +22,20 @@
             ...
         </a>
     </span>
-{% elif app == 'boards' %}
+{% elif app == 'boards' or app == '' %}
     <span>
-        <a href="{% url 'boards:show_list' table=9 page=1 %}">
-            {% trans 'Best' %}
+        <a href="{% url 'bbgo' %}">
+            {% trans 'bbgo' %}
         </a>
     </span>
     <span>
-        <a href="{% url 'boards:show_list' table=0 page=1 %}">
-            {% trans 'Recent' %}
+        <a href="{% url 'boards:show_list' table=3 page=1 %}">
+            {% trans 'Documentation' %}
+        </a>
+    </span>
+    <span>
+        <a href="{% url 'boards:show_list' table=12 page=1 %}">
+            {% trans 'bbs' %}
         </a>
     </span>
 {% elif app == 'vaults' %}
@@ -66,9 +71,4 @@
         </a>
     </span>
 {% else %}
-    <span>
-        <a href="{% url 'blogs:blog_home' %}">
-            {% trans 'Blog' %}
-        </a>
-    </span>
 {% endif %}

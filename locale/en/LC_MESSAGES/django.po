@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-06 23:42+0900\n"
+"POT-Creation-Date: 2017-12-19 21:04+0900\n"
 "PO-Revision-Date: 2017-11-30 21:47+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,12 +62,12 @@ msgstr "published"
 msgid "status_draft"
 msgstr "draft"
 
-#: blogs/models.py:14 blogs/models.py:54 blogs/views.py:76
+#: blogs/models.py:14 blogs/models.py:54 blogs/views.py:78
 #: core/templatetags/status.py:14 templates/haru/blogs/dashboard_post.html:62
 msgid "status_pending"
 msgstr "pending"
 
-#: blogs/models.py:15 blogs/models.py:56 blogs/models.py:64 blogs/views.py:79
+#: blogs/models.py:15 blogs/models.py:56 blogs/models.py:64 blogs/views.py:81
 #: boards/models.py:18 boards/models.py:66 boards/models.py:83
 #: boards/views.py:131 core/templatetags/status.py:16 msgs/models.py:15
 #: teams/models.py:15 teams/models.py:51 teams/models.py:64
@@ -97,19 +97,19 @@ msgid "status_temp"
 msgstr "Temporary Saved"
 
 #: boards/models.py:15 boards/models.py:60
-#: templates/haru/boards/show_list.html:61
+#: templates/haru/boards/show_list.html:57
 msgid "status_notice"
 msgstr "Notice"
 
 #: boards/models.py:16 boards/models.py:62
-#: templates/haru/boards/show_list.html:199
+#: templates/haru/boards/show_list.html:195
 msgid "status_warning"
 msgstr "Warning"
 
 #: boards/models.py:17 boards/models.py:64 boards/models.py:82
 #: boards/views.py:128 msgs/models.py:14 teams/models.py:14 teams/models.py:49
-#: teams/models.py:63 templates/haru/boards/show_list.html:147
-#: templates/haru/boards/show_list.html:155
+#: teams/models.py:63 templates/haru/boards/show_list.html:143
+#: templates/haru/boards/show_list.html:151
 #: templates/haru/teams/recruitment.html:65
 #: templates/haru/teams/recruitment.html:68
 msgid "status_hidden"
@@ -229,7 +229,7 @@ msgid "Reply has a reply."
 msgstr ""
 
 #: templates/haru/accounts/alarm_list.html:56
-#: templates/haru/blogs/show_blogs.html:14 templates/haru/menu_sub.html:71
+#: templates/haru/blogs/show_blogs.html:14
 msgid "Blog"
 msgstr ""
 
@@ -310,7 +310,7 @@ msgstr ""
 #: templates/haru/accounts/edit_user_info.html:47
 #: templates/haru/accounts/login.html:41
 #: templates/haru/accounts/signup.html:36
-#: templates/haru/accounts/user_info.html:28 templates/haru/base.html:107
+#: templates/haru/accounts/user_info.html:28 templates/haru/base.html:108
 #: templates/haru/menu_mobile.html:67
 msgid "id"
 msgstr ""
@@ -462,7 +462,7 @@ msgstr ""
 #: templates/haru/accounts/join.html:4 templates/haru/accounts/join.html:8
 #: templates/haru/accounts/login.html:57 templates/haru/accounts/signup.html:4
 #: templates/haru/accounts/signup.html:19
-#: templates/haru/accounts/signup.html:102 templates/haru/base.html:125
+#: templates/haru/accounts/signup.html:102 templates/haru/base.html:126
 #: templates/haru/menu_mobile.html:87
 msgid "Sign up"
 msgstr ""
@@ -473,7 +473,7 @@ msgstr ""
 
 #: templates/haru/accounts/join.html:17 templates/haru/accounts/login.html:4
 #: templates/haru/accounts/login.html:12 templates/haru/accounts/login.html:47
-#: templates/haru/base.html:114 templates/haru/menu_mobile.html:70
+#: templates/haru/base.html:115 templates/haru/menu_mobile.html:70
 #: templates/haru/registration/logged_out.html:17
 #: templates/haru/registration/password_reset_complete.html:17
 msgid "login"
@@ -483,7 +483,7 @@ msgstr ""
 msgid "Login failure"
 msgstr ""
 
-#: templates/haru/accounts/login.html:33 templates/haru/base.html:96
+#: templates/haru/accounts/login.html:33 templates/haru/base.html:97
 #: templates/haru/menu_mobile.html:57
 #: templates/haru/registration/logged_out.html:4
 #: templates/haru/registration/logged_out.html:8
@@ -491,12 +491,12 @@ msgid "logout"
 msgstr ""
 
 #: templates/haru/accounts/login.html:44
-#: templates/haru/accounts/signup.html:86 templates/haru/base.html:110
+#: templates/haru/accounts/signup.html:86 templates/haru/base.html:111
 #: templates/haru/menu_mobile.html:75
 msgid "password"
 msgstr ""
 
-#: templates/haru/accounts/login.html:52 templates/haru/base.html:120
+#: templates/haru/accounts/login.html:52 templates/haru/base.html:121
 #: templates/haru/menu_mobile.html:82
 msgid "Reset password"
 msgstr ""
@@ -509,40 +509,40 @@ msgstr ""
 msgid "Your scrap page. Delete will delete selected scrap without warning."
 msgstr ""
 
-#: templates/haru/accounts/scrap.html:25
-#: templates/haru/boards/search_reply.html:28
-#: templates/haru/boards/show_list.html:48
-#: templates/haru/boards/show_list.html:270
+#: templates/haru/accounts/scrap.html:21
+#: templates/haru/boards/search_reply.html:24
+#: templates/haru/boards/show_list.html:44
+#: templates/haru/boards/show_list.html:266
 #: templates/haru/teams/recruitment.html:48
 msgid "subject"
 msgstr ""
 
-#: templates/haru/accounts/scrap.html:26
-#: templates/haru/boards/search_reply.html:29
-#: templates/haru/boards/show_list.html:49
+#: templates/haru/accounts/scrap.html:22
+#: templates/haru/boards/search_reply.html:25
+#: templates/haru/boards/show_list.html:45
 #: templates/haru/teams/recruitment.html:49
 msgid "username"
 msgstr ""
 
-#: templates/haru/accounts/scrap.html:27
+#: templates/haru/accounts/scrap.html:23
 #: templates/haru/blogs/dashboard.html:108
 #: templates/haru/blogs/dashboard.html:150
 #: templates/haru/blogs/dashboard_comment.html:84
 #: templates/haru/blogs/dashboard_post.html:97
-#: templates/haru/boards/search_reply.html:30
-#: templates/haru/boards/show_list.html:53
+#: templates/haru/boards/search_reply.html:26
+#: templates/haru/boards/show_list.html:49
 #: templates/haru/teams/recruitment.html:51
 msgid "date"
 msgstr ""
 
-#: templates/haru/accounts/scrap.html:28 templates/haru/accounts/scrap.html:50
-#: templates/haru/accounts/scrap.html:64
+#: templates/haru/accounts/scrap.html:24 templates/haru/accounts/scrap.html:46
+#: templates/haru/accounts/scrap.html:60
 #: templates/haru/blogs/show_comment.html:57
-#: templates/haru/blogs/show_post.html:116
-#: templates/haru/boards/search_reply.html:31
-#: templates/haru/boards/search_reply.html:56
-#: templates/haru/boards/search_reply.html:72
-#: templates/haru/boards/show_article.html:111
+#: templates/haru/blogs/show_post.html:132
+#: templates/haru/boards/search_reply.html:27
+#: templates/haru/boards/search_reply.html:52
+#: templates/haru/boards/search_reply.html:68
+#: templates/haru/boards/show_article.html:121
 #: templates/haru/boards/show_reply.html:57 templates/haru/msgs/inbox.html:67
 #: templates/haru/teams/show_team_reply.html:57
 msgid "delete"
@@ -550,7 +550,7 @@ msgstr ""
 
 #: templates/haru/accounts/setting.html:4
 #: templates/haru/accounts/setting.html:11 templates/haru/menu_setting.html:6
-#: templates/haru/menu_sub.html:60
+#: templates/haru/menu_sub.html:65
 #: templates/haru/recipes/edit_category.html:10
 #: templates/haru/recipes/instruction.html:14
 msgid "Setting"
@@ -722,9 +722,9 @@ msgstr ""
 #: templates/haru/blogs/dashboard.html:105
 #: templates/haru/blogs/dashboard_post.html:94
 #: templates/haru/blogs/edit_post.html:62
-#: templates/haru/boards/edit_article.html:56
+#: templates/haru/boards/edit_article.html:53
 #: templates/haru/recipes/edit_recipe.html:34
-#: templates/haru/teams/edit_recruitment.html:42
+#: templates/haru/teams/edit_recruitment.html:39
 #: templates/haru/vaults/edit_vault.html:39
 msgid "category"
 msgstr ""
@@ -786,7 +786,7 @@ msgid "Delete permanently"
 msgstr ""
 
 #: templates/haru/blogs/dashboard_post.html:110
-#: templates/haru/menu_main.html:66
+#: templates/haru/menu_main.html:71
 #: templates/haru/recipes/show_recipes.html:61
 #: templates/haru/vaults/show_vault.html:89
 msgid "Edit"
@@ -811,43 +811,43 @@ msgstr ""
 msgid "Draft saved at"
 msgstr ""
 
-#: templates/haru/blogs/edit_post.html:51
+#: templates/haru/blogs/edit_post.html:48
 msgid "Featured image"
 msgstr ""
 
 #: templates/haru/blogs/edit_post.html:80
-#: templates/haru/boards/edit_article.html:73
-#: templates/haru/teams/edit_recruitment.html:72
+#: templates/haru/boards/edit_article.html:70
+#: templates/haru/teams/edit_recruitment.html:69
 msgid "status"
 msgstr ""
 
 #: templates/haru/blogs/edit_post.html:84
-#: templates/haru/blogs/show_post.html:173
-#: templates/haru/boards/edit_article.html:77
-#: templates/haru/boards/show_article.html:156
+#: templates/haru/blogs/show_post.html:189
+#: templates/haru/boards/edit_article.html:74
+#: templates/haru/boards/show_article.html:163
 #: templates/haru/spams/spam_setting.html:19
 #: templates/haru/spams/spam_setting.html:33
-#: templates/haru/teams/edit_recruitment.html:76
-#: templates/haru/teams/show_recruitment.html:145
+#: templates/haru/teams/edit_recruitment.html:73
+#: templates/haru/teams/show_recruitment.html:142
 msgid "submit"
 msgstr ""
 
 #: templates/haru/blogs/edit_post.html:86
-#: templates/haru/boards/edit_article.html:79
-#: templates/haru/teams/edit_recruitment.html:78
+#: templates/haru/boards/edit_article.html:76
+#: templates/haru/teams/edit_recruitment.html:75
 msgid "save"
 msgstr ""
 
 #: templates/haru/blogs/edit_post.html:88
-#: templates/haru/boards/edit_article.html:81
-#: templates/haru/teams/edit_recruitment.html:80
+#: templates/haru/boards/edit_article.html:78
+#: templates/haru/teams/edit_recruitment.html:77
 #: templates/haru/teams/show_recruitment.html:101
 msgid "cancel"
 msgstr ""
 
-#: templates/haru/blogs/show_blogs.html:64
-#: templates/haru/blogs/show_post.html:23
-#: templates/haru/blogs/show_post.html:128 templates/haru/menu_sub.html:21
+#: templates/haru/blogs/show_blogs.html:66
+#: templates/haru/blogs/show_post.html:39
+#: templates/haru/blogs/show_post.html:144 templates/haru/menu_sub.html:21
 msgid "uncategorized"
 msgstr ""
 
@@ -866,34 +866,34 @@ msgstr ""
 msgid "Write reply"
 msgstr ""
 
-#: templates/haru/blogs/show_post.html:78
+#: templates/haru/blogs/show_post.html:94
 msgid "Tags:"
 msgstr ""
 
-#: templates/haru/blogs/show_post.html:111
-#: templates/haru/boards/show_article.html:106
+#: templates/haru/blogs/show_post.html:127
+#: templates/haru/boards/show_article.html:116
 #: templates/haru/teams/show_recruitment.html:88
 msgid "edit"
 msgstr ""
 
-#: templates/haru/blogs/show_post.html:130
+#: templates/haru/blogs/show_post.html:146
 msgid "'s other posts"
 msgstr ""
 
-#: templates/haru/blogs/show_post.html:157
+#: templates/haru/blogs/show_post.html:173
 msgid "Reload comments"
 msgstr ""
 
-#: templates/haru/blogs/show_post.html:164
+#: templates/haru/blogs/show_post.html:180
 msgid "Enter comment here."
 msgstr ""
 
-#: templates/haru/blogs/show_post.html:169
+#: templates/haru/blogs/show_post.html:185
 msgid "Enter name here."
 msgstr ""
 
 #: templates/haru/boards/like_users.html:6
-#: templates/haru/boards/show_article.html:48
+#: templates/haru/boards/show_article.html:58
 msgid "who likes"
 msgstr ""
 
@@ -902,56 +902,56 @@ msgstr ""
 msgid "Search reply"
 msgstr ""
 
-#: templates/haru/boards/search_reply.html:89
-#: templates/haru/boards/show_list.html:276
+#: templates/haru/boards/search_reply.html:85
+#: templates/haru/boards/show_list.html:272
 msgid "write user"
 msgstr ""
 
-#: templates/haru/boards/search_reply.html:93
-#: templates/haru/boards/show_list.html:280
+#: templates/haru/boards/search_reply.html:89
+#: templates/haru/boards/show_list.html:276
 msgid "search"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:29
+#: templates/haru/boards/show_article.html:39
 #: templates/haru/teams/show_recruitment.html:25
 msgid "Go back"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:78
+#: templates/haru/boards/show_article.html:88
 msgid "reference"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:90
-#: templates/haru/boards/show_list.html:51
-#: templates/haru/boards/show_list.html:234
+#: templates/haru/boards/show_article.html:100
+#: templates/haru/boards/show_list.html:47
+#: templates/haru/boards/show_list.html:230
 msgid "like"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:95
-#: templates/haru/boards/show_list.html:52
-#: templates/haru/boards/show_list.html:119
-#: templates/haru/boards/show_list.html:244
+#: templates/haru/boards/show_article.html:105
+#: templates/haru/boards/show_list.html:48
+#: templates/haru/boards/show_list.html:115
+#: templates/haru/boards/show_list.html:240
 msgid "dislike"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:100
+#: templates/haru/boards/show_article.html:110
 msgid "share"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:132
+#: templates/haru/boards/show_article.html:142
 #: templates/haru/teams/show_recruitment.html:126
 msgid "Reload replies"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:137
+#: templates/haru/boards/show_article.html:147
 #: templates/haru/teams/show_recruitment.html:131
 msgid "Show new replies"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:147
+#: templates/haru/boards/show_article.html:154
 #: templates/haru/msgs/conversation.html:40
 #: templates/haru/msgs/send_msg.html:40
-#: templates/haru/teams/show_recruitment.html:141
+#: templates/haru/teams/show_recruitment.html:138
 msgid "Please show some respect."
 msgstr ""
 
@@ -960,24 +960,24 @@ msgstr ""
 msgid "write"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:50
-#: templates/haru/boards/show_list.html:122
-#: templates/haru/boards/show_list.html:247
+#: templates/haru/boards/show_list.html:46
+#: templates/haru/boards/show_list.html:118
+#: templates/haru/boards/show_list.html:243
 #: templates/haru/teams/recruitment.html:50
 #: templates/haru/teams/recruitment.html:121
 msgid "view"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:65
-#: templates/haru/boards/show_list.html:180
+#: templates/haru/boards/show_list.html:61
+#: templates/haru/boards/show_list.html:176
 msgid "Draft"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:175
+#: templates/haru/boards/show_list.html:171
 msgid "Secret article"
 msgstr ""
 
-#: templates/haru/boards/show_list.html:273
+#: templates/haru/boards/show_list.html:269
 msgid "subject+content"
 msgstr ""
 
@@ -1016,11 +1016,11 @@ msgstr ""
 msgid "Text translation"
 msgstr ""
 
-#: templates/haru/menu_main.html:34
+#: templates/haru/menu_main.html:39
 msgid "Sub site"
 msgstr ""
 
-#: templates/haru/menu_main.html:39 templates/haru/menu_sub.html:39
+#: templates/haru/menu_main.html:44 templates/haru/menu_sub.html:44
 #: templates/haru/vaults/check_key.html:4
 #: templates/haru/vaults/edit_key.html:4
 #: templates/haru/vaults/edit_vault.html:4
@@ -1030,7 +1030,7 @@ msgstr ""
 msgid "Vaults"
 msgstr ""
 
-#: templates/haru/menu_main.html:45 templates/haru/menu_sub.html:55
+#: templates/haru/menu_main.html:50 templates/haru/menu_sub.html:60
 #: templates/haru/recipes/edit_category.html:4
 #: templates/haru/recipes/edit_recipe.html:4
 #: templates/haru/recipes/instruction.html:4
@@ -1039,7 +1039,7 @@ msgstr ""
 msgid "Recipes"
 msgstr ""
 
-#: templates/haru/menu_main.html:53
+#: templates/haru/menu_main.html:58
 msgid "bookmark"
 msgstr ""
 
@@ -1053,19 +1053,23 @@ msgstr ""
 msgid "Change password"
 msgstr ""
 
-#: templates/haru/menu_sub.html:28 templates/haru/portal/board_sample.html:24
-msgid "Best"
+#: templates/haru/menu_sub.html:28
+msgid "bbgo"
 msgstr ""
 
-#: templates/haru/menu_sub.html:33 templates/haru/portal/board_sample.html:105
-msgid "Recent"
+#: templates/haru/menu_sub.html:33
+msgid "Documentation"
 msgstr ""
 
-#: templates/haru/menu_sub.html:44 templates/haru/vaults/edit_key.html:8
+#: templates/haru/menu_sub.html:38 templates/haru/portal/bbgo.html:140
+msgid "bbs"
+msgstr ""
+
+#: templates/haru/menu_sub.html:49 templates/haru/vaults/edit_key.html:8
 msgid "Change key"
 msgstr ""
 
-#: templates/haru/menu_sub.html:49 templates/haru/menu_sub.html.py:65
+#: templates/haru/menu_sub.html:54 templates/haru/menu_sub.html.py:70
 #: templates/haru/recipes/edit_recipe.html:9
 #: templates/haru/vaults/edit_vault.html:9
 msgid "+ New item"
@@ -1133,14 +1137,78 @@ msgstr ""
 msgid "characters available."
 msgstr ""
 
-#: templates/haru/portal/board_sample.html:50
-#: templates/haru/portal/board_sample.html:74
-msgid "Freebbs"
+#: templates/haru/portal/bbgo.html:11
+msgid "Total bbs system made by Django"
 msgstr ""
 
-#: templates/haru/portal/board_sample.html:127
-#: templates/haru/portal/board_sample.html:151
-msgid "Notice"
+#: templates/haru/portal/bbgo.html:15
+msgid "Get started with bbgo"
+msgstr ""
+
+#: templates/haru/portal/bbgo.html:26
+msgid "Meet bbgo"
+msgstr ""
+
+#: templates/haru/portal/bbgo.html:30
+msgid ""
+"bbgo is a middleware based on Django web framework. It may help you build "
+"web service nice, quick and easy."
+msgstr ""
+
+#: templates/haru/portal/bbgo.html:39
+msgid ""
+"Building community? Start quickly with pre-implemented member service, "
+"boards and blogs."
+msgstr ""
+
+#: templates/haru/portal/bbgo.html:47
+msgid ""
+"Want to build your own web service? MVT(Model, View, Template) structures of "
+"Django are very easy to customize."
+msgstr ""
+
+#: templates/haru/portal/bbgo.html:55
+msgid "It is free and open source."
+msgstr ""
+
+#: templates/haru/portal/bbgo.html:60
+msgid "bbgo documentation"
+msgstr ""
+
+#: templates/haru/portal/bbgo.html:70 templates/haru/portal/bbgo.html:136
+msgid "Download bbgo"
+msgstr ""
+
+#: templates/haru/portal/bbgo.html:74
+msgid "Latest news"
+msgstr ""
+
+#: templates/haru/portal/bbgo.html:91 templates/haru/portal/bbgo.html:157
+msgid "Question and requisition"
+msgstr ""
+
+#: templates/haru/portal/bbgo.html:96 templates/haru/portal/bbgo.html:162
+msgid "via bbs (require login)"
+msgstr ""
+
+#: templates/haru/portal/bbgo.html:102 templates/haru/portal/bbgo.html:168
+msgid "via github"
+msgstr ""
+
+#: templates/haru/portal/bbgo.html:108 templates/haru/portal/bbgo.html:174
+msgid "via E-mail"
+msgstr ""
+
+#: templates/haru/portal/bbgo.html:114
+msgid "More"
+msgstr ""
+
+#: templates/haru/portal/bbgo.html:119
+msgid "Jira"
+msgstr ""
+
+#: templates/haru/portal/bbgo.html:125
+msgid "Django documentation"
 msgstr ""
 
 #: templates/haru/recipes/edit_category.html:14
@@ -1313,15 +1381,15 @@ msgstr ""
 msgid "List of word set as spam."
 msgstr ""
 
-#: templates/haru/teams/edit_recruitment.html:53
+#: templates/haru/teams/edit_recruitment.html:50
 msgid "Select activity then slot may be adjusted automatically."
 msgstr ""
 
-#: templates/haru/teams/edit_recruitment.html:58
+#: templates/haru/teams/edit_recruitment.html:55
 msgid "slot"
 msgstr ""
 
-#: templates/haru/teams/edit_recruitment.html:64
+#: templates/haru/teams/edit_recruitment.html:61
 msgid "Total players needed include yourself."
 msgstr ""
 

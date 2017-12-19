@@ -127,7 +127,7 @@
     {% if table == '9' %}
         {% show_up_sense user %}
     {% else %}
-        {% show_up_sense %}
+        {% show_up_sense_native %}
     {% endif %}
 </div>
 <form>{% csrf_token %}</form>
@@ -147,9 +147,6 @@
             {% trans 'Show new replies' %}
         </a>
     </span>
-</div>
-<div class="sense_horizontal_bar">
-    {% show_down_sense %}
 </div>
 <div class="input_reply">
     <form id="form_reply" method="post" enctype="multipart/form-data">

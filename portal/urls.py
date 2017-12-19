@@ -25,4 +25,9 @@ urlpatterns = [
         views.portal,
         name='portal_redirection',
     ),
+    url(
+        r'^bbgo/$',
+        views.bbgo,
+        name='bbgo',
+    ),
 ]
