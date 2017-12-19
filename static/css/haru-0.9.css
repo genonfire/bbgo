@@ -553,6 +553,10 @@ td.hljs-ln-numbers {
 div.hljs-ln-n {padding-right:.5em;}
 div.hljs-ln-line {margin-left:.5em;}
 
+table.table-bordered td {padding:.2em;border:1px solid #aaa;}
+.article_view_content ul {margin-left:2em;}
+.article_view_content li {list-style-type:disc;margin-top:.2em;}
+
 /* adsense */
 .sense_horizontal_bar {padding-top:.5em;margin-top:.5em;margin-bottom:.5em;}
 .sense_sidebar {width:170px;padding-left:.5em;margin-top:.5em;}

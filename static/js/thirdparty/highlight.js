@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('pre').each(function(i, block) {
         hljs.highlightBlock(block);
-        hljs.lineNumbersBlock(block);
+        // hljs.lineNumbersBlock(block);
     });
 });
