@@ -1,14 +1,25 @@
 # bbgo
 Total bbs system made by django
 
-# Demo
-https://destinyflix.com
+https://gencode.me/bbgo
+
+
+`bbgo` is a middleware based on Django web framework. It may help you build web service nice, quick and easy.
+
+    - Building community? Start quickly with pre-implemented member service, boards and blogs.
+    - Want to build your own web service? MVT(Model, View, Template) structures of Django are very easy to customize.
+    - It is free and open source.
+
+# Getting started with bbgo
+Korean > https://gencode.me/boards/article/1/
+
+    $ git clone git@github.com:genonfire/bbgo.git
+    $ pip install -r requirements.txt
+
 
 # Issue management
 http://jira.gencode.me/browse/BBGO
 
-# How to
-http://wiki.gencode.me/pages/viewpage.action?pageId=7569417
 
 # Tested by
 <a href="https://www.browserstack.com/">
