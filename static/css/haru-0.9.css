@@ -6,7 +6,7 @@ iframe {margin:0;padding:0;}
 section, article, aside, footer, figure, figcaption, nav {display:block;}
 img {border:0 none;vertical-align:middle;}
 address, em, cite {font-style:normal;}
-hr {-moz-box-sizing:content-box;box-sizing:content-box;height:0;margin:0;padding:0;border:0;}
+hr {display:block;height:1px;border:0;border-top:1px solid #aaa;}
 table {border-collapse:collapse;border-spacing:0;}
 table th, table td {word-break:break-all;}
 dd, dl, ol, ul, form {margin:0;padding:0;}
@@ -555,7 +555,7 @@ div.hljs-ln-line {margin-left:.5em;}
 
 table.table-bordered td {padding:.2em;border:1px solid #aaa;}
 .article_view_content ul {margin-left:2em;}
-.article_view_content li {list-style-type:disc;margin-top:.2em;}
+.article_view_content li {list-style-type:disc;margin-top:1em;}
 
 /* adsense */
 .sense_horizontal_bar {padding-top:.5em;margin-top:.5em;margin-bottom:.5em;}
