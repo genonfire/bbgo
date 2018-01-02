@@ -88,6 +88,12 @@
 
 {% show_navigator %}
 
+<div class="dbsearch mobile_show">
+    <form method="get" action="javascript:search_post_mobile();">
+        <input id="mobile_search_word" type="text" class="search_post" placeholder="{% trans 'Blog search' %}">
+    </form>
+</div>
+
 {% endblock %}
 {% block bodyscript %}
 {% if ENABLE_MARK_KEYWORD %}
@@ -96,7 +102,7 @@
 <script>
     var search_type = '{{ search_type }}';
     var search_word = '{{ search_word }}';
-    var search_article_url = "";
+    var url_searchpost = "{% url 'blogs:search_post' search_type='all' search_word='bb' page=1 %}";
     {% if ENABLE_MARK_KEYWORD %}
         var mark_enabled = true;
     {% else %}
