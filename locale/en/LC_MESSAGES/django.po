@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-19 21:23+0900\n"
+"POT-Creation-Date: 2018-01-04 17:48+0900\n"
 "PO-Revision-Date: 2017-11-30 21:47+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,6 +42,10 @@ msgstr ""
 
 #: accounts/views.py:301
 msgid "Sorry. Please try again later."
+msgstr ""
+
+#: aliases/views.py:32 templates/404.html:9
+msgid "The page you requested is not exist. Please try something else."
 msgstr ""
 
 #: blogs/forms.py:24 boards/forms.py:25
@@ -194,10 +198,6 @@ msgstr "Full"
 msgid "Oops"
 msgstr ""
 
-#: templates/404.html:9
-msgid "The page you requested is not exist. Please try something else."
-msgstr ""
-
 #: templates/500.html:9
 msgid ""
 "Something wrong. Please reload the page to try again. If error continues, "
@@ -274,6 +274,7 @@ msgstr ""
 
 #: templates/haru/accounts/dashboard_user.html:11
 #: templates/haru/accounts/dashboard_user.html:17
+#: templates/haru/aliases/dashboard.html:9
 #: templates/haru/blogs/dashboard.html:4
 #: templates/haru/blogs/dashboard.html:15
 #: templates/haru/blogs/dashboard_comment.html:4
@@ -525,6 +526,7 @@ msgid "username"
 msgstr ""
 
 #: templates/haru/accounts/scrap.html:23
+#: templates/haru/aliases/show_aliases.html:12
 #: templates/haru/blogs/dashboard.html:108
 #: templates/haru/blogs/dashboard.html:150
 #: templates/haru/blogs/dashboard_comment.html:84
@@ -657,6 +659,53 @@ msgstr ""
 msgid "Reply count"
 msgstr ""
 
+#: templates/haru/aliases/dashboard.html:5
+#: templates/haru/aliases/dashboard.html:11
+#: templates/haru/aliases/show_aliases.html:10
+#: templates/haru/menu_main.html:44
+msgid "Alias"
+msgstr ""
+
+#: templates/haru/aliases/dashboard.html:17
+msgid "Alias your links"
+msgstr ""
+
+#: templates/haru/aliases/dashboard.html:19
+msgid "Your original URL here"
+msgstr ""
+
+#: templates/haru/aliases/dashboard.html:20 templates/haru/menu_sub.html:54
+#: templates/haru/menu_sub.html.py:70
+#: templates/haru/recipes/edit_recipe.html:9
+#: templates/haru/vaults/edit_vault.html:9
+msgid "+ New item"
+msgstr ""
+
+#: templates/haru/aliases/show_aliases.html:9
+msgid "Original URL"
+msgstr ""
+
+#: templates/haru/aliases/show_aliases.html:11
+msgid "clicks"
+msgstr ""
+
+#: templates/haru/aliases/show_aliases.html:25
+#: templates/haru/blogs/dashboard_post.html:110
+#: templates/haru/menu_main.html:76
+#: templates/haru/recipes/show_recipes.html:61
+#: templates/haru/vaults/show_vault.html:89
+msgid "Edit"
+msgstr ""
+
+#: templates/haru/aliases/show_aliases.html:30
+#: templates/haru/blogs/dashboard.html:180
+#: templates/haru/blogs/dashboard_comment.html:126
+#: templates/haru/blogs/dashboard_post.html:127
+#: templates/haru/recipes/edit_recipe.html:75
+#: templates/haru/vaults/edit_vault.html:96
+msgid "Delete"
+msgstr ""
+
 #: templates/haru/blogs/dashboard.html:18
 #: templates/haru/blogs/dashboard_comment.html:21
 #: templates/haru/blogs/dashboard_post.html:14
@@ -755,14 +804,6 @@ msgstr ""
 msgid "Spam"
 msgstr ""
 
-#: templates/haru/blogs/dashboard.html:180
-#: templates/haru/blogs/dashboard_comment.html:126
-#: templates/haru/blogs/dashboard_post.html:127
-#: templates/haru/recipes/edit_recipe.html:75
-#: templates/haru/vaults/edit_vault.html:96
-msgid "Delete"
-msgstr ""
-
 #: templates/haru/blogs/dashboard_comment.html:35
 #: templates/haru/blogs/dashboard_post.html:32
 #: templates/haru/blogs/dashboard_post.html:78
@@ -783,13 +824,6 @@ msgstr ""
 #: templates/haru/blogs/dashboard_comment.html:115
 #: templates/haru/blogs/dashboard_post.html:121
 msgid "Delete permanently"
-msgstr ""
-
-#: templates/haru/blogs/dashboard_post.html:110
-#: templates/haru/menu_main.html:71
-#: templates/haru/recipes/show_recipes.html:61
-#: templates/haru/vaults/show_vault.html:89
-msgid "Edit"
 msgstr ""
 
 #: templates/haru/blogs/edit_post.html:13
@@ -824,11 +858,11 @@ msgstr ""
 #: templates/haru/blogs/edit_post.html:84
 #: templates/haru/blogs/show_post.html:189
 #: templates/haru/boards/edit_article.html:74
-#: templates/haru/boards/show_article.html:163
+#: templates/haru/boards/show_article.html:162
 #: templates/haru/spams/spam_setting.html:19
 #: templates/haru/spams/spam_setting.html:33
 #: templates/haru/teams/edit_recruitment.html:73
-#: templates/haru/teams/show_recruitment.html:142
+#: templates/haru/teams/show_recruitment.html:141
 msgid "submit"
 msgstr ""
 
@@ -849,6 +883,10 @@ msgstr ""
 #: templates/haru/blogs/show_post.html:39
 #: templates/haru/blogs/show_post.html:144 templates/haru/menu_sub.html:21
 msgid "uncategorized"
+msgstr ""
+
+#: templates/haru/blogs/show_blogs.html:93 templates/haru/menu_banner.html:6
+msgid "Blog search"
 msgstr ""
 
 #: templates/haru/blogs/show_comment.html:8
@@ -938,20 +976,20 @@ msgstr ""
 msgid "share"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:142
-#: templates/haru/teams/show_recruitment.html:126
+#: templates/haru/boards/show_article.html:141
+#: templates/haru/teams/show_recruitment.html:125
 msgid "Reload replies"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:147
-#: templates/haru/teams/show_recruitment.html:131
+#: templates/haru/boards/show_article.html:146
+#: templates/haru/teams/show_recruitment.html:130
 msgid "Show new replies"
 msgstr ""
 
-#: templates/haru/boards/show_article.html:154
+#: templates/haru/boards/show_article.html:153
 #: templates/haru/msgs/conversation.html:40
 #: templates/haru/msgs/send_msg.html:40
-#: templates/haru/teams/show_recruitment.html:138
+#: templates/haru/teams/show_recruitment.html:137
 msgid "Please show some respect."
 msgstr ""
 
@@ -996,10 +1034,6 @@ msgstr ""
 msgid "Hidden reply"
 msgstr ""
 
-#: templates/haru/menu_banner.html:6
-msgid "Blog search"
-msgstr ""
-
 #: templates/haru/menu_main.html:15
 msgid "menu"
 msgstr ""
@@ -1020,7 +1054,7 @@ msgstr ""
 msgid "Sub site"
 msgstr ""
 
-#: templates/haru/menu_main.html:44 templates/haru/menu_sub.html:44
+#: templates/haru/menu_main.html:49 templates/haru/menu_sub.html:44
 #: templates/haru/vaults/check_key.html:4
 #: templates/haru/vaults/edit_key.html:4
 #: templates/haru/vaults/edit_vault.html:4
@@ -1030,7 +1064,7 @@ msgstr ""
 msgid "Vaults"
 msgstr ""
 
-#: templates/haru/menu_main.html:50 templates/haru/menu_sub.html:60
+#: templates/haru/menu_main.html:55 templates/haru/menu_sub.html:60
 #: templates/haru/recipes/edit_category.html:4
 #: templates/haru/recipes/edit_recipe.html:4
 #: templates/haru/recipes/instruction.html:4
@@ -1039,7 +1073,7 @@ msgstr ""
 msgid "Recipes"
 msgstr ""
 
-#: templates/haru/menu_main.html:58
+#: templates/haru/menu_main.html:63
 msgid "bookmark"
 msgstr ""
 
@@ -1067,12 +1101,6 @@ msgstr ""
 
 #: templates/haru/menu_sub.html:49 templates/haru/vaults/edit_key.html:8
 msgid "Change key"
-msgstr ""
-
-#: templates/haru/menu_sub.html:54 templates/haru/menu_sub.html.py:70
-#: templates/haru/recipes/edit_recipe.html:9
-#: templates/haru/vaults/edit_vault.html:9
-msgid "+ New item"
 msgstr ""
 
 #: templates/haru/msgs/conversation.html:4

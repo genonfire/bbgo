@@ -1,4 +1,4 @@
-"""spams URL Configuration"""
+"""recipes URL Configuration"""
 
 from django.conf.urls import url
 

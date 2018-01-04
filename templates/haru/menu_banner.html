@@ -15,6 +15,11 @@
     </div>
 {% if user.is_authenticated %}    
     <div>
+        <a href="{% url 'aliases:dashboard' %}">
+            <img src="{% static 'images/side_banner_alias.png' %}">
+        </a>
+    </div>
+    <div>
         <a href="{% url 'vaults:open_vault' %}">
             <img src="{% static 'images/side_banner_vault.png' %}">
         </a>

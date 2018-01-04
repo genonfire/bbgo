@@ -1,4 +1,4 @@
-"""spams URL Configuration"""
+"""vaults URL Configuration"""
 
 from django.conf.urls import url
 

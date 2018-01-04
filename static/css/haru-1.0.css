@@ -196,6 +196,7 @@ table.board td.notice {font-weight:bold;}
 table.board td.article_info {font-size:.8em;}
 table.board td.article_hot {color:#E54F44;}
 table.board td.scrap_delete a {color:#E54F44;}
+table.board td.alias {width:120px;border-bottom:1px solid #a5a5a5;font-size:.8em;}
 table.board tr.article_info_mobile {display:none;border-bottom:1px solid #ABB2AC;}
 table.board tr.article_info_mobile td {width:100%;font-size:.8em;text-align:left;}
 table.board tr.article_info_mobile span {padding:.1em;font-weight:300;color:#999;border-right:0px dotted #9393AE;}
@@ -226,7 +227,7 @@ table.board tr.article_info_mobile span.scrap_delete a {vertical-align:baseline;
 .dbsearch select {width:6.5em;max-width:100px;height:2.5em;border:1px solid #999;line-height:2.5em;vertical-align:middle;}
 .dbsearch input.search_word {width:20em;height:2.5em;margin-left:2px;padding:0 5px;border:1px solid #999;background:#fff;vertical-align:middle;}
 .dbsearch input.search_post {width:90%;height:2.5em;margin-left:2px;padding:0 5px;border:1px solid #999;background:#fff;vertical-align:middle;}
-.dbsearch input.search_button {width:3.5em;height:2.5em;margin-left:.1em;border:1px solid #11223d;background:#11223d;color:#fff;line-height:2.5em;vertical-align:middle;}
+.dbsearch input.search_button {width:auto;height:2.5em;margin-left:.1em;border:1px solid #11223d;background:#11223d;color:#fff;line-height:2.5em;vertical-align:middle;}
 .dbsearch input.search_button:hover {background-color:#283850;cursor:pointer;}
 
 /* edit article */
@@ -523,6 +524,13 @@ span#expiry_min:after {content:':';color:#666;font-weight:normal;}
 .recipe_name a {color:#0073aa;}
 .recipe_name a:hover {color:#3992bf;}
 .recipe_text {display:inline-block;font-size:1em;overflow-wrap:break-word;float-left;font-size:.9em;}
+
+/* aliases */
+.alias_header_container {width:100%;background-color:#E8ECEF;margin-top:.5em;padding:.5em;}
+.alias_header {max-width:700px;margin:0 auto;vertical-align:middle;}
+.alias_header div {padding:.5em 0 .5em;}
+.alias_header input[type="text"] {width:100%;max-width:550px;height:2.2em;margin-bottom:.5em;padding:0 .5em;}
+.aliases {margin-top:1em;}
 
 /* Footer */
 #footer {padding:1em;text-align:center;font-size:.9em;}

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-19 21:23+0900\n"
-"PO-Revision-Date: 2017-12-04 20:49+0828\n"
+"POT-Creation-Date: 2018-01-04 17:48+0900\n"
+"PO-Revision-Date: 2018-01-04 17:51+0828\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -24,22 +24,24 @@ msgid "Alarm for your activity."
 msgstr "알림을 확인해 주세요."
 
 #: static/js/accounts/alarm.js:67 static/js/accounts/alarm.js:114
-#: static/js/accounts/edit_bookmarks.js:29 static/js/blogs/blogs_comment.js:45
-#: static/js/blogs/blogs_comment.js:85 static/js/blogs/blogs_comment.js:146
-#: static/js/blogs/blogs_comment.js:168 static/js/blogs/dashboard.js:30
-#: static/js/boards/boards_reply.js:41 static/js/boards/boards_reply.js:79
-#: static/js/boards/boards_reply.js:156 static/js/boards/boards_reply.js:182
-#: static/js/boards/boards_reply.js:204 static/js/boards/boards_reply.js:227
-#: static/js/boards/boards_reply.js:251 static/js/boards/boards_reply.js:278
-#: static/js/boards/reply_list.js:38 static/js/msgs/conversation.js:19
-#: static/js/recipes/category.js:20 static/js/recipes/category.js:42
-#: static/js/recipes/category.js:73 static/js/recipes/recipes.js:36
-#: static/js/recipes/recipes.js:58 static/js/teams/team.js:36
-#: static/js/teams/team.js:69 static/js/teams/team.js:104
-#: static/js/teams/team.js:129 static/js/teams/teams_reply.js:37
-#: static/js/teams/teams_reply.js:72 static/js/teams/teams_reply.js:124
-#: static/js/teams/teams_reply.js:147 static/js/teams/teams_reply.js:171
-#: static/js/teams/teams_reply.js:205 static/js/vaults/vault.js:42
+#: static/js/accounts/edit_bookmarks.js:29 static/js/aliases/alias.js:36
+#: static/js/aliases/alias.js:70 static/js/aliases/alias.js:93
+#: static/js/blogs/blogs_comment.js:45 static/js/blogs/blogs_comment.js:85
+#: static/js/blogs/blogs_comment.js:146 static/js/blogs/blogs_comment.js:168
+#: static/js/blogs/dashboard.js:30 static/js/boards/boards_reply.js:41
+#: static/js/boards/boards_reply.js:79 static/js/boards/boards_reply.js:156
+#: static/js/boards/boards_reply.js:182 static/js/boards/boards_reply.js:204
+#: static/js/boards/boards_reply.js:227 static/js/boards/boards_reply.js:251
+#: static/js/boards/boards_reply.js:278 static/js/boards/reply_list.js:38
+#: static/js/msgs/conversation.js:19 static/js/recipes/category.js:20
+#: static/js/recipes/category.js:42 static/js/recipes/category.js:73
+#: static/js/recipes/recipes.js:36 static/js/recipes/recipes.js:58
+#: static/js/teams/team.js:36 static/js/teams/team.js:69
+#: static/js/teams/team.js:104 static/js/teams/team.js:129
+#: static/js/teams/teams_reply.js:37 static/js/teams/teams_reply.js:72
+#: static/js/teams/teams_reply.js:124 static/js/teams/teams_reply.js:147
+#: static/js/teams/teams_reply.js:171 static/js/teams/teams_reply.js:205
+#: static/js/vaults/vault.js:42
 msgid "Error!"
 msgstr "잘못!"
 
@@ -67,7 +69,8 @@ msgstr "약관에 동의해 주세요."
 msgid "Are you sure to delete your profile?"
 msgstr "정말로 탈퇴하시겠습니까?"
 
-#: static/js/accounts/edit_bookmarks.js:26 static/js/blogs/dashboard.js:20
+#: static/js/accounts/edit_bookmarks.js:26 static/js/aliases/alias.js:28
+#: static/js/aliases/alias.js:62 static/js/blogs/dashboard.js:20
 #: static/js/recipes/category.js:70 static/js/recipes/recipes.js:33
 #: static/js/vaults/vault.js:39
 msgid "Saved successfully."
@@ -91,8 +94,8 @@ msgstr "쪽지 보내기"
 
 #: static/js/accounts/member.js:6 static/js/accounts/member.js:18
 #: static/js/accounts/member.js:40 static/js/accounts/signup.js:6
-#: static/js/accounts/signup.js:11 static/js/vaults/edit_key.js:7
-#: static/js/vaults/new_key.js:6
+#: static/js/accounts/signup.js:11 static/js/aliases/alias.js:42
+#: static/js/vaults/edit_key.js:7 static/js/vaults/new_key.js:6
 msgid "Mind the chracter length limitation."
 msgstr "글자수 제한을 지켜주세요."
 
@@ -137,11 +140,38 @@ msgstr "굵은 글씨는 필수항목으로 꼭 입력해야 합니다."
 msgid "Passwords are different each other."
 msgstr "비밀번호가 서로 다릅니다."
 
+#: static/js/aliases/alias.js:6
+msgid "Enter alias, more than 2 characters."
+msgstr "별칭을 2글자 이상 입력하세요."
+
+#: static/js/aliases/alias.js:10
+#| msgid "Alphabet Number _ - . are only available."
+msgid "Alphabet and number only."
+msgstr "영문 숫자만 가능합니다."
+
+#: static/js/aliases/alias.js:33
+msgid "Exist alias. Please use different alias."
+msgstr "존재하는 별칭입니다. 다른 이름을 사용해 보세요."
+
+#: static/js/aliases/alias.js:47
+msgid "Enter original URL."
+msgstr "원본 URL을 입력하세요."
+
+#: static/js/aliases/alias.js:67
+msgid "Not changed."
+msgstr "변경사항이 없습니다."
+
+#: static/js/aliases/alias.js:77 static/js/recipes/category.js:26
+#: static/js/vaults/vault.js:2
+msgid "Are you sure to delete?"
+msgstr "정말로 삭제하시겠습니까?"
+
 #: static/js/blogs/blogs_comment.js:4 static/js/blogs/blogs_comment.js:53
-#: static/js/blogs/sidemenu.js:7 static/js/boards/boards_list.js:8
-#: static/js/boards/boards_reply.js:4 static/js/boards/boards_reply.js:50
-#: static/js/boards/reply_list.js:8 static/js/spams/spam.js:55
-#: static/js/teams/teams_reply.js:4 static/js/teams/teams_reply.js:46
+#: static/js/blogs/blogs_list.js:7 static/js/blogs/sidemenu.js:7
+#: static/js/boards/boards_list.js:8 static/js/boards/boards_reply.js:4
+#: static/js/boards/boards_reply.js:50 static/js/boards/reply_list.js:8
+#: static/js/spams/spam.js:55 static/js/teams/teams_reply.js:4
+#: static/js/teams/teams_reply.js:46
 msgid "Please input 2 or more characters."
 msgstr "두 글자 이상 입력해 주세요."
 
@@ -239,10 +269,6 @@ msgstr "오래된 쪽지를 모두 삭제하시겠습니까?"
 msgid "Are you sure to delete this conversation?"
 msgstr "대화를 삭제하시겠습니까?"
 
-#: static/js/recipes/category.js:26 static/js/vaults/vault.js:2
-msgid "Are you sure to delete?"
-msgstr "정말로 삭제하시겠습니까?"
-
 #: static/js/teams/show_recruitment.js:2
 msgid "Are you sure to resume recruitment?"
 msgstr "모집을 재개하시겠습니까?"
@@ -273,8 +299,7 @@ msgstr "파티팀 모집이 취소되었습니다."
 
 #: static/js/teams/team.js:33
 msgid "ID for this platform must exist in your user information."
-msgstr ""
-"회원정보에 해당 기종의 아이디가 지정되어 있어야 슬롯에 참여할 수 있습니다."
+msgstr "회원정보에 해당 기종의 아이디가 지정되어 있어야 슬롯에 참여할 수 있습니다."
 
 #: static/js/teams/team.js:43
 msgid "Are you sure to leave this party?"

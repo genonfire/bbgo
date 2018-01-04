@@ -37,7 +37,7 @@ if 'DJANGO_DEBUG' in os.environ:
     if os.environ['DJANGO_DEBUG'] == 'Debug':
         DEBUG = True
 
-ALLOWED_HOSTS = ['gencode.me', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -67,6 +67,7 @@ LOCAL_APPS = (
     'teams',
     'vaults',
     'recipes',
+    'aliases',
 )
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + EDITOR_APPS + LOCAL_APPS
 

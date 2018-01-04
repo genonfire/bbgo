@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-19 21:23+0900\n"
+"POT-Creation-Date: 2018-01-04 17:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,22 +22,24 @@ msgid "Alarm for your activity."
 msgstr ""
 
 #: static/js/accounts/alarm.js:67 static/js/accounts/alarm.js:114
-#: static/js/accounts/edit_bookmarks.js:29 static/js/blogs/blogs_comment.js:45
-#: static/js/blogs/blogs_comment.js:85 static/js/blogs/blogs_comment.js:146
-#: static/js/blogs/blogs_comment.js:168 static/js/blogs/dashboard.js:30
-#: static/js/boards/boards_reply.js:41 static/js/boards/boards_reply.js:79
-#: static/js/boards/boards_reply.js:156 static/js/boards/boards_reply.js:182
-#: static/js/boards/boards_reply.js:204 static/js/boards/boards_reply.js:227
-#: static/js/boards/boards_reply.js:251 static/js/boards/boards_reply.js:278
-#: static/js/boards/reply_list.js:38 static/js/msgs/conversation.js:19
-#: static/js/recipes/category.js:20 static/js/recipes/category.js:42
-#: static/js/recipes/category.js:73 static/js/recipes/recipes.js:36
-#: static/js/recipes/recipes.js:58 static/js/teams/team.js:36
-#: static/js/teams/team.js:69 static/js/teams/team.js:104
-#: static/js/teams/team.js:129 static/js/teams/teams_reply.js:37
-#: static/js/teams/teams_reply.js:72 static/js/teams/teams_reply.js:124
-#: static/js/teams/teams_reply.js:147 static/js/teams/teams_reply.js:171
-#: static/js/teams/teams_reply.js:205 static/js/vaults/vault.js:42
+#: static/js/accounts/edit_bookmarks.js:29 static/js/aliases/alias.js:36
+#: static/js/aliases/alias.js:70 static/js/aliases/alias.js:93
+#: static/js/blogs/blogs_comment.js:45 static/js/blogs/blogs_comment.js:85
+#: static/js/blogs/blogs_comment.js:146 static/js/blogs/blogs_comment.js:168
+#: static/js/blogs/dashboard.js:30 static/js/boards/boards_reply.js:41
+#: static/js/boards/boards_reply.js:79 static/js/boards/boards_reply.js:156
+#: static/js/boards/boards_reply.js:182 static/js/boards/boards_reply.js:204
+#: static/js/boards/boards_reply.js:227 static/js/boards/boards_reply.js:251
+#: static/js/boards/boards_reply.js:278 static/js/boards/reply_list.js:38
+#: static/js/msgs/conversation.js:19 static/js/recipes/category.js:20
+#: static/js/recipes/category.js:42 static/js/recipes/category.js:73
+#: static/js/recipes/recipes.js:36 static/js/recipes/recipes.js:58
+#: static/js/teams/team.js:36 static/js/teams/team.js:69
+#: static/js/teams/team.js:104 static/js/teams/team.js:129
+#: static/js/teams/teams_reply.js:37 static/js/teams/teams_reply.js:72
+#: static/js/teams/teams_reply.js:124 static/js/teams/teams_reply.js:147
+#: static/js/teams/teams_reply.js:171 static/js/teams/teams_reply.js:205
+#: static/js/vaults/vault.js:42
 msgid "Error!"
 msgstr ""
 
@@ -65,7 +67,8 @@ msgstr ""
 msgid "Are you sure to delete your profile?"
 msgstr ""
 
-#: static/js/accounts/edit_bookmarks.js:26 static/js/blogs/dashboard.js:20
+#: static/js/accounts/edit_bookmarks.js:26 static/js/aliases/alias.js:28
+#: static/js/aliases/alias.js:62 static/js/blogs/dashboard.js:20
 #: static/js/recipes/category.js:70 static/js/recipes/recipes.js:33
 #: static/js/vaults/vault.js:39
 msgid "Saved successfully."
@@ -89,8 +92,8 @@ msgstr ""
 
 #: static/js/accounts/member.js:6 static/js/accounts/member.js:18
 #: static/js/accounts/member.js:40 static/js/accounts/signup.js:6
-#: static/js/accounts/signup.js:11 static/js/vaults/edit_key.js:7
-#: static/js/vaults/new_key.js:6
+#: static/js/accounts/signup.js:11 static/js/aliases/alias.js:42
+#: static/js/vaults/edit_key.js:7 static/js/vaults/new_key.js:6
 msgid "Mind the chracter length limitation."
 msgstr ""
 
@@ -135,11 +138,37 @@ msgstr ""
 msgid "Passwords are different each other."
 msgstr ""
 
+#: static/js/aliases/alias.js:6
+msgid "Enter alias, more than 2 characters."
+msgstr ""
+
+#: static/js/aliases/alias.js:10
+msgid "Alphabet and number only."
+msgstr ""
+
+#: static/js/aliases/alias.js:33
+msgid "Exist alias. Please use different alias."
+msgstr ""
+
+#: static/js/aliases/alias.js:47
+msgid "Enter original URL."
+msgstr ""
+
+#: static/js/aliases/alias.js:67
+msgid "Not changed."
+msgstr ""
+
+#: static/js/aliases/alias.js:77 static/js/recipes/category.js:26
+#: static/js/vaults/vault.js:2
+msgid "Are you sure to delete?"
+msgstr ""
+
 #: static/js/blogs/blogs_comment.js:4 static/js/blogs/blogs_comment.js:53
-#: static/js/blogs/sidemenu.js:7 static/js/boards/boards_list.js:8
-#: static/js/boards/boards_reply.js:4 static/js/boards/boards_reply.js:50
-#: static/js/boards/reply_list.js:8 static/js/spams/spam.js:55
-#: static/js/teams/teams_reply.js:4 static/js/teams/teams_reply.js:46
+#: static/js/blogs/blogs_list.js:7 static/js/blogs/sidemenu.js:7
+#: static/js/boards/boards_list.js:8 static/js/boards/boards_reply.js:4
+#: static/js/boards/boards_reply.js:50 static/js/boards/reply_list.js:8
+#: static/js/spams/spam.js:55 static/js/teams/teams_reply.js:4
+#: static/js/teams/teams_reply.js:46
 msgid "Please input 2 or more characters."
 msgstr ""
 
@@ -235,10 +264,6 @@ msgstr ""
 
 #: static/js/msgs/inbox.js:14
 msgid "Are you sure to delete this conversation?"
-msgstr ""
-
-#: static/js/recipes/category.js:26 static/js/vaults/vault.js:2
-msgid "Are you sure to delete?"
 msgstr ""
 
 #: static/js/teams/show_recruitment.js:2

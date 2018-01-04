@@ -40,6 +40,11 @@
             </li>
             {% if user.is_authenticated %}
                 <li>
+                    <a href="{% url 'aliases:dashboard' %}">
+                        {% trans 'Alias' %}
+                    </a>
+                </li>
+                <li>
                     <a href="{% url 'vaults:open_vault' %}">
                         {% trans 'Vaults' %}
                     </a>
