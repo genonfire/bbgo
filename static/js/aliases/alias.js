@@ -45,6 +45,9 @@ function new_alias() {
 
 function edit_alias(id, url) {
     new_url = prompt(gettext("Enter original URL."), url);
+    if (!new_url || new_url.length < 5) {
+        return;
+    }
 
     $.ajaxSetup({
         beforeSend: function(xhr, settings) {
