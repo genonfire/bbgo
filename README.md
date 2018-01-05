@@ -18,7 +18,7 @@ Korean > https://gencode.me/boards/article/1/
 
 
 # Issue management
-http://jira.gencode.me/browse/BBGO
+http://jira.gencode.me/projects/BBGO/issues/filter=allissues
 
 
 # Tested by
