@@ -149,22 +149,28 @@
         {% endif %}
         {% trans "'s other posts" %}
     </div>
-    {% for p in post_navi %}
-        <div>
-            <a href="{% url 'blogs:show_post' id=p.id %}">
-                {% if p.id == post.id %}
-                    <font color="#a0a0a0"><u>
-                        > {{ p.title }}
-                    </u></font>
-                {% else %}
-                    {{ p.title }}
-                {% endif %}
-            </a>
-            <span class="float-right">
-                {{ p.created_at|date:"Y-m-d" }}
-            </span>
-        </div>
-    {% endfor %}
+    <div>
+        <table>
+            {% for p in post_navi %}
+                <tr>
+                    <td class="post_title">
+                        <a href="{% url 'blogs:show_post' id=p.id %}">
+                            {% if p.id == post.id %}
+                                <font color="#a0a0a0"><u>
+                                    > {{ p.title }}
+                                </u></font>
+                            {% else %}
+                                {{ p.title }}
+                            {% endif %}
+                        </a>
+                    </td>
+                    <td class="post_date">
+                        {{ p.created_at|date:"Y-m-d" }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
 </div>
 
 <div id="comments">

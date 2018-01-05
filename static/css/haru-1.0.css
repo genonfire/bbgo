@@ -471,9 +471,12 @@ span.small-text {font-size:.8em;}
 
 .post_navigation {margin:.5em 0 1em .2em;border:1px solid #aaa;}
 .post_navigation div {padding:.2em;font-size:.9em;}
-.post_navigation div span {font-size:.9em;}
 .post_navigation div a:hover {text-decoration:underline;}
 .post_navigation div:first-child {background-color:#EDEDED;}
+.post_navigation table {width:100%;}
+.post_navigation td {height:1.8em;}
+.post_navigation td.post_title {width:auto;}
+.post_navigation td.post_date {width:75px;font-size:.9em;text-align:right;}
 
 .dashboard_summary {min-width:300px;width:50%;margin:.5em 0 1em .2em;background-color:#EDEDED;}
 .dashboard_summary a {text-decoration:underline;}
