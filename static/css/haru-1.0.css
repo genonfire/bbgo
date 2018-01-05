@@ -90,7 +90,7 @@ img.portrait {width:150px;height:150px;}
 .subnav_blog_title span.blog_description {vertical-align:middle;font-style:italic;font-size:.95em;}
 
 /* portal */
-.banner-container {display:inline-block;width:100%;}
+.banner_container {display:inline-block;width:100%;}
 .banner img {max-width:100%;}
 .banner_title {max-width:80%;margin:0 auto;padding-top:1em;text-align:center;font-size:2em;font-weight:300;}
 .banner_button {text-align:center;}
