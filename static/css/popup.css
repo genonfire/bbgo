@@ -3,7 +3,7 @@
 }
 .popup_container .popup_text {
     visibility:hidden;
-    width: 160px;
+    width: 180px;
     background-color: #5280CE;
     color: #fff;
     text-align: center;
@@ -13,7 +13,7 @@
     z-index: 1;
     bottom: 125%;
     left: 50%;
-    margin-left: -80px;
+    margin-left: -90px;
     margin-bottom: .5em;
 }
 .popup_container .popup_text::after {

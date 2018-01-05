@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-04 17:48+0900\n"
+"POT-Creation-Date: 2018-01-05 15:51+0900\n"
 "PO-Revision-Date: 2017-11-30 21:47+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -540,7 +540,7 @@ msgstr ""
 #: templates/haru/accounts/scrap.html:24 templates/haru/accounts/scrap.html:46
 #: templates/haru/accounts/scrap.html:60
 #: templates/haru/blogs/show_comment.html:57
-#: templates/haru/blogs/show_post.html:132
+#: templates/haru/blogs/show_post.html:136
 #: templates/haru/boards/search_reply.html:27
 #: templates/haru/boards/search_reply.html:52
 #: templates/haru/boards/search_reply.html:68
@@ -856,7 +856,7 @@ msgid "status"
 msgstr ""
 
 #: templates/haru/blogs/edit_post.html:84
-#: templates/haru/blogs/show_post.html:189
+#: templates/haru/blogs/show_post.html:193
 #: templates/haru/boards/edit_article.html:74
 #: templates/haru/boards/show_article.html:162
 #: templates/haru/spams/spam_setting.html:19
@@ -880,8 +880,8 @@ msgid "cancel"
 msgstr ""
 
 #: templates/haru/blogs/show_blogs.html:66
-#: templates/haru/blogs/show_post.html:39
-#: templates/haru/blogs/show_post.html:144 templates/haru/menu_sub.html:21
+#: templates/haru/blogs/show_post.html:40
+#: templates/haru/blogs/show_post.html:148 templates/haru/menu_sub.html:21
 msgid "uncategorized"
 msgstr ""
 
@@ -904,29 +904,33 @@ msgstr ""
 msgid "Write reply"
 msgstr ""
 
-#: templates/haru/blogs/show_post.html:94
+#: templates/haru/blogs/show_post.html:95
 msgid "Tags:"
 msgstr ""
 
-#: templates/haru/blogs/show_post.html:127
+#: templates/haru/blogs/show_post.html:109
+msgid "If you like this post.."
+msgstr ""
+
+#: templates/haru/blogs/show_post.html:131
 #: templates/haru/boards/show_article.html:116
 #: templates/haru/teams/show_recruitment.html:88
 msgid "edit"
 msgstr ""
 
-#: templates/haru/blogs/show_post.html:146
+#: templates/haru/blogs/show_post.html:150
 msgid "'s other posts"
 msgstr ""
 
-#: templates/haru/blogs/show_post.html:173
+#: templates/haru/blogs/show_post.html:177
 msgid "Reload comments"
 msgstr ""
 
-#: templates/haru/blogs/show_post.html:180
+#: templates/haru/blogs/show_post.html:184
 msgid "Enter comment here."
 msgstr ""
 
-#: templates/haru/blogs/show_post.html:185
+#: templates/haru/blogs/show_post.html:189
 msgid "Enter name here."
 msgstr ""
 

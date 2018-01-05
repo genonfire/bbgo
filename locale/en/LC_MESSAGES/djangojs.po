@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-04 17:48+0900\n"
+"POT-Creation-Date: 2018-01-05 15:52+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: static/js/accounts/alarm.js:67 static/js/accounts/alarm.js:114
 #: static/js/accounts/edit_bookmarks.js:29 static/js/aliases/alias.js:36
-#: static/js/aliases/alias.js:70 static/js/aliases/alias.js:93
+#: static/js/aliases/alias.js:73 static/js/aliases/alias.js:96
 #: static/js/blogs/blogs_comment.js:45 static/js/blogs/blogs_comment.js:85
 #: static/js/blogs/blogs_comment.js:146 static/js/blogs/blogs_comment.js:168
 #: static/js/blogs/dashboard.js:30 static/js/boards/boards_reply.js:41
@@ -68,7 +68,7 @@ msgid "Are you sure to delete your profile?"
 msgstr ""
 
 #: static/js/accounts/edit_bookmarks.js:26 static/js/aliases/alias.js:28
-#: static/js/aliases/alias.js:62 static/js/blogs/dashboard.js:20
+#: static/js/aliases/alias.js:65 static/js/blogs/dashboard.js:20
 #: static/js/recipes/category.js:70 static/js/recipes/recipes.js:33
 #: static/js/vaults/vault.js:39
 msgid "Saved successfully."
@@ -154,11 +154,11 @@ msgstr ""
 msgid "Enter original URL."
 msgstr ""
 
-#: static/js/aliases/alias.js:67
+#: static/js/aliases/alias.js:70
 msgid "Not changed."
 msgstr ""
 
-#: static/js/aliases/alias.js:77 static/js/recipes/category.js:26
+#: static/js/aliases/alias.js:80 static/js/recipes/category.js:26
 #: static/js/vaults/vault.js:2
 msgid "Are you sure to delete?"
 msgstr ""
