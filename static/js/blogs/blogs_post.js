@@ -27,3 +27,21 @@ function delete_post(url) {
         location.href = url;
     }
 }
+
+appear({
+    init: function init(){
+    },
+    elements: function elements(){
+        return document.getElementsByClassName('post_view_buttons');
+    },
+    appear: function appear(el){
+        var popup = document.getElementById("like_bait");
+        popup.classList.toggle("show");
+    },
+    disappear: function disappear(el){
+        var popup = document.getElementById("like_bait");
+        popup.classList.toggle("show");
+    },
+    bounds: 100,
+    reappear: true
+});

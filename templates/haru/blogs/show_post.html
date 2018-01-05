@@ -23,6 +23,7 @@
     {% if ENABLE_CODE_HIGHLIGHT %}
         <link rel="stylesheet" href="{% static 'css/xcode.min.css' %}">
     {% endif %}
+    <link rel="stylesheet" href="{% static 'css/popup.css' %}">
 {% endblock %}
 {% load tz datetime %}
 {% load censor %}
@@ -103,7 +104,10 @@
         <span id="post_view_text"></span>
     </div>
     <div class="article_view_buttons post_view_buttons">
-        <span>
+        <span class="popup_container">
+            <span class="popup_text" id="like_bait">
+                {% trans 'If you like this post..' %}
+            </span>
             <a href="javascript:like_post({{ post.id }})">
                 <img src="{% static 'icons/like24.png' %}">
                 <span id="post_view_like_count">
@@ -200,6 +204,7 @@
     <script src="{% static 'js/thirdparty/highlightjs-line-numbers.min.js' %}"></script>
     <script src="{% static 'js/thirdparty/highlight.js' %}" async></script>
 {% endif %}
+<script src="{% static 'js/thirdparty/appear.min.js' %}"></script>
 <script src="{% static 'js/blogs/blogs_post.js' %}" async></script>
 <script>
     var comment_text_max = {{ COMMENT_TEXT_MAX }};
