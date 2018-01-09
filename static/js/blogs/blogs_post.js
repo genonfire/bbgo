@@ -15,6 +15,7 @@ function like_post(id) {
             if (data[0] > 0) {
                 $('#post_view_like_count').html(data[0]);
             }
+            $('#like_bait').hide();
         },
         error: function(data) {
             $('#post_view_text').html('error');
