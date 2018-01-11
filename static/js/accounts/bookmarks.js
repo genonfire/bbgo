@@ -35,9 +35,17 @@ function scrap(app, id) {
             id: id
         },
         success: function(datain) {
+            if ($('#popup_frame').length > 0) {
+                $('#popup_frame').remove();
+                $('body').off('mouseup touchend');
+            }
             toast(gettext("You've scrapped this article."));
         },
         error: function(data) {
+            if ($('#popup_frame').length > 0) {
+                $('#popup_frame').remove();
+                $('body').off('mouseup touchend');
+            }
             toast(gettext("Already scrapped."));
         }
     });
