@@ -82,7 +82,7 @@ function share_via(e, app, id, text) {
     var url = window.location.href;
     var scrap_url = "javascript:scrap('" + app + "', '" + id + "')";
     var scrap_text = gettext('scrap');
-    var facebook_url = "http://www.facebook.com/sharer/sharer.php?u=" + url;
+    var facebook_url = "https://www.facebook.com/sharer/sharer.php?u=" + url;
     var twitter_url = "https://twitter.com/intent/tweet?text=" + text + "&url=" + url
     var data = '<table width="100%"><tr><td><a href="' + scrap_url + '" target=_blank><img src="/static/icons/scrap16.png">' + scrap_text + '</a>' + '</td></tr><tr><td><a href="' + facebook_url + '" target=_blank><img src="/static/icons/facebook16.png">Facebook</a></td></tr><tr><td><a href="' + twitter_url + '" target="_blank"><img src="/static/icons/twitter16.png">Twitter</a></td></tr></table>';
 

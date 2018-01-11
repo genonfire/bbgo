@@ -3,19 +3,24 @@
 {% load i18n %}
 {% block title %}{{ post.title }} - {{ SITE_NAME }}{% endblock %}
 {% block open_graph %}
+    <meta property="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ post.title }}">
+    <meta property="og:site_name" content="{{ SITE_NAME }}">
+    {% if post.tags %}
+        <meta property="og:description" content="{{ post.tags }}">
+        <meta name="twitter:description" content="{{ post.tags }}">
+    {% else %}
+        <meta property="og:description" content="{{ SITE_INFO }}">
+        <meta name="twitter:description" content="{{ SITE_INFO }}">
+    {% endif %}
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:title" content="{{ post.title }}">
+    {% if post.image %}
+        <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ post.image.url }}">
+        <meta property="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{{ post.image.url }}">
+    {% endif %}
     {% if FB_APP_ID %}
         <meta property="fb:app_id" content="{{ FB_APP_ID }}">
-        <meta property="og:site_name" content="{{ SITE_NAME }}">
-        {% if post.tags %}
-            <meta property="og:description" content="{{ post.tags }}">
-        {% else %}
-            <meta property="og:description" content="{{ SITE_INFO }}">
-        {% endif %}
-        <meta property="og:url" content="{{ request.build_absolute_uri }}">
-        <meta property="og:title" content="{{ post.title }}">
-        {% if post.image %}
-            <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ post.image.url }}">
-        {% endif %}
     {% endif %}
 {% endblock %}
 {% block extra_head_content %}
@@ -121,7 +126,7 @@
             </a>
         </span>
         <span>
-            <a href="http://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank">
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank">
                 <img src="{% static 'icons/facebook24.png' %}">
             </a>
         </span>
