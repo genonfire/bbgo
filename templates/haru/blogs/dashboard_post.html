@@ -75,14 +75,19 @@
         </span>
     <span class="float-right">
         <select id="id_category" maxlength="23" name="category">
-            <option value="">{% trans 'All' %}</option>
+            <option value="all">{% trans 'All' %}</option>
             {% for choice in BLOG_CATEGORY %}
                 {% if choice == category %}
                     <option value="{{ choice }}" selected>{{ choice }}</option>
                 {% else %}
-                        <option value="{{ choice }}">{{ choice }}</option>
+                    <option value="{{ choice }}">{{ choice }}</option>
                 {% endif %}
             {% endfor %}
+            {% if category == "" %}
+                <option value="" selected>{% trans 'uncategorized' %}</option>
+            {% else %}
+                <option value="">{% trans 'uncategorized' %}</option>
+            {% endif %}
         </select>
     </span>
 </div>

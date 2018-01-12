@@ -176,11 +176,15 @@ def dashboard_post(request, status='all', category='all', page=1):
     total = Blog.objects.filter(qc).filter(qs).count()
     lists = Blog.objects.filter(qc).filter(qs).order_by('-id')[start_at:end_at]
 
-    count_all = Blog.objects.count()
-    count_published = Blog.objects.filter(status__iexact='1normal').count()
-    count_draft = Blog.objects.filter(status__iexact='2temp').count()
-    count_pending = Blog.objects.filter(status__iexact='5hidden').count()
-    count_deleted = Blog.objects.filter(status__iexact='6deleted').count()
+    count_all = Blog.objects.filter(qc).count()
+    count_published = Blog.objects.filter(qc).filter(
+        status__iexact='1normal').count()
+    count_draft = Blog.objects.filter(qc).filter(
+        status__iexact='2temp').count()
+    count_pending = Blog.objects.filter(qc).filter(
+        status__iexact='5hidden').count()
+    count_deleted = Blog.objects.filter(qc).filter(
+        status__iexact='6deleted').count()
 
     index_total = int(ceil(float(total) / list_count))
     index_begin = (current_page / 10) * 10 + 1
