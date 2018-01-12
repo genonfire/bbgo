@@ -29,12 +29,18 @@
                         {% trans 'Text translation' %}
                     </a>
                 </li>
+                <li>
+                    <a href="{% url 'boards:dashboard' condition='recent' %}">
+                        {% trans 'Dashboard' %}
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{% url 'bbgo' %}">
+                        bbgo
+                    </a>
+                </li>
             {% endif %}
-            <li>
-                <a href="{% url 'bbgo' %}">
-                    bbgo
-                </a>
-            </li>
             <li class="titlemenu">
                 {% trans 'Sub site' %}
             </li>

@@ -26,9 +26,24 @@ urlpatterns = [
         name='search_reply',
     ),
     url(
+        r'^search/article/(?P<table>\d+)/(?P<search_type>\w+)/(?P<search_word>.*)/$',
+        views.search_article,
+        name='search_article'
+    ),
+    url(
         r'^delete_reply/(?P<id>\d+)/$',
         views.delete_reply,
         name='delete_reply'
+    ),
+    url(
+        r'^restore_reply/(?P<id>\d+)/$',
+        views.restore_reply,
+        name='restore_reply'
+    ),
+    url(
+        r'^delete_reply_permanently/(?P<id>\d+)/$',
+        views.delete_reply_permanently,
+        name='delete_reply_permanently'
     ),
     url(
         r'^(?P<table>\d+)/new/$',
@@ -53,11 +68,38 @@ urlpatterns = [
     url(
         r'^article/(?P<id>\d+)/delete/$',
         views.delete_article,
-        name='delete_article'
+        name='delete_article',
+        kwargs={'stay': False}
     ),
     url(
-        r'^search/article/(?P<table>\d+)/(?P<search_type>\w+)/(?P<search_word>.*)/$',
-        views.search_article,
-        name='search_article'
+        r'^post/(?P<id>\d+)/delete_and_stay/$',
+        views.delete_article,
+        name='delete_and_stay',
+        kwargs={'stay': True}
+    ),
+    url(
+        r'^article/(?P<id>\d+)/delete_permanently/$',
+        views.delete_article_permanently,
+        name='delete_article_permanently'
+    ),
+    url(
+        r'^article/(?P<id>\d+)/restore/$',
+        views.restore_article,
+        name='restore_article'
+    ),
+    url(
+        r'^dashboard/(?P<condition>.*)/$',
+        views.dashboard,
+        name='dashboard'
+    ),
+    url(
+        r'^dashboard_article/(?P<status>.*)/(?P<table>\d+)/(?P<page>\d+)/$',
+        views.dashboard_article,
+        name='dashboard_article'
+    ),
+    url(
+        r'^dashboard_reply/(?P<status>.*)/(?P<page>\d+)/$',
+        views.dashboard_reply,
+        name='dashboard_reply'
     ),
 ]

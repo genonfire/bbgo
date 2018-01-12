@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-05 15:52+0900\n"
+"POT-Creation-Date: 2018-01-12 22:45+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,11 +51,11 @@ msgstr ""
 msgid "Error! Please check bookmarks limitation."
 msgstr ""
 
-#: static/js/accounts/bookmarks.js:38
+#: static/js/accounts/bookmarks.js:42
 msgid "You've scrapped this article."
 msgstr ""
 
-#: static/js/accounts/bookmarks.js:41
+#: static/js/accounts/bookmarks.js:49
 msgid "Already scrapped."
 msgstr ""
 
@@ -204,7 +204,7 @@ msgstr ""
 msgid "Are you sure to quit editing?"
 msgstr ""
 
-#: static/js/blogs/blogs_post.js:26 static/js/boards/boards_article.js:93
+#: static/js/blogs/blogs_post.js:27 static/js/boards/boards_article.js:93
 #: static/js/boards/boards_reply.js:188 static/js/boards/reply_list.js:22
 #: static/js/teams/teams_reply.js:108
 msgid "Are you sure to delete this article?"
