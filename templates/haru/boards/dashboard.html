@@ -101,7 +101,7 @@
         <tbody>
             {% for article in articles %}
                 <tr>
-                    <td class="article_info">
+                    <td class="title">
                         <a href="{% url 'boards:show_list' table=article.table page=1 %}">
                             {{ name_list|pick_first:article.table }}
                         </a>

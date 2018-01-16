@@ -199,7 +199,7 @@ table.board td.scrap_delete a {color:#E54F44;}
 table.board td.alias {width:120px;border-bottom:1px solid #a5a5a5;font-size:.8em;}
 table.board tr.article_info_mobile {display:none;border-bottom:1px solid #ABB2AC;}
 table.board tr.article_info_mobile td {width:100%;font-size:.8em;text-align:left;}
-table.board tr.article_info_mobile span {padding:.1em;font-weight:300;color:#999;border-right:0px dotted #9393AE;}
+table.board tr.article_info_mobile span {padding:.1em;font-weight:300;color:#666;border-right:0px dotted #9393AE;}
 table.board tr.article_info_mobile span a {vertical-align:baseline;}
 table.board tr.article_info_mobile span.article_hot {color:#E54F44;}
 table.board tr.article_info_mobile span.scrap_delete a {vertical-align:baseline;color:#E54F44;}
@@ -592,7 +592,6 @@ table.table-bordered td {padding:.2em;border:1px solid #aaa;}
     .sidebar {display:none;}
     table.board thead {display:none;}
     table.board tr {border:none;}
-    table.board td.subject {font-size:1.1em;}
     table.board td.article_info {display:none;}
     table.board tr.article_info_mobile {display:block;}
     .dbsearch input.search_word {width:auto}
@@ -600,7 +599,7 @@ table.table-bordered td {padding:.2em;border:1px solid #aaa;}
     .small_thumbnail {width:10%;height:auto;}
     .wide_thumbnail {width:30%;height:auto;margin-bottom:.5em;}
     .blog_sample {width:64%;}
-    .blog_title {font-size:1.3em;}
+    .blog_title {font-size:1.2em;}
     .post_view_title {font-size:1.4em;}
     .vault_content {width:80%;}
     .recipe_content {width:60%;}
