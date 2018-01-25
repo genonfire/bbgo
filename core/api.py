@@ -343,7 +343,7 @@ def reload_reply(request):
         return error_to_response(request)
 
 
-def delete_reply(request):
+def delete_reply(request, early_return=False):
     """API delete_reply"""
     if request.method == 'POST':
         id = request.POST['id']
@@ -357,6 +357,9 @@ def delete_reply(request):
             return error_to_response(request)
 
         reply.save()
+        if early_return:
+            return JsonResponse({'status': 'true'}, status=201)
+
         article_id = reply.article_id
         replies = Reply.objects.filter(article_id=article_id).annotate(
             custom_order=Case(

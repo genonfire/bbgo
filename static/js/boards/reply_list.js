@@ -27,7 +27,7 @@ function delete_reply(id) {
         });
         $.ajax({
             type: "POST",
-            url: "/api/delete_reply/",
+            url: "/api/delete_reply_return/",
             data: {
                 id: id
             },

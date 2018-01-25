@@ -72,6 +72,12 @@ urlpatterns = [
         name='delete_reply',
     ),
     url(
+        r'^delete_reply_return/$',
+        api.delete_reply,
+        name='delete_reply_return',
+        kwargs={'early_return': True}
+    ),
+    url(
         r'^restore_reply/$',
         api.restore_reply,
         name='restore_reply',
