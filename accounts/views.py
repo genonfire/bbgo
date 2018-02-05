@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 from math import ceil
 import re
 from smtplib import SMTPException

@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
-import sys
+from __future__ import unicode_literals
 
 from django.core.urlresolvers import reverse_lazy
-
-reload(sys)
-sys.setdefaultencoding('utf-8')
 
 
 class BoardTable():

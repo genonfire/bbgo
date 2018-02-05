@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 from random import randint
 
 from core.utils import error_page, is_mobile

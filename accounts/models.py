@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 from core.utils import get_ipaddress
 
 from django.conf import settings

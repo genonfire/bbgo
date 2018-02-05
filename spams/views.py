@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 from core.utils import error_to_response, get_referrer, get_useragent
 from django.conf import settings
 from django.contrib.admin.views.decorators import staff_member_required

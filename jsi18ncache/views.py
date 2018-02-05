@@ -23,7 +23,7 @@ import datetime
 TEN_YEARS = datetime.timedelta(days=3650)
 
 
-def javascript_catalog(request, domain='djangojs', packages=None):
+def javascript_catalog_cache(request, domain='djangojs', packages=None):
     """From https://github.com/wtanaka/django-jsi18ncache"""
     import django.views.i18n
     response = django.views.i18n.javascript_catalog(request, domain=domain, packages=packages)

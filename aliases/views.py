@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 from core.utils import error_page, error_to_response
 
 from django.contrib.auth.decorators import login_required

@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
 from math import ceil
 
 from core.utils import error_page, get_ipaddress, get_referer
