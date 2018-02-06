@@ -222,7 +222,8 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (
     STATIC_DIR,
 )
-STATICI18N_OUTPUT_DIR = os.path.join(STATIC_DIR, 'jsi18n')
+STATICI18N_OUTPUT_DIR = os.path.join(
+    STATIC_DIR, 'jsi18n', APP_VERSION.rstrip('\n'))
 
 MEDIA_URL = '/upload/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')

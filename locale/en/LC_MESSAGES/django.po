@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-06 15:19+0900\n"
+"POT-Creation-Date: 2018-02-06 19:41+0900\n"
 "PO-Revision-Date: 2017-11-30 21:47+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -330,7 +330,7 @@ msgstr ""
 #: templates/haru/accounts/edit_user_info.html:47
 #: templates/haru/accounts/login.html:41
 #: templates/haru/accounts/signup.html:36
-#: templates/haru/accounts/user_info.html:28 templates/haru/base.html:107
+#: templates/haru/accounts/user_info.html:28 templates/haru/base.html:103
 #: templates/haru/menu_mobile.html:67
 msgid "id"
 msgstr ""
@@ -482,7 +482,7 @@ msgstr ""
 #: templates/haru/accounts/join.html:4 templates/haru/accounts/join.html:8
 #: templates/haru/accounts/login.html:57 templates/haru/accounts/signup.html:4
 #: templates/haru/accounts/signup.html:19
-#: templates/haru/accounts/signup.html:102 templates/haru/base.html:125
+#: templates/haru/accounts/signup.html:102 templates/haru/base.html:121
 #: templates/haru/menu_mobile.html:87
 msgid "Sign up"
 msgstr ""
@@ -493,7 +493,7 @@ msgstr ""
 
 #: templates/haru/accounts/join.html:17 templates/haru/accounts/login.html:4
 #: templates/haru/accounts/login.html:12 templates/haru/accounts/login.html:47
-#: templates/haru/base.html:114 templates/haru/menu_mobile.html:70
+#: templates/haru/base.html:110 templates/haru/menu_mobile.html:70
 #: templates/haru/registration/logged_out.html:17
 #: templates/haru/registration/password_reset_complete.html:17
 msgid "login"
@@ -503,7 +503,7 @@ msgstr ""
 msgid "Login failure"
 msgstr ""
 
-#: templates/haru/accounts/login.html:33 templates/haru/base.html:96
+#: templates/haru/accounts/login.html:33 templates/haru/base.html:92
 #: templates/haru/menu_mobile.html:57
 #: templates/haru/registration/logged_out.html:4
 #: templates/haru/registration/logged_out.html:8
@@ -511,12 +511,12 @@ msgid "logout"
 msgstr ""
 
 #: templates/haru/accounts/login.html:44
-#: templates/haru/accounts/signup.html:86 templates/haru/base.html:110
+#: templates/haru/accounts/signup.html:86 templates/haru/base.html:106
 #: templates/haru/menu_mobile.html:75
 msgid "password"
 msgstr ""
 
-#: templates/haru/accounts/login.html:52 templates/haru/base.html:120
+#: templates/haru/accounts/login.html:52 templates/haru/base.html:116
 #: templates/haru/menu_mobile.html:82
 msgid "Reset password"
 msgstr ""
