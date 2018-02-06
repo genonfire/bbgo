@@ -47,7 +47,7 @@ def check_duplication(request):
     if length < min_limit or length > max_limit:
         return JsonResponse({'status': 'false'}, status=400)
 
-    if request.user.is_authenticated() and idcheck:
+    if request.user.is_authenticated and idcheck:
         if name == request.user.username or name == request.user.first_name:
             idcheck = False
 
@@ -116,7 +116,7 @@ def check_validation(request):
 def like_article(request, liketype):
     """API like_article"""
     if request.method == 'POST':
-        if not request.user.is_authenticated():
+        if not request.user.is_authenticated:
             msg = _("Require login")
             return JsonResponse([0, msg], safe=False, status=201)
 
@@ -188,7 +188,7 @@ def like_users(request, liketype):
 def like_reply(request, liketype):
     """API like_reply"""
     if request.method == 'POST':
-        if not request.user.is_authenticated():
+        if not request.user.is_authenticated:
             msg = _("Require login")
             return JsonResponse([0, msg], safe=False, status=201)
 
@@ -233,7 +233,7 @@ def like_reply(request, liketype):
 
 def write_reply(request):
     """API write_reply"""
-    if not request.user.is_authenticated():
+    if not request.user.is_authenticated:
         return JsonResponse({'status': 'false'}, status=401)
 
     if request.method == 'POST':
@@ -506,7 +506,7 @@ def scrap(request):
 
 def alarm_status(request):
     """API alarm_status"""
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         return JsonResponse([request.user.profile.alarm], safe=False, status=201)
 
     return JsonResponse({'status': 'false'}, status=400)
@@ -514,7 +514,7 @@ def alarm_status(request):
 
 def alarm_list(request):
     """API alarm_list"""
-    if not request.user.is_authenticated():
+    if not request.user.is_authenticated:
         return JsonResponse({'status': 'false'}, status=401)
 
     if request.method == 'POST':
@@ -572,7 +572,7 @@ def alarm_list(request):
 
 def clear_alarm(request):
     """API clear_alarm"""
-    if not request.user.is_authenticated():
+    if not request.user.is_authenticated:
         return JsonResponse({'status': 'false'}, status=401)
 
     if request.method == 'POST':
@@ -606,7 +606,7 @@ def delete_message(request):
 
 def write_team_reply(request):
     """API write_team_reply"""
-    if not request.user.is_authenticated():
+    if not request.user.is_authenticated:
         return JsonResponse({'status': 'false'}, status=401)
 
     if request.method == 'POST':
@@ -807,7 +807,7 @@ def team_reply_count(request):
 def join_team(request):
     """API join_team"""
     if request.method == 'POST':
-        if not request.user.is_authenticated():
+        if not request.user.is_authenticated:
             return JsonResponse({'status': 'false'}, status=401)
 
         id = request.POST['id']
@@ -896,7 +896,7 @@ def join_team(request):
 def leave_team(request):
     """API leave_team"""
     if request.method == 'POST':
-        if not request.user.is_authenticated():
+        if not request.user.is_authenticated:
             return JsonResponse({'status': 'false'}, status=401)
 
         id = request.POST['id']
@@ -947,7 +947,7 @@ def leave_team(request):
 def kick_player(request):
     """API reload_team"""
     if request.method == 'POST':
-        if not request.user.is_authenticated():
+        if not request.user.is_authenticated:
             return JsonResponse({'status': 'false'}, status=401)
 
         id = request.POST['id']
@@ -1085,7 +1085,7 @@ def write_comment(request):
             comment.comment_id = comment_id
             comment.ip = get_ipaddress(request)
             comment.status = '1normal'
-            if request.user.is_authenticated():
+            if request.user.is_authenticated:
                 comment.userid = request.user.username
             else:
                 comment.username = username

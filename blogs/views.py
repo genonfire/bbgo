@@ -13,9 +13,8 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 from django.utils.translation import ugettext as _
 
-from models import Blog, Comment
-
 from .forms import BlogEditForm
+from .models import Blog, Comment
 
 
 def show_blogs(request, search_type='', search_word='', page=0):
@@ -46,11 +45,11 @@ def show_blogs(request, search_type='', search_word='', page=0):
     lists = Blog.objects.filter(q).order_by('-id')[start_at:end_at]
 
     index_total = int(ceil(float(total) / list_count))
-    index_begin = (current_page / 10) * 10 + 1
+    index_begin = int(current_page / 10) * 10 + 1
     index_end = mindex_end = index_total
     if index_end - index_begin >= 10:
         index_end = index_begin + 9
-    mindex_begin = (current_page / 5) * 5 + 1
+    mindex_begin = int(current_page / 5) * 5 + 1
     if mindex_end - mindex_begin >= 5:
         mindex_end = mindex_begin + 4
 
@@ -189,11 +188,11 @@ def dashboard_post(request, status='all', category='all', page=1):
         status__iexact='6deleted').count()
 
     index_total = int(ceil(float(total) / list_count))
-    index_begin = (current_page / 10) * 10 + 1
+    index_begin = int(current_page / 10) * 10 + 1
     index_end = mindex_end = index_total
     if index_end - index_begin >= 10:
         index_end = index_begin + 9
-    mindex_begin = (current_page / 5) * 5 + 1
+    mindex_begin = int(current_page / 5) * 5 + 1
     if mindex_end - mindex_begin >= 5:
         mindex_end = mindex_begin + 4
 
@@ -246,11 +245,11 @@ def dashboard_comment(request, status='all', page=1):
     count_spam = Comment.objects.filter(status__iexact='7spam').count()
 
     index_total = int(ceil(float(total) / list_count))
-    index_begin = (current_page / 10) * 10 + 1
+    index_begin = int(current_page / 10) * 10 + 1
     index_end = mindex_end = index_total
     if index_end - index_begin >= 10:
         index_end = index_begin + 9
-    mindex_begin = (current_page / 5) * 5 + 1
+    mindex_begin = int(current_page / 5) * 5 + 1
     if mindex_end - mindex_begin >= 5:
         mindex_end = mindex_begin + 4
 

@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
                 ('order', models.IntegerField(default=1)),
                 ('recipe', models.TextField()),
                 ('image', models.ImageField(upload_to=b'recipes/', blank=True)),
-                ('category', models.ForeignKey(to='recipes.Category')),
+                ('category', models.ForeignKey(to='recipes.Category', on_delete=models.CASCADE)),
             ],
         ),
     ]

@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
                 ('has_video', models.BooleanField(default=False)),
                 ('dislike_users', models.ManyToManyField(related_name='board_dislike_users', to=settings.AUTH_USER_MODEL)),
                 ('like_users', models.ManyToManyField(related_name='board_like_users', to=settings.AUTH_USER_MODEL)),
-                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
             ],
         ),
         migrations.CreateModel(
@@ -53,7 +53,7 @@ class Migration(migrations.Migration):
                 ('dislike_count', models.IntegerField(default=0)),
                 ('dislike_users', models.ManyToManyField(related_name='reply_dislike_users', to=settings.AUTH_USER_MODEL)),
                 ('like_users', models.ManyToManyField(related_name='reply_like_users', to=settings.AUTH_USER_MODEL)),
-                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
             ],
         ),
     ]

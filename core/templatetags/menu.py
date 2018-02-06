@@ -2,7 +2,7 @@
 from boards.table import BoardTable
 
 from django import template
-from django.core.urlresolvers import resolve
+from django.urls import resolve
 
 from teams.table import TeamTable
 
@@ -18,7 +18,7 @@ def menu_main(context):
     info = context['SITE_INFO']
     my_bookmark = []
 
-    if user.is_authenticated():
+    if user.is_authenticated:
         if user.profile.bookmarks:
             bookmarks = user.profile.bookmarks.split(',')
 

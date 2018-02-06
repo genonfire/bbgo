@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                 ('like_users', models.TextField(default=b'', blank=True)),
                 ('image', models.ImageField(upload_to=b'featured_images/%Y-%m/', blank=True)),
                 ('tags', models.TextField(default=b'', blank=True)),
-                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
             ],
         ),
         migrations.CreateModel(

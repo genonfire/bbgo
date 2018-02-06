@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 
 
 class BoardTable():
@@ -92,7 +92,7 @@ class BoardTable():
 
     def writable(self, request, table):
         """Writable for table"""
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             writable = True
             if int(table) == 0 or int(table) == 9:
                 writable = False

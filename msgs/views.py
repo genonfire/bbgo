@@ -63,11 +63,11 @@ def inbox(request, page=1):
         my_msgs.append([user, last_msg[0]])
 
     index_total = int(ceil(float(total) / list_count))
-    index_begin = (current_page / 10) * 10 + 1
+    index_begin = int(current_page / 10) * 10 + 1
     index_end = mindex_end = index_total
     if index_end - index_begin >= 10:
         index_end = index_begin + 9
-    mindex_begin = (current_page / 5) * 5 + 1
+    mindex_begin = int(current_page / 5) * 5 + 1
     if mindex_end - mindex_begin >= 5:
         mindex_end = mindex_begin + 4
 

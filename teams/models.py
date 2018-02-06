@@ -3,8 +3,8 @@ from __future__ import unicode_literals
 
 from django.conf import settings
 from django.contrib.auth.models import User
-from django.core.urlresolvers import reverse_lazy
 from django.db import models
+from django.urls import reverse_lazy
 from django.utils.translation import ugettext as _
 
 
@@ -22,7 +22,8 @@ class Team(models.Model):
     table = models.IntegerField(default=0)
     status = models.CharField(
         max_length=10, choices=TEAM_STATUS, default='1normal')
-    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now_add=True)
     ip = models.GenericIPAddressField()
@@ -71,7 +72,8 @@ class TeamReply(models.Model):
     reply_to = models.CharField(max_length=150, default='', blank=True)
     status = models.CharField(
         max_length=10, choices=REPLY_STATUS, default='1normal')
-    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now_add=True)
     ip = models.GenericIPAddressField()

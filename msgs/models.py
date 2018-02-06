@@ -2,8 +2,8 @@
 from __future__ import unicode_literals
 
 from django.conf import settings
-from django.core.urlresolvers import reverse_lazy
 from django.db import models
+from django.urls import reverse_lazy
 from django.utils.translation import ugettext as _
 
 
@@ -17,10 +17,8 @@ class Msg(models.Model):
         ('6deleted', _('status_deleted')),
     }
 
-    sender = models.ForeignKey(
-        settings.AUTH_USER_MODEL, related_name='msg_sender')
-    recipient = models.ForeignKey(
-        settings.AUTH_USER_MODEL, related_name='msg_recipient')
+    sender = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='msg_sender', on_delete=models.CASCADE)
+    recipient = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='msg_recipient', on_delete=models.CASCADE)
     sender_status = models.CharField(
         max_length=10, choices=MSG_STATUS, default='1normal')
     recipient_status = models.CharField(

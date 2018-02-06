@@ -38,7 +38,7 @@ class Migration(migrations.Migration):
                 ('alarm_full', models.BooleanField(default=True)),
                 ('portrait', models.ImageField(blank=True, upload_to=b'portrait/%Y-%m-%d/', validators=[accounts.models.img_validator])),
                 ('signature', models.TextField(blank=True)),
-                ('user', models.OneToOneField(to=settings.AUTH_USER_MODEL)),
+                ('user', models.OneToOneField(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
             ],
         ),
     ]

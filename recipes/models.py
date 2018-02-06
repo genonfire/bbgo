@@ -2,8 +2,8 @@
 from __future__ import unicode_literals
 
 from django.conf import settings
-from django.core.urlresolvers import reverse_lazy
 from django.db import models
+from django.urls import reverse_lazy
 
 
 class Category(models.Model):

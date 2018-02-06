@@ -22,7 +22,7 @@ def img_validator(attached):
 class Profile(models.Model):
     """User model extension"""
 
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     point = models.IntegerField(default=1)
     last_article_at = models.DateTimeField(auto_now_add=True)
     last_reply_at = models.DateTimeField(auto_now_add=True)

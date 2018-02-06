@@ -2,8 +2,8 @@
 from __future__ import unicode_literals
 
 from django.conf import settings
-from django.core.urlresolvers import reverse_lazy
 from django.db import models
+from django.urls import reverse_lazy
 from django.utils.translation import ugettext as _
 
 
@@ -19,7 +19,8 @@ class Blog(models.Model):
 
     status = models.CharField(
         max_length=10, choices=BLOG_STATUS, default='1normal')
-    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now_add=True)
     ip = models.GenericIPAddressField()

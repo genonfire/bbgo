@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                 ('slot', models.IntegerField(default=1)),
                 ('slot_total', models.IntegerField(default=6)),
                 ('slot_users', models.ManyToManyField(related_name='team_slot_users', to=settings.AUTH_USER_MODEL)),
-                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
             ],
         ),
         migrations.CreateModel(
@@ -44,7 +44,7 @@ class Migration(migrations.Migration):
                 ('modified_at', models.DateTimeField(auto_now_add=True)),
                 ('ip', models.GenericIPAddressField()),
                 ('content', models.TextField(max_length=2000)),
-                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
             ],
         ),
     ]

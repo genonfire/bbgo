@@ -12,9 +12,8 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 from django.utils.translation import ugettext as _
 
-from models import Team
-
 from .forms import TeamEditForm
+from .models import Team
 from .table import TeamTable
 
 
@@ -44,15 +43,15 @@ def recruitment(request, table=0, page=0):
     lists = Team.objects.filter(table=table).filter(q).order_by('-id')[start_at:end_at]
 
     index_total = int(ceil(float(total) / list_count))
-    index_begin = (current_page / 10) * 10 + 1
+    index_begin = int(current_page / 10) * 10 + 1
     index_end = mindex_end = index_total
     if index_end - index_begin >= 10:
         index_end = index_begin + 9
-    mindex_begin = (current_page / 5) * 5 + 1
+    mindex_begin = int(current_page / 5) * 5 + 1
     if mindex_end - mindex_begin >= 5:
         mindex_end = mindex_begin + 4
 
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         writable = True
     else:
         writable = False

@@ -9,15 +9,14 @@ from django.conf import settings
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.core.urlresolvers import reverse_lazy
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse_lazy
 from django.utils import timezone
 from django.utils.translation import ugettext as _
 
-from models import Board, Reply
-
 from .forms import BoardEditForm
+from .models import Board, Reply
 from .table import BoardTable
 
 
@@ -90,11 +89,11 @@ def show_list(request, search_type='', search_word='', table=0, page=0):
         name_list = None
 
     index_total = int(ceil(float(total) / list_count))
-    index_begin = (current_page / 10) * 10 + 1
+    index_begin = int(current_page / 10) * 10 + 1
     index_end = mindex_end = index_total
     if index_end - index_begin >= 10:
         index_end = index_begin + 9
-    mindex_begin = (current_page / 5) * 5 + 1
+    mindex_begin = int(current_page / 5) * 5 + 1
     if mindex_end - mindex_begin >= 5:
         mindex_end = mindex_begin + 4
 
@@ -377,11 +376,11 @@ def search_reply(request, search_type, search_word, table=0, page=1):
     name_list = board_table.get_table_list()
 
     index_total = int(ceil(float(total) / list_count))
-    index_begin = (current_page / 10) * 10 + 1
+    index_begin = int(current_page / 10) * 10 + 1
     index_end = mindex_end = index_total
     if index_end - index_begin >= 10:
         index_end = index_begin + 9
-    mindex_begin = (current_page / 5) * 5 + 1
+    mindex_begin = int(current_page / 5) * 5 + 1
     if mindex_end - mindex_begin >= 5:
         mindex_end = mindex_begin + 4
 
@@ -531,11 +530,11 @@ def dashboard_article(request, status='all', table=0, page=1):
         status__iexact='6deleted').count()
 
     index_total = int(ceil(float(total) / list_count))
-    index_begin = (current_page / 10) * 10 + 1
+    index_begin = int(current_page / 10) * 10 + 1
     index_end = mindex_end = index_total
     if index_end - index_begin >= 10:
         index_end = index_begin + 9
-    mindex_begin = (current_page / 5) * 5 + 1
+    mindex_begin = int(current_page / 5) * 5 + 1
     if mindex_end - mindex_begin >= 5:
         mindex_end = mindex_begin + 4
 
@@ -589,11 +588,11 @@ def dashboard_reply(request, status='all', page=1):
     count_deleted = Reply.objects.filter(status__iexact='6deleted').count()
 
     index_total = int(ceil(float(total) / list_count))
-    index_begin = (current_page / 10) * 10 + 1
+    index_begin = int(current_page / 10) * 10 + 1
     index_end = mindex_end = index_total
     if index_end - index_begin >= 10:
         index_end = index_begin + 9
-    mindex_begin = (current_page / 5) * 5 + 1
+    mindex_begin = int(current_page / 5) * 5 + 1
     if mindex_end - mindex_begin >= 5:
         mindex_end = mindex_begin + 4
 

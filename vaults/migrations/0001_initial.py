@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('masterkey', models.CharField(max_length=128)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('expiry', models.DateTimeField(auto_now_add=True)),
-                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
             ],
         ),
         migrations.CreateModel(
@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
                 ('cvc', fernet_fields.fields.EncryptedCharField(max_length=10, blank=True)),
                 ('description', fernet_fields.fields.EncryptedCharField(max_length=128, blank=True)),
                 ('image', models.ImageField(upload_to=b'vaults/', blank=True)),
-                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
             ],
         ),
     ]

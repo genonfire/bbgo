@@ -21,8 +21,8 @@ class Migration(migrations.Migration):
                 ('text', models.TextField(max_length=1000)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('ip', models.GenericIPAddressField()),
-                ('recipient', models.ForeignKey(related_name='msg_recipient', to=settings.AUTH_USER_MODEL)),
-                ('sender', models.ForeignKey(related_name='msg_sender', to=settings.AUTH_USER_MODEL)),
+                ('recipient', models.ForeignKey(related_name='msg_recipient', to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
+                ('sender', models.ForeignKey(related_name='msg_sender', to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)),
             ],
         ),
     ]

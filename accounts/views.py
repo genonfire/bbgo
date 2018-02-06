@@ -15,9 +15,9 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.core.signing import TimestampSigner
-from django.core.urlresolvers import reverse_lazy
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse_lazy
 from django.utils.translation import ugettext as _
 
 from teams.table import TeamTable
@@ -53,7 +53,7 @@ def setting(request):
             msg = _('Form validation Failure')
 
     elif request.method == "GET":
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             msg = ""
             settingform = SettingForm(instance=request.user.profile)
         else:
@@ -118,7 +118,7 @@ def edit_user_info(request):
         else:
             msg = _('Form validation Failure')
     elif request.method == "GET":
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             msg = ""
             infoform = UserInfoForm(instance=profile)
         else:
@@ -188,11 +188,11 @@ def scrap_list(request, page=0):
                 continue
 
     index_total = int(ceil(float(total) / list_count))
-    index_begin = (current_page / 10) * 10 + 1
+    index_begin = int(current_page / 10) * 10 + 1
     index_end = mindex_end = index_total
     if index_end - index_begin >= 10:
         index_end = index_begin + 9
-    mindex_begin = (current_page / 5) * 5 + 1
+    mindex_begin = int(current_page / 5) * 5 + 1
     if mindex_end - mindex_begin >= 5:
         mindex_end = mindex_begin + 4
 
@@ -327,7 +327,7 @@ def show_deactivate_account(request):
 @login_required
 def deactivate_account(request):
     """Deactivate account"""
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         request.user.is_active = False
         if request.user.is_staff:
             request.user.is_staff = False
@@ -380,11 +380,11 @@ def dashboard_user(request, condition='recent', page=1):
         users = User.objects.order_by(order)[start_at:end_at]
 
     index_total = int(ceil(float(total) / list_count))
-    index_begin = (current_page / 10) * 10 + 1
+    index_begin = int(current_page / 10) * 10 + 1
     index_end = mindex_end = index_total
     if index_end - index_begin >= 10:
         index_end = index_begin + 9
-    mindex_begin = (current_page / 5) * 5 + 1
+    mindex_begin = int(current_page / 5) * 5 + 1
     if mindex_end - mindex_begin >= 5:
         mindex_end = mindex_begin + 4
 

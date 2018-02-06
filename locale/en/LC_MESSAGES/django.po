@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-12 22:45+0900\n"
+"POT-Creation-Date: 2018-02-06 15:19+0900\n"
 "PO-Revision-Date: 2017-11-30 21:47+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,63 +18,63 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: accounts/views.py:49 accounts/views.py:113
+#: accounts/views.py:51 accounts/views.py:115
 msgid "Saved successfully."
 msgstr ""
 
-#: accounts/views.py:51 accounts/views.py:117 msgs/views.py:122
-#: msgs/views.py:176
+#: accounts/views.py:53 accounts/views.py:119 msgs/views.py:124
+#: msgs/views.py:178
 msgid "Form validation Failure"
 msgstr ""
 
-#: accounts/views.py:89 accounts/views.py:278
+#: accounts/views.py:91 accounts/views.py:280
 msgid "Please check nickname."
 msgstr ""
 
-#: accounts/views.py:106 accounts/views.py:109 accounts/views.py:297
-#: accounts/views.py:299
+#: accounts/views.py:108 accounts/views.py:111 accounts/views.py:299
+#: accounts/views.py:301
 msgid "Verification failure. Please check verification code again."
 msgstr ""
 
-#: accounts/views.py:268
+#: accounts/views.py:270
 msgid "Please check username."
 msgstr ""
 
-#: accounts/views.py:301
+#: accounts/views.py:303
 msgid "Sorry. Please try again later."
 msgstr ""
 
-#: aliases/views.py:32 templates/404.html:9
+#: aliases/views.py:34 templates/404.html:9
 msgid "The page you requested is not exist. Please try something else."
 msgstr ""
 
-#: blogs/forms.py:24 boards/forms.py:25
+#: blogs/forms.py:26 boards/forms.py:27
 msgid "Enter title here."
 msgstr ""
 
-#: blogs/forms.py:27
+#: blogs/forms.py:29
 msgid "Enter comma separated tags here."
 msgstr ""
 
-#: blogs/models.py:12 core/templatetags/status.py:11
+#: blogs/models.py:14 core/templatetags/status.py:11
 #: templates/haru/blogs/dashboard_post.html:42
 msgid "status_published"
 msgstr "published"
 
-#: blogs/models.py:13 blogs/models.py:52 core/templatetags/status.py:13
+#: blogs/models.py:15 blogs/models.py:55 core/templatetags/status.py:13
 #: templates/haru/blogs/dashboard_post.html:52
 msgid "status_draft"
 msgstr "draft"
 
-#: blogs/models.py:14 blogs/models.py:54 blogs/views.py:78
+#: blogs/models.py:16 blogs/models.py:57 blogs/views.py:79
 #: core/templatetags/status.py:19 templates/haru/blogs/dashboard_post.html:62
 msgid "status_pending"
 msgstr "pending"
 
-#: blogs/models.py:15 blogs/models.py:56 blogs/models.py:64 blogs/views.py:81
-#: boards/models.py:18 boards/models.py:66 boards/models.py:83
-#: boards/views.py:133 core/templatetags/status.py:21 msgs/models.py:15
-#: teams/models.py:15 teams/models.py:51 teams/models.py:64
+#: blogs/models.py:17 blogs/models.py:59 blogs/models.py:67 blogs/views.py:82
+#: boards/models.py:20 boards/models.py:69 boards/models.py:86
+#: boards/views.py:134 core/templatetags/status.py:21 msgs/models.py:17
+#: teams/models.py:17 teams/models.py:54 teams/models.py:67
 #: templates/haru/blogs/dashboard_comment.html:55
 #: templates/haru/blogs/dashboard_post.html:72
 #: templates/haru/boards/dashboard_article.html:94
@@ -82,44 +82,44 @@ msgstr "pending"
 msgid "status_deleted"
 msgstr "Deleted"
 
-#: blogs/models.py:50 blogs/models.py:63 boards/models.py:13
-#: boards/models.py:56 boards/models.py:81 msgs/models.py:12
-#: teams/models.py:13 teams/models.py:47 teams/models.py:62
+#: blogs/models.py:53 blogs/models.py:66 boards/models.py:15
+#: boards/models.py:59 boards/models.py:84 msgs/models.py:14
+#: teams/models.py:15 teams/models.py:50 teams/models.py:65
 #: templates/haru/blogs/dashboard_comment.html:45
 #: templates/haru/boards/dashboard_article.html:44
 #: templates/haru/boards/dashboard_reply.html:44
 msgid "status_normal"
 msgstr "Noraml"
 
-#: blogs/models.py:65 core/templatetags/status.py:23
+#: blogs/models.py:68 core/templatetags/status.py:23
 #: templates/haru/blogs/dashboard_comment.html:65
 msgid "status_spam"
 msgstr "spam"
 
-#: boards/forms.py:28
+#: boards/forms.py:30
 msgid "Add a reference URL."
 msgstr ""
 
-#: boards/models.py:14 boards/models.py:58
+#: boards/models.py:16 boards/models.py:61
 #: templates/haru/boards/dashboard_article.html:54
 msgid "status_temp"
 msgstr "Temporary Saved"
 
-#: boards/models.py:15 boards/models.py:60 core/templatetags/status.py:15
+#: boards/models.py:17 boards/models.py:63 core/templatetags/status.py:15
 #: templates/haru/boards/dashboard_article.html:64
 #: templates/haru/boards/show_list.html:57
 msgid "status_notice"
 msgstr "Notice"
 
-#: boards/models.py:16 boards/models.py:62 core/templatetags/status.py:17
+#: boards/models.py:18 boards/models.py:65 core/templatetags/status.py:17
 #: templates/haru/boards/dashboard_article.html:74
 #: templates/haru/boards/show_list.html:195
 msgid "status_warning"
 msgstr "Warning"
 
-#: boards/models.py:17 boards/models.py:64 boards/models.py:82
-#: boards/views.py:130 msgs/models.py:14 teams/models.py:14 teams/models.py:49
-#: teams/models.py:63 templates/haru/boards/dashboard_article.html:84
+#: boards/models.py:19 boards/models.py:67 boards/models.py:85
+#: boards/views.py:131 msgs/models.py:16 teams/models.py:16 teams/models.py:52
+#: teams/models.py:66 templates/haru/boards/dashboard_article.html:84
 #: templates/haru/boards/dashboard_reply.html:54
 #: templates/haru/boards/show_list.html:143
 #: templates/haru/boards/show_list.html:151
@@ -128,52 +128,52 @@ msgstr "Warning"
 msgid "status_hidden"
 msgstr "Hidden"
 
-#: boards/views.py:182 teams/views.py:116
+#: boards/views.py:183 teams/views.py:117
 msgid "Wrong status from user."
 msgstr ""
 
-#: core/api.py:53
+#: core/api.py:55
 msgid "Already exist."
 msgstr ""
 
-#: core/api.py:55
+#: core/api.py:57
 msgid "Available"
 msgstr ""
 
-#: core/api.py:70
+#: core/api.py:72
 msgid "E-mail exists. Why don't you try to find your password?"
 msgstr ""
 
-#: core/api.py:79
+#: core/api.py:81
 #, python-format
 msgid "[%(site_name)s] Verification code for signing in"
 msgstr ""
 
-#: core/api.py:86
+#: core/api.py:88
 msgid "Verification code sent. Please check your E-mail."
 msgstr ""
 
-#: core/api.py:118 core/api.py:190
+#: core/api.py:120 core/api.py:192
 msgid "Require login"
 msgstr ""
 
-#: core/api.py:126 core/api.py:198 core/api.py:1035
+#: core/api.py:128 core/api.py:200 core/api.py:1040
 msgid "You like your own post?"
 msgstr ""
 
-#: core/api.py:138 core/api.py:1045
+#: core/api.py:140 core/api.py:1050
 msgid "You've liked this article"
 msgstr ""
 
-#: core/api.py:146
+#: core/api.py:148
 msgid "You've disliked this article"
 msgstr ""
 
-#: core/api.py:153 core/api.py:222 core/api.py:1049
+#: core/api.py:155 core/api.py:224 core/api.py:1054
 msgid "You've already liked"
 msgstr ""
 
-#: core/api.py:155 core/api.py:224
+#: core/api.py:157 core/api.py:226
 msgid "You've already disliked"
 msgstr ""
 
@@ -181,23 +181,23 @@ msgstr ""
 msgid "Wrong access"
 msgstr ""
 
-#: msgs/models.py:13
+#: msgs/models.py:15
 msgid "status_read"
 msgstr "Read"
 
-#: msgs/views.py:102 msgs/views.py:156
+#: msgs/views.py:104 msgs/views.py:158
 msgid "User does not exist."
 msgstr ""
 
-#: msgs/views.py:106 msgs/views.py:160
+#: msgs/views.py:108 msgs/views.py:162
 msgid "Cannot send message to yourself."
 msgstr ""
 
-#: teams/models.py:16 teams/models.py:53
+#: teams/models.py:18 teams/models.py:56
 msgid "status_canceled"
 msgstr "Canceled"
 
-#: teams/models.py:17 teams/models.py:55
+#: teams/models.py:19 teams/models.py:58
 #: templates/haru/teams/recruitment.html:92
 #: templates/haru/teams/show_recruitment.html:108
 msgid "status_full"
@@ -330,7 +330,7 @@ msgstr ""
 #: templates/haru/accounts/edit_user_info.html:47
 #: templates/haru/accounts/login.html:41
 #: templates/haru/accounts/signup.html:36
-#: templates/haru/accounts/user_info.html:28 templates/haru/base.html:108
+#: templates/haru/accounts/user_info.html:28 templates/haru/base.html:107
 #: templates/haru/menu_mobile.html:67
 msgid "id"
 msgstr ""
@@ -482,7 +482,7 @@ msgstr ""
 #: templates/haru/accounts/join.html:4 templates/haru/accounts/join.html:8
 #: templates/haru/accounts/login.html:57 templates/haru/accounts/signup.html:4
 #: templates/haru/accounts/signup.html:19
-#: templates/haru/accounts/signup.html:102 templates/haru/base.html:126
+#: templates/haru/accounts/signup.html:102 templates/haru/base.html:125
 #: templates/haru/menu_mobile.html:87
 msgid "Sign up"
 msgstr ""
@@ -493,7 +493,7 @@ msgstr ""
 
 #: templates/haru/accounts/join.html:17 templates/haru/accounts/login.html:4
 #: templates/haru/accounts/login.html:12 templates/haru/accounts/login.html:47
-#: templates/haru/base.html:115 templates/haru/menu_mobile.html:70
+#: templates/haru/base.html:114 templates/haru/menu_mobile.html:70
 #: templates/haru/registration/logged_out.html:17
 #: templates/haru/registration/password_reset_complete.html:17
 msgid "login"
@@ -503,7 +503,7 @@ msgstr ""
 msgid "Login failure"
 msgstr ""
 
-#: templates/haru/accounts/login.html:33 templates/haru/base.html:97
+#: templates/haru/accounts/login.html:33 templates/haru/base.html:96
 #: templates/haru/menu_mobile.html:57
 #: templates/haru/registration/logged_out.html:4
 #: templates/haru/registration/logged_out.html:8
@@ -511,12 +511,12 @@ msgid "logout"
 msgstr ""
 
 #: templates/haru/accounts/login.html:44
-#: templates/haru/accounts/signup.html:86 templates/haru/base.html:111
+#: templates/haru/accounts/signup.html:86 templates/haru/base.html:110
 #: templates/haru/menu_mobile.html:75
 msgid "password"
 msgstr ""
 
-#: templates/haru/accounts/login.html:52 templates/haru/base.html:121
+#: templates/haru/accounts/login.html:52 templates/haru/base.html:120
 #: templates/haru/menu_mobile.html:82
 msgid "Reset password"
 msgstr ""
@@ -651,7 +651,7 @@ msgid ""
 msgstr ""
 
 #: templates/haru/accounts/signup.html:14 templates/haru/error.html:4
-#: templates/haru/error.html.py:8
+#: templates/haru/error.html:8
 #: templates/haru/registration/password_reset_confirm.html:41
 msgid "Error!"
 msgstr ""
@@ -703,8 +703,7 @@ msgid "Your original URL here"
 msgstr ""
 
 #: templates/haru/aliases/dashboard.html:20 templates/haru/menu_sub.html:54
-#: templates/haru/menu_sub.html.py:70
-#: templates/haru/recipes/edit_recipe.html:9
+#: templates/haru/menu_sub.html:70 templates/haru/recipes/edit_recipe.html:9
 #: templates/haru/vaults/edit_vault.html:9
 msgid "+ New item"
 msgstr ""
@@ -1069,7 +1068,7 @@ msgid "Show new replies"
 msgstr ""
 
 #: templates/haru/boards/show_article.html:156
-#: templates/haru/msgs/conversation.html:40
+#: templates/haru/msgs/conversation.html:39
 #: templates/haru/msgs/send_msg.html:40
 #: templates/haru/teams/show_recruitment.html:137
 msgid "Please show some respect."
@@ -1186,20 +1185,20 @@ msgid "Change key"
 msgstr ""
 
 #: templates/haru/msgs/conversation.html:4
-#: templates/haru/msgs/conversation.html:12
+#: templates/haru/msgs/conversation.html:11
 msgid "Conversation"
 msgstr ""
 
-#: templates/haru/msgs/conversation.html:15
+#: templates/haru/msgs/conversation.html:14
 msgid "Conversation with"
 msgstr ""
 
-#: templates/haru/msgs/conversation.html:46
+#: templates/haru/msgs/conversation.html:45
 #: templates/haru/msgs/send_msg.html:46
 msgid "Send"
 msgstr ""
 
-#: templates/haru/msgs/inbox.html:4 templates/haru/msgs/inbox.html.py:10
+#: templates/haru/msgs/inbox.html:4 templates/haru/msgs/inbox.html:10
 msgid "Message inbox"
 msgstr ""
 
@@ -1634,22 +1633,22 @@ msgstr ""
 msgid "Other"
 msgstr ""
 
-#: vaults/models.py:27
+#: vaults/models.py:30
 msgid "vault_account"
 msgstr "Account"
 
-#: vaults/models.py:28
+#: vaults/models.py:31
 msgid "vault_card"
 msgstr "Card"
 
-#: vaults/models.py:29
+#: vaults/models.py:32
 msgid "vault_membership"
 msgstr "Membership"
 
-#: vaults/models.py:30
+#: vaults/models.py:33
 msgid "vault_other"
 msgstr "Others"
 
-#: vaults/views.py:61 vaults/views.py:127
+#: vaults/views.py:63 vaults/views.py:129
 msgid "Wrong master key."
 msgstr ""
