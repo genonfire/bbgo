@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-06 19:48+0900\n"
+"POT-Creation-Date: 2018-02-12 11:39+0900\n"
 "PO-Revision-Date: 2018-01-12 22:46+0828\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -178,7 +178,7 @@ msgstr "이미 추천하셨습니다."
 msgid "You've already disliked"
 msgstr "이미 비추하셨습니다."
 
-#: core/utils.py:10 core/utils.py:24
+#: core/utils.py:11 core/utils.py:25
 msgid "Wrong access"
 msgstr "잘못된 접근입니다."
 
