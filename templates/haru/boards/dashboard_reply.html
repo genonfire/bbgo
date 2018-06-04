@@ -91,7 +91,9 @@
                         </div>
                     </td>
                     <td class="title">
-                        {{ reply.content|urlize|target_blank|linebreaksbr }}
+                        <a href="{% url 'boards:show_article' id=reply.article_id %}#reply_content{{ reply.id }}">
+                            {{ reply.content|urlize|target_blank|linebreaksbr }}
+                        </a>
                         <div class="dashboard_function">
                             {% if reply.status == '5hidden' or reply.status == '6deleted' %}
                                 <span>

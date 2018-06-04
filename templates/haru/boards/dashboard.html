@@ -163,7 +163,9 @@
                         </div>
                     </td>
                     <td class="title">
-                        {{ reply.content|urlize|target_blank|linebreaksbr }}
+                        <a href="{% url 'boards:show_article' id=reply.article_id %}#reply_content{{ reply.id }}">
+                            {{ reply.content|urlize|target_blank|linebreaksbr }}
+                        </a>
                         <div class="dashboard_function">
                             <span class="delete">
                                 <a href="{% url 'boards:delete_reply' id=reply.id %}">

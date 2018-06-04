@@ -168,7 +168,9 @@
                         </div>
                     </td>
                     <td class="title">
-                        {{ comment.content|urlize|target_blank|linebreaksbr }}
+                        <a href="{% url 'blogs:show_post' id=comment.post_id %}#reply_body{{ comment.id }}">
+                            {{ comment.content|urlize|target_blank|linebreaksbr }}
+                        </a>
                         <div class="dashboard_function">
                             <span>
                                 <a href="{% url 'blogs:spam_comment' id=comment.id %}">
