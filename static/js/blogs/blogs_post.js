@@ -11,14 +11,14 @@ function like_post(id) {
             id: id
         },
         success: function(data) {
-            $('#post_view_text').html(data[1]);
+            toast(data[1], 500);
             if (data[0] > 0) {
                 $('#post_view_like_count').html(data[0]);
             }
             $('#like_bait').hide();
         },
         error: function(data) {
-            $('#post_view_text').html('error');
+            toast(gettext('Error!'), 500);
         }
     });
 }

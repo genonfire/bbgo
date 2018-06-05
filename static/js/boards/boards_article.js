@@ -11,13 +11,13 @@ function like_article(id) {
             id: id
         },
         success: function(data) {
-            $('#article_view_text').html(data[1]);
+            toast(data[1]), 500;
             if (data[0] > 0) {
                 $('#article_view_like_count').html(data[0]);
             }
         },
         error: function(data) {
-            $('#article_view_text').html('error');
+            toast(gettext("Error!"));
         }
     });
 }
@@ -35,10 +35,10 @@ function dislike_article(id) {
             id: id
         },
         success: function(data) {
-            $('#article_view_text').html(data[1]);
+            toast(data[1], 500);
         },
         error: function(data) {
-            $('#article_view_text').html('error');
+            toast(gettext("Error!"));
         }
     });
 }
@@ -73,7 +73,7 @@ function like_users(e, id) {
             })
         },
         error: function(data) {
-            $('#article_view_text').html('error');
+            toast(gettext("Error!"));
         }
     });
 }
