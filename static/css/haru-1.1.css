@@ -247,7 +247,9 @@ table.board tr.article_info_mobile span.scrap_delete a {vertical-align:baseline;
 .article_view_count span {margin-left:.3em;margin-right:0;}
 .article_view_count a span {display:inline-block;width:3em;height:100%;margin-left:.2em;box-sizing:border-box;border:1px solid #a5a5a5;background:#11223d;color:#fff;text-align:center;}
 .article_view_misc {margin-left:.5em;font-size:.8em;color:#999;vertical-align:middle;}
-.article_view_ip {margin-right:.5;letter-spacing:.1em;}
+.article_view_ip {margin-right:.5;letter-spacing:.1em;text-align:right;}
+.article_view_short a {text-decoration:underline;color:#666;letter-spacing:0;}
+.article_view_short a:hover {color:#333;}
 .article_view_content {display:inline-block;width:100%;margin-top:.5em;margin-bottom:.5em;overflow-wrap:break-word;}
 .article_view_content iframe {max-width:100%;}
 .article_view_content img {max-width:100%;}

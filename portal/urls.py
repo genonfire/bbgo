@@ -21,7 +21,7 @@ urlpatterns = [
         name='portal',
     ),
     url(
-        r'^(?P<page>\d+)$',
+        r'^(?P<page>\d+)/$',
         views.portal,
         name='portal_redirection',
     ),

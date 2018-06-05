@@ -9,29 +9,9 @@ from django.shortcuts import redirect, render
 
 
 def portal(request, page=''):
-    """Redirect to blog"""
-    # redirect example
-    if page == '1019':
-        return redirect('blogs:show_post', id=43)
-    elif page == '1039':
-        return redirect('blogs:show_post', id=44)
-    elif page == '1044':
-        return redirect('blogs:show_post', id=45)
-    elif page == '1064':
-        return redirect('blogs:show_post', id=46)
-    elif page == '1080':
-        return redirect('blogs:show_post', id=47)
-    elif page == '1318':
-        return redirect('blogs:show_post', id=48)
-    elif page == '1364':
-        return redirect('blogs:show_post', id=50)
-    elif page == '1374':
-        return redirect('blogs:show_post', id=52)
-    elif page == '1168':
-        return redirect('blogs:show_post', id=53)
-    elif page == '1260':
-        return redirect('blogs:show_post', id=54)
-    # end of example
+    """Redirect"""
+    if page:
+        return redirect('boards:show_article', id=page)
 
     return redirect('blogs:blog_home')
 

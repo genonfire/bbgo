@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-05 15:15+0900\n"
+"POT-Creation-Date: 2018-06-05 17:11+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,9 @@ msgstr ""
 #: static/js/aliases/alias.js:73 static/js/aliases/alias.js:96
 #: static/js/blogs/blogs_comment.js:45 static/js/blogs/blogs_comment.js:85
 #: static/js/blogs/blogs_comment.js:146 static/js/blogs/blogs_comment.js:168
-#: static/js/blogs/dashboard.js:30 static/js/boards/boards_reply.js:41
+#: static/js/blogs/blogs_post.js:21 static/js/blogs/dashboard.js:30
+#: static/js/boards/boards_article.js:20 static/js/boards/boards_article.js:41
+#: static/js/boards/boards_article.js:76 static/js/boards/boards_reply.js:41
 #: static/js/boards/boards_reply.js:79 static/js/boards/boards_reply.js:156
 #: static/js/boards/boards_reply.js:182 static/js/boards/boards_reply.js:204
 #: static/js/boards/boards_reply.js:227 static/js/boards/boards_reply.js:251

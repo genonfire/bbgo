@@ -73,7 +73,14 @@
         <img src="{% static 'icons/watch18.png' %}">
         {{ article.created_at|date:" Y-m-d H:i:s" }}
         <div class="article_view_ip float-right">
-            {{ article.ip|censor_ip }}
+            <div class="article_view_short">
+                <a href="{{ request.scheme }}://{{ request.get_host }}{% url 'portal_redirection' page=article.id %}" title="{% trans 'Short URL. Right click or long touch to select copy.' %}">
+                    {{ request.scheme }}://{{ request.get_host }}{% url 'portal_redirection' page=article.id %}
+                </a>
+            </div>
+            <div>
+                {{ article.ip|censor_ip }}
+            </div>
         </div>
     </div>
     {% if not article.created_at|is_same_date:article.modified_at %}

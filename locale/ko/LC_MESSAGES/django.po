@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-05 15:15+0900\n"
-"PO-Revision-Date: 2018-06-05 15:16+0828\n"
+"POT-Creation-Date: 2018-06-05 17:11+0900\n"
+"PO-Revision-Date: 2018-06-05 17:12+0828\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -333,7 +333,6 @@ msgid "by Last login"
 msgstr "최근 로그인순"
 
 #: templates/haru/accounts/dashboard_user.html:65
-#| msgid "Sunspended until"
 msgid "Suspended"
 msgstr "징계중"
 
@@ -593,7 +592,7 @@ msgstr "날짜"
 #: templates/haru/boards/search_reply.html:27
 #: templates/haru/boards/search_reply.html:52
 #: templates/haru/boards/search_reply.html:68
-#: templates/haru/boards/show_article.html:124
+#: templates/haru/boards/show_article.html:131
 #: templates/haru/boards/show_reply.html:57 templates/haru/msgs/inbox.html:67
 #: templates/haru/teams/show_team_reply.html:57
 msgid "delete"
@@ -954,7 +953,7 @@ msgstr "상태"
 #: templates/haru/blogs/edit_post.html:84
 #: templates/haru/blogs/show_post.html:204
 #: templates/haru/boards/edit_article.html:74
-#: templates/haru/boards/show_article.html:165
+#: templates/haru/boards/show_article.html:172
 #: templates/haru/spams/spam_setting.html:19
 #: templates/haru/spams/spam_setting.html:33
 #: templates/haru/teams/edit_recruitment.html:73
@@ -1009,7 +1008,7 @@ msgid "If you like this post.."
 msgstr "이 글이 마음에 드셨다면.."
 
 #: templates/haru/blogs/show_post.html:136
-#: templates/haru/boards/show_article.html:119
+#: templates/haru/boards/show_article.html:126
 #: templates/haru/teams/show_recruitment.html:88
 msgid "edit"
 msgstr "수정"
@@ -1079,38 +1078,42 @@ msgstr "검색"
 msgid "Go back"
 msgstr "뒤로가기"
 
-#: templates/haru/boards/show_article.html:91
+#: templates/haru/boards/show_article.html:77
+msgid "Short URL. Right click or long touch to select copy."
+msgstr "짧은 주소. 마우스 오른쪽 버튼 혹은 길게 터치한 후 링크를 복사하세요."
+
+#: templates/haru/boards/show_article.html:98
 msgid "reference"
 msgstr "출처"
 
-#: templates/haru/boards/show_article.html:103
+#: templates/haru/boards/show_article.html:110
 #: templates/haru/boards/show_list.html:47
 #: templates/haru/boards/show_list.html:230
 msgid "like"
 msgstr "추천"
 
-#: templates/haru/boards/show_article.html:108
+#: templates/haru/boards/show_article.html:115
 #: templates/haru/boards/show_list.html:48
 #: templates/haru/boards/show_list.html:115
 #: templates/haru/boards/show_list.html:240
 msgid "dislike"
 msgstr "비추"
 
-#: templates/haru/boards/show_article.html:113
+#: templates/haru/boards/show_article.html:120
 msgid "share"
 msgstr "공유"
 
-#: templates/haru/boards/show_article.html:144
+#: templates/haru/boards/show_article.html:151
 #: templates/haru/teams/show_recruitment.html:125
 msgid "Reload replies"
 msgstr "댓글 새로고침"
 
-#: templates/haru/boards/show_article.html:149
+#: templates/haru/boards/show_article.html:156
 #: templates/haru/teams/show_recruitment.html:130
 msgid "Show new replies"
 msgstr "신규 댓글 보기"
 
-#: templates/haru/boards/show_article.html:156
+#: templates/haru/boards/show_article.html:163
 #: templates/haru/msgs/conversation.html:39
 #: templates/haru/msgs/send_msg.html:40
 #: templates/haru/teams/show_recruitment.html:137
