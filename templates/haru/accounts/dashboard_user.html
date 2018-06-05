@@ -56,6 +56,15 @@
                 {% trans 'by Last login' %}
             </a>
         </span>
+    {% if condition == 'suspension' %}
+        <span class="status_selected">
+    {% else %}
+        <span class="status_suspended">
+    {% endif %}
+            <a href="{% url 'accounts:dashboard_user' condition='suspension' page='1' %}">
+                {% trans 'Suspended' %}
+            </a>
+        </span>
 </div>
 <div class="blog_wrapper">
     <table class="board">
@@ -64,7 +73,11 @@
             <th class="longname">{% trans 'id' %}</th>
             <th class="email">{% trans 'Email address' %}</th>
             <th>{% trans 'IP Address' %}</th>
-            <th class="fulldate">{% trans 'Last login' %}</th>
+            {% if condition == 'suspension' %}
+                <th class="fulldate">{% trans 'Sunspended until' %}</th>
+            {% else %}
+                <th class="fulldate">{% trans 'Last login' %}</th>
+            {% endif %}
             <th class="fulldate">{% trans 'Date joined' %}</th>
             <th class="view_count">{% trans 'point' %}</th>
         </tr>
@@ -80,12 +93,17 @@
                         {% if user.profile.portrait %}
                             <img src="{{ user.profile.portrait.url }}" width="20px" height="20px">
                         {% endif %}
-                        <a href="/admin/auth/user/{{ user.id }}/" target="_blank">
-                            {{ user.username }}
-                        </a>
+                        {{ user|nickname:True|safe }}
                         {% if user.first_name %}
-                            ({{ user.first_name }})
+                            ({{ user.username }})
                         {% endif %}
+                        <div class="dashboard_function">
+                            <span>
+                                <a href="/admin/auth/user/{{ user.id }}/" target="_blank">
+                                    {% trans 'Admin menu' %}
+                                </a>
+                            </span>
+                        </div>
                     </td>
                     <td class="article_info">
                         {{ user.email }}
@@ -94,7 +112,11 @@
                         {{ user.profile.ip_list }}
                     </td>
                     <td class="title">
-                        {{ user.last_login|date:"Y-m-d" }}
+                        {% if condition == 'suspension' %}
+                            {{ user.profile.suspension_till|date:"Y-m-d" }}
+                        {% else %}
+                            {{ user.last_login|date:"Y-m-d" }}
+                        {% endif %}
                     </td>
                     <td class="article_info">
                         {{ user.date_joined|date:"Y-m-d" }}
@@ -108,7 +130,7 @@
                             {% if user.is_superuser %}
                                 <img src="{% static 'icons/captain14.png' %}">
                             {% elif user.is_staff %}
-                                <img src="{% static 'admin/img/icon-yes.gif' %}">
+                                <img src="{% static 'admin/img/icon-yes.svg' %}">
                             {% endif %}
                         </div>
                     </td>

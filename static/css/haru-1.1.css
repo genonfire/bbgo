@@ -318,6 +318,9 @@ table.dynamic_input_reply td.input_rereply {padding-right:.5em;}
 .editing td.required {font-weight:bold;}
 .editing td.input {padding-left:.5em;font-size:.9em;}
 .editing td.ad-client input {width:13em;}
+.editing td.suspended {color:#f00;}
+.editing td.suspension input {margin-top:.5em;}
+.editing td.suspension input[type="tel"] {text-align:right;padding-right:.2em;}
 .editing div {margin:.4em;font-size:.9em;}
 .editing div.concent, .member div.concent div {text-align:center;font-size:.9em;}
 .editing div.msg_content textarea {width:100%;padding:.3em;}
@@ -476,10 +479,11 @@ span.small-text {font-size:.8em;}
 .dashboard_summary div {padding:.3em;font-size:.9em;}
 .dashboard_summary div:first-child {background-color:#666;color:#fff;text-align:center;}
 .dashboard_summary span a {margin-left:.5em;display:inline-block;padding:.1em;border:1px solid #a5a5a5;background:#f6f6f6;text-decoration:none;}
-.dashboard_header {height:2.2em;margin:.5em 0 .5em 0;font-size:.9em;font-color:#11223d;}
+.dashboard_header {min-height:2.2em;margin:.5em 0 .5em 0;font-size:.9em;font-color:#11223d;}
 .dashboard_header span a {color:#0073aa;}
 .dashboard_header span a:hover {color:#409BD1;}
 .dashboard_header span.status_selected a {color:#000;font-weight:bold;}
+.dashboard_header span.status_suspended a {color:#E54F44;}
 .dashboard_header span:after {content:'|';}
 .dashboard_header span:last-child:after {content:'';}
 .dashboard_header span.last-child:after {content:'';}

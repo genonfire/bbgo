@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-12 11:39+0900\n"
+"POT-Creation-Date: 2018-06-05 15:15+0900\n"
 "PO-Revision-Date: 2017-11-30 21:47+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,29 +18,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Translated-Using: django-rosetta 0.7.13\n"
 
-#: accounts/views.py:51 accounts/views.py:115
+#: accounts/forms.py:98
+#, python-format
+msgid "You have been suspended until %(date)s."
+msgstr ""
+
+#: accounts/views.py:52 accounts/views.py:116
 msgid "Saved successfully."
 msgstr ""
 
-#: accounts/views.py:53 accounts/views.py:119 msgs/views.py:124
+#: accounts/views.py:54 accounts/views.py:120 msgs/views.py:124
 #: msgs/views.py:178
 msgid "Form validation Failure"
 msgstr ""
 
-#: accounts/views.py:91 accounts/views.py:280
+#: accounts/views.py:92 accounts/views.py:281
 msgid "Please check nickname."
 msgstr ""
 
-#: accounts/views.py:108 accounts/views.py:111 accounts/views.py:299
-#: accounts/views.py:301
+#: accounts/views.py:109 accounts/views.py:112 accounts/views.py:300
+#: accounts/views.py:302
 msgid "Verification failure. Please check verification code again."
 msgstr ""
 
-#: accounts/views.py:270
+#: accounts/views.py:271
 msgid "Please check username."
 msgstr ""
 
-#: accounts/views.py:303
+#: accounts/views.py:304
 msgid "Sorry. Please try again later."
 msgstr ""
 
@@ -326,40 +331,54 @@ msgstr ""
 msgid "by Last login"
 msgstr ""
 
-#: templates/haru/accounts/dashboard_user.html:64
+#: templates/haru/accounts/dashboard_user.html:65
+msgid "Suspended"
+msgstr ""
+
+#: templates/haru/accounts/dashboard_user.html:73
 #: templates/haru/accounts/edit_user_info.html:47
-#: templates/haru/accounts/login.html:41
+#: templates/haru/accounts/login.html:44
 #: templates/haru/accounts/signup.html:36
 #: templates/haru/accounts/user_info.html:28 templates/haru/base.html:103
 #: templates/haru/menu_mobile.html:67
 msgid "id"
 msgstr ""
 
-#: templates/haru/accounts/dashboard_user.html:65
+#: templates/haru/accounts/dashboard_user.html:74
 #: templates/haru/accounts/edit_user_info.html:77
 #: templates/haru/accounts/signup.html:62
 msgid "Email address"
 msgstr ""
 
-#: templates/haru/accounts/dashboard_user.html:66
+#: templates/haru/accounts/dashboard_user.html:75
 msgid "IP Address"
 msgstr ""
 
-#: templates/haru/accounts/dashboard_user.html:67
-#: templates/haru/accounts/user_info.html:54
+#: templates/haru/accounts/dashboard_user.html:77
+#: templates/haru/accounts/user_info.html:100
+msgid "Sunspended until"
+msgstr ""
+
+#: templates/haru/accounts/dashboard_user.html:79
+#: templates/haru/accounts/user_info.html:59
 msgid "Last login"
 msgstr ""
 
-#: templates/haru/accounts/dashboard_user.html:68
+#: templates/haru/accounts/dashboard_user.html:81
 #: templates/haru/accounts/edit_user_info.html:55
-#: templates/haru/accounts/user_info.html:36
+#: templates/haru/accounts/user_info.html:41
 msgid "Date joined"
 msgstr ""
 
-#: templates/haru/accounts/dashboard_user.html:69
+#: templates/haru/accounts/dashboard_user.html:82
 #: templates/haru/accounts/edit_user_info.html:101
-#: templates/haru/accounts/user_info.html:78
+#: templates/haru/accounts/user_info.html:83
 msgid "point"
+msgstr ""
+
+#: templates/haru/accounts/dashboard_user.html:103
+#: templates/haru/menu_main.html:20
+msgid "Admin menu"
 msgstr ""
 
 #: templates/haru/accounts/deactivate_account.html:6
@@ -435,7 +454,7 @@ msgstr ""
 
 #: templates/haru/accounts/edit_user_info.html:64
 #: templates/haru/accounts/signup.html:49
-#: templates/haru/accounts/user_info.html:45
+#: templates/haru/accounts/user_info.html:50
 msgid "nickname"
 msgstr ""
 
@@ -475,12 +494,12 @@ msgid "Verification code is started by Email address"
 msgstr ""
 
 #: templates/haru/accounts/edit_user_info.html:109
-#: templates/haru/accounts/user_info.html:86
+#: templates/haru/accounts/user_info.html:91
 msgid "signature"
 msgstr ""
 
 #: templates/haru/accounts/join.html:4 templates/haru/accounts/join.html:8
-#: templates/haru/accounts/login.html:57 templates/haru/accounts/signup.html:4
+#: templates/haru/accounts/login.html:60 templates/haru/accounts/signup.html:4
 #: templates/haru/accounts/signup.html:19
 #: templates/haru/accounts/signup.html:102 templates/haru/base.html:121
 #: templates/haru/menu_mobile.html:87
@@ -492,31 +511,31 @@ msgid "Thank you for joining us."
 msgstr ""
 
 #: templates/haru/accounts/join.html:17 templates/haru/accounts/login.html:4
-#: templates/haru/accounts/login.html:12 templates/haru/accounts/login.html:47
+#: templates/haru/accounts/login.html:12 templates/haru/accounts/login.html:50
 #: templates/haru/base.html:110 templates/haru/menu_mobile.html:70
 #: templates/haru/registration/logged_out.html:17
 #: templates/haru/registration/password_reset_complete.html:17
 msgid "login"
 msgstr ""
 
-#: templates/haru/accounts/login.html:16
+#: templates/haru/accounts/login.html:17
 msgid "Login failure"
 msgstr ""
 
-#: templates/haru/accounts/login.html:33 templates/haru/base.html:92
+#: templates/haru/accounts/login.html:36 templates/haru/base.html:92
 #: templates/haru/menu_mobile.html:57
 #: templates/haru/registration/logged_out.html:4
 #: templates/haru/registration/logged_out.html:8
 msgid "logout"
 msgstr ""
 
-#: templates/haru/accounts/login.html:44
+#: templates/haru/accounts/login.html:47
 #: templates/haru/accounts/signup.html:86 templates/haru/base.html:106
 #: templates/haru/menu_mobile.html:75
 msgid "password"
 msgstr ""
 
-#: templates/haru/accounts/login.html:52 templates/haru/base.html:116
+#: templates/haru/accounts/login.html:55 templates/haru/base.html:116
 #: templates/haru/menu_mobile.html:82
 msgid "Reset password"
 msgstr ""
@@ -679,12 +698,32 @@ msgstr ""
 msgid "password confirm"
 msgstr ""
 
-#: templates/haru/accounts/user_info.html:62
+#: templates/haru/accounts/user_info.html:67
 msgid "Article count"
 msgstr ""
 
-#: templates/haru/accounts/user_info.html:70
+#: templates/haru/accounts/user_info.html:75
 msgid "Reply count"
+msgstr ""
+
+#: templates/haru/accounts/user_info.html:110
+msgid "Suspension"
+msgstr ""
+
+#: templates/haru/accounts/user_info.html:115
+msgid "day"
+msgstr ""
+
+#: templates/haru/accounts/user_info.html:116
+msgid "Discipline"
+msgstr ""
+
+#: templates/haru/accounts/user_info.html:118
+msgid "Clear Suspension"
+msgstr ""
+
+#: templates/haru/accounts/user_info.html:121
+msgid "Suspend account for entered days."
 msgstr ""
 
 #: templates/haru/aliases/dashboard.html:5
@@ -726,12 +765,12 @@ msgid "Edit"
 msgstr ""
 
 #: templates/haru/aliases/show_aliases.html:30
-#: templates/haru/blogs/dashboard.html:180
-#: templates/haru/blogs/dashboard_comment.html:126
+#: templates/haru/blogs/dashboard.html:182
+#: templates/haru/blogs/dashboard_comment.html:128
 #: templates/haru/blogs/dashboard_post.html:132
-#: templates/haru/boards/dashboard.html:170
+#: templates/haru/boards/dashboard.html:172
 #: templates/haru/boards/dashboard_article.html:151
-#: templates/haru/boards/dashboard_reply.html:112
+#: templates/haru/boards/dashboard_reply.html:114
 #: templates/haru/recipes/edit_recipe.html:75
 #: templates/haru/vaults/edit_vault.html:96
 msgid "Delete"
@@ -838,8 +877,8 @@ msgstr ""
 msgid "Register to spam"
 msgstr ""
 
-#: templates/haru/blogs/dashboard.html:175
-#: templates/haru/blogs/dashboard_comment.html:121
+#: templates/haru/blogs/dashboard.html:177
+#: templates/haru/blogs/dashboard_comment.html:123
 msgid "Spam"
 msgstr ""
 
@@ -857,17 +896,17 @@ msgstr ""
 msgid "Empty"
 msgstr ""
 
-#: templates/haru/blogs/dashboard_comment.html:110
+#: templates/haru/blogs/dashboard_comment.html:112
 #: templates/haru/blogs/dashboard_post.html:121
 #: templates/haru/boards/dashboard_article.html:145
-#: templates/haru/boards/dashboard_reply.html:99
+#: templates/haru/boards/dashboard_reply.html:101
 msgid "Restore"
 msgstr ""
 
-#: templates/haru/blogs/dashboard_comment.html:115
+#: templates/haru/blogs/dashboard_comment.html:117
 #: templates/haru/blogs/dashboard_post.html:126
 #: templates/haru/boards/dashboard_article.html:158
-#: templates/haru/boards/dashboard_reply.html:105
+#: templates/haru/boards/dashboard_reply.html:107
 msgid "Delete permanently"
 msgstr ""
 
@@ -937,7 +976,7 @@ msgid "Blog search"
 msgstr ""
 
 #: templates/haru/blogs/show_comment.html:8
-#: templates/haru/blogs/show_comment.html:64
+#: templates/haru/blogs/show_comment.html:68
 #: templates/haru/boards/dashboard.html:22
 #: templates/haru/boards/dashboard.html:41
 #: templates/haru/boards/dashboard.html:146
@@ -1117,10 +1156,6 @@ msgstr ""
 
 #: templates/haru/menu_main.html:15
 msgid "menu"
-msgstr ""
-
-#: templates/haru/menu_main.html:20
-msgid "Admin menu"
 msgstr ""
 
 #: templates/haru/menu_main.html:24

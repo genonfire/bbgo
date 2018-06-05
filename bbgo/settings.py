@@ -192,6 +192,12 @@ DATABASES = {
 }
 
 
+# Authentication
+# default is ['django.contrib.auth.backends.ModelBackend']
+# https://docs.djangoproject.com/en/1.11/topics/auth/customizing/#authentication-backends
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.AllowAllUsersModelBackend']
+
+
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 

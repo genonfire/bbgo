@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-12 11:39+0900\n"
+"POT-Creation-Date: 2018-06-05 15:15+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -136,6 +136,19 @@ msgstr ""
 
 #: static/js/accounts/signup.js:26
 msgid "Passwords are different each other."
+msgstr ""
+
+#: static/js/accounts/suspension.js:5 static/js/accounts/suspension.js:11
+#: static/js/vaults/edit_key.js:23 static/js/vaults/new_key.js:17
+msgid "Number only!"
+msgstr ""
+
+#: static/js/accounts/suspension.js:17
+msgid "Are you sure to discipline?"
+msgstr ""
+
+#: static/js/accounts/suspension.js:26
+msgid "Clear suspension?"
 msgstr ""
 
 #: static/js/aliases/alias.js:6
@@ -332,10 +345,6 @@ msgstr ""
 
 #: static/js/vaults/edit_key.js:17
 msgid "New masker key is same as current key."
-msgstr ""
-
-#: static/js/vaults/edit_key.js:23 static/js/vaults/new_key.js:17
-msgid "Number only!"
 msgstr ""
 
 #: static/js/vaults/vault.js:57

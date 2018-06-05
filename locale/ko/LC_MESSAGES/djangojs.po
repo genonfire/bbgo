@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-12 11:39+0900\n"
-"PO-Revision-Date: 2018-01-04 17:51+0828\n"
+"POT-Creation-Date: 2018-06-05 15:15+0900\n"
+"PO-Revision-Date: 2018-06-04 17:15+0828\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Translated-Using: django-rosetta 0.7.13\n"
+"X-Translated-Using: django-rosetta 0.8.1\n"
 
 #: static/js/accounts/alarm.js:30
 msgid "Alarm for your activity."
@@ -139,6 +139,19 @@ msgstr "굵은 글씨는 필수항목으로 꼭 입력해야 합니다."
 #: static/js/accounts/signup.js:26
 msgid "Passwords are different each other."
 msgstr "비밀번호가 서로 다릅니다."
+
+#: static/js/accounts/suspension.js:5 static/js/accounts/suspension.js:11
+#: static/js/vaults/edit_key.js:23 static/js/vaults/new_key.js:17
+msgid "Number only!"
+msgstr "숫자만 가능합니다!"
+
+#: static/js/accounts/suspension.js:17
+msgid "Are you sure to discipline?"
+msgstr "징계 내용이 맞습니까?"
+
+#: static/js/accounts/suspension.js:26
+msgid "Clear suspension?"
+msgstr "징계 해제할까요?"
 
 #: static/js/aliases/alias.js:6
 msgid "Enter alias, more than 2 characters."
@@ -336,10 +349,6 @@ msgstr "마스터키가 서로 다릅니다."
 #: static/js/vaults/edit_key.js:17
 msgid "New masker key is same as current key."
 msgstr "기존의 마스터키와 동일한 키를 입력했습니다."
-
-#: static/js/vaults/edit_key.js:23 static/js/vaults/new_key.js:17
-msgid "Number only!"
-msgstr "숫자만 가능합니다!"
 
 #: static/js/vaults/vault.js:57
 msgid "Extended."

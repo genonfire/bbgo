@@ -29,6 +29,11 @@
             </td>
             <td class="input">
                 {{ userinfo }}
+                {% if userinfo.is_superuser %}
+                    <img src="{% static 'icons/captain14.png' %}">
+                {% elif userinfo.is_staff %}
+                    <img src="{% static 'admin/img/icon-yes.svg' %}">
+                {% endif %}
             </td>
         </tr>
         <tr>
@@ -89,10 +94,41 @@
                 {{ userinfo.profile.signature }}
             </td>
         </tr>
+        {% if not userinfo.is_active %}
+            <tr>
+                <td class="label suspended">
+                    {% trans 'Sunspended until' %}
+                </td>
+                <td class="input suspended">
+                    {{ userinfo.profile.suspension_till }}
+                </td>
+            </tr>
+        {% endif %}
+        {% if user.is_staff and not userinfo.is_staff %}
+            <tr>
+                <td class="label">
+                    {% trans 'Suspension' %}
+                </td>
+                <td class="input suspension">
+                    <form id="suspension_form">
+                        {% csrf_token %}
+                        <input id="suspension_days" type="tel" maxlength="5" size="5" placeholder="{% trans 'day' %}">
+                        <input type="button" class="delete" value="{% trans 'Discipline' %}" onClick="suspend('{{ userinfo }}');">
+                        {% if not userinfo.is_active %}
+                            <input type="button" value="{% trans 'Clear Suspension' %}" onClick="clear_suspension('{{ userinfo }}');">
+                        {% endif %}
+                        <div>
+                            {% trans 'Suspend account for entered days.' %}
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        {% endif %}
     </table>
 </div>
 
 {% endblock %}
 
 {% block bodyscript %}
+<script src="{% static 'js/accounts/suspension.js' %}" async></script>
 {% endblock %}

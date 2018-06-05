@@ -6,6 +6,7 @@ from core.utils import get_ipaddress
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth.signals import user_logged_in
+from django.contrib.sessions.models import Session
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models.signals import post_save
@@ -26,6 +27,7 @@ class Profile(models.Model):
     point = models.IntegerField(default=1)
     last_article_at = models.DateTimeField(auto_now_add=True)
     last_reply_at = models.DateTimeField(auto_now_add=True)
+    suspension_till = models.DateTimeField(auto_now_add=True, blank=True)
     bookmarks = models.TextField(default='', blank=True)
     scrap = models.TextField(default='', blank=True)
     alarm = models.BooleanField(default=False)
@@ -48,6 +50,13 @@ class Profile(models.Model):
     signature = models.TextField(blank=True)
 
 
+class UserSession(models.Model):
+    """User key for Session"""
+
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    session = models.ForeignKey(Session)
+
+
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     """Create signal"""
@@ -64,8 +73,8 @@ def save_user_profile(sender, instance, **kwargs):
         Profile.objects.create(user=instance)
 
 
-def update_ip_list(sender, user, request, **kwargs):
-    """Update ip list"""
+def user_logged_in_signal(sender, user, request, **kwargs):
+    """user_logged_in_signal"""
     ip = get_ipaddress(request)
     ip_list = user.profile.ip_list.split(',')
 
@@ -74,4 +83,11 @@ def update_ip_list(sender, user, request, **kwargs):
             user.profile.ip_list += ","
         user.profile.ip_list += ip
     user.profile.save()
-user_logged_in.connect(update_ip_list)  # login signal
+
+    UserSession.objects.get_or_create(
+        user=user,
+        session_id=request.session.session_key
+    )
+
+
+user_logged_in.connect(user_logged_in_signal)  # login signal

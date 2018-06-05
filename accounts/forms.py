@@ -5,8 +5,10 @@ from accounts.models import Profile
 
 from django import forms
 from django.conf import settings
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
+from django.utils import formats, timezone
+from django.utils.translation import ugettext as _
 
 
 class RegistrationForm(UserCreationForm):
@@ -76,3 +78,24 @@ class UserInfoForm(forms.ModelForm):
         if settings.ENABLE_NICKNAME:
             self.fields['first_name'].initial = self.instance.user.first_name
             self.fields['first_name'].widget.attrs['maxlength'] = settings.ID_MAX_LENGTH
+
+
+class LoginForm(AuthenticationForm):
+    """Custom login form for suspension"""
+
+    def confirm_login_allowed(self, user):
+        """Override confirm_login_allowed"""
+        if user.is_active:
+            pass
+        elif not user.is_active:
+            now = timezone.now()
+            if now > user.profile.suspension_till:
+                user.is_active = True
+                user.save()
+            else:
+                formatted_date = formats.date_format(timezone.localtime(
+                    user.profile.suspension_till), "Y-m-d H:i:s")
+                error = _('You have been suspended until %(date)s.') % {
+                    'date': formatted_date
+                }
+                raise forms.ValidationError(error, code='suspended')

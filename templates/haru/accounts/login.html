@@ -13,7 +13,10 @@
 </h1>
 <div class="annotation">
     {% if form.errors %}
-        <font color="red">{% trans 'Login failure' %}</font>
+        <font color="red">
+            {% trans 'Login failure' %}
+            {{ form.non_field_errors }}
+        </font>
     {% endif %}
 </div>
 <div class="full_login_container">

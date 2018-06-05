@@ -18,12 +18,13 @@ from django.core.signing import TimestampSigner
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
+from django.utils import timezone
 from django.utils.translation import ugettext as _
 
 from teams.table import TeamTable
 
 from .forms import RegistrationForm, SettingForm, UserInfoForm
-from .models import Profile
+from .models import Profile, UserSession
 
 
 @login_required
@@ -366,6 +367,8 @@ def dashboard_user(request, condition='recent', page=1):
         order = '-profile__point'
     elif condition == 'login':
         order = '-last_login'
+    elif condition == 'suspension':
+        order = '-profile__suspension_till'
     elif condition != 'default':
         return error_page(request)
 
@@ -376,6 +379,8 @@ def dashboard_user(request, condition='recent', page=1):
     total = User.objects.count()
     if condition == 'default':
         users = User.objects.order_by('-is_superuser', '-is_staff', '-is_active', 'username')[start_at:end_at]
+    elif condition == 'suspension':
+        users = User.objects.filter(is_active=False).order_by(order)[start_at:end_at]
     else:
         users = User.objects.order_by(order)[start_at:end_at]
 
@@ -403,3 +408,26 @@ def dashboard_user(request, condition='recent', page=1):
             'condition': condition,
         }
     )
+
+
+@staff_member_required
+def suspension(request, user, days):
+    """Suspend user account for days"""
+    sus_days = int(days)
+    userinfo = User.objects.filter(username__iexact=user).get()
+
+    if sus_days == 0 and not userinfo.is_active:
+        userinfo.profile.suspension_till = timezone.now()
+        userinfo.is_active = True
+        userinfo.save()
+    elif sus_days > 0:
+        sus_until = timezone.now() + timezone.timedelta(days=sus_days)
+        userinfo.profile.suspension_till = sus_until
+        userinfo.is_active = False
+        userinfo.save()
+
+        sessions = UserSession.objects.filter(user=userinfo)
+        for session in sessions:
+            session.session.delete()
+
+    return redirect('accounts:user_info', user)
