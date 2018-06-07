@@ -34,9 +34,10 @@ class Board(models.Model):
     reply_count = models.IntegerField(default=0)
     like_count = models.IntegerField(default=0)
     dislike_count = models.IntegerField(default=0)
-    like_users = models.ManyToManyField(User, related_name="board_like_users")
+    like_users = models.ManyToManyField(
+        User, related_name="board_like_users", default='', blank=True)
     dislike_users = models.ManyToManyField(
-        User, related_name="board_dislike_users")
+        User, related_name="board_dislike_users", default='', blank=True)
     reference = models.CharField(max_length=1855, default='', blank=True)
     has_image = models.BooleanField(default=False)
     has_video = models.BooleanField(default=False)
@@ -100,6 +101,7 @@ class Reply(models.Model):
     image = models.ImageField(upload_to="reply-images/%Y-%m-%d/", blank=True)
     like_count = models.IntegerField(default=0)
     dislike_count = models.IntegerField(default=0)
-    like_users = models.ManyToManyField(User, related_name="reply_like_users")
+    like_users = models.ManyToManyField(
+        User, related_name="reply_like_users", default='', blank=True)
     dislike_users = models.ManyToManyField(
-        User, related_name="reply_dislike_users")
+        User, related_name="reply_dislike_users", default='', blank=True)
