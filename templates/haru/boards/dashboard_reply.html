@@ -95,6 +95,11 @@
                             {{ reply.content|urlize|target_blank|linebreaksbr }}
                         </a>
                         <div class="dashboard_function">
+                            <span>
+                                <a href="/admin/boards/reply/{{ reply.id }}/" target="_blank">
+                                    {% trans 'Admin menu' %}
+                                </a>
+                            </span>
                             {% if reply.status == '5hidden' or reply.status == '6deleted' %}
                                 <span>
                                     <a href="{% url 'boards:restore_reply' id=reply.id %}">

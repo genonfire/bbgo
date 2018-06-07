@@ -111,6 +111,11 @@
                         </a>
                         <div class="dashboard_function">
                             <span>
+                                <a href="/admin/blogs/blog/{{ post.id }}/" target="_blank">
+                                    {% trans 'Admin menu' %}
+                                </a>
+                            </span>
+                            <span>
                                 <a href="{% url 'blogs:edit_post' id=post.id %}">
                                     {% trans 'Edit' %}
                                 </a>
