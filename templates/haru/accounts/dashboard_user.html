@@ -18,6 +18,21 @@
         </a>
     </span>
 </div>
+<div class="dashboard_summary">
+    <div>
+        {% trans 'User search' %}
+    </div>
+    <div class="dbsearch">
+        <input type="text" id="search_word" class="search_word" onkeypress="onKeyPress(event)">
+        <input type="button" id="search_button" class="search_button" value="{% trans 'search' %}" onClick="dashboard_usersearch()">
+            <a href="{% url 'accounts:dashboard_user' condition='default' page=1 %}">
+                <input type="button" class="reset" value="{% trans 'Reset' %}">
+            </a>
+    </div>
+    <div class="subscription">
+        {% trans '* Search user by username, email and ip address.' %}
+    </div>
+</div>
 <div class="dashboard_header">
     {% trans 'Users order' %}
     {% if condition == 'default' %}
@@ -25,7 +40,7 @@
     {% else %}
         <span>
     {% endif %}
-            <a href="{% url 'accounts:dashboard_user' condition='default' page='1' %}">
+            <a href="{% url 'accounts:dashboard_user_search' search_word=search_word condition='default' page='1' %}">
                 {% trans 'by Default' %}
             </a>
         </span>
@@ -34,7 +49,7 @@
     {% else %}
         <span>
     {% endif %}
-            <a href="{% url 'accounts:dashboard_user' condition='point' page='1' %}">
+            <a href="{% url 'accounts:dashboard_user_search' search_word=search_word condition='point' page='1' %}">
                 {% trans 'by point' %}
             </a>
         </span>
@@ -43,7 +58,7 @@
     {% else %}
         <span>
     {% endif %}
-            <a href="{% url 'accounts:dashboard_user' condition='recent' page='1' %}">
+            <a href="{% url 'accounts:dashboard_user_search' search_word=search_word condition='recent' page='1' %}">
                 {% trans 'by Date joined' %}
             </a>
         </span>
@@ -52,7 +67,7 @@
     {% else %}
         <span>
     {% endif %}
-            <a href="{% url 'accounts:dashboard_user' condition='login' page='1' %}">
+            <a href="{% url 'accounts:dashboard_user_search' search_word=search_word condition='login' page='1' %}">
                 {% trans 'by Last login' %}
             </a>
         </span>
@@ -61,7 +76,7 @@
     {% else %}
         <span class="status_suspended">
     {% endif %}
-            <a href="{% url 'accounts:dashboard_user' condition='suspension' page='1' %}">
+            <a href="{% url 'accounts:dashboard_user_search' search_word=search_word condition='suspension' page='1' %}">
                 {% trans 'Suspended' %}
             </a>
         </span>
@@ -70,7 +85,7 @@
     <table class="board">
         <thead>
         <tr>
-            <th class="longname">{% trans 'id' %}</th>
+            <th class="longname">{% trans 'name' %}</th>
             <th class="email">{% trans 'Email address' %}</th>
             <th>{% trans 'IP Address' %}</th>
             {% if condition == 'suspension' %}
@@ -142,4 +157,20 @@
 
 {% show_navigator %}
 
+{% endblock %}
+{% block bodyscript %}
+{% if ENABLE_MARK_KEYWORD %}
+    <script src="{% static 'js/thirdparty/jquery.mark.min.js' %}" async></script>
+{% endif %}
+<script>
+    var search_word = '{{ search_word }}';
+    var condition = '{{ condition }}';
+    var usersearch_url = "{% url 'accounts:dashboard_user_search' search_word='word' condition='condition' page=1 %}";
+    {% if ENABLE_MARK_KEYWORD %}
+        var mark_enabled = true;
+    {% else %}
+        var mark_enabled = false;
+    {% endif %}
+</script>
+<script src="{% static 'js/accounts/usersearch.js' %}" async></script>
 {% endblock %}

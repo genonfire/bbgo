@@ -222,6 +222,7 @@ table.board tr.article_info_mobile span.scrap_delete a {vertical-align:baseline;
 .dbsearch input.search_post {width:90%;height:2.5em;margin-left:2px;padding:0 5px;border:1px solid #999;background:#fff;vertical-align:middle;}
 .dbsearch input.search_button {width:auto;height:2.5em;margin-left:.1em;border:1px solid #11223d;background:#11223d;color:#fff;line-height:2.5em;vertical-align:middle;}
 .dbsearch input.search_button:hover {background-color:#283850;cursor:pointer;}
+.dbsearch input.reset {width:auto;height:2.5em;}
 
 /* edit article */
 .input_subject {margin-bottom:0.5em;}
@@ -479,6 +480,7 @@ span.small-text {font-size:.8em;}
 .dashboard_summary {min-width:300px;width:50%;margin:.5em 0 1em .2em;background-color:#EDEDED;}
 .dashboard_summary a {text-decoration:underline;}
 .dashboard_summary div {padding:.3em;font-size:.9em;}
+.dashboard_summary div.subscription {font-size:.8em; color:#666;}
 .dashboard_summary div:first-child {background-color:#666;color:#fff;text-align:center;}
 .dashboard_summary span a {margin-left:.5em;display:inline-block;padding:.1em;border:1px solid #a5a5a5;background:#f6f6f6;text-decoration:none;}
 .dashboard_header {min-height:2.2em;margin:.5em 0 .5em 0;font-size:.9em;font-color:#11223d;}

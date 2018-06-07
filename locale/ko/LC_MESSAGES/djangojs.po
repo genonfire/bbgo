@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-05 17:11+0900\n"
+"POT-Creation-Date: 2018-06-07 15:49+0900\n"
 "PO-Revision-Date: 2018-06-04 17:15+0828\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -155,6 +155,15 @@ msgstr "징계 내용이 맞습니까?"
 msgid "Clear suspension?"
 msgstr "징계 해제할까요?"
 
+#: static/js/accounts/usersearch.js:7 static/js/blogs/blogs_comment.js:4
+#: static/js/blogs/blogs_comment.js:53 static/js/blogs/blogs_list.js:7
+#: static/js/blogs/sidemenu.js:7 static/js/boards/boards_list.js:8
+#: static/js/boards/boards_reply.js:4 static/js/boards/boards_reply.js:50
+#: static/js/boards/reply_list.js:8 static/js/spams/spam.js:55
+#: static/js/teams/teams_reply.js:4 static/js/teams/teams_reply.js:46
+msgid "Please input 2 or more characters."
+msgstr "두 글자 이상 입력해 주세요."
+
 #: static/js/aliases/alias.js:6
 msgid "Enter alias, more than 2 characters."
 msgstr "별칭을 2글자 이상 입력하세요."
@@ -179,15 +188,6 @@ msgstr "변경사항이 없습니다."
 #: static/js/vaults/vault.js:2
 msgid "Are you sure to delete?"
 msgstr "정말로 삭제하시겠습니까?"
-
-#: static/js/blogs/blogs_comment.js:4 static/js/blogs/blogs_comment.js:53
-#: static/js/blogs/blogs_list.js:7 static/js/blogs/sidemenu.js:7
-#: static/js/boards/boards_list.js:8 static/js/boards/boards_reply.js:4
-#: static/js/boards/boards_reply.js:50 static/js/boards/reply_list.js:8
-#: static/js/spams/spam.js:55 static/js/teams/teams_reply.js:4
-#: static/js/teams/teams_reply.js:46
-msgid "Please input 2 or more characters."
-msgstr "두 글자 이상 입력해 주세요."
 
 #: static/js/blogs/blogs_comment.js:93
 msgid "Enter comment here."

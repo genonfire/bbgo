@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-05 17:11+0900\n"
-"PO-Revision-Date: 2018-06-05 17:12+0828\n"
+"POT-Creation-Date: 2018-06-07 15:49+0900\n"
+"PO-Revision-Date: 2018-06-07 15:50+0828\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -312,72 +312,92 @@ msgstr "사용자"
 msgid "Dashboard"
 msgstr "대시보드"
 
-#: templates/haru/accounts/dashboard_user.html:22
+#: templates/haru/accounts/dashboard_user.html:23
+#| msgid "search"
+msgid "User search"
+msgstr "사용자 검색"
+
+#: templates/haru/accounts/dashboard_user.html:27
+#: templates/haru/boards/search_reply.html:89
+#: templates/haru/boards/show_list.html:276
+msgid "search"
+msgstr "검색"
+
+#: templates/haru/accounts/dashboard_user.html:29
+msgid "Reset"
+msgstr "리셋"
+
+#: templates/haru/accounts/dashboard_user.html:33
+msgid "* Search user by username, email and ip address."
+msgstr "* 이름, 이메일, IP 주소로 사용자를 검색합니다."
+
+#: templates/haru/accounts/dashboard_user.html:37
 msgid "Users order"
 msgstr "사용자 정렬"
 
-#: templates/haru/accounts/dashboard_user.html:29
+#: templates/haru/accounts/dashboard_user.html:44
 msgid "by Default"
 msgstr "기본"
 
-#: templates/haru/accounts/dashboard_user.html:38
+#: templates/haru/accounts/dashboard_user.html:53
 msgid "by point"
 msgstr "포인트순"
 
-#: templates/haru/accounts/dashboard_user.html:47
+#: templates/haru/accounts/dashboard_user.html:62
 msgid "by Date joined"
 msgstr "가입일순"
 
-#: templates/haru/accounts/dashboard_user.html:56
+#: templates/haru/accounts/dashboard_user.html:71
 msgid "by Last login"
 msgstr "최근 로그인순"
 
-#: templates/haru/accounts/dashboard_user.html:65
+#: templates/haru/accounts/dashboard_user.html:80
 msgid "Suspended"
 msgstr "징계중"
 
-#: templates/haru/accounts/dashboard_user.html:73
-#: templates/haru/accounts/edit_user_info.html:47
-#: templates/haru/accounts/login.html:44
-#: templates/haru/accounts/signup.html:36
-#: templates/haru/accounts/user_info.html:28 templates/haru/base.html:103
-#: templates/haru/menu_mobile.html:67
-msgid "id"
-msgstr "아이디"
+#: templates/haru/accounts/dashboard_user.html:88
+#: templates/haru/blogs/dashboard.html:147
+#: templates/haru/blogs/dashboard_comment.html:81
+#: templates/haru/boards/dashboard.html:145
+#: templates/haru/boards/dashboard_reply.html:73
+#: templates/haru/recipes/edit_recipe.html:26
+#: templates/haru/vaults/edit_vault.html:31
+msgid "name"
+msgstr "이름"
 
-#: templates/haru/accounts/dashboard_user.html:74
+#: templates/haru/accounts/dashboard_user.html:89
 #: templates/haru/accounts/edit_user_info.html:77
 #: templates/haru/accounts/signup.html:62
 msgid "Email address"
 msgstr "이메일 주소"
 
-#: templates/haru/accounts/dashboard_user.html:75
+#: templates/haru/accounts/dashboard_user.html:90
 msgid "IP Address"
 msgstr "IP 주소"
 
-#: templates/haru/accounts/dashboard_user.html:77
+#: templates/haru/accounts/dashboard_user.html:92
 #: templates/haru/accounts/user_info.html:100
 msgid "Sunspended until"
 msgstr "징계 종료"
 
-#: templates/haru/accounts/dashboard_user.html:79
+#: templates/haru/accounts/dashboard_user.html:94
 #: templates/haru/accounts/user_info.html:59
 msgid "Last login"
 msgstr "최근 로그인"
 
-#: templates/haru/accounts/dashboard_user.html:81
+#: templates/haru/accounts/dashboard_user.html:96
 #: templates/haru/accounts/edit_user_info.html:55
 #: templates/haru/accounts/user_info.html:41
 msgid "Date joined"
 msgstr "가입일"
 
-#: templates/haru/accounts/dashboard_user.html:82
+#: templates/haru/accounts/dashboard_user.html:97
 #: templates/haru/accounts/edit_user_info.html:101
 #: templates/haru/accounts/user_info.html:83
 msgid "point"
 msgstr "포인트"
 
-#: templates/haru/accounts/dashboard_user.html:103
+#: templates/haru/accounts/dashboard_user.html:118
 #: templates/haru/menu_main.html:20
 msgid "Admin menu"
 msgstr "관리자 메뉴"
@@ -452,6 +472,14 @@ msgstr "다른 사용자에게 불쾌감을 주거나 미풍양속을 해치는 
 #: templates/haru/accounts/user_info.html:18
 msgid "portrait"
 msgstr "사진"
+
+#: templates/haru/accounts/edit_user_info.html:47
+#: templates/haru/accounts/login.html:44
+#: templates/haru/accounts/signup.html:36
+#: templates/haru/accounts/user_info.html:28 templates/haru/base.html:103
+#: templates/haru/menu_mobile.html:67
+msgid "id"
+msgstr "아이디"
 
 #: templates/haru/accounts/edit_user_info.html:64
 #: templates/haru/accounts/signup.html:49
@@ -866,15 +894,6 @@ msgstr "태그"
 msgid "Recent comments"
 msgstr "최근 댓글"
 
-#: templates/haru/blogs/dashboard.html:147
-#: templates/haru/blogs/dashboard_comment.html:81
-#: templates/haru/boards/dashboard.html:145
-#: templates/haru/boards/dashboard_reply.html:73
-#: templates/haru/recipes/edit_recipe.html:26
-#: templates/haru/vaults/edit_vault.html:31
-msgid "name"
-msgstr "이름"
-
 #: templates/haru/blogs/dashboard.html:164
 #: templates/haru/blogs/dashboard_comment.html:98
 msgid "Register to spam"
@@ -1067,11 +1086,6 @@ msgstr "댓글 검색"
 #: templates/haru/boards/show_list.html:272
 msgid "write user"
 msgstr "글쓴이"
-
-#: templates/haru/boards/search_reply.html:89
-#: templates/haru/boards/show_list.html:276
-msgid "search"
-msgstr "검색"
 
 #: templates/haru/boards/show_article.html:42
 #: templates/haru/teams/show_recruitment.html:25

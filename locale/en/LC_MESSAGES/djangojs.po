@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-05 17:11+0900\n"
+"POT-Creation-Date: 2018-06-07 15:49+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -153,6 +153,15 @@ msgstr ""
 msgid "Clear suspension?"
 msgstr ""
 
+#: static/js/accounts/usersearch.js:7 static/js/blogs/blogs_comment.js:4
+#: static/js/blogs/blogs_comment.js:53 static/js/blogs/blogs_list.js:7
+#: static/js/blogs/sidemenu.js:7 static/js/boards/boards_list.js:8
+#: static/js/boards/boards_reply.js:4 static/js/boards/boards_reply.js:50
+#: static/js/boards/reply_list.js:8 static/js/spams/spam.js:55
+#: static/js/teams/teams_reply.js:4 static/js/teams/teams_reply.js:46
+msgid "Please input 2 or more characters."
+msgstr ""
+
 #: static/js/aliases/alias.js:6
 msgid "Enter alias, more than 2 characters."
 msgstr ""
@@ -176,15 +185,6 @@ msgstr ""
 #: static/js/aliases/alias.js:80 static/js/recipes/category.js:26
 #: static/js/vaults/vault.js:2
 msgid "Are you sure to delete?"
-msgstr ""
-
-#: static/js/blogs/blogs_comment.js:4 static/js/blogs/blogs_comment.js:53
-#: static/js/blogs/blogs_list.js:7 static/js/blogs/sidemenu.js:7
-#: static/js/boards/boards_list.js:8 static/js/boards/boards_reply.js:4
-#: static/js/boards/boards_reply.js:50 static/js/boards/reply_list.js:8
-#: static/js/spams/spam.js:55 static/js/teams/teams_reply.js:4
-#: static/js/teams/teams_reply.js:46
-msgid "Please input 2 or more characters."
 msgstr ""
 
 #: static/js/blogs/blogs_comment.js:93

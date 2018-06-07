@@ -354,7 +354,7 @@ def send_email(request):
 
 
 @staff_member_required
-def dashboard_user(request, condition='recent', page=1):
+def dashboard_user(request, search_word='', condition='recent', page=1):
     """Dashboard user"""
     list_count = settings.DASHBOARD_LIST_COUNT
 
@@ -376,13 +376,21 @@ def dashboard_user(request, condition='recent', page=1):
     start_at = current_page * list_count
     end_at = start_at + list_count
 
-    total = User.objects.count()
-    if condition == 'default':
-        users = User.objects.order_by('-is_superuser', '-is_staff', '-is_active', 'username')[start_at:end_at]
-    elif condition == 'suspension':
-        users = User.objects.filter(is_active=False).order_by(order)[start_at:end_at]
+    if search_word == '':
+        q = Q()
     else:
-        users = User.objects.order_by(order)[start_at:end_at]
+        q = (Q(username__icontains=search_word) | Q(first_name__icontains=search_word)) | Q(email__icontains=search_word) | Q(profile__ip_list__icontains=search_word)
+
+    total = User.objects.filter(q).count()
+    if condition == 'default':
+        users = User.objects.filter(q).order_by(
+            '-is_superuser', '-is_staff', '-is_active', 'username')[
+                start_at:end_at]
+    elif condition == 'suspension':
+        users = User.objects.filter(q).filter(is_active=False).order_by(
+            order)[start_at:end_at]
+    else:
+        users = User.objects.filter(q).order_by(order)[start_at:end_at]
 
     index_total = int(ceil(float(total) / list_count))
     index_begin = int(current_page / 10) * 10 + 1
@@ -405,6 +413,7 @@ def dashboard_user(request, condition='recent', page=1):
             'mindex_begin': mindex_begin,
             'mindex_end': mindex_end + 1,
             'index_total': index_total,
+            'search_word': search_word,
             'condition': condition,
         }
     )
