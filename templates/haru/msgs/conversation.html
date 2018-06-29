@@ -23,7 +23,7 @@
         {% endif %}
                 {{ msg.text|urlize|target_blank|linebreaksbr }}
                 <div class="msg_time">
-                    {{ msg.created_at|date:" Y-m-d H:i:s" }}
+                    {{ msg.created_at|date:"Y-m-d H:i:s" }}
                     <span>
                         <a href="javascript:delete_message('{{ msg.id }}')">
                             <img src="{% static 'icons/delete10.png' %}">

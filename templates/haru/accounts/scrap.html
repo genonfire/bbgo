@@ -39,7 +39,7 @@
             {{ scrap.0.user|nickname:user.is_authenticated|safe }}
         </td>
         <td class="article_info">
-            {{ scrap.0.created_at|date:" Y-m-d" }}
+            {{ scrap.0.created_at|date:"Y-m-d" }}
         </td>
         <td class="article_info scrap_delete">
             <a href="{% url 'accounts:delete_scrap' id=scrap.0.id %}">
@@ -53,7 +53,7 @@
                 {{ scrap.0.user|nickname:user.is_authenticated|safe }} |
             </span>
             <span>
-                {{ scrap.0.created_at|date:" Y-m-d" }}
+                {{ scrap.0.created_at|date:"Y-m-d" }}
             </span>
             <span class="scrap_delete">
                 <a href="{% url 'accounts:delete_scrap' id=scrap.0.id %}">

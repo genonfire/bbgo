@@ -44,7 +44,7 @@
             {{ reply.user|nickname:user.is_authenticated|safe }}
         </td>
         <td class="article_info">
-            {{ reply.created_at|date:" Y-m-d" }}
+            {{ reply.created_at|date:"Y-m-d" }}
         </td>
         <td class="article_info scrap_delete">  
             {% if user == reply.user or user.is_staff %}
@@ -60,7 +60,7 @@
                 {{ reply.user|nickname:user.is_authenticated|safe }} |
             </span>
             <span>
-                {{ reply.created_at|date:" Y-m-d" }}
+                {{ reply.created_at|date:"Y-m-d" }}
             </span>
             {% if user == reply.user or user.is_staff %}
                 <span class="scrap_delete">

@@ -71,7 +71,7 @@
 <div class="article_view_misc">
     <div>
         <img src="{% static 'icons/watch18.png' %}">
-        {{ article.created_at|date:" Y-m-d H:i:s" }}
+        {{ article.created_at|date:"Y-m-d H:i:s" }}
         <div class="article_view_ip float-right">
             <div class="article_view_short">
                 <a href="{{ request.scheme }}://{{ request.get_host }}{% url 'portal_redirection' page=article.id %}" title="{% trans 'Short URL. Right click or long touch to select copy.' %}">
@@ -86,7 +86,7 @@
     {% if not article.created_at|is_same_date:article.modified_at %}
         <div>
             <img src="{% static 'icons/niun18.png' %}">
-            {{ article.modified_at|date:" Y-m-d H:i:s" }}
+            {{ article.modified_at|date:"Y-m-d H:i:s" }}
         </div>
     {% endif %}
 </div>

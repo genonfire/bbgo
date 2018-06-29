@@ -68,7 +68,7 @@
 <div class="post_view_misc">
     <div>
         <img src="{% static 'icons/watch18.png' %}">
-        {{ post.created_at|date:" Y-m-d H:i:s" }}
+        {{ post.created_at|date:"Y-m-d H:i:s" }}
         <span class="post_view_username">
             - {{ post.user.username }}
         </span>
@@ -76,7 +76,7 @@
     {% if not post.created_at|is_same_date:post.modified_at %}
         <div>
             <img src="{% static 'icons/niun18.png' %}">
-            {{ post.modified_at|date:" Y-m-d H:i:s" }}
+            {{ post.modified_at|date:"Y-m-d H:i:s" }}
         </div>
     {% endif %}
 </div>

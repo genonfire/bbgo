@@ -61,7 +61,7 @@
                             </a>
                         </span>
                         <span class="msg_date float-right">
-                            {{ msg.1.created_at|date:" Y-m-d" }}
+                            {{ msg.1.created_at|date:"Y-m-d" }}
                             <span class="delete">
                                 <a href="javascript:delete_conversation('{{ msg.0 }}')">
                                     {% trans 'delete' %}
