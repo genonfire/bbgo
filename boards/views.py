@@ -345,7 +345,11 @@ def restore_article(request, id):
 def search_article(request, search_type, search_word, table=0):
     """Search article"""
     return redirect(reverse_lazy('boards:show_search_article', kwargs={
-        'search_type': search_type, 'search_word': search_word, 'table': table, 'page': 1}))
+        'search_type': search_type,
+        'search_word': search_word,
+        'table': table,
+        'page': 1
+    }))
 
 
 def search_reply(request, search_type, search_word, table=0, page=1):
