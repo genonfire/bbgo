@@ -33,6 +33,7 @@ urlpatterns = [
     url(r'^recipes/', include(
         ('recipes.urls', 'recipes'), namespace='recipes')),
     url(r'^a/', include(('aliases.urls', 'aliases'), namespace='aliases')),
+    url(r'^papers/', include(('papers.urls', 'papers'), namespace='papers')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if 'django_summernote' in settings.INSTALLED_APPS:

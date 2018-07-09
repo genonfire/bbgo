@@ -68,6 +68,7 @@ LOCAL_APPS = (
     'vaults',
     'recipes',
     'aliases',
+    'papers',
 )
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + EDITOR_APPS + LOCAL_APPS
 
@@ -347,3 +348,8 @@ MASTERKEY_SESSION_TIME = 15  # minutes
 # Setting for Recipe
 RECIPE_CATEGORY_MAX = 16
 RECIPE_NAME_MAX = 32
+
+# SEtting for Paper
+SUMMARY_LIST_COUNT = 5
+INBOX_LIST_COUNT = 20
+APPROVE_COMMENT_MAX = 1024

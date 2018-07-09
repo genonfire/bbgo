@@ -70,5 +70,26 @@
             {% trans '+ New item' %}
         </a>
     </span>
+{% elif app == 'papers' %}
+    <span>
+        <a href="{% url 'papers:summary' %}">
+            {% trans 'Summary' %}
+        </a>
+    </span>
+    <span>
+        <a href="{% url 'papers:inbox' page=1 %}">
+            {% trans 'Inbox' %}
+        </a>
+    </span>
+    <span>
+        <a href="{% url 'papers:outbox' page=1 %}">
+            {% trans 'Outbox' %}
+        </a>
+    </span>
+    <span>
+        <a href="{% url 'papers:archive' page=1 %}">
+            {% trans 'Archive' %}
+        </a>
+    </span>
 {% else %}
 {% endif %}

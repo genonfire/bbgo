@@ -1,0 +1,247 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% block title %}{% trans 'Paper' %} - {{ SITE_NAME }}{% endblock %}
+{% load tz datetime %}
+{% load status %}
+{% load user %}
+{% load i18n %}
+{% block content %}
+
+<div class="blog_header">
+    {% trans 'Paper' %}
+    <span>
+        {% trans 'Summary' %}
+    </span>
+    <a href="{% url 'papers:new_paper' %}">
+        <input type="button" value="{% trans '+ New paper' %}">
+    </a>
+</div>
+
+<div class="summary">
+    <div class="title">
+        {% trans 'My papers' %}
+        <span>
+            <a href="{% url 'papers:inbox' page=1 %}">
+                <input type="button" value="{% trans 'Inbox' %}">
+            </a>
+        </span>
+    </div>
+    <table class="board">
+    <thead>
+    <tr>
+        <th class="subject">{% trans 'title' %}</th>
+        <th class="name">{% trans 'proposer' %}</th>
+        <th class="longname">{% trans 'status' %}</th>
+        <th class="datetime">{% trans 'date' %}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for paper in mypapers %}
+        <tr>
+            <td class="subject tdlink" data-href="{% url 'papers:show_paper' id=paper.id %}">
+                <a href="{% url 'papers:show_paper' id=paper.id %}">
+                    {{ paper.title }}
+                </a>
+                {% if paper.files.all %}
+                    <img src="{% static 'icons/attachment18.png' %}">
+                {% endif %}
+            </td>
+            <td class="article_info">
+                {{ paper.user|realname:user.is_authenticated|safe }}
+            </td>
+            <td class="article_info">
+                {{ paper.status|status_to_text }}
+                {% if paper.status == '2progress' %}
+                    <span class="paper_step">
+                        ({{ paper.cc.last.order|add:-2 }}/{{ paper.supporters.all.count|add:1 }})
+                    </span>
+                {% endif %}
+            </td>
+            <td class="article_info">
+                {% if paper.updated_at|localtime|is_today %}
+                    {{ paper.updated_at|time:"H:i" }}
+                {% else %}
+                    {{ paper.updated_at|date:"m-d" }}
+                {% endif %}
+            </td>
+        </tr>
+        <tr class="article_info_mobile">
+            <td>
+                <span>
+                    {{ paper.user|nickname:user.is_authenticated|safe }} |
+                </span>
+                <span>
+                    {{ paper.status|status_to_text }}
+                    {% if paper.status == '2progress' %}
+                        ({{ paper.cc.last.order|add:-2 }}/{{ paper.supporters.all.count|add:1 }})
+                    {% endif %}
+                    |
+                </span>
+                <span>
+                    {% if paper.updated_at|localtime|is_today %}
+                        {{ paper.updated_at|time:"H:i" }}
+                    {% else %}
+                        {{ paper.updated_at|date:"m-d" }}
+                    {% endif %}
+                </span>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+</div>
+
+<div class="summary">
+    <div class="title">
+        {% trans 'My proposal' %}
+        <span>
+            <a href="{% url 'papers:outbox' page=1 %}">
+                <input type="button" value="{% trans 'Outbox' %}">
+            </a>
+        </span>
+    </div>
+    <table class="board">
+    <thead>
+    <tr>
+        <th class="subject">{% trans 'title' %}</th>
+        <th class="name">{% trans 'proposer' %}</th>
+        <th class="longname">{% trans 'status' %}</th>
+        <th class="datetime">{% trans 'date' %}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for paper in proposals %}
+        <tr>
+            <td class="subject tdlink" data-href="{% url 'papers:show_paper' id=paper.id %}">
+                <a href="{% url 'papers:show_paper' id=paper.id %}">
+                    {{ paper.title }}
+                </a>
+                {% if paper.files.all %}
+                    <img src="{% static 'icons/attachment18.png' %}">
+                {% endif %}
+            </td>
+            <td class="article_info">
+                {{ paper.user|realname:user.is_authenticated|safe }}
+            </td>
+            <td class="article_info">
+                {{ paper.status|status_to_text }}
+                {% if paper.status == '2progress' %}
+                    <span class="paper_step">
+                        ({{ paper.cc.last.order|add:-2 }}/{{ paper.supporters.all.count|add:1 }})
+                    </span>
+                {% endif %}
+            </td>
+            <td class="article_info">
+                {% if paper.updated_at|localtime|is_today %}
+                    {{ paper.updated_at|time:"H:i" }}
+                {% else %}
+                    {{ paper.updated_at|date:"m-d" }}
+                {% endif %}
+            </td>
+        </tr>
+        <tr class="article_info_mobile">
+            <td>
+                <span>
+                    {{ paper.user|nickname:user.is_authenticated|safe }} |
+                </span>
+                <span>
+                    {{ paper.status|status_to_text }}
+                    {% if paper.status == '2progress' %}
+                        ({{ paper.cc.last.order|add:-2 }}/{{ paper.supporters.all.count|add:1 }})
+                    {% endif %}
+                    |
+                </span>
+                <span>
+                    {% if paper.updated_at|localtime|is_today %}
+                        {{ paper.updated_at|time:"H:i" }}
+                    {% else %}
+                        {{ paper.updated_at|date:"m-d" }}
+                    {% endif %}
+                </span>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+</div>
+
+<div class="summary no-border">
+    <div class="title">
+        {% trans 'Recent papers' %}
+        <span>
+            <a href="{% url 'papers:archive' page=1 %}">
+                <input type="button" value="{% trans 'Archive' %}">
+            </a>
+        </span>
+    </div>
+    <table class="board">
+    <thead>
+    <tr>
+        <th class="subject">{% trans 'title' %}</th>
+        <th class="name">{% trans 'proposer' %}</th>
+        <th class="longname">{% trans 'status' %}</th>
+        <th class="datetime">{% trans 'date' %}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for paper in papers %}
+        <tr>
+            <td class="subject tdlink" data-href="{% url 'papers:show_paper' id=paper.id %}">
+                <a href="{% url 'papers:show_paper' id=paper.id %}">
+                    {{ paper.title }}
+                </a>
+                {% if paper.files.all %}
+                    <img src="{% static 'icons/attachment18.png' %}">
+                {% endif %}
+            </td>
+            <td class="article_info">
+                {{ paper.user|realname:user.is_authenticated|safe }}
+            </td>
+            <td class="article_info">
+                {{ paper.status|status_to_text }}
+                {% if paper.status == '2progress' %}
+                    <span class="paper_step">
+                        ({{ paper.cc.last.order|add:-2 }}/{{ paper.supporters.all.count|add:1 }})
+                    </span>
+                {% endif %}
+            </td>
+            <td class="article_info">
+                {% if paper.updated_at|localtime|is_today %}
+                    {{ paper.updated_at|time:"H:i" }}
+                {% else %}
+                    {{ paper.updated_at|date:"m-d" }}
+                {% endif %}
+            </td>
+        </tr>
+        <tr class="article_info_mobile">
+            <td>
+                <span>
+                    {{ paper.user|nickname:user.is_authenticated|safe }} |
+                </span>
+                <span>
+                    {{ paper.status|status_to_text }}
+                    {% if paper.status == '2progress' %}
+                        ({{ paper.cc.last.order|add:-2 }}/{{ paper.supporters.all.count|add:1 }})
+                    {% endif %}
+                    |
+                </span>
+                <span>
+                    {% if paper.updated_at|localtime|is_today %}
+                        {{ paper.updated_at|time:"H:i" }}
+                    {% else %}
+                        {{ paper.updated_at|date:"m-d" }}
+                    {% endif %}
+                </span>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+</div>
+
+{% endblock %}
+
+{% block bodyscript %}
+<script src="{% static 'js/papers/papers_summary.js' %}" async></script>
+{% endblock %}

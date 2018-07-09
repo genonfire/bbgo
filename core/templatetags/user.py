@@ -18,6 +18,19 @@ def _nickname(user, is_authenticated=False):
         return name
 
 
+@register.filter(name='realname')
+def _realname(user, is_authenticated=False):
+    name = user
+    if user.last_name:
+        name = user.last_name
+
+    if is_authenticated:
+        nametag = "<a href=javascript:void(0) onclick=\"javascript:id_menu(event, '%s');return false;\">%s</a>" % (user.username, name)
+        return nametag
+    else:
+        return name
+
+
 @register.filter(name='textnickname')
 def _textnickname(username, is_authenticated=False):
     name = username

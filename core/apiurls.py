@@ -187,4 +187,19 @@ urlpatterns = [
         api.reload_comment,
         name='reload_comment',
     ),
+    url(
+        r'^user_by_name/$',
+        api.user_by_name,
+        name='user_by_name',
+    ),
+    url(
+        r'^approve_paper/$',
+        api.approve_paper,
+        name='approve_paper',
+    ),
+    url(
+        r'^reject_paper/$',
+        api.reject_paper,
+        name='reject_paper',
+    ),
 ]

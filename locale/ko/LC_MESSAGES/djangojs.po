@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-07 15:49+0900\n"
-"PO-Revision-Date: 2018-06-04 17:15+0828\n"
-"Last-Translator:   <gencode.me@gmail.com>\n"
+"POT-Creation-Date: 2018-07-09 14:48+0900\n"
+"PO-Revision-Date: 2018-07-09 14:43+0828\n"
+"Last-Translator:  KJ Kim <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -35,15 +35,16 @@ msgstr "알림을 확인해 주세요."
 #: static/js/boards/boards_reply.js:182 static/js/boards/boards_reply.js:204
 #: static/js/boards/boards_reply.js:227 static/js/boards/boards_reply.js:251
 #: static/js/boards/boards_reply.js:278 static/js/boards/reply_list.js:38
-#: static/js/msgs/conversation.js:19 static/js/recipes/category.js:20
-#: static/js/recipes/category.js:42 static/js/recipes/category.js:73
-#: static/js/recipes/recipes.js:36 static/js/recipes/recipes.js:58
-#: static/js/teams/team.js:36 static/js/teams/team.js:69
-#: static/js/teams/team.js:104 static/js/teams/team.js:129
-#: static/js/teams/teams_reply.js:37 static/js/teams/teams_reply.js:72
-#: static/js/teams/teams_reply.js:124 static/js/teams/teams_reply.js:147
-#: static/js/teams/teams_reply.js:171 static/js/teams/teams_reply.js:205
-#: static/js/vaults/vault.js:42
+#: static/js/msgs/conversation.js:19 static/js/papers/papers.js:30
+#: static/js/papers/papers.js:73 static/js/papers/papers_edit.js:29
+#: static/js/recipes/category.js:20 static/js/recipes/category.js:42
+#: static/js/recipes/category.js:73 static/js/recipes/recipes.js:36
+#: static/js/recipes/recipes.js:58 static/js/teams/team.js:36
+#: static/js/teams/team.js:69 static/js/teams/team.js:104
+#: static/js/teams/team.js:129 static/js/teams/teams_reply.js:37
+#: static/js/teams/teams_reply.js:72 static/js/teams/teams_reply.js:124
+#: static/js/teams/teams_reply.js:147 static/js/teams/teams_reply.js:171
+#: static/js/teams/teams_reply.js:205 static/js/vaults/vault.js:42
 msgid "Error!"
 msgstr "잘못!"
 
@@ -159,8 +160,9 @@ msgstr "징계 해제할까요?"
 #: static/js/blogs/blogs_comment.js:53 static/js/blogs/blogs_list.js:7
 #: static/js/blogs/sidemenu.js:7 static/js/boards/boards_list.js:8
 #: static/js/boards/boards_reply.js:4 static/js/boards/boards_reply.js:50
-#: static/js/boards/reply_list.js:8 static/js/spams/spam.js:55
-#: static/js/teams/teams_reply.js:4 static/js/teams/teams_reply.js:46
+#: static/js/boards/reply_list.js:8 static/js/papers/papers_inbox.js:8
+#: static/js/spams/spam.js:55 static/js/teams/teams_reply.js:4
+#: static/js/teams/teams_reply.js:46
 msgid "Please input 2 or more characters."
 msgstr "두 글자 이상 입력해 주세요."
 
@@ -217,7 +219,7 @@ msgid "Please fill the contents."
 msgstr "내용을 입력해 주세요."
 
 #: static/js/blogs/blogs_edit.js:36 static/js/boards/boards_edit.js:43
-#: static/js/teams/edit_recruitment.js:48
+#: static/js/papers/papers_edit.js:153 static/js/teams/edit_recruitment.js:48
 msgid "Are you sure to quit editing?"
 msgstr "글작성을 그만두고 나가시겠습니까?"
 
@@ -282,6 +284,30 @@ msgstr "오래된 쪽지를 모두 삭제하시겠습니까?"
 #: static/js/msgs/inbox.js:14
 msgid "Are you sure to delete this conversation?"
 msgstr "대화를 삭제하시겠습니까?"
+
+#: static/js/papers/papers.js:27 static/js/papers/papers.js:70
+msgid "Please try again after reloading."
+msgstr "새로고침 후 다시 시도해 보세요."
+
+#: static/js/papers/papers_edit.js:43
+msgid "Approval"
+msgstr "결재"
+
+#: static/js/papers/papers_edit.js:49
+msgid "Support"
+msgstr "합의"
+
+#: static/js/papers/papers_edit.js:53
+msgid "Notify"
+msgstr "통보"
+
+#: static/js/papers/papers_edit.js:139
+msgid "Approver is necessary."
+msgstr "결재자가 필요합니다."
+
+#: static/js/papers/papers_edit.js:143
+msgid "Are you sure to make a proposal?"
+msgstr "결재를 상신하시겠습니까?"
 
 #: static/js/teams/show_recruitment.js:2
 msgid "Are you sure to resume recruitment?"

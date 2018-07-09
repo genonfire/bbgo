@@ -31,6 +31,7 @@ def global_settings(request):
         'BLOG_CATEGORY': settings.BLOG_CATEGORY,
         'ENABLE_MASTERKEY': settings.ENABLE_MASTERKEY,
         'MASTERKEY_LENGTH': settings.MASTERKEY_LENGTH,
+        'APPROVE_COMMENT_MAX': settings.APPROVE_COMMENT_MAX,
         'ENABLE_ADSENSE': settings.ENABLE_ADSENSE,
         'SITE_INFO': settings.SITE_INFO,
         'SITE_LOGO': settings.SITE_LOGO,

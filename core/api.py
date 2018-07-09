@@ -23,6 +23,7 @@ from django.utils import timezone
 from django.utils.translation import ugettext as _
 
 from msgs.models import Msg
+from papers.models import Paper, Person
 from spams.views import check_spam
 from teams.forms import TeamReplyEditForm
 from teams.models import Team, TeamReply
@@ -1207,3 +1208,151 @@ def reload_comment(request):
         )
     else:
         return error_to_response(request)
+
+
+def user_by_name(request):
+    """API user_by_name"""
+    if not request.user.is_authenticated:
+        return JsonResponse({'status': 'false'}, status=401)
+
+    if request.method == 'POST':
+        approval_type = request.POST['type']
+        name = request.POST['name']
+        blacklist = request.POST.getlist('blacklist[]')
+
+        q = Q(username__icontains=name) | Q(
+            first_name__icontains=name) | Q(last_name__icontains=name)
+
+        names = User.objects.filter(is_active=True).filter(q).exclude(
+            username__in=blacklist)
+        total = names.count()
+
+        if total == 1:
+            data = {
+                'type': approval_type,
+                'id': names[0].id,
+                'username': names[0].username,
+                'name': names[0].last_name,
+                'email': names[0].email,
+                'status': 'only',
+            }
+            return JsonResponse(data)
+
+        return render_to_response(
+            'papers/user_list.html',
+            {
+                'user': request.user,
+                'type': approval_type,
+                'names': names,
+                'total': total,
+            }
+        )
+    else:
+        return error_to_response(request)
+
+
+def approve_paper(request):
+    """API approve_paper"""
+    if not request.user.is_authenticated:
+        return JsonResponse({'status': 'false'}, status=401)
+
+    if request.method == 'POST':
+        id = request.POST['id']
+        comment = request.POST['comment']
+        paper = get_object_or_404(Paper, pk=id)
+
+        if paper.completed or request.user != paper.cc.last().user:
+            return JsonResponse({'status': 'false'}, status=403)
+        if paper.approved and request.user == paper.approver:
+            return JsonResponse({'status': 'false'}, status=403)
+
+        paper.updated_at = timezone.now()
+
+        if request.user == paper.approver:
+            paper.comment = comment
+            paper.approved = True
+            paper.approved_at = paper.updated_at
+
+            if paper.supporters.all():
+                paper.status = '2progress'
+                first = paper.supporters.first()
+                person = Person.objects.create(
+                    order=first.order, user=first.user)
+                paper.cc.add(person)
+            else:
+                paper.status = '5completed'
+                paper.completed = True
+                for notifier in paper.notifiers.all():
+                    paper.cc.add(notifier)
+        else:
+            index = paper.cc.last().order - 3
+            supporter = paper.supporters.all()[index]
+
+            if index < 0 or supporter.user != request.user:
+                return JsonResponse({'status': 'false'}, status=403)
+            else:
+                supporter.comment = comment
+                supporter.approved = True
+                supporter.approved_at = paper.updated_at
+                supporter.save()
+
+                if paper.supporters.last().user == request.user:
+                    paper.status = '5completed'
+                    paper.completed = True
+                    for notifier in paper.notifiers.all():
+                        paper.cc.add(notifier)
+                else:
+                    next_supporter = paper.supporters.all()[index + 1]
+                    person = Person.objects.create(
+                        order=next_supporter.order, user=next_supporter.user)
+                    paper.cc.add(person)
+
+        paper.save()
+        return JsonResponse({'status': 'true'}, status=201)
+
+
+def reject_paper(request):
+    """API reject_paper"""
+    if not request.user.is_authenticated:
+        return JsonResponse({'status': 'false'}, status=401)
+
+    if request.method == 'POST':
+        id = request.POST['id']
+        comment = request.POST['comment']
+        paper = get_object_or_404(Paper, pk=id)
+
+        if not paper.completed and request.user == paper.user:
+            paper.updated_at = timezone.now()
+            paper.cancelmsg = comment
+            paper.status = '4canceled'
+            paper.completed = True
+            paper.save()
+            return JsonResponse({'status': 'true'}, status=201)
+
+        if paper.completed or request.user != paper.cc.last().user:
+            return JsonResponse({'status': 'false'}, status=403)
+        if paper.approved and request.user == paper.approver:
+            return JsonResponse({'status': 'false'}, status=403)
+
+        paper.updated_at = timezone.now()
+
+        if request.user == paper.approver:
+            paper.comment = comment
+            paper.rejected = True
+            paper.approved_at = paper.updated_at
+        else:
+            index = paper.cc.last().order - 3
+            supporter = paper.supporters.all()[index]
+
+            if index < 0 or supporter.user != request.user:
+                return JsonResponse({'status': 'false'}, status=403)
+            else:
+                supporter.comment = comment
+                supporter.rejected = True
+                supporter.approved_at = paper.updated_at
+                supporter.save()
+
+        paper.status = '3rejected'
+        paper.completed = True
+        paper.save()
+        return JsonResponse({'status': 'true'}, status=201)

@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% block title %}{% trans 'Paper' %} - {{ SITE_NAME }}{% endblock %}
+{% block extra_head_content %}
+{{ block.super }}
+{% endblock %}
+{% load i18n %}
+{% block content %}
+
+<div class="blog_header">
+    {% trans 'Paper' %}
+    <span>
+        {% trans '+ New paper' %}
+    </span>
+</div>
+
+<form
+    id="edit_paper_form"
+    method="POST"
+    enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.errors }}
+    {{ form.non_field_errors }}
+
+    <div class="input_paper">
+        {{ form.title }}
+    </div>
+    <div class="input_paper">
+        <input type="text" id="line_name" placeholder="{% trans 'Enter name to search' %}" onkeypress="onKeyPress(event)">
+        <input type="button" value="{% trans 'Search' %}" onClick="javascript:search_person()">
+    </div>
+    <div class="line_type">
+        <input id="approver_button" type="radio" value="approver" name="line_type" checked>
+        <label for "approver">{% trans 'Approver' %}</label>
+        <input id="supporter_button" type="radio" value="supporter" name="line_type">
+        <label for "supporter">{% trans 'Supporter' %}</label>
+        <input type="radio" value="notifier" name="line_type">
+        <label for "notifier">{% trans 'Notifier' %}</label>
+    </div>
+    <div class="line_names">
+        <ul>
+            <li class="proposer">
+                <span>
+                    {% trans 'Proposal' %}
+                </span>
+                {{ user }} / {{ user.email }}
+            </li>
+        </ul>
+    </div>
+    <div class="hidden">
+        <input type="text" name="approver" id="id_approver">
+        {{ form.support_names }}
+        {{ form.notify_names }}
+    </div>
+    <div class="input_content">
+        {{ form.content }}
+    </div>
+    <div class="input_files">
+        {{ form.files }}
+    </div>
+    <div class="input_submit">
+        <input type="submit" value="{% trans 'submit' %}">
+        <input type="button" value="{% trans 'cancel' %}" onClick="javascript:history.back(1);">
+    </div>
+</form>
+
+<div id="name_list" style="display:none;">
+</div>
+{% endblock %}
+
+{% block bodyscript %}
+<script>
+    var blacklist = ["{{ user }}"];
+</script>
+<script src="{% static 'js/papers/papers_edit.js' %}" async></script>
+{% endblock %}

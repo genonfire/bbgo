@@ -21,3 +21,13 @@ def _status_to_text(status):
         return "<font color=#e54f44>%s</font>" % _('status_deleted')
     elif status == '7spam':
         return "<font color=#FF574F>%s</font>" % _('status_spam')
+    elif status == '1proposed':
+        return _('status_proposed')
+    elif status == '2progress':
+        return _('status_progress')
+    elif status == '3rejected':
+        return _('status_rejected')
+    elif status == '4canceled':
+        return _('status_canceled')
+    elif status == '5completed':
+        return _('status_completed')
