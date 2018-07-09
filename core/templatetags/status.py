@@ -26,8 +26,8 @@ def _status_to_text(status):
     elif status == '2progress':
         return _('status_progress')
     elif status == '3rejected':
-        return _('status_rejected')
+        return "<font color=#e54f44>%s</font>" % _('status_rejected')
     elif status == '4canceled':
-        return _('status_canceled')
+        return "<font color=#e54f44>%s</font>" % _('status_canceled')
     elif status == '5completed':
-        return _('status_completed')
+        return "<font color=#0073aa>%s</font>" % _('status_completed')

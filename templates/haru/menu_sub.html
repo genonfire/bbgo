@@ -91,5 +91,10 @@
             {% trans 'Archive' %}
         </a>
     </span>
+    <span>
+        <a href="{% url 'papers:new_paper' %}">
+            {% trans '+ New paper' %}
+        </a>
+    </span>
 {% else %}
 {% endif %}

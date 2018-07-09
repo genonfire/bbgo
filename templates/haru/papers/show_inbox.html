@@ -72,10 +72,10 @@
             {{ paper.user|realname:user.is_authenticated|safe }}
         </td>
         <td class="article_info">
-            {{ paper.status|status_to_text }}
+            {{ paper.status|status_to_text|safe }}
             {% if paper.status == '2progress' %}
                 <span class="paper_step">
-                    ({{ paper.cc.last.order|add:-1 }}/{{ paper.supporters.all.count|add:1 }})
+                    ({{ paper.cc.last.order|add:-2 }}/{{ paper.supporters.all.count|add:1 }})
                 </span>
             {% endif %}
         </td>
@@ -93,7 +93,7 @@
                 {{ paper.user|nickname:user.is_authenticated|safe }} |
             </span>
             <span>
-                {{ paper.status|status_to_text }}
+                {{ paper.status|status_to_text|safe }}
                 {% if paper.status == '2progress' %}
                     ({{ paper.cc.last.order|add:-2 }}/{{ paper.supporters.all.count|add:1 }})
                 {% endif %}

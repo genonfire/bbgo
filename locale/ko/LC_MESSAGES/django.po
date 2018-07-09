@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-09 14:48+0900\n"
-"PO-Revision-Date: 2018-07-09 14:50+0828\n"
+"PO-Revision-Date: 2018-07-09 17:39+0828\n"
 "Last-Translator:  KJ Kim <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1415,7 +1415,7 @@ msgstr "모두 보기"
 #: templates/haru/papers/summary.html:108
 #: templates/haru/papers/summary.html:182
 msgid "proposer"
-msgstr "기안"
+msgstr "작성자"
 
 #: templates/haru/papers/show_inbox.html:127
 msgid "approver"
@@ -1470,7 +1470,7 @@ msgstr "취소"
 
 #: templates/haru/papers/show_paper.html:203
 msgid "Are you sure to withdraw your proposal?"
-msgstr "결재를 취소하시겠습니까?"
+msgstr "상신을 취소하시겠습니까?"
 
 #: templates/haru/papers/show_paper.html:205
 msgid "Are you sure to reject this proposal?"
@@ -1486,11 +1486,11 @@ msgstr "결재를 반려합니다"
 
 #: templates/haru/papers/summary.html:23
 msgid "My papers"
-msgstr "내게 온 결재"
+msgstr "결재 대기 중"
 
 #: templates/haru/papers/summary.html:97
 msgid "My proposal"
-msgstr "내가 상신한 결재"
+msgstr "내가 올린 결재"
 
 #: templates/haru/papers/summary.html:171
 msgid "Recent papers"

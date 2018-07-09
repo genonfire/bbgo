@@ -13,15 +13,17 @@
     <span>
         {% trans 'Summary' %}
     </span>
-    <a href="{% url 'papers:new_paper' %}">
-        <input type="button" value="{% trans '+ New paper' %}">
-    </a>
+    <span class="float-right">
+        <a href="{% url 'papers:new_paper' %}">
+            <input type="button" value="{% trans '+ New paper' %}">
+        </a>
+    </span>
 </div>
 
 <div class="summary">
     <div class="title">
         {% trans 'My papers' %}
-        <span>
+        <span class="float-right">
             <a href="{% url 'papers:inbox' page=1 %}">
                 <input type="button" value="{% trans 'Inbox' %}">
             </a>
@@ -51,7 +53,7 @@
                 {{ paper.user|realname:user.is_authenticated|safe }}
             </td>
             <td class="article_info">
-                {{ paper.status|status_to_text }}
+                {{ paper.status|status_to_text|safe }}
                 {% if paper.status == '2progress' %}
                     <span class="paper_step">
                         ({{ paper.cc.last.order|add:-2 }}/{{ paper.supporters.all.count|add:1 }})
@@ -72,7 +74,7 @@
                     {{ paper.user|nickname:user.is_authenticated|safe }} |
                 </span>
                 <span>
-                    {{ paper.status|status_to_text }}
+                    {{ paper.status|status_to_text|safe }}
                     {% if paper.status == '2progress' %}
                         ({{ paper.cc.last.order|add:-2 }}/{{ paper.supporters.all.count|add:1 }})
                     {% endif %}
@@ -95,7 +97,7 @@
 <div class="summary">
     <div class="title">
         {% trans 'My proposal' %}
-        <span>
+        <span class="float-right">
             <a href="{% url 'papers:outbox' page=1 %}">
                 <input type="button" value="{% trans 'Outbox' %}">
             </a>
@@ -125,7 +127,7 @@
                 {{ paper.user|realname:user.is_authenticated|safe }}
             </td>
             <td class="article_info">
-                {{ paper.status|status_to_text }}
+                {{ paper.status|status_to_text|safe }}
                 {% if paper.status == '2progress' %}
                     <span class="paper_step">
                         ({{ paper.cc.last.order|add:-2 }}/{{ paper.supporters.all.count|add:1 }})
@@ -146,7 +148,7 @@
                     {{ paper.user|nickname:user.is_authenticated|safe }} |
                 </span>
                 <span>
-                    {{ paper.status|status_to_text }}
+                    {{ paper.status|status_to_text|safe }}
                     {% if paper.status == '2progress' %}
                         ({{ paper.cc.last.order|add:-2 }}/{{ paper.supporters.all.count|add:1 }})
                     {% endif %}
@@ -169,7 +171,7 @@
 <div class="summary no-border">
     <div class="title">
         {% trans 'Recent papers' %}
-        <span>
+        <span class="float-right">
             <a href="{% url 'papers:archive' page=1 %}">
                 <input type="button" value="{% trans 'Archive' %}">
             </a>
@@ -199,7 +201,7 @@
                 {{ paper.user|realname:user.is_authenticated|safe }}
             </td>
             <td class="article_info">
-                {{ paper.status|status_to_text }}
+                {{ paper.status|status_to_text|safe }}
                 {% if paper.status == '2progress' %}
                     <span class="paper_step">
                         ({{ paper.cc.last.order|add:-2 }}/{{ paper.supporters.all.count|add:1 }})
@@ -220,7 +222,7 @@
                     {{ paper.user|nickname:user.is_authenticated|safe }} |
                 </span>
                 <span>
-                    {{ paper.status|status_to_text }}
+                    {{ paper.status|status_to_text|safe }}
                     {% if paper.status == '2progress' %}
                         ({{ paper.cc.last.order|add:-2 }}/{{ paper.supporters.all.count|add:1 }})
                     {% endif %}
