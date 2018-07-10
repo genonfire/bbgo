@@ -283,7 +283,7 @@
 <script>
     var search_type = '{{ search_type }}';
     var search_word = '{{ search_word }}';
-    var search_article_url = "{% url 'boards:search_article' table=table search_type='type' search_word='word' %}";
+    var search_article_url = "{% url 'boards:search_article' table=table search_type='type' search_word='bbgo_search_word' %}";
     {% if ENABLE_MARK_KEYWORD %}
         var mark_enabled = true;
     {% else %}

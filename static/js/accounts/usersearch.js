@@ -6,7 +6,7 @@ function dashboard_usersearch() {
     else if (word.length < 2) {
         alert(gettext("Please input 2 or more characters."));
     }
-    var url = usersearch_url.replace(/word/, word).replace(/condition/, condition);
+    var url = usersearch_url.replace(/bbgo_search_word/, word).replace(/condition/, condition);
     location.href = url;
 }
 

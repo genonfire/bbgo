@@ -88,6 +88,11 @@ urlpatterns = [
         name='dashboard_user_search',
     ),
     url(
+        r'^dashboard_nouser_search/(?P<condition>.*)/(?P<page>\d+)/$',
+        views.dashboard_user,
+        name='dashboard_nouser_search',
+    ),
+    url(
         r'^suspension/(?P<user>\w+)/(?P<days>\d+)/$',
         views.suspension,
         name='suspension'
