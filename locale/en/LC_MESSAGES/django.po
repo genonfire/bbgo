@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-09 14:48+0900\n"
+"POT-Creation-Date: 2018-07-11 13:16+0900\n"
 "PO-Revision-Date: 2017-11-30 21:47+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,29 +23,29 @@ msgstr ""
 msgid "You have been suspended until %(date)s."
 msgstr ""
 
-#: accounts/views.py:52 accounts/views.py:116
+#: accounts/views.py:53 accounts/views.py:117
 msgid "Saved successfully."
 msgstr ""
 
-#: accounts/views.py:54 accounts/views.py:120 msgs/views.py:124
+#: accounts/views.py:55 accounts/views.py:121 msgs/views.py:124
 #: msgs/views.py:178
 msgid "Form validation Failure"
 msgstr ""
 
-#: accounts/views.py:92 accounts/views.py:281
+#: accounts/views.py:93 accounts/views.py:282
 msgid "Please check nickname."
 msgstr ""
 
-#: accounts/views.py:109 accounts/views.py:112 accounts/views.py:300
-#: accounts/views.py:302
+#: accounts/views.py:110 accounts/views.py:113 accounts/views.py:301
+#: accounts/views.py:303
 msgid "Verification failure. Please check verification code again."
 msgstr ""
 
-#: accounts/views.py:271
+#: accounts/views.py:272
 msgid "Please check username."
 msgstr ""
 
-#: accounts/views.py:304
+#: accounts/views.py:305
 msgid "Sorry. Please try again later."
 msgstr ""
 
@@ -137,75 +137,79 @@ msgstr "Hidden"
 msgid "Wrong status from user."
 msgstr ""
 
-#: core/api.py:56
+#: core/api.py:58
 msgid "Already exist."
 msgstr ""
 
-#: core/api.py:58
+#: core/api.py:60
 msgid "Available"
 msgstr ""
 
-#: core/api.py:73
+#: core/api.py:75
 msgid "E-mail exists. Why don't you try to find your password?"
 msgstr ""
 
-#: core/api.py:82
+#: core/api.py:84
 #, python-format
 msgid "[%(site_name)s] Verification code for signing in"
 msgstr ""
 
-#: core/api.py:89
+#: core/api.py:91
 msgid "Verification code sent. Please check your E-mail."
 msgstr ""
 
-#: core/api.py:121 core/api.py:193
+#: core/api.py:123 core/api.py:195
 msgid "Require login"
 msgstr ""
 
-#: core/api.py:129 core/api.py:201 core/api.py:1041
+#: core/api.py:131 core/api.py:203 core/api.py:1045
 msgid "You like your own post?"
 msgstr ""
 
-#: core/api.py:141 core/api.py:1051
+#: core/api.py:143 core/api.py:1055
 msgid "You've liked this article"
 msgstr ""
 
-#: core/api.py:149
+#: core/api.py:151
 msgid "You've disliked this article"
 msgstr ""
 
-#: core/api.py:156 core/api.py:225 core/api.py:1055
+#: core/api.py:158 core/api.py:227 core/api.py:1059
 msgid "You've already liked"
 msgstr ""
 
-#: core/api.py:158 core/api.py:227
+#: core/api.py:160 core/api.py:229
 msgid "You've already disliked"
 msgstr ""
 
-#: core/templatetags/status.py:25 papers/models.py:51
+#: core/templatetags/status.py:25 core/templatetags/status.py:39
+#: papers/models.py:51
 #, fuzzy
 #| msgid "status_read"
 msgid "status_proposed"
 msgstr "Read"
 
-#: core/templatetags/status.py:27 papers/models.py:52
+#: core/templatetags/status.py:27 core/templatetags/status.py:41
+#: papers/models.py:52
 #, fuzzy
 #| msgid "status_read"
 msgid "status_progress"
 msgstr "Read"
 
-#: core/templatetags/status.py:29 papers/models.py:53
+#: core/templatetags/status.py:29 core/templatetags/status.py:43
+#: papers/models.py:53
 #, fuzzy
 #| msgid "status_deleted"
 msgid "status_rejected"
 msgstr "Deleted"
 
-#: core/templatetags/status.py:31 papers/models.py:54 teams/models.py:18
-#: teams/models.py:56
+#: core/templatetags/status.py:31 core/templatetags/status.py:45
+#: papers/models.py:54 teams/models.py:18 teams/models.py:56
 msgid "status_canceled"
 msgstr "Canceled"
 
-#: core/templatetags/status.py:33 papers/models.py:55
+#: core/templatetags/status.py:33 core/templatetags/status.py:47
+#: papers/models.py:55
 #, fuzzy
 #| msgid "status_deleted"
 msgid "status_completed"
@@ -257,13 +261,13 @@ msgid "Read all"
 msgstr ""
 
 #: templates/haru/accounts/alarm_list.html:38
-#: templates/haru/accounts/alarm_list.html:95
+#: templates/haru/accounts/alarm_list.html:113
 msgid "Article has a reply."
 msgstr ""
 
 #: templates/haru/accounts/alarm_list.html:51
 #: templates/haru/accounts/alarm_list.html:71
-#: templates/haru/accounts/alarm_list.html:109
+#: templates/haru/accounts/alarm_list.html:127
 msgid "Reply has a reply."
 msgstr ""
 
@@ -276,32 +280,53 @@ msgstr ""
 msgid "Post has a reply."
 msgstr ""
 
-#: templates/haru/accounts/alarm_list.html:85
+#: templates/haru/accounts/alarm_list.html:76
+#: templates/haru/papers/edit_paper.html:4
+#: templates/haru/papers/edit_paper.html:12
+#: templates/haru/papers/show_inbox.html:4
+#: templates/haru/papers/show_paper.html:4
+#: templates/haru/papers/summary.html:4 templates/haru/papers/summary.html:12
+msgid "Paper"
+msgstr ""
+
+#: templates/haru/accounts/alarm_list.html:84
+msgid "Paper requires your approval."
+msgstr ""
+
+#: templates/haru/accounts/alarm_list.html:86
+msgid "Paper has been completed."
+msgstr ""
+
+#: templates/haru/accounts/alarm_list.html:88
+msgid "Paper has been rejected."
+msgstr ""
+
+#: templates/haru/accounts/alarm_list.html:103
 msgid "A player joined your party."
 msgstr ""
 
-#: templates/haru/accounts/alarm_list.html:87
+#: templates/haru/accounts/alarm_list.html:105
 msgid "The party you joined is now full."
 msgstr ""
 
-#: templates/haru/accounts/alarm_list.html:89
+#: templates/haru/accounts/alarm_list.html:107
 msgid "The party you joined is canceled."
 msgstr ""
 
-#: templates/haru/accounts/alarm_list.html:91
+#: templates/haru/accounts/alarm_list.html:109
 msgid "A player leaved your party."
 msgstr ""
 
-#: templates/haru/accounts/alarm_list.html:93
+#: templates/haru/accounts/alarm_list.html:111
 msgid "You are kicked from party."
 msgstr ""
 
-#: templates/haru/accounts/alarm_list.html:120
+#: templates/haru/accounts/alarm_list.html:138
 #, python-format
 msgid "It shows recent %(max)s alarms so may you often clear alarms."
 msgstr ""
 
-#: templates/haru/accounts/alarm_list.html:124
+#: templates/haru/accounts/alarm_list.html:142
 msgid "No alarms"
 msgstr ""
 
@@ -359,27 +384,27 @@ msgstr ""
 msgid "Users order"
 msgstr ""
 
-#: templates/haru/accounts/dashboard_user.html:44
+#: templates/haru/accounts/dashboard_user.html:48
 msgid "by Default"
 msgstr ""
 
-#: templates/haru/accounts/dashboard_user.html:53
+#: templates/haru/accounts/dashboard_user.html:61
 msgid "by point"
 msgstr ""
 
-#: templates/haru/accounts/dashboard_user.html:62
+#: templates/haru/accounts/dashboard_user.html:74
 msgid "by Date joined"
 msgstr ""
 
-#: templates/haru/accounts/dashboard_user.html:71
+#: templates/haru/accounts/dashboard_user.html:87
 msgid "by Last login"
 msgstr ""
 
-#: templates/haru/accounts/dashboard_user.html:80
+#: templates/haru/accounts/dashboard_user.html:100
 msgid "Suspended"
 msgstr ""
 
-#: templates/haru/accounts/dashboard_user.html:88
+#: templates/haru/accounts/dashboard_user.html:108
 #: templates/haru/blogs/dashboard.html:147
 #: templates/haru/blogs/dashboard_comment.html:81
 #: templates/haru/boards/dashboard.html:145
@@ -389,39 +414,39 @@ msgstr ""
 msgid "name"
 msgstr ""
 
-#: templates/haru/accounts/dashboard_user.html:89
+#: templates/haru/accounts/dashboard_user.html:109
 #: templates/haru/accounts/edit_user_info.html:77
 #: templates/haru/accounts/signup.html:62
 msgid "Email address"
 msgstr ""
 
-#: templates/haru/accounts/dashboard_user.html:90
+#: templates/haru/accounts/dashboard_user.html:110
 msgid "IP Address"
 msgstr ""
 
-#: templates/haru/accounts/dashboard_user.html:92
+#: templates/haru/accounts/dashboard_user.html:112
 #: templates/haru/accounts/user_info.html:100
 msgid "Sunspended until"
 msgstr ""
 
-#: templates/haru/accounts/dashboard_user.html:94
+#: templates/haru/accounts/dashboard_user.html:114
 #: templates/haru/accounts/user_info.html:59
 msgid "Last login"
 msgstr ""
 
-#: templates/haru/accounts/dashboard_user.html:96
+#: templates/haru/accounts/dashboard_user.html:116
 #: templates/haru/accounts/edit_user_info.html:55
 #: templates/haru/accounts/user_info.html:41
 msgid "Date joined"
 msgstr ""
 
-#: templates/haru/accounts/dashboard_user.html:97
+#: templates/haru/accounts/dashboard_user.html:117
 #: templates/haru/accounts/edit_user_info.html:101
 #: templates/haru/accounts/user_info.html:83
 msgid "point"
 msgstr ""
 
-#: templates/haru/accounts/dashboard_user.html:118
+#: templates/haru/accounts/dashboard_user.html:138
 #: templates/haru/blogs/dashboard_comment.html:111
 #: templates/haru/blogs/dashboard_post.html:115
 #: templates/haru/boards/dashboard_article.html:139
@@ -464,7 +489,7 @@ msgstr ""
 
 #: templates/haru/accounts/edit_bookmarks.html:37
 #: templates/haru/accounts/edit_user_info.html:125
-#: templates/haru/accounts/setting.html:118
+#: templates/haru/accounts/setting.html:129
 #: templates/haru/recipes/edit_recipe.html:79
 #: templates/haru/recipes/show_category.html:26
 #: templates/haru/recipes/show_recipes.html:79
@@ -638,9 +663,9 @@ msgstr ""
 #: templates/haru/boards/search_reply.html:26
 #: templates/haru/boards/show_list.html:49
 #: templates/haru/papers/show_inbox.html:51
-#: templates/haru/papers/summary.html:36
-#: templates/haru/papers/summary.html:110
-#: templates/haru/papers/summary.html:184
+#: templates/haru/papers/summary.html:38
+#: templates/haru/papers/summary.html:112
+#: templates/haru/papers/summary.html:186
 #: templates/haru/teams/recruitment.html:51
 msgid "date"
 msgstr ""
@@ -699,31 +724,39 @@ msgid "Alarm when someone replies on your reply."
 msgstr ""
 
 #: templates/haru/accounts/setting.html:56
-#: templates/haru/accounts/setting.html:79
+#: templates/haru/accounts/setting.html:90
 msgid "You may not turn off."
 msgstr ""
 
 #: templates/haru/accounts/setting.html:62
-msgid "Team alarm"
+msgid "Paper alarm"
 msgstr ""
 
 #: templates/haru/accounts/setting.html:67
-msgid "Alarm when someone joins your team."
+msgid "Alarm when your paper has been updated."
 msgstr ""
 
 #: templates/haru/accounts/setting.html:73
-msgid "Team full alarm"
+msgid "Team alarm"
 msgstr ""
 
 #: templates/haru/accounts/setting.html:78
+msgid "Alarm when someone joins your team."
+msgstr ""
+
+#: templates/haru/accounts/setting.html:84
+msgid "Team full alarm"
+msgstr ""
+
+#: templates/haru/accounts/setting.html:89
 msgid "Alarm when your team recruiting finished or canceled."
 msgstr ""
 
-#: templates/haru/accounts/setting.html:88
+#: templates/haru/accounts/setting.html:99
 msgid "AdSense info"
 msgstr ""
 
-#: templates/haru/accounts/setting.html:91
+#: templates/haru/accounts/setting.html:102
 msgid ""
 "Your AdSense will be shown on information and best articles by profit "
 "sharing system. To use this feature please fill followings from your AdSense "
@@ -903,9 +936,9 @@ msgstr ""
 #: templates/haru/blogs/dashboard_post.html:98
 #: templates/haru/papers/show_inbox.html:48
 #: templates/haru/papers/show_inbox.html:120
-#: templates/haru/papers/summary.html:33
-#: templates/haru/papers/summary.html:107
-#: templates/haru/papers/summary.html:181
+#: templates/haru/papers/summary.html:35
+#: templates/haru/papers/summary.html:109
+#: templates/haru/papers/summary.html:183
 msgid "title"
 msgstr ""
 
@@ -1002,9 +1035,9 @@ msgstr ""
 #: templates/haru/blogs/edit_post.html:80
 #: templates/haru/boards/edit_article.html:70
 #: templates/haru/papers/show_inbox.html:50
-#: templates/haru/papers/summary.html:35
-#: templates/haru/papers/summary.html:109
-#: templates/haru/papers/summary.html:183
+#: templates/haru/papers/summary.html:37
+#: templates/haru/papers/summary.html:111
+#: templates/haru/papers/summary.html:185
 #: templates/haru/teams/edit_recruitment.html:69
 msgid "status"
 msgstr ""
@@ -1284,18 +1317,24 @@ msgid "Change key"
 msgstr ""
 
 #: templates/haru/menu_sub.html:81 templates/haru/papers/show_inbox.html:13
-#: templates/haru/papers/summary.html:26
+#: templates/haru/papers/summary.html:28
 msgid "Inbox"
 msgstr ""
 
 #: templates/haru/menu_sub.html:86 templates/haru/papers/show_inbox.html:17
-#: templates/haru/papers/summary.html:100
+#: templates/haru/papers/summary.html:102
 msgid "Outbox"
 msgstr ""
 
 #: templates/haru/menu_sub.html:91 templates/haru/papers/show_inbox.html:19
-#: templates/haru/papers/summary.html:174
+#: templates/haru/papers/summary.html:176
 msgid "Archive"
+msgstr ""
+
+#: templates/haru/menu_sub.html:96 templates/haru/papers/edit_paper.html:14
+#: templates/haru/papers/show_inbox.html:39
+#: templates/haru/papers/summary.html:18
+msgid "+ New paper"
 msgstr ""
 
 #: templates/haru/msgs/conversation.html:4
@@ -1356,20 +1395,6 @@ msgstr ""
 msgid "characters available."
 msgstr ""
 
-#: templates/haru/papers/edit_paper.html:4
-#: templates/haru/papers/edit_paper.html:12
-#: templates/haru/papers/show_inbox.html:4
-#: templates/haru/papers/show_paper.html:4
-#: templates/haru/papers/summary.html:4 templates/haru/papers/summary.html:12
-msgid "Paper"
-msgstr ""
-
-#: templates/haru/papers/edit_paper.html:14
-#: templates/haru/papers/show_inbox.html:39
-#: templates/haru/papers/summary.html:17
-msgid "+ New paper"
-msgstr ""
-
 #: templates/haru/papers/edit_paper.html:30
 msgid "Enter name to search"
 msgstr ""
@@ -1394,8 +1419,45 @@ msgid "Notifier"
 msgstr ""
 
 #: templates/haru/papers/edit_paper.html:45
-#: templates/haru/papers/show_paper.html:29
+#: templates/haru/papers/paper_file.html:52
+#: templates/haru/papers/show_paper.html:26
 msgid "Proposal"
+msgstr ""
+
+#: templates/haru/papers/paper_file.html:50
+#: templates/haru/papers/show_paper.html:24
+#: templates/haru/papers/show_paper.html:163
+#: templates/haru/papers/show_paper.html:206
+msgid "Withdraw"
+msgstr ""
+
+#: templates/haru/papers/paper_file.html:74
+#: templates/haru/papers/paper_file.html:99
+#: templates/haru/papers/show_paper.html:52
+#: templates/haru/papers/show_paper.html:81
+#: templates/haru/papers/show_paper.html:159
+#: templates/haru/papers/show_paper.html:208
+msgid "Reject"
+msgstr ""
+
+#: templates/haru/papers/paper_file.html:76
+#: templates/haru/papers/show_paper.html:54
+msgid "Approval"
+msgstr ""
+
+#: templates/haru/papers/paper_file.html:101
+#: templates/haru/papers/show_paper.html:83
+msgid "Support"
+msgstr ""
+
+#: templates/haru/papers/paper_file.html:124
+#: templates/haru/papers/show_paper.html:111
+msgid "Notify"
+msgstr ""
+
+#: templates/haru/papers/paper_file.html:144
+#: templates/haru/papers/show_paper.html:136
+msgid "Attachment"
 msgstr ""
 
 #: templates/haru/papers/show_inbox.html:15
@@ -1416,9 +1478,9 @@ msgstr ""
 
 #: templates/haru/papers/show_inbox.html:49
 #: templates/haru/papers/show_inbox.html:131
-#: templates/haru/papers/summary.html:34
-#: templates/haru/papers/summary.html:108
-#: templates/haru/papers/summary.html:182
+#: templates/haru/papers/summary.html:36
+#: templates/haru/papers/summary.html:110
+#: templates/haru/papers/summary.html:184
 msgid "proposer"
 msgstr ""
 
@@ -1426,78 +1488,49 @@ msgstr ""
 msgid "approver"
 msgstr ""
 
-#: templates/haru/papers/show_paper.html:26
-#: templates/haru/papers/show_paper.html:174
-#: templates/haru/papers/show_paper.html:217
-msgid "Withdraw"
-msgstr ""
-
-#: templates/haru/papers/show_paper.html:57
-#: templates/haru/papers/show_paper.html:89
-#: templates/haru/papers/show_paper.html:170
-#: templates/haru/papers/show_paper.html:219
-msgid "Reject"
-msgstr ""
-
-#: templates/haru/papers/show_paper.html:60
-msgid "Approval"
-msgstr ""
-
-#: templates/haru/papers/show_paper.html:92
-msgid "Support"
-msgstr ""
-
-#: templates/haru/papers/show_paper.html:121
-msgid "Notify"
-msgstr ""
-
-#: templates/haru/papers/show_paper.html:147
-msgid "Attachment"
-msgstr ""
-
-#: templates/haru/papers/show_paper.html:169
-#: templates/haru/papers/show_paper.html:191
+#: templates/haru/papers/show_paper.html:158
+#: templates/haru/papers/show_paper.html:180
 msgid "Approve"
 msgstr ""
 
-#: templates/haru/papers/show_paper.html:185
+#: templates/haru/papers/show_paper.html:174
 msgid "Are you sure to approve this proposal?"
 msgstr ""
 
-#: templates/haru/papers/show_paper.html:188
+#: templates/haru/papers/show_paper.html:177
 msgid "Approve proposal"
 msgstr ""
 
-#: templates/haru/papers/show_paper.html:192
-#: templates/haru/papers/show_paper.html:221
+#: templates/haru/papers/show_paper.html:181
+#: templates/haru/papers/show_paper.html:210
 msgid "Cancel"
 msgstr ""
 
-#: templates/haru/papers/show_paper.html:203
+#: templates/haru/papers/show_paper.html:192
 msgid "Are you sure to withdraw your proposal?"
 msgstr ""
 
-#: templates/haru/papers/show_paper.html:205
+#: templates/haru/papers/show_paper.html:194
 msgid "Are you sure to reject this proposal?"
 msgstr ""
 
-#: templates/haru/papers/show_paper.html:210
+#: templates/haru/papers/show_paper.html:199
 msgid "Withdraw proposal"
 msgstr ""
 
-#: templates/haru/papers/show_paper.html:212
+#: templates/haru/papers/show_paper.html:201
 msgid "Reject proposal"
 msgstr ""
 
-#: templates/haru/papers/summary.html:23
+#: templates/haru/papers/summary.html:25
 msgid "My papers"
 msgstr ""
 
-#: templates/haru/papers/summary.html:97
+#: templates/haru/papers/summary.html:99
 msgid "My proposal"
 msgstr ""
 
-#: templates/haru/papers/summary.html:171
+#: templates/haru/papers/summary.html:173
 msgid "Recent papers"
 msgstr ""
 

@@ -38,6 +38,7 @@ def setting(request):
             request.user.profile.sense_slot = setting.sense_slot
             request.user.profile.alarm_board = setting.alarm_board
             request.user.profile.alarm_reply = True
+            request.user.profile.alarm_paper = setting.alarm_paper
             request.user.profile.alarm_team = setting.alarm_team
             request.user.profile.alarm_full = True
             if setting.alarm_interval < settings.MIN_ALARM_INTERVAL:

@@ -1,3 +1,7 @@
+function scroll_top() {
+    $('html,body').animate({ scrollTop: 0 }, 'fast');
+}
+
 function close_approve_box() {
     $('#approve_comment').val('');
     $('#approve_box').hide();
@@ -38,6 +42,7 @@ function cancel_approve() {
 }
 
 function approve_box() {
+    scroll_top();
     $('#approve_box').show();
 }
 
@@ -81,5 +86,6 @@ function cancel_reject() {
 }
 
 function reject_box() {
+    scroll_top();
     $('#reject_box').show();
 }

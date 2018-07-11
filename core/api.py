@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 import re
 from smtplib import SMTPException
+import threading
 
 from blogs.forms import CommentEditForm
 from blogs.models import Blog, Comment
@@ -24,6 +25,7 @@ from django.utils.translation import ugettext as _
 
 from msgs.models import Msg
 from papers.models import Paper, Person
+from papers.views import send_email_with_paper
 from spams.views import check_spam
 from teams.forms import TeamReplyEditForm
 from teams.models import Team, TeamReply
@@ -537,6 +539,8 @@ def alarm_list(request):
                     item = Blog.objects.filter(id__iexact=id)
                 elif app == 'c':
                     item = Comment.objects.filter(id__iexact=id)
+                elif app == 'pa' or app == 'pc' or app == 'pr':
+                    item = Paper.objects.filter(id__iexact=id)
                 elif app == 't' or app == 'tf' or app == 'tc' or app == 'tl' \
                         or app == 'tk' or app == 'bt':
                     item = Team.objects.filter(id__iexact=id)
@@ -1306,8 +1310,30 @@ def approve_paper(request):
                     person = Person.objects.create(
                         order=next_supporter.order, user=next_supporter.user)
                     paper.cc.add(person)
-
         paper.save()
+
+        if paper.status == '5completed':
+            if paper.user.profile.alarm_paper:
+                if paper.user.profile.alarm_list != '':
+                    paper.user.profile.alarm_list += ','
+                alarm_text = 'pc:%d' % paper.id
+                paper.user.profile.alarm_list += alarm_text
+                paper.user.profile.alarm = True
+                paper.user.profile.save()
+            if settings.PAPER_EMAIL_UPDATE:
+                thread = threading.Thread(
+                    target=send_email_with_paper, args=(request, id))
+                thread.start()
+        else:
+            target = paper.cc.last().user
+            if target.profile.alarm_paper:
+                if target.profile.alarm_list != '':
+                    target.profile.alarm_list += ','
+                alarm_text = 'pa:%d' % paper.id
+                target.profile.alarm_list += alarm_text
+                target.profile.alarm = True
+                target.profile.save()
+
         return JsonResponse({'status': 'true'}, status=201)
 
 
@@ -1355,4 +1381,17 @@ def reject_paper(request):
         paper.status = '3rejected'
         paper.completed = True
         paper.save()
+
+        if paper.user.profile.alarm_paper:
+            if paper.user.profile.alarm_list != '':
+                paper.user.profile.alarm_list += ','
+            alarm_text = 'pr:%d' % paper.id
+            paper.user.profile.alarm_list += alarm_text
+            paper.user.profile.alarm = True
+            paper.user.profile.save()
+        if settings.PAPER_EMAIL_UPDATE:
+            thread = threading.Thread(
+                target=send_email_with_paper, args=(request, id))
+            thread.start()
+
         return JsonResponse({'status': 'true'}, status=201)

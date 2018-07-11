@@ -41,7 +41,7 @@ class SettingForm(forms.ModelForm):
 
         model = Profile
         fields = {
-            "alarm_interval", "alarm_board", "alarm_reply",
+            "alarm_interval", "alarm_board", "alarm_reply", "alarm_paper",
             "alarm_team", "alarm_full", "sense_client", "sense_slot"
         }
 

@@ -8,8 +8,10 @@ from core.utils import error_page
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
+from django.template.loader import render_to_string
 
 from .forms import PaperEditForm
 from .models import Attachment, Paper, Person, Support
@@ -103,6 +105,14 @@ def new_paper(request):
                     notifier = Person.objects.create(order=order, user=user)
                     paper.notifiers.add(notifier)
 
+            if paper.approver.profile.alarm_paper:
+                if paper.approver.profile.alarm_list != '':
+                    paper.approver.profile.alarm_list += ','
+                alarm_text = 'pa:%d' % paper.id
+                paper.approver.profile.alarm_list += alarm_text
+                paper.approver.profile.alarm = True
+                paper.approver.profile.save()
+
             return redirect('papers:summary')
 
     elif request.method == "GET":
@@ -193,3 +203,24 @@ def inbox(request, search_type='', search_word='', page=0, box=''):
             'box': box,
         }
     )
+
+
+@login_required
+def send_email_with_paper(request, id):
+    """Send email for completed papers"""
+    paper = get_object_or_404(Paper, pk=id)
+    if paper.status == '5completed' or paper.status == '3rejected':
+        id_email = paper.user.email
+        subject = paper.title
+        body = render_to_string(
+            'papers/paper_file.html',
+            {
+                'request': request,
+                'paper': paper
+            }
+        )
+
+        send_mail(
+            subject, body, settings.EMAIL_HOST_USER, [id_email],
+            html_message=body, fail_silently=False
+        )

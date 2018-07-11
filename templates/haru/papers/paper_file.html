@@ -1,0 +1,158 @@
+{% load staticfiles %}
+{% load i18n %}
+{% load status %}
+{% load link %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>[{{ paper.status|status_to_text_vanilla }}]{{ paper.title }}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+table.paper_title tr td {height:2.5em;}
+table.paper_title a {color:#666;font-size:1.2em;font-weight:bold;}
+.paper_line {width:95%;border-top:1px dashed #aaa;border-bottom:1px dashed #aaa;padding:5px;padding-left:10px;}
+.paper_line div span.proposer {color:#fff;background-color:#3E3436;}
+.paper_line div span.approver {color:#fff;background-color:#366ED1;}
+.paper_line div span.supporter {color:#fff;background-color:#85BF69;}
+.paper_line div span.notifier {color:#fff;background-color:#E54F44;}
+.paper_line div span.rejector {color:#fff;background-color:#FF6A00 !important;}
+.paper_line div.paper_time {font-size:.8em;text-align:right;}
+div span.rejected {color:#f00;}
+.paper_comment {width:95%;font-size:.9em;background-color:#eee;overflow-wrap:break-word;}
+.article_view_content {display:inline-block;width:100%;margin-top:.5em;margin-bottom:.5em;overflow-wrap:break-word;}
+.article_view_content iframe {max-width:100%;}
+.article_view_content img {max-width:100%;}
+.article_view_content a {vertical-align:baseline;color:#428bca;}
+.article_view_content a:hover {color:#E54F44;}
+.paper_files {border:1px solid #aaa;}
+.paper_files div {font-size:.9em;}
+.paper_files div.file_title {background-color:#EDEDED;}
+</style>
+</head>
+
+<body>
+
+<table class="paper_title">
+    <tr>
+        <td>
+            <a href="{{ request.scheme }}://{{ request.get_host }}{% url 'papers:show_paper' id=paper.id %}">
+                [{{ paper.status|status_to_text_vanilla }}]{{ paper.title }}
+            </a>
+        </td>
+    </tr>
+</table>
+
+<div class="paper_line">
+    <div>
+        {% if paper.status == '4canceled' %}
+            <span class="rejector">{% trans 'Withdraw' %}</span>
+        {% else %}
+            <span class="proposer">{% trans 'Proposal' %}</span>
+        {% endif %}
+        <span>
+            {{ paper.user }} / {{ paper.user.email }}
+        </span>
+        {% if paper.status == '4canceled' %}
+            <div class="paper_time rejected">
+                {{ paper.updated_at|date:"Y-m-d H:m:s" }} 
+        {% else %}
+            <div class="paper_time">
+                {{ paper.created_at|date:"Y-m-d H:m:s" }}
+        {% endif %}
+            </div>
+        {% if paper.cancelmsg %}
+            <div class="paper_comment">
+                {{ paper.cancelmsg }}
+            </div>
+        {% else %}
+        {% endif %}
+    </div>
+    <div>
+        {% if paper.rejected %}
+            <span class="rejector">{% trans 'Reject' %}</span>
+        {% else %}
+            <span class="approver">{% trans 'Approval' %}</span>
+        {% endif %}
+            <span>
+                {{ paper.approver }} / {{ paper.approver.email }}
+            </span>
+        {% if paper.approved or paper.rejected %}
+            {% if paper.rejected %}
+                <div class="paper_time rejected">
+            {% else %}
+                <div class="paper_time">
+            {% endif %}
+                    {{ paper.approved_at|date:"Y-m-d H:m:s" }}
+                </div>
+            {% if paper.comment %}
+                <div class="paper_comment">
+                    {{ paper.comment }}
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+    {% for supporter in paper.supporters.all %}
+        <div>
+            {% if supporter.rejected %}
+                <span class="rejector">{% trans 'Reject' %}</span>
+            {% else %}
+                <span class="supporter">{% trans 'Support' %}</span>
+            {% endif %}
+            <span>
+                {{ supporter.user }} / {{ supporter.user.email }}
+            </span>
+            {% if supporter.approved or supporter.rejected %}
+                {% if supporter.rejected %}
+                    <div class="paper_time rejected">
+                {% else %}
+                    <div class="paper_time">
+                {% endif %}
+                        {{ supporter.approved_at|date:"Y-m-d H:m:s" }}
+                    </div>
+                {% if supporter.comment %}
+                    <div class="paper_comment">
+                        {{ supporter.comment }}
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>
+    {% endfor %}
+    {% for notifier in paper.notifiers.all %}
+        <div>
+            <span class="notifier">{% trans 'Notify' %}</span>
+            <span>
+                {{ notifier.user }} / {{ notifier.user.email }}
+            </span>
+            {% if paper.status == '5completed' %}
+                <div class="paper_time">
+                    {{ paper.updated_at|date:"Y-m-d H:m:s" }}
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+
+<div class="article_view_content">
+    {{ paper.content|absolutepath|safe }}
+</div>
+
+{% if paper.files.all %}
+    <div class="paper_files">
+        <div class="file_title">
+            {% trans 'Attachment' %} ({{ paper.files.all.count }})
+        </div>
+        <div>
+            {% for f in paper.files.all %}
+                <div>
+                    {{ f.file.path|filenamepath }}
+                    ({{ f.file.size|filesizeformat }})
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}
+
+</body>
+</html>

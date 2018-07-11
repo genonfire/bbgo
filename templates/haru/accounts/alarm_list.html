@@ -71,6 +71,24 @@
                                     {% trans 'Reply has a reply.' %}
                                 </span>
                             {% endif %}
+                    {% elif alarm.0 == 'pa' or alarm.0 == 'pc' or alarm.0 == 'pr' %}
+                        <span class="category">
+                            {% trans 'Paper' %}
+                        </span>
+                        <a href="{% url 'papers:show_paper' id=alarm.1.id %}">
+                            <span class="subject">
+                                {{ alarm.1.title }}
+                            </span>
+                            <span>
+                                {% if alarm.0 == 'pa' %}
+                                    {% trans 'Paper requires your approval.' %}
+                                {% elif alarm.0 == 'pc' %}
+                                    {% trans 'Paper has been completed.' %}
+                                {% elif alarm.0 == 'pr' %}
+                                    {% trans 'Paper has been rejected.' %}
+                                {% endif %}
+                            </span>
+                        </a>
                     {% elif alarm.0 == 't' or alarm.0 == 'tf' or alarm.0 == 'tc' or alarm.0 == 'tl' or alarm.0 == 'tk' or alarm.0 == 'bt' %}
                         <a href="{% url 'teams:show_recruitment' id=alarm.1.id %}">
                             <span class="subject">

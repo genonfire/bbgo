@@ -8,12 +8,11 @@
 {% load status %}
 {% load user %}
 {% load link %}
-{% load i18n %}
 {% block content %}
 
 <div class="blog_header">
     <span>
-        {{ paper.status|status_to_text }}
+        {{ paper.status|status_to_text_vanilla }}
     </span>
     {{ paper.title }}
 </div>
@@ -22,13 +21,10 @@
     <ul>
         <li class="proposer">
             {% if paper.status == '4canceled' %}
-                <span class="rejector">
-                    {% trans 'Withdraw' %}
+                <span class="rejector">{% trans 'Withdraw' %}</span>
             {% else %}
-                <span>
-                    {% trans 'Proposal' %}
+                <span>{% trans 'Proposal' %}</span>
             {% endif %}
-                </span>
             {% if request.user == paper.user %}
                 <span class="self">
             {% else %}
@@ -53,13 +49,10 @@
         </li>
         <li class="approver">
             {% if paper.rejected %}
-                <span class="rejector">
-                    {% trans 'Reject' %}
+                <span class="rejector">{% trans 'Reject' %}</span>
             {% else %}
-                <span>
-                    {% trans 'Approval' %}
+                <span>{% trans 'Approval' %}</span>
             {% endif %}
-                </span>
             {% if request.user == paper.approver %}
                 <span class="self">
             {% else %}
@@ -85,11 +78,9 @@
         {% for supporter in paper.supporters.all %}
             <li class="supporter">
                 {% if supporter.rejected %}
-                    <span class="rejector">
-                        {% trans 'Reject' %}
+                    <span class="rejector">{% trans 'Reject' %}</span>
                 {% else %}
-                    <span>
-                        {% trans 'Support' %}
+                    <span>{% trans 'Support' %}</span>
                 {% endif %}
                 </span>
                 {% if request.user == supporter.user %}
@@ -117,9 +108,7 @@
         {% endfor %}
         {% for notifier in paper.notifiers.all %}
             <li class="notifier">
-                <span>
-                    {% trans 'Notify' %}
-                </span>
+                <span>{% trans 'Notify' %}</span>
                 {% if request.user == notifier.user %}
                     <span class="self">
                 {% else %}
@@ -155,7 +144,7 @@
                             <a href="{{ f.file.url }}">
                                 {{ f.file.path|filenamepath }}
                             </a>
-                            ({{ f.file.size|filesizeformat }})<br>
+                            ({{ f.file.size|filesizeformat }})
                         </td>
                     </tr>
                 {% endfor %}

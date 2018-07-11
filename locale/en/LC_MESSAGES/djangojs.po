@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-09 14:48+0900\n"
+"POT-Creation-Date: 2018-07-11 13:16+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,8 +33,8 @@ msgstr ""
 #: static/js/boards/boards_reply.js:182 static/js/boards/boards_reply.js:204
 #: static/js/boards/boards_reply.js:227 static/js/boards/boards_reply.js:251
 #: static/js/boards/boards_reply.js:278 static/js/boards/reply_list.js:38
-#: static/js/msgs/conversation.js:19 static/js/papers/papers.js:30
-#: static/js/papers/papers.js:73 static/js/papers/papers_edit.js:29
+#: static/js/msgs/conversation.js:19 static/js/papers/papers.js:34
+#: static/js/papers/papers.js:78 static/js/papers/papers_edit.js:29
 #: static/js/recipes/category.js:20 static/js/recipes/category.js:42
 #: static/js/recipes/category.js:73 static/js/recipes/recipes.js:36
 #: static/js/recipes/recipes.js:58 static/js/teams/team.js:36
@@ -283,7 +283,7 @@ msgstr ""
 msgid "Are you sure to delete this conversation?"
 msgstr ""
 
-#: static/js/papers/papers.js:27 static/js/papers/papers.js:70
+#: static/js/papers/papers.js:31 static/js/papers/papers.js:75
 msgid "Please try again after reloading."
 msgstr ""
 

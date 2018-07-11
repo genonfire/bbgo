@@ -43,6 +43,7 @@ class Profile(models.Model):
         default=settings.DEFAULT_ALARM_INTERVAL)
     alarm_board = models.BooleanField(default=False)
     alarm_reply = models.BooleanField(default=True)
+    alarm_paper = models.BooleanField(default=True)
     alarm_team = models.BooleanField(default=False)
     alarm_full = models.BooleanField(default=True)
     portrait = models.ImageField(
