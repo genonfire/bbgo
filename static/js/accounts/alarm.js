@@ -118,6 +118,7 @@ function alarm_list(type) {
 
 $(document).ready(function() {
     if (alarm_polling_enabled) {
+        // alarm_status();
         setInterval(alarm_status, alarm_polling_ms);
     }
 });

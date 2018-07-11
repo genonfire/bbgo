@@ -63,7 +63,7 @@
                         <div class="sidebar_notice">
                             <span class="float-left">
                                 <a href="javascript:alarm_list('desktop')">
-                                    {% if user.profile.alarm %}
+                                    {% if user.profile.alarm and DEBUG %}
                                         <img id="alarm_icon" src="{% static 'icons/alert24.gif' %}">
                                     {% else %}
                                         <img id="alarm_icon" src="{% static 'icons/alert24.png' %}">
@@ -154,6 +154,8 @@
     </div>
 </div>
 <script>
+    var site_name = '{{ SITE_NAME }}';
+    var site_logo = '{{ SITE_LOGO }}';
     var url_userinfo = "{% url 'accounts:user_info' user='bb' %}";
     var url_userarticle = "{% url 'boards:show_search_article' search_type='writeuser' search_word='bb' table=0 page=1 %}";
     var url_userreply = "{% url 'boards:search_reply' search_type='writeuser' search_word='bb' table=0 page=1 %}";
@@ -165,8 +167,6 @@
     {% else %}
         var alarm_polling_enabled = false;
     {% endif %}
-    var site_name = '{{ SITE_NAME }}';
-    var site_logo = '{{ SITE_LOGO }}';
 </script>
 <script src="{% static 'js/thirdparty/easyNotify.min.js' %}" async></script>
 <script src="{% static 'js/thirdparty/waitMe.min.js' %}" async></script>
