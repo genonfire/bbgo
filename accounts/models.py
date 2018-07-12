@@ -54,8 +54,9 @@ class Profile(models.Model):
 class UserSession(models.Model):
     """User key for Session"""
 
-    user = models.ForeignKey(settings.AUTH_USER_MODEL)
-    session = models.ForeignKey(Session)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    session = models.ForeignKey(Session, on_delete=models.CASCADE)
 
 
 @receiver(post_save, sender=User)
