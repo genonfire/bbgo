@@ -41,6 +41,14 @@
                         </div>
                         <div class="sample_wrapper">
                             <div class="sample_icon">
+                                <img src="{% static 'icons/paper64.png' %}">
+                            </div>
+                            <div class="sample_text">
+                                {% trans 'Finding groupware or Document settlement system? Just use bbgo.' %}
+                            </div>
+                        </div>
+                        <div class="sample_wrapper">
+                            <div class="sample_icon">
                                 <img src="{% static 'icons/customize64.png' %}">
                             </div>
                             <div class="sample_text">
@@ -58,6 +66,9 @@
                         <div class="banner_button">
                             <a href="{% url 'boards:show_list_0' table=3 %}">
                                 <input type="button" value="{% trans 'bbgo documentation' %}">
+                            </a>
+                            <a href="https://gencode.me/19/">
+                                <input type="button" value="{% trans 'Settlement system' %}">
                             </a>
                         </div>
                     </div>
