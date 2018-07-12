@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-11 13:16+0900\n"
+"POT-Creation-Date: 2018-07-12 15:36+0900\n"
 "PO-Revision-Date: 2017-11-30 21:47+0900\n"
 "Last-Translator:   <gencode.me@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1046,7 +1046,7 @@ msgstr ""
 #: templates/haru/blogs/show_post.html:204
 #: templates/haru/boards/edit_article.html:74
 #: templates/haru/boards/show_article.html:172
-#: templates/haru/papers/edit_paper.html:63
+#: templates/haru/papers/edit_paper.html:61
 #: templates/haru/spams/spam_setting.html:19
 #: templates/haru/spams/spam_setting.html:33
 #: templates/haru/teams/edit_recruitment.html:73
@@ -1062,7 +1062,7 @@ msgstr ""
 
 #: templates/haru/blogs/edit_post.html:88
 #: templates/haru/boards/edit_article.html:78
-#: templates/haru/papers/edit_paper.html:64
+#: templates/haru/papers/edit_paper.html:62
 #: templates/haru/teams/edit_recruitment.html:77
 #: templates/haru/teams/show_recruitment.html:101
 msgid "cancel"
@@ -1308,7 +1308,7 @@ msgstr ""
 msgid "Documentation"
 msgstr ""
 
-#: templates/haru/menu_sub.html:38 templates/haru/portal/bbgo.html:140
+#: templates/haru/menu_sub.html:38 templates/haru/portal/bbgo.html:151
 msgid "bbs"
 msgstr ""
 
@@ -1418,7 +1418,7 @@ msgstr ""
 msgid "Notifier"
 msgstr ""
 
-#: templates/haru/papers/edit_paper.html:45
+#: templates/haru/papers/edit_paper.html:44
 #: templates/haru/papers/paper_file.html:52
 #: templates/haru/papers/show_paper.html:26
 msgid "Proposal"
@@ -1575,52 +1575,60 @@ msgid ""
 msgstr ""
 
 #: templates/haru/portal/bbgo.html:47
+msgid "Finding groupware or Document settlement system? Just use bbgo."
+msgstr ""
+
+#: templates/haru/portal/bbgo.html:55
 msgid ""
 "Want to build your own web service? MVT(Model, View, Template) structures of "
 "Django are very easy to customize."
 msgstr ""
 
-#: templates/haru/portal/bbgo.html:55
+#: templates/haru/portal/bbgo.html:63
 msgid "It is free and open source."
 msgstr ""
 
-#: templates/haru/portal/bbgo.html:60
+#: templates/haru/portal/bbgo.html:68
 msgid "bbgo documentation"
 msgstr ""
 
-#: templates/haru/portal/bbgo.html:70 templates/haru/portal/bbgo.html:136
+#: templates/haru/portal/bbgo.html:71
+msgid "Settlement system"
+msgstr ""
+
+#: templates/haru/portal/bbgo.html:81 templates/haru/portal/bbgo.html:147
 msgid "Download bbgo"
 msgstr ""
 
-#: templates/haru/portal/bbgo.html:74
+#: templates/haru/portal/bbgo.html:85
 msgid "Latest news"
 msgstr ""
 
-#: templates/haru/portal/bbgo.html:91 templates/haru/portal/bbgo.html:157
+#: templates/haru/portal/bbgo.html:102 templates/haru/portal/bbgo.html:168
 msgid "Question and requisition"
 msgstr ""
 
-#: templates/haru/portal/bbgo.html:96 templates/haru/portal/bbgo.html:162
+#: templates/haru/portal/bbgo.html:107 templates/haru/portal/bbgo.html:173
 msgid "via bbs (require login)"
 msgstr ""
 
-#: templates/haru/portal/bbgo.html:102 templates/haru/portal/bbgo.html:168
+#: templates/haru/portal/bbgo.html:113 templates/haru/portal/bbgo.html:179
 msgid "via github"
 msgstr ""
 
-#: templates/haru/portal/bbgo.html:108 templates/haru/portal/bbgo.html:174
+#: templates/haru/portal/bbgo.html:119 templates/haru/portal/bbgo.html:185
 msgid "via E-mail"
 msgstr ""
 
-#: templates/haru/portal/bbgo.html:114
+#: templates/haru/portal/bbgo.html:125
 msgid "More"
 msgstr ""
 
-#: templates/haru/portal/bbgo.html:119
+#: templates/haru/portal/bbgo.html:130
 msgid "Jira"
 msgstr ""
 
-#: templates/haru/portal/bbgo.html:125
+#: templates/haru/portal/bbgo.html:136
 msgid "Django documentation"
 msgstr ""
 
