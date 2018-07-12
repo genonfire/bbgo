@@ -5,7 +5,7 @@
 {% block extra_head_content %}
 {{ block.super }}
 {% endblock %}
-{% load i18n %}
+{% load user %}
 {% block content %}
 
 <div class="blog_header">
@@ -41,10 +41,8 @@
     <div class="line_names">
         <ul>
             <li class="proposer">
-                <span>
-                    {% trans 'Proposal' %}
-                </span>
-                {{ user }} / {{ user.email }}
+                <span>{% trans 'Proposal' %}</span>
+                {{ request.user|realname:user.is_authenticated|safe }} / {{ request.user.email }}
             </li>
         </ul>
     </div>
