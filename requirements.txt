@@ -2,8 +2,8 @@ asn1crypto==0.24.0
 certifi==2018.1.18
 cffi==1.11.4
 chardet==3.0.4
-cryptography==2.1.4
-Django==1.11.10
+cryptography==2.3
+Django==1.11.15
 django-appconf==1.0.2
 django-fernet-fields==0.5
 django-rosetta==0.8.1
