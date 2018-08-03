@@ -129,6 +129,7 @@ def edit_recipe(request, id):
             'edit_type': 'edit',
             'recipe': recipe,
             'categories': categories,
+            'context': request.context,
         }
     )
 
@@ -166,7 +167,6 @@ def edit_category(request):
         {
             'categories': categories,
         },
-        context_instance=RequestContext(request)
     )
 
 
@@ -192,7 +192,6 @@ def new_category(request):
                     'categories': categories,
                     'category_length': settings.RECIPE_CATEGORY_MAX,
                 },
-                context_instance=RequestContext(request)
             )
 
     return error_page(request)
@@ -213,7 +212,6 @@ def delete_category(request):
             'categories': categories,
             'category_length': settings.RECIPE_CATEGORY_MAX,
         },
-        context_instance=RequestContext(request)
     )
 
 
@@ -238,5 +236,4 @@ def save_category(request):
             'categories': categories,
             'category_length': settings.RECIPE_CATEGORY_MAX,
         },
-        context_instance=RequestContext(request)
     )

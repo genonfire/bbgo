@@ -14,6 +14,5 @@ def show_category(context):
 
     return {
         'categories': categories,
-        'context': context,
         'category_length': settings.RECIPE_CATEGORY_MAX,
     }
