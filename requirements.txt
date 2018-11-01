@@ -18,6 +18,6 @@ polib==1.1.0
 psycopg2==2.7.3.2
 pycparser==2.18
 pytz==2017.3
-requests==2.18.4
+requests==2.20.0
 six==1.11.0
 urllib3==1.22
