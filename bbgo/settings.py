@@ -142,6 +142,7 @@ try:
     SENSE_SIDE_CLIENT = getattr(secrets, "SENSE_SIDE_CLIENT")
     SENSE_SIDE_SLOT = getattr(secrets, "SENSE_SIDE_SLOT")
     FB_APP_ID = getattr(secrets, "FB_APP_ID")
+    f.close()
 except IOError:
     SECRET_KEY = 'k8n13h0y@$=v$uxg*^brlv9$#hm8w7nye6km!shc*&bkgkcd*p'
     DB_NAME = ''
@@ -165,14 +166,13 @@ except IOError:
     SENSE_SIDE_CLIENT = ''
     SENSE_SIDE_SLOT = ''
     FB_APP_ID = ''
-f.close()
 
 try:
     with open(os.path.join(BASE_DIR, "VERSION")) as f:
         APP_VERSION = f.readline()
+    f.close()
 except IOError:
     APP_VERSION = 0.1
-f.close()
 
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
