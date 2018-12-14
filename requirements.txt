@@ -20,4 +20,4 @@ pycparser==2.18
 pytz==2017.3
 requests==2.20.0
 six==1.11.0
-urllib3==1.22
+urllib3==1.23
