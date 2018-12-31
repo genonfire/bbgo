@@ -13,11 +13,16 @@ https://gencode.me/bbgo
 # Getting started with bbgo
 English > https://gencode.me/16/
 
-Korean > https://gencode.me/1/
+Korean > https://gencode.me/28/
 
     $ git clone git@github.com:genonfire/bbgo.git
     $ pip install -r requirements.txt
 
+For Django 1.x > https://gencode.me/1/
+
+    $ git clone git@github.com:genonfire/bbgo.git
+    $ git checkout tag/1.3
+    $ pip install -r requirements.txt
 
 # Issue management
 http://jira.gencode.me/projects/BBGO/issues/filter=allissues
