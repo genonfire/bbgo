@@ -11,12 +11,12 @@ https://gencode.me/bbgo
     - It is free and open source.
 
 # Getting started with bbgo
-English > https://gencode.me/16/
-
-Korean > https://gencode.me/28/
+https://gencode.me/28/
 
     $ git clone git@github.com:genonfire/bbgo.git
     $ pip install -r requirements.txt
+
+English > https://gencode.me/16/
 
 For Django 1.x > https://gencode.me/1/
 
