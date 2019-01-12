@@ -20,7 +20,7 @@ English > https://gencode.me/16/
 
 For Django 1.x > https://gencode.me/1/
 
-    $ git clone git@github.com:genonfire/bbgo.git
+    $ git clone https://github.com/genonfire/bbgo.git
     $ git checkout tag/1.3
     $ pip install -r requirements.txt
 
