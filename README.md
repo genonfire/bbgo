@@ -13,7 +13,7 @@ https://gencode.me/bbgo
 # Getting started with bbgo
 https://gencode.me/28/
 
-    $ git clone git@github.com:genonfire/bbgo.git
+    $ git clone https://github.com/genonfire/bbgo.git
     $ pip install -r requirements.txt
 
 English > https://gencode.me/16/
