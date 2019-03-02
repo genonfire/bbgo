@@ -1,7 +1,0 @@
-{% for tag in tags %}
-    <span>
-        <a href="{% url 'blogs:search_post' search_type='tag' search_word=tag page=1 %}">
-            {{ tag }}
-        </a>
-    </span>
-{% endfor %}
