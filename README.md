@@ -13,17 +13,20 @@ https://gencode.me/bbgo
 
 # Getting started with bbgo
 bbgo 2.0 is being refactored with 100% Django REST Framework + Vue.js (TBD).
+
 It will be working on Django 2.2 and Python 3
 
     $ git clone https://github.com/genonfire/bbgo.git
     $ pip install -r requirements.txt
 
 English > https://gencode.me/16/
+
 Korean > https://gencode.me/28/
 
 
 # Secrets and Config
-Create secrets.json from the sample file then fill all required keys such as DB_NAME, DB_USER and DB_PASSWORD. It is highly suggested to use your own generated SECRET_KEY.
+Create secrets.json from the sample file then fill all required keys such as DB_NAME, DB_USER and DB_PASSWORD.
+It is highly suggested to use your own generated SECRET_KEY.
 
     $ cp docs/secrets_sample.json secrets.json
 
