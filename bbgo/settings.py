@@ -17,16 +17,11 @@ import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-# Theme
-THEME = 'vuejs'
-TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
-THEME_DIR = os.path.join(BASE_DIR, 'templates', THEME)
+FRONTEND_DIR = os.path.join(BASE_DIR, 'frontend')
+TEMPLATES_DIR = os.path.join(FRONTEND_DIR, 'templates')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRETS_PATH = 'secrets.json'
 CONFIG_PATH = 'config.json'
@@ -105,7 +100,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(THEME_DIR),
+            os.path.join(FRONTEND_DIR),
             os.path.join(TEMPLATES_DIR),
         ],
         'APP_DIRS': True,
