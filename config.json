@@ -1,5 +1,0 @@
-{
-    "REST_PAGINATION_SIZE_DEFAULT": 20,
-    "DEBUG": false,
-    "LOCAL_SERVER": true
-}

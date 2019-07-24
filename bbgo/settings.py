@@ -1,4 +1,3 @@
-# flake8: noqa
 """
 Django settings for bbgotest project.
 
@@ -20,32 +19,61 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FRONTEND_DIR = os.path.join(BASE_DIR, 'frontend')
 TEMPLATES_DIR = os.path.join(FRONTEND_DIR, 'templates')
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 # SECURITY WARNING: keep the secret key used in production secret!
+
 SECRETS_PATH = 'secrets.json'
 CONFIG_PATH = 'config.json'
 
-# Load sensitive data from SECRETS_PATH.
+
+# Load sensitive data from SECRETS_PATH. (secrets.json)
+# Do not change below, edit your own secrets.json instead.
+# See docs/secrets_sample.json
+
 try:
     secrets = json.loads(open(os.path.join(BASE_DIR, SECRETS_PATH)).read())
+
+    DB_NAME = ""
+    DB_USER = ""
+    DB_PASSWORD = ""
+    EMAIL_USER = ""
+    EMAIL_PASSWORD = ""
+    EMAIL_ADDRESS = ""
+    AWS_ACCESS_KEY_ID = ""
+    AWS_SECRET_ACCESS_KEY = ""
+    SECRET_KEY = ""
+    # DO NOT COMMIT YOUR SECRETS ABOVE INTO PUBLIC REPOSITORY.
+
     for key, value in secrets.items():
         setattr(sys.modules[__name__], key, value)
 except IOError:
-    raise IOError(
-        'Error while loading %s.' % SECRETS_PATH
-    )
+    raise IOError('Error while loading %s.' % SECRETS_PATH)
 
-# Load bbgo configuration from CONFIG_PATH.
+
+# Default configurations.
+# It is highly suggested to override in CONFIG_PATH to change values.
+# See docs/config_sample.json
+
+REST_PAGINATION_SIZE_DEFAULT = 20
+DJANGO_DEBUG = False
+LOCAL_SERVER = False
+
+# Load bbgo configuration from CONFIG_PATH if exist. (config.json)
 try:
     config = json.loads(open(os.path.join(BASE_DIR, CONFIG_PATH)).read())
+    print("# Override configurations.")
+
     for key, value in config.items():
         setattr(sys.modules[__name__], key, value)
+        print(" %s : %s" % (key, value))
 except IOError:
-    raise IOError('Error while loading %s' % CONFIG_PATH)
+    pass
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = DJANGO_DEBUG
 if 'DJANGO_DEBUG' in os.environ:
     if os.environ['DJANGO_DEBUG'] == 'Debug':
         DEBUG = True
