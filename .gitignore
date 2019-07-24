@@ -1,6 +1,7 @@
 upload/
 *.pyc
 secrets.json
+config.json
 analytics.js
 backup.sh
 sitemap.xml
