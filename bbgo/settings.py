@@ -35,15 +35,15 @@ CONFIG_PATH = 'config.json'
 try:
     secrets = json.loads(open(os.path.join(BASE_DIR, SECRETS_PATH)).read())
 
-    DB_NAME = ""
-    DB_USER = ""
-    DB_PASSWORD = ""
-    EMAIL_USER = ""
-    EMAIL_PASSWORD = ""
-    EMAIL_ADDRESS = ""
-    AWS_ACCESS_KEY_ID = ""
-    AWS_SECRET_ACCESS_KEY = ""
-    SECRET_KEY = ""
+    DB_NAME = ''
+    DB_USER = ''
+    DB_PASSWORD = ''
+    EMAIL_USER = ''
+    EMAIL_PASSWORD = ''
+    EMAIL_ADDRESS = ''
+    AWS_ACCESS_KEY_ID = ''
+    AWS_SECRET_ACCESS_KEY = ''
+    SECRET_KEY = ''
     # DO NOT COMMIT YOUR SECRETS ABOVE INTO PUBLIC REPOSITORY.
 
     for key, value in secrets.items():
@@ -242,6 +242,8 @@ if 'storages' in INSTALLED_APPS and not LOCAL_SERVER:
     AWS_DOMAIN = '.s3.ap-northeast-2.amazonaws.com'
     AWS_STORAGE_BUCKET_NAME = 'bbgomedia'
     AWS_S3_CUSTOM_DOMAIN = AWS_STORAGE_BUCKET_NAME + AWS_DOMAIN
+    AWS_QUERYSTRING_AUTH = False
+    AWS_DEFAULT_ACL = 'public-read'
     MEDIA_URL = 'https://' + AWS_S3_CUSTOM_DOMAIN + '/'
 else:
     MEDIA_URL = '/upload/'

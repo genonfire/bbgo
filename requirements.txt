@@ -1,5 +1,5 @@
 Django
 djangorestframework
-psycopg2-binary
+psycopg2
 drf-yasg
 packaging
