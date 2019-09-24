@@ -1,9 +1,8 @@
 from django.conf import settings
-from django.conf.urls.static import static
 from django.conf.urls import url
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -15,10 +14,10 @@ if 'rosetta' in settings.INSTALLED_APPS:
 
 if settings.LOCAL_SERVER:
     if 'rest_framework' in settings.INSTALLED_APPS:
-            urlpatterns += [
-                path('restapi/', include(
-                    'rest_framework.urls', namespace='rest_framework'))
-            ]
+        urlpatterns += [
+            path('restapi/', include(
+                'rest_framework.urls', namespace='rest_framework'))
+        ]
 
     if 'drf_yasg' in settings.INSTALLED_APPS:
         from rest_framework import permissions

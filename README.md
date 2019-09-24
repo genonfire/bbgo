@@ -1,5 +1,6 @@
 # bbgo
 [![Build Status](https://travis-ci.org/genonfire/bbgo.svg?branch=master)](https://travis-ci.org/genonfire/bbgo)
+
 Total bbs system made by django
 
 https://gencode.me/bbgo
