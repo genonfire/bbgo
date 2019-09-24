@@ -1,4 +1,6 @@
 # bbgo
+.. image:: https://secure.travis-ci.org/genonfire/bbgo.svg
+    :target: http://travis-ci.org/genonfire/bbgo
 Total bbs system made by django
 
 https://gencode.me/bbgo
