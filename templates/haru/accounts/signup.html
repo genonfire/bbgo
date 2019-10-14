@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block title %}{{ SITE_NAME }} - {% trans 'Sign up' %}{% endblock %}
+{% block extra_head_content %}
+{{ block.super }}
+{% endblock %}
+{% load user %}
+{% load terms %}
+{% block content %}
+
+{% if form.errors %}
+<p>
+    <font color="red">{% trans 'Error!' %}</font>
+</p>
+{% endif %}
+
+<h1>
+    {% trans 'Sign up' %}
+</h1>
+{% if user.is_authenticated %}
+    <div class="annotation">
+        {% blocktrans %}Hello {{ user }}!{% endblocktrans %}
+    </div>
+{% else %}
+    <div class="annotation">
+        {% trans 'Please fill all bold text which mean mandatory.' %}
+    </div>
+
+    <div class="editing">
+        <form id="signup_form" method="post" action="{% url 'accounts:signup' %}">
+        {% csrf_token %}
+            <table class="member">
+                <tr>
+                    <td class="label required">
+                        {% trans 'id' %}
+                    </td>
+                    <td class="input">
+                        {{ userform.username }}
+                        <input type="button" value="{% trans 'Check exist' %}" onClick="check_duplication('id')">
+                        <div>
+                            * {% trans 'Length limit' %}: {{ ID_MIN_LENGTH }} ~ {{ ID_MAX_LENGTH }}
+                        </div>
+                    </td>
+                </tr>
+                {% if ENABLE_NICKNAME %}
+                    <tr>
+                        <td class="label">
+                            {% trans 'nickname' %}
+                        </td>
+                        <td class="input">
+                            {{ userform.first_name }}
+                            <input type="button" value="{% trans 'Check exist' %}" onClick="check_duplication('nickname')">
+                            <div>
+                                * {% trans 'Length limit' %}: {{ NICKNAME_MIN_LENGTH }} ~ {{ NICKNAME_MAX_LENGTH }}
+                            </div>
+                        </td>
+                    </tr>
+                {% endif %}
+                <tr>
+                    <td class="label required">
+                        {% trans 'Email address' %}
+                    </td>
+                    <td class="input">
+                        {{ userform.email }}
+                        <input type="button" value="{% trans 'Get code' %}" onClick="get_verification_code()">
+                        <div>
+                            * {% trans 'After pressing verify, please wait till email sent.' %}
+                        </div>
+                    </td>
+                </tr>
+                <tr id="code_hide">
+                    <td class="label required">
+                        {% trans 'Verification code' %}
+                    </td>
+                    <td class="input">
+                        {{ userform.code }}
+                        <input type="button" value="{% trans 'Verify' %}" onClick="check_validation()">
+                        <div>
+                            * {% trans 'Verification code is started by Email address' %}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label required">
+                        {% trans 'password' %}
+                    </td>
+                    <td class="input">
+                        {{ userform.password1 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label required">
+                        {% trans 'password confirm' %}
+                    </td>
+                    <td class="input">
+                        {{ userform.password2 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" id="signup" value="{% trans 'Sign up' %}">
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+        <div class="concent">
+            <div>
+                <input type="checkbox" id="concent">
+                {% trans 'Agree to Terms of Service and Privacy Policy' %}
+            </div>
+            <div>
+                {% show_terms %}
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block bodyscript %}
+    <script>
+        var id_min_length = {{ ID_MIN_LENGTH }};
+        var nickname_min_length = {{ NICKNAME_MIN_LENGTH }}
+    </script>
+    <script src="{% static 'js/accounts/member.js' %}" async></script>
+    <script src="{% static 'js/accounts/signup.js' %}" async></script>
+{% endblock %}

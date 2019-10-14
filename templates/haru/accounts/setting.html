@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load menu %}
+{% block title %}{{ SITE_NAME }} - {% trans 'Setting' %}{% endblock %}
+{% block content %}
+
+<div class="gnb">
+    {% menu_setting %}
+</div>
+<h1>
+    {% trans 'Setting' %}
+</h1>
+<div class="annotation">
+    {% trans "Settings for each user." %}
+</div>
+
+<div class="editing">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div>
+            <h2>
+                {% trans 'Alarm setting' %}
+            </h2>
+            <span>
+                {% trans 'Interval how often do you want to check new alarm. 30 ~ 3600(1 hour).' %}
+            </span>
+        </div>
+        <table class="member">
+            <tr>
+                <td class="label">
+                    {% trans 'Alarm interval(sec)' %}
+                </td>
+                <td class="input">
+                    {{ settingform.alarm_interval }}
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    {% trans 'Article alarm' %}
+                </td>
+                <td class="input">
+                    {{ settingform.alarm_board }}
+                    <div>
+                        {% trans 'Alarm when someone replies on your article.' %}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    {% trans 'Reply alarm' %}
+                </td>
+                <td class="input">
+                    {{ settingform.alarm_reply }}
+                    <div>
+                        {% trans 'Alarm when someone replies on your reply.' %}
+                        {% trans 'You may not turn off.' %}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    {% trans 'Paper alarm' %}
+                </td>
+                <td class="input">
+                    {{ settingform.alarm_paper }}
+                    <div>
+                        {% trans 'Alarm when your paper has been updated.' %}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    {% trans 'Team alarm' %}
+                </td>
+                <td class="input">
+                    {{ settingform.alarm_team }}
+                    <div>
+                        {% trans 'Alarm when someone joins your team.' %}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    {% trans 'Team full alarm' %}
+                </td>
+                <td class="input">
+                    {{ settingform.alarm_full }}
+                    <div>
+                        {% trans 'Alarm when your team recruiting finished or canceled.' %}
+                        {% trans 'You may not turn off.' %}
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        {% if ENABLE_ADSENSE %}
+            <div>
+                <h2>
+                    {% trans 'AdSense info' %}
+                </h2>
+                <span>
+                    {% trans 'Your AdSense will be shown on information and best articles by profit sharing system. To use this feature please fill followings from your AdSense code.' %}
+                </span>
+            </div>
+            <table class="member">
+                <tr>
+                    <td class="label">
+                        data-ad-client
+                    </td>
+                    <td class="input ad-client">
+                        {{ settingform.sense_client }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">
+                        data-ad-slot
+                    </td>
+                    <td class="input">
+                        {{ settingform.sense_slot}}
+                    </td>
+                </tr>
+            </table>
+        {% endif %}
+
+        <div class="member align-right">
+            <span>
+                {{ msg }}
+            </span>
+            <input type="submit" value="{% trans 'Save' %}">
+        </div>
+    </form>
+</div>
+
+{% endblock %}

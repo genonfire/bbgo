@@ -1,0 +1,44 @@
+{% load staticfiles %}
+{% load i18n %}
+{% if app == 'blogs' %}
+    <div>
+        <form method="get" action="javascript:search_post_by_all();">
+            <input id="side_search_word" type="text" placeholder="{% trans 'Blog search' %}">
+        </form>
+    </div>
+{% endif %}
+
+    <div>
+        <a href="{% url 'bbgo' %}">
+            <img src="{% static 'images/side_banner_bbgo.png' %}">
+        </a>
+    </div>
+{% if user.is_authenticated %}    
+    <div>
+        <a href="{% url 'aliases:dashboard' %}">
+            <img src="{% static 'images/side_banner_alias.png' %}">
+        </a>
+    </div>
+    <div>
+        <a href="{% url 'vaults:open_vault' %}">
+            <img src="{% static 'images/side_banner_vault.png' %}">
+        </a>
+    </div>
+{% endif %}
+    <div>
+        <a href="{% url 'recipes:show_recipes' %}">
+            <img src="{% static 'images/side_banner_recipe.png' %}">
+        </a>
+    </div>
+    <div>
+        <a href="http://wiki.gencode.me/" target="_blank">
+            <img src="{% static 'images/side_banner_confluence.png' %}">
+        </a>
+    </div>
+
+{% block bodyscript %}
+    <script>
+        var url_searchpost = "{% url 'blogs:search_post' search_type='all' search_word='bb' page=1 %}";
+    </script>
+    <script src="{% static 'js/blogs/sidemenu.js' %}" async></script>
+{% endblock %}

@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% block title %}{{ SITE_NAME }} - {{ table_name }}{% endblock %}
+{% block open_graph %}
+    <meta property="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ article.subject }}">
+    <meta property="og:site_name" content="{{ SITE_NAME }}">
+    <meta property="og:title" content="{{ article.subject }}">
+    <meta property="og:description" content="{{ SITE_INFO }}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ SITE_LOGO }}">
+    <meta property="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{{ SITE_LOGO }}">
+    {% if FB_APP_ID %}
+        <meta property="fb:app_id" content="{{ FB_APP_ID }}">
+    {% endif %}
+{% endblock %}
+{% block extra_head_content %}
+{{ block.super }}
+{% if ENABLE_CODE_HIGHLIGHT %}
+    <link rel="stylesheet" href="{% static 'css/xcode.min.css' %}">
+{% endif %}
+{% endblock %}
+{% load tz datetime %}
+{% load censor %}
+{% load reply %}
+{% load user %}
+{% load sense %}
+{% block content %}
+
+<h1>
+    <a href="{% url 'boards:show_list' table=article.table page=1 %}">
+        {{ table_name }}
+    </a>
+</h1>
+<div class="annotation">
+{% if table_desc %}
+    {{ table_desc }}
+{% endif %}
+<span>
+    <a href="javascript:history.back(1)">
+        {% trans 'Go back' %}
+    </a>
+</span>
+</div>
+
+<div class="article_subject">
+    {% if article.status != '1normal' %}
+        <span>[{{ status_text }}]</span>
+    {% endif %}
+    {{ article.subject }}
+</div>
+<div class="article_user">
+    {{ article.user|nickname:user.is_authenticated|safe }}
+    <div class="article_view_count">
+        <img src="{% static 'icons/eye18.png' %}">
+        <span>
+            {{ article.view_count }}
+        </span>
+        {% if article.like_count > 0 %}
+            <a href="javascript:void(0)" onClick="javascript:like_users(event, {{ article.id }});return false;" title="{% trans 'who likes' %}">
+        {% else %}
+            <a href="javascript:void(0)">
+        {% endif %}
+                <span id="article_view_like_count">
+                    {{ article.like_count }}
+                </span>
+            </a>
+    </div>
+</div>
+<div class="article_view_misc">
+    <div>
+        <img src="{% static 'icons/watch18.png' %}">
+        {{ article.created_at|date:"Y-m-d H:i:s" }}
+        <div class="article_view_ip float-right">
+            <div class="article_view_short">
+                <a href="{{ request.scheme }}://{{ request.get_host }}{% url 'portal_redirection' page=article.id %}" title="{% trans 'Short URL. Right click or long touch to select copy.' %}">
+                    {{ request.scheme }}://{{ request.get_host }}{% url 'portal_redirection' page=article.id %}
+                </a>
+            </div>
+            <div>
+                {{ article.ip|censor_ip }}
+            </div>
+        </div>
+    </div>
+    {% if not article.created_at|is_same_date:article.modified_at %}
+        <div>
+            <img src="{% static 'icons/niun18.png' %}">
+            {{ article.modified_at|date:"Y-m-d H:i:s" }}
+        </div>
+    {% endif %}
+</div>
+<div class="article_view_content">
+    {{ article.content|safe}}
+</div>
+{% if article.reference %}
+<div class="article_view_reference">
+    <img src="{% static 'icons/link18.png' %}" title="{% trans 'reference' %}">
+    <a href="{{ article.reference }}" target="_blank">
+        {{ article.reference }}
+    </a>
+</div>
+{% endif %}
+<div class="article_view_msg">
+    <span id="article_view_text"></span>
+</div>
+<div class="article_view_buttons">
+    <span class="like">
+        <a href="javascript:like_article({{ article.id }})">
+            {% trans 'like' %}
+        </a>
+    </span>
+    <span>
+        <a href="javascript:dislike_article({{ article.id }})">
+            {% trans 'dislike' %}
+        </a>
+    </span>
+    <span>
+        <a href="javascript:void(0)" onclick="javascript:share_via(event, 'boards', '{{ article.id }}', '{{ article.subject }}');return false;">
+            {% trans 'share' %}
+        </a>
+    </span>
+    {% if user.is_staff or article.user == user %}
+        <span>
+            <a href="{% url 'boards:edit_article' id=article.id %}">
+                {% trans 'edit' %}
+            </a>
+        </span>
+        <span class="delete">
+            <a href=javascript:delete_article("{% url 'boards:delete_article' id=article.id %}")>
+                {% trans 'delete' %}
+            </a>
+        </span>
+    {% endif %}
+</div>
+<div class="sense_horizontal_bar">
+    {% if table == '9' %}
+        {% show_up_sense user %}
+    {% else %}
+        {% show_up_sense_native %}
+    {% endif %}
+</div>
+<form>{% csrf_token %}</form>
+
+<div id="replies" class="replies">
+    {% show_reply article.id %}
+</div>
+<div class="reload_reply buttons">
+    <span id="reload_reply">
+        <a href="javascript:reload_reply({{ article.id }})">
+            {% trans 'Reload replies' %}
+        </a>
+    </span>
+    <span id="show_new_reply" style="display:none">
+        <a href="javascript:reload_reply({{ article.id }})">
+            {% trans 'Show new replies' %}
+        </a>
+    </span>
+</div>
+<div class="input_reply">
+    <form id="form_reply" method="post" enctype="multipart/form-data">
+        <div class="input_reply_text">
+            <textarea id="reply_text" maxlength="{{ REPLY_TEXT_MAX }}" placeholder="{% trans 'Please show some respect.' %}"></textarea>
+        </div>
+        <div class="input_reply_buttons">
+            {% if REPLY_IMAGE_AVAILABLE %}
+                <span>
+                    <input id="reply_image" type="file" accept="image/*">
+                </span>
+            {% endif %}
+            <span class="float-right">
+                <input type="button" value="{% trans 'submit' %}" onClick="write_reply({{ article.id }})">
+            </span>
+        </div>
+    </form>
+</div>
+
+<div id="like_users_popup" class="popup_frame" style="display:none;">
+</div>
+
+{% endblock %}
+
+{% block bodyscript %}
+{% if ENABLE_CODE_HIGHLIGHT %}
+    <script src="{% static 'js/thirdparty/highlight.min.js' %}"></script>
+    <script src="{% static 'js/thirdparty/highlightjs-line-numbers.min.js' %}"></script>
+    <script src="{% static 'js/thirdparty/highlight.js' %}" async></script>
+{% endif %}
+<script src="{% static 'js/accounts/bookmarks.js' %}" async></script>
+<script src="{% static 'js/boards/boards_article.js' %}" async></script>
+<script>
+    var reply_text_max = {{ REPLY_TEXT_MAX }};
+    {% if REPLY_IMAGE_AVAILABLE %}
+        var reply_image_available = true;
+        var reply_image_limit = {{ REPLY_IMAGE_SIZE_LIMIT }};
+    {% else %}
+        var reply_image_available = false;
+    {% endif %}
+    var article_id = {{ article.id }};
+    var reply_count = {{ article.reply_count }};
+    {% if DEBUG %}
+        var reply_auto_renew_enabled = false;
+    {% else %}
+        var reply_auto_renew_enabled = true;
+        var reply_auto_renew_ms = {{ REPLY_AUTO_RENEW_MS }};
+    {% endif %}
+</script>
+<script src="{% static 'js/boards/boards_reply.js' %}" async></script>
+{% endblock %}

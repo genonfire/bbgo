@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% block title %}{% trans 'Recipes' %}{% endblock %}
+{% load category %}
+{% block content %}
+
+<div class="instruction">
+    <div>
+        {% trans 'Please set category first.' %}
+    </div>
+    <div>
+        <a href="{% url 'recipes:edit_category' %}">
+            {% trans 'Setting' %}
+        </a>
+    </div>
+</div>
+
+{% endblock %}

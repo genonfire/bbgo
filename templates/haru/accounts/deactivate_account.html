@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load terms %}
+
+{% block title %}{{ SITE_NAME }} - {% trans 'Deactivate account' %}{% endblock %}
+{% block content %}
+
+<h1>
+    {% trans 'Deactivate account' %}
+</h1>
+<div class="annotation">
+    {% trans 'To delete your profile, please check following Terms.' %}
+</div>
+
+<div class="member">
+    <div class="concent">
+        <div>
+            <input type="checkbox" id="concent">
+            {% trans 'Agree to Terms of Service and Privacy Policy' %}
+        </div>
+        <div>
+            {% show_delete_terms %}
+        </div>
+    </div>
+    <div class="buttons align-right">
+        <span class="delete">
+            <a href="javascript:deactivate_account('{% url 'accounts:deactivate_account' %}')">
+                {% trans 'Deactivate account' %}
+            </a>
+        </span>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block bodyscript %}
+    <script src="{% static 'js/accounts/deactivate.js' %}" async></script>
+{% endblock %}

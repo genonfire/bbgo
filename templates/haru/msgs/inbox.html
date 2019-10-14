@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% block title %}{{ SITE_NAME }} - {% trans 'Message inbox' %}{% endblock %}
+{% load user %}
+{% load navigator %}
+{% block content %}
+
+<h1>
+    {% trans 'Message inbox' %}
+</h1>
+<div class="annotation">
+    {% if unread_total > 0 %}
+        {{ unread_total }} {% trans 'unread messages exist.' %}
+    {% elif old_total > 0 %}
+        {{ old_total }} {% trans 'old messages exist. Deleting old messages may be able to improve overall performance.' %}
+    {% else %}
+        {{ total }} {% trans 'messages exist.' %}
+    {% endif %}
+    <div>
+        {% if total > 0 %}
+            <span class="delete">
+                <a href="javascript:delete_all()">
+                    {% trans 'Delete all' %}
+                </a>
+            </span>
+        {% endif %}
+        {% if old_total > 0 %}
+            <span>
+                <a href="javascript:delete_old()">
+                    {% trans 'Delete old' %}
+                </a>
+            </span>
+        {% endif %}
+        {% if unread_total > 0 %}
+            <span>
+                <a href="{% url 'msgs:read_all' %}">
+                    {% trans 'Read all' %}
+                </a>
+            </span>
+        {% endif %}
+    </div>
+</div>
+
+<div class="editing">
+    <table>
+        {% for msg in msgs %}
+            <tr>
+                <td>
+                    <div class="message_with">
+                        {{ msg.0|nickname:user.is_authenticated|safe }}
+                    </div>
+                    <div class="message">
+                        {% if user == msg.1.recipient and msg.1.recipient_status == '1normal' %}
+                            <span class="unread">
+                        {% else %}
+                            <span>
+                        {% endif %}
+                            <a href="{% url 'msgs:conversation' user=msg.0 %}">
+                                {{ msg.1.text|truncatechars:70 }}
+                            </a>
+                        </span>
+                        <span class="msg_date float-right">
+                            {{ msg.1.created_at|date:"Y-m-d" }}
+                            <span class="delete">
+                                <a href="javascript:delete_conversation('{{ msg.0 }}')">
+                                    {% trans 'delete' %}
+                                </a>
+                            </span>
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% show_navigator %}
+
+{% endblock %}
+
+{% block bodyscript %}
+<script>
+    var delete_all_url = "{% url 'msgs:delete_all' %}";
+    var delete_old_url = "{% url 'msgs:delete_old' %}";
+    var delete_converation_url = "{% url 'msgs:delete_conversation' user='bb' %}"
+</script>
+<script src="{% static 'js/msgs/inbox.js' %}" async></script>
+{% endblock %}

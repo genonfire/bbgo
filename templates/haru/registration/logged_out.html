@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{ SITE_NAME }} - {% trans 'logout' %}{% endblock %}
+{% block content %}
+
+<h1>
+    {% trans 'logout' %}
+</h1>
+<div class="annotation">
+    {% trans "Thanks for spending some quality time with the Web site today." %}
+</div>
+
+<div class="member">
+    <div class="password_reset_description">
+        <a href="{% url 'accounts:login' %}?next=/">
+            {% trans 'login' %}
+        </a>
+    </div>
+</div>
+
+{% endblock %}

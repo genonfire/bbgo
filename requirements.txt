@@ -1,6 +1,11 @@
 Django
-djangorestframework
+django-fernet-fields
+django-rosetta
+django-statici18n
+django-summernote
+ipaddress
+Pillow
 psycopg2
-drf-yasg
-packaging
+requests
 tox
+urllib3

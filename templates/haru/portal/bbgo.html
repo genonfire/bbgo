@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load sense %}
+
+{% block title %}bbgo - {{ SITE_NAME }}{% endblock %}
+{% block content %}
+
+<div class="banner_container">
+    <div class="banner_title">
+        {% trans 'Total bbs system made by Django' %}
+    </div>
+    <div class="banner_button">
+        <a href="https://gencode.me/28/">
+            <input type="button" class="submit" value="{% trans 'Get started with bbgo' %}">
+        </a>
+    </div>
+</div>
+
+<div class="board_sample">
+    <table class="board sample">
+        <tr>
+            <td>
+                <div>
+                    <div class="title">
+                        {% trans 'Meet bbgo' %}
+                    </div>
+                    <div>
+                        <p>
+                            {% trans 'bbgo is a middleware based on Django web framework. It may help you build web service nice, quick and easy.' %}
+                        </p>
+                    </div>
+                    <div class="sample_container">
+                        <div class="sample_wrapper">
+                            <div class="sample_icon">
+                                <img src="{% static 'icons/community64.png' %}">
+                            </div>
+                            <div class="sample_text">
+                                {% trans 'Building community? Start quickly with pre-implemented member service, boards and blogs.' %}
+                            </div>
+                        </div>
+                        <div class="sample_wrapper">
+                            <div class="sample_icon">
+                                <img src="{% static 'icons/paper64.png' %}">
+                            </div>
+                            <div class="sample_text">
+                                {% trans 'Finding groupware or Document settlement system? Just use bbgo.' %}
+                            </div>
+                        </div>
+                        <div class="sample_wrapper">
+                            <div class="sample_icon">
+                                <img src="{% static 'icons/customize64.png' %}">
+                            </div>
+                            <div class="sample_text">
+                                {% trans 'Want to build your own web service? MVT(Model, View, Template) structures of Django are very easy to customize.' %}
+                            </div>
+                        </div>
+                        <div class="sample_wrapper">
+                            <div class="sample_icon">
+                                <img src="{% static 'icons/free64.png' %}">
+                            </div>
+                            <div class="sample_text oneline">
+                                {% trans 'It is free and open source.' %}
+                            </div>
+                        </div>
+                        <div class="banner_button">
+                            <a href="{% url 'boards:show_list_0' table=3 %}">
+                                <input type="button" value="{% trans 'bbgo documentation' %}">
+                            </a>
+                            <a href="https://gencode.me/19/">
+                                <input type="button" value="{% trans 'Settlement system' %}">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </td>
+            <td class="right mobile_hide">
+                <div>
+                    <div class="banner_button">
+                        <a href="https://github.com/genonfire/bbgo" target="_blank">
+                            <input type="button" value="{% trans 'Download bbgo' %}">
+                        </a>
+                    </div>
+                    <div class="titlebar">
+                        {% trans 'Latest news' %}
+                    </div>
+                    {% for article in bbs %}
+                        <div class="sample_subject">
+                            <a href="{% url 'boards:show_article' id=article.id %}" class="board_link">
+                                {{ article.subject|truncatechars:26 }}
+                            </a>
+                            {% if article.reply_count > 0 %}
+                                <span class="reply_count">
+                                    [{{ article.reply_count }}]
+                                </span>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="qnr">
+                    <div class="qnr_title">
+                        {% trans 'Question and requisition' %}
+                    </div>
+                    <div>
+                        <img src="{% static 'icons/arrowright24.png' %}">
+                        <a href="{% url 'boards:show_list_0' table=12 %}">
+                            {% trans 'via bbs (require login)' %}
+                        </a>
+                    </div>
+                    <div>
+                        <img src="{% static 'icons/arrowright24.png' %}">
+                        <a href="https://github.com/genonfire/bbgo/issues" target="_blank">
+                            {% trans 'via github' %}
+                        </a>
+                    </div>
+                    <div>
+                        <img src="{% static 'icons/arrowright24.png' %}">
+                        <a href="mailto:gencode.me@gmail.com">
+                            {% trans 'via E-mail' %}
+                        </a>
+                    </div>
+                </div>
+                <div class="qnr">
+                    <div class="qnr_title">
+                        {% trans 'More' %}
+                    </div>
+                    <div>
+                        <img src="{% static 'icons/arrowright24.png' %}">
+                        <a href="http://jira.gencode.me/projects/BBGO/issues/filter=allissues" target="_blank">
+                            {% trans 'Jira' %}
+                        </a>
+                    </div>
+                    <div>
+                        <img src="{% static 'icons/arrowright24.png' %}">
+                        <a href="https://docs.djangoproject.com/ko/1.11/" target="_blank">
+                            {% trans 'Django documentation' %}
+                        </a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr class="mobile_show">
+            <td>
+                <div>
+                    <div class="banner_button">
+                        <a href="https://github.com/genonfire/bbgo" target="_blank">
+                            <input type="button" value="{% trans 'Download bbgo' %}">
+                        </a>
+                    </div>
+                    <div class="titlebar">
+                        {% trans 'bbs' %}
+                    </div>
+                    {% for article in bbs %}
+                        <div class="sample_subject">
+                            <a href="{% url 'boards:show_article' id=article.id %}" class="board_link">
+                                {{ article.subject|truncatechars:26 }}
+                            </a>
+                            {% if article.reply_count > 0 %}
+                                <span class="reply_count">
+                                    [{{ article.reply_count }}]
+                                </span>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="qnr">
+                    <div class="qnr_title">
+                        {% trans 'Question and requisition' %}
+                    </div>
+                    <div>
+                        <img src="{% static 'icons/arrowright24.png' %}">
+                        <a href="{% url 'boards:show_list_0' table=12 %}">
+                            {% trans 'via bbs (require login)' %}
+                        </a>
+                    </div>
+                    <div>
+                        <img src="{% static 'icons/arrowright24.png' %}">
+                        <a href="https://github.com/genonfire/bbgo/issues" target="_blank">
+                            {% trans 'via github' %}
+                        </a>
+                    </div>
+                    <div>
+                        <img src="{% static 'icons/arrowright24.png' %}">
+                        <a href="mailto:{{ ADMIN_EMAIL }}">
+                            {% trans 'via E-mail' %}
+                        </a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+{% endblock %}

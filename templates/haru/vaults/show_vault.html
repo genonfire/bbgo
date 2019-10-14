@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% block title %}{% trans 'Vaults' %}{% endblock %}
+{% block content %}
+
+<div class="blog_header">
+    <span>
+        {% trans 'Vaults' %}
+    </span>
+    {% if ENABLE_MASTERKEY %}
+        <span class="float-right">
+            <span id="expiry_min"></span><span id="expiry_sec"></span>
+            <input type="button" value="{% trans 'Extend expiry' %}" onClick="javascript:extend_expiry()">
+        </span>
+    {% endif %}
+</div>
+<div class="dashboard_header">
+    {% if category == 'all' %}
+        <span class="status_selected">
+    {% else %}
+        <span>
+    {% endif %}
+            <a href="{% url 'vaults:open_vault' %}">
+                {% trans 'All' %}
+            </a>
+        </span>
+    {% if category == 'account' %}
+        <span class="status_selected">
+    {% else %}
+        <span>
+    {% endif %}
+            <a href="{% url 'vaults:change_vault' category='account' %}">
+                {% trans 'Account' %}
+            </a>
+        </span>
+    {% if category == 'card' %}
+        <span class="status_selected">
+    {% else %}
+        <span>
+    {% endif %}
+            <a href="{% url 'vaults:change_vault' category='card' %}">
+                {% trans 'Card' %}
+            </a>
+        </span>
+    {% if category == 'membership' %}
+        <span class="status_selected">
+    {% else %}
+        <span>
+    {% endif %}
+            <a href="{% url 'vaults:change_vault' category='membership' %}">
+                {% trans 'Membership' %}
+            </a>
+        </span>
+    {% if category == 'other' %}
+        <span class="status_selected">
+    {% else %}
+        <span>
+    {% endif %}
+            <a href="{% url 'vaults:change_vault' category='other' %}">
+                {% trans 'Other' %}
+            </a>
+        </span>
+</div>
+
+{% if category != 'all' and not mobile %}
+    <div id="sort_container" class="blog_wrapper">
+        <ul id="sort_items">
+{% else %}
+    <div class="blog_wrapper">
+{% endif %}
+    {% for vault in vaults %}
+        <div id="{{ vault.id }}" class="post_wrapper">
+            <div class="small_thumbnail">
+                <a href="javascript:empahsis('{{ vault.id }}')">
+                    {% if vault.image %}
+                        <img src="{{ vault.image.url }}">
+                    {% else %}
+                        <img src="{% static 'icons/not80.png' %}">
+                    {% endif %}
+                </a>
+            </div>
+            <div class="vault_content">
+                <div class="vault_name">
+                    <span class="vault_category">
+                        {{ vault.category }}
+                    </span>
+                    <span>
+                        <a href="{% url 'vaults:edit_vault' id=vault.id %}" title="{% trans 'Edit' %}">
+                            {{ vault.name }}
+                        </a>
+                    </span>
+                </div>
+                <div class="vault_number">
+                    <span>{{ vault.number }}</span>
+                </div>
+                <div class="vault_description">
+                        <span>
+                            {{ vault.valid }}
+                        </span>
+                        <span class="cvc">
+                            {{ vault.cvc }}
+                        </span>
+                    {% if vault.description %}
+                        <span class="description">
+                            *{{ vault.description }}
+                        </span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% if category != 'all' and not mobile and vaults.count >= 2 %}
+    </ul>
+    <div class="sortable_plate">
+        {% trans 'Drag and drop to edit ordering. Saving is necessary to save your changes.' %}
+        <input type="button" class="submit" value="{% trans 'Save' %}" onClick="javascript:save_order()">
+    </div>
+{% endif %}
+    <input id="copyslave" type="text" style="display:none">
+</div>
+
+<div class="up_button mobile_show">
+    <a href="javascript:scroll_top()">
+        <img src="{% static 'icons/up48.png' %}">
+    </a>
+</div>
+<div class="down_button mobile_show">
+    <a href="javascript:scroll_pagedown()">
+        <img src="{% static 'icons/down48.png' %}">
+    </a>
+</div>
+
+{% endblock %}
+{% block bodyscript %}
+    {% if DEBUG %}
+        <script src="{% static 'js/thirdparty/jquery-ui.min.js' %}"></script>
+    {% else %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    {% endif %}
+    <script src="{% static 'js/thirdparty/jquery-ui-touch-punch.min.js' %}"></script>
+    <script>
+        {% if ENABLE_MASTERKEY %}
+            var enable_masterkey = true;
+            var expiry = {{ expiry }};
+        {% else %}
+            var enable_masterkey = false;
+        {% endif %}
+    </script>
+    <script src="{% static 'js/vaults/vault.js' %}" async></script>
+{% endblock %}

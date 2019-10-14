@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}{{ SITE_NAME }} - {{ table_name }}{% endblock %}
+{% block extra_head_content %}
+{{ block.super }}
+{% endblock %}
+{% load i18n %}
+{% load sense %}
+{% block content %}
+
+<h1>{{ table_name }}</h1>
+<div class="annotation">
+{% if table_desc %}
+    {{ table_desc }}
+{% endif %}
+{% if edit_type == 'new' or edit_type == 'temp' %}
+    <span>
+        <a href="javascript:save_as_draft()">
+            {% trans 'Save as draft' %}
+        </a>
+        {% if edit_type == 'temp' %}
+            {% trans 'Draft saved at' %}
+            {{ created_at|date:"Y-m-d H:i:s" }}
+        {% endif %}
+    </span>
+{% endif %}
+</div>
+
+<form
+    id="edit_article_form"
+    method="POST"
+    enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.errors }}
+    {{ form.non_field_errors }}
+
+    <div class="input_subject">
+        {{ form.subject }}
+    </div>
+    <div class="input_content">
+        {{ form.content }}
+    </div>
+    {% if msg %}
+    <div class="input_msg">
+        {{ msg }}
+    </div>
+    {% endif %}
+    <div class="input_reference">
+        {{ form.reference }}
+    </div>
+    {% if category_choices %}
+        <div class="input_category">
+            <b>{% trans 'category' %}</b>
+            <select id="id_category" maxlength="23" name="category">
+            {% for choice in category_choices %}
+                {% if choice == category %}
+                    <option value="{{ choice }}" selected>{{ choice }}</option>
+                {% else %}
+                    <option value="{{ choice }}">{{ choice }}</option>
+                {% endif %}
+            {% endfor %}
+            </select>
+        </div>
+    {% endif %}
+    {% if user.is_staff %}
+        <div class="input_status">
+    {% else %}
+        <div class="input_status" style="display:none">
+    {% endif %}
+            <b>{% trans 'status' %}</b> {{ form.status }}
+        </div>
+    <div class="input_submit">
+        {% if edit_type == 'new' %}
+            <input type="submit" value="{% trans 'submit' %}">
+        {% else %}
+            <input type="submit" value="{% trans 'save' %}" onClick="javascript:save_override()">
+        {% endif %}
+        <input type="button" value="{% trans 'cancel' %}" onClick="javascript:history.back(1);">
+    </div>
+</form>
+{% endblock %}
+
+{% block bodyscript %}
+<script src="{% static 'js/boards/boards_edit.js' %}" async></script>
+{% endblock %}

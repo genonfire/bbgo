@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block title %}{{ SITE_NAME }} - {% trans 'Send message' %}{% endblock %}
+{% load user %}
+{% block content %}
+
+<h1>
+    {% trans 'Send message' %}
+</h1>
+<div class="annotation">
+    {% trans 'Messages that include spam, abusive or harmful content may cause ban or suspension on your account.' %}
+</div>
+
+<div class="editing">
+    <form id="send_msg_form" action="" method="post">{% csrf_token %}
+        <table>
+            <tr>
+                <td class="label">
+                    {% trans 'recipient' %}
+                </td>
+                <td class="input">
+                    {{ recipient|nickname:user.is_authenticated|safe }}
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    {% trans 'content' %}
+                </td>
+                <td class="input">
+                    <input type="text" id="id_text_len" value="0 / {{ MSG_TEXT_MAX }}" readonly>
+                    <div>
+                        * {{ MSG_TEXT_MAX }} {% trans 'characters available.' %}
+                    </div>
+                </td>
+            </tr>
+            
+        </table>
+        <div class="msg_content">
+            <textarea id="id_text" maxlength="{{ MSG_TEXT_MAX }}" placeholder="{% trans 'Please show some respect.' %}" name="text" rows="10"></textarea>
+        </div>
+        <div class="member align-right">
+            <span>
+                {{ msg }}
+            </span>
+            <input type="submit" value="{% trans 'Send' %}">
+        </div>
+    </form>
+</div>
+
+{% endblock %}
+
+{% block bodyscript %}
+<script>
+    var msg_text_max = {{ MSG_TEXT_MAX }};
+</script>
+<script src="{% static 'js/msgs/message.js' %}" async></script>
+{% endblock %}

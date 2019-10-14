@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}{{ SITE_NAME }} - {{ table_name }}{% endblock %}
+{% block extra_head_content %}
+{{ block.super }}
+{% endblock %}
+{% load i18n %}
+{% load sense %}
+{% block content %}
+
+<h1>{{ table_name }}</h1>
+<div class="annotation">
+{% if table_desc %}
+    {{ table_desc }}
+{% endif %}
+</div>
+
+<form
+    id="edit_article_form"
+    method="POST"
+    enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.errors }}
+    {{ form.non_field_errors }}
+
+    <div class="input_subject">
+        {{ form.subject }}
+    </div>
+    <div class="input_text">
+        {{ form.content }}
+    </div>
+    {% if msg %}
+    <div class="input_msg">
+        {{ msg }}
+    </div>
+    {% endif %}
+    {% if category_choices %}
+        <div class="input_category">
+            <b>{% trans 'category' %}</b>
+            <select id="id_category" maxlength="23" name="category">
+            {% for choice in category_choices %}
+                {% if choice == category %}
+                    <option value="{{ choice }}" selected>{{ choice }}</option>
+                {% else %}
+                    <option value="{{ choice }}">{{ choice }}</option>
+                {% endif %}
+            {% endfor %}
+            </select>
+            <div>
+                * {% trans 'Select activity then slot may be adjusted automatically.' %}
+            </div>
+        </div>
+    {% endif %}
+    <div class="input_category">
+        <b>{% trans 'slot' %}</b>
+        {{ form.slot_total }}
+        <span>
+            <input type="button" value="-1" onClick="slot_minus()">
+        </span>
+        <div>
+            * {% trans 'Total players needed include yourself.' %}
+        </div>
+    </div>
+    {% if user.is_staff %}
+        <div class="input_status">
+    {% else %}
+        <div class="input_status" style="display:none">
+    {% endif %}
+            <b>{% trans 'status' %}</b> {{ form.status }}
+        </div>
+    <div class="input_submit">
+        {% if edit_type == 'new' %}
+            <input type="submit" value="{% trans 'submit' %}">
+        {% else %}
+            <input type="submit" value="{% trans 'save' %}">
+        {% endif %}
+        <input type="button" value="{% trans 'cancel' %}" onClick="javascript:history.back(1);">
+    </div>
+</form>
+{% endblock %}
+
+{% block bodyscript %}
+<script>
+    var edit_type = '{{ edit_type }}';
+</script>
+<script src="{% static 'js/teams/edit_recruitment.js' %}" async></script>
+{% endblock %}

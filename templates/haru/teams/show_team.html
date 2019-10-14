@@ -1,0 +1,91 @@
+{% load staticfiles %}
+{% load i18n %}
+{% load user %}
+{% load range %}
+{% load pick %}
+
+<div class="slot_notice">
+    {% trans 'To join party, claim an empty slot. ID for this platform must exist in your user information. Press your ID once again to leave firetime.' %}
+</div>
+<div class="slot_container">
+    <div class="slot">
+        <table>
+            <tr>
+                <td class="portrait">
+                    {% if article_user.profile.portrait %}
+                        <img src="{{ article_user.profile.portrait.url }}">
+                    {% else %}
+                        <img src="{% static 'icons/account30.png' %}">
+                    {% endif %}
+                </td>
+                <td>
+                    <span clas="nickname">
+                        {{ article_user|nickname:user.is_authenticated|safe }}
+                        -
+                    </span>
+                    <span class="platform_id">
+                        {{ article_user|id:table }}
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    {% for slot_user in slot_users %}
+        <div class="slot">
+            <table>
+                <tr>
+                    <td class="portrait">
+                        {% if slot_user.profile.portrait %}
+                            <img src="{{ slot_user.profile.portrait.url }}">
+                        {% else %}
+                            <img src="{% static 'icons/account30.png' %}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        <span clas="nickname">
+                            {{ slot_user|nickname:user.is_authenticated|safe }}
+                            -
+                        </span>
+                        <span class="platform_id">
+                            {% if slot_user == user %}
+                                <a href="javascript:leave_team('{{ article_id }}')">
+                                    {{ slot_user|id:table }}
+                                </a>
+                            {% elif user == article_user or user.is_staff %}
+                                <a href="javascript:kick_player('{{ article_id }}', '{{ slot_user }}')" title="{% trans 'Kick player' %}">
+                                    {{ slot_user|id:table }}
+                                </a>
+                            {% else %}
+                                {{ slot_user|id:table }}
+                            {% endif %}
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    {% endfor %}
+    {% if empty_slots %}
+        {% for slot in 0|range:empty_slots %}
+            <div class="slot">
+                <table>
+                    <tr>
+                        {% if article_user == user %}
+                            <td align="center">
+                                {% trans 'empty slot.' %}
+                            </td>
+                        {% else %}
+                            <td class="tdlink" data-href="javascript:join_team('{{ article_id }}')" align="center">
+                                {% trans 'empty slot.' %}
+                            </td>
+                        {% endif %}
+                    </tr>
+                </table>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<script>
+    slot_in = {{ slot_in }};
+</script>
+<script src="{% static 'js/teams/team.js' %}"></script>

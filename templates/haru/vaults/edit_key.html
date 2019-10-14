@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% block title %}{% trans 'Vaults' %}{% endblock %}
+{% block content %}
+
+<h1>
+    {% trans 'Change key' %}
+</h1>
+<div class="annotation">
+</div>
+
+<div class="editing">
+    <form id="masterkey_form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            {% trans "Please enter current master key, for security's sake, and then enter your new master key twice so we can verify you typed it in correctly." %}
+        </div>
+        <table class="member">
+            <tr>
+                <td class="label required">
+                    {% trans 'Current master key' %}
+                </td>
+                <td class="input password">
+                    {{ form.current_key }}
+                </td>
+            </tr>
+            <tr>
+                <td class="label required">
+                    {% trans 'New master key' %}
+                </td>
+                <td class="input password">
+                    {{ form.masterkey }}
+                    <div>
+                        * {{ MASTERKEY_LENGTH }} {% trans 'digit number' %}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label required">
+                    {% trans 'Master key confirm' %}
+                </td>
+                <td class="input password">
+                    <input id="id_masterkey2" type="text" maxlength="{{ MASTERKEY_LENGTH }}">
+                </td>
+            </tr>
+        </table>
+        <div class="member align-right">
+            <span>
+                {{ msg }}{{ form.error }}
+            </span>
+            <input type="submit" value="{% trans 'Save' %}">
+        </div>
+    </form>
+</div>
+
+{% endblock %}
+{% block bodyscript %}
+    <script>
+        var masterkey_length = {{ MASTERKEY_LENGTH }};
+    </script>
+    <script src="{% static 'js/vaults/edit_key.js' %}" async></script>
+{% endblock %}

@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% block title %}{{ SITE_NAME }}{% endblock %}
+{% load tz datetime %}
+{% load sense %}
+{% load navigator %}
+{% load tags %}
+{% block content %}
+
+<div class="blog_header">
+    {{ SITE_NAME|upper }}
+    <span>
+        {% trans 'Blog' %}
+    </span>
+    {% if user.is_superuser %}
+        <span class="float-right">
+            <a href="{% url 'blogs:new_post' %}">
+                <input type="button" value="{% trans '+ New Post' %}">
+            </a>
+            <a href="{% url 'blogs:dashboard' condition='recent' %}">
+                <input type="button" value="{% trans 'Dashboard' %}">
+            </a>
+        </span>
+    {% endif %}
+</div>
+<div class="blog_wrapper">
+    {% for post in lists %}
+        {% if forloop.counter0 == 5 %}
+            <div class="post_wrapper">
+                <div class="sense_horizontal_bar">
+                    {% show_up_sense_native %}
+                </div>
+            </div>
+        {% endif %}
+        <div class="post_wrapper">
+            <div class="blog_thumbnail">
+                    <a href="{% url 'blogs:show_post' id=post.id %}">
+                        {% if post.image %}
+                            <img src="{{ post.image.url }}">
+                        {% else %}
+                            <img src="{% static 'icons/addphoto200.png' %}">
+                        {% endif %}
+                    </a>
+                {% if post.comment_count > 0 %}
+                    <span class="comment_over_thumbnail">
+                        <a href="{% url 'blogs:show_post' id=post.id %}#comment_header">
+                            {{ post.comment_count }}
+                        </a>
+                    </span>
+                {% else %}
+                    <span>
+                        {{ post.comment_count }}
+                    </span>
+                {% endif %}
+            </div>
+            <div class="blog_sample">
+                <div class="blog_category">
+                    <span class="small-text">
+                        {% if post.category %}
+                            <a href="{% url 'blogs:search_post' search_type='category' search_word=post.category page=1 %}">
+                                {{ post.category }}
+                            </a>
+                        {% else %}
+                            <a href="{% url 'blogs:search_post' search_type='category' search_word='_uncategorized' page=1 %}">
+                                {% trans 'uncategorized' %}
+                            </a>
+                        {% endif %}
+                    </span>
+                    <span class="humble_text small-text">
+                        {{ post.created_at|date:"DATE_FORMAT" }}
+                    </span>
+                </div>
+                <div class="blog_title">
+                    <a href="{% url 'blogs:show_post' id=post.id %}">
+                        {{ post.title }}
+                    </a>
+                </div>
+                <div class="blog_tags">
+                    {% if post.tags %}
+                        {% show_tags post.tags %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% show_navigator %}
+
+<div class="dbsearch mobile_show">
+    <form method="get" action="javascript:search_post_mobile();">
+        <input id="mobile_search_word" type="text" class="search_post" placeholder="{% trans 'Blog search' %}">
+    </form>
+</div>
+
+{% endblock %}
+{% block bodyscript %}
+{% if ENABLE_MARK_KEYWORD %}
+    <script src="{% static 'js/thirdparty/jquery.mark.min.js' %}" async></script>
+{% endif %}
+<script>
+    var search_type = '{{ search_type }}';
+    var search_word = '{{ search_word }}';
+    var url_searchpost = "{% url 'blogs:search_post' search_type='all' search_word='bb' page=1 %}";
+    {% if ENABLE_MARK_KEYWORD %}
+        var mark_enabled = true;
+    {% else %}
+        var mark_enabled = false;
+    {% endif %}
+</script>
+<script src="{% static 'js/blogs/blogs_list.js' %}" async></script>
+{% endblock %}

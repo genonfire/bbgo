@@ -1,0 +1,100 @@
+"""blogs URL Configuration"""
+
+from django.conf.urls import url
+
+from . import views
+
+urlpatterns = [
+    url(
+        r'^$',
+        views.show_blogs,
+        name='blog_home'
+    ),
+    url(
+        r'^(?P<page>\d+)/$',
+        views.show_blogs,
+        name='show_blogs'
+    ),
+    url(
+        r'^search/(?P<search_type>.*)/(?P<search_word>.*)/(?P<page>\d+)/$',
+        views.show_blogs,
+        name='search_post',
+    ),
+    url(
+        r'^dashboard/(?P<condition>.*)/$',
+        views.dashboard,
+        name='dashboard'
+    ),
+    url(
+        r'^dashboard_post/(?P<status>.*)/(?P<category>.*)/(?P<page>\d+)/$',
+        views.dashboard_post,
+        name='dashboard_post'
+    ),
+    url(
+        r'^dashboard_comment/(?P<status>.*)/(?P<page>\d+)/$',
+        views.dashboard_comment,
+        name='dashboard_comment'
+    ),
+    url(
+        r'^new/$',
+        views.new_post,
+        name='new_post'
+    ),
+    url(
+        r'^post/(?P<id>\d+)/$',
+        views.show_post,
+        name='show_post'
+    ),
+    url(
+        r'^post/(?P<id>\d+)/edit/$',
+        views.edit_post,
+        name='edit_post'
+    ),
+    url(
+        r'^post/(?P<id>\d+)/delete/$',
+        views.delete_post,
+        name='delete_post',
+        kwargs={'stay': False}
+    ),
+    url(
+        r'^post/(?P<id>\d+)/delete_and_stay/$',
+        views.delete_post,
+        name='delete_and_stay',
+        kwargs={'stay': True}
+    ),
+    url(
+        r'^post/(?P<id>\d+)/restore/$',
+        views.restore_post,
+        name='restore_post'
+    ),
+    url(
+        r'^post/(?P<id>\d+)/delete_permanently/$',
+        views.delete_post_permanently,
+        name='delete_post_permanently'
+    ),
+    url(
+        r'^comment/(?P<id>\d+)/delete/$',
+        views.delete_comment,
+        name='delete_comment',
+    ),
+    url(
+        r'^comment/(?P<id>\d+)/spam/$',
+        views.spam_comment,
+        name='spam_comment',
+    ),
+    url(
+        r'^comment/(?P<id>\d+)/restore/$',
+        views.restore_comment,
+        name='restore_comment'
+    ),
+    url(
+        r'^comment/(?P<id>\d+)/delete_permanently/$',
+        views.delete_comment_permanently,
+        name='delete_comment_permanently'
+    ),
+    url(
+        r'^comment/(?P<status>.*)/empty/$',
+        views.empty_comment,
+        name='empty_comment'
+    ),
+]

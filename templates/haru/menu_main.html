@@ -1,0 +1,88 @@
+{% load staticfiles %}
+{% load i18n %}
+
+<ul>
+    <li class="head_logo">
+        <a href="/">
+            <img src="{{ SITE_LOGO }}">
+        </a>
+    </li>
+    <li class="head_info mobile_hide">
+        {{ SITE_NAME }}
+    </li>
+    <li class="head_menu">
+        <a href="#">
+            {% trans 'menu' %}
+        </a>
+        <ul id="mainnav_menu">
+            {% if user.is_staff %}
+                <li class="titlemenu">
+                    {% trans 'Admin menu' %}
+                </li>
+                <li>
+                    <a href="/admin/" target="_blank">
+                        {% trans 'Site administration' %}
+                    </a>
+                </li>
+                <li>
+                    <a href="/trans/" target="_blank">
+                        {% trans 'Text translation' %}
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'boards:dashboard' condition='recent' %}">
+                        {% trans 'Dashboard' %}
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{% url 'bbgo' %}">
+                        bbgo
+                    </a>
+                </li>
+            {% endif %}
+            <li class="titlemenu">
+                {% trans 'Sub site' %}
+            </li>
+            {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'aliases:dashboard' %}">
+                        {% trans 'Alias' %}
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'vaults:open_vault' %}">
+                        {% trans 'Vaults' %}
+                    </a>
+                </li>
+            {% endif %}
+            <li>
+                <a href="{% url 'recipes:show_recipes' %}">
+                    {% trans 'Recipes' %}
+                </a>
+            </li>
+        </ul>
+    </li>
+    {% if user.is_authenticated %}
+        <li class="head_menu">
+            <a href="#">
+                {% trans 'bookmark' %}
+            </a>
+            <ul id="mainnav_bookmark">
+                {% for mb in my_bookmark %}
+                    <li>
+                        <a href="{{ mb.1 }}">
+                            {{ mb.0 }}
+                        </a>
+                    </li>
+                {% endfor %}
+                <li>
+                    <a href="{% url 'accounts:edit_bookmarks' %}">
+                        <img src="{% static 'icons/edit20.png' %}">
+                        {% trans 'Edit' %}
+                    </a>
+                </li>
+            </ul>
+        </li>
+    {% endif %}
+</ul>

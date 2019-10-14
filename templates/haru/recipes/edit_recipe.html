@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% block title %}{% trans 'Recipes' %}{% endblock %}
+{% block content %}
+
+<h1>
+    {% if edit_type == 'new' %}
+        {% trans '+ New item' %}
+    {% else %}
+        {% trans 'Edit item' %}
+    {% endif %}
+</h1>
+<div class="annotation">
+</div>
+
+<div class="editing">
+    <form id="recipe_form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            {% trans 'Please fill all bold text which mean mandatory.' %}
+        </div>
+        <table class="member">
+            <tr>
+                <td class="label required">
+                    {% trans 'name' %}
+                </td>
+                <td class="input">
+                    {{ form.name }}
+                </td>
+            </tr>
+            <tr>
+                <td class="label required">
+                    {% trans 'category' %}
+                </td>
+                <td class="input">
+                    <select id="id_category" name="category">
+                        {% for category in categories %}
+                            {% if edit_type == 'edit' and recipe.category.id == category.id %}
+                                <option value="{{ category.id }}" selected>{{ category.name }}</option>
+                            {% else %}
+                                <option value="{{ category.id }}">{{ category.name }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">
+                    {% trans 'Photo' %}
+                </td>
+                <td class="input">
+                    {% if edit_type == 'edit' and recipe.image %}
+                        <div>
+                            <img src="{{ recipe.image.url }}">
+                        </div>
+                    {% endif %}
+                    {{ form.image }}
+                    <div>
+                        * JPG, PNG, GIF 140x88
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label required">
+                    {% trans 'recipe' %}
+                </td>
+                <td class="input">
+                    {{ form.recipe }}
+                </td>
+            </tr>
+        </table>
+        {% if edit_type == 'edit' %}
+            <div class="float-left">
+                <input type="button" class="delete" value="{% trans 'Delete' %}" onClick=javascript:delete_recipe("{% url 'recipes:delete_recipe' id=recipe.id %}")>
+            </div>
+        {% endif %}
+        <div class="member align-right">
+            <input type="submit" value="{% trans 'Save' %}">
+        </div>
+    </form>
+</div>
+
+{% endblock %}
+{% block bodyscript %}
+    <script src="{% static 'js/recipes/recipes.js' %}" async></script>
+{% endblock %}

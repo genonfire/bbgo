@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% block title %}{% trans 'Vaults' %}{% endblock %}
+{% block content %}
+
+<h1>
+    {% trans 'Open vault' %}
+</h1>
+<div class="annotation">
+    {% blocktrans %}Please enter {{ MASTERKEY_LENGTH }} digit number of master key.{% endblocktrans %}
+</div>
+
+<div class="full_login_container">
+    <div class="full_login">
+        <form id="masterkey_form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ msg }}
+            <div class="password">
+                {{ form.masterkey }}
+            </div>
+            <div>
+                <input type="submit" value="{% trans 'Enter' %}" />
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+{% block bodyscript %}
+    <script>
+        var masterkey_length = {{ MASTERKEY_LENGTH }};
+    </script>
+    <script src="{% static 'js/vaults/check_key.js' %}" async></script>
+{% endblock %}

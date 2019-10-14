@@ -1,0 +1,388 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-12 15:36+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: static/js/accounts/alarm.js:30
+msgid "Alarm for your activity."
+msgstr ""
+
+#: static/js/accounts/alarm.js:67 static/js/accounts/alarm.js:114
+#: static/js/accounts/edit_bookmarks.js:29 static/js/aliases/alias.js:36
+#: static/js/aliases/alias.js:73 static/js/aliases/alias.js:96
+#: static/js/blogs/blogs_comment.js:45 static/js/blogs/blogs_comment.js:85
+#: static/js/blogs/blogs_comment.js:146 static/js/blogs/blogs_comment.js:168
+#: static/js/blogs/blogs_post.js:21 static/js/blogs/dashboard.js:30
+#: static/js/boards/boards_article.js:20 static/js/boards/boards_article.js:41
+#: static/js/boards/boards_article.js:76 static/js/boards/boards_reply.js:41
+#: static/js/boards/boards_reply.js:79 static/js/boards/boards_reply.js:156
+#: static/js/boards/boards_reply.js:182 static/js/boards/boards_reply.js:204
+#: static/js/boards/boards_reply.js:227 static/js/boards/boards_reply.js:251
+#: static/js/boards/boards_reply.js:278 static/js/boards/reply_list.js:38
+#: static/js/msgs/conversation.js:19 static/js/papers/papers.js:34
+#: static/js/papers/papers.js:78 static/js/papers/papers_edit.js:29
+#: static/js/recipes/category.js:20 static/js/recipes/category.js:42
+#: static/js/recipes/category.js:73 static/js/recipes/recipes.js:36
+#: static/js/recipes/recipes.js:58 static/js/teams/team.js:36
+#: static/js/teams/team.js:69 static/js/teams/team.js:104
+#: static/js/teams/team.js:129 static/js/teams/teams_reply.js:37
+#: static/js/teams/teams_reply.js:72 static/js/teams/teams_reply.js:124
+#: static/js/teams/teams_reply.js:147 static/js/teams/teams_reply.js:171
+#: static/js/teams/teams_reply.js:205 static/js/vaults/vault.js:42
+msgid "Error!"
+msgstr ""
+
+#: static/js/accounts/bookmarks.js:16
+msgid "Bookmark saved."
+msgstr ""
+
+#: static/js/accounts/bookmarks.js:19
+msgid "Error! Please check bookmarks limitation."
+msgstr ""
+
+#: static/js/accounts/bookmarks.js:42
+msgid "You've scrapped this article."
+msgstr ""
+
+#: static/js/accounts/bookmarks.js:49
+msgid "Already scrapped."
+msgstr ""
+
+#: static/js/accounts/deactivate.js:4 static/js/accounts/signup.js:33
+msgid "Please consent to Terms."
+msgstr ""
+
+#: static/js/accounts/deactivate.js:8
+msgid "Are you sure to delete your profile?"
+msgstr ""
+
+#: static/js/accounts/edit_bookmarks.js:26 static/js/aliases/alias.js:28
+#: static/js/aliases/alias.js:65 static/js/blogs/dashboard.js:20
+#: static/js/recipes/category.js:70 static/js/recipes/recipes.js:33
+#: static/js/vaults/vault.js:39
+msgid "Saved successfully."
+msgstr ""
+
+#: static/js/accounts/idmenu.js:26
+msgid "user info"
+msgstr ""
+
+#: static/js/accounts/idmenu.js:28
+msgid "Show user article"
+msgstr ""
+
+#: static/js/accounts/idmenu.js:30
+msgid "Show user reply"
+msgstr ""
+
+#: static/js/accounts/idmenu.js:32
+msgid "Send message"
+msgstr ""
+
+#: static/js/accounts/member.js:6 static/js/accounts/member.js:18
+#: static/js/accounts/member.js:40 static/js/accounts/signup.js:6
+#: static/js/accounts/signup.js:11 static/js/aliases/alias.js:42
+#: static/js/vaults/edit_key.js:7 static/js/vaults/new_key.js:6
+msgid "Mind the chracter length limitation."
+msgstr ""
+
+#: static/js/accounts/member.js:11
+msgid "Alphabet Number _ - . are only available."
+msgstr ""
+
+#: static/js/accounts/member.js:48
+msgid "Please input correct E-mail address."
+msgstr ""
+
+#: static/js/accounts/member.js:78
+msgid "Failed to send E-mail. Please try again later."
+msgstr ""
+
+#: static/js/accounts/member.js:87
+msgid "Please input verification code correctly."
+msgstr ""
+
+#: static/js/accounts/member.js:105
+msgid "Verified successfully."
+msgstr ""
+
+#: static/js/accounts/member.js:108
+msgid "Verification failure. Please check verification code again."
+msgstr ""
+
+#: static/js/accounts/setting.js:5
+msgid "Please select correct image."
+msgstr ""
+
+#: static/js/accounts/setting.js:11 static/js/boards/boards_reply.js:127
+#: static/js/boards/boards_reply.js:287
+msgid "Selected image is too big. size limit: "
+msgstr ""
+
+#: static/js/accounts/signup.js:21
+msgid "Please fill all bold text which mean mandatory."
+msgstr ""
+
+#: static/js/accounts/signup.js:26
+msgid "Passwords are different each other."
+msgstr ""
+
+#: static/js/accounts/suspension.js:5 static/js/accounts/suspension.js:11
+#: static/js/vaults/edit_key.js:23 static/js/vaults/new_key.js:17
+msgid "Number only!"
+msgstr ""
+
+#: static/js/accounts/suspension.js:17
+msgid "Are you sure to discipline?"
+msgstr ""
+
+#: static/js/accounts/suspension.js:26
+msgid "Clear suspension?"
+msgstr ""
+
+#: static/js/accounts/usersearch.js:7 static/js/blogs/blogs_comment.js:4
+#: static/js/blogs/blogs_comment.js:53 static/js/blogs/blogs_list.js:7
+#: static/js/blogs/sidemenu.js:7 static/js/boards/boards_list.js:8
+#: static/js/boards/boards_reply.js:4 static/js/boards/boards_reply.js:50
+#: static/js/boards/reply_list.js:8 static/js/papers/papers_inbox.js:8
+#: static/js/spams/spam.js:55 static/js/teams/teams_reply.js:4
+#: static/js/teams/teams_reply.js:46
+msgid "Please input 2 or more characters."
+msgstr ""
+
+#: static/js/aliases/alias.js:6
+msgid "Enter alias, more than 2 characters."
+msgstr ""
+
+#: static/js/aliases/alias.js:10
+msgid "Alphabet and number only."
+msgstr ""
+
+#: static/js/aliases/alias.js:33
+msgid "Exist alias. Please use different alias."
+msgstr ""
+
+#: static/js/aliases/alias.js:47
+msgid "Enter original URL."
+msgstr ""
+
+#: static/js/aliases/alias.js:70
+msgid "Not changed."
+msgstr ""
+
+#: static/js/aliases/alias.js:80 static/js/recipes/category.js:26
+#: static/js/vaults/vault.js:2
+msgid "Are you sure to delete?"
+msgstr ""
+
+#: static/js/blogs/blogs_comment.js:93
+msgid "Enter comment here."
+msgstr ""
+
+#: static/js/blogs/blogs_comment.js:94
+msgid "Enter name here."
+msgstr ""
+
+#: static/js/blogs/blogs_comment.js:95 static/js/boards/boards_reply.js:88
+#: static/js/teams/teams_reply.js:81
+msgid "submit"
+msgstr ""
+
+#: static/js/blogs/blogs_comment.js:130
+msgid "Are you sure to delete this comment?"
+msgstr ""
+
+#: static/js/blogs/blogs_edit.js:23 static/js/boards/boards_edit.js:30
+#: static/js/teams/edit_recruitment.js:40
+msgid "Please fill the subject."
+msgstr ""
+
+#: static/js/blogs/blogs_edit.js:28 static/js/boards/boards_edit.js:35
+#: static/js/msgs/message.js:6
+msgid "Please fill the contents."
+msgstr ""
+
+#: static/js/blogs/blogs_edit.js:36 static/js/boards/boards_edit.js:43
+#: static/js/papers/papers_edit.js:153 static/js/teams/edit_recruitment.js:48
+msgid "Are you sure to quit editing?"
+msgstr ""
+
+#: static/js/blogs/blogs_post.js:27 static/js/boards/boards_article.js:93
+#: static/js/boards/boards_reply.js:188 static/js/boards/reply_list.js:22
+#: static/js/teams/teams_reply.js:108
+msgid "Are you sure to delete this article?"
+msgstr ""
+
+#: static/js/blogs/dashboard.js:3 static/js/blogs/dashboard.js:27
+#: static/js/spams/spam.js:4 static/js/spams/spam.js:28
+msgid "Please input correct IP address."
+msgstr ""
+
+#: static/js/blogs/dashboard.js:7
+msgid "Are you sure to register this IP address to spam?"
+msgstr ""
+
+#: static/js/blogs/dashboard.js:24 static/js/spams/spam.js:25
+#: static/js/spams/spam.js:76
+msgid "Already exist."
+msgstr ""
+
+#: static/js/boards/boards_article.js:84
+msgid "scrap"
+msgstr ""
+
+#: static/js/boards/boards_reply.js:35 static/js/teams/team.js:18
+#: static/js/teams/team.js:60 static/js/teams/team.js:95
+#: static/js/teams/teams_reply.js:31
+msgid "Require login"
+msgstr ""
+
+#: static/js/boards/boards_reply.js:38 static/js/teams/teams_reply.js:34
+msgid "Reply to warning article is not available."
+msgstr ""
+
+#: static/js/boards/boards_reply.js:87 static/js/teams/teams_reply.js:80
+msgid "Please show some respect."
+msgstr ""
+
+#: static/js/boards/boards_reply.js:211 static/js/teams/teams_reply.js:131
+msgid "Are you sure to restore this article?"
+msgstr ""
+
+#: static/js/boards/boards_reply.js:272 static/js/teams/teams_reply.js:193
+msgid "Show new replies"
+msgstr ""
+
+#: static/js/msgs/conversation.js:2
+msgid "Are you sure to delete this message?"
+msgstr ""
+
+#: static/js/msgs/inbox.js:2
+msgid "Are you sure to delete all?"
+msgstr ""
+
+#: static/js/msgs/inbox.js:8
+msgid "Are you sure to delete old messages?"
+msgstr ""
+
+#: static/js/msgs/inbox.js:14
+msgid "Are you sure to delete this conversation?"
+msgstr ""
+
+#: static/js/papers/papers.js:31 static/js/papers/papers.js:75
+msgid "Please try again after reloading."
+msgstr ""
+
+#: static/js/papers/papers_edit.js:43
+msgid "Approval"
+msgstr ""
+
+#: static/js/papers/papers_edit.js:49
+msgid "Support"
+msgstr ""
+
+#: static/js/papers/papers_edit.js:53
+msgid "Notify"
+msgstr ""
+
+#: static/js/papers/papers_edit.js:139
+msgid "Approver is necessary."
+msgstr ""
+
+#: static/js/papers/papers_edit.js:143
+msgid "Are you sure to make a proposal?"
+msgstr ""
+
+#: static/js/teams/show_recruitment.js:2
+msgid "Are you sure to resume recruitment?"
+msgstr ""
+
+#: static/js/teams/show_recruitment.js:4
+msgid "Are you sure to cancel recruitment?"
+msgstr ""
+
+#: static/js/teams/show_recruitment.js:7
+msgid "Are you sure to finish recruitment?"
+msgstr ""
+
+#: static/js/teams/team.js:21
+msgid "Unable to join to deleted recruitment."
+msgstr ""
+
+#: static/js/teams/team.js:24
+msgid "Already joined."
+msgstr ""
+
+#: static/js/teams/team.js:27
+msgid "Party full."
+msgstr ""
+
+#: static/js/teams/team.js:30
+msgid "Recruitment canceled."
+msgstr ""
+
+#: static/js/teams/team.js:33
+msgid "ID for this platform must exist in your user information."
+msgstr ""
+
+#: static/js/teams/team.js:43
+msgid "Are you sure to leave this party?"
+msgstr ""
+
+#: static/js/teams/team.js:63
+msgid "Please don't leave your team behind."
+msgstr ""
+
+#: static/js/teams/team.js:66
+msgid "You are not a member of this party."
+msgstr ""
+
+#: static/js/teams/team.js:77
+msgid "Are you sure to kick this player?"
+msgstr ""
+
+#: static/js/teams/team.js:98
+msgid "You are not the party leader."
+msgstr ""
+
+#: static/js/teams/team.js:101
+msgid "That player is not a member of this party."
+msgstr ""
+
+#: static/js/teams/teams_reply.js:199
+msgid "Show new player"
+msgstr ""
+
+#: static/js/vaults/edit_key.js:12 static/js/vaults/new_key.js:11
+msgid "Master keys are different each other."
+msgstr ""
+
+#: static/js/vaults/edit_key.js:17
+msgid "New masker key is same as current key."
+msgstr ""
+
+#: static/js/vaults/vault.js:57
+msgid "Extended."
+msgstr ""
+
+#: static/js/vaults/vault.js:61
+msgid "Already expired."
+msgstr ""
+
+#: static/js/vaults/vault.js:105
+msgid "Copied to clipboard."
+msgstr ""

@@ -1,7 +1,0 @@
-// This is a sample file for config.json.
-// Copy content into config.json for bbgo to load.
-{
-    "REST_PAGINATION_SIZE_DEFAULT": 20,
-    "DJANGO_DEBUG": true,
-    "LOCAL_SERVER": true
-}

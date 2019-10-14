@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% block title %}{{ SITE_NAME }} - {% trans 'Conversation' %}{% endblock %}
+{% load user %}
+{% load censor %}
+{% load link %}
+{% block content %}
+
+<h1>
+    {% trans 'Conversation' %}
+</h1>
+<div class="annotation">
+    {% trans 'Conversation with' %} <b>{{ other|nickname:user.is_authenticated|safe }}</b>
+</div>
+
+<div class="conversation">
+    {% for msg in msgs %}
+        {% if msg.sender == other %}
+            <div id="bubble_{{ msg.id }}" class="other_msg tri-right left-top">
+        {% else %}
+            <div id="bubble_{{ msg.id }}" class="my_msg tri-right round right-in">
+        {% endif %}
+                {{ msg.text|urlize|target_blank|linebreaksbr }}
+                <div class="msg_time">
+                    {{ msg.created_at|date:"Y-m-d H:i:s" }}
+                    <span>
+                        <a href="javascript:delete_message('{{ msg.id }}')">
+                            <img src="{% static 'icons/delete10.png' %}">
+                        </a>
+                    </span>
+                </div>
+        </div>
+    {% endfor %}
+</div>
+
+<div class="append_msg">
+    <form id="send_msg_form" action="" method="post">{% csrf_token %}
+        <textarea id="id_text" name="text" maxlength="{{ MSG_TEXT_MAX }}" placeholder="{% trans 'Please show some respect.' %}" rows="10"></textarea>
+        <div class="member">
+            <span id="id_text_len">
+                0 / {{ MSG_TEXT_MAX }}
+            </span>
+            <span class="float-right">
+                <input type="submit" value="{% trans 'Send' %}">
+            </span>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block bodyscript %}
+<script>
+    var msg_text_max = {{ MSG_TEXT_MAX }};
+</script>
+<script src="{% static 'js/msgs/message.js' %}" async></script>
+<script src="{% static 'js/msgs/conversation.js' %}" async></script>
+{% endblock %}

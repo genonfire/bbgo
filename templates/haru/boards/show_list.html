@@ -1,0 +1,295 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% block title %}{{ SITE_NAME }} - {{ table_name }}{% endblock %}
+{% load tz datetime %}
+{% load pick %}
+{% load user %}
+{% load bookmark %}
+{% load sense %}
+{% load navigator %}
+{% block content %}
+
+<h1>
+    <a href="{% url 'boards:show_list' table=table page=1 %}">
+        {{ table_name }}
+    </a>
+    {% if user.is_authenticated %}
+        <a href="javascript:toggle_bookmark('boards', '{{ table }}')">
+            {% with 'boards-'|add:table as app_id %}
+                {% if user|is_stared:app_id %}
+                    <img src="{% static 'icons/stared28.png' %}" id="header_star">
+                {% else %}
+                    <img src="{% static 'icons/star28.png' %}" id="header_star">
+                {% endif %}
+            {% endwith %}
+        </a>
+        <form>{% csrf_token %}</form>
+    {% endif %}
+</h1>
+<div class="annotation">
+{% if table_desc %}
+    {{ table_desc }}
+{% endif %}
+{% if writable == True %}
+    <span>
+        <a href="{% url 'boards:new_article' table=table %}" class="current_page">{% trans 'write' %}</a>
+    </span>
+{% endif %}
+</div>
+
+<table class="board">
+<thead>
+<tr>
+    <th class="subject">{% trans 'subject' %}</th>
+    <th class="name">{% trans 'username' %}</th>
+    <th class="view_count">{% trans 'view' %}</th>
+    <th class="like_count">{% trans 'like' %}</th>
+    <th class="like_count">{% trans 'dislike' %}</th>
+    <th class="datetime">{% trans 'date' %}</th>
+</tr>
+</thead>
+<tbody>
+{% for article in notice_list %} <!--//Notice-->
+    <tr>
+        <td class="subject notice tdlink" data-href="{% url 'boards:show_table_article' id=article.id table=table %}">
+            <span class="category">
+                {% trans 'status_notice' %}
+            </span>
+            {% if article.status == '2temp' %}
+                <a href="{% url 'boards:edit_article' id=article.id %}">
+                    [{% trans 'Draft' %}]
+                    {{ article.subject }}
+                </a>
+            {% else %}
+                <a href="{% url 'boards:show_table_article' id=article.id table=table %}" class="board_link">
+                    {{ article.subject }}
+                </a>
+            {% endif %}
+            {% if article.has_video %}
+                <img src="{% static 'icons/video20.png' %}">
+            {% elif article.has_image %}
+                <img src="{% static 'icons/photo20.png' %}">
+            {% endif %}
+            {% if article.reply_count > 0 %}
+                <span class="reply_count">[{{ article.reply_count }}]</span>
+            {% endif %}
+        </td>
+        <td class="article_info">
+            {{ article.user|nickname:user.is_authenticated|safe }}
+        </td>
+        <td class="article_info">
+            {{ article.view_count }}
+        </td>
+        {% if article.like_count >= HOT_THRESHOLD %}
+            <td class="article_info article_hot">
+        {% else %}
+            <td class="article_info">
+        {% endif %}
+            {{ article.like_count }}
+        </td>
+        <td class="article_info">
+            {{ article.dislike_count }}
+        </td>
+        <td class="article_info">
+            {% if article.created_at|localtime|is_today %}
+                {{ article.created_at|time:"H:i" }}
+            {% else %}
+                {{ article.created_at|date:"m-d" }}
+            {% endif %}
+        </td>
+    </tr>
+    <tr class="article_info_mobile">
+        <td>
+            <span>
+                {{ article.user|nickname:user.is_authenticated|safe }} |
+            </span>
+            {% if article.like_count > HOT_THRESHOLD %}
+                <span class="article_hot">
+            {% else %}
+                <span>
+            {% endif %}
+                {{ article.like_count }}
+                </span>
+            <span>
+                | {% trans 'dislike' %} {{ article.dislike_count }} |
+            </span>
+            <span>
+                {% trans 'view' %} {{ article.view_count }} |
+            </span>
+            <span>
+                {% if article.created_at|localtime|is_today %}
+                    {{ article.created_at|time:"H:i" }}
+                {% else %}
+                    {{ article.created_at|date:"m-d" }}
+                {% endif %}
+            </span>
+        </td>
+    </tr>
+{% endfor %}
+{% for article in lists %} <!--//Articles-->
+    <tr>
+        {% if article.status == '5hidden'%}
+            <td class="subject">
+                <span class="category">
+                    {% if table == '0' or table == '9' %}
+                        {{ name_list|pick_first:article.table }}
+                    {% else %}
+                        {{ article.category }}
+                    {% endif %}
+                </span>
+                {% if user.is_staff %}
+                    <a href="{% url 'boards:show_table_article' id=article.id table=table %}">
+                        {% trans 'status_hidden' %}
+                    </a>
+                {% if article.has_video %}
+                    <img src="{% static 'icons/video20.png' %}">
+                {% elif article.has_image %}
+                        <img src="{% static 'icons/photo20.png' %}">
+                    {% endif %}
+                {% else %}
+                    {% trans 'status_hidden' %}
+                {% endif %}
+                {% if article.reply_count > 0 %}
+                    <span class="reply_count">[{{ article.reply_count }}]</span>
+                {% endif %}
+            </td>
+        {% else %}
+            {% if table == '8' and not user.is_staff %}
+                <td class="subject">
+            {% else %}
+                <td class="subject tdlink" data-href="{% url 'boards:show_table_article' id=article.id table=table %}">
+            {% endif %}
+                <span class="category">
+                    {% if table == '0' or table == '9' %}
+                        {{ name_list|pick_first:article.table }}
+                    {% else %}
+                        {{ article.category }}
+                    {% endif %}
+                </span>
+                {% if table == '8' and not user.is_staff and not user == article.user %}
+                    {% trans 'Secret article' %}
+                    <img src="{% static 'icons/lock18.png' %}">
+                {% else %}
+                    {% if article.status == '2temp' %}
+                        <a href="{% url 'boards:edit_article' id=article.id %}">
+                        [{% trans 'Draft' %}]
+                        {{ article.subject }}
+                        </a>
+                    {% else %}
+                        <a href="{% url 'boards:show_table_article' id=article.id table=table %}">
+                            {{ article.subject }}
+                        </a>
+                    {% endif %}
+                    {% if article.has_video %}
+                        <img src="{% static 'icons/video20.png' %}">
+                    {% elif article.has_image %}
+                        <img src="{% static 'icons/photo20.png' %}">
+                    {% endif %}
+                {% endif %}
+                {% if article.reply_count > 0 %}
+                    <span class="reply_count">[{{ article.reply_count }}]</span>
+                {% endif %}
+                {% if article.status == '4warning' %}
+                    <span class="warning">
+                        {% trans 'status_warning' %}
+                    </span>
+                {% endif %}
+            </td>
+        {% endif %}
+        <td class="article_info">
+            {{ article.user|nickname:user.is_authenticated|safe }}
+        </td>
+        <td class="article_info">
+            {{ article.view_count }}
+        </td>
+        {% if article.like_count >= HOT_THRESHOLD %}
+            <td class="article_info article_hot">
+        {% else %}
+            <td class="article_info">
+        {% endif %}
+            {{ article.like_count }}
+        </td>
+        <td class="article_info">
+            {{ article.dislike_count }}
+        </td>
+        <td class="article_info">
+            {% if article.created_at|localtime|is_today %}
+                {{ article.created_at|time:"H:i" }}
+            {% else %}
+                {{ article.created_at|date:"m-d" }}
+            {% endif %}
+        </td>
+    </tr>
+    <tr class="article_info_mobile">
+        <td>
+            <span>
+                {{ article.user|nickname:user.is_authenticated|safe }} |
+            </span>
+            <span>
+                {% trans 'like' %}
+            </span>
+            {% if article.like_count > HOT_THRESHOLD %}
+                <span class="article_hot">
+            {% else %}
+                <span>
+            {% endif %}
+                {{ article.like_count }}
+                </span>
+            <span>
+                | {% trans 'dislike' %} {{ article.dislike_count }} |
+            </span>
+            <span>
+                {% trans 'view' %} {{ article.view_count }} |
+            </span>
+            <span>
+                {% if article.created_at|localtime|is_today %}
+                    {{ article.created_at|time:"H:i" }}
+                {% else %}
+                    {{ article.created_at|date:"m-d" }}
+                {% endif %}
+            </span>
+        </td>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+<div class="sense_horizontal_bar">
+    {% show_down_sense %}
+</div>
+
+{% show_navigator_boards %}
+
+<div class="dbsearch">
+    <select id="search_type">
+        <option value="subject">
+            {% trans 'subject' %}
+        </option>
+        <option value="subjectcontent" selected>
+            {% trans 'subject+content' %}
+        </option>
+        <option value="writeuser">
+            {% trans 'write user' %}
+        </option>
+    </select>
+    <input type="text" id="search_word" class="search_word" onkeypress="onKeyPress(event)">
+    <input type="button" id="search_button" class="search_button" value="{% trans 'search' %}" onClick="search_article()">
+</div>
+{% endblock %}
+{% block bodyscript %}
+{% if ENABLE_MARK_KEYWORD %}
+    <script src="{% static 'js/thirdparty/jquery.mark.min.js' %}" async></script>
+{% endif %}
+<script>
+    var search_type = '{{ search_type }}';
+    var search_word = '{{ search_word }}';
+    var search_article_url = "{% url 'boards:search_article' table=table search_type='type' search_word='bbgo_search_word' %}";
+    {% if ENABLE_MARK_KEYWORD %}
+        var mark_enabled = true;
+    {% else %}
+        var mark_enabled = false;
+    {% endif %}
+</script>
+<script src="{% static 'js/boards/boards_list.js' %}" async></script>
+<script src="{% static 'js/accounts/bookmarks.js' %}" async></script>
+{% endblock %}

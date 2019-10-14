@@ -1,0 +1,99 @@
+{% load staticfiles %}
+{% load i18n %}
+{% load user %}
+
+<ul>
+    <li>
+        {% if user.is_authenticated %}
+            <a href="javascript:alarm_list('mobile')">
+        {% else %}
+            <a href="javascript:void(0)">
+        {% endif %}
+                {% if user.profile.alarm %}
+                    <img id="alarm_icon_mobile" src="{% static 'icons/alert24.gif' %}">
+                {% else %}
+                    <img id="alarm_icon_mobile" src="{% static 'icons/alert24.png' %}">
+                {% endif %}
+            </a>
+    </li>
+    <li>
+        <a href="{% url 'msgs:inbox' page=1 %}">
+            {% if user.profile.msg_count > 0 %}
+                <img src="{% static 'icons/message24.png' %}">
+            {% else %}
+                <img src="{% static 'icons/nomessage24.png' %}">
+            {% endif %}
+        </a>
+    </li>
+    <li>
+        {% if user.is_authenticated %}
+            <img src="{% static 'icons/poweron.png' %}">
+        {% else %}
+            <img src="{% static 'icons/power.png' %}">
+        {% endif %}
+        <ul id="mainnav_power">
+            <div class="power_container">
+                {% if user.is_authenticated %}
+                    <form method="post" action="{% url 'accounts:logout' %}">
+                        {% csrf_token %}
+                        <div class="power_user">
+                            <span class="float-left">
+                                {{ user|nickname:user.is_authenticated|safe }}
+                            </span>
+                            <span class="power_util float-right">
+                                <span>
+                                    <a href="{% url 'accounts:scrap_list_0' %}">
+                                        <img src="{% static 'icons/scrap24.png' %}">
+                                    </a>
+                                </span>
+                                <span>
+                                    <a href="{% url 'accounts:setting' %}">
+                                        <img src="{% static 'icons/edit24.png' %}">
+                                    </a>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="power_button">
+                            <input type="submit" value="{% trans 'logout' %}">
+                        </div>
+                        <input type="hidden" name="next" value="{{ nexturl }}">
+                    </form>
+                {% else %}
+                    <form method="post" action="{% url 'accounts:login' %}">
+                        {% csrf_token %}
+                        <table>
+                            <tr>
+                                <td class="power_input">
+                                    <input type="text" name="username" maxlength="{{ ID_MAX_LENGTH }}" placeholder="{% trans 'id' %}" />
+                                </td>
+                                <td class="power_login" rowspan="2">
+                                    <input type="submit" value="{% trans 'login' %}" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="password" name="password" placeholder="{% trans 'password' %}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="power_text">
+                                    <div class="float-left">
+                                        <a href="{% url 'accounts:password_reset' %}">
+                                            {% trans 'Reset password' %}
+                                        </a>
+                                    </div>
+                                    <div class="float-right">
+                                        <a href="{% url 'accounts:signup' %}">
+                                            {% trans 'Sign up' %}
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <input type="hidden" name="next" value="{{ nexturl }}">
+                    </form>
+                {% endif %}
+            </div>
+        </ul>
+    </li>
+</ul>

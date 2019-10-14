@@ -1,0 +1,13 @@
+{% load staticfiles %}
+{% load i18n %}
+
+{% for ip in ips %}
+    <span class="item">
+        {{ ip.ip }}
+        <span>
+            <a href="javascript:delete_ip({{ ip.id }})">
+                <img src="{% static 'icons/delete10.png' %}">
+            </a>
+        </span>
+    </span>
+{% endfor %}
