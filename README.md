@@ -27,8 +27,8 @@ For Django 1.x > https://gencode.me/1/
     $ git checkout tag/1.3
     $ pip install -r requirements.txt
 
-# Issue management
-http://jira.gencode.me/projects/BBGO/issues/filter=allissues
+# All in one workspace for collaboration (under development)
+https://github.com/genonfire/workcloud
 
 
 # Tested by
