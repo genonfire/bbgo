@@ -1,4 +1,4 @@
-Django==2.2.18
+Django==2.2.20
 django-fernet-fields
 django-rosetta
 django-statici18n
