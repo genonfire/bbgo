@@ -14,7 +14,7 @@ django-summernote==0.8.11.4
 django-traffic-monitor==1.2
 idna==2.8
 ipaddress==1.0.22
-lxml==4.5.0
+lxml==4.6.5
 Pillow==9.1.0
 polib==1.1.0
 psycopg2==2.8.3
