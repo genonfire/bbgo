@@ -1,3 +1,7 @@
+# Deprecated
+New version: https://github.com/genonfire/bbgo-core
+
+
 # bbgo
 [![Build Status](https://travis-ci.org/genonfire/bbgo.svg?branch=master)](https://travis-ci.org/genonfire/bbgo)
 
