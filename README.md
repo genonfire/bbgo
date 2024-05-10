@@ -1,5 +1,6 @@
 # Deprecated
 This version is deprecated.
+
 New version: https://github.com/genonfire/bbgo-core
 
 
@@ -17,21 +18,15 @@ Total bbs system made by django
     - It is free and open source.
 
 # Getting started with bbgo
-https://gencode.me/28/
 
     $ git clone https://github.com/genonfire/bbgo.git
     $ pip install -r requirements.txt
 
-English > https://gencode.me/16/
-
-For Django 1.x > https://gencode.me/1/
+For Django 1.x
 
     $ git clone https://github.com/genonfire/bbgo.git
     $ git checkout tag/1.3
     $ pip install -r requirements.txt
-
-# All in one workspace for collaboration (under development)
-https://github.com/genonfire/workcloud
 
 
 # Tested by
