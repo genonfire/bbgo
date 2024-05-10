@@ -1,4 +1,5 @@
 # Deprecated
+This version is deprecated.
 New version: https://github.com/genonfire/bbgo-core
 
 
@@ -6,8 +7,6 @@ New version: https://github.com/genonfire/bbgo-core
 [![Build Status](https://travis-ci.org/genonfire/bbgo.svg?branch=master)](https://travis-ci.org/genonfire/bbgo)
 
 Total bbs system made by django
-
-https://gencode.me/bbgo
 
 
 `bbgo` is a middleware based on Django web framework. It may help you build web service nice, quick and easy.
